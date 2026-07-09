@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[CLIENT] · Recommandation plan média · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* ── Charte The Good Web (kit média 2026) ─────────────── */
+  --navy:#0A1B4F;          /* navy profond */
+  --royal:#5271FF;         /* bleu roi (couleur signature) */
+  --sky:#85B8F8;           /* bleu clair */
+  --orange:#F0532D;        /* orange TGW */
+  --bg:#FFFFFF;
+  --bg-soft:#F6F8FE;
+  --surface:#FFFFFF;
+  --ink:#0A1B4F;
+  --ink-soft:#54608A;
+  --accent:var(--orange);
+  --line:#E3E8F6;
+
+  /* ── Familles de couleurs (cards, tags, planning) ─────── */
+  --lavande-bg:#E9EDFF; --lavande-bd:#BFCBFF; --lavande-tx:#2338B8; --lavande-full:#5271FF;
+  --rose-bg:#E4E9FF;    --rose-bd:#A9B6F7;    --rose-tx:#1B2C8F;    --rose-full:#3B55E6;
+  --peche-bg:#FEF0E7;   --peche-bd:#F8CFAF;   --peche-tx:#9A4E12;   --peche-full:#F59B4B;
+  --menthe-bg:#E8EBF4;  --menthe-bd:#B7C0DA;  --menthe-tx:#0A1B4F;  --menthe-full:#0A1B4F;
+  --bleu-bg:#EAF4FE;    --bleu-bd:#A9CFF9;    --bleu-tx:#1D4E9E;    --bleu-full:#4D9BF5;
+  --corail-bg:#FDE9E3;  --corail-bd:#F6BFAC;  --corail-tx:#B33917;  --corail-full:#F0532D;
+  --sable-bg:#F2F4FA;   --sable-tx:#54608A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:15px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{font-family:'Poppins',sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+
+/* ── Navigation d'ancres ─────────────────────────────── */
+nav.toc{
+  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:10px 32px}
+nav.toc a{
+  white-space:nowrap;text-decoration:none;color:var(--ink-soft);
+  font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:99px;
+}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--royal);color:#fff;outline:none}
+
+/* ── Logo The Good Web ───────────────────────────────── */
+.tgw-logo{display:flex;flex-direction:column;gap:2px;margin-bottom:34px}
+.tgw-logo .rows{font-family:'Poppins';font-weight:800;font-size:26px;line-height:.95;letter-spacing:.01em;color:#fff;text-transform:uppercase}
+.tgw-logo .rows .r1{display:flex;align-items:flex-start;gap:8px}
+.tgw-logo svg{height:20px;width:auto;margin-top:1px}
+.tgw-logo .baseline{font-size:9.5px;font-weight:600;letter-spacing:.12em;color:#DCE6FF;text-transform:uppercase;margin-top:7px}
+
+/* ── Header ──────────────────────────────────────────── */
+header.hero{background:var(--royal);color:#fff;padding:52px 0 48px}
+.eyebrow{
+  display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:#FFD9CC;margin-bottom:18px;
+}
+header.hero h1{font-size:clamp(30px,4.6vw,44px);font-weight:800;letter-spacing:-.01em;line-height:1.12;max-width:22ch;color:#fff}
+header.hero p.sub{color:#E2E9FF;margin-top:16px;max-width:66ch;font-size:15.5px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-meta .pill{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.32);border-radius:12px;
+  padding:12px 18px;min-width:150px;
+}
+.hero-meta .pill small{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C7D4FF;margin-bottom:3px}
+.hero-meta .pill b{font-family:'Poppins';font-size:16px;font-weight:700;color:#fff}
+
+/* ── Sections ────────────────────────────────────────── */
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+section:nth-of-type(even){background:var(--bg-soft)}
+section:last-of-type{border-bottom:none}
+section>.wrap>h2{font-size:21px;font-weight:700;letter-spacing:-.01em;margin-bottom:26px;color:var(--navy)}
+section>.wrap>h2::before{content:"↘";color:var(--orange);font-weight:700;margin-right:10px}
+.section-intro{color:var(--ink-soft);max-width:70ch;margin:-14px 0 26px}
+
+/* ── Cards objectifs ─────────────────────────────────── */
+.obj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.obj-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.obj-card .num{font-family:'Poppins';font-size:13px;font-weight:800;color:var(--orange);margin-bottom:8px}
+.obj-card h3{font-size:15.5px;font-weight:700;margin-bottom:6px}
+.obj-card p{font-size:13.5px;color:var(--ink-soft)}
+
+/* ── Phases / temps forts ────────────────────────────── */
+.phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.phase-card{border-radius:14px;padding:18px 20px;border:1px solid}
+.phase-card small{display:block;font-size:12px;font-weight:700;margin-bottom:6px}
+.phase-card h3{font-size:16px;font-weight:700;margin-bottom:4px;color:var(--ink)}
+.phase-card p{font-size:13px}
+.c-bleu.phase-card{background:var(--bleu-bg);border-color:var(--bleu-bd)}      .c-bleu small,.c-bleu p{color:var(--bleu-tx)}
+.c-menthe.phase-card{background:var(--menthe-bg);border-color:var(--menthe-bd)}.c-menthe small,.c-menthe p{color:var(--menthe-tx)}
+.c-peche.phase-card{background:var(--peche-bg);border-color:var(--peche-bd)}   .c-peche small,.c-peche p{color:var(--peche-tx)}
+.c-corail.phase-card{background:var(--corail-bg);border-color:var(--corail-bd)}.c-corail small,.c-corail p{color:var(--corail-tx)}
+.c-rose.phase-card{background:var(--rose-bg);border-color:var(--rose-bd)}      .c-rose small,.c-rose p{color:var(--rose-tx)}
+.c-lavande.phase-card{background:var(--lavande-bg);border-color:var(--lavande-bd)}.c-lavande small,.c-lavande p{color:var(--lavande-tx)}
+
+/* ── Leviers ─────────────────────────────────────────── */
+.lever-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.lever-card{border-radius:16px;padding:22px;border:1px solid}
+.lever-card .ico{font-size:22px;margin-bottom:10px;display:block}
+.lever-card h3{font-size:16.5px;font-weight:700;margin-bottom:10px}
+.lever-card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.tag{font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:99px}
+.lever-card p{font-size:13.5px;color:var(--ink);opacity:.85}
+.lever-card.c-lavande{background:var(--lavande-bg);border-color:var(--lavande-bd)}
+.lever-card.c-rose{background:var(--rose-bg);border-color:var(--rose-bd)}
+.lever-card.c-peche{background:var(--peche-bg);border-color:var(--peche-bd)}
+.lever-card.c-menthe{background:var(--menthe-bg);border-color:var(--menthe-bd)}
+.lever-card.c-bleu{background:var(--bleu-bg);border-color:var(--bleu-bd)}
+.lever-card.c-corail{background:var(--corail-bg);border-color:var(--corail-bd)}
+.tag.t-lavande{background:#D3DBFF;color:var(--lavande-tx)}
+.tag.t-rose{background:#CBD4FB;color:var(--rose-tx)}
+.tag.t-peche{background:#FBDDBB;color:var(--peche-tx)}
+.tag.t-menthe{background:#D2D9EA;color:var(--menthe-tx)}
+.tag.t-bleu{background:#CBE3FC;color:var(--bleu-tx)}
+.tag.t-corail{background:#FAD2C4;color:var(--corail-tx)}
+.tag.t-sable{background:#E4E8F3;color:var(--sable-tx)}
+
+/* ── Planning d'activation ───────────────────────────── */
+.planning{overflow-x:auto}
+.planning table{border-collapse:separate;border-spacing:6px;min-width:760px;width:100%}
+.planning th{font-size:12px;font-weight:600;color:var(--ink-soft);text-align:center;padding:4px 6px}
+.planning th b{display:block;color:var(--ink);font-weight:700;font-size:12.5px}
+.planning td.levier{font-size:13.5px;font-weight:600;white-space:nowrap;padding-right:10px;text-align:left}
+.planning td.levier span{margin-right:8px}
+.planning td.cell{border-radius:8px;text-align:center;font-size:12px;font-weight:600;padding:9px 8px;min-width:120px}
+.cell.off{background:var(--sable-bg);color:transparent}
+.cell.pic{color:#fff !important}
+.cell.l1{background:var(--lavande-bg);color:var(--lavande-tx)} .cell.l2{background:#B9C6FF;color:#1B2C8F} .cell.l3.pic{background:#3247C8}
+.cell.r1{background:var(--rose-bg);color:var(--rose-tx)}       .cell.r2{background:#9FAFF5;color:#141F66}  .cell.r3.pic{background:#1B2C8F}
+.cell.p1{background:var(--peche-bg);color:var(--peche-tx)}     .cell.p2{background:#F8C388;color:#7A3D0C}  .cell.p3.pic{background:#D97A1C}
+.cell.m1{background:var(--menthe-bg);color:var(--menthe-tx)}   .cell.m2{background:#9FADD1;color:#0A1B4F}  .cell.m3.pic{background:#0A1B4F}
+.cell.o1{background:var(--corail-bg);color:var(--corail-tx)}   .cell.o2{background:#F5A088;color:#8A2A10}  .cell.o3.pic{background:#D8431F}
+.cell.k1{background:var(--bleu-bg);color:var(--bleu-tx)}       .cell.k2{background:#8FC2F8;color:#123C7E}  .cell.k3.pic{background:#1D5FB8}
+
+/* ── Scénarios budgétaires ───────────────────────────── */
+.scen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:22px}
+.scen-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.scen-card.reco{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}
+.scen-card small{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-bottom:8px}
+.scen-card .range{font-family:'Poppins';font-size:28px;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
+.scen-card.reco .range{color:var(--orange)}
+.scen-card p{font-size:12.5px;color:var(--ink-soft);margin-top:8px}
+.note{
+  background:var(--sable-bg);border-left:3px solid var(--orange);border-radius:0 10px 10px 0;
+  padding:14px 18px;font-size:13.5px;color:var(--ink);margin-bottom:26px;
+}
+.scen-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.scen-tabs button{
+  font-family:'Inter';font-size:13px;font-weight:600;color:var(--ink-soft);
+  background:var(--surface);border:1px solid var(--line);border-radius:99px;
+  padding:8px 18px;cursor:pointer;
+}
+.scen-tabs button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.scen-tabs button:focus-visible{outline:2px solid var(--royal);outline-offset:2px}
+.budget-table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.budget-table th{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--navy)}
+.budget-table td{padding:12px 16px;border-bottom:1px solid var(--line);font-size:13.5px;vertical-align:middle}
+.budget-table tr:last-child td{border-bottom:none}
+.budget-table td.lev{font-weight:600}
+.budget-table td.num{font-variant-numeric:tabular-nums}
+.bar{height:8px;border-radius:99px;background:var(--sable-bg);min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px}
+.bar .f-lavande{background:var(--lavande-full)} .bar .f-rose{background:var(--rose-full)}
+.bar .f-peche{background:var(--peche-full)}     .bar .f-menthe{background:var(--menthe-full)}
+.bar .f-bleu{background:var(--bleu-full)}       .bar .f-corail{background:var(--corail-full)}
+.budget-table tfoot td{background:var(--bg-soft);font-weight:700}
+.scen-panel{display:none}
+.scen-panel.active{display:block}
+
+/* ── KPIs ────────────────────────────────────────────── */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.kpi-card{background:var(--sable-bg);border-radius:12px;padding:16px 18px}
+.kpi-card small{display:block;font-size:12px;font-weight:600;color:var(--sable-tx);margin-bottom:5px}
+.kpi-card b{font-size:14px;font-weight:700;line-height:1.35;display:block;color:var(--navy)}
+
+/* ── Segments audiences ──────────────────────────────── */
+.pers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.pers-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.pers-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.pers-head .ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.pers-head h3{font-size:15.5px;font-weight:700}
+.pers-head small{display:block;font-size:12.5px;color:var(--ink-soft);font-weight:500}
+.pers-card ul{list-style:none;margin-bottom:14px}
+.pers-card li{font-size:13.5px;color:var(--ink);padding-left:16px;position:relative;margin-bottom:8px}
+.pers-card li::before{content:"";width:6px;height:6px;border-radius:99px;position:absolute;left:0;top:7px}
+.pers-card.c-lavande li::before{background:var(--lavande-full)}
+.pers-card.c-menthe li::before{background:var(--menthe-full)}
+.pers-card.c-rose li::before{background:var(--rose-full)}
+.pers-card.c-peche li::before{background:var(--peche-full)}
+.pers-card .ico.c-lavande{background:var(--lavande-bg);color:var(--lavande-tx)}
+.pers-card .ico.c-menthe{background:var(--menthe-bg);color:var(--menthe-tx)}
+.pers-card .ico.c-rose{background:var(--rose-bg);color:var(--rose-tx)}
+.pers-card .ico.c-peche{background:var(--peche-bg);color:var(--peche-tx)}
+.pers-foot{border-top:1px solid var(--line);padding-top:12px}
+.pers-foot small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.pers-foot .tags{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ── Architecture data (pyramide) ────────────────────── */
+.pyramid{display:flex;flex-direction:column;align-items:center;gap:10px}
+.pyr-layer{border-radius:12px;padding:16px 24px;text-align:center;border:1px solid}
+.pyr-layer h3{font-size:14.5px;font-weight:700;margin-bottom:3px}
+.pyr-layer p{font-size:12.5px}
+.pyr-layer.l1{width:min(46%,420px);background:var(--corail-bg);border-color:var(--corail-bd)} .pyr-layer.l1 p{color:var(--corail-tx)}
+.pyr-layer.l2{width:min(70%,640px);background:var(--lavande-bg);border-color:var(--lavande-bd)} .pyr-layer.l2 p{color:var(--lavande-tx)}
+.pyr-layer.l3{width:min(94%,860px);background:var(--bleu-bg);border-color:var(--bleu-bd)}     .pyr-layer.l3 p{color:var(--bleu-tx)}
+
+/* ── Funnel ──────────────────────────────────────────── */
+.funnel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.funnel-card{border-radius:14px;padding:20px;border:1px solid}
+.funnel-card small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.funnel-card h3{font-size:16px;font-weight:700;margin-bottom:10px}
+.funnel-card p{font-size:13px;line-height:1.6}
+.funnel-card.c-lavande{background:var(--lavande-bg);border-color:var(--lavande-bd)} .funnel-card.c-lavande small,.funnel-card.c-lavande p{color:var(--lavande-tx)}
+.funnel-card.c-menthe{background:var(--menthe-bg);border-color:var(--menthe-bd)}    .funnel-card.c-menthe small,.funnel-card.c-menthe p{color:var(--menthe-tx)}
+.funnel-card.c-corail{background:var(--corail-bg);border-color:var(--corail-bd)}    .funnel-card.c-corail small,.funnel-card.c-corail p{color:var(--corail-tx)}
+
+/* ── RGPD / Brand safety ─────────────────────────────── */
+.rgpd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.rgpd-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.rgpd-card h3{font-size:15px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.rgpd-card ul{list-style:none}
+.rgpd-card li{font-size:13.5px;padding-left:16px;position:relative;margin-bottom:9px;color:var(--ink)}
+.rgpd-card li::before{content:"";width:6px;height:6px;border-radius:99px;background:var(--royal);position:absolute;left:0;top:7px}
+
+/* ── Footer contacts (charte kit média) ──────────────── */
+footer{background:var(--royal);color:#fff;padding:52px 0 56px;margin-top:0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;align-items:flex-start}
+footer .contacts{display:flex;gap:44px;flex-wrap:wrap}
+footer .contact b{font-family:'Poppins';font-size:16px;font-weight:700;display:block;margin-bottom:3px}
+footer .contact span{display:block;font-size:12.5px;color:#DCE6FF;line-height:1.6}
+footer .contact a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+footer .legal{width:100%;margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.25);font-size:11.5px;color:#C7D4FF}
+footer .tgw-logo{margin-bottom:0}
+
+@media (max-width:640px){
+  .wrap{padding:0 20px}
+  header.hero{padding:40px 0 36px}
+  section{padding:40px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="toc" aria-label="Sections">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#phases">Temps forts</a>
+    <a href="#leviers">Leviers</a>
+    <a href="#planning">Planning</a>
+    <a href="#budget">Budget</a>
+    <a href="#kpis">KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Data</a>
+    <a href="#funnel">Funnel</a>
+    <a href="#rgpd">RGPD</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="tgw-logo">
+      <div class="rows">
+        <span class="r1">THE
+          <svg viewBox="0 0 96 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g stroke="#fff" stroke-width="2.2" fill="none">
+              <circle cx="10" cy="6" r="4"/><path d="M3 25v-8a7 7 0 0 1 14 0v8"/>
+              <circle cx="32" cy="6" r="4"/><path d="M25 25v-8a7 7 0 0 1 14 0v8"/>
+              <circle cx="54" cy="6" r="4"/><path d="M47 25v-8a7 7 0 0 1 14 0v8"/>
+            </g>
+            <g fill="#fff">
+              <circle cx="76" cy="6" r="4.6"/><path d="M69 25v-8a7 7 0 0 1 14 0v8z"/>
+              <path d="M88.5 1.5l1.4 4.2 4.2 1.4-4.2 1.4-1.4 4.2-1.4-4.2-4.2-1.4 4.2-1.4z"/>
+            </g>
+          </svg>
+        </span>
+        <span>GOOD</span>
+        <span>WEB</span>
+      </div>
+      <div class="baseline">* The Good Audience</div>
+    </div>
+    <span class="eyebrow">Recommandation plan média · The Good Web</span>
+    <!-- ▸ REMPLACER : nom du client + intitulé campagne -->
+    <h1>[Client] : Campagne [Nom de la campagne]</h1>
+    <p class="sub"><!-- ▸ REMPLACER : une à deux phrases de cadrage éditorial (enjeu, ambition, angle) -->
+      Dispositif d'activation multi-leviers construit autour des temps forts commerciaux, avec une montée en pression progressive du teasing jusqu'au pic de conversion.</p>
+    <div class="hero-meta">
+      <div class="pill"><small>Période</small><b>21 sept → 17 déc</b></div>
+      <div class="pill"><small>Budget indicatif</small><b>70 – 90 k€</b></div>
+      <div class="pill"><small>Objectif principal</small><b>Réservations</b></div>
+      <div class="pill"><small>Marchés</small><b>IDF · PACA · AuRA · HdF</b></div>
+    </div>
+  </div>
+</header>
+
+<section id="contexte">
+  <div class="wrap">
+    <h2>Contexte & objectifs</h2>
+    <p class="section-intro"><!-- ▸ REMPLACER : paragraphe de contexte (marché, saisonnalité, enseignements des vagues précédentes) -->
+      La campagne s'inscrit dans une fenêtre de réservation stratégique, marquée par une concurrence forte sur les mots-clés génériques et une sensibilité prix accrue. La recommandation privilégie une architecture full funnel : installer la préférence de marque tôt, puis concentrer la pression sur les fenêtres promotionnelles.</p>
+    <div class="obj-grid">
+      <!-- ▸ DUPLIQUER une .obj-card par objectif -->
+      <div class="obj-card"><div class="num">01</div><h3>Notoriété</h3><p>Installer la destination et l'offre auprès des cibles prioritaires avant les temps forts.</p></div>
+      <div class="obj-card"><div class="num">02</div><h3>Considération</h3><p>Générer du trafic qualifié vers les pages destinations et nourrir les audiences de retargeting.</p></div>
+      <div class="obj-card"><div class="num">03</div><h3>Conversion</h3><p>Transformer pendant les fenêtres promo avec une pression maximale sur le White Friday.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="phases">
+  <div class="wrap">
+    <h2>Temps forts & phases d'activation</h2>
+    <div class="phase-grid">
+      <!-- ▸ DUPLIQUER une .phase-card par temps fort -->
+      <div class="phase-card c-bleu"><small>21 sep → 4 oct</small><h3>Promo Givrée 1</h3><p>Teasing + notoriété</p></div>
+      <div class="phase-card c-menthe"><small>12 oct → 6 nov</small><h3>Promo Givrée 2</h3><p>Activation conversion forte</p></div>
+      <div class="phase-card c-peche"><small>23 → 30 nov</small><h3>White Friday</h3><p>Pic d'intensité maximale</p></div>
+      <div class="phase-card c-corail"><small>7 → 17 déc</small><h3>Promo Givrée 3</h3><p>Dernière fenêtre avant Noël</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="leviers">
+  <div class="wrap">
+    <h2>Leviers recommandés</h2>
+    <div class="lever-grid">
+      <!-- ▸ DUPLIQUER une .lever-card par levier -->
+      <div class="lever-card c-lavande">
+        <span class="ico">⠿</span>
+        <h3>pDisplay · Display Programmatic</h3>
+        <div class="tags"><span class="tag t-lavande">Notoriété</span><span class="tag t-lavande">Retargeting</span></div>
+        <p>Ciblage socio-démo + géo sur IDF/PACA/AuRA/HdF. Formats rich media (interstitiel, bannière animée). Retargeting visiteurs site J+1 à J+30.</p>
+      </div>
+      <div class="lever-card c-rose">
+        <span class="ico">∞</span>
+        <h3>Social Ads · Méta</h3>
+        <div class="tags"><span class="tag t-rose">Acquisition</span><span class="tag t-rose">Retargeting</span></div>
+        <p>Facebook + Instagram. Campagnes Reach & Traffic pour notoriété, Conversion pour réservations. Ciblage lookalike familles CSP+. Formats carrousel destinations + vidéo courte.</p>
+      </div>
+      <div class="lever-card c-rose">
+        <span class="ico">♪</span>
+        <h3>pStory Ads · TikTok</h3>
+        <div class="tags"><span class="tag t-rose">Notoriété</span><span class="tag t-rose">30-35 ans</span></div>
+        <p>TopView + In-Feed Ads. Cible groupes d'amis 30-35 ans CSP+. Contenu natif orienté "montagne lifestyle". Complémentaire au social interne sans doublon.</p>
+      </div>
+      <div class="lever-card c-peche">
+        <span class="ico">♫</span>
+        <h3>L'audio · streaming &amp; podcast</h3>
+        <div class="tags"><span class="tag t-peche">Notoriété</span><span class="tag t-peche">Différenciation</span></div>
+        <p>Spotify / Deezer / podcasts famille. Format 30 sec non-skippable. Cible 30-50 ans, contexte commute & détente. Évite toute répétition avec la TV.</p>
+      </div>
+      <div class="lever-card c-menthe">
+        <span class="ico">▣</span>
+        <h3>La cTV · IPTV, OTT &amp; Replay</h3>
+        <div class="tags"><span class="tag t-menthe">Notoriété TV</span><span class="tag t-menthe">Ciblage fin</span><span class="tag t-menthe">20 k€ fixe</span></div>
+        <p>Pré-roll vidéo 15-30 sec sur Netflix Ads, Prime Video Ads, Disney+ Ads. Ciblage géo + centres d'intérêt famille/voyage. Audience TV sans la diffusion linéaire.</p>
+      </div>
+      <div class="lever-card c-corail">
+        <span class="ico">◎</span>
+        <h3>Retargeting cross-device</h3>
+        <div class="tags"><span class="tag t-corail">Performance</span><span class="tag t-corail">ROAS</span></div>
+        <p>Rappel visiteurs non-convertis sur display + native. Fenêtres 7/14/30j selon profil. Message de relance avec offre promo active. Levier à fort ROAS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="planning">
+  <div class="wrap">
+    <h2>Planning d'activation par levier</h2>
+    <div class="planning">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <!-- ▸ ADAPTER : une colonne par phase (reprendre les temps forts) -->
+            <th>Givrée 1<b>21/09 – 04/10</b></th>
+            <th>Givrée 2<b>12/10 – 06/11</b></th>
+            <th>White Friday<b>23 – 30/11</b></th>
+            <th>Givrée 3<b>07 – 17/12</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ▸ DUPLIQUER une ligne par levier -->
+          <tr><td class="levier"><span>⠿</span>pDisplay</td><td class="cell l1">Notoriété</td><td class="cell l2">Full funnel</td><td class="cell l3 pic">Pic</td><td class="cell l2">Retargeting</td></tr>
+          <tr><td class="levier"><span>∞</span>Social Ads</td><td class="cell r1">Reach</td><td class="cell r2">Conversion</td><td class="cell r3 pic">Pic</td><td class="cell r2">Conversion</td></tr>
+          <tr><td class="levier"><span>♪</span>pStory Ads</td><td class="cell k1">Notoriété</td><td class="cell k2">Notoriété</td><td class="cell off">·</td><td class="cell off">·</td></tr>
+          <tr><td class="levier"><span>♫</span>Audio</td><td class="cell p1">Notoriété</td><td class="cell p2">Notoriété</td><td class="cell off">·</td><td class="cell off">·</td></tr>
+          <tr><td class="levier"><span>▣</span>cTV</td><td class="cell m1">Lancement</td><td class="cell m2">Maintien</td><td class="cell m3 pic">Pic</td><td class="cell off">·</td></tr>
+          <tr><td class="levier"><span>◎</span>Retargeting</td><td class="cell off">·</td><td class="cell o1">7j / 14j</td><td class="cell o3 pic">Pic</td><td class="cell o2">14j / 30j</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="budget">
+  <div class="wrap">
+    <h2>Fourchettes budgétaires indicatives</h2>
+    <div class="scen-grid">
+      <!-- ▸ ADAPTER les 3 scénarios · classe .reco sur le scénario recommandé -->
+      <div class="scen-card"><small>Scénario minimal</small><div class="range">40 – 55 k€</div><p>Givrées 1 & 2 · OTT inclus · 4 leviers</p></div>
+      <div class="scen-card reco"><small>Scénario recommandé</small><div class="range">70 – 90 k€</div><p>4 temps forts · 6 leviers · OTT 20 k€ fixe</p></div>
+      <div class="scen-card"><small>Scénario ambitieux</small><div class="range">100 – 130 k€</div><p>Couverture nationale renforcée · White Friday maximal</p></div>
+    </div>
+    <div class="note"><!-- ▸ ADAPTER : note de répartition / précision méthodologique -->
+      OTT/CTV budgétisé à 20 k€ sur l'ensemble de la période (répartition recommandée : 5 k€ Givrée 1, 8 k€ Givrée 2, 7 k€ White Friday). Budget social ads (Méta + TikTok) à définir selon scénario retenu : TikTok représente idéalement 30-35% de l'enveloppe sociale.</div>
+
+    <!-- ▸ Détail par scénario · onglets -->
+    <div class="scen-tabs" role="tablist" aria-label="Détail des scénarios">
+      <button role="tab" aria-selected="true" data-panel="scen-1">Minimal · 48 k€</button>
+      <button role="tab" aria-selected="false" data-panel="scen-2">Recommandé · 80 k€</button>
+      <button role="tab" aria-selected="false" data-panel="scen-3">Ambitieux · 115 k€</button>
+    </div>
+
+    <!-- ▸ ADAPTER chaque tableau : budgets médians par levier · la largeur des barres = % -->
+    <div class="scen-panel active" id="scen-1">
+      <table class="budget-table">
+        <thead><tr><th>Levier</th><th>Budget</th><th>Part</th><th>CPM est.</th><th>Volume est.</th><th>Répartition</th></tr></thead>
+        <tbody>
+          <tr><td class="lev">pDisplay</td><td class="num">12 000 €</td><td class="num">25%</td><td class="num">4,5 €</td><td class="num">2,7 M imp.</td><td><div class="bar"><i class="f-lavande" style="width:25%"></i></div></td></tr>
+          <tr><td class="lev">Social Ads (Méta)</td><td class="num">11 000 €</td><td class="num">23%</td><td class="num">6,0 €</td><td class="num">1,8 M imp.</td><td><div class="bar"><i class="f-rose" style="width:23%"></i></div></td></tr>
+          <tr><td class="lev">cTV</td><td class="num">20 000 €</td><td class="num">42%</td><td class="num">22 €</td><td class="num">0,9 M imp.</td><td><div class="bar"><i class="f-menthe" style="width:42%"></i></div></td></tr>
+          <tr><td class="lev">Retargeting</td><td class="num">5 000 €</td><td class="num">10%</td><td class="num">3,8 €</td><td class="num">1,3 M imp.</td><td><div class="bar"><i class="f-corail" style="width:10%"></i></div></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td class="num">48 000 €</td><td class="num">100%</td><td></td><td class="num">≈ 6,7 M imp.</td><td></td></tr></tfoot>
+      </table>
+    </div>
+
+    <div class="scen-panel" id="scen-2">
+      <table class="budget-table">
+        <thead><tr><th>Levier</th><th>Budget</th><th>Part</th><th>CPM est.</th><th>Volume est.</th><th>Répartition</th></tr></thead>
+        <tbody>
+          <tr><td class="lev">pDisplay</td><td class="num">18 000 €</td><td class="num">22%</td><td class="num">4,5 €</td><td class="num">4,0 M imp.</td><td><div class="bar"><i class="f-lavande" style="width:22%"></i></div></td></tr>
+          <tr><td class="lev">Social Ads (Méta)</td><td class="num">16 000 €</td><td class="num">20%</td><td class="num">6,0 €</td><td class="num">2,7 M imp.</td><td><div class="bar"><i class="f-rose" style="width:20%"></i></div></td></tr>
+          <tr><td class="lev">pStory Ads (TikTok)</td><td class="num">8 000 €</td><td class="num">10%</td><td class="num">5,5 €</td><td class="num">1,5 M imp.</td><td><div class="bar"><i class="f-rose" style="width:10%"></i></div></td></tr>
+          <tr><td class="lev">Audio streaming + podcast</td><td class="num">9 000 €</td><td class="num">11%</td><td class="num">12 €</td><td class="num">0,75 M écoutes</td><td><div class="bar"><i class="f-peche" style="width:11%"></i></div></td></tr>
+          <tr><td class="lev">cTV</td><td class="num">20 000 €</td><td class="num">25%</td><td class="num">22 €</td><td class="num">0,9 M imp.</td><td><div class="bar"><i class="f-menthe" style="width:25%"></i></div></td></tr>
+          <tr><td class="lev">Retargeting</td><td class="num">9 000 €</td><td class="num">11%</td><td class="num">3,8 €</td><td class="num">2,4 M imp.</td><td><div class="bar"><i class="f-corail" style="width:11%"></i></div></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td class="num">80 000 €</td><td class="num">100%</td><td></td><td class="num">≈ 12,2 M contacts</td><td></td></tr></tfoot>
+      </table>
+    </div>
+
+    <div class="scen-panel" id="scen-3">
+      <table class="budget-table">
+        <thead><tr><th>Levier</th><th>Budget</th><th>Part</th><th>CPM est.</th><th>Volume est.</th><th>Répartition</th></tr></thead>
+        <tbody>
+          <tr><td class="lev">pDisplay</td><td class="num">26 000 €</td><td class="num">23%</td><td class="num">4,5 €</td><td class="num">5,8 M imp.</td><td><div class="bar"><i class="f-lavande" style="width:23%"></i></div></td></tr>
+          <tr><td class="lev">Social Ads (Méta)</td><td class="num">24 000 €</td><td class="num">21%</td><td class="num">6,0 €</td><td class="num">4,0 M imp.</td><td><div class="bar"><i class="f-rose" style="width:21%"></i></div></td></tr>
+          <tr><td class="lev">pStory Ads (TikTok)</td><td class="num">12 000 €</td><td class="num">10%</td><td class="num">5,5 €</td><td class="num">2,2 M imp.</td><td><div class="bar"><i class="f-rose" style="width:10%"></i></div></td></tr>
+          <tr><td class="lev">Audio streaming + podcast</td><td class="num">13 000 €</td><td class="num">11%</td><td class="num">12 €</td><td class="num">1,1 M écoutes</td><td><div class="bar"><i class="f-peche" style="width:11%"></i></div></td></tr>
+          <tr><td class="lev">cTV</td><td class="num">26 000 €</td><td class="num">23%</td><td class="num">22 €</td><td class="num">1,2 M imp.</td><td><div class="bar"><i class="f-menthe" style="width:23%"></i></div></td></tr>
+          <tr><td class="lev">Retargeting</td><td class="num">14 000 €</td><td class="num">12%</td><td class="num">3,8 €</td><td class="num">3,7 M imp.</td><td><div class="bar"><i class="f-corail" style="width:12%"></i></div></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td class="num">115 000 €</td><td class="num">100%</td><td></td><td class="num">≈ 18 M contacts</td><td></td></tr></tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="kpis">
+  <div class="wrap">
+    <h2>KPIs de suivi recommandés</h2>
+    <div class="kpi-grid">
+      <!-- ▸ DUPLIQUER une .kpi-card par famille de KPIs -->
+      <div class="kpi-card"><small>Social Ads</small><b>CPM · CTR · CPA réservation</b></div>
+      <div class="kpi-card"><small>OTT / CTV</small><b>Reach · VTR · Brand lift</b></div>
+      <div class="kpi-card"><small>Programmatique</small><b>CPM · Taux de visite qualifiée</b></div>
+      <div class="kpi-card"><small>Retargeting</small><b>ROAS · Taux de conversion</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <h2>Segments audiences prioritaires</h2>
+    <div class="pers-grid">
+      <!-- ▸ DUPLIQUER une .pers-card par segment -->
+      <div class="pers-card c-lavande">
+        <div class="pers-head"><div class="ico c-lavande">●</div><div><h3>Familles avec enfants</h3><small>Cœur de cible · 4 mois – 17 ans · CSP+</small></div></div>
+        <ul>
+          <li>Signaux socio-démo : présence d'enfants au foyer, âge du chef de famille 30-45 ans</li>
+          <li>Données comportementales : recherches "vacances famille montagne", "club enfants ski", "séjour tout compris alpes"</li>
+          <li>Centres d'intérêt : activités outdoor, bien-être, sports d'hiver, pédagogie enfants</li>
+          <li>Géographie : IDF (1er bassin), PACA, AuRA, HdF</li>
+        </ul>
+        <div class="pers-foot"><small>Leviers activés</small><div class="tags"><span class="tag t-lavande">Display prog.</span><span class="tag t-rose">Méta Ads</span><span class="tag t-menthe">OTT/CTV</span><span class="tag t-corail">Retargeting</span></div></div>
+      </div>
+      <div class="pers-card c-menthe">
+        <div class="pers-head"><div class="ico c-menthe">◐</div><div><h3>Couples sans enfants</h3><small>30-50 ans · CSP+ · sensibles bien-être & gastronomie</small></div></div>
+        <ul>
+          <li>Profil affinitaire : voyages en duo, spa & wellness, gastronomie, restaurants étoilés</li>
+          <li>Signaux intentionnistes : "séjour montagne couple", "week-end ski adultes", "hôtel spa alpes"</li>
+          <li>Données financières : revenus supérieurs, propriétaires, abonnements premium (Netflix, Spotify…)</li>
+          <li>Contextuel : contenu lifestyle, bien-être, presse premium en ligne</li>
+        </ul>
+        <div class="pers-foot"><small>Leviers activés</small><div class="tags"><span class="tag t-menthe">OTT/CTV</span><span class="tag t-peche">Audio digital</span><span class="tag t-lavande">Display prog.</span><span class="tag t-rose">Méta Ads</span></div></div>
+      </div>
+      <div class="pers-card c-rose">
+        <div class="pers-head"><div class="ico c-rose">◒</div><div><h3>Groupes d'amis</h3><small>30-35 ans · CSP+ · early adopters digital</small></div></div>
+        <ul>
+          <li>Comportement digital : fort usage mobile, social-first, consommation de contenus courts (TikTok, Reels)</li>
+          <li>Signaux sociaux : interactions autour de contenus ski, montagne, aventure, road-trips</li>
+          <li>Intentionnistes : "séjour groupe montagne", "vacances ski entre amis", "forfait tout compris pyrénées"</li>
+          <li>Géo-comportemental : urbains, grandes métropoles, actifs en semaine</li>
+        </ul>
+        <div class="pers-foot"><small>Leviers activés</small><div class="tags"><span class="tag t-rose">TikTok Ads</span><span class="tag t-rose">Méta Ads</span><span class="tag t-peche">Audio digital</span><span class="tag t-sable">In-app mobile</span></div></div>
+      </div>
+      <div class="pers-card c-peche">
+        <div class="pers-head"><div class="ico c-peche">↻</div><div><h3>Anciens clients & lookalikes</h3><small>CRM · rétention + recrutement</small></div></div>
+        <ul>
+          <li>First-party CRM : base clients segmentée par historique d'achat, destination, saison et profil famille</li>
+          <li>Modélisation lookalike : extension d'audience sur Méta, TikTok et DMP programmatique à partir des profils CRM les plus valeureux</li>
+          <li>Exclusion intelligente : exclure les clients ayant réservé les 30 derniers jours pour éviter la pression publicitaire inutile</li>
+          <li>Segment "inactifs réactivables" : clients 2+ ans sans achat, ciblage spécifique avec message de réengagement</li>
+        </ul>
+        <div class="pers-foot"><small>Leviers activés</small><div class="tags"><span class="tag t-peche">CRM onboarding</span><span class="tag t-rose">Méta Custom Aud.</span><span class="tag t-corail">Retargeting</span><span class="tag t-lavande">Display prog.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <h2>Architecture data en trois couches</h2>
+    <p class="section-intro">La stratégie d'audience s'appuie sur trois couches complémentaires, de la donnée la plus précieuse (propriétaire) à la plus large (contextuelle), activées ensemble pour équilibrer précision et reach.</p>
+    <div class="pyramid">
+      <!-- ▸ ADAPTER le contenu des 3 couches -->
+      <div class="pyr-layer l1"><h3>1st party</h3><p>CRM client · visiteurs site · abonnés newsletter · hashage SHA-256</p></div>
+      <div class="pyr-layer l2"><h3>Données partenaires</h3><p>Lookalikes Méta/TikTok · segments intentionnistes DMP · audiences plateformes OTT</p></div>
+      <div class="pyr-layer l3"><h3>Contextuel & socio-démo</h3><p>Ciblage géo · centres d'intérêt · inventaires contextuels famille, sport, tourisme, presse premium</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="funnel">
+  <div class="wrap">
+    <h2>Activation data par étape de funnel</h2>
+    <div class="funnel-grid">
+      <!-- ▸ ADAPTER les 3 étapes -->
+      <div class="funnel-card c-lavande">
+        <small>Haut de funnel · Notoriété</small>
+        <h3>Découverte & reach</h3>
+        <p>Ciblage socio-démo large (30-55 ans, CSP+, IDF/PACA/AuRA/HdF) · segments affinitaires "sport d'hiver" + "famille" sur programmatique · lookalike 1-3% sur Méta à partir CRM · TopView TikTok sur 30-35 ans urbains · pré-roll OTT ciblé famille & lifestyle.</p>
+      </div>
+      <div class="funnel-card c-menthe">
+        <small>Milieu de funnel · Considération</small>
+        <h3>Engagement & intention</h3>
+        <p>Retargeting J+1/J+7 visiteurs pages destinations · segments intentionnistes recherche (mots-clés vacances montagne) · custom audiences Méta engagés vidéo (vu 50%+) · audio digital sur abonnés premium Spotify (profil CSP+ vérifié) · exclusion des convertis récents.</p>
+      </div>
+      <div class="funnel-card c-corail">
+        <small>Bas de funnel · Conversion</small>
+        <h3>Réservation & ROAS</h3>
+        <p>Retargeting J+7/J+30 panier abandonné · CRM inactifs réactivables avec message promo · dynamic ads Méta (destinations consultées) · exclusion clients ayant réservé (30j) · pression renforcée White Friday avec couche urgence (offre limitée).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rgpd">
+  <div class="wrap">
+    <h2>Conformité RGPD & brand safety</h2>
+    <div class="rgpd-grid">
+      <div class="rgpd-card">
+        <h3>Collecte & consentement</h3>
+        <ul>
+          <li>Pixels et tags déposés sous CMP (Didomi, Axeptio ou équivalent) : aucun tracking sans consentement explicite</li>
+          <li>Upload CRM vers Méta/TikTok via hachage SHA-256 des emails : aucune donnée brute transmise aux plateformes</li>
+          <li>Durée de conservation des cookies retargeting : 30j max, paramétrée côté adserver</li>
+          <li>Suppression automatique des optouts CRM de toutes les audiences actives sous 72h</li>
+        </ul>
+      </div>
+      <div class="rgpd-card">
+        <h3>Brand safety & qualité</h3>
+        <ul>
+          <li>Listes d'exclusion thématiques sur programmatique (contenu adulte, violence, fake news, politique) : brand safety IAS ou DoubleVerify recommandé</li>
+          <li>Ciblage contextuel positif : inventaires famille, sport, tourisme, presse premium uniquement</li>
+          <li>Frequency cap cross-levier : 3 à 5 expositions / semaine / utilisateur pour éviter la saturation</li>
+          <li>Vérification viewability : objectif ≥ 70% (IAB standard) sur display et vidéo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kpis-data">
+  <div class="wrap">
+    <h2>KPIs data à piloter</h2>
+    <div class="kpi-grid">
+      <!-- ▸ DUPLIQUER une .kpi-card par indicateur -->
+      <div class="kpi-card"><small>Qualité audience</small><b>Taux de correspondance CRM ≥ 60%</b></div>
+      <div class="kpi-card"><small>Reach incremental</small><b>% nouvelles audiences vs CRM existant</b></div>
+      <div class="kpi-card"><small>Pression pub</small><b>Freq. cap ≤ 5 contacts/sem/user</b></div>
+      <div class="kpi-card"><small>Post-campagne</small><b>Brand lift study sur OTT + Méta</b></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="tgw-logo">
+      <div class="rows">
+        <span>THE</span><span>GOOD</span><span>WEB</span>
+      </div>
+      <div class="baseline">* The Good Audience</div>
+    </div>
+    <div class="contacts">
+      <!-- ▸ ADAPTER : retirer ou réordonner les contacts selon l'interlocuteur du dossier -->
+      <div class="contact"><b>Jérôme Fages</b><span>Directeur commercial<br>06 18 74 66 75<br><a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a></span></div>
+      <div class="contact"><b>Mathilde Coriton</b><span>Directrice de clientèle<br>06 48 61 92 92<br><a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a></span></div>
+      <div class="contact"><b>Leslie Rogé</b><span>Chef de publicité<br>06 83 73 68 62<br><a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a></span></div>
+    </div>
+    <div class="legal">The Good Web · www.thegoodweb.eu · Recommandation média · document de travail confidentiel · <!-- ▸ REMPLACER : client & date -->[Client] · juillet 2026</div>
+  </div>
+</footer>
+
+<script>
+/* ── Onglets scénarios budgétaires ── */
+document.querySelectorAll('.scen-tabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.scen-tabs button').forEach(b=>b.setAttribute('aria-selected','false'));
+    document.querySelectorAll('.scen-panel').forEach(p=>p.classList.remove('active'));
+    btn.setAttribute('aria-selected','true');
+    document.getElementById(btn.dataset.panel).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
