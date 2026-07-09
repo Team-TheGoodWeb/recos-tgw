@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nissan Leaf · Plan digital de lancement Groupe Maurin · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* ── Palette de fond & texte ─────────────────────────── */
+  --bg:#FAF8F4;            /* fond crème */
+  --surface:#FFFFFF;
+  --ink:#21242C;           /* texte principal */
+  --ink-soft:#5A5E68;      /* texte secondaire */
+  --navy:#1B2A4A;          /* navy TGW */
+  --accent:#1D6FD1;        /* bleu accent (scénario reco) */
+  --orange:#E8722C;        /* orange TGW, usage parcimonieux */
+  --line:#E7E3DB;          /* filets */
+
+  /* ── Familles pastel (cards, tags, cellules planning) ── */
+  --lavande-bg:#EFEBFC; --lavande-bd:#C9BEF2; --lavande-tx:#4A3A9E; --lavande-full:#6C5CE7;
+  --rose-bg:#FCE9F0;    --rose-bd:#F2BED2;    --rose-tx:#A33562;    --rose-full:#E5679B;
+  --peche-bg:#FDF1E2;   --peche-bd:#F0D2A8;   --peche-tx:#93590F;   --peche-full:#F2A94E;
+  --menthe-bg:#E6F6EE;  --menthe-bd:#AEDFC7;  --menthe-tx:#116B45;  --menthe-full:#12866B;
+  --bleu-bg:#E8F0FB;    --bleu-bd:#BAD2F0;    --bleu-tx:#20549B;    --bleu-full:#3E63DD;
+  --corail-bg:#FDEBE7;  --corail-bd:#F2C0B4;  --corail-tx:#A63A22;  --corail-full:#B54425;
+  --sable-bg:#F4F1E9;   --sable-tx:#6B6656;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:15px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{font-family:'Schibsted Grotesk',sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+
+/* ── Navigation d'ancres ─────────────────────────────── */
+nav.toc{
+  position:sticky;top:0;z-index:50;background:rgba(250,248,244,.92);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:10px 32px}
+nav.toc a{
+  white-space:nowrap;text-decoration:none;color:var(--ink-soft);
+  font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:99px;
+}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--navy);color:#fff;outline:none}
+
+/* ── Header ──────────────────────────────────────────── */
+header.hero{padding:72px 0 48px;border-bottom:1px solid var(--line)}
+.eyebrow{
+  display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--orange);margin-bottom:18px;
+}
+header.hero h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.08;max-width:20ch}
+header.hero p.sub{color:var(--ink-soft);margin-top:16px;max-width:62ch;font-size:16px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-meta .pill{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:12px 18px;min-width:150px;
+}
+.hero-meta .pill small{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:3px}
+.hero-meta .pill b{font-family:'Schibsted Grotesk';font-size:16.5px;font-weight:700}
+
+/* ── Sections ────────────────────────────────────────── */
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+section>.wrap>h2{font-size:22px;font-weight:700;letter-spacing:-.01em;margin-bottom:26px}
+.section-intro{color:var(--ink-soft);max-width:70ch;margin:-14px 0 26px}
+
+/* ── Cards objectifs ─────────────────────────────────── */
+.obj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.obj-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.obj-card .num{font-family:'Schibsted Grotesk';font-size:13px;font-weight:800;color:var(--orange);margin-bottom:8px}
+.obj-card h3{font-size:15.5px;font-weight:700;margin-bottom:6px}
+.obj-card p{font-size:13.5px;color:var(--ink-soft)}
+
+/* ── Phases / temps forts ────────────────────────────── */
+.phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.phase-card{border-radius:14px;padding:18px 20px;border:1px solid}
+.phase-card small{display:block;font-size:12px;font-weight:700;margin-bottom:6px}
+.phase-card h3{font-size:16px;font-weight:700;margin-bottom:4px;color:var(--ink)}
+.phase-card p{font-size:13px}
+.c-bleu.phase-card{background:var(--bleu-bg);border-color:var(--bleu-bd)}      .c-bleu small,.c-bleu p{color:var(--bleu-tx)}
+.c-menthe.phase-card{background:var(--menthe-bg);border-color:var(--menthe-bd)}.c-menthe small,.c-menthe p{color:var(--menthe-tx)}
+.c-peche.phase-card{background:var(--peche-bg);border-color:var(--peche-bd)}   .c-peche small,.c-peche p{color:var(--peche-tx)}
+.c-corail.phase-card{background:var(--corail-bg);border-color:var(--corail-bd)}.c-corail small,.c-corail p{color:var(--corail-tx)}
+.c-rose.phase-card{background:var(--rose-bg);border-color:var(--rose-bd)}      .c-rose small,.c-rose p{color:var(--rose-tx)}
+.c-lavande.phase-card{background:var(--lavande-bg);border-color:var(--lavande-bd)}.c-lavande small,.c-lavande p{color:var(--lavande-tx)}
+
+/* ── Leviers ─────────────────────────────────────────── */
+.lever-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.lever-card{border-radius:16px;padding:22px;border:1px solid}
+.lever-card .ico{font-size:22px;margin-bottom:10px;display:block}
+.lever-card h3{font-size:16.5px;font-weight:700;margin-bottom:10px}
+.lever-card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.tag{font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:99px}
+.lever-card p{font-size:13.5px;color:var(--ink);opacity:.85}
+.lever-card.c-lavande{background:var(--lavande-bg);border-color:var(--lavande-bd)}
+.lever-card.c-rose{background:var(--rose-bg);border-color:var(--rose-bd)}
+.lever-card.c-peche{background:var(--peche-bg);border-color:var(--peche-bd)}
+.lever-card.c-menthe{background:var(--menthe-bg);border-color:var(--menthe-bd)}
+.lever-card.c-bleu{background:var(--bleu-bg);border-color:var(--bleu-bd)}
+.lever-card.c-corail{background:var(--corail-bg);border-color:var(--corail-bd)}
+.tag.t-lavande{background:#DCD3F7;color:var(--lavande-tx)}
+.tag.t-rose{background:#F7CFDE;color:var(--rose-tx)}
+.tag.t-peche{background:#F6DDB6;color:var(--peche-tx)}
+.tag.t-menthe{background:#C6EBD8;color:var(--menthe-tx)}
+.tag.t-bleu{background:#CDDFF6;color:var(--bleu-tx)}
+.tag.t-corail{background:#F6D2C8;color:var(--corail-tx)}
+.tag.t-sable{background:#E9E4D6;color:var(--sable-tx)}
+
+/* ── Planning d'activation ───────────────────────────── */
+.planning{overflow-x:auto}
+.planning table{border-collapse:separate;border-spacing:6px;min-width:760px;width:100%}
+.planning th{font-size:12px;font-weight:600;color:var(--ink-soft);text-align:center;padding:4px 6px}
+.planning th b{display:block;color:var(--ink);font-weight:700;font-size:12.5px}
+.planning td.levier{font-size:13.5px;font-weight:600;white-space:nowrap;padding-right:10px;text-align:left}
+.planning td.levier span{margin-right:8px}
+.planning td.cell{border-radius:8px;text-align:center;font-size:12px;font-weight:600;padding:9px 8px;min-width:120px}
+.cell.off{background:var(--sable-bg);color:transparent}
+.cell.pic{color:#fff !important}
+.cell.l1{background:var(--lavande-bg);color:var(--lavande-tx)} .cell.l2{background:#CBBDF3;color:var(--lavande-tx)} .cell.l3.pic{background:#4B3FB5}
+.cell.r1{background:var(--rose-bg);color:var(--rose-tx)}       .cell.r2{background:#F0A8C4;color:#7C244A}          .cell.r3.pic{background:#96305C}
+.cell.p1{background:var(--peche-bg);color:var(--peche-tx)}     .cell.p2{background:#F3C070;color:#7A4A0C}          .cell.p3.pic{background:#B06A10}
+.cell.m1{background:var(--menthe-bg);color:var(--menthe-tx)}   .cell.m2{background:#9ADBBE;color:#0E5A3A}          .cell.m3.pic{background:#0E5A46}
+.cell.o1{background:var(--corail-bg);color:var(--corail-tx)}   .cell.o2{background:#F0A48C;color:#7E2E17}          .cell.o3.pic{background:#96351B}
+.cell.k1{background:#F7E4E4;color:#9C3A3A}                     .cell.k2{background:#EBA0A0;color:#6E1F1F}          .cell.k3.pic{background:#8A2727}
+
+/* ── Scénarios budgétaires ───────────────────────────── */
+.scen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:22px}
+.scen-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.scen-card.reco{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.scen-card small{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-bottom:8px}
+.scen-card .range{font-family:'Schibsted Grotesk';font-size:28px;font-weight:800;letter-spacing:-.02em}
+.scen-card.reco .range{color:var(--accent)}
+.scen-card p{font-size:12.5px;color:var(--ink-soft);margin-top:8px}
+.note{
+  background:var(--sable-bg);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;
+  padding:14px 18px;font-size:13.5px;color:var(--ink);margin-bottom:26px;
+}
+.scen-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.scen-tabs button{
+  font-family:'Inter';font-size:13px;font-weight:600;color:var(--ink-soft);
+  background:var(--surface);border:1px solid var(--line);border-radius:99px;
+  padding:8px 18px;cursor:pointer;
+}
+.scen-tabs button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.scen-tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.budget-table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.budget-table th{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);background:#FCFBF8}
+.budget-table td{padding:12px 16px;border-bottom:1px solid var(--line);font-size:13.5px;vertical-align:middle}
+.budget-table tr:last-child td{border-bottom:none}
+.budget-table td.lev{font-weight:600}
+.budget-table td.num{font-variant-numeric:tabular-nums}
+.bar{height:8px;border-radius:99px;background:var(--sable-bg);min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px}
+.bar .f-lavande{background:var(--lavande-full)} .bar .f-rose{background:var(--rose-full)}
+.bar .f-peche{background:var(--peche-full)}     .bar .f-menthe{background:var(--menthe-full)}
+.bar .f-bleu{background:var(--bleu-full)}       .bar .f-corail{background:var(--corail-full)}
+.budget-table tfoot td{background:#FCFBF8;font-weight:700}
+.scen-panel{display:none}
+.scen-panel.active{display:block}
+
+/* ── KPIs ────────────────────────────────────────────── */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.kpi-card{background:var(--sable-bg);border-radius:12px;padding:16px 18px}
+.kpi-card small{display:block;font-size:12px;font-weight:600;color:var(--sable-tx);margin-bottom:5px}
+.kpi-card b{font-size:14px;font-weight:700;line-height:1.35;display:block}
+
+/* ── Segments audiences ──────────────────────────────── */
+.pers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.pers-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.pers-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.pers-head .ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.pers-head h3{font-size:15.5px;font-weight:700}
+.pers-head small{display:block;font-size:12.5px;color:var(--ink-soft);font-weight:500}
+.pers-card ul{list-style:none;margin-bottom:14px}
+.pers-card li{font-size:13.5px;color:var(--ink);padding-left:16px;position:relative;margin-bottom:8px}
+.pers-card li::before{content:"";width:6px;height:6px;border-radius:99px;position:absolute;left:0;top:7px}
+.pers-card.c-lavande li::before{background:var(--lavande-full)}
+.pers-card.c-menthe li::before{background:var(--menthe-full)}
+.pers-card.c-rose li::before{background:var(--rose-full)}
+.pers-card.c-peche li::before{background:var(--peche-full)}
+.pers-card .ico.c-lavande{background:var(--lavande-bg);color:var(--lavande-tx)}
+.pers-card .ico.c-menthe{background:var(--menthe-bg);color:var(--menthe-tx)}
+.pers-card .ico.c-rose{background:var(--rose-bg);color:var(--rose-tx)}
+.pers-card .ico.c-peche{background:var(--peche-bg);color:var(--peche-tx)}
+.pers-foot{border-top:1px solid var(--line);padding-top:12px}
+.pers-foot small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.pers-foot .tags{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ── Architecture data (pyramide) ────────────────────── */
+.pyramid{display:flex;flex-direction:column;align-items:center;gap:10px}
+.pyr-layer{border-radius:12px;padding:16px 24px;text-align:center;border:1px solid}
+.pyr-layer h3{font-size:14.5px;font-weight:700;margin-bottom:3px}
+.pyr-layer p{font-size:12.5px}
+.pyr-layer.l1{width:min(46%,420px);background:var(--corail-bg);border-color:var(--corail-bd)} .pyr-layer.l1 p{color:var(--corail-tx)}
+.pyr-layer.l2{width:min(70%,640px);background:var(--menthe-bg);border-color:var(--menthe-bd)} .pyr-layer.l2 p{color:var(--menthe-tx)}
+.pyr-layer.l3{width:min(94%,860px);background:var(--bleu-bg);border-color:var(--bleu-bd)}     .pyr-layer.l3 p{color:var(--bleu-tx)}
+
+/* ── Funnel ──────────────────────────────────────────── */
+.funnel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.funnel-card{border-radius:14px;padding:20px;border:1px solid}
+.funnel-card small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.funnel-card h3{font-size:16px;font-weight:700;margin-bottom:10px}
+.funnel-card p{font-size:13px;line-height:1.6}
+.funnel-card.c-lavande{background:var(--lavande-bg);border-color:var(--lavande-bd)} .funnel-card.c-lavande small,.funnel-card.c-lavande p{color:var(--lavande-tx)}
+.funnel-card.c-menthe{background:var(--menthe-bg);border-color:var(--menthe-bd)}    .funnel-card.c-menthe small,.funnel-card.c-menthe p{color:var(--menthe-tx)}
+.funnel-card.c-corail{background:var(--corail-bg);border-color:var(--corail-bd)}    .funnel-card.c-corail small,.funnel-card.c-corail p{color:var(--corail-tx)}
+
+/* ── RGPD / Brand safety ─────────────────────────────── */
+.rgpd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.rgpd-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.rgpd-card h3{font-size:15px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.rgpd-card ul{list-style:none}
+.rgpd-card li{font-size:13.5px;padding-left:16px;position:relative;margin-bottom:9px;color:var(--ink)}
+.rgpd-card li::before{content:"";width:6px;height:6px;border-radius:99px;background:var(--menthe-full);position:absolute;left:0;top:7px}
+
+/* ── Footer ──────────────────────────────────────────── */
+footer{padding:40px 0 56px;color:var(--ink-soft);font-size:12.5px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer b{color:var(--navy);font-family:'Schibsted Grotesk'}
+
+@media (max-width:640px){
+  .wrap{padding:0 20px}
+  header.hero{padding:48px 0 36px}
+  section{padding:40px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="toc" aria-label="Sections">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#phases">Phases</a>
+    <a href="#leviers">Leviers</a>
+    <a href="#mpv">Mécanique MPV</a>
+    <a href="#plaques">Les 7 plaques</a>
+    <a href="#planning">Planning</a>
+    <a href="#budget">Budget</a>
+    <a href="#kpis">KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Data</a>
+    <a href="#funnel">Funnel</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#etapes">Prochaines étapes</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Proposition The Good Web · Groupe Maurin × Nissan France</span>
+    <h1>Nouvelle Nissan Leaf · Plan digital de lancement</h1>
+    <p class="sub">« Expérience électrique nouvelle génération » · Destination Leaf. Dispositif digital en deux temps (Réseaux Sociaux + Display), activé sur les 7 plaques du Groupe Maurin en remplacement de l'événement physique du 10 septembre : générer notoriété, engagement et leads qualifiés, puis maintenir une pression de conversion jusqu'à fin d'année. Le Search n'est pas activé à ce niveau de budget (arbitrage détaillé dans la section Budget).</p>
+    <div class="hero-meta">
+      <div class="pill"><small>Période</small><b>Fin août → déc 2026</b></div>
+      <div class="pill"><small>Budget média</small><b>17 500 € HT</b></div>
+      <div class="pill"><small>Objectif</small><b>Reach · engagement · leads</b></div>
+      <div class="pill"><small>Périmètre</small><b>7 plaques · 28 points de vente</b></div>
+    </div>
+  </div>
+</header>
+
+<section id="contexte">
+  <div class="wrap">
+    <h2>Contexte & objectifs</h2>
+    <p class="section-intro">La nouvelle génération de Nissan Leaf est commercialisée en France depuis décembre 2025 (livraisons depuis mars 2026), en deux configurations : 52 kWh / 436 km d'autonomie et 75 kWh / 604 km. L'événement physique prévu le 10 septembre sur les concessions Groupe Maurin n'aura pas lieu : l'enjeu est de compenser cette absence de temps fort terrain par un dispositif 100% digital, coordonné sur les 7 plaques, synchronisé avec une tournée MPV géolocalisée. Communication strictement identique sur les 7 plaques (mêmes assets vidéo, display, social), un seul lien de destination vers une landing page nationale unique avec sélection de la concession la plus proche : production créative optimisée, mesure homogène entre plaques, pool de leads unique redistribué localement.</p>
+    <div class="obj-grid">
+      <div class="obj-card"><div class="num">01</div><h3>Notoriété & reach</h3><p>Maximiser la portée sur les zones de chalandise des 7 plaques et installer le territoire « Destination Leaf ».</p></div>
+      <div class="obj-card"><div class="num">02</div><h3>Engagement & leads</h3><p>Générer curiosité et leads qualifiés (Lead Ads, landing unique) en appui de la tournée MPV qui remplace l'événement du 10/09.</p></div>
+      <div class="obj-card"><div class="num">03</div><h3>Conversion</h3><p>Transformer les leads captés en essais puis en ventes via un always-on léger de retargeting d'octobre à décembre.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="phases">
+  <div class="wrap">
+    <h2>Deux phases d'activation</h2>
+    <div class="phase-grid">
+      <div class="phase-card c-corail"><small>Fin août → fin sept · 5 semaines</small><h3>Phase 1 · Intensité forte</h3><p>Reach, engagement, leads · tournée MPV géolocalisée</p></div>
+      <div class="phase-card c-bleu"><small>Oct → déc · 12 semaines</small><h3>Phase 2 · Always-on léger</h3><p>Présence continue · retargeting prioritaire, prospection réduite</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="leviers">
+  <div class="wrap">
+    <h2>Leviers recommandés</h2>
+    <div class="lever-grid">
+      <div class="lever-card c-rose">
+        <span class="ico">∞</span>
+        <h3>Méta Ads (Facebook + Instagram)</h3>
+        <div class="tags"><span class="tag t-rose">Vidéo reach</span><span class="tag t-rose">Lead Ads</span><span class="tag t-rose">Géociblage</span></div>
+        <p>Cœur du dispositif social : campagnes vidéo reach + Lead Ads, ciblage géolocalisé par zone de chalandise et centres d'intérêt, relais des étapes MPV. Test TikTok envisageable sur la cible 30-45 ans.</p>
+      </div>
+      <div class="lever-card c-lavande">
+        <span class="ico">▶</span>
+        <h3>YouTube (TrueView / Bumper)</h3>
+        <div class="tags"><span class="tag t-lavande">Vidéo</span><span class="tag t-lavande">Couverture locale</span></div>
+        <p>Formats vidéo pour maximiser la portée sur chaque plaque avec les assets nationaux Nissan. Complémentaire au social sur la construction de notoriété du lancement.</p>
+      </div>
+      <div class="lever-card c-bleu">
+        <span class="ico">⠿</span>
+        <h3>Display programmatique + geofencing</h3>
+        <div class="tags"><span class="tag t-bleu">Géociblage MPV</span><span class="tag t-bleu">Native ads</span></div>
+        <p>Display géociblé sur les zones de chalandise, geofencing mobile autour des étapes MPV (l'élément qui remplace l'événement du 10/09), native ads sur presse auto et régionale.</p>
+      </div>
+      <div class="lever-card c-corail">
+        <span class="ico">◎</span>
+        <h3>Retargeting cross-canal</h3>
+        <div class="tags"><span class="tag t-corail">Phase 2</span><span class="tag t-corail">Conversion</span></div>
+        <p>Retargeting des visiteurs landing, vues vidéo ≥ 50% et leads non convertis : carrousels d'offres sur social, display de rappel à fréquence réduite. Aucune nouvelle prospection large en phase 2.</p>
+      </div>
+    </div>
+    <div class="note" style="margin-top:22px;margin-bottom:0">
+      <b>Search non activé :</b> à ce niveau de budget, l'effort est concentré sur Social + Display pour préserver la masse critique par canal. L'arbitrage complet est détaillé dans la section Budget.
+    </div>
+  </div>
+</section>
+
+<section id="mpv">
+  <div class="wrap">
+    <h2>Mécanique MPV & géociblage</h2>
+    <p class="section-intro">Le MPV (unité mobile de démonstration) tourne sur les 7 plaques durant la phase 1, à raison de 1 à 2 jours par site selon la taille de plaque. Le dispositif digital est synchronisé sur son calendrier d'étapes pour drainer du trafic terrain.</p>
+    <div class="obj-grid">
+      <div class="obj-card"><div class="num">Étape 1</div><h3>Calendrier de tournée</h3><p>Tournée MPV définie sur les 7 plaques, 1 à 2 jours par site selon la taille de plaque.</p></div>
+      <div class="obj-card"><div class="num">Étape 2</div><h3>Pré-chauffe géociblée</h3><p>Géociblage digital (rayon 10 à 20 km) activé 5 à 7 jours avant chaque étape : Social + Display.</p></div>
+      <div class="obj-card"><div class="num">Étape 3</div><h3>Amplification jour J</h3><p>Stories géolocalisées et display mobile geofencing le jour de l'étape pour maximiser le trafic terrain.</p></div>
+      <div class="obj-card"><div class="num">Étape 4</div><h3>Retargeting post-étape</h3><p>Relance des visiteurs landing, vues vidéo ≥ 50% et leads non convertis après chaque passage.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="plaques">
+  <div class="wrap">
+    <h2>Les 7 plaques Groupe Maurin</h2>
+    <p class="section-intro">28 points de vente répartis sur PACA, Occitanie et Auvergne-Rhône-Alpes : chaque plaque active la même campagne, géociblée sur sa zone de chalandise.</p>
+    <table class="budget-table">
+      <thead><tr><th>Plaque</th><th>Enseigne</th><th>Villes</th><th>Sites</th></tr></thead>
+      <tbody>
+        <tr><td class="lev">Maurin Vaucluse</td><td>MMC Provence</td><td>Manosque, Gap, Salon-de-Provence, Cavaillon, Avignon, Carpentras, Orange</td><td class="num">7</td></tr>
+        <tr><td class="lev">Maurin Languedoc</td><td>MAS Auto</td><td>Arles, Alès, Nîmes, Lattes (Montpellier)</td><td class="num">4</td></tr>
+        <tr><td class="lev">Maurin Alpes</td><td>Autolyv</td><td>Seyssinet-Pariset (Grenoble), La Ravoire (Chambéry)</td><td class="num">2</td></tr>
+        <tr><td class="lev">Maurin Nord</td><td>Segny Automobiles</td><td>Seynod (Annecy), Ville-la-Grand (Annemasse), Anthy-sur-Léman (Thonon), Ségny (Gex), Sallanches</td><td class="num">5</td></tr>
+        <tr><td class="lev">Maurin Sud</td><td>Automéditerranée</td><td>Perpignan, Narbonne, Carcassonne, Béziers</td><td class="num">4</td></tr>
+        <tr><td class="lev">Marseille</td><td>Prestige Auto</td><td>Marseille, Martigues</td><td class="num">2</td></tr>
+        <tr><td class="lev">Var / Toulon</td><td>Prestige Auto</td><td>La Garde (Toulon), Toulon Ouest, Fréjus, Draguignan</td><td class="num">4</td></tr>
+      </tbody>
+      <tfoot><tr><td>Total 7 plaques</td><td></td><td></td><td class="num">28</td></tr></tfoot>
+    </table>
+  </div>
+</section>
+
+<section id="planning">
+  <div class="wrap">
+    <h2>Planning d'activation par levier</h2>
+    <div class="planning">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Lancement<b>fin août</b></th>
+            <th>Tournée MPV<b>septembre</b></th>
+            <th>Always-on<b>oct – déc</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="levier"><span>∞</span>Méta Ads</td><td class="cell r2">Vidéo reach + Lead Ads</td><td class="cell r3 pic">Pic</td><td class="cell r1">Retargeting</td></tr>
+          <tr><td class="levier"><span>▶</span>YouTube</td><td class="cell l1">Notoriété</td><td class="cell l2">Couverture locale</td><td class="cell off">·</td></tr>
+          <tr><td class="levier"><span>⠿</span>Display + geofencing</td><td class="cell k1">Prospection géo</td><td class="cell k3 pic">Pic MPV</td><td class="cell k1">Rappel léger</td></tr>
+          <tr><td class="levier"><span>◎</span>Retargeting</td><td class="cell off">·</td><td class="cell o1">Post-étapes</td><td class="cell o2">Prioritaire</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="budget">
+  <div class="wrap">
+    <h2>Recommandation budgétaire</h2>
+    <p class="section-intro">Budget flat par plaque, comme demandé : 1 500 € par plaque sur la phase intense et 1 000 € par plaque sur le trimestre, soit 17 500 € HT au total sur les 7 plaques. Le plan s'appuie sur les assets nationaux Nissan existants, sans production locale.</p>
+    <div class="scen-grid">
+      <div class="scen-card"><small>Phase 1 · 5 semaines</small><div class="range">10 500 €</div><p>1 500 € par plaque · Social 825 € + Display 675 € · ≈ 300 €/semaine sur 2 canaux</p></div>
+      <div class="scen-card"><small>Phase 2 · 12 semaines</small><div class="range">7 000 €</div><p>1 000 € par plaque · Social 650 € + Display 350 € · ≈ 83 €/semaine sur 2 canaux</p></div>
+      <div class="scen-card reco"><small>Budget média total</small><div class="range">17 500 € HT</div><p>7 plaques · 28 points de vente · assets nationaux Nissan, sans production locale</p></div>
+    </div>
+
+    <div class="scen-tabs" role="tablist" aria-label="Détail des phases">
+      <button role="tab" aria-selected="true" data-panel="scen-1">Phase 1 · 1 500 €/plaque</button>
+      <button role="tab" aria-selected="false" data-panel="scen-2">Phase 2 · 1 000 €/plaque</button>
+    </div>
+
+    <div class="scen-panel active" id="scen-1">
+      <table class="budget-table">
+        <thead><tr><th>Canal</th><th>Budget / plaque</th><th>Total 7 plaques</th><th>Part</th><th>Rôle</th><th>Répartition</th></tr></thead>
+        <tbody>
+          <tr><td class="lev">Réseaux sociaux (Méta + test TikTok)</td><td class="num">825 €</td><td class="num">5 775 €</td><td class="num">55%</td><td>Reach, engagement, Lead Ads, relais MPV</td><td><div class="bar"><i class="f-rose" style="width:55%"></i></div></td></tr>
+          <tr><td class="lev">Display / vidéo (YouTube, prog., geofencing)</td><td class="num">675 €</td><td class="num">4 725 €</td><td class="num">45%</td><td>Couverture locale, soutien des étapes MPV</td><td><div class="bar"><i class="f-bleu" style="width:45%"></i></div></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total phase 1</td><td class="num">1 500 €</td><td class="num">10 500 €</td><td class="num">100%</td><td></td><td></td></tr></tfoot>
+      </table>
+    </div>
+
+    <div class="scen-panel" id="scen-2">
+      <table class="budget-table">
+        <thead><tr><th>Canal</th><th>Budget / plaque</th><th>Total 7 plaques</th><th>Part</th><th>Rôle</th><th>Répartition</th></tr></thead>
+        <tbody>
+          <tr><td class="lev">Réseaux sociaux · retargeting</td><td class="num">650 €</td><td class="num">4 550 €</td><td class="num">65%</td><td>Conversion de l'audience touchée en phase 1</td><td><div class="bar"><i class="f-rose" style="width:65%"></i></div></td></tr>
+          <tr><td class="lev">Display · retargeting uniquement</td><td class="num">350 €</td><td class="num">2 450 €</td><td class="num">35%</td><td>Présence de marque à moindre coût</td><td><div class="bar"><i class="f-bleu" style="width:35%"></i></div></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total phase 2</td><td class="num">1 000 €</td><td class="num">7 000 €</td><td class="num">100%</td><td></td><td></td></tr></tfoot>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:26px">
+      <b>Pourquoi retirer le Search plutôt que Social ou Display, l'arbitrage :</b> à 1 500 € par plaque sur 5 semaines, répartir sur 3 canaux tombait à environ 100 €/semaine/canal, trop peu pour sortir un ad set Méta de sa phase d'apprentissage ou être visible sur des mots-clés génériques (« SUV électrique », « voiture électrique ») dont le CPC tourne autour de 1 à 3 €. L'objectif de la phase 1 (engagement, curiosité, portée, leads) relève de la notoriété et de la considération, pas de la captation d'une demande déjà active : Social et Display/geofencing y répondent directement. La recherche de marque (« Nissan Leaf », nom de la concession) reste largement captée gratuitement par le référencement naturel des fiches concession et de nissan.fr. Le Display est conservé car il porte le géociblage autour des étapes MPV, l'élément qui remplace l'événement du 10/09. C'est un arbitrage, pas une vérité absolue : si l'enveloppe augmente, le Search brand est le premier canal à réintégrer (coût faible, forte pertinence), et son absence signifie qu'une partie de la demande active (recherches génériques) ne sera pas captée pendant la campagne.
+    </div>
+    <div class="note" style="margin-bottom:0">
+      <b>Point de vigilance :</b> concentrer sur Social + Display consolide la masse critique par canal (≈ 110 €/semaine chacun en phase 1 au lieu de ≈ 75 € sur 3 canaux) et colle à l'objectif de la phase 1. La vigilance porte sur Vaucluse (7 sites, territoire multi-départements) et Nord (5 sites d'Annecy à Gex) : même à 2 canaux, la diffusion y sera plus diluée géographiquement que sur les plaques compactes (Alpes, Marseille). Il serait judicieux de débloquer un budget supplémentaire pour ces deux plaques afin de garantir une couverture suffisante.
+    </div>
+  </div>
+</section>
+
+<section id="kpis">
+  <div class="wrap">
+    <h2>KPIs de pilotage</h2>
+    <div class="kpi-grid">
+      <div class="kpi-card"><small>Notoriété / reach</small><b>Impressions · reach unique · CPM · couverture par plaque</b></div>
+      <div class="kpi-card"><small>Engagement</small><b>VTR · taux d'engagement social · CTR</b></div>
+      <div class="kpi-card"><small>Leads</small><b>Nombre de leads · coût par lead · leads par plaque</b></div>
+      <div class="kpi-card"><small>Trafic terrain MPV</small><b>Trafic par étape · visites landing géociblées</b></div>
+      <div class="kpi-card"><small>Conversion phase 2</small><b>Taux lead → essai · essai → vente · coût par vente</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <h2>Segments audiences prioritaires</h2>
+    <div class="pers-grid">
+      <div class="pers-card c-lavande">
+        <div class="pers-head"><div class="ico c-lavande">■</div><div><h3>Cadres & CSP+ en transition électrique</h3><small>Cœur de cible · 30-60 ans · zones de chalandise des 7 plaques</small></div></div>
+        <ul>
+          <li>Socio-pro : cadres, professions intermédiaires, CSP+, 30 à 60 ans</li>
+          <li>Centres d'intérêt : nouvelles technologies, automobile, bornes de recharge</li>
+          <li>Valeurs : mobilité durable, sensibilité aux enjeux d'autonomie (436 à 604 km) et de coût d'usage</li>
+          <li>Géociblage par zone de chalandise de chaque plaque, avec rayon renforcé de 10 à 20 km autour des étapes MPV</li>
+        </ul>
+        <div class="pers-foot"><small>Leviers activés</small><div class="tags"><span class="tag t-rose">Méta Ads</span><span class="tag t-lavande">YouTube</span><span class="tag t-bleu">Display géociblé</span></div></div>
+      </div>
+      <div class="pers-card c-peche">
+        <div class="pers-head"><div class="ico c-peche">↻</div><div><h3>Audiences chaudes & retargeting</h3><small>Construites en phase 1 · exploitées en phase 2</small></div></div>
+        <ul>
+          <li>Visiteurs de la landing « Destination Leaf » (pool unique, redistribution locale des leads)</li>
+          <li>Vues vidéo ≥ 50% sur Méta et YouTube, engagés sociaux</li>
+          <li>Leads non convertis en essai : relance carrousels d'offres à fréquence réduite</li>
+          <li>Exclusion des leads transformés pour concentrer la pression sur les prospects actifs</li>
+        </ul>
+        <div class="pers-foot"><small>Leviers activés</small><div class="tags"><span class="tag t-corail">Retargeting</span><span class="tag t-rose">Méta Custom Aud.</span><span class="tag t-bleu">Display rappel</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <h2>Architecture data en trois couches</h2>
+    <div class="pyramid">
+      <div class="pyr-layer l1"><h3>1st party</h3><p>Leads landing « Destination Leaf » · vues vidéo & engagés · redistribution locale aux 28 points de vente</p></div>
+      <div class="pyr-layer l2"><h3>Données partenaires</h3><p>Audiences intentionnistes auto & véhicule électrique · lookalikes Méta à partir des leads · audiences YouTube in-market auto</p></div>
+      <div class="pyr-layer l3"><h3>Contextuel & socio-démo</h3><p>Géociblage zones de chalandise + geofencing MPV · 30-60 ans CSP+ · contextes tech, auto, mobilité durable</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="funnel">
+  <div class="wrap">
+    <h2>Activation par étape de funnel</h2>
+    <div class="funnel-grid">
+      <div class="funnel-card c-lavande">
+        <small>Notoriété</small>
+        <h3>Installer Destination Leaf</h3>
+        <p>Vidéo reach Méta + YouTube sur les assets nationaux, géociblés par plaque · couverture maximale des zones de chalandise dès fin août pour préparer la tournée MPV.</p>
+      </div>
+      <div class="funnel-card c-menthe">
+        <small>Considération</small>
+        <h3>Créer l'événement local</h3>
+        <p>Pré-chauffe géociblée 5 à 7 jours avant chaque étape MPV, amplification jour J (Stories géolocalisées, geofencing mobile) · Lead Ads en captation continue vers le pool unique.</p>
+      </div>
+      <div class="funnel-card c-corail">
+        <small>Conversion</small>
+        <h3>Transformer en essais & ventes</h3>
+        <p>Phase 2 en retargeting prioritaire : relance des leads non convertis, carrousels d'offres, display de rappel à fréquence réduite · pilotage au coût par lead puis au taux lead → essai → vente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rgpd">
+  <div class="wrap">
+    <h2>Conformité RGPD & brand safety</h2>
+    <div class="rgpd-grid">
+      <div class="rgpd-card">
+        <h3>Collecte & consentement</h3>
+        <ul>
+          <li>Landing « Destination Leaf » et pixels sous CMP : aucun tracking sans consentement explicite</li>
+          <li>Formulaires Lead Ads avec mention d'information claire et consentement au rappel commercial par la concession</li>
+          <li>Redistribution locale des leads encadrée : accès limité à la concession concernée, pas de partage inter-plaques</li>
+          <li>Fenêtres de retargeting limitées à 30 jours, suppression des optouts sous 72h</li>
+        </ul>
+      </div>
+      <div class="rgpd-card">
+        <h3>Brand safety & qualité</h3>
+        <ul>
+          <li>Listes d'exclusion thématiques sur le programmatique et YouTube (contenu sensible, UGC à risque)</li>
+          <li>Ciblage contextuel positif : auto, tech, mobilité, presse régionale et spécialisée</li>
+          <li>Frequency cap cross-canal : 3 à 5 expositions / semaine / utilisateur, réduit en phase 2</li>
+          <li>Viewability display : objectif ≥ 70% (standard IAB)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="etapes">
+  <div class="wrap">
+    <h2>Prochaines étapes</h2>
+    <div class="rgpd-grid">
+      <div class="rgpd-card">
+        <h3>✓ Validation & cadrage</h3>
+        <ul>
+          <li>Valider le dispositif et le calendrier avec Nissan France (cadre national de la campagne Leaf)</li>
+          <li>Arrêter le calendrier précis de la tournée MPV sur les 7 plaques</li>
+          <li>Cadrer le budget global à allouer par phase et par plaque (dont renfort éventuel Vaucluse et Nord)</li>
+        </ul>
+      </div>
+      <div class="rgpd-card">
+        <h3>✓ Production & tracking</h3>
+        <ul>
+          <li>Finaliser la landing page unique « Destination Leaf » et le tracking (leads, appels, RDV essai)</li>
+          <li>Décliner les assets nationaux (vidéo, display, social) en géociblage par plaque</li>
+          <li>Mettre en place le reporting par plaque (reach, leads, coût par lead) et le circuit de redistribution des leads</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>The Good Web</b> · Recommandation média · document de travail confidentiel</div>
+    <div>Groupe Maurin × Nissan France · Nouvelle Nissan Leaf (commercialisée depuis déc. 2025, livraisons depuis mars 2026) · juillet 2026</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.scen-tabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.scen-tabs button').forEach(b=>b.setAttribute('aria-selected','false'));
+    document.querySelectorAll('.scen-panel').forEach(p=>p.classList.remove('active'));
+    btn.setAttribute('aria-selected','true');
+    document.getElementById(btn.dataset.panel).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
