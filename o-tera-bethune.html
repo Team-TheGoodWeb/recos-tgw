@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O'TERA Béthune · Recommandation média ouverture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A1B4F;
+    --royal:#5271FF;
+    --lightblue:#85B8F8;
+    --orange:#F0532D;
+    --bg-alt:#F6F8FE;
+    --white:#FFFFFF;
+    --ink:#10163A;
+    --muted:#5B6584;
+    --line:#E1E7F5;
+
+    --c-lavande-bg:#E8ECFF; --c-lavande-fg:#5271FF;
+    --c-rose-bg:#ECEAFB;    --c-rose-fg:#6C5CE7;
+    --c-bleu-bg:#E7F3FF;    --c-bleu-fg:#2E6FBE;
+    --c-menthe-bg:#E8ECF3;  --c-menthe-fg:#0A1B4F;
+    --c-corail-bg:#FCE7E1;  --c-corail-fg:#F0532D;
+    --c-peche-bg:#FFF1E2;   --c-peche-fg:#D9752E;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; font-family:'Inter',sans-serif; color:var(--ink);
+    background:var(--white); line-height:1.55; font-size:15.5px;
+  }
+  h1,h2,h3{font-family:'Poppins',sans-serif; margin:0; letter-spacing:-0.01em;}
+  p{margin:0 0 12px 0;}
+  a{color:inherit;}
+  .container{max-width:1120px; margin:0 auto; padding:0 28px;}
+  .section{padding:76px 0;}
+  .section-alt{background:var(--bg-alt);}
+
+  /* NAV */
+  nav.subnav{
+    position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(6px); border-bottom:1px solid var(--line);
+  }
+  .subnav-inner{
+    max-width:1120px; margin:0 auto; padding:0 28px; display:flex; align-items:center;
+    gap:22px; height:56px; overflow-x:auto; white-space:nowrap;
+  }
+  .subnav-inner a{
+    font-size:12.5px; font-weight:600; color:var(--muted); text-decoration:none;
+    text-transform:uppercase; letter-spacing:0.04em; flex:0 0 auto;
+  }
+  .subnav-inner a:hover{color:var(--royal);}
+  .brandmark{display:flex; align-items:center; gap:8px; flex:0 0 auto; margin-right:8px;}
+  .brandmark span{font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--navy); letter-spacing:0.02em;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(155deg, var(--royal) 0%, #3C57D6 55%, var(--navy) 100%);
+    color:var(--white); padding:88px 0 68px 0;
+  }
+  .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    opacity:0.85; margin-bottom:14px; display:block;
+  }
+  .hero h1{font-size:44px; font-weight:700; margin-bottom:16px;}
+  .hero .lede{font-size:17px; max-width:640px; opacity:0.92; margin-bottom:36px;}
+  .pills{display:flex; flex-wrap:wrap; gap:12px;}
+  .pill{
+    background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25);
+    border-radius:10px; padding:12px 16px; min-width:200px;
+  }
+  .pill .pill-label{font-size:11px; text-transform:uppercase; letter-spacing:0.06em; opacity:0.75; margin-bottom:4px; display:block;}
+  .pill .pill-value{font-size:14px; font-weight:600;}
+
+  /* SECTION HEADS */
+  .kicker{color:var(--orange); font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:10px; display:block;}
+  h2.h2{font-size:28px; font-weight:700; color:var(--navy); margin-bottom:18px;}
+  h2.h2 .arrow{color:var(--orange); margin-right:8px;}
+  .section-lede{color:var(--muted); font-size:15.5px; max-width:760px; margin-bottom:36px;}
+
+  /* CONTEXT CARDS */
+  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  .obj-card{
+    background:var(--white); border:1px solid var(--line); border-radius:14px; padding:22px;
+  }
+  .obj-num{
+    width:28px; height:28px; border-radius:8px; background:var(--c-lavande-bg); color:var(--royal);
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center;
+    margin-bottom:14px;
+  }
+  .obj-card h3{font-size:15.5px; margin-bottom:8px; color:var(--navy);}
+  .obj-card p{font-size:13.8px; color:var(--muted); margin:0;}
+
+  /* PHASE CARDS */
+  .phase-card{
+    border-radius:16px; padding:26px; color:var(--navy);
+  }
+  .phase-card .glyph{font-size:22px; margin-bottom:14px; display:block;}
+  .phase-card .phase-dates{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; opacity:0.7; margin-bottom:6px;}
+  .phase-card h3{font-size:18px; margin-bottom:10px;}
+  .phase-card p{font-size:13.8px; margin:0; opacity:0.85;}
+
+  /* LEVER CARDS */
+  .lever-card{border-radius:14px; padding:20px;}
+  .lever-card .lever-tag{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; opacity:0.65; margin-bottom:8px; display:block;}
+  .lever-card h3{font-size:15.5px; margin-bottom:8px;}
+  .lever-card p{font-size:13.4px; margin:0; opacity:0.85;}
+
+  /* TABLES */
+  table.plan{width:100%; border-collapse:collapse; font-size:13.2px; background:var(--white); border-radius:12px; overflow:hidden;}
+  table.plan thead th{
+    background:var(--navy); color:var(--white); font-weight:600; text-align:left; padding:12px 14px; font-size:12px;
+    text-transform:uppercase; letter-spacing:0.03em;
+  }
+  table.plan tbody td, table.plan tbody th{
+    padding:12px 14px; border-bottom:1px solid var(--line); text-align:left;
+  }
+  table.plan tbody th{font-weight:600; color:var(--navy); white-space:nowrap;}
+  table.plan tbody tr:last-child td, table.plan tbody tr:last-child th{border-bottom:none; font-weight:700; background:var(--bg-alt);}
+  .cell-tag{
+    display:inline-block; font-size:11.5px; font-weight:600; padding:4px 9px; border-radius:6px;
+  }
+  .tag-pic{background:var(--c-corail-bg); color:var(--c-corail-fg);}
+  .tag-montee{background:var(--c-bleu-bg); color:var(--c-bleu-fg);}
+  .tag-soutien{background:var(--c-lavande-bg); color:var(--c-lavande-fg);}
+  .tag-continu{background:var(--c-menthe-bg); color:var(--c-menthe-fg);}
+  .tag-collecte{background:var(--c-peche-bg); color:var(--c-peche-fg);}
+  .tag-relance{background:var(--c-rose-bg); color:var(--c-rose-fg);}
+  .tag-none{color:var(--muted); font-size:13px;}
+  .table-scroll{overflow-x:auto;}
+
+  /* BUDGET TABS */
+  .budget-tabs{display:flex; gap:10px; margin-bottom:24px; flex-wrap:wrap;}
+  .tab-btn{
+    border:1px solid var(--line); background:var(--white); color:var(--navy); font-family:'Inter',sans-serif;
+    font-weight:600; font-size:13.5px; padding:10px 18px; border-radius:999px; cursor:pointer; transition:all .15s;
+  }
+  .tab-btn.active{background:var(--royal); color:var(--white); border-color:var(--royal);}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+  .scenario-range{
+    display:flex; align-items:baseline; gap:10px; margin-bottom:6px;
+  }
+  .scenario-range .amount{font-family:'Poppins',sans-serif; font-size:26px; font-weight:700; color:var(--navy);}
+  .scenario-note{color:var(--muted); font-size:13.5px; margin-bottom:22px;}
+
+  /* KPI CARDS */
+  .kpi-card{
+    background:var(--white); border:1px solid var(--line); border-radius:14px; padding:22px; text-align:left;
+  }
+  .kpi-card .kpi-value{font-family:'Poppins',sans-serif; font-size:24px; font-weight:700; color:var(--royal); margin-bottom:6px;}
+  .kpi-card .kpi-label{font-size:13px; color:var(--muted);}
+
+  /* INSIGHTS */
+  .insight-list{list-style:none; margin:0; padding:0; display:grid; gap:14px;}
+  .insight-list li{
+    background:var(--white); border-left:3px solid var(--orange); border-radius:0 10px 10px 0;
+    padding:14px 18px; font-size:14px; color:var(--ink);
+  }
+  .insight-list li b{color:var(--navy);}
+
+  /* PERSONAS */
+  .persona-card{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:22px;}
+  .persona-card .glyph{font-size:20px; color:var(--royal); margin-bottom:10px; display:block;}
+  .persona-card h3{font-size:15.5px; color:var(--navy); margin-bottom:4px;}
+  .persona-card .persona-meta{font-size:12px; color:var(--muted); margin-bottom:12px;}
+  .persona-card ul{margin:0; padding-left:18px; font-size:13.4px; color:var(--muted);}
+  .persona-card li{margin-bottom:5px;}
+
+  /* PYRAMID */
+  .pyramid{display:flex; flex-direction:column; align-items:center; gap:8px; max-width:640px; margin:0 auto;}
+  .pyramid-level{
+    width:100%; border-radius:12px; padding:18px 24px; color:var(--white);
+  }
+  .pyramid-level h3{font-size:14.5px; margin-bottom:4px;}
+  .pyramid-level p{font-size:13px; margin:0; opacity:0.88;}
+  .pyramid-level.l3{background:var(--navy); width:60%;}
+  .pyramid-level.l2{background:var(--royal); width:80%;}
+  .pyramid-level.l1{background:var(--lightblue); width:100%; color:var(--navy);}
+
+  /* FUNNEL */
+  .funnel{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .funnel-step{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:20px; position:relative;}
+  .funnel-step .fnum{font-family:'Poppins',sans-serif; font-weight:700; color:var(--orange); font-size:13px; margin-bottom:10px; display:block;}
+  .funnel-step h3{font-size:14.5px; color:var(--navy); margin-bottom:6px;}
+  .funnel-step p{font-size:13px; color:var(--muted); margin:0;}
+
+  /* RGPD */
+  .rgpd-col{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:24px;}
+  .rgpd-col h3{font-size:15.5px; color:var(--navy); margin-bottom:14px;}
+  .rgpd-col ul{margin:0; padding-left:18px; font-size:13.6px; color:var(--muted);}
+  .rgpd-col li{margin-bottom:8px;}
+
+  /* CLOSING */
+  .closing-box{background:var(--bg-alt); border-radius:16px; padding:30px 34px; margin-bottom:20px;}
+  .closing-box p{font-size:15px; color:var(--ink); margin:0;}
+  .closing-notes{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  .closing-note{border:1px solid var(--line); border-radius:12px; padding:18px; font-size:13.6px; color:var(--muted);}
+  .closing-note b{color:var(--navy);}
+
+  /* FOOTER */
+  footer{background:var(--navy); color:var(--white); padding:56px 0 32px 0;}
+  .footer-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px; margin-bottom:40px;}
+  .footer-brand span{font-family:'Poppins',sans-serif; font-weight:700; font-size:15px;}
+  .footer-baseline{font-size:12px; opacity:0.6; margin-top:6px;}
+  .contacts{display:flex; gap:36px; flex-wrap:wrap;}
+  .contact-card .name{font-weight:600; font-size:14px; margin-bottom:2px;}
+  .contact-card .role{font-size:12px; opacity:0.65; margin-bottom:8px;}
+  .contact-card .coord{font-size:12.5px; opacity:0.85;}
+  .contact-card .coord a{color:inherit; text-decoration:none;}
+  .contact-card .coord a:hover{text-decoration:underline;}
+  .contact-card.inactive{opacity:0.5;}
+  .contact-card .not-active{font-size:10.5px; text-transform:uppercase; letter-spacing:0.04em; opacity:0.8; margin-top:2px;}
+  .footer-rule{border-top:1px solid rgba(255,255,255,0.15); padding-top:20px; font-size:11.5px; opacity:0.55;}
+
+  @media (max-width:900px){
+    .grid-4{grid-template-columns:repeat(2,1fr);}
+    .grid-3{grid-template-columns:repeat(2,1fr);}
+    .funnel{grid-template-columns:repeat(2,1fr);}
+    .closing-notes{grid-template-columns:1fr;}
+    .hero h1{font-size:34px;}
+  }
+  @media (max-width:600px){
+    .grid-4, .grid-3, .grid-2{grid-template-columns:1fr;}
+    .funnel{grid-template-columns:1fr;}
+    .section{padding:52px 0;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="subnav">
+  <div class="subnav-inner">
+    <div class="brandmark">
+      <svg width="26" height="16" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="4" cy="6" r="3.4" stroke="#5271FF" stroke-width="1.3"/>
+        <path d="M0.5 15c0-3 1.6-5 3.5-5s3.5 2 3.5 5" stroke="#5271FF" stroke-width="1.3"/>
+        <circle cx="12" cy="6" r="3.4" fill="#5271FF"/>
+        <path d="M8.5 15c0-3 1.6-5 3.5-5s3.5 2 3.5 5" fill="#5271FF"/>
+        <circle cx="20" cy="6" r="3.4" stroke="#5271FF" stroke-width="1.3"/>
+        <path d="M16.5 15c0-3 1.6-5 3.5-5s3.5 2 3.5 5" stroke="#5271FF" stroke-width="1.3"/>
+        <circle cx="24.3" cy="1.6" r="1.1" fill="#F0532D"/>
+      </svg>
+      <span>THE GOOD WEB</span>
+    </div>
+    <a href="#contexte">Contexte</a>
+    <a href="#phases">Phases</a>
+    <a href="#leviers">Leviers</a>
+    <a href="#specs">Formats & KPIs</a>
+    <a href="#planning">Planning</a>
+    <a href="#budget">Budget</a>
+    <a href="#kpis">KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Data</a>
+    <a href="#funnel">Funnel</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container">
+    <span class="eyebrow">Recommandation média · Ouverture magasin</span>
+    <h1>O'TERA Béthune</h1>
+    <p class="lede">De la ZA Actipolis au Béthunois : un plan d'activation digitale pour transformer l'ouverture du 6 novembre en habitude d'achat durable.</p>
+    <div class="pills">
+      <div class="pill">
+        <span class="pill-label">Période</span>
+        <span class="pill-value">13 oct. → 24 déc. 2026 (11 semaines)</span>
+      </div>
+      <div class="pill">
+        <span class="pill-label">Budget</span>
+        <span class="pill-value">Non défini · 3 scénarios proposés</span>
+      </div>
+      <div class="pill">
+        <span class="pill-label">Objectif</span>
+        <span class="pill-value">Notoriété → trafic OP produit offert → fidélisation</span>
+      </div>
+      <div class="pill">
+        <span class="pill-label">Marché</span>
+        <span class="pill-value">Fouquières-lès-Béthune · Béthunois</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="contexte">
+  <div class="container">
+    <span class="kicker">↘ Contexte & objectifs recommandés</span>
+    <h2 class="h2">Un magasin, un rendez-vous, deux semaines pour convaincre</h2>
+    <p class="section-lede">O'TERA ouvre son prochain magasin le 6 novembre, en zone d'activité Actipolis à Fouquières-lès-Béthune, aux côtés de BUT. L'enseigne prévoit une offre d'ouverture avec un produit offert du 6 au 18 novembre. L'enjeu : teaser l'événement en amont, transformer les deux semaines d'offre en pic de trafic, puis convertir les visiteurs d'ouverture en clients réguliers du Béthunois.</p>
+    <div class="grid-4">
+      <div class="obj-card">
+        <div class="obj-num">1</div>
+        <h3>Faire connaître l'ouverture</h3>
+        <p>Installer O'TERA dans le paysage du Béthunois avant même l'ouverture, en s'appuyant sur ce qui différencie l'enseigne : le circuit court et la transparence du prix payé au producteur.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">2</div>
+        <h3>Générer un pic de trafic</h3>
+        <p>Transformer les deux semaines d'offre produit gratuit en pic de fréquentation mesurable, du 6 au 18 novembre.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">3</div>
+        <h3>Ancrer l'habitude d'achat</h3>
+        <p>Ramener les visiteurs d'ouverture en magasin dans les semaines suivantes, jusqu'à la période des fêtes.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">4</div>
+        <h3>Capitaliser sur l'ADN de l'enseigne</h3>
+        <p>Différencier O'TERA de ses voisins de zone commerciale en valorisant le lien producteur plutôt que la seule promotion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="phases">
+  <div class="container">
+    <span class="kicker">↘ Temps forts & phases d'activation</span>
+    <h2 class="h2">Trois temps, une même trajectoire</h2>
+    <p class="section-lede">Le plan proposé par vos soins (teasing, reveal, going) structure l'ensemble du dispositif média. Chaque phase prépare la suivante.</p>
+    <div class="grid-3">
+      <div class="phase-card" style="background:var(--c-bleu-bg);">
+        <span class="glyph">◐</span>
+        <span class="phase-dates">13 oct. → 5 nov.</span>
+        <h3>Teasing</h3>
+        <p>Faire monter la curiosité avant l'ouverture : compte à rebours, coulisses du chantier, rencontre des producteurs locaux partenaires du magasin.</p>
+      </div>
+      <div class="phase-card" style="background:var(--c-corail-bg);">
+        <span class="glyph">◆</span>
+        <span class="phase-dates">6 novembre</span>
+        <h3>Reveal · D-Day</h3>
+        <p>Le jour J : ouverture officielle et lancement de l'offre produit gratuit, avec une forte visibilité locale sur un temps court.</p>
+      </div>
+      <div class="phase-card" style="background:var(--c-lavande-bg);">
+        <span class="glyph">●</span>
+        <span class="phase-dates">6 nov. → 24 déc.</span>
+        <h3>Going</h3>
+        <p>L'OP produit offert porte le trafic jusqu'au 18 novembre, puis un fil rouge de fidélisation prend le relais jusqu'aux fêtes pour ancrer le réflexe O'TERA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="leviers">
+  <div class="container">
+    <span class="kicker">↘ Leviers recommandés</span>
+    <h2 class="h2">Un dispositif construit autour de la zone de chalandise</h2>
+    <p class="section-lede">Cinq leviers complémentaires, du ciblage géolocalisé au récit d'ouverture. La fidélisation post-visite (emailing/SMS/RCS) reste gérée par O'TERA en interne.</p>
+    <div class="grid-3">
+      <div class="lever-card" style="background:var(--c-lavande-bg); color:var(--c-lavande-fg);">
+        <span class="lever-tag">Cœur de dispositif</span>
+        <h3 style="color:var(--navy);">Drive-to-store</h3>
+        <p>Ciblage géolocalisé de la zone de chalandise réelle du site Actipolis, mesure des visites générées en magasin.</p>
+      </div>
+      <div class="lever-card" style="background:var(--c-corail-bg); color:var(--c-corail-fg);">
+        <span class="lever-tag">Teasing & reveal</span>
+        <h3 style="color:var(--navy);">Social Ads · Méta</h3>
+        <p>Formats stories et reels pour le teasing et le reveal, relais des avis clients et des coulisses d'ouverture.</p>
+      </div>
+      <div class="lever-card" style="background:var(--c-bleu-bg); color:var(--c-bleu-fg);">
+        <span class="lever-tag">Notoriété & retargeting</span>
+        <h3 style="color:var(--navy);">pDisplay · Display Programmatique</h3>
+        <p>Bannières géociblées sur le Béthunois, puis retargeting des visiteurs du site web et de l'appli O'TERA.</p>
+      </div>
+      <div class="lever-card" style="background:var(--c-rose-bg); color:var(--c-rose-fg);">
+        <span class="lever-tag">Storytelling</span>
+        <h3 style="color:var(--navy);">pStory Ads</h3>
+        <p>Mini-récits d'ouverture : compte à rebours, rencontre des producteurs, envers du décor du chantier.</p>
+      </div>
+      <div class="lever-card" style="background:var(--c-peche-bg); color:var(--c-peche-fg);">
+        <span class="lever-tag">Mobilité</span>
+        <h3 style="color:var(--navy);">L'audio · streaming & podcast</h3>
+        <p>Spots audio ciblés pendant les trajets domicile-travail vers le Béthunois, en complément du drive-to-store.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="specs">
+  <div class="container">
+    <span class="kicker">↘ Formats & KPIs de suivi par levier</span>
+    <h2 class="h2">Ce qu'il faut prévoir, ce qui sera mesuré</h2>
+    <p class="section-lede">Les spécifications techniques attendues pour chaque levier, et les indicateurs suivis en cours de campagne, d'après le kit média TGW.</p>
+    <div class="table-scroll">
+      <table class="plan">
+        <thead><tr><th>Levier</th><th>Format requis</th><th>KPIs suivis</th></tr></thead>
+        <tbody>
+          <tr>
+            <th>Drive-to-store · pDisplay</th>
+            <td>300x600, 300x250, 320x480, 728x90, 160x600, 320x50 px · jpeg, png ou gif</td>
+            <td>Impressions, clics, CTR, taux de complétion, étude socio-démo et de géolocalisation, + visite in-store</td>
+          </tr>
+          <tr>
+            <th>Social Ads · Méta</th>
+            <td>Post 1080x1080 px (png, jpeg) · Story 9:16 (1920x1080 px) mp4</td>
+            <td>Impressions, clics, CTR, reach, interactions (commentaires, réactions, partages), coût par interaction, CPM final</td>
+          </tr>
+          <tr>
+            <th>pStory Ads</th>
+            <td>Story 9:16 (1920x1080 px) mp4</td>
+            <td>Impressions, vues à 25/50/75/100%, taux de complétion, CTR</td>
+          </tr>
+          <tr>
+            <th>L'audio · streaming & podcast</th>
+            <td>1:1 (640x640 px) ou 9:16 (720x1280 px) · 15, 20 ou 30 secondes</td>
+            <td>Impressions, reach, clics, écoutes à 25/50/75/100%, taux de complétion, stats socio-démo, CPE & CPM finaux</td>
+          </tr>
+          <tr>
+            <th>Option · cTV IPTV & Replay</th>
+            <td>1920x1080 px (Full HD) 16:9 · 15 à 30 secondes standard</td>
+            <td>Impressions, clics, CTR, reach, taux de complétion, top chaînes de diffusion, étude socio-démo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="planning">
+  <div class="container">
+    <span class="kicker">↘ Planning d'activation par levier</span>
+    <h2 class="h2">Une intensité qui suit les temps forts</h2>
+    <p class="section-lede">Lecture par phase : montée, pic, soutien, ou relance selon le moment du dispositif.</p>
+    <div class="table-scroll">
+      <table class="plan">
+        <thead>
+          <tr>
+            <th>Levier</th>
+            <th>Teasing<br>13 oct. → 5 nov.</th>
+            <th>Reveal<br>6 nov.</th>
+            <th>Going · OP produit<br>6 → 18 nov.</th>
+            <th>Fidélisation<br>19 nov. → 24 déc.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Drive-to-store</th>
+            <td><span class="cell-tag tag-montee">Montée</span></td>
+            <td><span class="cell-tag tag-pic">Pic</span></td>
+            <td><span class="cell-tag tag-pic">Pic</span></td>
+            <td><span class="cell-tag tag-continu">Continu</span></td>
+          </tr>
+          <tr>
+            <th>Social Ads · Méta</th>
+            <td><span class="cell-tag tag-montee">Montée</span></td>
+            <td><span class="cell-tag tag-pic">Pic</span></td>
+            <td><span class="cell-tag tag-soutien">Soutien</span></td>
+            <td><span class="cell-tag tag-relance">Relance</span></td>
+          </tr>
+          <tr>
+            <th>pDisplay · Programmatique</th>
+            <td><span class="tag-none">Faible</span></td>
+            <td><span class="cell-tag tag-pic">Pic</span></td>
+            <td><span class="cell-tag tag-soutien">Soutien</span></td>
+            <td><span class="cell-tag tag-continu">Continu</span></td>
+          </tr>
+          <tr>
+            <th>pStory Ads</th>
+            <td><span class="cell-tag tag-pic">Pic</span></td>
+            <td><span class="cell-tag tag-pic">Pic</span></td>
+            <td><span class="tag-none">—</span></td>
+            <td><span class="tag-none">—</span></td>
+          </tr>
+          <tr>
+            <th>L'audio · streaming & podcast</th>
+            <td><span class="tag-none">—</span></td>
+            <td><span class="cell-tag tag-pic">Pic</span></td>
+            <td><span class="cell-tag tag-soutien">Soutien</span></td>
+            <td><span class="tag-none">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="budget">
+  <div class="container">
+    <span class="kicker">↘ Hypothèses budgétaires</span>
+    <h2 class="h2">Trois hypothèses resserrées, un même phasing</h2>
+    <p class="section-lede">Aucun budget n'ayant été fixé par O'TERA, voici trois hypothèses resserrées sur l'ensemble de la période (13 oct. → 24 déc., 11 semaines). Le mix de leviers s'adapte au niveau de budget disponible.</p>
+
+    <div class="budget-tabs">
+      <button class="tab-btn active" onclick="showTab('min', this)">Scénario minimum</button>
+      <button class="tab-btn" onclick="showTab('reco', this)">Scénario recommandé</button>
+      <button class="tab-btn" onclick="showTab('premium', this)">Scénario premium</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-min">
+      <div class="scenario-range"><span class="amount">3 000 €</span></div>
+      <p class="scenario-note">Version resserrée à l'essentiel : drive-to-store et social ads pour couvrir teasing, reveal et pic de trafic, sans pDisplay, pStory Ads ni audio.</p>
+      <div class="table-scroll">
+        <table class="plan">
+          <thead><tr><th>Levier</th><th>Budget</th><th>% total</th><th>Média unitaire</th><th>Volume estimé</th><th>KPI</th></tr></thead>
+          <tbody>
+            <tr><th>Drive-to-store</th><td>1 800 €</td><td>60%</td><td>CPM 10 €</td><td>180 K impr.</td><td>~95 visites incrémentales est.</td></tr>
+            <tr><th>Social Ads · Méta</th><td>1 200 €</td><td>40%</td><td>CPM 8 €</td><td>150 K impr.</td><td>CTR 1,6%</td></tr>
+            <tr><th>Total</th><td>3 000 €</td><td>100%</td><td>—</td><td>~330 K contacts cumulés</td><td>+95 visites incrémentales est.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-reco">
+      <div class="scenario-range"><span class="amount">5 000 €</span></div>
+      <p class="scenario-note">Ajoute le pDisplay programmatique pour élargir la couverture et le retargeting, en plus du socle drive-to-store + social.</p>
+      <div class="table-scroll">
+        <table class="plan">
+          <thead><tr><th>Levier</th><th>Budget</th><th>% total</th><th>Média unitaire</th><th>Volume estimé</th><th>KPI</th></tr></thead>
+          <tbody>
+            <tr><th>Drive-to-store</th><td>2 250 €</td><td>45%</td><td>CPM 10 €</td><td>225 K impr.</td><td>~120 visites incrémentales est.</td></tr>
+            <tr><th>Social Ads · Méta</th><td>1 500 €</td><td>30%</td><td>CPM 8 €</td><td>188 K impr.</td><td>CTR 1,7%</td></tr>
+            <tr><th>pDisplay · Programmatique</th><td>1 250 €</td><td>25%</td><td>CPM 6 €</td><td>208 K impr.</td><td>CTR 0,22%</td></tr>
+            <tr><th>Total</th><td>5 000 €</td><td>100%</td><td>—</td><td>~0,62 M contacts cumulés</td><td>+120 visites incrémentales est.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-premium">
+      <div class="scenario-range"><span class="amount">8 000 €</span></div>
+      <p class="scenario-note">Dispositif complet : drive-to-store, social ads, pDisplay, pStory Ads et audio, pour couvrir toutes les phases avec un vrai fil rouge créatif.</p>
+      <div class="table-scroll">
+        <table class="plan">
+          <thead><tr><th>Levier</th><th>Budget</th><th>% total</th><th>Média unitaire</th><th>Volume estimé</th><th>KPI</th></tr></thead>
+          <tbody>
+            <tr><th>Drive-to-store</th><td>2 800 €</td><td>35%</td><td>CPM 10 €</td><td>280 K impr.</td><td>~150 visites incrémentales est.</td></tr>
+            <tr><th>Social Ads · Méta</th><td>2 000 €</td><td>25%</td><td>CPM 8 €</td><td>250 K impr.</td><td>CTR 1,8%</td></tr>
+            <tr><th>pDisplay · Programmatique</th><td>1 600 €</td><td>20%</td><td>CPM 6 €</td><td>267 K impr.</td><td>CTR 0,24%</td></tr>
+            <tr><th>pStory Ads</th><td>800 €</td><td>10%</td><td>CPM 8 €</td><td>100 K impr.</td><td>Taux de complétion 68%</td></tr>
+            <tr><th>L'audio · streaming & podcast</th><td>800 €</td><td>10%</td><td>CPE 0,03 €</td><td>27 K écoutes</td><td>Taux de complétion visé 100%</td></tr>
+            <tr><th>Total</th><td>8 000 €</td><td>100%</td><td>—</td><td>~0,96 M contacts cumulés</td><td>+150 visites incrémentales est.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="margin-top:22px; background:var(--c-lavande-bg); border-radius:12px; padding:20px 24px; font-size:13.6px; color:var(--ink);">
+      <b style="color:var(--navy);">Option complémentaire · La cTV · IPTV & Replay.</b> 5 000 € sur 1 mois, de l'ouverture au fil rouge, CPM 30 €, avec une créa qui évolue entre le reveal et la phase de fidélisation. Environ 167 K impressions estimées. KPIs suivis : impressions, clics, CTR, reach, taux de complétion, top chaînes de diffusion. Activable en complément de n'importe laquelle des 3 hypothèses ci-dessus.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kpis">
+  <div class="container">
+    <span class="kicker">↘ KPIs de la recommandation</span>
+    <h2 class="h2">Ce que le dispositif doit démontrer</h2>
+    <div class="grid-4">
+      <div class="kpi-card">
+        <div class="kpi-value">20 à 35%</div>
+        <div class="kpi-label">Reach zone de chalandise sur la période</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">6 à 10 €</div>
+        <div class="kpi-label">CPM moyen (drive-to-store, social, display)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">1,6 à 1,8%</div>
+        <div class="kpi-label">CTR moyen social ads</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">+120</div>
+        <div class="kpi-label">Visites incrémentales estimées (scénario recommandé)</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="insights">
+  <div class="container">
+    <span class="kicker">↘ Ce qui permet de tenir l'objectif</span>
+    <h2 class="h2">La logique derrière le dispositif</h2>
+    <ul class="insight-list">
+      <li><b>La logique de phasing.</b> Chaque phase prépare la suivante : le teasing construit l'audience que le reveal convertit, puis que la fidélisation retient.</li>
+      <li><b>Le ciblage de zone de chalandise.</b> Tous les leviers pointent vers le même rayon d'action réel autour du site Actipolis, plutôt que vers un ciblage démographique générique.</li>
+      <li><b>L'usage du levier fidélisation.</b> Le drive-to-store et le retargeting display/audio ne s'arrêtent pas le 18 novembre : ils accompagnent le client jusqu'aux fêtes pour transformer l'essai en habitude, en parallèle des relances emailing/SMS gérées par O'TERA.</li>
+      <li><b>Pour renforcer le dispositif.</b> Une fiche Google Business Profile optimisée et une campagne SEA locale viendraient consolider la visibilité pendant tout le teasing, en complément du plan digital ci-dessus.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="audiences">
+  <div class="container">
+    <span class="kicker">↘ Segments d'audience prioritaires</span>
+    <h2 class="h2">Quatre publics, quatre logiques d'approche</h2>
+    <div class="grid-4">
+      <div class="persona-card">
+        <span class="glyph">●</span>
+        <h3>Familles du quotidien</h3>
+        <div class="persona-meta">30-50 ans · courses hebdomadaires</div>
+        <ul>
+          <li>Sensibles au rapport qualité-prix</li>
+          <li>Attirées par l'offre produit gratuit d'ouverture</li>
+          <li>Visite en famille, souvent le samedi</li>
+        </ul>
+      </div>
+      <div class="persona-card">
+        <span class="glyph">■</span>
+        <h3>Locavores engagés</h3>
+        <div class="persona-meta">35-65 ans · conso responsable</div>
+        <ul>
+          <li>Attentifs à l'origine des produits</li>
+          <li>Valorisent la transparence du prix producteur</li>
+          <li>Prêts à changer d'enseigne habituelle</li>
+        </ul>
+      </div>
+      <div class="persona-card">
+        <span class="glyph">◆</span>
+        <h3>Actifs de la zone commerciale</h3>
+        <div class="persona-meta">Public de passage · ZA Actipolis</div>
+        <ul>
+          <li>Déjà sur zone pour BUT ou alentours</li>
+          <li>Achat d'appoint ou découverte impulsive</li>
+          <li>Fenêtre courte, déjeuner ou fin de journée</li>
+        </ul>
+      </div>
+      <div class="persona-card">
+        <span class="glyph">⌂</span>
+        <h3>Seniors de proximité</h3>
+        <div class="persona-meta">Habitants du Béthunois</div>
+        <ul>
+          <li>Fidèles aux commerces de quartier</li>
+          <li>Sensibles à la relation humaine et au conseil</li>
+          <li>Réceptifs au discours producteur local</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="data">
+  <div class="container">
+    <span class="kicker">↘ Architecture des données à 3 niveaux</span>
+    <h2 class="h2">Une donnée de proximité comme socle</h2>
+    <div class="pyramid">
+      <div class="pyramid-level l3">
+        <h3>3ᵉ niveau · Data contextuelle & sémantique</h3>
+        <p>Actualité locale du Béthunois, météo, saisonnalité des produits.</p>
+      </div>
+      <div class="pyramid-level l2">
+        <h3>2ᵉ niveau · Data carte de fidélité & CRM local</h3>
+        <p>Historique d'achat et paniers, collectés en magasin dès l'ouverture.</p>
+      </div>
+      <div class="pyramid-level l1">
+        <h3>1ᵉʳ niveau · Data de mobilité & géolocalisation</h3>
+        <p>Zone de chalandise réelle du site Actipolis, flux piétons et véhicules.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="funnel">
+  <div class="container">
+    <span class="kicker">↘ Activation par étape de funnel</span>
+    <h2 class="h2">Du teasing à la fidélisation</h2>
+    <div class="funnel">
+      <div class="funnel-step">
+        <span class="fnum">01</span>
+        <h3>Awareness</h3>
+        <p>pStory Ads et Social Ads Méta pendant le teasing.</p>
+      </div>
+      <div class="funnel-step">
+        <span class="fnum">02</span>
+        <h3>Considération</h3>
+        <p>pDisplay géociblé et audio streaming autour du reveal.</p>
+      </div>
+      <div class="funnel-step">
+        <span class="fnum">03</span>
+        <h3>Conversion</h3>
+        <p>Drive-to-store et OP produit offert du 6 au 18 novembre.</p>
+      </div>
+      <div class="funnel-step">
+        <span class="fnum">04</span>
+        <h3>Fidélisation</h3>
+        <p>Retargeting display et audio jusqu'aux fêtes (emailing/SMS/RCS géré par O'TERA).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="rgpd">
+  <div class="container">
+    <span class="kicker">↘ Conformité RGPD & brand safety</span>
+    <h2 class="h2">Un dispositif cadré de bout en bout</h2>
+    <div class="grid-2">
+      <div class="rgpd-col">
+        <h3>1. Collecte & consentement</h3>
+        <ul>
+          <li>Consentement de géolocalisation pour le ciblage drive-to-store, conforme aux recommandations CNIL sur la donnée de mobilité</li>
+          <li>Bases conformes CNIL, sans croisement de données sensibles</li>
+          <li>La collecte carte de fidélité et les communications SMS/RCS post-visite restent gérées par O'TERA, hors périmètre de ce dispositif</li>
+        </ul>
+      </div>
+      <div class="rgpd-col">
+        <h3>2. Brand safety & qualité</h3>
+        <ul>
+          <li>Environnements publicitaires contrôlés, exclusion des univers concurrents ou sensibles</li>
+          <li>Viewability suivie sur le display, écoute vérifiée sur l'audio</li>
+          <li>Vérification tierce partie sur les campagnes programmatiques</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="closing">
+  <div class="container">
+    <span class="kicker">↘ Ce qui pilote la recommandation</span>
+    <h2 class="h2">De l'essai à l'habitude</h2>
+    <div class="closing-box">
+      <p>Cette recommandation s'articule autour d'un principe simple : la zone de chalandise réelle du site Actipolis sert de brief permanent au ciblage, du teasing jusqu'à la fidélisation. Le succès de l'ouverture se mesure autant au pic de trafic du 6 au 18 novembre qu'au taux de retour des nouveaux clients dans les semaines qui suivent : c'est là que se joue la bascule de l'essai à l'habitude.</p>
+    </div>
+    <div class="closing-notes">
+      <div class="closing-note"><b>Audio + drive-to-store.</b> L'audio capte l'attention pendant les trajets vers le Béthunois, le drive-to-store vérifie que ce trajet s'est bien terminé en magasin.</div>
+      <div class="closing-note"><b>La fidélisation n'est pas un prolongement de l'OP.</b> C'est elle qui transforme un client d'ouverture en client régulier, entre le retargeting média porté par ce dispositif et les relances CRM d'O'TERA centrées sur les producteurs locaux plutôt que sur la seule promotion.</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg width="34" height="20" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="4" cy="6" r="3.4" stroke="#FFFFFF" stroke-width="1.3"/>
+          <path d="M0.5 15c0-3 1.6-5 3.5-5s3.5 2 3.5 5" stroke="#FFFFFF" stroke-width="1.3"/>
+          <circle cx="12" cy="6" r="3.4" fill="#FFFFFF"/>
+          <path d="M8.5 15c0-3 1.6-5 3.5-5s3.5 2 3.5 5" fill="#FFFFFF"/>
+          <circle cx="20" cy="6" r="3.4" stroke="#FFFFFF" stroke-width="1.3"/>
+          <path d="M16.5 15c0-3 1.6-5 3.5-5s3.5 2 3.5 5" stroke="#FFFFFF" stroke-width="1.3"/>
+          <circle cx="24.3" cy="1.6" r="1.1" fill="#F0532D"/>
+        </svg>
+        <span style="display:block; margin-top:10px;">THE GOOD WEB</span>
+        <div class="footer-baseline">* The Good Audience</div>
+      </div>
+      <div class="contacts" style="gap:28px;">
+        <div class="contact-card">
+          <div class="name">Jérôme Fages</div>
+          <div class="role">Directeur commercial</div>
+          <div class="coord"><a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a></div>
+        </div>
+        <div class="contact-card">
+          <div class="name">Mathilde Coriton</div>
+          <div class="role">Directrice de clientèle</div>
+          <div class="coord"><a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a></div>
+        </div>
+        <div class="contact-card">
+          <div class="name">Leslie Rogé</div>
+          <div class="role">Cheffe de publicité</div>
+          <div class="coord"><a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a></div>
+        </div>
+        <div class="contact-card inactive">
+          <div class="name">Andrea</div>
+          <div class="role">Dès septembre</div>
+          <div class="coord">andrea@thegoodweb.eu</div>
+          <div class="not-active">Adresse pas encore activée</div>
+        </div>
+        <div class="contact-card inactive">
+          <div class="name">Sofien</div>
+          <div class="role">Dès septembre</div>
+          <div class="coord">sofien@thegoodweb.eu</div>
+          <div class="not-active">Adresse pas encore activée</div>
+        </div>
+        <div class="contact-card inactive">
+          <div class="name">Pôle activation</div>
+          <div class="role">Dès septembre</div>
+          <div class="coord">activation@thegoodweb.eu</div>
+          <div class="not-active">Adresse pas encore activée</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-rule">The Good Web · 40 rue Paradis, 13001 Marseille · +33 4 91 54 28 12 · Recommandation confidentielle établie pour O'TERA, sujette à ajustement selon budget validé.</div>
+  </div>
+</footer>
+
+<script>
+function showTab(name, btn){
+  document.querySelectorAll('.tab-panel').forEach(function(el){ el.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(el){ el.classList.remove('active'); });
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
