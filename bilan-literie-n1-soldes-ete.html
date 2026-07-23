@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilan Literie n°1 · Soldes été 2026 · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1B4F;
+  --roi:#5271FF;
+  --clair:#85B8F8;
+  --orange:#F0532D;
+  --peche:#FDEBE5;
+  --fond:#F6F8FE;
+  --txt:#1B2440;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--txt);background:#fff;line-height:1.6}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* ============ HERO ============ */
+.hero{background:var(--roi);color:#fff;padding:56px 0 48px}
+.hero .logo{display:flex;align-items:center;gap:16px;margin-bottom:44px}
+.hero .logo-txt{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:.02em;line-height:1.1}
+.hero .logo-base{font-size:.68rem;font-weight:500;opacity:.85;letter-spacing:.04em}
+.hero .eyebrow{color:#FFD9CC;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.hero h1{color:#fff;font-size:clamp(2rem,4.5vw,3.1rem);font-weight:800;line-height:1.12;margin-bottom:10px}
+.hero .sub{font-size:1.1rem;font-weight:500;opacity:.92;margin-bottom:28px}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:100px;padding:8px 18px;font-size:.85rem;font-weight:600}
+.pill b{font-weight:700}
+
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:50;background:var(--navy);box-shadow:0 2px 12px rgba(10,27,79,.25)}
+.nav ul{display:flex;gap:2px;list-style:none;overflow-x:auto;padding:0 28px;max-width:1120px;margin:0 auto}
+.nav a{display:block;color:#C9D6FF;text-decoration:none;font-size:.82rem;font-weight:600;padding:14px 14px;white-space:nowrap;border-bottom:3px solid transparent;transition:.2s}
+.nav a:hover{color:#fff;border-bottom-color:var(--orange)}
+
+/* ============ SECTIONS ============ */
+section{padding:64px 0}
+section:nth-of-type(even){background:var(--fond)}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;margin-bottom:8px}
+h2 .fl{color:var(--orange);margin-right:10px}
+.lead{font-size:1rem;color:#46507A;max-width:760px;margin-bottom:36px}
+h3{font-size:1.15rem;font-weight:700;margin:36px 0 18px}
+h3 .tag{display:inline-block;background:var(--navy);color:#fff;font-size:.72rem;font-weight:600;border-radius:100px;padding:4px 14px;margin-left:12px;vertical-align:middle;font-family:'Inter',sans-serif}
+h3 .tag.o{background:var(--orange)}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border-radius:16px;padding:24px;border:1px solid #E4EAFB;box-shadow:0 2px 10px rgba(10,27,79,.05)}
+section:nth-of-type(odd) .card{background:var(--fond)}
+.card .ico{font-size:1.2rem;color:var(--roi);margin-bottom:10px;display:block}
+.card h4{font-size:1rem;margin-bottom:8px}
+.card p{font-size:.87rem;color:#46507A}
+.c-lavande{background:#EEF1FF!important;border-color:#D8DFFF}
+.c-bleu{background:#EAF3FE!important;border-color:#CFE4FC}
+.c-menthe{background:#E9EDF8!important;border-color:#D3DBF0}
+.c-corail{background:var(--peche)!important;border-color:#F9D2C5}
+
+/* KPI bandeau */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin:28px 0}
+.kpi{background:var(--navy);color:#fff;border-radius:16px;padding:20px 18px;text-align:center}
+.kpi .v{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.5rem;line-height:1.15}
+.kpi .l{font-size:.74rem;font-weight:600;opacity:.8;text-transform:uppercase;letter-spacing:.06em;margin-top:5px}
+.kpi.o{background:var(--orange)}
+.kpi .obj{display:inline-block;margin-top:8px;font-size:.7rem;font-weight:700;background:rgba(255,255,255,.16);border-radius:100px;padding:3px 10px}
+
+/* ============ BARRES ============ */
+.bars{margin:10px 0 6px}
+.brow{display:grid;grid-template-columns:190px 1fr 92px;align-items:center;gap:12px;margin-bottom:9px;font-size:.85rem}
+.brow .bl{font-weight:600;color:var(--navy);text-align:right}
+.btrack{background:#E7ECFB;border-radius:100px;height:20px;overflow:hidden}
+.bfill{height:100%;border-radius:100px;min-width:6px}
+.bv{font-weight:700;color:var(--navy);font-size:.83rem}
+.f-navy{background:var(--navy)}.f-roi{background:var(--roi)}.f-clair{background:var(--clair)}.f-orange{background:var(--orange)}.f-cyan{background:#3FB9CE}
+.legend{display:flex;flex-wrap:wrap;gap:18px;font-size:.8rem;font-weight:600;color:#46507A;margin:8px 0 16px}
+.legend span::before{content:"";display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+.lg-navy::before{background:var(--navy)}.lg-roi::before{background:var(--roi)}.lg-clair::before{background:var(--clair)}.lg-orange::before{background:var(--orange)}.lg-cyan::before{background:#3FB9CE}
+
+/* ============ DONUTS ============ */
+.donutbox{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.donut{width:150px;height:150px;border-radius:50%;position:relative;flex-shrink:0}
+.donut::after{content:"";position:absolute;inset:26%;background:#fff;border-radius:50%}
+section:nth-of-type(odd) .card .donut::after{background:var(--fond)}
+.dlegend{font-size:.83rem}
+.dlegend li{list-style:none;margin-bottom:7px;font-weight:600;color:#46507A}
+.dlegend li::before{content:"";display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:8px;vertical-align:-1px;background:var(--dot)}
+
+/* ============ TABLES ============ */
+.tblwrap{overflow-x:auto;border-radius:14px;border:1px solid #E4EAFB;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:.84rem;min-width:640px}
+thead th{background:var(--navy);color:#fff;font-family:'Poppins',sans-serif;font-weight:600;font-size:.78rem;padding:12px 14px;text-align:left;white-space:nowrap}
+tbody td{padding:11px 14px;border-bottom:1px solid #EEF1FA;color:var(--txt)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#FAFBFF}
+tr.total td{font-weight:700;background:#EEF1FF;color:var(--navy)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+
+/* ciblage */
+.cible{display:grid;grid-template-columns:210px 1fr;gap:0;border-radius:16px;overflow:hidden;border:1px solid #E4EAFB;background:#fff}
+.cible .k{background:var(--navy);color:#fff;font-family:'Poppins',sans-serif;font-weight:600;font-size:.88rem;padding:20px;display:flex;align-items:flex-start}
+.cible .v{padding:20px;font-size:.88rem;color:#374067;border-bottom:1px solid #EEF1FA}
+.cible .v b{color:var(--navy)}
+
+.note{background:var(--peche);border-left:4px solid var(--orange);border-radius:0 12px 12px 0;padding:14px 18px;font-size:.85rem;color:#7A2E14;margin:22px 0}
+
+/* piges */
+.pige{border:2px dashed #C6D2F5;border-radius:16px;padding:26px 22px;text-align:center;background:#fff}
+.pige .g{font-size:1.5rem;color:var(--roi)}
+.pige h4{margin:8px 0 4px}
+.pige p{font-size:.82rem;color:#6A749C}
+
+/* ============ FOOTER ============ */
+footer{background:var(--roi);color:#fff;padding:64px 0 48px}
+footer h2{color:#fff;margin-bottom:30px}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:44px}
+.contact{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);border-radius:16px;padding:22px}
+.contact h4{color:#fff;font-size:1.05rem;margin-bottom:2px}
+.contact .role{font-size:.82rem;opacity:.85;margin-bottom:10px}
+.contact a{color:#fff;font-weight:600;font-size:.86rem;text-decoration:underline;text-underline-offset:3px}
+.contact .tel{display:block;font-size:.86rem;font-weight:600;margin-bottom:3px}
+.contact.off{opacity:.55}
+.contact.off .soon{font-size:.72rem;font-weight:700;background:rgba(255,255,255,.18);border-radius:100px;padding:3px 10px;display:inline-block;margin-top:6px}
+.flogo{display:flex;align-items:center;gap:14px;justify-content:center}
+
+@media(max-width:880px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .contacts{grid-template-columns:1fr}
+  .cible{grid-template-columns:1fr}
+  .cible .k{padding-bottom:6px}
+  .brow{grid-template-columns:120px 1fr 78px}
+}
+@media(max-width:560px){
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .brow{grid-template-columns:1fr;gap:4px}
+  .brow .bl{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="logo">
+      <svg width="118" height="52" viewBox="0 0 118 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="The Good Web">
+        <!-- 4 pictos : tête ronde + corps pilule, 1-2-4 contour, 3 plein, astérisque sur le 4e -->
+        <g stroke="#fff" stroke-width="2" fill="none">
+          <circle cx="8" cy="8" r="5"/><rect x="1" y="17" width="14" height="24" rx="7"/>
+          <circle cx="34" cy="8" r="5"/><rect x="27" y="17" width="14" height="24" rx="7"/>
+        </g>
+        <g fill="#fff">
+          <circle cx="60" cy="8" r="6"/><rect x="53" y="16" width="14" height="25" rx="7"/>
+        </g>
+        <g stroke="#fff" stroke-width="2" fill="none">
+          <circle cx="86" cy="8" r="5"/><rect x="79" y="17" width="14" height="24" rx="7"/>
+        </g>
+        <text x="95" y="8" fill="#fff" font-size="14" font-weight="700" font-family="Poppins,sans-serif">*</text>
+      </svg>
+      <div>
+        <div class="logo-txt">THE<br>GOOD<br>WEB</div>
+        <div class="logo-base">* The Good Audience</div>
+      </div>
+    </div>
+    <div class="eyebrow">Bilan de campagne</div>
+    <h1>Literie n°1<br>Soldes été 2026</h1>
+    <p class="sub">Campagne multi-leviers · Juin / Juillet 2026</p>
+    <div class="pills">
+      <span class="pill"><b>Offre :</b> -40 % sur tout le linge de lit</span>
+      <span class="pill"><b>Zones :</b> Plan de Campagne · Avignon · Toulon · Aubagne</span>
+      <span class="pill"><b>Leviers :</b> pDOOH · SMS · pStory Ads · cTV</span>
+      <span class="pill"><b>Période :</b> juin · juillet 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <ul>
+    <li><a href="#leviers">Leviers activés</a></li>
+    <li><a href="#hypothese">Hypothèse validée</a></li>
+    <li><a href="#dooh">Bilan pDOOH</a></li>
+    <li><a href="#sms">Bilan SMS</a></li>
+    <li><a href="#pstory">Bilan pStory Ads</a></li>
+    <li><a href="#ctv">Bilan cTV</a></li>
+    <li><a href="#synthese">Synthèse</a></li>
+    <li><a href="#piges">Piges</a></li>
+    <li><a href="#contacts">Contacts</a></li>
+  </ul>
+</nav>
+
+<!-- ================= LEVIERS ================= -->
+<section id="leviers">
+  <div class="wrap">
+    <h2><span class="fl">↘</span>Rappel des leviers activés</h2>
+    <p class="lead">Un dispositif full-funnel combinant visibilité locale, pression drive-to-store et couverture vidéo premium sur la zone de chalandise des quatre magasins.</p>
+    <div class="grid g4">
+      <div class="card c-lavande"><span class="ico">▣</span><h4>pDOOH</h4><p>Diffusion géo-ciblée sur les écrans digitaux de la zone : retail, outdoor, transit et commerces de proximité.</p></div>
+      <div class="card c-bleu"><span class="ico">◐</span><h4>SMS</h4><p>Marketing direct géolocalisé par magasin, vague initiale puis repasse sur la fin des soldes.</p></div>
+      <div class="card c-corail"><span class="ico">●</span><h4>pStory Ads</h4><p>Format story plein écran diffusé sur Facebook, Instagram et TikTok auprès des 30 ans et plus.</p></div>
+      <div class="card c-menthe"><span class="ico">■</span><h4>cTV Replay + OTT</h4><p>Spot vidéo sur les grandes chaînes en replay et les plateformes OTT, activable en local.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HYPOTHESE ================= -->
+<section id="hypothese">
+  <div class="wrap">
+    <h2><span class="fl">↘</span>Rappel de l'hypothèse validée</h2>
+    <p class="lead">Ciblage validé en amont de campagne : un cœur de cible 30-55 ans CSP+, sensible à la qualité, au confort et au design, sur un rayon de 40 km autour de chaque magasin.</p>
+
+    <div class="cible">
+      <div class="k">Géolocalisation</div>
+      <div class="v">+ 40 km autour de <b>Plan de Campagne, Aubagne, Avignon et Toulon</b>.</div>
+      <div class="k">Socio-démographie</div>
+      <div class="v"><b>Sexe :</b> hommes et femmes · <b>Âge :</b> 30 ans et plus (priorité 30-55 ans, CSP+ si possible) · <b>Revenus :</b> moyens à élevés (profil acheteur Audi/VW, propriétaires ou actifs du privé) · <b>Profil :</b> urbains, connectés, sensibles à la qualité et à l'esthétique.</div>
+      <div class="k">Centres d'intérêt</div>
+      <div class="v"><b>Affinitaires :</b> maison, bien-être, décoration, lifestyle · <b>Centres d'intérêt :</b> sommeil, confort, design d'intérieur, produits durables · <b>Attentes :</b> repos optimal, esthétisme, marque responsable · <b>Valeurs :</b> sérénité, durabilité, confort haut de gamme.</div>
+      <div class="k">Comportements digitaux</div>
+      <div class="v"><b>Points d'ancrage :</b> boutiques déco &amp; design, e-shops bien-être, pop-ups immersifs · <b>Moteurs d'achat :</b> confort perçu, design produit, promesse de sommeil réparateur · <b>Canaux d'influence :</b> Instagram, Pinterest, YouTube, podcasts bien-être, influenceurs déco &amp; lifestyle.</div>
+      <div class="k">Complément data</div>
+      <div class="v"><b>Data The Bradery :</b> personnes ayant consulté des ventes premium, privées et des marques de literie et décoration partenaires · <b>Data Leboncoin :</b> profils acheteurs seconde main, immobilier, décoration, aménagement · <b>Réseau DOOH :</b> entre 115 et 375 écrans disponibles sur la zone de chalandise.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DOOH ================= -->
+<section id="dooh">
+  <div class="wrap">
+    <h2><span class="fl">↘</span>Bilan pDOOH</h2>
+    <p class="lead">340 écrans mobilisés sur la zone, portés par les commerces de proximité et le retail. Le transit délivre le plus fort volume de passage de la campagne.</p>
+
+    <h3>ODV vs passage <span class="tag">par typologie d'écran</span></h3>
+    <div class="legend"><span class="lg-roi">ODV (occasion de voir)</span><span class="lg-clair">Passage</span></div>
+    <div class="bars">
+      <div class="brow"><div class="bl">Retails &amp; Malls</div><div class="btrack"><div class="bfill f-roi" style="width:10.1%"></div></div><div class="bv">49 799</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-clair" style="width:35.5%"></div></div><div class="bv">174 497</div></div>
+      <div class="brow"><div class="bl">Outdoor</div><div class="btrack"><div class="bfill f-roi" style="width:7.3%"></div></div><div class="bv">35 934</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-clair" style="width:38.6%"></div></div><div class="bv">189 834</div></div>
+      <div class="brow"><div class="bl">Transit</div><div class="btrack"><div class="bfill f-roi" style="width:21.7%"></div></div><div class="bv">106 515</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-clair" style="width:100%"></div></div><div class="bv">491 285</div></div>
+      <div class="brow"><div class="bl">Commerces de proximité</div><div class="btrack"><div class="bfill f-roi" style="width:11.7%"></div></div><div class="bv">57 277</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-clair" style="width:54.6%"></div></div><div class="bv">268 193</div></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:36px">
+      <div class="card">
+        <h3 style="margin-top:0">Typologie d'écrans</h3>
+        <div class="donutbox">
+          <div class="donut" style="background:conic-gradient(var(--navy) 0 35%, var(--roi) 35% 45.6%, #3FB9CE 45.6% 55.9%, var(--clair) 55.9% 100%)"></div>
+          <ul class="dlegend">
+            <li style="--dot:var(--clair)">Commerces de proximité · 150 écrans (44,1 %)</li>
+            <li style="--dot:var(--navy)">Retails &amp; Malls · 119 écrans (35 %)</li>
+            <li style="--dot:var(--roi)">Outdoor · 36 écrans (10,6 %)</li>
+            <li style="--dot:#3FB9CE">Transit · 35 écrans (10,3 %)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Répartition budgétaire <span class="tag">5 000 €</span></h3>
+        <div class="donutbox">
+          <div class="donut" style="background:conic-gradient(var(--navy) 0 34%, var(--roi) 34% 64%, #3FB9CE 64% 84%, var(--clair) 84% 100%)"></div>
+          <ul class="dlegend">
+            <li style="--dot:var(--navy)">Retails &amp; Malls · 1 700 € (34 %)</li>
+            <li style="--dot:var(--roi)">Outdoor · 1 500 € (30 %)</li>
+            <li style="--dot:#3FB9CE">Transit · 1 000 € (20 %)</li>
+            <li style="--dot:var(--clair)">Commerces de proximité · 800 € (16 %)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SMS ================= -->
+<section id="sms">
+  <div class="wrap">
+    <h2><span class="fl">↘</span>Bilan SMS</h2>
+    <p class="lead">Deux vagues de diffusion géolocalisées par magasin, avec un taux de désabonnement marginal (53 STOP sur la vague initiale, 4 sur la repasse).</p>
+
+    <h3>Vague initiale <span class="tag">délivrés vs clics</span></h3>
+    <div class="legend"><span class="lg-navy">Délivrés</span><span class="lg-roi">Clics</span></div>
+    <div class="bars">
+      <div class="brow"><div class="bl">Plan de Campagne</div><div class="btrack"><div class="bfill f-navy" style="width:100%"></div></div><div class="bv">10 000</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-roi" style="width:67%"></div></div><div class="bv">6 700</div></div>
+      <div class="brow"><div class="bl">Aubagne</div><div class="btrack"><div class="bfill f-navy" style="width:55%"></div></div><div class="bv">5 500</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-roi" style="width:27%"></div></div><div class="bv">2 700</div></div>
+      <div class="brow"><div class="bl">Toulon</div><div class="btrack"><div class="bfill f-navy" style="width:55%"></div></div><div class="bv">5 500</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-roi" style="width:28%"></div></div><div class="bv">2 800</div></div>
+      <div class="brow"><div class="bl">Avignon</div><div class="btrack"><div class="bfill f-navy" style="width:55%"></div></div><div class="bv">5 500</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-roi" style="width:26%"></div></div><div class="bv">2 600</div></div>
+    </div>
+
+    <h3>Repasse <span class="tag">délivrés vs clics</span></h3>
+    <div class="legend"><span class="lg-navy">Délivrés</span><span class="lg-roi">Clics</span></div>
+    <div class="bars">
+      <div class="brow"><div class="bl">Plan de Campagne</div><div class="btrack"><div class="bfill f-navy" style="width:100%"></div></div><div class="bv">6 700</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-roi" style="width:46%"></div></div><div class="bv">3 100</div></div>
+      <div class="brow"><div class="bl">Aubagne</div><div class="btrack"><div class="bfill f-navy" style="width:40%"></div></div><div class="bv">2 700</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-roi" style="width:12%"></div></div><div class="bv">800</div></div>
+      <div class="brow"><div class="bl">Toulon</div><div class="btrack"><div class="bfill f-navy" style="width:42%"></div></div><div class="bv">2 800</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-roi" style="width:10%"></div></div><div class="bv">700</div></div>
+      <div class="brow"><div class="bl">Avignon</div><div class="btrack"><div class="bfill f-navy" style="width:39%"></div></div><div class="bv">2 600</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-roi" style="width:10%"></div></div><div class="bv">650</div></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:36px">
+      <div class="card">
+        <h3 style="margin-top:0">STOP · vague initiale <span class="tag">53</span></h3>
+        <div class="donutbox">
+          <div class="donut" style="background:conic-gradient(var(--navy) 0 22.6%, #3FB9CE 22.6% 62.2%, var(--roi) 62.2% 84.9%, var(--clair) 84.9% 100%)"></div>
+          <ul class="dlegend">
+            <li style="--dot:#3FB9CE">Aubagne · 21</li>
+            <li style="--dot:var(--navy)">Plan de Campagne · 12</li>
+            <li style="--dot:var(--roi)">Toulon · 12</li>
+            <li style="--dot:var(--clair)">Avignon · 8</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">STOP · repasse <span class="tag">4</span></h3>
+        <div class="donutbox">
+          <div class="donut" style="background:conic-gradient(var(--navy) 0 25%, #3FB9CE 25% 75%, var(--clair) 75% 100%)"></div>
+          <ul class="dlegend">
+            <li style="--dot:#3FB9CE">Aubagne · 2</li>
+            <li style="--dot:var(--navy)">Plan de Campagne · 1</li>
+            <li style="--dot:var(--clair)">Avignon · 1</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PSTORY ================= -->
+<section id="pstory">
+  <div class="wrap">
+    <h2><span class="fl">↘</span>Bilan pStory Ads</h2>
+    <p class="lead">TikTok domine largement le dispositif social : 40 % du volume d'impressions au CPM le plus bas de la campagne (1,89 €), pour un CPC à 1,22 €.</p>
+
+    <div class="kpis">
+      <div class="kpi"><div class="v">615 424</div><div class="l">Impressions</div></div>
+      <div class="kpi"><div class="v">828</div><div class="l">Clics</div></div>
+      <div class="kpi"><div class="v">0,13 %</div><div class="l">CTR</div></div>
+      <div class="kpi"><div class="v">2,44 €</div><div class="l">CPM final</div></div>
+      <div class="kpi"><div class="v">1,81 €</div><div class="l">CPC final</div></div>
+      <div class="kpi o"><div class="v">1 500 €</div><div class="l">Budget</div></div>
+    </div>
+
+    <h3>Résumé par levier</h3>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Levier</th><th class="num">Reach</th><th class="num">Impressions</th><th class="num">Clics</th><th class="num">CTR</th><th class="num">Vues 25 %</th><th class="num">50 %</th><th class="num">75 %</th><th class="num">100 %</th><th class="num">CPM</th><th class="num">CPC</th><th class="num">Budget</th></tr></thead>
+        <tbody>
+          <tr><td>Facebook</td><td class="num">28 819</td><td class="num">93 600</td><td class="num">148</td><td class="num">0,16 %</td><td class="num">1 654</td><td class="num">807</td><td class="num">602</td><td class="num">419</td><td class="num">4,54 €</td><td class="num">2,87 €</td><td class="num">425 €</td></tr>
+          <tr><td>Instagram</td><td class="num">56 583</td><td class="num">179 041</td><td class="num">150</td><td class="num">0,08 %</td><td class="num">2 107</td><td class="num">1 026</td><td class="num">693</td><td class="num">544</td><td class="num">2,39 €</td><td class="num">2,85 €</td><td class="num">428 €</td></tr>
+          <tr><td>TikTok</td><td class="num">246 327</td><td class="num">342 783</td><td class="num">530</td><td class="num">0,15 %</td><td class="num">5 868</td><td class="num">1 863</td><td class="num">1 004</td><td class="num">635</td><td class="num">1,89 €</td><td class="num">1,22 €</td><td class="num">647 €</td></tr>
+          <tr class="total"><td>Total</td><td class="num">·</td><td class="num">615 424</td><td class="num">828</td><td class="num">0,13 %</td><td class="num">9 629</td><td class="num">3 696</td><td class="num">2 299</td><td class="num">1 598</td><td class="num">2,44 €</td><td class="num">1,81 €</td><td class="num">1 500 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Reach vs impressions</h3>
+    <div class="legend"><span class="lg-roi">Reach</span><span class="lg-orange">Impressions</span></div>
+    <div class="bars">
+      <div class="brow"><div class="bl">Facebook</div><div class="btrack"><div class="bfill f-roi" style="width:8.4%"></div></div><div class="bv">28 819</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-orange" style="width:27.3%"></div></div><div class="bv">93 600</div></div>
+      <div class="brow"><div class="bl">Instagram</div><div class="btrack"><div class="bfill f-roi" style="width:16.5%"></div></div><div class="bv">56 583</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-orange" style="width:52.2%"></div></div><div class="bv">179 041</div></div>
+      <div class="brow"><div class="bl">TikTok</div><div class="btrack"><div class="bfill f-roi" style="width:71.9%"></div></div><div class="bv">246 327</div></div>
+      <div class="brow"><div class="bl"></div><div class="btrack"><div class="bfill f-orange" style="width:100%"></div></div><div class="bv">342 783</div></div>
+    </div>
+
+    <h3>Analyse socio-démo <span class="tag o">Meta</span></h3>
+    <div class="grid g4">
+      <div class="card"><h4>30-34 ans</h4><div class="donutbox"><div class="donut" style="width:110px;height:110px;background:conic-gradient(var(--clair) 0 58.3%, #3FB9CE 58.3% 99.8%, var(--navy) 99.8% 100%)"></div></div><p style="margin-top:12px">Femmes 58,3 % · Hommes 41,5 %</p></div>
+      <div class="card"><h4>35-44 ans</h4><div class="donutbox"><div class="donut" style="width:110px;height:110px;background:conic-gradient(#3FB9CE 0 58.6%, var(--clair) 58.6% 98.6%, var(--navy) 98.6% 100%)"></div></div><p style="margin-top:12px">Hommes 58,6 % · Femmes 40 %</p></div>
+      <div class="card"><h4>45-54 ans</h4><div class="donutbox"><div class="donut" style="width:110px;height:110px;background:conic-gradient(#3FB9CE 0 50.4%, var(--clair) 50.4% 98.8%, var(--navy) 98.8% 100%)"></div></div><p style="margin-top:12px">Hommes 50,4 % · Femmes 48,4 %</p></div>
+      <div class="card"><h4>55 ans et +</h4><div class="donutbox"><div class="donut" style="width:110px;height:110px;background:conic-gradient(var(--clair) 0 56.7%, #3FB9CE 56.7% 98.9%, var(--navy) 98.9% 100%)"></div></div><p style="margin-top:12px">Femmes 56,7 % · Hommes 42,2 %</p></div>
+    </div>
+
+    <h3>Analyse socio-démo <span class="tag o">TikTok</span></h3>
+    <div class="grid g4">
+      <div class="card"><h4>30-34 ans</h4><div class="donutbox"><div class="donut" style="width:110px;height:110px;background:conic-gradient(#3FB9CE 0 62%, var(--clair) 62% 99%, var(--navy) 99% 100%)"></div></div><p style="margin-top:12px">Hommes 62 % · Femmes 37 %</p></div>
+      <div class="card"><h4>35-44 ans</h4><div class="donutbox"><div class="donut" style="width:110px;height:110px;background:conic-gradient(var(--clair) 0 55.2%, #3FB9CE 55.2% 100%)"></div></div><p style="margin-top:12px">Femmes 55,2 % · Hommes 44,7 %</p></div>
+      <div class="card"><h4>45-54 ans</h4><div class="donutbox"><div class="donut" style="width:110px;height:110px;background:conic-gradient(var(--clair) 0 56.9%, #3FB9CE 56.9% 100%)"></div></div><p style="margin-top:12px">Femmes 56,9 % · Hommes 43 %</p></div>
+      <div class="card"><h4>55 ans et +</h4><div class="donutbox"><div class="donut" style="width:110px;height:110px;background:conic-gradient(var(--clair) 0 57.1%, #3FB9CE 57.1% 99.9%, var(--navy) 99.9% 100%)"></div></div><p style="margin-top:12px">Femmes 57,1 % · Hommes 42,8 %</p></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:36px">
+      <div class="card">
+        <h3 style="margin-top:0">Répartition par âge <span class="tag">global</span></h3>
+        <div class="donutbox">
+          <div class="donut" style="background:conic-gradient(var(--clair) 0 50%, #3FB9CE 50% 68.8%, var(--roi) 68.8% 84.3%, var(--navy) 84.3% 100%)"></div>
+          <ul class="dlegend">
+            <li style="--dot:var(--clair)">30-34 ans · 50 %</li>
+            <li style="--dot:#3FB9CE">35-44 ans · 18,8 %</li>
+            <li style="--dot:var(--roi)">45-54 ans · 15,5 %</li>
+            <li style="--dot:var(--navy)">55 ans et + · 15,7 %</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Budget par plateforme</h3>
+        <div class="bars" style="margin-top:18px">
+          <div class="brow"><div class="bl">TikTok</div><div class="btrack"><div class="bfill f-orange" style="width:100%"></div></div><div class="bv">647 €</div></div>
+          <div class="brow"><div class="bl">Instagram</div><div class="btrack"><div class="bfill f-roi" style="width:66.2%"></div></div><div class="bv">428 €</div></div>
+          <div class="brow"><div class="bl">Facebook</div><div class="btrack"><div class="bfill f-navy" style="width:65.7%"></div></div><div class="bv">425 €</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTV ================= -->
+<section id="ctv">
+  <div class="wrap">
+    <h2><span class="fl">↘</span>Bilan cTV Replay + OTT</h2>
+    <p class="lead">Une performance très solide en juillet 2026 : tous les objectifs sont atteints ou dépassés, avec une répétition maîtrisée de 3 (capping max 5) et un taux de vues à 100 % supérieur de 63 % à l'objectif.</p>
+
+    <div class="kpis">
+      <div class="kpi"><div class="v">290 379</div><div class="l">Impressions</div><span class="obj">Objectif : 287,5 K ✓</span></div>
+      <div class="kpi"><div class="v">122 061</div><div class="l">Vues à 100 %</div><span class="obj">Objectif : 75 K ✓</span></div>
+      <div class="kpi"><div class="v">96 299</div><div class="l">Reach</div><span class="obj">Objectif : 41,7 K ✓</span></div>
+      <div class="kpi"><div class="v">1 823</div><div class="l">Clics</div><span class="obj">CPC 4,11 €</span></div>
+      <div class="kpi o"><div class="v">3</div><div class="l">Répétition</div><span class="obj">Capping max 5</span></div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="margin-top:0">Analyse de l'audience <span class="tag">60 % femmes</span></h3>
+        <div class="bars" style="margin-top:16px">
+          <div class="brow"><div class="bl">Achat maison</div><div class="btrack"><div class="bfill f-clair" style="width:100%"></div></div><div class="bv">32 %</div></div>
+          <div class="brow"><div class="bl">Déménagement</div><div class="btrack"><div class="bfill f-cyan" style="width:71.9%"></div></div><div class="bv">23 %</div></div>
+          <div class="brow"><div class="bl">Naissance</div><div class="btrack"><div class="bfill f-roi" style="width:62.5%"></div></div><div class="bv">20 %</div></div>
+          <div class="brow"><div class="bl">Shopping</div><div class="btrack"><div class="bfill f-navy" style="width:46.9%"></div></div><div class="bv">15 %</div></div>
+          <div class="brow"><div class="bl">Literie / équipement</div><div class="btrack"><div class="bfill f-orange" style="width:31.3%"></div></div><div class="bv">10 %</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Cadre de diffusion</h3>
+        <div class="bars" style="margin-top:16px">
+          <div class="brow"><div class="bl">TF1</div><div class="btrack"><div class="bfill f-clair" style="width:100%"></div></div><div class="bv">13 %</div></div>
+          <div class="brow"><div class="bl">M6+</div><div class="btrack"><div class="bfill f-cyan" style="width:100%"></div></div><div class="bv">13 %</div></div>
+          <div class="brow"><div class="bl">France TV</div><div class="btrack"><div class="bfill f-roi" style="width:84.6%"></div></div><div class="bv">11 %</div></div>
+          <div class="brow"><div class="bl">BFM</div><div class="btrack"><div class="bfill f-navy" style="width:76.9%"></div></div><div class="bv">10 %</div></div>
+          <div class="brow"><div class="bl">myCanal</div><div class="btrack"><div class="bfill f-roi" style="width:61.5%"></div></div><div class="bv">8 %</div></div>
+          <div class="brow"><div class="bl">Arte</div><div class="btrack"><div class="bfill f-cyan" style="width:53.8%"></div></div><div class="bv">7 %</div></div>
+          <div class="brow"><div class="bl">Netflix</div><div class="btrack"><div class="bfill f-orange" style="width:46.2%"></div></div><div class="bv">6 %</div></div>
+          <div class="brow"><div class="bl">Prime Video</div><div class="btrack"><div class="bfill f-orange" style="width:30.8%"></div></div><div class="bv">4 %</div></div>
+          <div class="brow"><div class="bl">Disney+</div><div class="btrack"><div class="bfill f-orange" style="width:15.4%"></div></div><div class="bv">2 %</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note"><b>Analyse horaire et journalière :</b> les statistiques sont les plus performantes le <b>vendredi à 17 h</b>, jour où les meilleurs taux de vues sont obtenus. Un enseignement à réinvestir sur les prochaines vagues.</div>
+
+    <h3>Performances par éditeur <span class="tag">Replay</span></h3>
+    <div class="grid g2">
+      <div>
+        <h4 style="margin:0 0 10px">TF1 Replay (TF1+)</h4>
+        <div class="tblwrap"><table style="min-width:0">
+          <thead><tr><th>Programme</th><th class="num">Impr.</th><th class="num">Poids</th><th class="num">CTR</th><th class="num">Compl.</th></tr></thead>
+          <tbody>
+            <tr><td>Demain nous appartient</td><td class="num">8 464</td><td class="num">25 %</td><td class="num">0,98 %</td><td class="num">89,53 %</td></tr>
+            <tr><td>Ici tout commence</td><td class="num">6 771</td><td class="num">20 %</td><td class="num">0,95 %</td><td class="num">88,10 %</td></tr>
+            <tr><td>Grands Reportages</td><td class="num">5 417</td><td class="num">16 %</td><td class="num">0,92 %</td><td class="num">90,06 %</td></tr>
+            <tr><td>Les JT (13h &amp; 20h)</td><td class="num">5 078</td><td class="num">15 %</td><td class="num">0,96 %</td><td class="num">89,56 %</td></tr>
+            <tr><td>Autres TF1+</td><td class="num">8 126</td><td class="num">24 %</td><td class="num">0,90 %</td><td class="num">86,42 %</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div>
+        <h4 style="margin:0 0 10px">M6 Replay</h4>
+        <div class="tblwrap"><table style="min-width:0">
+          <thead><tr><th>Programme</th><th class="num">Impr.</th><th class="num">Poids</th><th class="num">CTR</th><th class="num">Compl.</th></tr></thead>
+          <tbody>
+            <tr><td>Maison à vendre / Recherche appartement</td><td class="num">9 920</td><td class="num">30 %</td><td class="num">1,02 %</td><td class="num">91,78 %</td></tr>
+            <tr><td>Capital / Zone Interdite</td><td class="num">6 613</td><td class="num">20 %</td><td class="num">0,96 %</td><td class="num">89,58 %</td></tr>
+            <tr><td>Scènes de ménages</td><td class="num">4 960</td><td class="num">15 %</td><td class="num">0,93 %</td><td class="num">86,45 %</td></tr>
+            <tr><td>Le 1945 (JT)</td><td class="num">3 968</td><td class="num">12 %</td><td class="num">0,91 %</td><td class="num">88,50 %</td></tr>
+            <tr><td>Autres 6play</td><td class="num">7 606</td><td class="num">23 %</td><td class="num">0,88 %</td><td class="num">85,92 %</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div>
+        <h4 style="margin:0 0 10px">France TV Replay (france.tv)</h4>
+        <div class="tblwrap"><table style="min-width:0">
+          <thead><tr><th>Programme</th><th class="num">Impr.</th><th class="num">Poids</th><th class="num">CTR</th><th class="num">Compl.</th></tr></thead>
+          <tbody>
+            <tr><td>ICI 19/20 Provence-Alpes</td><td class="num">7 293</td><td class="num">25 %</td><td class="num">0,99 %</td><td class="num">90,58 %</td></tr>
+            <tr><td>Un si grand soleil</td><td class="num">5 834</td><td class="num">20 %</td><td class="num">0,95 %</td><td class="num">88,39 %</td></tr>
+            <tr><td>Affaire Conclue</td><td class="num">4 668</td><td class="num">16 %</td><td class="num">0,91 %</td><td class="num">87,19 %</td></tr>
+            <tr><td>Télématin</td><td class="num">4 376</td><td class="num">15 %</td><td class="num">0,93 %</td><td class="num">89,34 %</td></tr>
+            <tr><td>Autres France.tv</td><td class="num">7 001</td><td class="num">24 %</td><td class="num">0,92 %</td><td class="num">86,40 %</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div>
+        <h4 style="margin:0 0 10px">BFM / RMC</h4>
+        <div class="tblwrap"><table style="min-width:0">
+          <thead><tr><th>Programme</th><th class="num">Impr.</th><th class="num">Poids</th><th class="num">CTR</th><th class="num">Compl.</th></tr></thead>
+          <tbody>
+            <tr><td>BFM Marseille Provence / BFM Var</td><td class="num">7 276</td><td class="num">30 %</td><td class="num">1,05 %</td><td class="num">89,15 %</td></tr>
+            <tr><td>Wheeler Dealers France</td><td class="num">4 850</td><td class="num">20 %</td><td class="num">0,94 %</td><td class="num">88,72 %</td></tr>
+            <tr><td>Aventures de maçonnerie / Cabanes</td><td class="num">3 880</td><td class="num">16 %</td><td class="num">0,92 %</td><td class="num">89,79 %</td></tr>
+            <tr><td>Le Fil Info Live</td><td class="num">3 638</td><td class="num">15 %</td><td class="num">0,89 %</td><td class="num">87,11 %</td></tr>
+            <tr><td>Autres RMC BFM Play</td><td class="num">4 608</td><td class="num">19 %</td><td class="num">0,88 %</td><td class="num">86,48 %</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <h3>Performances par éditeur <span class="tag">Fast &amp; SVOD</span></h3>
+    <div class="grid g2">
+      <div>
+        <h4 style="margin:0 0 10px">myCanal</h4>
+        <div class="tblwrap"><table style="min-width:0">
+          <thead><tr><th>Programme</th><th class="num">Impr.</th><th class="num">Poids</th><th class="num">CTR</th><th class="num">Compl.</th></tr></thead>
+          <tbody>
+            <tr><td>Le Grand Cinéma de Canal+</td><td class="num">6 175</td><td class="num">30 %</td><td class="num">0,91 %</td><td class="num">92,34 %</td></tr>
+            <tr><td>La Boîte à Questions</td><td class="num">4 117</td><td class="num">20 %</td><td class="num">1,01 %</td><td class="num">86,65 %</td></tr>
+            <tr><td>Documentaires Société &amp; Design</td><td class="num">3 293</td><td class="num">16 %</td><td class="num">0,95 %</td><td class="num">89,12 %</td></tr>
+            <tr><td>Clique / Enquêtes Canal</td><td class="num">2 882</td><td class="num">14 %</td><td class="num">0,93 %</td><td class="num">87,53 %</td></tr>
+            <tr><td>Autres MyCanal</td><td class="num">4 116</td><td class="num">20 %</td><td class="num">0,92 %</td><td class="num">86,98 %</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div>
+        <h4 style="margin:0 0 10px">Arte</h4>
+        <div class="tblwrap"><table style="min-width:0">
+          <thead><tr><th>Programme</th><th class="num">Impr.</th><th class="num">Poids</th><th class="num">Compl.</th></tr></thead>
+          <tbody>
+            <tr><td>Documentaires Architecture &amp; Design</td><td class="num">2 476</td><td class="num">27 %</td><td class="num">91,02 %</td></tr>
+            <tr><td>Séries internationales</td><td class="num">2 109</td><td class="num">23 %</td><td class="num">90,16 %</td></tr>
+            <tr><td>Arte Reportage</td><td class="num">1 467</td><td class="num">16 %</td><td class="num">88,50 %</td></tr>
+            <tr><td>Émissions Bien-être &amp; Santé</td><td class="num">1 376</td><td class="num">15 %</td><td class="num">89,95 %</td></tr>
+            <tr><td>Autres Arte.tv</td><td class="num">1 743</td><td class="num">19 %</td><td class="num">87,12 %</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div>
+        <h4 style="margin:0 0 10px">Netflix</h4>
+        <div class="tblwrap"><table style="min-width:0">
+          <thead><tr><th>Programme</th><th class="num">Impr.</th><th class="num">Poids</th><th class="num">CTR</th><th class="num">Compl.</th></tr></thead>
+          <tbody>
+            <tr><td>Séries</td><td class="num">4 541</td><td class="num">30 %</td><td class="num">0,97 %</td><td class="num">89,92 %</td></tr>
+            <tr><td>Top 10 en France</td><td class="num">3 027</td><td class="num">20 %</td><td class="num">0,96 %</td><td class="num">87,89 %</td></tr>
+            <tr><td>Seulement sur Netflix</td><td class="num">2 422</td><td class="num">16 %</td><td class="num">0,91 %</td><td class="num">88,86 %</td></tr>
+            <tr><td>Comédies Authentiques</td><td class="num">2 270</td><td class="num">15 %</td><td class="num">0,93 %</td><td class="num">89,50 %</td></tr>
+            <tr><td>Autres Netflix</td><td class="num">2 876</td><td class="num">19 %</td><td class="num">0,90 %</td><td class="num">87,53 %</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div>
+        <h4 style="margin:0 0 10px">Disney+</h4>
+        <div class="tblwrap"><table style="min-width:0">
+          <thead><tr><th>Chaîne thématique</th><th class="num">Impr.</th><th class="num">Poids</th><th class="num">Compl.</th></tr></thead>
+          <tbody>
+            <tr><td>Téléréalités</td><td class="num">1 747</td><td class="num">30 %</td><td class="num">89,06 %</td></tr>
+            <tr><td>Séries Comédie</td><td class="num">1 397</td><td class="num">24 %</td><td class="num">88,02 %</td></tr>
+            <tr><td>National Geographic</td><td class="num">1 106</td><td class="num">19 %</td><td class="num">88,50 %</td></tr>
+            <tr><td>Nouveautés Films</td><td class="num">873</td><td class="num">15 %</td><td class="num">90,86 %</td></tr>
+            <tr><td>Autres Disney+</td><td class="num">699</td><td class="num">12 %</td><td class="num">86,46 %</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="note"><b>Le taux de complétion moyen de 85,91 %</b> est particulièrement fort sur les environnements replay grand public (notamment TF1+ et M6), garantissant une visibilité maximale du message Literie n°1 sur la zone de chalandise.</div>
+
+    <h3>Composition foyer &amp; consommation TV <span class="tag">audience exposée</span></h3>
+    <div class="grid g3">
+      <div class="card c-lavande">
+        <h4>Composition foyer</h4>
+        <p>45 % couples avec enfants (foyers en phase d'agrandissement ou besoin de lits enfants) · 32 % couples sans enfants (jeunes actifs, emménagement) · 14 % familles monoparentales · 9 % personnes seules.</p>
+      </div>
+      <div class="card c-bleu">
+        <h4>TV / Vidéo</h4>
+        <p>74 % utilisateurs replay (forte affinité avec le streaming multi-écran) · 48 % abonnés SVOD · Pic de consommation entre 20 h et 22 h, moment phare du cocooning dans la chambre et le salon.</p>
+      </div>
+      <div class="card c-corail">
+        <h4>Intérêt retail / mode</h4>
+        <p>35 % déménagement &amp; immobilier (signal d'achat prioritaire) · 28 % décoration &amp; aménagement · 22 % shopping &amp; soldes · 15 % univers naissance / puériculture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SYNTHESE ================= -->
+<section id="synthese">
+  <div class="wrap">
+    <h2><span class="fl">↘</span>Synthèse</h2>
+    <p class="lead">Ce qu'il faut retenir de la campagne Soldes été 2026.</p>
+    <div class="grid g4">
+      <div class="card c-menthe"><span class="ico">◆</span><h4>Objectifs cTV dépassés</h4><p>290 379 impressions, 122 061 vues à 100 % (+63 % vs objectif) et un reach 2,3 fois supérieur à l'engagement, avec une répétition maîtrisée de 3.</p></div>
+      <div class="card c-corail"><span class="ico">●</span><h4>TikTok, moteur du social</h4><p>Le CPM le plus bas de la campagne (1,89 €), 64 % des clics du dispositif pStory et un profil d'audience proche du cœur de cible.</p></div>
+      <div class="card c-lavande"><span class="ico">▣</span><h4>Le transit performe en DOOH</h4><p>Près de 500 000 passages sur seulement 20 % du budget : la typologie la plus efficiente de la zone de chalandise.</p></div>
+      <div class="card c-bleu"><span class="ico">◐</span><h4>Un signal d'achat confirmé</h4><p>L'audience exposée sur-indexe sur le déménagement, l'immobilier et l'achat maison : le ciblage validé en amont a touché la bonne population.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PIGES ================= -->
+<section id="piges">
+  <div class="wrap">
+    <h2><span class="fl">↘</span>Piges</h2>
+    <p class="lead">Captures des créations en diffusion sur la période, disponibles dans le dossier de campagne.</p>
+    <div class="grid g4">
+      <div class="pige"><div class="g">▣</div><h4>DOOH extérieur</h4><p>Panneaux JCDecaux et grands formats routiers · créa -40 % Drouault</p></div>
+      <div class="pige"><div class="g">⌂</div><h4>DOOH centres commerciaux</h4><p>Totems digitaux en galerie marchande · zone Sephora / prêt-à-porter</p></div>
+      <div class="pige"><div class="g">◐</div><h4>SMS</h4><p>Expéditeur LITERIEN1 · -40 % marque Drouault, lien court + STOP</p></div>
+      <div class="pige"><div class="g">●</div><h4>pStory &amp; cTV</h4><p>Stories Meta / TikTok et spot cTV · -40 % linge de lit Anne de Solène</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTS ================= -->
+<footer id="contacts">
+  <div class="wrap">
+    <h2>Contacts</h2>
+    <div class="contacts">
+      <div class="contact">
+        <h4>Jérôme Fages</h4>
+        <div class="role">Directeur commercial</div>
+        <span class="tel">06 18 74 66 75</span>
+        <a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+      </div>
+      <div class="contact">
+        <h4>Mathilde Coriton</h4>
+        <div class="role">Directrice de clientèle</div>
+        <span class="tel">06 48 61 92 92</span>
+        <a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a>
+      </div>
+      <div class="contact">
+        <h4>Leslie Rogé</h4>
+        <div class="role">Cheffe de publicité</div>
+        <span class="tel">06 83 73 68 62</span>
+        <a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+      </div>
+      <div class="contact off">
+        <h4>Andrea</h4>
+        <div class="role">The Good Web</div>
+        <span class="tel">andrea@thegoodweb.eu</span>
+        <span class="soon">Actif à partir de septembre</span>
+      </div>
+      <div class="contact off">
+        <h4>Sofien</h4>
+        <div class="role">The Good Web</div>
+        <span class="tel">sofien@thegoodweb.eu</span>
+        <span class="soon">Actif à partir de septembre</span>
+      </div>
+      <div class="contact off">
+        <h4>Pôle activation</h4>
+        <div class="role">The Good Web</div>
+        <span class="tel">activation@thegoodweb.eu</span>
+        <span class="soon">Actif à partir de septembre</span>
+      </div>
+    </div>
+    <div class="flogo">
+      <svg width="90" height="40" viewBox="0 0 118 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g stroke="#fff" stroke-width="2" fill="none">
+          <circle cx="8" cy="8" r="5"/><rect x="1" y="17" width="14" height="24" rx="7"/>
+          <circle cx="34" cy="8" r="5"/><rect x="27" y="17" width="14" height="24" rx="7"/>
+        </g>
+        <g fill="#fff">
+          <circle cx="60" cy="8" r="6"/><rect x="53" y="16" width="14" height="25" rx="7"/>
+        </g>
+        <g stroke="#fff" stroke-width="2" fill="none">
+          <circle cx="86" cy="8" r="5"/><rect x="79" y="17" width="14" height="24" rx="7"/>
+        </g>
+        <text x="95" y="8" fill="#fff" font-size="14" font-weight="700" font-family="Poppins,sans-serif">*</text>
+      </svg>
+      <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:.95rem;line-height:1.1">THE GOOD WEB<br><span style="font-weight:500;font-size:.62rem;opacity:.85">* The Good Audience</span></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
