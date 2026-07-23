@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reco média · Centre de cryothérapie · Grand Annecy · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1B4F;
+  --roi:#5271FF;
+  --clair:#85B8F8;
+  --orange:#F0532D;
+  --peche:#FCE4DC;
+  --fond:#F6F8FE;
+  --blanc:#FFFFFF;
+  --texte:#1B2340;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--texte);background:var(--blanc);line-height:1.6}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy)}
+h2{font-size:1.7rem;font-weight:700;margin-bottom:1.6rem}
+h2 .fl{color:var(--orange);margin-right:.4rem}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:64px 0}
+section:nth-of-type(even){background:var(--fond)}
+.eyebrow{font-family:'Poppins',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:.5rem}
+
+/* HERO */
+.hero{background:var(--roi);color:#fff;padding:72px 0 56px}
+.hero .logo{display:flex;align-items:center;gap:14px;margin-bottom:40px}
+.hero .logo svg{height:44px}
+.hero .baseline{font-size:.85rem;opacity:.9;letter-spacing:.06em}
+.hero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;line-height:1.15;max-width:760px}
+.hero p.sub{margin-top:14px;font-size:1.05rem;opacity:.94;max-width:640px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 18px;font-size:.86rem;font-weight:500}
+.pill b{font-weight:700}
+
+/* NAV */
+nav.anchors{position:sticky;top:0;z-index:50;background:var(--navy);box-shadow:0 2px 10px rgba(10,27,79,.25)}
+nav.anchors .wrap{display:flex;gap:4px;overflow-x:auto;padding:0 24px}
+nav.anchors a{color:#cdd7f5;text-decoration:none;font-size:.8rem;font-weight:500;padding:13px 12px;white-space:nowrap;border-bottom:3px solid transparent}
+nav.anchors a:hover{color:#fff;border-bottom-color:var(--orange)}
+
+/* CARDS */
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{border-radius:16px;padding:24px;background:#fff;border:1px solid #E4E9F7}
+.card h3{font-size:1.02rem;font-weight:600;margin-bottom:.55rem}
+.card p{font-size:.9rem;color:#3C4568}
+.num{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:800;color:var(--roi);margin-bottom:.4rem}
+.c-lavande{background:#EEF1FF;border-color:#D8DFFF}
+.c-rose{background:#EFEDFB;border-color:#DCD8F5}
+.c-bleu{background:#EAF3FE;border-color:#D2E5FB}
+.c-menthe{background:#E9EDF7;border-color:#D3DAF0}
+.c-corail{background:#FDEAE4;border-color:#F8D2C6}
+.c-peche{background:#FEF1EC;border-color:#FADFD4}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--roi);background:#E4EAFF;border-radius:6px;padding:3px 10px;margin-bottom:.7rem}
+.c-corail .tag{color:var(--orange);background:#FBD9CE}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;font-size:.9rem;box-shadow:0 1px 4px rgba(10,27,79,.07)}
+th{background:var(--navy);color:#fff;text-align:left;padding:13px 16px;font-family:'Poppins',sans-serif;font-weight:600;font-size:.84rem}
+td{padding:12px 16px;border-bottom:1px solid #EDF0F9;color:#2A3355}
+tr:last-child td{border-bottom:none}
+tr.total td{background:#EEF1FF;font-weight:700;color:var(--navy)}
+.scen{margin-bottom:40px}
+.scen h3{font-size:1.15rem;margin-bottom:.4rem}
+.scen .lbl{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:6px;padding:4px 12px;margin-bottom:.8rem}
+.scen .lbl.std{background:#E4EAFF;color:var(--roi)}
+.scen.reco{border:2px solid var(--orange);border-radius:18px;padding:26px;background:#FFF9F7}
+.scen.reco .lbl{background:var(--orange);color:#fff}
+
+/* PLANNING */
+.plan{overflow-x:auto}
+.plan table td.on{background:var(--clair);border-radius:4px}
+.plan table td.on2{background:var(--roi)}
+.plan table td.on3{background:var(--orange)}
+
+/* PERSONAS */
+.persona .glyph{font-size:1.7rem;color:var(--roi);margin-bottom:.5rem}
+.persona ul{list-style:none;margin-top:.6rem}
+.persona li{font-size:.86rem;color:#3C4568;padding-left:1em;position:relative;margin-bottom:.3rem}
+.persona li::before{content:"·";position:absolute;left:0;color:var(--orange);font-weight:700}
+
+/* PYRAMIDE */
+.pyr{display:flex;flex-direction:column;align-items:center;gap:10px}
+.pyr div{color:#fff;text-align:center;border-radius:12px;padding:16px 20px;font-size:.88rem;font-weight:500}
+.pyr .l1{background:var(--navy);width:min(360px,90%)}
+.pyr .l2{background:var(--roi);width:min(560px,96%)}
+.pyr .l3{background:var(--clair);color:var(--navy);width:min(760px,100%)}
+.pyr b{font-family:'Poppins',sans-serif;display:block;font-size:.95rem;margin-bottom:2px}
+
+/* FUNNEL */
+.funnel{display:flex;flex-direction:column;gap:12px}
+.fstep{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid #E4E9F7;border-radius:14px;padding:18px 22px}
+.fstep .stage{min-width:130px;font-family:'Poppins',sans-serif;font-weight:700;color:var(--roi)}
+.fstep p{font-size:.88rem;color:#3C4568}
+
+/* FOOTER */
+footer{background:var(--roi);color:#fff;padding:64px 0 48px}
+footer h2{color:#fff}
+footer h2 .fl{color:#fff}
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:24px}
+.contact{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:20px}
+.contact h4{color:#fff;font-size:1rem;margin-bottom:2px}
+.contact .role{font-size:.8rem;opacity:.85;margin-bottom:.6rem}
+.contact a{color:#fff;text-decoration:none;font-size:.88rem;display:block;margin-top:2px}
+.contact a:hover{text-decoration:underline}
+.contact span.off{font-size:.88rem;opacity:.8;display:block;margin-top:2px}
+.contact .soon{font-size:.72rem;opacity:.7;margin-top:6px;display:block}
+footer .flogo{display:flex;align-items:center;gap:14px;margin-top:44px}
+footer .flogo svg{height:36px}
+footer .fbase{font-size:.82rem;opacity:.9}
+.note{font-size:.82rem;color:#5A6285;margin-top:14px}
+@media (max-width:640px){section{padding:44px 0}.fstep{flex-direction:column;align-items:flex-start;gap:6px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo">
+      <svg viewBox="0 0 120 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="The Good Web">
+        <circle cx="14" cy="14" r="9" stroke="#fff" stroke-width="2.5"/><rect x="5" y="27" width="18" height="14" rx="7" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="44" cy="14" r="9" stroke="#fff" stroke-width="2.5"/><rect x="35" y="27" width="18" height="14" rx="7" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="74" cy="14" r="9" fill="#fff"/><rect x="65" y="27" width="18" height="14" rx="7" fill="#fff"/>
+        <circle cx="104" cy="14" r="9" stroke="#fff" stroke-width="2.5"/><rect x="95" y="27" width="18" height="14" rx="7" stroke="#fff" stroke-width="2.5"/>
+        <text x="112" y="14" fill="#fff" font-size="16" font-family="Poppins,sans-serif" font-weight="700">*</text>
+      </svg>
+      <div>
+        <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.02em">THE GOOD WEB</div>
+        <div class="baseline">* The Good Audience</div>
+      </div>
+    </div>
+    <div class="eyebrow" style="color:#fff;opacity:.85">Recommandation média · juillet 2026</div>
+    <h1>Lancement d'un centre de cryothérapie · Grand Annecy</h1>
+    <p class="sub">Un dispositif digital géolocalisé pour installer la marque, générer les premières réservations et activer les prescripteurs du bien-être sur le bassin annécien.</p>
+    <div class="pills">
+      <div class="pill">Période · <b>fin août → début septembre 2026</b></div>
+      <div class="pill">Budget · <b>3 scénarios · 2,5 K€ à 9 K€ HT</b></div>
+      <div class="pill">Objectif · <b>notoriété + drive-to-store</b></div>
+      <div class="pill">Zone · <b>Grand Annecy</b></div>
+    </div>
+  </div>
+</header>
+
+<nav class="anchors">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#phases">Phases</a>
+    <a href="#leviers">Leviers</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Scénarios budgétaires</a>
+    <a href="#kpis">KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Data</a>
+    <a href="#formats">Formats &amp; KPIs</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<section id="contexte">
+  <div class="wrap">
+    <div class="eyebrow">Point de départ</div>
+    <h2><span class="fl">↘</span>Contexte &amp; objectifs</h2>
+    <div class="grid g3">
+      <div class="card"><div class="num">01</div><h3>Faire connaître</h3><p>Un nouveau centre de cryothérapie ouvre sur le Grand Annecy : il faut installer rapidement la marque et le réflexe cryo auprès du bassin de vie, avant et pendant l'ouverture.</p></div>
+      <div class="card"><div class="num">02</div><h3>Faire venir</h3><p>Transformer la visibilité en visites et premières séances : géolocalisation fine autour du centre, mise en avant d'une offre de lancement, mesure du drive-to-store.</p></div>
+      <div class="card"><div class="num">03</div><h3>Activer les prescripteurs</h3><p>Toucher les professionnels indépendants du bien-être, de la santé et des soins (kinés, ostéos, coachs, esthéticiennes) : futurs partenaires, prescripteurs et clients réguliers.</p></div>
+    </div>
+    <p class="note">Grille tarifaire appliquée : CPM revente Karrow Médias. Les leviers de marketing direct (SMS, eMailing, RCS) sont volontairement exclus du dispositif, gérés en interne par Karrow.</p>
+  </div>
+</section>
+
+<section id="phases">
+  <div class="wrap">
+    <div class="eyebrow">Le tempo du lancement</div>
+    <h2><span class="fl">↘</span>Temps forts &amp; phases</h2>
+    <div class="grid g3">
+      <div class="card c-lavande"><span class="tag">Phase 1 · S34-S35</span><h3>Teasing · 17 → 30 août</h3><p>Créer l'attente : social ads teaser + display notoriété sur le Grand Annecy. « La récupération nouvelle génération arrive à Annecy. »</p></div>
+      <div class="card c-corail"><span class="tag">Phase 2 · S36-S37</span><h3>Lancement · 31 août → 13 sept</h3><p>Pic de pression : révélation de l'offre d'ouverture, drive-to-store géolocalisé, présence multi-écrans selon scénario (audio, DOOH, cTV).</p></div>
+      <div class="card c-bleu"><span class="tag">Phase 3 · S38-S40</span><h3>Amplification · 14 sept → 4 oct</h3><p>Entretenir la dynamique : retargeting des audiences exposées et engagées, focus prescripteurs bien-être, montée des créneaux de réservation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="leviers">
+  <div class="wrap">
+    <div class="eyebrow">Le dispositif</div>
+    <h2><span class="fl">↘</span>Leviers recommandés</h2>
+    <div class="grid g2">
+      <div class="card c-lavande"><span class="tag">Socle · tous scénarios</span><h3>Social Ads · Post + Story</h3><p>Meta &amp; Instagram en priorité (option TikTok pour la cible sportive jeune). Ciblage géo Grand Annecy + intérêts sport, récupération, bien-être et catégories pros indépendants. CPM 8 € · formats feed et story 9:16.</p></div>
+      <div class="card c-bleu"><span class="tag">Socle · tous scénarios</span><h3>Display Drive-to-store</h3><p>Bannières géolocalisées autour du centre et des lieux de pratique sportive (salles, bords du lac, clubs). Mesure des visites incrémentales en point de vente. CPM 10 €.</p></div>
+      <div class="card c-menthe"><span class="tag">Scénarios 2 &amp; 3</span><h3>Audio digital · streaming</h3><p>Spot 20-30 s sur Spotify, Deezer et web radios, diffusé pendant les moments sport (running, salle, trajet). Un levier très affinitaire avec la cible sportive, à coût maîtrisé. CPM 12 €.</p></div>
+      <div class="card c-corail"><span class="tag">Scénario 3</span><h3>pDOOH · écrans urbains</h3><p>Écrans digitaux du bassin annécien (centres commerciaux, axes, zones sportives) pour matérialiser l'ouverture dans la rue au moment du lancement. CPM 45 €.</p></div>
+      <div class="card c-rose"><span class="tag">Scénario 3</span><h3>cTV + OTT</h3><p>Spot 15-30 s sur les écrans TV connectés des foyers du Grand Annecy : la puissance et la caution d'un média TV, avec la précision géo du digital. CPM 40 €.</p></div>
+      <div class="card c-peche"><span class="tag">Fil rouge</span><h3>Retargeting display</h3><p>Recontact des audiences exposées et des visiteurs du site en phase 3, via l'inventaire display IAB. CPM 6 €, intégré aux enveloppes display.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="planning">
+  <div class="wrap">
+    <div class="eyebrow">La mécanique dans le temps</div>
+    <h2><span class="fl">↘</span>Planning d'activation</h2>
+    <div class="plan">
+      <table>
+        <tr><th>Levier</th><th>S34</th><th>S35</th><th>S36</th><th>S37</th><th>S38</th><th>S39</th><th>S40</th></tr>
+        <tr><td>Social Post + Story</td><td class="on"></td><td class="on"></td><td class="on2"></td><td class="on2"></td><td class="on"></td><td class="on"></td><td class="on"></td></tr>
+        <tr><td>Display Drive-to-store</td><td></td><td class="on"></td><td class="on2"></td><td class="on2"></td><td class="on"></td><td class="on"></td><td></td></tr>
+        <tr><td>Audio streaming · scén. 2-3</td><td></td><td></td><td class="on2"></td><td class="on2"></td><td class="on"></td><td></td><td></td></tr>
+        <tr><td>pDOOH · scén. 3</td><td></td><td></td><td class="on3"></td><td class="on3"></td><td></td><td></td><td></td></tr>
+        <tr><td>cTV + OTT · scén. 3</td><td></td><td></td><td class="on3"></td><td class="on3"></td><td class="on"></td><td></td><td></td></tr>
+        <tr><td>Retargeting display</td><td></td><td></td><td></td><td></td><td class="on"></td><td class="on"></td><td class="on"></td></tr>
+      </table>
+    </div>
+    <p class="note">Bleu clair : pression standard · Bleu roi : pic de lancement · Orange : temps fort médias premium.</p>
+  </div>
+</section>
+
+<section id="budgets">
+  <div class="wrap">
+    <div class="eyebrow">Trois portes d'entrée</div>
+    <h2><span class="fl">↘</span>Scénarios budgétaires</h2>
+
+    <div class="scen">
+      <span class="lbl std">Scénario 1 · Essentiel</span>
+      <h3>Installer la marque et générer les premières visites · 2 500 € HT</h3>
+      <table>
+        <tr><th>Levier</th><th>CPM revente</th><th>Budget HT</th><th>Impressions estimées</th></tr>
+        <tr><td>Social Ads · Post + Story (Meta/Instagram)</td><td>8 €</td><td>1 500 €</td><td>187 500</td></tr>
+        <tr><td>Display Drive-to-store géolocalisé</td><td>10 €</td><td>1 000 €</td><td>100 000</td></tr>
+        <tr class="total"><td>Total</td><td></td><td>2 500 €</td><td>287 500</td></tr>
+      </table>
+    </div>
+
+    <div class="scen reco">
+      <span class="lbl">Scénario 2 · Impact · recommandé</span>
+      <h3>Le bon équilibre visibilité, affinité et trafic · 5 000 € HT</h3>
+      <table>
+        <tr><th>Levier</th><th>CPM revente</th><th>Budget HT</th><th>Impressions estimées</th></tr>
+        <tr><td>Social Ads · Post + Story (Meta/Instagram)</td><td>8 €</td><td>2 000 €</td><td>250 000</td></tr>
+        <tr><td>Display Drive-to-store géolocalisé</td><td>10 €</td><td>1 500 €</td><td>150 000</td></tr>
+        <tr><td>Audio digital · streaming</td><td>12 €</td><td>1 500 €</td><td>125 000</td></tr>
+        <tr class="total"><td>Total</td><td></td><td>5 000 €</td><td>525 000</td></tr>
+      </table>
+      <p class="note" style="margin-top:12px">Notre recommandation : trois leviers complémentaires qui couvrent les deux cibles (sportifs via audio et social, pros du soin via social et display), avec une pression suffisante sur 6 semaines et la mesure drive-to-store.</p>
+    </div>
+
+    <div class="scen">
+      <span class="lbl std">Scénario 3 · Premium</span>
+      <h3>Un lancement multi-écrans qui marque le territoire · 9 000 € HT</h3>
+      <table>
+        <tr><th>Levier</th><th>CPM revente</th><th>Budget HT</th><th>Impressions estimées</th></tr>
+        <tr><td>Social Ads · Post + Story (Meta/Instagram)</td><td>8 €</td><td>2 500 €</td><td>312 500</td></tr>
+        <tr><td>Display Drive-to-store géolocalisé</td><td>10 €</td><td>2 000 €</td><td>200 000</td></tr>
+        <tr><td>pDOOH · écrans urbains Grand Annecy</td><td>45 €</td><td>2 000 €</td><td>44 400</td></tr>
+        <tr><td>cTV + OTT · foyers Grand Annecy</td><td>40 €</td><td>2 500 €</td><td>62 500</td></tr>
+        <tr class="total"><td>Total</td><td></td><td>9 000 €</td><td>619 400</td></tr>
+      </table>
+    </div>
+    <p class="note">Budgets médias HT, hors production des créas. CPM appliqués : grille revente Karrow Médias, juillet 2026. Les enveloppes sont modulables entre leviers dès qu'un budget cible sera confirmé.</p>
+  </div>
+</section>
+
+<section id="kpis">
+  <div class="wrap">
+    <div class="eyebrow">Ce qu'on mesure</div>
+    <h2><span class="fl">↘</span>KPIs de campagne</h2>
+    <div class="grid g3">
+      <div class="card c-lavande"><h3>Notoriété</h3><p>Impressions délivrées, reach sur la zone Grand Annecy, répétition moyenne, taux de complétion vidéo et audio.</p></div>
+      <div class="card c-bleu"><h3>Engagement &amp; trafic</h3><p>Clics, CTR, interactions sociales, coût par interaction, sessions sur le site et le module de réservation.</p></div>
+      <div class="card c-corail"><h3>Drive-to-store</h3><p>Visites incrémentales mesurées au centre, réservations de séances découverte, prises de contact des professionnels partenaires.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <div class="eyebrow">À qui on parle</div>
+    <h2><span class="fl">↘</span>Segments d'audience</h2>
+    <div class="grid g3">
+      <div class="card persona"><div class="glyph">●</div><h3>Le sportif engagé</h3><p>25-50 ans, bassin annécien.</p>
+        <ul><li>Running, trail, triathlon, ski, salle de sport</li><li>Cherche récupération, performance, prévention des blessures</li><li>Touché via social, audio pendant l'effort et display géo autour des lieux de pratique</li></ul></div>
+      <div class="card persona"><div class="glyph">■</div><h3>Le professionnel du soin</h3><p>Indépendants bien-être, santé et soins.</p>
+        <ul><li>Kinés, ostéopathes, coachs sportifs, esthéticiennes, naturopathes</li><li>Prescripteur potentiel et futur partenaire du centre</li><li>Touché via ciblage social par catégories professionnelles et display data 3rd party</li></ul></div>
+      <div class="card persona"><div class="glyph">◆</div><h3>L'actif bien-être</h3><p>Cible secondaire, 30-55 ans, CSP+.</p>
+        <ul><li>Gestion du stress, sommeil, récupération, self-care</li><li>Sensible aux nouvelles expériences bien-être premium</li><li>Touché via cTV, DOOH et retargeting en scénario 3</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <div class="eyebrow">Comment on cible</div>
+    <h2><span class="fl">↘</span>Architecture data · 3 couches</h2>
+    <div class="pyr">
+      <div class="l1"><b>1st party</b>Visiteurs du site, réservations, audiences engagées : socle du retargeting</div>
+      <div class="l2"><b>2nd party</b>Audiences des plateformes : intérêts sport, bien-être, catégories professionnelles</div>
+      <div class="l3"><b>3rd party</b>Data géo-comportementale : présence sur les lieux de sport et de soin du Grand Annecy</div>
+    </div>
+    <h2 style="margin-top:56px"><span class="fl">↘</span>Funnel d'activation</h2>
+    <div class="funnel">
+      <div class="fstep"><div class="stage">Awareness</div><p>Social teaser, audio, cTV et DOOH installent la marque et le réflexe cryo sur la zone.</p></div>
+      <div class="fstep"><div class="stage">Considération</div><p>Display géolocalisé et social lancement présentent l'offre d'ouverture et les bénéfices par cible.</p></div>
+      <div class="fstep"><div class="stage">Action</div><p>Drive-to-store et retargeting convertissent en visites, réservations et contacts pros.</p></div>
+    </div>
+    <div class="grid g2" style="margin-top:40px">
+      <div class="card c-menthe"><h3>RGPD &amp; brand safety</h3><p>Ciblage sur données consenties et agrégées, aucun ciblage santé sensible au sens du RGPD (ciblage par intérêts et catégories professionnelles uniquement). Diffusion en environnements brand safe, listes d'exclusion et capping appliqués.</p></div>
+      <div class="card c-lavande"><h3>KPIs data</h3><p>Études socio-démo, géolocalisées et affinitaires des audiences exposées, top diffuseurs, mesure du capping et de la couverture réelle de la zone Grand Annecy.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="formats">
+  <div class="wrap">
+    <div class="eyebrow">La boîte à outils</div>
+    <h2><span class="fl">↘</span>Formats &amp; KPIs de suivi par levier</h2>
+    <table>
+      <tr><th>Levier</th><th>Formats attendus</th><th>KPIs de suivi</th></tr>
+      <tr><td>Social Ads · Post + Story</td><td>Post 1080x1080 px · Story 9:16 1920x1080 px mp4 · bumper 6 s</td><td>Impressions, clics, CTR, reach, interactions, coût par interaction, vues à 25-50-75-100 %, taux de complétion, CPM final</td></tr>
+      <tr><td>Display DTS &amp; IAB</td><td>300x600, 300x250, 320x480, 728x90, 160x600, 320x50 px · jpeg, png, gif</td><td>Impressions, clics, CTR, étude socio-démo, géoloc, affinitaires + visites in-store (DTS)</td></tr>
+      <tr><td>Audio streaming</td><td>1:1 640x640 px ou 9:16 720x1280 px · spot 15, 20 ou 30 s</td><td>Impressions, reach, clics, écoutes à 25-50-75-100 %, taux de complétion, stats socio-démo, capping, CPE et CPM finaux</td></tr>
+      <tr><td>pDOOH</td><td>9:16 1080x1920 px · mp4 10 s</td><td>Impressions, diffusion, top publishers, nombre de plays, stats par écran</td></tr>
+      <tr><td>cTV + OTT</td><td>1920x1080 px 16:9 · spot 15-30 s</td><td>Impressions, clics, CTR, reach, taux de complétion, top chaînes, études socio-démo, géoloc et affinitaires</td></tr>
+    </table>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <h2><span class="fl">↘</span>Vos contacts The Good Web</h2>
+    <div class="contacts">
+      <div class="contact"><h4>Jérôme Fages</h4><div class="role">Directeur commercial</div><a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a><a href="tel:+33618746675">06 18 74 66 75</a></div>
+      <div class="contact"><h4>Mathilde Coriton</h4><div class="role">Directrice de clientèle</div><a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a><a href="tel:+33648619292">06 48 61 92 92</a></div>
+      <div class="contact"><h4>Leslie Rogé</h4><div class="role">Cheffe de publicité</div><a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a><a href="tel:+33683736862">06 83 73 68 62</a></div>
+      <div class="contact"><h4>Andrea</h4><div class="role">Équipe TGW</div><span class="off">andrea@thegoodweb.eu</span><span class="soon">Adresse active en septembre</span></div>
+      <div class="contact"><h4>Sofien</h4><div class="role">Équipe TGW</div><span class="off">sofien@thegoodweb.eu</span><span class="soon">Adresse active en septembre</span></div>
+      <div class="contact"><h4>Pôle activation</h4><div class="role">Suivi de campagnes</div><span class="off">activation@thegoodweb.eu</span><span class="soon">Adresse active en septembre</span></div>
+    </div>
+    <div class="flogo">
+      <svg viewBox="0 0 120 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="14" cy="14" r="9" stroke="#fff" stroke-width="2.5"/><rect x="5" y="27" width="18" height="14" rx="7" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="44" cy="14" r="9" stroke="#fff" stroke-width="2.5"/><rect x="35" y="27" width="18" height="14" rx="7" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="74" cy="14" r="9" fill="#fff"/><rect x="65" y="27" width="18" height="14" rx="7" fill="#fff"/>
+        <circle cx="104" cy="14" r="9" stroke="#fff" stroke-width="2.5"/><rect x="95" y="27" width="18" height="14" rx="7" stroke="#fff" stroke-width="2.5"/>
+      </svg>
+      <div>
+        <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:1rem">THE GOOD WEB</div>
+        <div class="fbase">* The Good Audience</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
