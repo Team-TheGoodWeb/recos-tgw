@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dix Mille Tours · Recommandation média · The Good Web</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1B4F;
+  --roi:#5271FF;
+  --clair:#85B8F8;
+  --orange:#F0532D;
+  --peche:#FCE4DC;
+  --fond:#F6F8FE;
+  --blanc:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--blanc);line-height:1.6;}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
+h2{font-size:1.9rem;font-weight:700;margin-bottom:.5rem;}
+h2::before{content:"↘ ";color:var(--orange);}
+.eyebrow{color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;margin-bottom:.6rem;}
+section{padding:70px 6vw;}
+section:nth-of-type(even){background:var(--fond);}
+.intro{max-width:720px;color:#3c4a7a;margin-bottom:2.2rem;}
+
+/* HERO */
+.hero{background:var(--roi);color:#fff;padding:70px 6vw 80px;}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;margin-bottom:56px;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-name{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.06em;line-height:1.1;}
+.baseline{font-size:.8rem;opacity:.9;margin-top:2px;}
+.hero h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;line-height:1.12;max-width:820px;}
+.hero .sub{margin-top:14px;font-size:1.08rem;opacity:.95;max-width:680px;}
+.pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;}
+.pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:9px 20px;font-size:.88rem;font-weight:600;}
+.pill strong{font-weight:700;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:var(--blanc);border-bottom:1px solid #E3E9FA;display:flex;gap:4px;overflow-x:auto;padding:0 4vw;}
+nav a{padding:14px 14px;font-size:.83rem;font-weight:600;color:var(--navy);text-decoration:none;white-space:nowrap;border-bottom:3px solid transparent;}
+nav a:hover{color:var(--roi);border-bottom-color:var(--roi);}
+
+/* CARDS */
+.grid{display:grid;gap:20px;}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+.card{border-radius:18px;padding:26px;background:var(--blanc);border:1px solid #E3E9FA;}
+.card h3{font-size:1.05rem;margin-bottom:.5rem;}
+.card p{font-size:.92rem;color:#3c4a7a;}
+.num{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.5rem;color:var(--roi);margin-bottom:.4rem;}
+.c-lavande{background:#EDF1FF;border-color:#D5DEFF;}
+.c-rose{background:#EEEBFF;border-color:#DAD4FF;}
+.c-bleu{background:#EAF3FE;border-color:#CDE3FC;}
+.c-menthe{background:#E9EDF6;border-color:#D2D9EA;}
+.c-corail{background:#FDEAE4;border-color:#F8CFC2;}
+.c-peche{background:#FEF3EE;border-color:#F9DCD0;}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;padding:4px 12px;border-radius:999px;background:var(--roi);color:#fff;margin-bottom:12px;}
+.tag.orange{background:var(--orange);}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;background:var(--blanc);border-radius:14px;overflow:hidden;font-size:.9rem;}
+th{background:var(--navy);color:#fff;text-align:left;padding:13px 16px;font-family:'Poppins',sans-serif;font-weight:600;font-size:.84rem;}
+td{padding:12px 16px;border-bottom:1px solid #EDF1FA;}
+tr:last-child td{border-bottom:none;}
+.total td{font-weight:700;background:var(--fond);}
+.reco-badge{display:inline-block;background:var(--orange);color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle;text-transform:uppercase;letter-spacing:.08em;}
+.scenario{margin-bottom:40px;}
+.scenario h3{font-size:1.2rem;margin-bottom:14px;}
+.note{font-size:.82rem;color:#5a6795;margin-top:10px;}
+
+/* PLANNING */
+.plan{overflow-x:auto;}
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;}
+.dot.on{background:var(--roi);}
+.dot.orange{background:var(--orange);}
+
+/* PERSONAS */
+.persona .glyph{font-size:1.9rem;color:var(--roi);margin-bottom:10px;display:block;}
+.persona ul{list-style:none;margin-top:10px;}
+.persona li{font-size:.88rem;color:#3c4a7a;padding-left:16px;position:relative;margin-bottom:5px;}
+.persona li::before{content:"·";position:absolute;left:0;color:var(--orange);font-weight:800;}
+
+/* PYRAMIDE */
+.pyramide{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.layer{border-radius:14px;padding:18px 26px;text-align:center;color:#fff;}
+.layer h4{font-size:.98rem;}
+.layer p{font-size:.83rem;opacity:.92;}
+.l1{background:var(--navy);width:min(420px,100%);}
+.l2{background:var(--roi);width:min(560px,100%);}
+.l3{background:var(--clair);width:min(700px,100%);color:var(--navy);}
+.l3 p{opacity:1;color:#26407c;}
+
+/* FUNNEL */
+.funnel{display:flex;flex-direction:column;gap:12px;max-width:760px;}
+.fstep{border-radius:14px;padding:20px 26px;display:flex;gap:18px;align-items:flex-start;}
+.fstep .st{font-family:'Poppins',sans-serif;font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;min-width:130px;padding-top:2px;}
+.f1{background:#EDF1FF;}
+.f2{background:#EAF3FE;}
+.f3{background:#FDEAE4;}
+.fstep p{font-size:.9rem;color:#3c4a7a;}
+
+/* FOOTER */
+footer{background:var(--roi);color:#fff;padding:70px 6vw 50px;}
+footer h2{color:#fff;}
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:36px 0 46px;}
+.contact{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:22px;}
+.contact h4{font-size:1rem;}
+.contact .role{font-size:.8rem;opacity:.85;margin-bottom:10px;}
+.contact a{color:#fff;font-weight:600;text-decoration:underline;font-size:.88rem;display:block;}
+.contact .tel{font-size:.88rem;margin-top:4px;}
+.contact.inactive{opacity:.65;}
+.contact.inactive .mail{font-size:.88rem;font-weight:600;}
+.contact .soon{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin-top:8px;display:block;opacity:.8;}
+.foot-logo{display:flex;align-items:center;gap:14px;border-top:1px solid rgba(255,255,255,.3);padding-top:34px;}
+@media(max-width:640px){section{padding:50px 5vw;}.fstep{flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-top">
+    <div class="logo">
+      <svg width="86" height="44" viewBox="0 0 86 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="The Good Web">
+        <g stroke="#fff" stroke-width="2" fill="none">
+          <circle cx="10" cy="10" r="6"/><path d="M2 34c0-6 4-10 8-10s8 4 8 10"/>
+          <circle cx="30" cy="10" r="6"/><path d="M22 34c0-6 4-10 8-10s8 4 8 10"/>
+          <circle cx="50" cy="10" r="6"/><path d="M42 34c0-6 4-10 8-10s8 4 8 10"/>
+        </g>
+        <g fill="#fff">
+          <circle cx="70" cy="10" r="7"/><path d="M61 34c0-6.5 4.2-10.5 9-10.5s9 4 9 10.5"/>
+        </g>
+        <text x="80" y="12" fill="#F0532D" font-size="16" font-family="Poppins,sans-serif" font-weight="800">*</text>
+      </svg>
+      <div>
+        <div class="logo-name">THE GOOD WEB</div>
+        <div class="baseline">* The Good Audience</div>
+      </div>
+    </div>
+    <div style="text-align:right;font-size:.85rem;opacity:.9;">Recommandation média · Juillet 2026</div>
+  </div>
+  <h1>Dix Mille Tours 2026 · dynamiser la billetterie sur la zone locale</h1>
+  <p class="sub">Un dispositif digital 100 % géociblé pour toucher les passionnés de sport mécanique et les familles du bassin Le Castellet + 50 km, en toute fin d'été.</p>
+  <div class="pills">
+    <span class="pill">Période · <strong>3 au 28 août 2026</strong></span>
+    <span class="pill">Évènement · <strong>29 et 30 août, Circuit Paul Ricard</strong></span>
+    <span class="pill">Budget · <strong>1 000 € HT</strong></span>
+    <span class="pill">Objectif · <strong>Vente de billets</strong></span>
+    <span class="pill">Zone · <strong>Le Castellet + 50 km</strong></span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#contexte">Contexte</a>
+  <a href="#phases">Phases</a>
+  <a href="#leviers">Leviers</a>
+  <a href="#planning">Planning</a>
+  <a href="#budget">Budget</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#audiences">Audiences</a>
+  <a href="#data">Data</a>
+  <a href="#funnel">Funnel</a>
+  <a href="#formats">Formats &amp; KPIs</a>
+  <a href="#contacts">Contacts</a>
+</nav>
+
+<!-- CONTEXTE -->
+<section id="contexte">
+  <p class="eyebrow">Le point de départ</p>
+  <h2>Contexte &amp; objectifs</h2>
+  <p class="intro">Les Dix Mille Tours clôturent la saison estivale du Circuit Paul Ricard les 29 et 30 août. La spécificité du brief : une cible locale et passionnée, à toucher après le départ des vacanciers, avec un budget concentré.</p>
+  <div class="grid g2">
+    <div class="card">
+      <div class="num">01</div>
+      <h3>Une fenêtre de fin d'été</h3>
+      <p>L'évènement tombe le dernier week-end d'août : la pression média doit monter du 3 au 28 août, quand les vacanciers quittent la zone et que les locaux reprennent leurs habitudes. Aucune déperdition sur l'audience touristique.</p>
+    </div>
+    <div class="card">
+      <div class="num">02</div>
+      <h3>Une cible duale et affinitaire</h3>
+      <p>Deux publics à activer : les aficionados sport mécaniques 45 ans et plus, et les familles locales en recherche d'une sortie de fin d'été. Deux messages, un même territoire.</p>
+    </div>
+    <div class="card">
+      <div class="num">03</div>
+      <h3>Une zone de chalandise resserrée</h3>
+      <p>Le Castellet + 50 km : Toulon, La Ciotat, Aubagne, Brignoles, sud du pays d'Aix. Un géociblage strict qui maximise chaque euro investi sur des profils réellement en capacité de venir.</p>
+    </div>
+    <div class="card">
+      <div class="num">04</div>
+      <h3>Un budget concentré, un objectif clair</h3>
+      <p>1 000 € HT au service d'un seul indicateur : la vente de billets. Le dispositif se limite volontairement à deux leviers complémentaires pour éviter la dilution.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section id="phases">
+  <p class="eyebrow">Le tempo</p>
+  <h2>Temps forts &amp; phases</h2>
+  <p class="intro">Quatre semaines de campagne, trois intentions successives : installer l'évènement, nourrir l'envie, déclencher l'achat.</p>
+  <div class="grid g3">
+    <div class="card c-lavande">
+      <span class="tag">Phase 1 · S32-S33</span>
+      <h3>Émergence locale</h3>
+      <p>Du 3 au 16 août : installer la date et l'affiche de l'évènement auprès de la zone de chalandise. Couverture display géociblée + premiers posts sponsorisés.</p>
+    </div>
+    <div class="card c-bleu">
+      <span class="tag">Phase 2 · S34</span>
+      <h3>Considération</h3>
+      <p>Du 17 au 23 août : montée en puissance du social, contenus immersifs (plateau, voitures historiques, animations familles) pour transformer l'intérêt en intention.</p>
+    </div>
+    <div class="card c-corail">
+      <span class="tag orange">Phase 3 · S35</span>
+      <h3>Conversion &amp; urgence</h3>
+      <p>Du 24 au 28 août : bascule du budget sur les formats Story et le retargeting, message d'urgence billetterie (« dernier week-end, dernières places »).</p>
+    </div>
+  </div>
+</section>
+
+<!-- LEVIERS -->
+<section id="leviers">
+  <p class="eyebrow">Le dispositif</p>
+  <h2>Leviers recommandés</h2>
+  <p class="intro">Deux leviers, deux rôles : le display programmatique installe l'évènement sur toute la zone, le social convertit les deux cœurs de cible.</p>
+  <div class="grid g2">
+    <div class="card c-lavande">
+      <span class="tag orange">Levier principal</span>
+      <h3>Social Ads · Post + Story (pStory Ads)</h3>
+      <p>Meta &amp; Instagram, géociblage 50 km autour du Castellet. Ciblage par centres d'intérêt : sport automobile, F1, voitures de collection, endurance, sorties en famille, loisirs du week-end. Deux créas dédiées (aficionados / familles), clic direct vers la billetterie.</p>
+      <p class="note">CPM 5 € · format le plus efficient pour un objectif de clic et de conversion billetterie.</p>
+    </div>
+    <div class="card c-bleu">
+      <span class="tag">Levier de couverture</span>
+      <h3>Display Programmatique IAB géolocalisé</h3>
+      <p>Bannières IAB diffusées en contextuel (sport auto, actu locale, loisirs, sorties) sur la zone Le Castellet + 50 km. Rôle : émerger largement à coût maîtrisé en phase 1 et 2, et alimenter la mémorisation de la date.</p>
+      <p class="note">CPM 4 € · le meilleur coût-contact du catalogue pour une couverture locale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLANNING -->
+<section id="planning">
+  <p class="eyebrow">La mécanique</p>
+  <h2>Planning d'activation</h2>
+  <div class="plan">
+    <table>
+      <thead>
+        <tr><th>Levier</th><th>S32 · 3-9 août</th><th>S33 · 10-16 août</th><th>S34 · 17-23 août</th><th>S35 · 24-28 août</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Display IAB géolocalisé</strong></td><td><span class="dot on"></span></td><td><span class="dot on"></span></td><td><span class="dot on"></span></td><td></td></tr>
+        <tr><td><strong>Social Post (aficionados / familles)</strong></td><td></td><td><span class="dot on"></span></td><td><span class="dot on"></span></td><td><span class="dot on"></span></td></tr>
+        <tr><td><strong>Social Story · urgence billetterie</strong></td><td></td><td></td><td><span class="dot orange"></span></td><td><span class="dot orange"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Point orange : temps fort conversion. La dernière semaine concentre la pression sur les formats Story et le retargeting des audiences engagées.</p>
+</section>
+
+<!-- BUDGET -->
+<section id="budget">
+  <p class="eyebrow">L'investissement</p>
+  <h2>Scénarios budgétaires</h2>
+  <p class="intro">Deux hypothèses à iso-budget 1 000 € HT. Le scénario 1 combine couverture et conversion : c'est notre recommandation.</p>
+
+  <div class="scenario">
+    <h3>Scénario 1 · Couverture + conversion<span class="reco-badge">Recommandé</span></h3>
+    <table>
+      <thead><tr><th>Levier</th><th>CPM</th><th>Budget HT</th><th>Impressions estimées</th><th>Rôle</th></tr></thead>
+      <tbody>
+        <tr><td>Social Ads Post + Story (Meta / Instagram)</td><td>5 €</td><td>600 €</td><td>120 000</td><td>Conversion billetterie</td></tr>
+        <tr><td>Display Programmatique IAB géolocalisé</td><td>4 €</td><td>400 €</td><td>100 000</td><td>Couverture locale</td></tr>
+        <tr class="total"><td>Total</td><td></td><td>1 000 € HT</td><td>220 000</td><td></td></tr>
+      </tbody>
+    </table>
+    <p class="note">Le mix touche la zone en répétition (display) tout en concentrant 60 % du budget sur le levier le plus performant pour le clic billetterie.</p>
+  </div>
+
+  <div class="scenario">
+    <h3>Scénario 2 · 100 % Social Ads</h3>
+    <table>
+      <thead><tr><th>Levier</th><th>CPM</th><th>Budget HT</th><th>Impressions estimées</th><th>Rôle</th></tr></thead>
+      <tbody>
+        <tr><td>Social Ads Post + Story (Meta / Instagram)</td><td>5 €</td><td>1 000 €</td><td>200 000</td><td>Notoriété + conversion</td></tr>
+        <tr class="total"><td>Total</td><td></td><td>1 000 € HT</td><td>125 000</td><td></td></tr>
+      </tbody>
+    </table>
+    <p class="note">Hypothèse mono-levier : plus simple à piloter, ciblage par intérêts très fin, mais sans couverture display sur la zone. À privilégier si la priorité absolue est le coût par clic.</p>
+  </div>
+</section>
+
+<!-- KPIS -->
+<section id="kpis">
+  <p class="eyebrow">La mesure</p>
+  <h2>KPIs de campagne</h2>
+  <div class="grid g3">
+    <div class="card c-lavande"><h3>Visibilité</h3><p>Impressions délivrées, reach sur la zone, répétition moyenne, part de voix par commune.</p></div>
+    <div class="card c-bleu"><h3>Engagement</h3><p>Clics, CTR, interactions sociales, coût par interaction, vues Story à 25 / 50 / 75 / 100 %.</p></div>
+    <div class="card c-corail"><h3>Conversion</h3><p>Clics sortants vers la billetterie, coût par clic billetterie, suivi des ventes sur la période (via UTM dédiés par levier et par cible).</p></div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section id="audiences">
+  <p class="eyebrow">Les publics</p>
+  <h2>Segments d'audience</h2>
+  <div class="grid g3">
+    <div class="card persona c-lavande">
+      <span class="glyph">●</span>
+      <h3>L'aficionado historique</h3>
+      <p>45-65 ans, passionné de courses historiques, GT et endurance. Suit l'actu sport auto, connaît le circuit.</p>
+      <ul>
+        <li>Ciblage intérêts : sport automobile, voitures de collection, F1, 24 Heures du Mans</li>
+        <li>Message : plateau, légendes en piste, ambiance paddock</li>
+        <li>Levier prioritaire : Social Post + display contextuel sport auto</li>
+      </ul>
+    </div>
+    <div class="card persona c-bleu">
+      <span class="glyph">■</span>
+      <h3>La famille locale</h3>
+      <p>Parents 35-50 ans avec enfants, résidents de la zone, en recherche d'une dernière sortie avant la rentrée.</p>
+      <ul>
+        <li>Ciblage intérêts : sorties famille, loisirs week-end, parcs et évènements locaux</li>
+        <li>Message : animations, village, journée en famille au circuit</li>
+        <li>Levier prioritaire : Social Post + Story</li>
+      </ul>
+    </div>
+    <div class="card persona c-peche">
+      <span class="glyph">◆</span>
+      <h3>Le duo transmission</h3>
+      <p>Grand-parent passionné + petits-enfants : la passion mécanique qui se transmet, pont naturel entre les deux cœurs de cible.</p>
+      <ul>
+        <li>Ciblage : croisement intérêts sport auto × foyer avec enfants</li>
+        <li>Message : « faites-leur découvrir les légendes »</li>
+        <li>Levier prioritaire : Story fin de campagne</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DATA -->
+<section id="data">
+  <p class="eyebrow">L'intelligence du ciblage</p>
+  <h2>Architecture data en 3 couches</h2>
+  <p class="intro">Chaque impression est qualifiée par l'empilement de trois couches de données, du socle géographique au signal d'intention.</p>
+  <div class="pyramide">
+    <div class="layer l1"><h4>Couche 3 · Signaux d'engagement</h4><p>Retargeting des visiteurs billetterie et des audiences ayant interagi avec les publications</p></div>
+    <div class="layer l2"><h4>Couche 2 · Segments affinitaires</h4><p>Données 3rd party et intérêts déclarés : sport auto, collection, sorties famille</p></div>
+    <div class="layer l3"><h4>Couche 1 · Socle contextuel &amp; géographique</h4><p>Géociblage Le Castellet + 50 km (Toulon, La Ciotat, Aubagne, Brignoles, sud du pays d'Aix) et contextes éditoriaux affinitaires</p></div>
+  </div>
+</section>
+
+<!-- FUNNEL -->
+<section id="funnel">
+  <p class="eyebrow">Le parcours</p>
+  <h2>Funnel d'activation</h2>
+  <div class="funnel">
+    <div class="fstep f1"><span class="st" style="color:var(--roi);">Notoriété</span><p>Display IAB géolocalisé : installer la date et l'affiche auprès de toute la zone de chalandise, en répétition maîtrisée.</p></div>
+    <div class="fstep f2"><span class="st" style="color:#2e6fc7;">Considération</span><p>Social Post par cible : contenus immersifs différenciés aficionados / familles pour transformer la notoriété en intention de sortie.</p></div>
+    <div class="fstep f3"><span class="st" style="color:var(--orange);">Conversion</span><p>Story + retargeting sur la dernière semaine : urgence billetterie, clic direct vers l'achat, capitalisation sur les audiences engagées.</p></div>
+  </div>
+</section>
+
+<!-- RGPD -->
+<section id="rgpd">
+  <p class="eyebrow">Le cadre</p>
+  <h2>RGPD &amp; brand safety</h2>
+  <div class="grid g3">
+    <div class="card c-menthe"><h3>Conformité RGPD</h3><p>Ciblage exclusivement sur données consenties et segments agrégés. Aucune donnée personnelle collectée sans base légale, UTM anonymisés.</p></div>
+    <div class="card c-menthe"><h3>Brand safety</h3><p>Diffusion display sur inventaires premium filtrés (listes d'exclusion, pré-bid verification), environnements éditoriaux compatibles avec l'image de l'évènement.</p></div>
+    <div class="card c-menthe"><h3>Qualité de diffusion</h3><p>Capping de répétition, exclusion des emplacements non visibles, suivi de la part d'impressions réellement délivrées sur la zone cible.</p></div>
+  </div>
+</section>
+
+<!-- KPIS DATA -->
+<section id="kpis-data">
+  <p class="eyebrow">La preuve</p>
+  <h2>KPIs data &amp; reporting</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Reporting hebdomadaire</h3><p>Un point synthétique chaque semaine : impressions, clics, CTR, coût par clic billetterie, répartition géographique des contacts, avec recommandations d'arbitrage en temps réel.</p></div>
+    <div class="card"><h3>Bilan de campagne</h3><p>Sous 10 jours après l'évènement : performance par levier, par cible et par créa, étude socio-démo et géolocalisée des contacts, enseignements pour l'édition 2027.</p></div>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section id="formats">
+  <p class="eyebrow">Le kit de production</p>
+  <h2>Formats &amp; KPIs de suivi par levier</h2>
+  <div class="grid g2">
+    <div class="card c-lavande">
+      <h3>Social Ads · Post + Story</h3>
+      <p><strong>Formats attendus :</strong> post 1080 × 1080 px (jpeg / png / mp4), story 9:16 1920 × 1080 px mp4, bumper 6 s possible.</p>
+      <p style="margin-top:8px;"><strong>KPIs de suivi :</strong> impressions, clics, CTR, reach, interactions, coût par interaction, CPM final, vues à 25 / 50 / 75 / 100 %, taux de complétion.</p>
+    </div>
+    <div class="card c-bleu">
+      <h3>Display Programmatique IAB</h3>
+      <p><strong>Formats attendus :</strong> 300 × 600, 300 × 250, 320 × 480, 728 × 90, 160 × 600, 320 × 50 px · jpeg, png ou gif.</p>
+      <p style="margin-top:8px;"><strong>KPIs de suivi :</strong> impressions, clics, CTR, étude socio-démographique, géolocalisation des contacts, segments affinitaires touchés.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<footer id="contacts">
+  <h2>Vos contacts</h2>
+  <div class="contacts">
+    <div class="contact">
+      <h4>Jérôme Fages</h4>
+      <div class="role">Directeur commercial</div>
+      <a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+      <div class="tel">06 18 74 66 75</div>
+    </div>
+    <div class="contact">
+      <h4>Mathilde Coriton</h4>
+      <div class="role">Directrice de clientèle</div>
+      <a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a>
+      <div class="tel">06 48 61 92 92</div>
+    </div>
+    <div class="contact">
+      <h4>Leslie Rogé</h4>
+      <div class="role">Cheffe de publicité</div>
+      <a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+      <div class="tel">06 83 73 68 62</div>
+    </div>
+    <div class="contact inactive">
+      <h4>Andrea</h4>
+      <div class="role">The Good Web</div>
+      <div class="mail">andrea@thegoodweb.eu</div>
+      <span class="soon">Actif à partir de septembre</span>
+    </div>
+    <div class="contact inactive">
+      <h4>Sofien</h4>
+      <div class="role">The Good Web</div>
+      <div class="mail">sofien@thegoodweb.eu</div>
+      <span class="soon">Actif à partir de septembre</span>
+    </div>
+    <div class="contact inactive">
+      <h4>Pôle activation</h4>
+      <div class="role">Trafic &amp; campagnes</div>
+      <div class="mail">activation@thegoodweb.eu</div>
+      <span class="soon">Actif à partir de septembre</span>
+    </div>
+  </div>
+  <div class="foot-logo">
+    <svg width="70" height="38" viewBox="0 0 86 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g stroke="#fff" stroke-width="2" fill="none">
+        <circle cx="10" cy="10" r="6"/><path d="M2 34c0-6 4-10 8-10s8 4 8 10"/>
+        <circle cx="30" cy="10" r="6"/><path d="M22 34c0-6 4-10 8-10s8 4 8 10"/>
+        <circle cx="50" cy="10" r="6"/><path d="M42 34c0-6 4-10 8-10s8 4 8 10"/>
+      </g>
+      <g fill="#fff">
+        <circle cx="70" cy="10" r="7"/><path d="M61 34c0-6.5 4.2-10.5 9-10.5s9 4 9 10.5"/>
+      </g>
+      <text x="80" y="12" fill="#F0532D" font-size="16" font-family="Poppins,sans-serif" font-weight="800">*</text>
+    </svg>
+    <div>
+      <div class="logo-name" style="font-family:'Poppins',sans-serif;font-weight:800;">THE GOOD WEB</div>
+      <div class="baseline">* The Good Audience</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
