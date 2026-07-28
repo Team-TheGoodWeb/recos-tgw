@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tous Vélontaires · Dispositif audio digital · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#021859;
+  --babyblue:#7bbdff;
+  --terra:#f25430;
+  --white:#ffffff;
+  --saumon:#ffb79e;
+  --bg-alt:#F6F8FE;
+  --ink:#1c2540;
+  --muted:#5a6residual;
+}
+:root{--muted:#5a6685;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:16px;}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);}
+h2{font-size:clamp(24px,3vw,32px);margin-bottom:24px;}
+h2::before{content:"↘ ";color:var(--terra);}
+h3{font-size:19px;margin-bottom:10px;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+section{padding:64px 0;}
+section:nth-of-type(even){background:var(--bg-alt);}
+.eyebrow{font-family:'Poppins',sans-serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px;color:var(--terra);margin-bottom:12px;}
+
+/* HERO */
+header.hero{background:var(--navy);color:var(--white);padding:56px 0 48px;}
+header.hero .eyebrow{color:var(--saumon);}
+header.hero h1{color:var(--white);font-size:clamp(30px,4.4vw,46px);line-height:1.15;margin-bottom:10px;}
+header.hero .sub{color:var(--babyblue);font-weight:600;font-family:'Poppins',sans-serif;font-size:clamp(16px,2vw,20px);margin-bottom:28px;}
+.logo-slot{margin-bottom:30px;}
+/* ============================================================
+   LOGO OFFICIEL TGW : coller ici le bloc SVG complet repris de
+   slome.html (version header, ~118 px, viewBox "214 252 572 496").
+   Ne pas utiliser symbol/use. Idem dans le footer (~88 px).
+   ============================================================ */
+.pills{display:flex;flex-wrap:wrap;gap:12px;}
+.pill{border:1.5px solid var(--babyblue);border-radius:999px;padding:8px 18px;font-size:13.5px;color:var(--white);background:rgba(255,255,255,.04);}
+.pill b{font-weight:700;}
+
+/* NAV */
+nav.anchors{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid #e3e9f6;box-shadow:0 2px 10px rgba(2,24,89,.05);}
+nav.anchors .wrap{display:flex;gap:26px;overflow-x:auto;padding-top:14px;padding-bottom:14px;}
+nav.anchors a{font-family:'Poppins',sans-serif;font-weight:700;font-size:13.5px;color:var(--navy);text-decoration:none;white-space:nowrap;}
+nav.anchors a:hover{color:var(--terra);}
+
+/* CARDS */
+.grid{display:grid;gap:20px;}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g4{grid-template-columns:repeat(4,1fr);}
+.card{background:var(--white);border:1px solid #e3e9f6;border-radius:16px;padding:26px;box-shadow:0 4px 16px rgba(2,24,89,.05);}
+section:nth-of-type(odd) .card{background:var(--bg-alt);}
+.card .num{font-family:'Poppins',sans-serif;font-weight:800;font-size:26px;color:var(--terra);margin-bottom:8px;}
+.c-navy{background:#eaf1ff !important;border-color:#cfdffb;}
+.c-blue{background:#eef7ff !important;border-color:#cfe8ff;}
+.c-terra{background:#fff0eb !important;border-color:#ffd6c8;}
+.c-sand{background:#fff8f0 !important;border-color:#f4e3cd;}
+.tag{display:inline-block;font-family:'Poppins',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--babyblue);border-radius:999px;padding:4px 12px;margin-bottom:12px;}
+.tag.t-terra{background:var(--terra);color:var(--white);}
+.small{font-size:14px;color:var(--muted);}
+ul.clean{list-style:none;}
+ul.clean li{padding-left:20px;position:relative;margin-bottom:8px;}
+ul.clean li::before{content:"·";color:var(--terra);font-weight:800;position:absolute;left:4px;font-size:22px;line-height:1;}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;background:var(--white);border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(2,24,89,.06);font-size:14.5px;}
+table th{background:var(--navy);color:var(--white);font-family:'Poppins',sans-serif;font-weight:600;padding:13px 16px;text-align:left;font-size:13.5px;}
+table td{padding:12px 16px;border-bottom:1px solid #eef2fa;}
+table tr:last-child td{border-bottom:none;}
+.reco-row{background:#fff0eb;font-weight:700;}
+.table-scroll{overflow-x:auto;border-radius:14px;}
+
+/* PLANNING */
+.plan-bar{height:14px;border-radius:999px;}
+.b-teasing{background:var(--babyblue);}
+.b-revel{background:var(--terra);}
+.b-engag{background:var(--navy);}
+
+/* PYRAMIDE */
+.pyra{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.pyra .layer{border-radius:14px;padding:18px 24px;text-align:center;color:var(--white);}
+.pyra .l1{background:var(--terra);width:min(420px,100%);}
+.pyra .l2{background:var(--navy);width:min(640px,100%);}
+.pyra .l3{background:#3d5bb5;width:min(860px,100%);}
+.pyra b{font-family:'Poppins',sans-serif;display:block;margin-bottom:4px;}
+.pyra span{font-size:13.5px;opacity:.92;}
+
+/* FUNNEL */
+.funnel{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.funnel .step{border-radius:16px;padding:24px;color:var(--white);}
+.funnel .f1{background:var(--navy);}
+.funnel .f2{background:#3d5bb5;}
+.funnel .f3{background:var(--terra);}
+.funnel h3{color:var(--white);}
+.funnel p{font-size:14px;opacity:.94;}
+
+/* FOOTER CONTACTS */
+footer{background:var(--navy);color:var(--white);padding:64px 0 40px;}
+footer h2{color:var(--white);}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;}
+.contact{background:rgba(255,255,255,.06);border:1px solid rgba(123,189,255,.35);border-radius:16px;padding:22px;}
+.contact b{font-family:'Poppins',sans-serif;display:block;font-size:16px;}
+.contact .role{color:var(--babyblue);font-size:13px;margin-bottom:10px;display:block;}
+.contact a{color:var(--saumon);text-decoration:none;font-weight:600;font-size:14px;display:block;}
+.contact .tel{color:var(--white);font-size:14px;}
+.contact.inactive{opacity:.55;}
+.contact.inactive .mail{color:#c9d6f2;font-size:14px;}
+.contact .note{font-size:11.5px;color:#c9d6f2;margin-top:6px;display:block;}
+footer .baseline{margin-top:40px;text-align:center;color:var(--babyblue);font-family:'Poppins',sans-serif;font-weight:600;}
+
+@media(max-width:900px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr);}
+  .funnel{grid-template-columns:1fr;}
+  .contacts{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  section{padding:44px 0;}
+  .g2,.g3,.g4,.contacts{grid-template-columns:1fr;}
+  .pills{gap:8px;}
+  .pill{font-size:12.5px;padding:7px 14px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo-slot">
+      <!-- LOGO OFFICIEL TGW : coller ici le bloc SVG complet (version header ~118 px) repris de slome.html · viewBox "214 252 572 496" · pas de symbol/use -->
+    </div>
+    <div class="eyebrow">Recommandation média · The Good Web × Karrow Médias</div>
+    <h1>Tous Vélontaires · Dispositif audio digital</h1>
+    <div class="sub">Championnats du monde de cyclisme · Haute-Savoie Mont-Blanc 2027 · Campagne de recrutement des volontaires</div>
+    <div class="pills">
+      <span class="pill"><b>Période ·</b> 24 août au 15 septembre</span>
+      <span class="pill"><b>Zone ·</b> Région Auvergne-Rhône-Alpes</span>
+      <span class="pill"><b>Cible ·</b> 18-35 ans, jeunes &amp; fans de vélo et de sport</span>
+      <span class="pill"><b>Objectif ·</b> Recrutement des vélontaires</span>
+      <span class="pill"><b>Budget ·</b> 3 scénarios, de 5 000 à 12 000 € HT</span>
+    </div>
+  </div>
+</header>
+
+<nav class="anchors">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats">Formats &amp; KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<section id="contexte">
+  <div class="wrap">
+    <div class="eyebrow">Le point de départ</div>
+    <h2>Contexte &amp; objectifs</h2>
+    <div class="grid g3">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Un néologisme à faire entendre</h3>
+        <p>« Vélontaire » est un mot qui se joue à l'oreille : la fusion vélo · volontaire s'entend avant de se lire. L'audio digital est le média naturel du concept : il installe le mot dans les têtes, en fait un gimmick sonore et prépare la révélation du 27 août.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>La cible 18-35, cœur de l'écoute</h3>
+        <p>Les 18-35 ans sont les plus gros consommateurs de streaming audio, de podcasts et de webradios : des environnements sans zapping visuel, écoutés au casque, avec des taux de complétion très supérieurs aux formats vidéo skippables.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Un maillon complémentaire du plan</h3>
+        <p>L'audio comble l'espace entre le print (Le Dauphiné Libéré, ICI) et le social (Meta, YouTube) : il accompagne les moments sans écran (trajets, sport, révisions) et prolonge la répétition du message sur toute la durée de la campagne, à coût maîtrisé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dispositif">
+  <div class="wrap">
+    <div class="eyebrow">Le levier recommandé</div>
+    <h2>Un dispositif audio en 3 temps, calé sur la campagne</h2>
+    <p style="max-width:840px;margin-bottom:26px;">Audio digital multi-environnements (streaming, podcasts, webradios), diffusé sur la région AURA avec un focus Haute-Savoie et grandes agglomérations, en écho exact aux 3 phases du plan de communication.</p>
+    <div class="grid g3">
+      <div class="card c-blue">
+        <span class="tag">Phase 1 · Teasing · 24 au 26 août</span>
+        <h3>La « faute » qui s'entend</h3>
+        <ul class="clean">
+          <li>Spot court 15 s : le mot « vélontaires » est prononcé naturellement, sans jamais être expliqué</li>
+          <li>Companion display cliquable vers la plateforme temporaire (même logique que le stickage QR code)</li>
+          <li>Pression légère : on intrigue, on ne sature pas</li>
+        </ul>
+        <p class="small" style="margin-top:12px;">≈ 15 % du budget</p>
+      </div>
+      <div class="card c-terra">
+        <span class="tag t-terra">Phase 2 · Révélation · 27 au 30 août</span>
+        <h3>Le burst d'ouverture</h3>
+        <ul class="clean">
+          <li>Spot 20-30 s : « Ce n'est pas une faute, c'est le début d'un mouvement »</li>
+          <li>Pic de pression sur 4 jours, en simultané du film, du CP et des campagnes Meta &amp; YouTube</li>
+          <li>Companion display vers la plateforme d'inscription en ligne</li>
+        </ul>
+        <p class="small" style="margin-top:12px;">≈ 25 % du budget</p>
+      </div>
+      <div class="card c-navy">
+        <span class="tag">Phase 3 · Engagement · 31 août au 15 sept.</span>
+        <h3>Le recrutement dans la durée</h3>
+        <ul class="clean">
+          <li>Rotation de spots : voix d'athlètes, appels à l'inscription, rendez-vous du forum des associations (12-13/09)</li>
+          <li>Capping maîtrisé pour tenir la répétition sans lassitude sur 2 semaines</li>
+          <li>Renfort possible au-delà du 15/09 selon le rythme des inscriptions</li>
+        </ul>
+        <p class="small" style="margin-top:12px;">≈ 60 % du budget</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="environnements">
+  <div class="wrap">
+    <div class="eyebrow">Où le mot va circuler</div>
+    <h2>Environnements de diffusion</h2>
+    <div class="grid g3">
+      <div class="card">
+        <span class="tag">Streaming musical</span>
+        <h3>Spotify · YouTube Music · Deezer</h3>
+        <p>Le cœur de l'écoute des 18-35 ans : playlists sport, workout, trajets. Diffusion en audio instream non skippable, avec companion display cliquable.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Podcasts &amp; plateformes</span>
+        <h3>L'Équipe · Groupe M6 · Ausha · Acast · 366 #Communities</h3>
+        <p>Les podcasts sport de L'Équipe pour toucher les passionnés de cyclisme, les catalogues Ausha et Acast pour les 18-35, et 366 #Communities pour la cohérence avec le print régional (Le Dauphiné Libéré).</p>
+      </div>
+      <div class="card">
+        <span class="tag">Webradios</span>
+        <h3>NRJ · Skyrock · Radio France</h3>
+        <p>Les flux digitaux des radios jeunes pour la puissance et la répétition sur la cible étudiante et jeunes actifs de la région.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="planning">
+  <div class="wrap">
+    <div class="eyebrow">Le calendrier d'activation</div>
+    <h2>Planning de diffusion</h2>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Dates</th>
+            <th>Sem. 24-30/08</th>
+            <th>Sem. 31/08-06/09</th>
+            <th>Sem. 07-13/09</th>
+            <th>Sem. 14-15/09</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Teasing · la « faute »</b></td>
+            <td>24 au 26 août</td>
+            <td><div class="plan-bar b-teasing" style="width:45%;"></div></td>
+            <td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><b>Révélation · burst</b></td>
+            <td>27 au 30 août</td>
+            <td><div class="plan-bar b-revel" style="width:55%;margin-left:45%;"></div></td>
+            <td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><b>Engagement · recrutement</b></td>
+            <td>31 août au 15 septembre</td>
+            <td></td>
+            <td><div class="plan-bar b-engag" style="width:100%;"></div></td>
+            <td><div class="plan-bar b-engag" style="width:100%;"></div></td>
+            <td><div class="plan-bar b-engag" style="width:60%;"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-top:14px;">Temps fort intégré : forum des associations du week-end des 12 et 13 septembre (renfort de pression en fin de semaine 07-13/09). Dispositif prolongeable au-delà du 15 septembre selon les besoins de recrutement.</p>
+  </div>
+</section>
+
+<section id="budgets">
+  <div class="wrap">
+    <div class="eyebrow">Trois niveaux de puissance</div>
+    <h2>Scénarios budgétaires</h2>
+    <p style="max-width:840px;margin-bottom:24px;">Aucun budget audio n'étant arrêté dans le brief, nous proposons 3 scénarios sur une base CPM de 15 € HT (audio streaming + podcast + webradio), à répartir sur les 3 phases (15 % · 25 % · 60 %).</p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Scénario</th>
+            <th>Budget HT</th>
+            <th>CPM HT</th>
+            <th>Impressions estimées</th>
+            <th>Reach estimé*</th>
+            <th>Lecture</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Essentiel</b></td>
+            <td>5 000 €</td>
+            <td>15 €</td>
+            <td>≈ 333 000</td>
+            <td>≈ 70 000 à 80 000</td>
+            <td>Présence continue, pression concentrée sur les métropoles AURA</td>
+          </tr>
+          <tr class="reco-row">
+            <td>Recommandé ◆</td>
+            <td>8 000 €</td>
+            <td>15 €</td>
+            <td>≈ 533 000</td>
+            <td>≈ 110 000 à 125 000</td>
+            <td>Le bon équilibre reach × répétition sur les 18-35 AURA, 3 phases pleinement couvertes</td>
+          </tr>
+          <tr>
+            <td><b>Puissance</b></td>
+            <td>12 000 €</td>
+            <td>15 €</td>
+            <td>≈ 800 000</td>
+            <td>≈ 165 000 à 185 000</td>
+            <td>Couverture régionale large + renfort podcasts sport et prolongation possible</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-top:14px;">*Reach estimé sur une répétition moyenne de 4 à 5 contacts par auditeur sur la période. Volumes indicatifs, affinés au lancement selon les environnements retenus.</p>
+  </div>
+</section>
+
+<section id="formats">
+  <div class="wrap">
+    <div class="eyebrow">Le cadre de production &amp; de mesure</div>
+    <h2>Formats &amp; KPIs de suivi</h2>
+    <div class="grid g2">
+      <div class="card">
+        <span class="tag">Formats audio</span>
+        <ul class="clean">
+          <li>Spots audio 15 s (teasing), 20 s et 30 s (révélation &amp; engagement)</li>
+          <li>Companion display 1:1 640x640 px ou 9:16 720x1280 px, cliquable vers la plateforme</li>
+          <li>Fichiers mp3 ou wav, mixage voix + habillage sonore de la campagne</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">KPIs de suivi</span>
+        <ul class="clean">
+          <li>Impressions, reach et répétition (capping)</li>
+          <li>Écoutes à 25 · 50 · 75 · 100 % et taux de complétion (LTR)</li>
+          <li>Clics sur le companion et trafic vers la plateforme d'inscription</li>
+          <li>Statistiques socio-démographiques et géographiques, CPE &amp; CPM finaux</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <div class="eyebrow">À qui l'on parle</div>
+    <h2>Segments d'audience</h2>
+    <div class="grid g4">
+      <div class="card c-blue">
+        <div class="num">●</div>
+        <h3>L'étudiant·e AURA</h3>
+        <p class="small">18-25 ans, campus et assos étudiantes, streaming quotidien au casque, sensible à l'expérience collective et au CV qui a du sens.</p>
+      </div>
+      <div class="card c-sand">
+        <div class="num">■</div>
+        <h3>Le jeune actif engagé</h3>
+        <p class="small">25-35 ans, podcasts en trajet domicile-travail, en recherche d'engagement concret, relais naturel des entreprises partenaires.</p>
+      </div>
+      <div class="card c-terra">
+        <div class="num">◆</div>
+        <h3>Le licencié &amp; fan de vélo</h3>
+        <p class="small">Clubs FFC, pratiquants route · VTT · gravel, auditeurs des contenus cyclisme : le cœur affinitaire du mot « vélontaire ».</p>
+      </div>
+      <div class="card c-navy">
+        <div class="num">⌂</div>
+        <h3>Le fan de grands événements</h3>
+        <p class="small">Marqué par Paris 2024 et la communauté des volontaires, veut vivre l'événement de l'intérieur, en Haute-Savoie et au-delà.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <div class="eyebrow">La mécanique de ciblage</div>
+    <h2>Stratégie data · 3 couches</h2>
+    <div class="pyra">
+      <div class="layer l1"><b>Couche 1 · Affinitaires vélo, sport &amp; montagne</b><span>Fans de cyclisme et de grands événements sportifs, pratiquants outdoor &amp; montagne (rando, trail, ski), bénévoles associatifs déjà engagés, auditeurs de podcasts et playlists sport</span></div>
+      <div class="layer l2"><b>Couche 2 · Socio-démo &amp; géo</b><span>18-35 ans, région AURA : focus Haute-Savoie, Lyon, Grenoble, Annecy, Chambéry, Saint-Étienne, Clermont-Ferrand · étudiants &amp; jeunes actifs · zones frontalières Suisse (Genève, Vaud) &amp; Italie (Vallée d'Aoste) pour amorcer la déclinaison bikeunteers</span></div>
+      <div class="layer l3"><b>Couche 3 · Engagement &amp; extension</b><span>Intentionnistes bénévolat · vie associative · recherche d'emploi &amp; reconversion (France Travail), salariés d'entreprises partenaires sensibles à l'engagement RSE, contextuel sport &amp; événementiel, retargeting des auditeurs exposés via le companion</span></div>
+    </div>
+
+    <div class="eyebrow" style="margin-top:48px;">Pour aller plus loin</div>
+    <h3 style="margin-bottom:20px;">Sources data complémentaires</h3>
+    <div class="grid g2">
+      <div class="card c-terra">
+        <span class="tag t-terra">Nouveau</span>
+        <h3>Anciens engagés des grands événements</h3>
+        <p class="small">Bases d'affinité des anciens volontaires JO Paris 2024 et d'autres grands événements sportifs français : le vivier le plus qualifié, déjà convaincu par l'expérience du bénévolat événementiel, en écho direct à l'insight du brief.</p>
+      </div>
+      <div class="card c-navy">
+        <span class="tag">Relais emploi &amp; entreprises</span>
+        <h3>Reconversion &amp; RSE</h3>
+        <p class="small">Data France Travail (demandeurs d'emploi et reconversion professionnelle en Haute-Savoie et région AURA) et audiences RSE des entreprises partenaires : deux profils du ciblage 2 du brief, sous-exploités par le seul prisme sportif.</p>
+      </div>
+      <div class="card c-blue">
+        <span class="tag">Bikeunteers</span>
+        <h3>Data transfrontalière</h3>
+        <p class="small">Ciblage géo-affinitaire des bassins frontaliers (Genève, Vaud, Vallée d'Aoste) croisé à une affinité vélo/sport, pour préparer les déclinaisons linguistiques auprès des pays limitrophes prévues au brief.</p>
+      </div>
+      <div class="card c-sand">
+        <span class="tag t-terra">Nouveau · Travel</span>
+        <h3>Mobilité &amp; tourisme</h3>
+        <p class="small">Cible les personnes présentes ou en partance vers le territoire, en position idéale pour relayer le mouvement sur place :</p>
+        <ul class="clean">
+          <li>Réservations hôtels &amp; gîtes (Booking, Airbnb, Gîtes de France) en Haute-Savoie et zones limitrophes</li>
+          <li>Data voyageurs SNCF sur les dessertes vers les villes hôtes</li>
+          <li>Data trafic autoroutier (axes A40/A41) vers les villes desservies par l'évènement</li>
+          <li>Géociblage des zones touristiques Mont-Blanc en période estivale</li>
+        </ul>
+        <p class="small" style="margin-top:10px;"><i>Point de vigilance : la compétition a lieu en 2027, donc sur cette campagne de rentrée 2026 ce data capte des vacanciers d'été, pas des spectateurs de l'évènement. Cet axe gagnera en puissance à mesure qu'on se rapprochera de 2027 (pics réels de réservations et de trafic vers les villes hôtes).</i></p>
+      </div>
+    </div>
+
+    <div class="funnel" style="margin-top:40px;">
+      <div class="step f1"><h3>Intriguer</h3><p>Teasing : le mot circule, la « faute » interpelle, la curiosité monte avec le print et le stickage.</p></div>
+      <div class="step f2"><h3>Révéler</h3><p>Burst de révélation : le mouvement est nommé, la plateforme est en ligne, l'audio renvoie vers l'inscription.</p></div>
+      <div class="step f3"><h3>Recruter</h3><p>Engagement : répétition maîtrisée, voix d'athlètes, relais du forum des associations, inscriptions au fil de l'eau.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="rgpd">
+  <div class="wrap">
+    <div class="eyebrow">Le cadre de confiance</div>
+    <h2>RGPD &amp; brand safety</h2>
+    <div class="grid g3">
+      <div class="card">
+        <h3>Données conformes</h3>
+        <p class="small">Ciblage sur données consenties et anonymisées, dans le respect du RGPD et des recommandations CNIL. Aucune donnée personnelle des futurs volontaires n'est exploitée par le dispositif média.</p>
+      </div>
+      <div class="card">
+        <h3>Environnements maîtrisés</h3>
+        <p class="small">Diffusion exclusivement sur des environnements audio premium et identifiés (plateformes de streaming, éditeurs de podcasts, webradios), en cohérence avec l'image d'un événement public.</p>
+      </div>
+      <div class="card">
+        <h3>Pression publicitaire raisonnée</h3>
+        <p class="small">Capping par auditeur pour préserver l'expérience d'écoute et l'image du programme des vélontaires, mesure du trafic invalide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <h2>Vos contacts The Good Web</h2>
+    <div class="contacts">
+      <div class="contact">
+        <b>Jérôme Fages</b>
+        <span class="role">Directeur commercial</span>
+        <a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+        <span class="tel">06 18 74 66 75</span>
+      </div>
+      <div class="contact">
+        <b>Mathilde Coriton</b>
+        <span class="role">Directrice de clientèle</span>
+        <a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a>
+        <span class="tel">06 48 61 92 92</span>
+      </div>
+      <div class="contact">
+        <b>Leslie Rogé</b>
+        <span class="role">Cheffe de publicité</span>
+        <a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+        <span class="tel">06 83 73 68 62</span>
+      </div>
+      <div class="contact inactive">
+        <b>Andrea</b>
+        <span class="role">The Good Web</span>
+        <span class="mail">andrea@thegoodweb.eu</span>
+        <span class="note">Adresse active à partir de septembre</span>
+      </div>
+      <div class="contact inactive">
+        <b>Sofien</b>
+        <span class="role">The Good Web</span>
+        <span class="mail">sofien@thegoodweb.eu</span>
+        <span class="note">Adresse active à partir de septembre</span>
+      </div>
+      <div class="contact inactive">
+        <b>Pôle activation</b>
+        <span class="role">The Good Web</span>
+        <span class="mail">activation@thegoodweb.eu</span>
+        <span class="note">Adresse active à partir de septembre</span>
+      </div>
+    </div>
+    <div class="logo-slot" style="margin-top:44px;text-align:center;">
+      <!-- LOGO OFFICIEL TGW : coller ici le bloc SVG complet (version footer ~88 px) repris de slome.html -->
+    </div>
+    <div class="baseline">* The Good Audience</div>
+  </div>
+</footer>
+
+</body>
+</html>
