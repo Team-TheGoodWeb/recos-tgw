@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Moquet · Recommandation média · THE GOOD WEB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1B4F;
+  --bleu:#5271FF;
+  --bleu-clair:#85B8F8;
+  --orange:#F0532D;
+  --fond:#F6F8FE;
+  --blanc:#FFFFFF;
+  --texte:#1B2559;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--texte);background:var(--blanc);line-height:1.6}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy)}
+h2{font-size:1.9rem;margin-bottom:.4rem}
+h2 .fleche{color:var(--orange);margin-right:.4rem}
+.eyebrow{font-family:'Poppins',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700;color:var(--orange);margin-bottom:.5rem}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:72px 0}
+section:nth-of-type(even){background:var(--fond)}
+.intro-sec{max-width:720px;color:#44518a;margin-bottom:2.2rem}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--bleu);color:#fff;padding:64px 0 72px}
+.hero .logo-line{display:flex;align-items:center;gap:18px;margin-bottom:44px;flex-wrap:wrap}
+.hero .logo-txt{display:flex;flex-direction:column}
+.hero .logo-txt strong{font-family:'Poppins',sans-serif;font-size:1.35rem;letter-spacing:.04em}
+.hero .logo-txt span{font-size:.8rem;opacity:.85}
+.hero .client-eyebrow{color:#fff;opacity:.9;font-family:'Poppins',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.8rem;font-weight:600;margin-bottom:.8rem}
+.hero h1{color:#fff;font-size:clamp(2rem,4.5vw,3.1rem);font-weight:800;line-height:1.15;max-width:820px}
+.hero p.sub{margin-top:1rem;max-width:680px;font-size:1.05rem;opacity:.95}
+.pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:2rem}
+.pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:.55rem 1.15rem;font-size:.86rem;font-weight:600}
+.pill b{font-weight:700}
+
+/* ---------- NAV ---------- */
+nav.anchors{position:sticky;top:0;z-index:50;background:var(--blanc);border-bottom:1px solid #E4E9F7;box-shadow:0 2px 10px rgba(10,27,79,.05)}
+nav.anchors .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:0;padding-bottom:0}
+nav.anchors a{white-space:nowrap;padding:14px 14px;font-size:.86rem;font-weight:600;color:var(--navy);text-decoration:none;border-bottom:3px solid transparent}
+nav.anchors a:hover{color:var(--bleu);border-bottom-color:var(--bleu)}
+
+/* ---------- CARTES ---------- */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{border-radius:18px;padding:26px;background:var(--blanc);box-shadow:0 4px 18px rgba(10,27,79,.06)}
+.card h3{font-size:1.08rem;margin-bottom:.5rem}
+.card p{font-size:.92rem;color:#44518a}
+.num{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.6rem;color:var(--bleu);display:block;margin-bottom:.35rem}
+.c-lavande{background:#EEF1FF;border-top:5px solid var(--bleu)}
+.c-rose{background:#F0EFFF;border-top:5px solid #5A4FCF}
+.c-bleu{background:#EDF5FF;border-top:5px solid var(--bleu-clair)}
+.c-menthe{background:#EEF3FA;border-top:5px solid var(--navy)}
+.c-corail{background:#FFF0EC;border-top:5px solid var(--orange)}
+.c-peche{background:#FFF5F0;border-top:5px solid #F5906F}
+.tag{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .8rem;margin-bottom:.7rem}
+.tag.orange{background:var(--orange)}
+
+/* ---------- TABLEAUX ---------- */
+table{width:100%;border-collapse:collapse;background:var(--blanc);border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(10,27,79,.07);font-size:.92rem}
+thead th{background:var(--navy);color:#fff;font-family:'Poppins',sans-serif;font-weight:600;font-size:.85rem;padding:14px 16px;text-align:left}
+tbody td{padding:13px 16px;border-bottom:1px solid #EDF0FA;vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tr.total td{background:var(--bleu);color:#fff;font-weight:700}
+tr.soustotal td{background:#EEF1FF;font-weight:600}
+td.right,th.right{text-align:right}
+.note{font-size:.82rem;color:#6b76a8;margin-top:.8rem}
+
+/* ---------- PLANNING ---------- */
+.planning{overflow-x:auto}
+.planning table td.bar{padding:8px}
+.barre{height:26px;border-radius:8px}
+.barre.audio{background:var(--bleu)}
+.barre.ctv{background:var(--orange)}
+
+/* ---------- PERSONAS ---------- */
+.persona .glyphe{font-size:1.8rem;color:var(--bleu);display:block;margin-bottom:.5rem}
+.persona ul{list-style:none;margin-top:.6rem}
+.persona li{font-size:.86rem;color:#44518a;padding-left:1rem;position:relative}
+.persona li::before{content:"·";position:absolute;left:0;color:var(--orange);font-weight:800}
+
+/* ---------- PYRAMIDE DATA ---------- */
+.pyramide{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:1.5rem}
+.couche{color:#fff;border-radius:14px;padding:18px 22px;text-align:center;width:100%}
+.couche h4{color:#fff;font-size:.98rem;margin-bottom:.2rem}
+.couche p{font-size:.84rem;opacity:.92}
+.couche.l1{max-width:520px;background:var(--navy)}
+.couche.l2{max-width:720px;background:var(--bleu)}
+.couche.l3{max-width:920px;background:var(--bleu-clair)}
+.couche.l3 h4,.couche.l3 p{color:var(--navy)}
+
+/* ---------- FUNNEL ---------- */
+.funnel{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:1.5rem}
+.etape{border-radius:16px;padding:22px;color:#fff}
+.etape.e1{background:var(--bleu)}
+.etape.e2{background:var(--navy)}
+.etape.e3{background:var(--orange)}
+.etape h4{color:#fff;margin-bottom:.4rem}
+.etape p{font-size:.88rem;opacity:.95}
+
+/* ---------- KPI CHIFFRES ---------- */
+.kpi-band{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:1.5rem}
+.kpi{background:var(--blanc);border-radius:16px;padding:22px;text-align:center;box-shadow:0 4px 18px rgba(10,27,79,.06)}
+.kpi .val{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.7rem;color:var(--bleu)}
+.kpi .lib{font-size:.82rem;color:#6b76a8;margin-top:.2rem}
+
+/* ---------- FOOTER CONTACTS ---------- */
+footer{background:var(--bleu);color:#fff;padding:64px 0 48px}
+footer h2{color:#fff}
+footer .eyebrow{color:#fff;opacity:.85}
+.contacts{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:2rem}
+.contact{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:22px}
+.contact h4{color:#fff;font-size:1rem}
+.contact .role{font-size:.82rem;opacity:.85;margin-bottom:.6rem}
+.contact a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;display:block}
+.contact a:hover{text-decoration:underline}
+.contact .tel{font-size:.88rem;opacity:.95;margin-top:.15rem}
+.contact.inactif{opacity:.75}
+.contact.inactif .mail{font-weight:600;font-size:.9rem}
+.contact .dispo{font-size:.74rem;opacity:.8;margin-top:.4rem;font-style:italic}
+footer .logo-line{display:flex;align-items:center;gap:16px;margin-top:48px;flex-wrap:wrap}
+footer .logo-txt strong{font-family:'Poppins',sans-serif;font-size:1.1rem;letter-spacing:.04em}
+footer .logo-txt span{display:block;font-size:.76rem;opacity:.85}
+
+@media (max-width:640px){
+  section{padding:52px 0}
+  h2{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="logo-line">
+      <svg width="128" height="56" viewBox="0 0 128 56" xmlns="http://www.w3.org/2000/svg" aria-label="Logo THE GOOD WEB">
+        <!-- picto 1 : contour -->
+        <circle cx="14" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <rect x="4" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <!-- picto 2 : contour -->
+        <circle cx="46" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <rect x="36" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <!-- picto 3 : plein -->
+        <circle cx="78" cy="12" r="8.3" fill="#fff"/>
+        <rect x="68" y="22.7" width="20" height="29.3" rx="10" fill="#fff"/>
+        <!-- picto 4 : contour + astérisque -->
+        <circle cx="110" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <rect x="100" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <text x="120" y="9" fill="#fff" font-size="12" font-family="Poppins, sans-serif" font-weight="700">*</text>
+      </svg>
+      <div class="logo-txt">
+        <strong>THE GOOD WEB</strong>
+        <span>* The Good Audience</span>
+      </div>
+    </div>
+    <div class="client-eyebrow">Recommandation média · Karrow Médias × Daniel Moquet</div>
+    <h1>Daniel Moquet · Recruter aujourd'hui, rayonner demain</h1>
+    <p class="sub">Un dispositif en deux temps : une vague audio Job &amp; Avenir pour parler aux hommes en reconversion, puis une vague de notoriété sur Prime Video, portée par la data Amazon, pour faire des journées portes ouvertes un rendez-vous.</p>
+    <div class="pills">
+      <div class="pill">■ Période : <b>24 août · 26 septembre 2026</b></div>
+      <div class="pill">● Budget média : <b>35 000 € HT</b></div>
+      <div class="pill">◆ Objectifs : <b>Recrutement &amp; Notoriété JPO</b></div>
+      <div class="pill">⌂ Marché : <b>France (hors Corse)</b></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav class="anchors">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#planning">Planning</a>
+    <a href="#budget">Budget</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#kpis">Formats &amp; KPIs</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<!-- ================= CONTEXTE ================= -->
+<section id="contexte">
+  <div class="wrap">
+    <div class="eyebrow">Le point de départ</div>
+    <h2><span class="fleche">↘</span>Contexte &amp; objectifs</h2>
+    <p class="intro-sec">Daniel Moquet poursuit deux ambitions à la rentrée 2026 : attirer de nouveaux talents en reconversion vers ses métiers de l'aménagement extérieur, et installer sa marque auprès des propriétaires avant ses journées portes ouvertes de septembre.</p>
+    <div class="grid g3">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Recruter</h3>
+        <p>Faire connaître les métiers et opportunités Daniel Moquet auprès des hommes de 25 à 59 ans en reconversion professionnelle, au moment charnière de la rentrée.</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>Rayonner</h3>
+        <p>Installer la marque auprès des 35-49 ans propriétaires grâce à un environnement vidéo premium : Prime Video, activé via la data Amazon.</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>Faire venir</h3>
+        <p>Transformer la visibilité en visites concrètes lors des journées portes ouvertes dédiées à la reconversion, annoncées du 14 au 26 septembre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DISPOSITIF ================= -->
+<section id="dispositif">
+  <div class="wrap">
+    <div class="eyebrow">La mécanique</div>
+    <h2><span class="fleche">↘</span>Un dispositif en deux vagues</h2>
+    <p class="intro-sec">Deux temps forts, deux leviers, une même exigence : la bonne personne, dans le bon contexte d'écoute ou de visionnage.</p>
+    <div class="grid g2">
+      <div class="card c-lavande">
+        <span class="tag">Vague 1 · Job &amp; Avenir</span>
+        <h3>● Audio digital · streaming &amp; podcast</h3>
+        <p><b>Du 24 au 31 août 2026 · 15 000 € HT</b></p>
+        <p style="margin-top:.6rem">Prise de parole dans les univers d'écoute des 25-59 ans : plateformes de streaming musical, podcasts et webradios. Un média intime, écouté au casque, idéal pour un message d'orientation de vie : « et si votre prochain métier était dehors ? »</p>
+        <ul style="list-style:none;margin-top:.8rem;font-size:.9rem;color:#44518a">
+          <li>· Diffusion multi-univers : Spotify, Deezer, YouTube Music, podcasts &amp; webradios</li>
+          <li>· Ciblage géographique France, exclusion Corse</li>
+          <li>· Spot 20-30 s + companion banner cliquable vers l'espace recrutement</li>
+        </ul>
+      </div>
+      <div class="card c-corail">
+        <span class="tag orange">Vague 2 · Notoriété JPO</span>
+        <h3>■ Prime Video · cTV + OTT via la data Amazon</h3>
+        <p><b>Du 14 au 26 septembre 2026 · 20 000 € HT</b></p>
+        <p style="margin-top:.6rem">Vidéo premium sur le grand écran du salon : Prime Video, activé via Amazon DSP. La data propriétaire Amazon permet de viser le cœur de cible à 100 % : 35-49 ans, propriétaires, avec des signaux d'achat maison &amp; jardin.</p>
+        <ul style="list-style:none;margin-top:.8rem;font-size:.9rem;color:#44518a">
+          <li>· Environnement brand safe, contenus premium, attention maximale</li>
+          <li>· Message événementiel : annonce des journées portes ouvertes reconversion</li>
+          <li>· Spot 15-30 s, format 16:9, diffusion TV connectée prioritaire</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:2.4rem">
+      <h3 style="font-size:1.15rem;margin-bottom:.3rem"><span style="color:var(--orange)">↘</span> Exemples d'environnements de diffusion · vague audio</h3>
+      <p style="font-size:.9rem;color:#6b76a8;margin-bottom:1.2rem">Sélection illustrative en affinité avec les hommes 25-59 ans en reconversion, à affiner selon les inventaires disponibles au moment de l'activation.</p>
+      <div class="grid g3">
+        <div class="card c-lavande">
+          <h3>● Streaming musical</h3>
+          <p><b>Spotify, Deezer, YouTube Music</b> : playlists rentrée, motivation &amp; workout, trajets domicile-travail, rap/rock FR à forte audience masculine 25-49 ans. Écoute au casque, attention maximale sur le spot.</p>
+        </div>
+        <div class="card c-bleu">
+          <h3>◐ Podcasts &amp; plateformes</h3>
+          <p><b>L'Équipe, Le Figaro, Groupe M6, Ausha, Acast, 366 #Communities</b> : univers sport, info et grands catalogues de podcasts, avec des contextes carrière, entrepreneuriat &amp; reconversion (Génération Do It Yourself, Le Gratin, Sans Permission, Nouvelle École) où le message « changer de métier » résonne naturellement.</p>
+        </div>
+        <div class="card c-peche">
+          <h3>■ Radios &amp; webradios</h3>
+          <p><b>RFM, NRJ, Skyrock, Radio France, Chérie FM, Europe 1</b> et leurs flux digitaux thématiques : une couverture complémentaire sur les moments radio du quotidien (voiture, chantier, atelier).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLANNING ================= -->
+<section id="planning">
+  <div class="wrap">
+    <div class="eyebrow">Le tempo</div>
+    <h2><span class="fleche">↘</span>Planning d'activation</h2>
+    <div class="planning" style="margin-top:1.5rem">
+      <table>
+        <thead>
+          <tr>
+            <th>Levier</th>
+            <th>Août · S35</th>
+            <th>Sept. · S37</th>
+            <th>Sept. · S38</th>
+            <th>Sept. · S39</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Audio streaming &amp; podcast</b><br><span style="font-size:.8rem;color:#6b76a8">24 au 31 août</span></td>
+            <td class="bar"><div class="barre audio"></div></td>
+            <td class="bar"></td>
+            <td class="bar"></td>
+            <td class="bar"></td>
+          </tr>
+          <tr>
+            <td><b>Prime Video · cTV + OTT</b><br><span style="font-size:.8rem;color:#6b76a8">14 au 26 septembre</span></td>
+            <td class="bar"></td>
+            <td class="bar"><div class="barre ctv"></div></td>
+            <td class="bar"><div class="barre ctv"></div></td>
+            <td class="bar"><div class="barre ctv"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Vague 1 sur 8 jours pour une pression d'écoute forte à la rentrée · vague 2 sur 13 jours pour construire la couverture avant et pendant les journées portes ouvertes.</p>
+  </div>
+</section>
+
+<!-- ================= BUDGET ================= -->
+<section id="budget">
+  <div class="wrap">
+    <div class="eyebrow">L'investissement</div>
+    <h2><span class="fleche">↘</span>Budget &amp; volumes projetés</h2>
+    <p class="intro-sec">Valorisation sur la grille tarifaire Karrow Médias en vigueur.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Vague</th>
+          <th>Levier</th>
+          <th>Période</th>
+          <th class="right">CPM</th>
+          <th class="right">Impressions estimées</th>
+          <th class="right">Budget HT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>1 · Job &amp; Avenir</b></td>
+          <td>Audio streaming + podcast</td>
+          <td>24 au 31 août</td>
+          <td class="right">20 €</td>
+          <td class="right">750 000</td>
+          <td class="right"><b>15 000 €</b></td>
+        </tr>
+        <tr>
+          <td><b>2 · Notoriété JPO</b></td>
+          <td>Prime Video · cTV + OTT</td>
+          <td>14 au 26 septembre</td>
+          <td class="right">25 €</td>
+          <td class="right">800 000</td>
+          <td class="right"><b>20 000 €</b></td>
+        </tr>
+        <tr class="total">
+          <td colspan="4"><b>TOTAL MÉDIA HT</b></td>
+          <td class="right"><b>≈ 1,55 M</b></td>
+          <td class="right"><b>35 000 €</b></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="kpi-band">
+      <div class="kpi"><div class="val">≈ 250 000</div><div class="lib">auditeurs uniques estimés · vague audio (répétition ≈ 3)</div></div>
+      <div class="kpi"><div class="val">≈ 265 000</div><div class="lib">foyers touchés estimés · Prime Video (répétition ≈ 3)</div></div>
+      <div class="kpi"><div class="val">100 %</div><div class="lib">du budget vidéo sur le cœur de cible grâce à la data Amazon</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AUDIENCES ================= -->
+<section id="audiences">
+  <div class="wrap">
+    <div class="eyebrow">À qui l'on parle</div>
+    <h2><span class="fleche">↘</span>Segments d'audience</h2>
+    <div class="grid g3" style="margin-top:1.5rem">
+      <div class="card c-lavande persona">
+        <span class="glyphe">●</span>
+        <h3>Le manuel en reconversion</h3>
+        <p>Homme, 25-39 ans, en poste dans l'industrie ou la logistique, veut un métier concret, dehors, avec un résultat visible chaque soir.</p>
+        <ul>
+          <li>Vague 1 · Audio</li>
+          <li>Podcasts carrière, playlists rentrée</li>
+        </ul>
+      </div>
+      <div class="card c-bleu persona">
+        <span class="glyphe">■</span>
+        <h3>Le cadre en quête de sens</h3>
+        <p>Homme, 40-59 ans, envisage l'entrepreneuriat accompagné : la franchise Daniel Moquet comme deuxième vie professionnelle.</p>
+        <ul>
+          <li>Vague 1 · Audio</li>
+          <li>Podcasts entrepreneuriat &amp; artisanat</li>
+        </ul>
+      </div>
+      <div class="card c-peche persona">
+        <span class="glyphe">⌂</span>
+        <h3>L'actif installé en réflexion</h3>
+        <p>35-49 ans, propriétaire, repéré via la data Amazon (signaux de foyer, maison &amp; jardin) : le profil type qui envisage une seconde carrière concrète, à inviter aux JPO.</p>
+        <ul>
+          <li>Vague 2 · Prime Video</li>
+          <li>Data Amazon 1st party</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DATA ================= -->
+<section id="data">
+  <div class="wrap">
+    <div class="eyebrow">Le réacteur du dispositif</div>
+    <h2><span class="fleche">↘</span>Stratégie data · trois couches d'activation</h2>
+    <p class="intro-sec">La data n'est pas un supplément : c'est elle qui garantit que chaque euro touche la bonne personne. Trois couches complémentaires, du signal le plus précis au contexte le plus large.</p>
+    <div class="pyramide">
+      <div class="couche l1">
+        <h4>◆ Couche 1 · Data intentionniste &amp; 3rd party</h4>
+        <p>Intentionnistes emploi, formation et reconversion professionnelle : recherches actives, centres d'intérêt CPF, mobilité professionnelle. C'est le signal le plus proche de l'objectif : des journées portes ouvertes pensées pour la reconversion.</p>
+      </div>
+      <div class="couche l2">
+        <h4>■ Couche 2 · Data retail · Amazon &amp; ManoMano</h4>
+        <p>Amazon : 35-49 ans, actifs installés, propriétaires, signaux de foyer et d'achat (maison, jardin, outillage, DIY), activée sur Prime Video pour viser le cœur de cible dans un environnement premium. ManoMano : acheteurs d'outils de jardinage, de matériel maison et de produits de rénovation, un signal transactionnel qui confirme le goût du concret et du faire soi-même.</p>
+      </div>
+      <div class="couche l3">
+        <h4>● Couche 3 · Contextuel &amp; socio-démo</h4>
+        <p>Hommes 25-59 ans (vague 1) et 35-49 ans (vague 2), environnements d'écoute affinitaires : podcasts carrière, entrepreneuriat, artisanat, maison &amp; jardin. Géociblage France, exclusion Corse.</p>
+      </div>
+    </div>
+    <div class="card c-corail" style="margin-top:1.5rem">
+      <span class="tag orange">Focus data</span>
+      <h3>◆ ManoMano Pro · le vivier des mains expertes</h3>
+      <p>La data ManoMano Pro identifie les artisans et professionnels du bâtiment, de la rénovation et des espaces verts via leurs comptes Pro et leurs achats récurrents de matériaux et d'outillage professionnel. Pour Daniel Moquet, c'est un segment à très forte valeur : des profils déjà manuels, déjà installés dans les métiers du chantier, pour qui rejoindre le réseau (en agence ou en franchise) est une évolution naturelle plutôt qu'un saut dans l'inconnu. Activable en sur-pression sur la vague audio et en complément de la data Amazon sur la vague vidéo.</p>
+    </div>
+    <div class="funnel">
+      <div class="etape e1">
+        <h4>1 · Émerger</h4>
+        <p>La vague audio installe le message Job &amp; Avenir dans l'intimité du casque, au moment des résolutions de rentrée.</p>
+      </div>
+      <div class="etape e2">
+        <h4>2 · Marquer</h4>
+        <p>Prime Video impose la marque sur grand écran auprès des propriétaires 35-49 ans, en amont des JPO.</p>
+      </div>
+      <div class="etape e3">
+        <h4>3 · Convertir</h4>
+        <p>Le message événementiel transforme l'attention en visites aux journées portes ouvertes et en candidatures.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORMATS & KPIS ================= -->
+<section id="kpis">
+  <div class="wrap">
+    <div class="eyebrow">Ce que l'on mesure</div>
+    <h2><span class="fleche">↘</span>Formats &amp; KPIs de suivi par levier</h2>
+    <div style="overflow-x:auto;margin-top:1.5rem">
+      <table>
+        <thead>
+          <tr>
+            <th>Levier</th>
+            <th>Formats attendus</th>
+            <th>KPIs de suivi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>● Audio streaming &amp; podcast</b></td>
+            <td>Spot audio 15, 20 ou 30 s · companion banner 1:1 640x640 px ou 9:16 720x1280 px</td>
+            <td>Impressions, reach, clics, écoutes à 25-50-75-100 %, taux de complétion d'écoute, stats socio-démo, capping, CPE &amp; CPM finaux</td>
+          </tr>
+          <tr>
+            <td><b>■ Prime Video · cTV + OTT</b></td>
+            <td>Vidéo 1920x1080 px, 16:9, 15 à 30 s</td>
+            <td>Impressions, clics, CTR, reach, taux de complétion, top chaînes &amp; contenus, étude socio-démo, géolocalisée et affinitaire</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Bilan de campagne consolidé remis à l'issue de chaque vague, avec lecture croisée des deux temps du dispositif.</p>
+  </div>
+</section>
+
+<!-- ================= RGPD ================= -->
+<section id="rgpd">
+  <div class="wrap">
+    <div class="eyebrow">Le cadre de confiance</div>
+    <h2><span class="fleche">↘</span>RGPD &amp; brand safety</h2>
+    <div class="grid g3" style="margin-top:1.5rem">
+      <div class="card c-menthe">
+        <h3>◐ Données conformes</h3>
+        <p>Segments activés sur données consenties (CMP, opt-in), data Amazon utilisée en environnement propriétaire, aucune donnée personnelle transmise hors plateforme.</p>
+      </div>
+      <div class="card c-menthe">
+        <h3>■ Environnements maîtrisés</h3>
+        <p>Diffusion sur inventaires premium : plateformes de streaming référencées et Prime Video. Listes d'exclusion et vérification de contexte systématiques.</p>
+      </div>
+      <div class="card c-menthe">
+        <h3>● Mesure indépendante</h3>
+        <p>Traçabilité complète des diffusions, capping maîtrisé, trafic invalide contrôlé, reporting transparent à chaque étape.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTS ================= -->
+<footer id="contacts">
+  <div class="wrap">
+    <div class="eyebrow">On en parle ?</div>
+    <h2>Vos contacts THE GOOD WEB</h2>
+    <div class="contacts">
+      <div class="contact">
+        <h4>Jérôme Fages</h4>
+        <div class="role">Directeur commercial</div>
+        <a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+        <div class="tel">06 18 74 66 75</div>
+      </div>
+      <div class="contact">
+        <h4>Mathilde Coriton</h4>
+        <div class="role">Directrice de clientèle</div>
+        <a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a>
+        <div class="tel">06 48 61 92 92</div>
+      </div>
+      <div class="contact">
+        <h4>Leslie Rogé</h4>
+        <div class="role">Cheffe de publicité</div>
+        <a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+        <div class="tel">06 83 73 68 62</div>
+      </div>
+      <div class="contact inactif">
+        <h4>Andrea</h4>
+        <div class="role">The Good Web</div>
+        <div class="mail">andrea@thegoodweb.eu</div>
+        <div class="dispo">Adresse active à partir de septembre</div>
+      </div>
+      <div class="contact inactif">
+        <h4>Sofien</h4>
+        <div class="role">The Good Web</div>
+        <div class="mail">sofien@thegoodweb.eu</div>
+        <div class="dispo">Adresse active à partir de septembre</div>
+      </div>
+      <div class="contact inactif">
+        <h4>Pôle activation</h4>
+        <div class="role">The Good Web</div>
+        <div class="mail">activation@thegoodweb.eu</div>
+        <div class="dispo">Adresse active à partir de septembre</div>
+      </div>
+    </div>
+    <div class="logo-line">
+      <svg width="96" height="42" viewBox="0 0 128 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="14" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <rect x="4" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <circle cx="46" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <rect x="36" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <circle cx="78" cy="12" r="8.3" fill="#fff"/>
+        <rect x="68" y="22.7" width="20" height="29.3" rx="10" fill="#fff"/>
+        <circle cx="110" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <rect x="100" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <text x="120" y="9" fill="#fff" font-size="12" font-family="Poppins, sans-serif" font-weight="700">*</text>
+      </svg>
+      <div class="logo-txt">
+        <strong>THE GOOD WEB</strong>
+        <span>* The Good Audience</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
