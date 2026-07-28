@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slome · Recommandation média · Vague Black Friday · THE GOOD WEB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1B4F;
+  --roi:#5271FF;
+  --clair:#85B8F8;
+  --orange:#F0532D;
+  --bg-alt:#F6F8FE;
+  --txt:#1c2440;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:var(--txt);background:#fff;line-height:1.6;}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);}
+h2{font-size:1.7rem;font-weight:700;margin-bottom:.4rem;}
+h2 .arw{color:var(--orange);margin-right:.45rem;}
+.eyebrow{font-family:'Poppins',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:.5rem;}
+section{padding:64px 6vw;}
+section:nth-of-type(even){background:var(--bg-alt);}
+.intro{max-width:760px;color:#41496b;margin-bottom:2.2rem;font-size:1.02rem;}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--roi);color:#fff;padding:56px 6vw 64px;}
+.hero .logo{display:flex;align-items:center;gap:16px;margin-bottom:44px;}
+.hero .logo-txt .name{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:.05em;}
+.hero .logo-txt .base{font-size:.78rem;opacity:.9;}
+.hero .eyebrow{color:#FFD9CE;}
+.hero h1{color:#fff;font-size:clamp(2rem,4.4vw,3.1rem);font-weight:800;line-height:1.12;max-width:900px;}
+.hero .sub{margin-top:14px;font-size:1.08rem;max-width:760px;color:#EAF0FF;}
+.pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;}
+.pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:9px 20px;font-size:.9rem;font-weight:500;}
+.pill b{font-weight:700;}
+
+/* ---------- NAV ---------- */
+nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #E4E9F7;display:flex;gap:4px;overflow-x:auto;padding:0 4vw;}
+nav a{flex:none;font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:600;color:var(--navy);text-decoration:none;padding:14px 12px;border-bottom:3px solid transparent;white-space:nowrap;}
+nav a:hover{color:var(--roi);border-color:var(--clair);}
+
+/* ---------- CARDS ---------- */
+.grid{display:grid;gap:20px;}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.g4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+.card{border-radius:18px;padding:26px;background:#fff;border:1px solid #E4E9F7;}
+.card h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;}
+.card p{font-size:.93rem;color:#41496b;}
+.num{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.6rem;color:var(--roi);display:block;margin-bottom:.4rem;}
+.c-lavande{background:#EDF1FF;border-color:#D5DEFF;}
+.c-rose{background:#EEEDFB;border-color:#DBD8F5;}
+.c-bleu{background:#EBF4FE;border-color:#CFE4FC;}
+.c-menthe{background:#EDF0F8;border-color:#D6DCEC;}
+.c-corail{background:#FDEDE9;border-color:#F9D4CA;}
+.c-peche{background:#FEF3EC;border-color:#FBDFCE;}
+.tag{display:inline-block;font-family:'Poppins',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 12px;margin-bottom:12px;background:var(--navy);color:#fff;}
+.tag.o{background:var(--orange);}
+.tag.r{background:var(--roi);}
+.tag.cl{background:var(--clair);color:var(--navy);}
+.kv{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+.kv span{background:#fff;border:1px solid #E4E9F7;border-radius:10px;padding:6px 12px;font-size:.82rem;font-weight:600;color:var(--navy);}
+
+/* ---------- TABLES ---------- */
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;font-size:.9rem;box-shadow:0 1px 0 #E4E9F7, 0 0 0 1px #E4E9F7;}
+th{background:var(--navy);color:#fff;font-family:'Poppins',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:13px 14px;text-align:left;}
+td{padding:12px 14px;border-top:1px solid #EDF0F8;vertical-align:top;}
+tr.total td{background:#EDF1FF;font-weight:700;color:var(--navy);}
+tr.reco td{background:#FDEDE9;font-weight:600;}
+.right{text-align:right;}
+.tbl-note{font-size:.8rem;color:#6a7194;margin-top:10px;}
+
+/* ---------- PLANNING ---------- */
+.plan{overflow-x:auto;}
+.plan table td{text-align:center;}
+.bar{height:14px;border-radius:999px;}
+.b-roi{background:var(--roi);}
+.b-clair{background:var(--clair);}
+.b-orange{background:var(--orange);}
+.b-off{background:#E7EBF7;}
+
+/* ---------- PERSONAS ---------- */
+.persona .glyph{font-size:1.7rem;color:var(--roi);display:block;margin-bottom:.6rem;}
+
+/* ---------- PYRAMID ---------- */
+.pyr{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:8px;}
+.pyr div{border-radius:14px;padding:18px 26px;text-align:center;color:#fff;}
+.pyr .l1{background:var(--orange);width:min(420px,92%);}
+.pyr .l2{background:var(--roi);width:min(600px,96%);}
+.pyr .l3{background:var(--navy);width:min(780px,100%);}
+.pyr b{font-family:'Poppins',sans-serif;display:block;font-size:.95rem;}
+.pyr small{font-size:.82rem;opacity:.9;}
+
+/* ---------- FUNNEL ---------- */
+.funnel{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--roi);color:#fff;padding:64px 6vw;}
+footer h2{color:#fff;}
+.contacts{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:30px;}
+.contact{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);border-radius:16px;padding:22px;}
+.contact .nm{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.02rem;}
+.contact .role{font-size:.83rem;color:#EAF0FF;margin-bottom:10px;}
+.contact a{color:#fff;font-weight:600;text-decoration:underline;font-size:.9rem;}
+.contact .tel{display:block;font-size:.9rem;margin-top:4px;}
+.contact.inactive{opacity:.65;}
+.contact.inactive .mail{font-size:.9rem;}
+.contact .soon{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.25);border-radius:999px;padding:3px 10px;margin-top:8px;}
+.foot-logo{display:flex;align-items:center;gap:16px;margin-top:48px;}
+.foot-logo .name{font-family:'Poppins',sans-serif;font-weight:800;letter-spacing:.05em;}
+.foot-logo .base{font-size:.78rem;opacity:.9;}
+
+@media(max-width:640px){section{padding:48px 5vw;}h2{font-size:1.4rem;}}
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero">
+  <div class="logo">
+    <svg width="150" height="46" viewBox="0 0 130 48" xmlns="http://www.w3.org/2000/svg" aria-label="THE GOOD WEB">
+      <!-- picto 1 : contour -->
+      <circle cx="12.5" cy="9.5" r="6" fill="none" stroke="#fff" stroke-width="3"/>
+      <rect x="2" y="20" width="21" height="26" rx="10.5" fill="none" stroke="#fff" stroke-width="3"/>
+      <!-- picto 2 : contour -->
+      <circle cx="42.5" cy="9.5" r="6" fill="none" stroke="#fff" stroke-width="3"/>
+      <rect x="32" y="20" width="21" height="26" rx="10.5" fill="none" stroke="#fff" stroke-width="3"/>
+      <!-- picto 3 : plein -->
+      <circle cx="72.5" cy="9" r="7.5" fill="#fff"/>
+      <rect x="61.5" y="19" width="22" height="27" rx="11" fill="#fff"/>
+      <!-- picto 4 : contour + astérisque -->
+      <circle cx="102.5" cy="9.5" r="6" fill="none" stroke="#fff" stroke-width="3"/>
+      <rect x="92" y="20" width="21" height="26" rx="10.5" fill="none" stroke="#fff" stroke-width="3"/>
+      <text x="111" y="8" fill="#fff" font-size="14" font-family="Poppins, sans-serif" font-weight="800">*</text>
+    </svg>
+    <div class="logo-txt">
+      <div class="name">THE GOOD WEB</div>
+      <div class="base">* The Good Audience</div>
+    </div>
+  </div>
+  <div class="eyebrow">Recommandation média · Novembre 2026</div>
+  <h1>Slome : vague Black Friday sur Amazon Prime Video</h1>
+  <p class="sub">Hypnia devient Slome : une marque de literie 100&nbsp;% en ligne. Dispositif vidéo premium à CPM maîtrisé, amplifié par une brique retargeting display et une vague audio digital synchronisée.</p>
+  <div class="pills">
+    <span class="pill"><b>Période</b> · Semaines 46-47-48 (9 → 29 nov. 2026)</span>
+    <span class="pill"><b>Budget global recommandé</b> · 46 000 € HT</span>
+    <span class="pill"><b>Objectif</b> · Notoriété & performance Black Friday</span>
+    <span class="pill"><b>Marché</b> · France</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#contexte">Contexte</a>
+  <a href="#dispositif">Dispositif</a>
+  <a href="#prime">Prime Video</a>
+  <a href="#retargeting">Retargeting</a>
+  <a href="#audio">Audio digital</a>
+  <a href="#planning">Planning</a>
+  <a href="#budget">Budget</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#audiences">Audiences</a>
+  <a href="#data">Data</a>
+  <a href="#formats">Formats & suivi</a>
+  <a href="#rgpd">RGPD</a>
+  <a href="#contacts">Contacts</a>
+</nav>
+
+<!-- ==================== CONTEXTE ==================== -->
+<section id="contexte">
+  <div class="eyebrow">Le point de départ</div>
+  <h2><span class="arw">↘</span>Contexte & objectifs</h2>
+  <p class="intro">Une marque en pleine mutation, un annonceur exigeant, et le temps fort e-commerce le plus disputé de l'année : la vague de novembre doit démontrer que la vidéo premium peut être pilotée comme un levier de performance.</p>
+  <div class="grid g4">
+    <div class="card c-lavande"><span class="num">01</span><h3>Hypnia devient Slome</h3><p>Nouvelle identité lancée en mai 2026. Marque de literie (matelas, sommiers, linge de lit) distribuée exclusivement en ligne : chaque contact média doit ramener vers le site.</p></div>
+    <div class="card c-bleu"><span class="num">02</span><h3>Année de test & learn</h3><p>Un annonceur « digital lover » qui regarde tout à la loupe : ciblages transparents, KPIs précis, reporting fin. La reco est construite pour être mesurable ligne à ligne.</p></div>
+    <div class="card c-peche"><span class="num">03</span><h3>Black Friday, temps fort n°1 de la literie</h3><p>Le 27 novembre 2026 concentre l'intention d'achat literie de l'année. Trois semaines de diffusion (S46-S48) pour installer la marque puis convertir.</p></div>
+    <div class="card c-menthe"><span class="num">04</span><h3>Un CPM maîtrisé</h3><p>Un accès à l'inventaire Prime Video en programmatique garanti à un CPM tout inclus (set-up, optimisation, reporting), plus compétitif que l'achat direct.</p></div>
+  </div>
+</section>
+
+<!-- ==================== TEMPS FORTS ==================== -->
+<section>
+  <div class="eyebrow">Le tempo de la vague</div>
+  <h2><span class="arw">↘</span>Trois semaines, trois intensités</h2>
+  <div class="grid g3">
+    <div class="card c-lavande"><span class="tag r">S46 · 9-15 nov.</span><h3>Amorçage</h3><p>Installation du territoire Slome sur Prime Video et en audio : émergence de la nouvelle marque auprès des 25-45 ans intentionnistes literie.</p></div>
+    <div class="card c-bleu"><span class="tag cl">S47 · 16-22 nov.</span><h3>Montée en pression</h3><p>Répétition utile sur les audiences exposées, activation du retargeting display sur les visiteurs du site : la considération se transforme en intention.</p></div>
+    <div class="card c-corail"><span class="tag o">S48 · 23-29 nov.</span><h3>Black Friday · 27 nov.</h3><p>Pic de pression vidéo + messages promotionnels en display et en audio. Le retargeting se prolonge en S49 pour convertir les indécis post-Black Friday.</p></div>
+  </div>
+</section>
+
+<!-- ==================== DISPOSITIF ==================== -->
+<section id="dispositif">
+  <div class="eyebrow">La mécanique recommandée</div>
+  <h2><span class="arw">↘</span>Dispositif : vidéo premium + retargeting + audio</h2>
+  <p class="intro">Un cœur de dispositif Prime Video pour l'impact et la couverture, une brique retargeting display pour capitaliser sur chaque visite du site, et une vague audio digital synchronisée pour prolonger la présence de marque à moindre coût de contact.</p>
+  <div class="grid g3">
+    <div class="card c-lavande"><span class="tag r">Cœur du dispositif</span><h3>Amazon Prime Video · cTV & OTT</h3><p>Vidéo 20 s non skippable en pre-roll et mid-roll, dans les films, séries et émissions Prime Video. Ciblage data Amazon literie & maison. Interaction possible sans surcoût.</p><div class="kv"><span>30 000 € HT</span><span>CPM 25 €</span><span>1,20 M imp.</span></div></div>
+    <div class="card c-corail"><span class="tag o">Brique performance</span><h3>Retargeting display TGW</h3><p>Re-exposition des visiteurs du site Slome non convertis via l'outil programmatique TGW, sur un inventaire display premium. Présentation détaillée du support ci-dessous.</p><div class="kv"><span>6 000 € HT</span><span>CPM 6 €</span><span>1 M imp.</span></div></div>
+    <div class="card c-bleu"><span class="tag cl">Extension de couverture</span><h3>Audio digital</h3><p>Spots 15-30 s en streaming, podcasts et webradios, calés sur les semaines de diffusion vidéo. Un point de contact complémentaire, en mobilité et à domicile.</p><div class="kv"><span>10 000 € HT</span><span>CPM 15 €</span><span>666 K imp.</span></div></div>
+  </div>
+</section>
+
+<!-- ==================== PRIME VIDEO ==================== -->
+<section id="prime">
+  <div class="eyebrow">Levier 1 · Le cœur du dispositif</div>
+  <h2><span class="arw">↘</span>Amazon Prime Video, à CPM maîtrisé</h2>
+  <p class="intro">Slome s'installe dans l'environnement vidéo premium d'Amazon (films, séries, documentaires, émissions), sur tous les écrans : téléviseur connecté, desktop, mobile et tablette.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Le format</h3>
+      <p>Vidéo <b>20 secondes non skippable</b> diffusée en pre-roll et mid-roll, avec possibilité d'<b>interaction sans surcoût</b> (overlay cliquable renvoyant vers slome.fr). Capping 1 exposition par compte Prime et par jour : la répétition se construit dans la durée, sans saturation.</p>
+    </div>
+    <div class="card">
+      <h3>Le ciblage data Amazon</h3>
+      <p>Socio-démo <b>25-44 ans</b> croisée avec les segments transactionnels Amazon&nbsp;:</p>
+      <p style="margin-top:8px;"><b>In-Market (30 derniers jours)</b> : intentionnistes ayant recherché ou consulté sans acheter : matelas & sommiers pour adultes, parures de lit, ameublement & décoration, rangement.<br><b>Lifestyle (12 mois)</b> : affinitaires ameublement & décoration, cuisine & maison.</p>
+    </div>
+    <div class="card c-lavande">
+      <h3>L'achat</h3>
+      <p>Programmatique <b>garanti</b> (inventaire réservé, diffusion certaine sur les 3 semaines) au <b>CPM maîtrisé de 25 € HT tout inclus</b> (set-up, optimisation et reporting compris), là où l'achat direct self-service est proposé à 26,35 € hors coûts d'opération. Le pilotage est assuré de bout en bout par les équipes TGW.</p>
+    </div>
+    <div class="card c-peche">
+      <h3>La mesure</h3>
+      <p>Taux de complétion attendu <b>95-98 %</b> (format non skippable), soit un coût par vue complétée d'environ <b>0,025 €</b>. Étude <b>Brand Lift</b> Amazon envisageable sous réserve d'éligibilité (minima de budget et d'impressions) pour objectiver l'impact de la nouvelle marque Slome.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== RETARGETING ==================== -->
+<section id="retargeting">
+  <div class="eyebrow">Levier 2 · Zoom sur le support</div>
+  <h2><span class="arw">↘</span>Le retargeting display TGW, en détail</h2>
+  <p class="intro">La vague vidéo va générer un afflux de visites qualifiées sur slome.fr. La brique retargeting est là pour qu'aucune de ces visites ne se perde : elle re-expose les visiteurs non convertis au bon moment, avec le bon message.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Comment ça fonctionne</h3>
+      <p>Un tag TGW est posé sur slome.fr (pages produits, panier). Il constitue en continu une audience de <b>visiteurs non convertis</b>, segmentable par profondeur de visite (visite simple, fiche matelas consultée, panier abandonné). Ces profils sont re-exposés en display sur l'open web, avec un capping maîtrisé et une fenêtre de retargeting courte (7 à 14 jours) pour rester dans le moment d'intention.</p>
+    </div>
+    <div class="card">
+      <h3>L'inventaire de diffusion</h3>
+      <p>Inventaire display <b>IAB premium</b> via la plateforme programmatique TGW : sites de presse et d'actualité à forte audience (les campagnes literie TGW performent historiquement sur la presse féminine et généraliste : aufeminin, ELLE, Journal des Femmes, 20 Minutes…). Brand safety vérifiée par un tiers de mesure indépendant.</p>
+    </div>
+    <div class="card c-corail">
+      <h3>Le message</h3>
+      <p>Créas display multi-formats déclinées par temps fort : réassurance marque en S47 (« Hypnia devient Slome »), puis bascule <b>offre Black Friday</b> en S48 avec compte à rebours. Formats servis : 300x250, 320x480, 320x50, 300x600, 728x90, 160x600 (jpeg, png, gif). Le 320x480 interstitiel mobile est historiquement le format le plus performant des campagnes literie TGW.</p>
+    </div>
+    <div class="card c-lavande">
+      <h3>Ce que ça rapporte</h3>
+      <p>Sur les campagnes literie et retail récentes de TGW, le retargeting display délivre un <b>CTR de 0,9 à 1,2 %</b> (vs 0,19 % de référence marché display), avec une majorité des clics concentrée sur les audiences les plus engagées. Prolongé en S49, il convertit aussi les indécis de l'après-Black Friday. CPM revente : <b>6 € HT</b>, gestion incluse.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== AUDIO ==================== -->
+<section id="audio">
+  <div class="eyebrow">Levier 3 · Extension de couverture</div>
+  <h2><span class="arw">↘</span>Audio digital, synchronisé sur la vague vidéo</h2>
+  <p class="intro">10 000 € HT pour accompagner les 25-45 ans dans leurs moments d'écoute (trajets, sport, travail, soirée) pendant les trois semaines de diffusion vidéo. Un levier à fort taux de complétion et faible coût de contact, idéal pour marteler la transition Hypnia → Slome.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Les environnements de diffusion</h3>
+      <p><b>Streaming</b> : Spotify, YouTube Music, Deezer.<br>
+      <b>Podcasts & plateformes</b> : L'Équipe, Le Figaro, Groupe M6, Ausha, Acast, 366 #Communities.<br>
+      <b>Radios & webradios</b> : RFM, NRJ, Skyrock, Radio France, Chérie FM, Europe 1.</p>
+    </div>
+    <div class="card c-bleu">
+      <h3>Format & mécanique</h3>
+      <p>Spot audio <b>15 à 30 secondes</b> accompagné d'un companion banner cliquable (640x640 ou 720x1280). Ciblage 25-45 ans, data intentionnistes maison & shopping, diffusion France. Sur les campagnes TGW comparables, le taux d'écoute complète dépasse <b>85 %</b>, avec des pics d'écoute en soirée et le dimanche, des moments propices à l'achat literie en ligne. CPM revente : <b>15 € HT</b>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PLANNING ==================== -->
+<section id="planning">
+  <div class="eyebrow">L'activation dans le temps</div>
+  <h2><span class="arw">↘</span>Planning de diffusion</h2>
+  <div class="plan">
+    <table>
+      <tr><th>Levier</th><th>S46 · 9-15 nov.</th><th>S47 · 16-22 nov.</th><th>S48 · 23-29 nov.<br>Black Friday 27</th><th>S49 · 30 nov.-6 déc.</th></tr>
+      <tr><td><b>Prime Video</b> · 30 000 €</td><td><div class="bar b-roi"></div></td><td><div class="bar b-roi"></div></td><td><div class="bar b-roi"></div></td><td><div class="bar b-off"></div></td></tr>
+      <tr><td><b>Audio digital</b> · 10 000 €</td><td><div class="bar b-clair"></div></td><td><div class="bar b-clair"></div></td><td><div class="bar b-clair"></div></td><td><div class="bar b-off"></div></td></tr>
+      <tr><td><b>Retargeting display</b> · 6 000 €</td><td><div class="bar b-off"></div></td><td><div class="bar b-orange"></div></td><td><div class="bar b-orange"></div></td><td><div class="bar b-orange"></div></td></tr>
+    </table>
+    <p class="tbl-note">Le retargeting démarre en S47, une fois l'audience de visiteurs constituée par la vague vidéo, et se prolonge une semaine après le Black Friday.</p>
+  </div>
+</section>
+
+<!-- ==================== BUDGET ==================== -->
+<section id="budget">
+  <div class="eyebrow">Les chiffres</div>
+  <h2><span class="arw">↘</span>Scénarios budgétaires</h2>
+  <div style="overflow-x:auto;">
+    <table>
+      <tr><th>Scénario</th><th>Levier</th><th class="right">CPM HT</th><th class="right">Impressions</th><th class="right">Budget HT</th></tr>
+      <tr><td rowspan="2">Scénario 1<br>Vidéo seule</td><td>Prime Video · programmatique garanti</td><td class="right">25 €</td><td class="right">1 200 000</td><td class="right">30 000 €</td></tr>
+      <tr class="total"><td>Total scénario 1</td><td class="right"></td><td class="right">1 200 000</td><td class="right">30 000 €</td></tr>
+      <tr class="reco"><td rowspan="4">Scénario 2<br>Dispositif complet<br><span class="tag o" style="margin-top:8px;">Recommandé</span></td><td>Prime Video · programmatique garanti</td><td class="right">25 €</td><td class="right">1 200 000</td><td class="right">30 000 €</td></tr>
+      <tr class="reco"><td>Audio digital · streaming, podcasts, webradios</td><td class="right">15 €</td><td class="right">666 667</td><td class="right">10 000 €</td></tr>
+      <tr class="reco"><td>Retargeting display TGW · IAB premium</td><td class="right">6 €</td><td class="right">1 000 000</td><td class="right">6 000 €</td></tr>
+      <tr class="total"><td>Total scénario 2</td><td class="right"></td><td class="right">2 866 667</td><td class="right">46 000 €</td></tr>
+    </table>
+    <p class="tbl-note">CPM tout inclus : set-up, pilotage, optimisation et reporting compris. Budgets hors taxes, créations non comprises.</p>
+  </div>
+</section>
+
+<!-- ==================== KPIS ==================== -->
+<section id="kpis">
+  <div class="eyebrow">Ce qu'on attend de la vague</div>
+  <h2><span class="arw">↘</span>KPIs estimés</h2>
+  <div style="overflow-x:auto;">
+    <table>
+      <tr><th>Levier</th><th class="right">Impressions</th><th class="right">Couverture estimée</th><th class="right">Répétition</th><th>Indicateurs clés attendus</th></tr>
+      <tr><td><b>Prime Video</b></td><td class="right">1 200 000</td><td class="right">≈ 260 000 comptes Prime</td><td class="right">≈ 4-5</td><td>Complétion 95-98 % · CPVV 100 % ≈ 0,025 € · top chaînes & socio-démo en bilan</td></tr>
+      <tr><td><b>Audio digital</b></td><td class="right">666 667</td><td class="right">≈ 170 000 auditeurs</td><td class="right">≈ 3-4</td><td>Taux d'écoute complète &gt; 85 % · écoutes 25/50/75/100 % · stats socio-démo</td></tr>
+      <tr><td><b>Retargeting display</b></td><td class="right">1 000 000</td><td class="right">Visiteurs slome.fr non convertis</td><td class="right">≤ 5</td><td>CTR cible 0,9-1,2 % · ≈ 9 000-12 000 clics · trafic qualifié vers l'offre Black Friday</td></tr>
+      <tr class="total"><td>Dispositif complet</td><td class="right">≈ 2,87 M</td><td class="right"></td><td class="right"></td><td>Reporting hebdomadaire consolidé + bilan de fin de vague</td></tr>
+    </table>
+    <p class="tbl-note">Estimations établies sur la base des benchmarks des campagnes literie et retail pilotées par TGW en 2026. Elles seront affinées au set-up puis suivies en cours de campagne.</p>
+  </div>
+</section>
+
+<!-- ==================== AUDIENCES ==================== -->
+<section id="audiences">
+  <div class="eyebrow">À qui on parle</div>
+  <h2><span class="arw">↘</span>Segments d'audience</h2>
+  <div class="grid g4">
+    <div class="card persona c-lavande"><span class="glyph">●</span><h3>Jeunes actifs 25-34</h3><p>Premier « vrai » matelas, emménagement ou installation en couple. Achètent 100 % en ligne, comparent tout, sensibles aux avis et aux marques digitales.</p></div>
+    <div class="card persona c-bleu"><span class="glyph">■</span><h3>Familles 35-45</h3><p>Renouvellement de la literie du foyer, recherche de confort et de durabilité. Le Black Friday est leur fenêtre d'achat privilégiée pour les gros paniers.</p></div>
+    <div class="card persona c-peche"><span class="glyph">◆</span><h3>Intentionnistes literie</h3><p>Ont recherché ou consulté matelas, sommiers ou parures de lit sur Amazon.fr dans les 30 derniers jours sans acheter : le cœur de cible transactionnel.</p></div>
+    <div class="card persona c-menthe"><span class="glyph">⌂</span><h3>Passionnés maison & déco</h3><p>Affinitaires ameublement, décoration, cuisine & maison sur 12 mois : un vivier d'acheteurs pour qui la chambre est une pièce à vivre à part entière.</p></div>
+  </div>
+</section>
+
+<!-- ==================== DATA ==================== -->
+<section id="data">
+  <div class="eyebrow">L'architecture de ciblage</div>
+  <h2><span class="arw">↘</span>Stratégie data : le portrait de la cible Slome</h2>
+  <p class="intro">Au-delà du socle socio-démographique, la vague s'appuie sur une lecture fine de la cible : qui elle est, ce qu'elle valorise, où elle s'informe et quels signaux data trahissent son intention d'achat literie.</p>
+  <div class="grid g2">
+    <div class="card">
+      <span class="tag r">Socio-démographie</span>
+      <p><b>Sexe</b> : hommes et femmes.<br>
+      <b>Âge</b> : 25-45 ans (cœur de cible 28-40 ans).<br>
+      <b>Niveau de revenus</b> : moyen à élevé, actifs, souvent primo-équipés ou en renouvellement de literie.<br>
+      <b>Profil</b> : urbains, connectés, acheteurs 100 % en ligne, sensibles à la qualité et à l'esthétique, à l'aise avec les marques digitales natives.</p>
+    </div>
+    <div class="card">
+      <span class="tag r">Centres d'intérêt & valeurs</span>
+      <p><b>Affinitaires</b> : maison, bien-être, décoration, lifestyle.<br>
+      <b>Centres d'intérêt</b> : sommeil, confort, design d'intérieur, produits durables.<br>
+      <b>Attentes</b> : repos optimal, esthétisme, marque responsable.<br>
+      <b>Valeurs</b> : sérénité, durabilité, confort haut de gamme à prix direct.</p>
+    </div>
+    <div class="card">
+      <span class="tag r">Comportements digitaux & médias</span>
+      <p><b>Points d'ancrage</b> : e-shops bien-être, marques digitales natives (DNVB), boutiques déco & design en ligne, ventes privées.<br>
+      <b>Moteurs d'achat</b> : confort perçu, design du produit, promesse de sommeil réparateur, essai sans risque, storytelling apaisant.<br>
+      <b>Canaux d'influence</b> : Instagram, Pinterest, YouTube, podcasts bien-être, recommandations d'influenceurs déco & lifestyle.</p>
+    </div>
+    <div class="card">
+      <span class="tag r">Profils & parcours d'achat</span>
+      <p><b>Profil</b> : en quête d'un art de vivre harmonieux entre design, confort et bien-être.<br>
+      <b>Préférences</b> : produits durables, matières naturelles, fabrication responsable, esthétique épurée.<br>
+      <b>Habitudes</b> : clients des studios de yoga & Pilates, cafés healthy, boutiques lifestyle.<br>
+      <b>Parcours d'achat 100 % digital</b> : influence, désir, comparaison en ligne, achat sur slome.fr. Le Black Friday déclenche le passage à l'acte.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:40px 0 18px;font-size:1.15rem;">Les data partenaires activées</h3>
+  <div class="grid g3">
+    <div class="card c-lavande">
+      <span class="tag r">Data Amazon</span>
+      <p><b>In-Market 30 jours</b> (matelas & sommiers, parures de lit, ameublement, rangement) et <b>Lifestyle 12 mois</b> (ameublement & décoration, cuisine & maison), issus de la navigation et des achats sur Amazon.fr. Activée nativement sur la vague Prime Video.</p>
+    </div>
+    <div class="card c-peche">
+      <span class="tag o">Data The Bradery</span>
+      <p>Personnes ayant consulté des <b>ventes premium et privées</b> de marques de literie et de décoration partenaires de la plateforme (Emma par exemple) : des profils chasseurs de bonnes affaires literie, en parfaite affinité avec le Black Friday. Activée sur le retargeting display et l'audio.</p>
+    </div>
+    <div class="card c-bleu">
+      <span class="tag cl">Data Leboncoin</span>
+      <p>Profils <b>acheteurs seconde main, immobilier, décoration, aménagement</b> : autant de signaux forts d'emménagement, de déménagement ou de renouvellement d'équipement de la chambre. Activée sur le retargeting display et l'audio.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:40px 0 18px;font-size:1.15rem;">Trois couches de data, du plus chaud au plus large</h3>
+  <div class="pyr">
+    <div class="l1"><b>Couche 1 · Intentionnistes literie</b><small>In-Market Amazon 30 jours + consultations de ventes literie The Bradery + visiteurs slome.fr</small></div>
+    <div class="l2"><b>Couche 2 · Affinitaires maison, déco & emménagement</b><small>Lifestyle Amazon 12 mois + data Leboncoin immobilier, décoration, aménagement</small></div>
+    <div class="l3"><b>Couche 3 · Socle socio-démographique</b><small>25-45 ans · France entière · tous devices</small></div>
+  </div>
+</section>
+
+<!-- ==================== FUNNEL ==================== -->
+<section>
+  <div class="eyebrow">Du contact à la conversion</div>
+  <h2><span class="arw">↘</span>Funnel d'activation</h2>
+  <div class="funnel">
+    <div class="card c-lavande"><span class="tag r">Notoriété</span><h3>Prime Video + Audio</h3><p>Émergence de la nouvelle marque Slome sur les écrans et dans les oreilles des 25-45 ans, trois semaines durant.</p></div>
+    <div class="card c-bleu"><span class="tag cl">Considération</span><h3>Visites qualifiées</h3><p>L'interaction vidéo et les companion banners audio ramènent le trafic vers slome.fr, où l'audience de retargeting se constitue.</p></div>
+    <div class="card c-corail"><span class="tag o">Action</span><h3>Retargeting Black Friday</h3><p>Les visiteurs non convertis sont re-exposés à l'offre Black Friday jusqu'au 6 décembre : c'est la brique qui transforme.</p></div>
+  </div>
+</section>
+
+<!-- ==================== FORMATS & KPIS ==================== -->
+<section id="formats">
+  <div class="eyebrow">Le cahier des charges</div>
+  <h2><span class="arw">↘</span>Formats & KPIs de suivi par levier</h2>
+  <div style="overflow-x:auto;">
+    <table>
+      <tr><th>Levier</th><th>Spécifications créa</th><th>KPIs de suivi</th></tr>
+      <tr><td><b>Prime Video<br>(cTV & OTT)</b></td><td>Vidéo 1920x1080 px · 16:9 · 20 s non skippable · pre-roll & mid-roll · interaction cliquable en option sans surcoût</td><td>Impressions · clics · CTR · reach · taux de complétion · top chaînes · étude socio-démo, géoloc & affinitaires</td></tr>
+      <tr><td><b>Retargeting display</b></td><td>Formats 300x600, 300x250, 320x480, 728x90, 160x600, 320x50 px · jpeg, png, gif</td><td>Impressions · clics · CTR · taux de complétion · étude socio-démo · géoloc · affinitaires</td></tr>
+      <tr><td><b>Audio digital</b></td><td>Spot 15, 20 ou 30 s · companion 1:1 640x640 px ou 9:16 720x1280 px</td><td>Impressions · reach · clics · écoutes à 25/50/75/100 % · taux de complétion · stats socio-démo · capping · CPE & CPM finaux</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== RGPD ==================== -->
+<section id="rgpd">
+  <div class="eyebrow">Le cadre de confiance</div>
+  <h2><span class="arw">↘</span>RGPD & brand safety</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Données conformes</h3><p>Les segments Amazon reposent sur la data loguée et consentie des comptes Amazon.fr ; le tag retargeting TGW s'appuie sur le consentement recueilli par la CMP de slome.fr. Aucune donnée personnelle n'est partagée entre les plateformes.</p></div>
+    <div class="card"><h3>Environnements maîtrisés</h3><p>Diffusion exclusivement dans des environnements premium et vérifiés : Prime Video, éditeurs IAB de premier rang, plateformes audio référencées. Vérification brand safety et trafic invalide par tiers de mesure indépendant.</p></div>
+    <div class="card"><h3>Pression publicitaire raisonnée</h3><p>Capping 1/jour par compte Prime, capping display ≤ 5 et fenêtre de retargeting courte : la marque reste présente sans jamais devenir intrusive.</p></div>
+  </div>
+</section>
+
+<!-- ==================== CONTACTS ==================== -->
+<footer id="contacts">
+  <div class="eyebrow" style="color:#FFD9CE;">On en parle ?</div>
+  <h2>Vos contacts THE GOOD WEB</h2>
+  <div class="contacts">
+    <div class="contact">
+      <div class="nm">Jérôme Fages</div>
+      <div class="role">Directeur commercial</div>
+      <a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+      <span class="tel">06 18 74 66 75</span>
+    </div>
+    <div class="contact">
+      <div class="nm">Mathilde Coriton</div>
+      <div class="role">Directrice de clientèle</div>
+      <a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a>
+      <span class="tel">06 48 61 92 92</span>
+    </div>
+    <div class="contact">
+      <div class="nm">Leslie Rogé</div>
+      <div class="role">Cheffe de publicité</div>
+      <a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+      <span class="tel">06 83 73 68 62</span>
+    </div>
+    <div class="contact inactive">
+      <div class="nm">Andrea</div>
+      <div class="role">THE GOOD WEB</div>
+      <span class="mail">andrea@thegoodweb.eu</span>
+      <span class="soon">Actif dès septembre</span>
+    </div>
+    <div class="contact inactive">
+      <div class="nm">Sofien</div>
+      <div class="role">THE GOOD WEB</div>
+      <span class="mail">sofien@thegoodweb.eu</span>
+      <span class="soon">Actif dès septembre</span>
+    </div>
+    <div class="contact inactive">
+      <div class="nm">Pôle activation</div>
+      <div class="role">Set-up & pilotage des campagnes</div>
+      <span class="mail">activation@thegoodweb.eu</span>
+      <span class="soon">Actif dès septembre</span>
+    </div>
+  </div>
+  <div class="foot-logo">
+    <svg width="110" height="34" viewBox="0 0 130 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="12.5" cy="9.5" r="6" fill="none" stroke="#fff" stroke-width="3"/>
+      <rect x="2" y="20" width="21" height="26" rx="10.5" fill="none" stroke="#fff" stroke-width="3"/>
+      <circle cx="42.5" cy="9.5" r="6" fill="none" stroke="#fff" stroke-width="3"/>
+      <rect x="32" y="20" width="21" height="26" rx="10.5" fill="none" stroke="#fff" stroke-width="3"/>
+      <circle cx="72.5" cy="9" r="7.5" fill="#fff"/>
+      <rect x="61.5" y="19" width="22" height="27" rx="11" fill="#fff"/>
+      <circle cx="102.5" cy="9.5" r="6" fill="none" stroke="#fff" stroke-width="3"/>
+      <rect x="92" y="20" width="21" height="26" rx="10.5" fill="none" stroke="#fff" stroke-width="3"/>
+      <text x="111" y="8" fill="#fff" font-size="14" font-family="Poppins, sans-serif" font-weight="800">*</text>
+    </svg>
+    <div>
+      <div class="name">THE GOOD WEB</div>
+      <div class="base">* The Good Audience</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
