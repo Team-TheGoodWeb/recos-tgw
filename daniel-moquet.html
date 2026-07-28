@@ -9,10 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0A1B4F;
-  --bleu:#5271FF;
-  --bleu-clair:#85B8F8;
-  --orange:#F0532D;
+  --navy:#021859;
+  --bleu:#021859;
+  --bleu-clair:#7bbdff;
+  --orange:#f25430;
   --fond:#F6F8FE;
   --blanc:#FFFFFF;
   --texte:#1B2559;
@@ -57,11 +57,11 @@ nav.anchors a:hover{color:var(--bleu);border-bottom-color:var(--bleu)}
 .card p{font-size:.92rem;color:#44518a}
 .num{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.6rem;color:var(--bleu);display:block;margin-bottom:.35rem}
 .c-lavande{background:#EEF1FF;border-top:5px solid var(--bleu)}
-.c-rose{background:#F0EFFF;border-top:5px solid #5A4FCF}
+.c-rose{background:#F0EFFF;border-top:5px solid #7bbdff}
 .c-bleu{background:#EDF5FF;border-top:5px solid var(--bleu-clair)}
 .c-menthe{background:#EEF3FA;border-top:5px solid var(--navy)}
 .c-corail{background:#FFF0EC;border-top:5px solid var(--orange)}
-.c-peche{background:#FFF5F0;border-top:5px solid #F5906F}
+.c-peche{background:#FFF5F0;border-top:5px solid #f79b82}
 .tag{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .8rem;margin-bottom:.7rem}
 .tag.orange{background:var(--orange)}
 
@@ -94,14 +94,15 @@ td.right,th.right{text-align:right}
 .couche h4{color:#fff;font-size:.98rem;margin-bottom:.2rem}
 .couche p{font-size:.84rem;opacity:.92}
 .couche.l1{max-width:520px;background:var(--navy)}
-.couche.l2{max-width:720px;background:var(--bleu)}
+.couche.l2{max-width:720px;background:var(--orange)}
 .couche.l3{max-width:920px;background:var(--bleu-clair)}
 .couche.l3 h4,.couche.l3 p{color:var(--navy)}
 
 /* ---------- FUNNEL ---------- */
 .funnel{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:1.5rem}
 .etape{border-radius:16px;padding:22px;color:#fff}
-.etape.e1{background:var(--bleu)}
+.etape.e1{background:var(--bleu-clair)}
+.etape.e1 h4,.etape.e1 p{color:var(--navy)}
 .etape.e2{background:var(--navy)}
 .etape.e3{background:var(--orange)}
 .etape h4{color:#fff;margin-bottom:.4rem}
@@ -143,25 +144,22 @@ footer .logo-txt span{display:block;font-size:.76rem;opacity:.85}
 <header class="hero">
   <div class="wrap">
     <div class="logo-line">
-      <svg width="128" height="56" viewBox="0 0 128 56" xmlns="http://www.w3.org/2000/svg" aria-label="Logo THE GOOD WEB">
-        <!-- picto 1 : contour -->
-        <circle cx="14" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <rect x="4" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <!-- picto 2 : contour -->
-        <circle cx="46" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <rect x="36" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <!-- picto 3 : plein -->
-        <circle cx="78" cy="12" r="8.3" fill="#fff"/>
-        <rect x="68" y="22.7" width="20" height="29.3" rx="10" fill="#fff"/>
-        <!-- picto 4 : contour + astérisque -->
-        <circle cx="110" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <rect x="100" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <text x="120" y="9" fill="#fff" font-size="12" font-family="Poppins, sans-serif" font-weight="700">*</text>
+      <svg width="123" height="118" viewBox="0 0 260 250" xmlns="http://www.w3.org/2000/svg" aria-label="Logo THE GOOD WEB · The Good Audience">
+        <text x="2" y="62" fill="#fff" font-family="Poppins, sans-serif" font-weight="800" font-size="64" letter-spacing="1">THE</text>
+        <!-- pictos à droite de THE : 1-2-4 contour, 3e plein, astérisque sur le 4e -->
+        <circle cx="157" cy="27" r="5.5" fill="none" stroke="#fff" stroke-width="2"/>
+        <rect x="150" y="36" width="14" height="19" rx="7" fill="none" stroke="#fff" stroke-width="2"/>
+        <circle cx="179" cy="27" r="5.5" fill="none" stroke="#fff" stroke-width="2"/>
+        <rect x="172" y="36" width="14" height="19" rx="7" fill="none" stroke="#fff" stroke-width="2"/>
+        <circle cx="201" cy="27" r="6.3" fill="#fff"/>
+        <rect x="194" y="35" width="14" height="20" rx="7" fill="#fff"/>
+        <circle cx="223" cy="27" r="5.5" fill="none" stroke="#fff" stroke-width="2"/>
+        <rect x="216" y="36" width="14" height="19" rx="7" fill="none" stroke="#fff" stroke-width="2"/>
+        <text x="232" y="22" fill="#fff" font-size="16" font-family="Poppins, sans-serif" font-weight="700">*</text>
+        <text x="2" y="132" fill="#fff" font-family="Poppins, sans-serif" font-weight="800" font-size="64" letter-spacing="1">GOOD</text>
+        <text x="2" y="202" fill="#fff" font-family="Poppins, sans-serif" font-weight="800" font-size="64" letter-spacing="1">WEB</text>
+        <text x="3" y="232" fill="#fff" font-family="Inter, sans-serif" font-weight="600" font-size="11" letter-spacing="2" opacity=".9">* THE GOOD AUDIENCE</text>
       </svg>
-      <div class="logo-txt">
-        <strong>THE GOOD WEB</strong>
-        <span>* The Good Audience</span>
-      </div>
     </div>
     <div class="client-eyebrow">Recommandation média · Karrow Médias × Daniel Moquet</div>
     <h1>Daniel Moquet · Recruter aujourd'hui, rayonner demain</h1>
@@ -532,21 +530,21 @@ footer .logo-txt span{display:block;font-size:.76rem;opacity:.85}
       </div>
     </div>
     <div class="logo-line">
-      <svg width="96" height="42" viewBox="0 0 128 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="14" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <rect x="4" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <circle cx="46" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <rect x="36" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <circle cx="78" cy="12" r="8.3" fill="#fff"/>
-        <rect x="68" y="22.7" width="20" height="29.3" rx="10" fill="#fff"/>
-        <circle cx="110" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <rect x="100" y="24" width="20" height="28" rx="10" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <text x="120" y="9" fill="#fff" font-size="12" font-family="Poppins, sans-serif" font-weight="700">*</text>
+      <svg width="92" height="88" viewBox="0 0 260 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <text x="2" y="62" fill="#fff" font-family="Poppins, sans-serif" font-weight="800" font-size="64" letter-spacing="1">THE</text>
+        <circle cx="157" cy="27" r="5.5" fill="none" stroke="#fff" stroke-width="2"/>
+        <rect x="150" y="36" width="14" height="19" rx="7" fill="none" stroke="#fff" stroke-width="2"/>
+        <circle cx="179" cy="27" r="5.5" fill="none" stroke="#fff" stroke-width="2"/>
+        <rect x="172" y="36" width="14" height="19" rx="7" fill="none" stroke="#fff" stroke-width="2"/>
+        <circle cx="201" cy="27" r="6.3" fill="#fff"/>
+        <rect x="194" y="35" width="14" height="20" rx="7" fill="#fff"/>
+        <circle cx="223" cy="27" r="5.5" fill="none" stroke="#fff" stroke-width="2"/>
+        <rect x="216" y="36" width="14" height="19" rx="7" fill="none" stroke="#fff" stroke-width="2"/>
+        <text x="232" y="22" fill="#fff" font-size="16" font-family="Poppins, sans-serif" font-weight="700">*</text>
+        <text x="2" y="132" fill="#fff" font-family="Poppins, sans-serif" font-weight="800" font-size="64" letter-spacing="1">GOOD</text>
+        <text x="2" y="202" fill="#fff" font-family="Poppins, sans-serif" font-weight="800" font-size="64" letter-spacing="1">WEB</text>
+        <text x="3" y="232" fill="#fff" font-family="Inter, sans-serif" font-weight="600" font-size="11" letter-spacing="2" opacity=".9">* THE GOOD AUDIENCE</text>
       </svg>
-      <div class="logo-txt">
-        <strong>THE GOOD WEB</strong>
-        <span>* The Good Audience</span>
-      </div>
     </div>
   </div>
 </footer>
