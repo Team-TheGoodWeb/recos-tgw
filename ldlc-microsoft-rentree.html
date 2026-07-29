@@ -107,6 +107,40 @@
   .persona .data-used{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;padding-top:14px;border-top:1px solid #e6ebf7;}
   .persona .data-used span{font-size:11px;font-weight:700;background:var(--card-corail);color:var(--terracota);padding:4px 10px;border-radius:12px;}
 
+  /* ENVIRONNEMENTS */
+  .env-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px;}
+  .env-card{background:var(--white);border:1px solid #e6ebf7;border-radius:14px;padding:20px 14px;text-align:center;}
+  .env-card .env-count{font-family:'Poppins';font-weight:800;font-size:24px;color:var(--terracota);}
+  .env-card .env-name{font-weight:700;font-size:13px;margin-top:6px;}
+  .env-card .env-type{font-size:11.5px;color:#3a4568;margin-top:3px;}
+  .venue-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+  .venue-pill{background:var(--card-lavande);color:var(--navy);font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:16px;}
+  .venue-pill b{color:var(--terracota);margin-right:5px;}
+
+  /* PLANNING */
+  .planning{margin-top:30px;border:1px solid #e6ebf7;border-radius:16px;overflow:hidden;}
+  .planning-head,.planning-row{display:grid;grid-template-columns:190px repeat(7,1fr);}
+  .planning-head{background:var(--navy);color:var(--white);}
+  .planning-head div{padding:11px 6px;text-align:center;font-size:11.5px;font-weight:700;}
+  .planning-head div:first-child{text-align:left;padding-left:18px;}
+  .planning-row{border-top:1px solid #e6ebf7;align-items:stretch;}
+  .planning-row .p-label{padding:16px 18px;font-size:13.5px;font-weight:700;background:var(--bg-soft);display:flex;align-items:center;}
+  .planning-row .p-day{padding:16px 6px;text-align:center;font-size:11px;color:#c7cede;border-left:1px solid #eef1fa;display:flex;align-items:center;justify-content:center;}
+  .planning-row.dooh .p-day.active{background:var(--card-lavande);font-weight:700;color:var(--navy);}
+  .planning-row.display .p-day.active{background:var(--card-corail);font-weight:700;color:var(--terracota);}
+
+  /* HORAIRES */
+  .hours-grid{margin-top:30px;border:1px solid #e6ebf7;border-radius:16px;overflow:hidden;}
+  .hours-head,.hours-row{display:grid;grid-template-columns:200px repeat(3,1fr);}
+  .hours-head{background:var(--navy);color:var(--white);}
+  .hours-head div{padding:11px 6px;text-align:center;font-size:12px;font-weight:700;}
+  .hours-head div:first-child{text-align:left;padding-left:18px;}
+  .hours-row{border-top:1px solid #e6ebf7;}
+  .hours-row .h-label{padding:16px 18px;font-size:13.5px;font-weight:700;background:var(--bg-soft);display:flex;align-items:center;}
+  .hours-row .h-slot{padding:16px 6px;text-align:center;font-size:12px;color:#c7cede;border-left:1px solid #eef1fa;display:flex;align-items:center;justify-content:center;}
+  .hours-row .h-slot.active{background:var(--card-lavande);font-weight:700;color:var(--navy);}
+  .hours-note{font-size:12.5px;color:#3a4568;margin-top:14px;}
+
   /* PYRAMID */
   .pyramid{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:34px;}
   .pyr-layer{width:100%;border-radius:12px;padding:20px 26px;color:var(--white);}
@@ -151,20 +185,6 @@
 </style>
 </head>
 <body>
-
-<nav class="anchor-nav">
-  <div class="wrap">
-    <a href="#contexte">Contexte</a>
-    <a href="#reco">Recommandation</a>
-    <a href="#leviers">Leviers</a>
-    <a href="#budget">Budget</a>
-    <a href="#cibles">Ciblage</a>
-    <a href="#data">Architecture data</a>
-    <a href="#funnel">Activation</a>
-    <a href="#formats">Formats & KPIs</a>
-    <a href="#contacts">Contacts</a>
-  </div>
-</nav>
 
 <header class="hero">
   <div class="wrap">
@@ -219,6 +239,21 @@
   </div>
 </header>
 
+<nav class="anchor-nav">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats">Formats & KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
 <section id="contexte">
   <div class="wrap">
     <h2 class="section-title"><span class="arrow">&#8600;</span> Contexte & objectifs</h2>
@@ -252,22 +287,18 @@
   </div>
 </section>
 
-<section id="reco" class="soft">
+
+
+<section id="dispositif" class="soft">
   <div class="wrap">
-    <h2 class="section-title"><span class="arrow">&#8600;</span> Notre recommandation</h2>
+    <h2 class="section-title"><span class="arrow">&#8600;</span> Dispositif recommandé</h2>
     <div class="highlight">
       <h3>Ajouter une enveloppe de 3 000 € HT en retargeting display</h3>
       <p>Le DOOH seul couvre la visibilité, mais laisse deux objectifs sur quatre hors d'atteinte et réduit le troisième à un effet de notoriété pure. En ciblant en priorité les personnes exposées aux écrans, complétées par des data d'intention d'achat (Cdiscount, Leboncoin, The Bradery), de fréquentation (Seiki) et de mobilité (Travel), le retargeting transforme l'exposition DOOH en trafic et en ventes mesurables sur la période.</p>
       <p>Sans ce volet, le dispositif reste un plan de notoriété. Avec, il devient un plan de notoriété <b>et</b> de performance.</p>
       <span class="price-tag">+ 3 000 € HT</span>
     </div>
-  </div>
-</section>
-
-<section id="leviers">
-  <div class="wrap">
-    <h2 class="section-title"><span class="arrow">&#8600;</span> Leviers recommandés</h2>
-    <p class="section-intro">Deux leviers complémentaires activés sur la même fenêtre du 24 au 30 septembre 2026.</p>
+    <p class="section-intro" style="margin-top:40px;">Deux leviers complémentaires activés sur la même fenêtre du 24 au 30 septembre 2026.</p>
     <div class="levers">
       <div class="lever-card dooh">
         <span class="tag">pDOOH</span>
@@ -288,12 +319,102 @@
         <div class="kpi-row"><span>Clics estimés</span><b>≈ 3 200 à 4 400</b></div>
       </div>
     </div>
+    <h2 class="section-title" style="margin-top:56px;"><span class="arrow">&#8600;</span> Logique d'activation</h2>
+    <div class="funnel">
+      <div class="funnel-step">
+        <h4>1. Exposition DOOH</h4>
+        <p>Visibilité de l'offre rentrée sur écrans à fort trafic, dans les 5 villes cibles.</p>
+        <span class="arrow-right">&#8594;</span>
+      </div>
+      <div class="funnel-step">
+        <h4>2. Retargeting display</h4>
+        <p>Réactivation des personnes exposées, enrichie par les data d'intention et de fréquentation.</p>
+        <span class="arrow-right">&#8594;</span>
+      </div>
+      <div class="funnel-step">
+        <h4>3. Landing page & magasins</h4>
+        <p>Trafic qualifié vers la landing page LDLC et les points de vente, mesuré en visites et en ventes.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="budget" class="soft">
+<section id="environnements">
   <div class="wrap">
-    <h2 class="section-title"><span class="arrow">&#8600;</span> Budget recommandé</h2>
+    <h2 class="section-title"><span class="arrow">&#8600;</span> Environnements de diffusion</h2>
+    <p class="section-intro">6 810 écrans disponibles sur les 5 villes, répartis sur 7 réseaux de diffusion, très majoritairement en environnement transport (métros, gares).</p>
+    <div class="env-grid">
+      <div class="env-card"><div class="env-count">4 768</div><div class="env-name">Mediatransports</div><div class="env-type">Métros, gares</div></div>
+      <div class="env-card"><div class="env-count">843</div><div class="env-name">DoohYouLike</div><div class="env-type">Salles de sport, universités</div></div>
+      <div class="env-card"><div class="env-count">621</div><div class="env-name">DooH it</div><div class="env-type">Stations de taxi</div></div>
+      <div class="env-card"><div class="env-count">274</div><div class="env-name">Cityz Media</div><div class="env-type">Réseau urbain</div></div>
+      <div class="env-card"><div class="env-count">202</div><div class="env-name">Basic-Fit</div><div class="env-type">Salles de sport</div></div>
+      <div class="env-card"><div class="env-count">74</div><div class="env-name">Fitness Park</div><div class="env-type">Salles de sport</div></div>
+      <div class="env-card"><div class="env-count">28</div><div class="env-name">Framen</div><div class="env-type">Réseau urbain</div></div>
+    </div>
+    <div class="venue-pills">
+      <div class="venue-pill"><b>2 696</b>Métros</div>
+      <div class="venue-pill"><b>852</b>Salles de sport</div>
+      <div class="venue-pill"><b>852</b>Plateformes gares / métros</div>
+      <div class="venue-pill"><b>751</b>Stations gares / métros</div>
+      <div class="venue-pill"><b>747</b>Gares</div>
+      <div class="venue-pill"><b>621</b>Stations de taxi</div>
+      <div class="venue-pill"><b>288</b>Universités</div>
+    </div>
+    <h2 class="section-title" style="margin-top:56px;"><span class="arrow">&#8600;</span> Carte des écrans DOOH</h2>
+    <p class="section-intro">Implantation détaillée des 6 810 écrans disponibles sur les 5 villes (gares, métros, salles de sport, universités, stations de taxi).</p>
+    <div style="border-radius:16px;overflow:hidden;border:1px solid #e6ebf7;">
+      <iframe src="https://www.google.com/maps/d/embed?mid=1aHaxq2njyIjxynN3OxiqxnCtbynT3rE" width="100%" height="480" style="border:0;display:block;" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="planning" class="soft">
+  <div class="wrap">
+    <h2 class="section-title"><span class="arrow">&#8600;</span> Planning d'activation</h2>
+    <p class="section-intro">DOOH et retargeting display tournent en simultané sur toute la semaine de campagne, pour que le retargeting réactive les personnes exposées sans délai.</p>
+    <div class="planning">
+      <div class="planning-head">
+        <div>Levier</div>
+        <div>Mer 24</div><div>Jeu 25</div><div>Ven 26</div><div>Sam 27</div><div>Dim 28</div><div>Lun 29</div><div>Mar 30</div>
+      </div>
+      <div class="planning-row dooh">
+        <div class="p-label">DOOH</div>
+        <div class="p-day active">●</div><div class="p-day active">●</div><div class="p-day active">●</div><div class="p-day active">●</div><div class="p-day active">●</div><div class="p-day active">●</div><div class="p-day active">●</div>
+      </div>
+      <div class="planning-row display">
+        <div class="p-label">Retargeting display</div>
+        <div class="p-day active">●</div><div class="p-day active">●</div><div class="p-day active">●</div><div class="p-day active">●</div><div class="p-day active">●</div><div class="p-day active">●</div><div class="p-day active">●</div>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top:56px;"><span class="arrow">&#8600;</span> Stratégie horaire de diffusion</h2>
+    <p class="section-intro">La diffusion DOOH est calée sur les temps forts réels de chaque environnement plutôt que diffusée en continu, pour concentrer la pression sur les moments où la cible est présente.</p>
+    <div class="hours-grid">
+      <div class="hours-head">
+        <div>Environnement</div>
+        <div>Matin</div><div>Midi</div><div>Soir</div>
+      </div>
+      <div class="hours-row">
+        <div class="h-label">Transport (métros, gares, taxis)</div>
+        <div class="h-slot active">●</div><div class="h-slot">·</div><div class="h-slot active">●</div>
+      </div>
+      <div class="hours-row">
+        <div class="h-label">Salles de sport</div>
+        <div class="h-slot active">●</div><div class="h-slot active">●</div><div class="h-slot active">●</div>
+      </div>
+      <div class="hours-row">
+        <div class="h-label">Campus & universités</div>
+        <div class="h-slot active">●</div><div class="h-slot active">●</div><div class="h-slot active">●</div>
+      </div>
+    </div>
+    <p class="hours-note">Transport : concentration sur les pics de mobilité domicile-travail/études du matin et du soir. Salles de sport et campus : présence continue matin, midi et soir, ces lieux étant fréquentés tout au long de la journée.</p>
+  </div>
+</section>
+
+<section id="budgets" class="soft">
+  <div class="wrap">
+    <h2 class="section-title"><span class="arrow">&#8600;</span> Budgets</h2>
     <table class="budget">
       <tr><th>Levier</th><th>CPM</th><th>Budget HT</th></tr>
       <tr><td>DOOH</td><td>45 €</td><td>10 000 €</td></tr>
@@ -303,9 +424,32 @@
   </div>
 </section>
 
-<section id="cibles">
+
+
+<section id="formats">
   <div class="wrap">
-    <h2 class="section-title"><span class="arrow">&#8600;</span> Ciblage & géolocalisation</h2>
+    <h2 class="section-title"><span class="arrow">&#8600;</span> Formats & KPIs de suivi par levier</h2>
+    <table class="formats">
+      <tr><th>Levier</th><th>Formats</th><th>KPIs suivis</th></tr>
+      <tr>
+        <td>pDOOH</td>
+        <td>9:16, 1080x1920px, mp4, 10 s</td>
+        <td>Impressions, diffusion, top publishers, nombre de plays, statistiques par écran</td>
+      </tr>
+      <tr>
+        <td>pDisplay drive-to-store (retargeting)</td>
+        <td>300x600, 300x250, 320x480, 728x90, 160x600, 320x50px, jpeg/png/gif</td>
+        <td>Impressions, clics, CTR, taux de complétion, étude socio-démo, géolocalisation, affinitaires, visites en magasin</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+
+
+<section id="audiences">
+  <div class="wrap">
+    <h2 class="section-title"><span class="arrow">&#8600;</span> Audiences</h2>
     <p class="section-intro">Gares, campus et salles de sport dans cinq métropoles, pour capter les publics en mobilité quotidienne.</p>
     <div class="pills">
       <div class="pill">Paris</div>
@@ -314,11 +458,28 @@
       <div class="pill">Toulouse</div>
       <div class="pill">Nice</div>
     </div>
-    <h2 class="section-title" style="margin-top:50px;"><span class="arrow">&#8600;</span> Carte des écrans DOOH</h2>
-    <p class="section-intro">Implantation détaillée des 6 810 écrans disponibles sur les 5 villes (gares, métros, salles de sport, universités, stations de taxi).</p>
-    <div style="border-radius:16px;overflow:hidden;border:1px solid #e6ebf7;">
-      <iframe src="https://www.google.com/maps/d/embed?mid=1aHaxq2njyIjxynN3OxiqxnCtbynT3rE" width="100%" height="480" style="border:0;display:block;" loading="lazy"></iframe>
+<h2 class="section-title" style="margin-top:56px;"><span class="arrow">&#8600;</span> Segments d'audience</h2>
+    <div class="personas">
+      <div class="persona">
+        <div class="glyph">&#9679;</div>
+        <h3>Étudiants et jeunes actifs</h3>
+        <p>Cœur de cible de l'opération : forte présence sur les lieux de vie étudiante et forte appétence pour l'équipement informatique de rentrée.</p>
+        <div class="data-used"><span>Cdiscount</span><span>Leboncoin</span><span>Seiki</span><span>The Bradery</span><span>Travel</span></div>
+      </div>
+      <div class="persona">
+        <div class="glyph">&#9632;</div>
+        <h3>Parents d'étudiants</h3>
+        <p>Financent une partie de l'équipement de rentrée : ciblés via leurs propres achats de matériel familial et leur fréquentation des zones commerciales.</p>
+        <div class="data-used"><span>Cdiscount</span><span>Seiki</span></div>
+      </div>
+      <div class="persona">
+        <div class="glyph">&#9670;</div>
+        <h3>Actifs, équipement polyvalent</h3>
+        <p>Recherchent un équipement pour le télétravail ou un usage mixte pro/perso, repérés via leurs achats et leur présence en zones d'affaires.</p>
+        <div class="data-used"><span>Cdiscount</span><span>Leboncoin</span><span>Seiki</span></div>
+      </div>
     </div>
+  
   </div>
 </section>
 
@@ -376,50 +537,7 @@
       </div>
     </div>
 
-    <h2 class="section-title" style="margin-top:56px;"><span class="arrow">&#8600;</span> Segments d'audience</h2>
-    <div class="personas">
-      <div class="persona">
-        <div class="glyph">&#9679;</div>
-        <h3>Étudiants et jeunes actifs</h3>
-        <p>Cœur de cible de l'opération : forte présence sur les lieux de vie étudiante et forte appétence pour l'équipement informatique de rentrée.</p>
-        <div class="data-used"><span>Cdiscount</span><span>Leboncoin</span><span>Seiki</span><span>The Bradery</span><span>Travel</span></div>
       </div>
-      <div class="persona">
-        <div class="glyph">&#9632;</div>
-        <h3>Parents d'étudiants</h3>
-        <p>Financent une partie de l'équipement de rentrée : ciblés via leurs propres achats de matériel familial et leur fréquentation des zones commerciales.</p>
-        <div class="data-used"><span>Cdiscount</span><span>Seiki</span></div>
-      </div>
-      <div class="persona">
-        <div class="glyph">&#9670;</div>
-        <h3>Actifs, équipement polyvalent</h3>
-        <p>Recherchent un équipement pour le télétravail ou un usage mixte pro/perso, repérés via leurs achats et leur présence en zones d'affaires.</p>
-        <div class="data-used"><span>Cdiscount</span><span>Leboncoin</span><span>Seiki</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="funnel">
-  <div class="wrap">
-    <h2 class="section-title"><span class="arrow">&#8600;</span> Funnel d'activation</h2>
-    <div class="funnel">
-      <div class="funnel-step">
-        <h4>1. Exposition DOOH</h4>
-        <p>Visibilité de l'offre rentrée sur écrans à fort trafic, dans les 5 villes cibles.</p>
-        <span class="arrow-right">&#8594;</span>
-      </div>
-      <div class="funnel-step">
-        <h4>2. Retargeting display</h4>
-        <p>Réactivation des personnes exposées, enrichie par les data d'intention et de fréquentation.</p>
-        <span class="arrow-right">&#8594;</span>
-      </div>
-      <div class="funnel-step">
-        <h4>3. Landing page & magasins</h4>
-        <p>Trafic qualifié vers la landing page LDLC et les points de vente, mesuré en visites et en ventes.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
 <section id="rgpd" class="soft">
@@ -429,24 +547,6 @@
   </div>
 </section>
 
-<section id="formats">
-  <div class="wrap">
-    <h2 class="section-title"><span class="arrow">&#8600;</span> Formats & KPIs de suivi par levier</h2>
-    <table class="formats">
-      <tr><th>Levier</th><th>Formats</th><th>KPIs suivis</th></tr>
-      <tr>
-        <td>pDOOH</td>
-        <td>9:16, 1080x1920px, mp4, 10 s</td>
-        <td>Impressions, diffusion, top publishers, nombre de plays, statistiques par écran</td>
-      </tr>
-      <tr>
-        <td>pDisplay drive-to-store (retargeting)</td>
-        <td>300x600, 300x250, 320x480, 728x90, 160x600, 320x50px, jpeg/png/gif</td>
-        <td>Impressions, clics, CTR, taux de complétion, étude socio-démo, géolocalisation, affinitaires, visites en magasin</td>
-      </tr>
-    </table>
-  </div>
-</section>
 
 <footer id="contacts">
   <div class="wrap">
