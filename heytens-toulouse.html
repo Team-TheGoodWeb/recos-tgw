@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heytens Toulouse · Recommandation média · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#021859;
+    --baby-blue:#7bbdff;
+    --terracota:#f25430;
+    --white:#ffffff;
+    --bg-soft:#F6F8FE;
+    --text:#1c2440;
+    --peche:#ffe3d8;
+    --violet:#7b61c9;
+    --orange-z:#d4622f;
+    --vert-z:#3f9e94;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.55;}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);}
+  a{color:var(--terracota);}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  header.hero{background:var(--navy);color:var(--white);padding:56px 0 40px;}
+  header.hero h1{color:var(--white);}
+  .logo{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
+  .logo-mark{width:40px;height:40px;border-radius:8px;background:var(--baby-blue);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .logo-text{font-family:'Poppins',sans-serif;font-weight:700;letter-spacing:0.06em;font-size:14px;}
+  .logo-text small{display:block;font-family:'Inter',sans-serif;font-weight:400;letter-spacing:0.03em;color:var(--baby-blue);font-size:11px;}
+  .eyebrow{color:#ffb79e;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-size:13px;margin-bottom:10px;}
+  header.hero h1{font-size:32px;line-height:1.25;max-width:760px;}
+  header.hero p.subtitle{margin-top:14px;color:#c9d6f5;max-width:640px;font-size:15px;}
+  .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .pill{border:1px solid var(--baby-blue);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;}
+  .pill b{font-weight:700;}
+  nav.anchor{position:sticky;top:0;background:var(--white);border-bottom:1px solid #e5e9f5;z-index:20;overflow-x:auto;}
+  nav.anchor .wrap{display:flex;gap:22px;padding:14px 24px;white-space:nowrap;}
+  nav.anchor a{color:var(--navy);font-weight:600;font-size:13.5px;text-decoration:none;}
+  nav.anchor a:hover{color:var(--terracota);}
+  section{padding:52px 0;}
+  section:nth-of-type(even){background:var(--bg-soft);}
+  section h2{font-size:24px;margin-bottom:8px;}
+  section h2::before{content:"↘ ";color:var(--terracota);}
+  section .lede{color:#4a5578;max-width:680px;margin-bottom:28px;font-size:14.5px;}
+  .grid{display:grid;gap:18px;}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr);}
+  .grid.cols-2{grid-template-columns:repeat(2,1fr);}
+  .card{background:var(--white);border:1px solid #e5e9f5;border-radius:14px;padding:22px;}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p, .card li{font-size:13.5px;color:#4a5578;}
+  .card ul{margin-left:18px;margin-top:6px;}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--navy);color:var(--white);font-size:12px;font-weight:700;margin-bottom:10px;}
+  .c-bleu{border-color:var(--baby-blue);}
+  .c-bleu .num{background:var(--baby-blue);color:var(--navy);}
+  .tag{display:inline-block;background:var(--peche);color:var(--terracota);font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px;}
+  .callout{background:var(--navy);color:var(--white);border-radius:16px;padding:28px 30px;margin-top:8px;}
+  .callout h3{color:var(--baby-blue);font-size:15px;margin-bottom:10px;}
+  .callout p{color:#dfe6f9;font-size:14px;}
+  table{width:100%;border-collapse:collapse;background:var(--white);border-radius:12px;overflow:hidden;font-size:13px;}
+  thead tr{background:var(--navy);color:var(--white);}
+  th,td{padding:11px 12px;text-align:left;border-bottom:1px solid #e5e9f5;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:var(--bg-soft);}
+  .zone-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px;}
+  .zone-violette{background:var(--violet);}
+  .zone-orange{background:var(--orange-z);}
+  .zone-verte{background:var(--vert-z);}
+  .zone-card{border-radius:14px;padding:22px;border:1px solid #e5e9f5;background:var(--white);border-top:5px solid;}
+  .zone-card.violette{border-top-color:var(--violet);}
+  .zone-card.orange{border-top-color:var(--orange-z);}
+  .zone-card.verte{border-top-color:var(--vert-z);}
+  .zone-card h3{font-size:16px;margin-bottom:6px;}
+  .zone-card .pct{font-family:'Poppins',sans-serif;font-weight:800;font-size:26px;color:var(--navy);}
+  .zone-card p{font-size:13px;color:#4a5578;margin-top:6px;}
+  .funnel{display:flex;gap:14px;flex-wrap:wrap;}
+  .funnel .step{flex:1;min-width:220px;border-radius:14px;padding:20px;color:var(--white);}
+  .funnel .step:nth-child(1){background:var(--navy);}
+  .funnel .step:nth-child(2){background:#3d4f9e;}
+  .funnel .step:nth-child(3){background:var(--terracota);}
+  .funnel .step h4{color:var(--white);font-family:'Poppins',sans-serif;font-size:15px;margin-bottom:8px;}
+  .funnel .step p{font-size:13px;color:#e8ecfa;}
+  .planning{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .planning .phase{border-radius:14px;padding:18px;border:1px solid #e5e9f5;background:var(--white);}
+  .planning .phase .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--terracota);margin-right:8px;}
+  .persona{display:flex;gap:16px;align-items:flex-start;}
+  .persona .glyph{font-size:26px;color:var(--terracota);}
+  .pyramid{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
+  .pyramid .layer{border-radius:12px;padding:16px 20px;color:var(--white);font-size:13.5px;}
+  .pyramid .layer.l1{background:var(--navy);width:100%;}
+  .pyramid .layer.l2{background:#3d4f9e;width:88%;}
+  .pyramid .layer.l3{background:var(--baby-blue);color:var(--navy);width:76%;}
+  .pyramid .layer b{display:block;font-family:'Poppins',sans-serif;margin-bottom:4px;}
+  .editors{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+  .editors span{background:var(--white);border:1px solid #e5e9f5;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--navy);}
+  footer.contacts{background:var(--navy);color:var(--white);padding:56px 0;}
+  footer.contacts h2{color:var(--white);}
+  footer.contacts h2::before{color:#ffb79e;}
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;}
+  .contact-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:20px;}
+  .contact-card.inactive{opacity:0.5;}
+  .contact-card h4{color:var(--white);font-family:'Poppins',sans-serif;font-size:15px;margin-bottom:4px;}
+  .contact-card p{font-size:12.5px;color:#c9d6f5;margin-top:2px;}
+  .contact-card a{color:var(--baby-blue);font-size:12.5px;}
+  .foot-logo{margin-top:40px;text-align:center;color:#8fa2d6;font-size:12px;letter-spacing:0.05em;}
+  @media(max-width:820px){
+    .grid.cols-3,.grid.cols-2,.planning,.contact-grid{grid-template-columns:1fr;}
+    header.hero h1{font-size:26px;}
+    section{padding:38px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo">
+      <div class="logo-mark">TGW</div>
+      <div class="logo-text">THE GOOD WEB<small>* The Good Audience</small></div>
+    </div>
+    <div class="eyebrow">Recommandation média · Karrow Médias · v2</div>
+    <h1>Heytens Toulouse : lancement du nouveau showroom</h1>
+    <p class="subtitle">Un dispositif full funnel construit sur les trois zones d'exclusivité franchisée confirmées par Heytens : Portet-sur-Garonne, le nouveau showroom Toulouse, et l'agglomération partagée entre les deux.</p>
+    <div class="pills">
+      <div class="pill">Période : <b>à caler avec Heytens</b></div>
+      <div class="pill">Budget : <b>28 000 € HT</b></div>
+      <div class="pill">Objectif : <b>Notoriété + Considération + Conversion</b></div>
+      <div class="pill">Conversion = <b>prise de RDV en ligne</b></div>
+    </div>
+  </div>
+</header>
+
+<nav class="anchor">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#zones">Zones</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats">Formats &amp; KPIs</a>
+    <a href="#rgpd">RGPD &amp; coordination</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+
+<section id="contexte">
+  <div class="wrap">
+    <h2>Contexte &amp; objectifs</h2>
+    <p class="lede">Ce qu'on a compris de votre activité, complété par vos retours du 14 août.</p>
+    <div class="grid cols-3">
+      <div class="card c-bleu">
+        <div class="num">1</div>
+        <h3>Deux showrooms franchisés, deux territoires distincts</h3>
+        <p>Portet-sur-Garonne et le nouveau showroom Toulouse sont deux franchises, chacune protégée par une zone d'exclusivité. Le plan média doit respecter ce cadre contractuel, pas seulement une logique de couverture.</p>
+      </div>
+      <div class="card c-bleu">
+        <div class="num">2</div>
+        <h3>Un métier de sur-mesure, un business de rendez-vous</h3>
+        <p>Conseil, mesures, pose : le média ne vend pas, il fait venir en showroom ou, ici, il fait réserver un rendez-vous en ligne. Panier moyen confirmé : environ 1 450 €.</p>
+      </div>
+      <div class="card c-bleu">
+        <div class="num">3</div>
+        <h3>Une cible propriétaire confirmée</h3>
+        <p>H/F 45 ans et plus, CSP+, propriétaires. L'achat se déclenche à l'emménagement ou à la rénovation, avec un cœur de cible périurbain plutôt qu'hypercentre.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:22px;">
+      <h3>◐ Ce que confirment les données Kantar TGI</h3>
+      <p>Le sexe ne discrimine pas l'achat de rideaux et stores (indices Femme 101 / Homme 99). Le revenu, si (indices 61 à 83 sous 1 500 € de revenu mensuel, 109 à 116 au-dessus de 3 000 €). Et le cœur de cible se situe dans les communes de 2 000 à 20 000 habitants (indice 110), devant les grandes villes (99), Paris (98) et le rural (93) : un achat de foyer, en périphérie, pas en hypercentre.</p>
+    </div>
+  </div>
+</section>
+
+<section id="zones">
+  <div class="wrap">
+    <h2>Les trois zones d'exclusivité</h2>
+    <p class="lede">Carte fournie le 14 août 2026, calculée sur 35 863 contacts de la base Portet. Cette segmentation conditionne tout le dispositif ci-dessous : chaque euro dépensé doit respecter le territoire dans lequel il tombe.</p>
+    <div class="grid cols-3">
+      <div class="zone-card violette">
+        <span class="zone-dot zone-violette"></span><span class="tag" style="background:#ece7f9;color:var(--violet);">Exclu Portet</span>
+        <div class="pct">24,1 %</div>
+        <h3>Portet-sur-Garonne uniquement</h3>
+        <p>Sud et sud-ouest de l'agglomération (Muret, Frouzins, Cugnaux, Tournefeuille, Villeneuve-Tolosane, Ramonville, Saint-Orens, Castanet-Tolosan, Labège...). Seul Portet peut y être annoncé : le lancement du nouveau showroom n'y est pas communicable.</p>
+      </div>
+      <div class="zone-card orange">
+        <span class="zone-dot zone-orange"></span><span class="tag" style="background:#fbe4da;color:var(--orange-z);">Exclu Toulouse</span>
+        <div class="pct">4,4 %</div>
+        <h3>Nouveau showroom uniquement</h3>
+        <p>Tracé indicatif de l'hypercentre toulousain. Petit périmètre, mais c'est le seul territoire où le nouveau showroom peut être mis en avant seul : le cœur de la communication de lancement.</p>
+      </div>
+      <div class="zone-card verte">
+        <span class="zone-dot zone-verte"></span><span class="tag" style="background:#dff3f0;color:var(--vert-z);">Non attribuée</span>
+        <div class="pct">41,6 %</div>
+        <h3>Les deux adresses ensemble</h3>
+        <p>Reste de l'agglomération : Toulouse hors hypercentre, Blagnac, Colomiers, Balma, Castelginest, Léguevin... C'est ici que le réseau Heytens Toulouse peut être présenté dans son ensemble.</p>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:18px;margin-bottom:0;">17,4 % des clients de Portet sont hors Haute-Garonne et ne sont pas représentés sur la carte ; ils sortent du périmètre de cette campagne locale.</p>
+  </div>
+</section>
+
+<section id="dispositif">
+  <div class="wrap">
+    <h2>Dispositif recommandé</h2>
+    <p class="lede">L'objectif de cette campagne est la notoriété du nouveau showroom. La zone violette (Portet) est donc hors périmètre de ce plan de lancement : nous n'y allons pas. Le budget se concentre sur la zone orange (message showroom seul) et la zone verte (message réseau à deux adresses), avec un renfort de notoriété large en TV segmentée.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <span class="tag">Zone orange · hypercentre</span>
+        <h3>Le cœur du lancement</h3>
+        <p>Toute la création y met en avant le nouveau showroom seul (adresse, ouverture, offre de conseil à domicile). Petite zone, mais c'est le seul territoire où ce message peut exister sans ambiguïté avec Portet.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Zone verte · reste de l'agglomération</span>
+        <h3>Le volume</h3>
+        <p>La création y présente le réseau Heytens Toulouse dans son ensemble, les deux adresses, en laissant le foyer choisir le showroom le plus proche. C'est la zone la plus large et la plus alignée avec le profil périurbain de la cible TGI.</p>
+      </div>
+    </div>
+    <h3 style="margin-top:34px;margin-bottom:16px;font-size:18px;">Logique d'activation par étage du funnel</h3>
+    <div class="funnel">
+      <div class="step">
+        <h4>● Notoriété</h4>
+        <p><b>cTV+OTT</b> (TV segmentée, ciblage large agglomération, message réseau) et <b>pDOOH</b> géociblé par zone (écrans hypercentre pour la zone orange, écrans agglomération pour la zone verte).</p>
+      </div>
+      <div class="step">
+        <h4>■ Considération</h4>
+        <p><b>Display classique</b> géociblé par zone, en affichage longue exposition, pour rester visible pendant la décision d'achat.</p>
+      </div>
+      <div class="step">
+        <h4>◆ Conversion</h4>
+        <p><b>Social Ads Post+Story</b> et <b>Display classique</b> en retargeting, géociblés par zone, pointant vers une prise de rendez-vous en ligne.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:24px;background:var(--terracota);">
+      <h3 style="color:#fff;">◆ Point de vigilance : SEA, Performance Max &amp; coordination inter-agences</h3>
+      <p style="color:#fff;">Le SEA et le Social sont aujourd'hui gérés par une autre agence. Comme vous l'indiquez, il faut faire le lien entre les activations pour que le dispositif soit optimal. Notre préconisation : un tracking commun (GA4 + pixels Meta/TikTok partagés) et une landing page dédiée au lancement, alimentée à la fois par nos campagnes TGW/Karrow et par le SEA/Social piloté par l'autre agence, avec un objectif de conversion unique et partagé, la prise de rendez-vous en ligne. Le SEA et le Performance Max eux-mêmes restent hors du catalogue média TGW/Karrow (display, social, vidéo/cTV, audio, DOOH, marketing direct) : ils continuent d'être pilotés par l'autre agence, en coordination sur le tracking plutôt qu'en doublon budgétaire.</p>
+    </div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <h2>Audiences</h2>
+    <p class="lede">H/F 45 ans et plus, CSP+, propriétaires, panier moyen confirmé à 1 450 €.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="persona">
+          <div class="glyph">⌂</div>
+          <div>
+            <h3>Le foyer installé qui rénove</h3>
+            <p>45 ans et plus, CSP+, propriétaire depuis plusieurs années, engage des travaux de rénovation dans une commune périurbaine.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="persona">
+          <div class="glyph">◐</div>
+          <div>
+            <h3>Le nouvel emménagé</h3>
+            <p>45 ans et plus, CSP+, vient d'acquérir son logement dans la métropole toulousaine, habille ses fenêtres pour la première fois dans ce foyer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:22px;">
+      <h3>■ Ce que Heytens doit montrer pour convaincre</h3>
+      <p>Cinq des huit arguments de vente du site heytens.com (sur-mesure, matière et lumière, automatisation, bénéfices saisonniers, parcours de pose) ne se racontent pas : ils se montrent. Un dispositif porté uniquement par du texte n'en couvrirait que trois sur huit. Les créations cTV, pDOOH et social doivent donc privilégier l'image du produit en situation, dans les deux versions de message (showroom seul en orange, réseau à deux adresses en vert).</p>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <h2>Stratégie data</h2>
+    <p class="lede">Trois couches pour cibler le foyer propriétaire au bon moment de son parcours, appliquées zone par zone.</p>
+    <div class="pyramid">
+      <div class="layer l1"><b>Couche 1 · Intentionnistes</b>Recherches liées à la rénovation, la décoration, les rideaux et stores, les travaux d'aménagement intérieur.</div>
+      <div class="layer l2"><b>Couche 2 · Propriétaires &amp; événements de vie</b>Data emménagement récent (SeLoger, PAP, notaires), permis de construire et travaux, data ManoMano (bricolage, rénovation, aménagement).</div>
+      <div class="layer l3"><b>Couche 3 · Socio-démographique CSP+</b>Ciblage géo par zone (orange / verte), propriétaires 45 ans et plus, revenus au-dessus de 3 000 €/mois.</div>
+    </div>
+  </div>
+</section>
+
+<section id="environnements">
+  <div class="wrap">
+    <h2>Environnements de diffusion</h2>
+    <p class="lede">Les univers éditoriaux et plateformes mobilisés par levier et par zone.</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <h3>TV segmentée (cTV+OTT)</h3>
+        <p>Amazon Prime Video, Netflix, Replay TF1/M6. Ciblage agglomération toulousaine dans son ensemble (pas de découpage fin possible).</p>
+      </div>
+      <div class="card">
+        <h3>Display &amp; DOOH</h3>
+        <p>Réseaux presse déco/maison et actualité locale (La Dépêche du Midi, ActuToulouse, ELLE Décoration, Marie Claire Maison). Écrans DOOH sélectionnés zone par zone : Retails &amp; Malls et Proximité hypercentre pour l'orange, Retails &amp; Malls agglomération pour le vert.</p>
+      </div>
+      <div class="card">
+        <h3>Social Ads</h3>
+        <p>Facebook, Instagram, TikTok, avec ciblage géographique par zone et retargeting des audiences exposées en display/DOOH.</p>
+      </div>
+    </div>
+    <div class="editors">
+      <span>ELLE Décoration</span><span>Marie Claire Maison</span><span>Le Figaro</span>
+      <span>La Dépêche du Midi</span><span>ActuToulouse</span><span>leboncoin</span>
+      <span>Se Loger</span><span>PAP</span>
+      <span>Madame Figaro</span><span>ELLE</span><span>Femme Actuelle</span><span>Closer</span>
+      <span>GQ</span><span>Voici</span><span>Marie Claire</span><span>Version Femina</span>
+      <span>Vogue</span><span>Marmiton</span><span>Harper's Bazaar</span><span>Le Bonbon</span>
+      <span>BIBA</span><span>Modes &amp; Travaux</span><span>Vinted</span><span>Télérama</span>
+      <span>Fourchette &amp; Bikini</span><span>AD</span><span>Vanity Fair</span><span>Gala</span>
+      <span>Le Monde</span><span>Cosmopolitan</span><span>Glamour Paris</span><span>Madmoizelle</span>
+      <span>Le Journal des Femmes</span>
+    </div>
+  </div>
+</section>
+
+<section id="planning">
+  <div class="wrap">
+    <h2>Planning d'activation</h2>
+    <p class="lede">Trois phases séquencées autour de l'ouverture du showroom, actives sur les zones orange et verte.</p>
+    <div class="planning">
+      <div class="phase">
+        <h4><span class="dot"></span>Phase 1 · Notoriété</h4>
+        <p>cTV+OTT (agglomération) et pDOOH géociblé (orange et/ou vert), concentrés sur les semaines encadrant l'ouverture.</p>
+      </div>
+      <div class="phase">
+        <h4><span class="dot"></span>Phase 2 · Considération</h4>
+        <p>Display Notoriété + Acquisition en continu sur les deux zones, en relais de la phase notoriété.</p>
+      </div>
+      <div class="phase">
+        <h4><span class="dot"></span>Phase 3 · Conversion</h4>
+        <p>Social Ads et Display activés en parallèle et prolongés au-delà, vers la prise de RDV en ligne, en coordination avec le SEA/Social de l'autre agence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="budgets">
+  <div class="wrap">
+    <h2>Budgets &amp; volumes</h2>
+    <p class="lede">Tarifs Karrow Médias (grille revente). Budget total recommandé : 28 000 € HT, tout inclus (production, frais techniques, honoraires). Zone violette hors périmètre de ce plan de lancement.</p>
+    <table>
+      <thead>
+        <tr><th>Levier</th><th>Zone</th><th>Étage funnel</th><th>Budget HT</th><th>CPM Karrow</th><th>Volume estimé</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>cTV+OTT (TV segmentée)</td><td>Agglomération (non géociblable)</td><td>Notoriété</td><td>8 000 €</td><td>30 €</td><td>≈ 267 000 impressions</td></tr>
+        <tr><td>pDOOH</td><td><span class="zone-dot zone-verte"></span>Verte</td><td>Notoriété</td><td>6 000 €</td><td>40 €</td><td>≈ 150 000 impressions</td></tr>
+        <tr><td>pDOOH</td><td><span class="zone-dot zone-orange"></span>Orange</td><td>Notoriété</td><td>3 000 €</td><td>40 €</td><td>≈ 75 000 impressions</td></tr>
+        <tr><td>Display classique</td><td><span class="zone-dot zone-verte"></span>Verte</td><td>Considération</td><td>5 000 €</td><td>6 €</td><td>≈ 833 000 impressions</td></tr>
+        <tr><td>Display classique</td><td><span class="zone-dot zone-orange"></span>Orange</td><td>Considération</td><td>2 000 €</td><td>6 €</td><td>≈ 333 000 impressions</td></tr>
+        <tr><td>Social Ads Post+Story</td><td><span class="zone-dot zone-verte"></span>Verte</td><td>Conversion</td><td>1 500 €</td><td>8 €</td><td>≈ 187 500 impressions</td></tr>
+        <tr><td>Social Ads Post+Story</td><td><span class="zone-dot zone-orange"></span>Orange</td><td>Conversion</td><td>1 000 €</td><td>8 €</td><td>≈ 125 000 impressions</td></tr>
+        <tr><td>Display classique</td><td><span class="zone-dot zone-verte"></span>Verte</td><td>Conversion</td><td>1 000 €</td><td>6 €</td><td>≈ 167 000 impressions</td></tr>
+        <tr><td>Display classique</td><td><span class="zone-dot zone-orange"></span>Orange</td><td>Conversion</td><td>500 €</td><td>6 €</td><td>≈ 83 000 impressions</td></tr>
+        <tr><td><b>Total dispositif</b></td><td></td><td></td><td><b>28 000 €</b></td><td></td><td><b>≈ 2,22 M impressions</b></td></tr>
+      </tbody>
+    </table>
+    <p class="lede" style="margin-top:18px;margin-bottom:0;">Ce chiffrage sera affiné dès réception des données Portet en attente : codes postaux clients sur 12 mois, volume de RDV mensuels actuels, délai moyen premier contact → signature. Elles permettront de vérifier le poids réel de chaque zone plutôt que de le déduire de la seule carte.</p>
+  </div>
+</section>
+
+<section id="formats">
+  <div class="wrap">
+    <h2>Formats &amp; KPIs de suivi par levier</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>cTV+OTT</h3>
+        <p>Format : 1920x1080px, 16:9, 15-30s.</p>
+        <p>KPIs : impressions, clics, CTR, reach, taux de complétion, top chaînes, étude socio-démo/géoloc/affinitaires.</p>
+      </div>
+      <div class="card">
+        <h3>pDOOH</h3>
+        <p>Format : 9:16, 1080x1920px, mp4, 10s.</p>
+        <p>KPIs : impressions, diffusion, top publishers, nombre de plays, statistiques par écran.</p>
+      </div>
+      <div class="card">
+        <h3>Display classique</h3>
+        <p>Formats : 300x600, 300x250, 320x480, 728x90, 160x600, 320x50px (jpeg, png, gif).</p>
+        <p>KPIs : impressions, clics, CTR, taux de complétion, étude socio-démo/géoloc/affinitaires, visites en showroom.</p>
+      </div>
+      <div class="card">
+        <h3>Social Ads Post+Story</h3>
+        <p>Formats : post 1080x1080px, story 9:16 1920x1080px mp4.</p>
+        <p>KPIs : impressions, clics, CTR, reach, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:22px;">
+      <h3>◆ KPI de conversion partagé</h3>
+      <p>La prise de rendez-vous en ligne étant l'objectif de conversion, le KPI final à suivre conjointement avec l'autre agence est le nombre de RDV réservés sur la landing page dédiée, avec attribution par canal via GA4 et les pixels Meta/TikTok. À rapprocher, dès qu'ils seront disponibles, du volume de RDV mensuels actuels sur Portet et du panier moyen confirmé à 1 450 €.</p>
+    </div>
+  </div>
+</section>
+
+<section id="rgpd">
+  <div class="wrap">
+    <h2>RGPD, brand safety &amp; coordination inter-agences</h2>
+    <p class="lede">Le dispositif s'appuie exclusivement sur des partenaires data conformes RGPD (consentement recueilli, opposition possible, durée de conservation encadrée), en environnement brand safe et sous contrôle de la fraude publicitaire (invalid traffic) sur l'ensemble des leviers programmatiques.</p>
+    <p class="lede" style="margin-bottom:0;">Côté coordination avec l'agence en charge du SEA et du Social : nous proposons un point de calage avant lancement pour aligner le tracking (GA4, pixels), la landing page de conversion et le calendrier des deux dispositifs, afin d'éviter tout doublon budgétaire et de mesurer la prise de RDV en ligne sur un même référentiel.</p>
+  </div>
+</section>
+
+<footer class="contacts" id="contacts">
+  <div class="wrap">
+    <h2>Contacts</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h4>Jérôme Fages</h4>
+        <p>Directeur commercial</p>
+        <p>06 18 74 66 75</p>
+        <a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <h4>Mathilde Coriton</h4>
+        <p>Directrice de clientèle</p>
+        <p>06 48 61 92 92</p>
+        <a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <h4>Leslie Rogé</h4>
+        <p>Cheffe de publicité</p>
+        <p>06 83 73 68 62</p>
+        <a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card inactive">
+        <h4>Andrea</h4>
+        <p>andrea@thegoodweb.eu</p>
+      </div>
+      <div class="contact-card inactive">
+        <h4>Sofien</h4>
+        <p>sofien@thegoodweb.eu</p>
+      </div>
+      <div class="contact-card inactive">
+        <h4>Pôle activation</h4>
+        <p>activation@thegoodweb.eu</p>
+      </div>
+    </div>
+    <div class="foot-logo">THE GOOD WEB · The Good Audience</div>
+  </div>
+</footer>
+
+</body>
+</html>
