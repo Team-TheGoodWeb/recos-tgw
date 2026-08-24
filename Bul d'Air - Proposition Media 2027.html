@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bul d'Air — Proposition média 2027</title>
+<style>
+  :root{
+    --navy:#0B1F4D;
+    --navy-light:#1F3864;
+    --blue:#5B7FFF;
+    --blue-deep:#3151E0;
+    --orange:#FF6B45;
+    --orange-light:#FFE7DF;
+    --grey:#F4F6FB;
+    --grey-line:#E3E7F1;
+    --text:#242B3D;
+    --muted:#6B7280;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--text);
+    background:#fff;
+    line-height:1.6;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 32px;}
+
+  /* ---- Cover ---- */
+  .cover{
+    background:linear-gradient(135deg,var(--blue) 0%,var(--blue-deep) 100%);
+    color:#fff;
+    padding:80px 32px 64px;
+  }
+  .cover .brand{
+    font-weight:800;
+    letter-spacing:2px;
+    font-size:14px;
+    opacity:.85;
+    margin-bottom:28px;
+  }
+  .cover h1{
+    font-size:48px;
+    margin:0 0 8px;
+    font-weight:800;
+    line-height:1.15;
+  }
+  .cover .subtitle{
+    font-size:22px;
+    font-weight:600;
+    color:#FFDCD0;
+    margin:0 0 20px;
+  }
+  .cover .desc{
+    font-size:16px;
+    opacity:.9;
+    max-width:600px;
+    margin:0 0 32px;
+  }
+  .cover .meta{
+    font-size:14px;
+    opacity:.8;
+    border-top:1px solid rgba(255,255,255,.25);
+    padding-top:16px;
+    max-width:420px;
+  }
+  .badge-row{
+    display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;
+  }
+  .badge{
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:100px;
+    padding:6px 16px;
+    font-size:13px;
+    font-weight:600;
+  }
+
+  /* ---- headline stats ---- */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--grey-line);
+    margin:0;
+    border-bottom:1px solid var(--grey-line);
+  }
+  .stat{
+    background:#fff;
+    padding:28px 20px;
+    text-align:center;
+  }
+  .stat .num{
+    font-size:28px;
+    font-weight:800;
+    color:var(--navy);
+  }
+  .stat .lbl{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:4px;
+  }
+  .stat.hl .num{color:var(--orange);}
+
+  /* ---- sections ---- */
+  section{padding:56px 0;}
+  section.alt{background:var(--grey);}
+  h2{
+    font-size:28px;
+    color:var(--navy);
+    margin:0 0 8px;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  h2 .arrow{color:var(--orange);font-weight:900;}
+  .section-intro{
+    color:var(--muted);
+    font-size:15px;
+    margin:0 0 32px;
+    max-width:720px;
+  }
+  h3{
+    font-size:17px;
+    color:var(--navy-light);
+    margin:32px 0 10px;
+    font-weight:700;
+  }
+  p{margin:0 0 14px;font-size:15.5px;}
+  .question-card{
+    background:#fff;
+    border:1px solid var(--grey-line);
+    border-left:4px solid var(--orange);
+    border-radius:8px;
+    padding:22px 26px;
+    margin-bottom:20px;
+  }
+  .question-card h3{margin-top:0;color:var(--navy);}
+  .question-card .q{
+    font-style:italic;
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:12px;
+  }
+
+  /* ---- tables ---- */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:18px 0 28px;
+    font-size:14px;
+    background:#fff;
+  }
+  thead th{
+    background:var(--navy);
+    color:#fff;
+    text-align:left;
+    padding:10px 14px;
+    font-weight:700;
+    font-size:13px;
+  }
+  tbody td{
+    padding:9px 14px;
+    border-bottom:1px solid var(--grey-line);
+  }
+  tbody tr:nth-child(even){background:var(--grey);}
+  tbody tr.total-row td{
+    font-weight:800;
+    background:var(--orange-light);
+    color:var(--navy);
+    border-top:2px solid var(--orange);
+  }
+  td.num, th.num{text-align:right;}
+
+  /* callout */
+  .callout{
+    background:var(--orange-light);
+    border-left:4px solid var(--orange);
+    border-radius:6px;
+    padding:16px 20px;
+    font-size:14.5px;
+    color:var(--navy-light);
+    margin:20px 0;
+  }
+  .callout b{color:var(--navy);}
+
+  /* comparison bars */
+  .compare{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    margin:24px 0;
+  }
+  .compare-card{
+    background:#fff;
+    border:1px solid var(--grey-line);
+    border-radius:10px;
+    padding:22px;
+  }
+  .compare-card .year{
+    font-size:13px;
+    font-weight:700;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  .compare-card .amount{
+    font-size:32px;
+    font-weight:800;
+    color:var(--navy);
+    margin:6px 0 14px;
+  }
+  .bar-bg{
+    background:var(--grey-line);
+    border-radius:100px;
+    height:10px;
+    overflow:hidden;
+    margin-bottom:6px;
+  }
+  .bar-fill{
+    height:100%;
+    border-radius:100px;
+    background:var(--blue);
+  }
+  .compare-card.new .amount{color:var(--orange);}
+  .compare-card.new .bar-fill{background:var(--orange);}
+  .delta{
+    display:inline-block;
+    margin-top:14px;
+    background:var(--navy);
+    color:#fff;
+    padding:6px 14px;
+    border-radius:100px;
+    font-weight:700;
+    font-size:14px;
+  }
+
+  ul{padding-left:20px;margin:0 0 16px;}
+  li{margin-bottom:8px;font-size:15px;}
+
+  /* ---- targeting cards ---- */
+  .target-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin:24px 0 8px;
+  }
+  .target-card{
+    background:#fff;
+    border:1px solid var(--grey-line);
+    border-radius:10px;
+    padding:22px;
+  }
+  .target-card h4{
+    margin:0 0 14px;
+    color:var(--navy);
+    font-size:15px;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .target-card h4 .dot{
+    width:10px;height:10px;border-radius:50%;background:var(--orange);display:inline-block;
+  }
+  .target-card ul{margin:0;padding-left:18px;}
+  .target-card li{font-size:13.5px;margin-bottom:9px;color:var(--text);}
+  .target-card li b{color:var(--navy-light);}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .chip{
+    background:var(--grey);
+    border:1px solid var(--grey-line);
+    border-radius:100px;
+    padding:5px 12px;
+    font-size:12px;
+    color:var(--navy-light);
+    font-weight:600;
+  }
+  .chip.out{
+    background:#FFF0EE;
+    border-color:#FFD2C9;
+    color:#B23A1F;
+    text-decoration:line-through;
+    opacity:.85;
+  }
+  .chip-label{font-size:12px;color:var(--muted);font-weight:700;margin-top:14px;display:block;text-transform:uppercase;letter-spacing:.5px;}
+
+  /* ---- timeline / calendar ---- */
+  .timeline-legend{display:flex;gap:20px;font-size:13px;color:var(--muted);margin-bottom:12px;flex-wrap:wrap;}
+  .legend-dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle;}
+  .timeline{
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    gap:5px;
+    margin:0 0 32px;
+  }
+  .tl-month{
+    border-radius:8px;
+    padding:12px 4px;
+    text-align:center;
+    color:#fff;
+  }
+  .tl-month .m{display:block;font-size:11.5px;font-weight:800;letter-spacing:.5px;}
+  .tl-month .b{display:block;font-size:10px;margin-top:5px;font-weight:600;opacity:.92;}
+  .tl-fr{background:var(--blue);}
+  .tl-peak{background:var(--orange);}
+
+  footer{
+    background:var(--navy);
+    color:#fff;
+    padding:36px 0;
+    text-align:center;
+    font-size:13px;
+    opacity:.85;
+  }
+  footer .wrap{max-width:960px;}
+
+  @media(max-width:720px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .compare{grid-template-columns:1fr;}
+    .target-grid{grid-template-columns:1fr;}
+    .timeline{grid-template-columns:repeat(4,1fr);}
+    .cover h1{font-size:34px;}
+  }
+  @media print{
+    .cover{background:var(--navy) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    section.alt{background:var(--grey) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="cover">
+    <div class="wrap">
+      <div class="brand">THE GOOD WEB · PROPOSITION MÉDIA</div>
+      <h1>Bul d'Air</h1>
+      <div class="subtitle">Recommandation média 2027</div>
+      <div class="desc">Nouvelle proposition construite à partir du bilan S1 2026 et du plan média 2026, en réponse aux quatre priorités que vous nous avez transmises : baisse de budget, maintien du Display et de Meta, arbitrage sur TikTok, élargissement de la cible.</div>
+      <div class="badge-row">
+        <span class="badge">Budget -33%</span>
+        <span class="badge">Cible 35-60 ans, H/F</span>
+        <span class="badge">Display 320x480 priorisé</span>
+        <span class="badge">Facebook priorisé sur Meta</span>
+      </div>
+      <div class="meta">Préparé à votre attention par votre équipe The Good Web</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat hl"><div class="num">17 000 €</div><div class="lbl">Budget 2027 proposé (HT)</div></div>
+    <div class="stat"><div class="num">-33 %</div><div class="lbl">vs 25 450 € en 2026</div></div>
+    <div class="stat"><div class="num">6</div><div class="lbl">Temps forts (vs 7 en 2026)</div></div>
+    <div class="stat"><div class="num">13 sem.</div><div class="lbl">Durée temps forts (vs ~17,5)</div></div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="arrow">↗</span> Nos réponses à vos quatre priorités</h2>
+      <p class="section-intro">Avant le plan chiffré, nos réponses directes aux questions posées dans votre retour sur le bilan S1.</p>
+
+      <div class="question-card">
+        <h3>1. Maintenir le Display en privilégiant le 320x480</h3>
+        <div class="q">« Je souhaite maintenir les campagnes Display qui performent plutôt bien en privilégiant les formats 320x480. »</div>
+        <p><b>Confirmé et renforcé.</b> Sur les 5 mois où le Display a tourné en 2026, le format 320x480 a capté à lui seul 60 à 80 % des clics du mois pour un tiers seulement des impressions — le format le plus rentable de tout le dispositif. Pour 2027, une majorité du budget Display sera fléchée sur ce format en priorité, les autres venant en complément de couverture plutôt qu'à parts égales.</p>
+      </div>
+
+      <div class="question-card">
+        <h3>2. Privilégier Facebook plutôt qu'Instagram sur Meta</h3>
+        <div class="q">« Maintenir les campagnes Meta pour les temps forts, peut-on répartir pour privilégier Facebook plutôt qu'Instagram ? »</div>
+        <p><b>Faisable — et déjà largement amorcé dans les faits.</b> Sur la période analysée, le budget Meta penchait déjà vers Facebook (70 à 85 % selon les mois). Pour 2027, cette tendance est formalisée en règle de pilotage : <b>75 % Facebook / 25 % Instagram</b> par défaut. Nuance à garder : en juillet, Instagram a délivré un CTR nettement supérieur à Facebook (1,09 % vs 0,15 %) — un signal à retester ponctuellement sur certains temps forts plutôt qu'à ignorer.</p>
+      </div>
+
+      <div class="question-card">
+        <h3>3. TikTok : les tranches d'âge correspondent-elles à nos scores ?</h3>
+        <div class="q">« Concernant TikTok je suis mitigée, avons-nous vis-à-vis du bilan les tranches d'âges qui correspondent aux scores TikTok de nos campagnes ? »</div>
+        <p><b>Ce que le bilan ne permet pas de dire :</b> les tableaux socio-démo des bilans pStory Ads sont agrégés Facebook + Instagram + TikTok, pas isolés par plateforme. Impossible aujourd'hui de connaître précisément l'âge des internautes touchés sur TikTok seul — un trou de reporting à combler dès la prochaine campagne.</p>
+        <p><b>Ce qu'on peut dire structurellement :</b> notre propre kit média positionne TikTok comme « très puissant sur les 18-44 ans », soit une audience bien plus jeune que Facebook (35+) ou Instagram (25+). Sur une cible élargie à 35-60 ans, TikTok ne recouvre au mieux qu'une tranche de 10 ans sur 25, et rate structurellement les 45-60 ans.</p>
+        <div class="callout"><b>Recommandation :</b> retirer TikTok du socle récurrent 2027, mais garder un test cadré sur un seul temps fort à forte volumétrie (Noël), avec cette fois un reporting d'âge isolé par plateforme pour trancher définitivement.</div>
+      </div>
+
+      <div class="question-card">
+        <h3>4. Revoir la cible sur 35-60 ans, hommes et femmes confondus</h3>
+        <div class="q">« Concernant la cible pouvons-nous revoir la tranche d'âge ? de 35-60 ans, hommes et femmes confondus. »</div>
+        <p><b>Intégré dans l'hypothèse 2027.</b> Cet élargissement rapproche la cible officielle de ce que les plateformes délivraient déjà réellement : le bilan S1 2026 montrait un écart persistant entre la cible validée (cœur féminin 60-65 %, 30-45 ans) et l'audience effectivement touchée, souvent majoritairement masculine et 55 ans et plus. En retirant la contrainte de genre et en élargissant la tranche haute, les algorithmes cessent de lutter contre leur tendance naturelle de diffusion — un gain de rendement média attendu sans changer les leviers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2><span class="arrow">↗</span> Ciblage 2027</h2>
+      <p class="section-intro">Le triptyque socio-démo / géolocalisation / data affinitaires qui pilote l'achat média, mis à jour pour la nouvelle cible 35-60 ans.</p>
+
+      <div class="target-grid">
+        <div class="target-card">
+          <h4><span class="dot"></span>Socio-démo</h4>
+          <ul>
+            <li><b>Genre :</b> hommes et femmes confondus, sans quota de répartition <i>(évolution 2027 : suppression du cœur de cible féminin 60-65 %)</i></li>
+            <li><b>Âge :</b> 35-60 ans, cœur de cible 40-55 ans</li>
+            <li><b>CSP :</b> moyenne à CSP+, cadres, professions libérales, indépendants, retraités actifs</li>
+            <li><b>Statut familial :</b> couples installés, familles avec ados/jeunes adultes, actifs confirmés, seniors actifs et pré-retraités</li>
+          </ul>
+        </div>
+
+        <div class="target-card">
+          <h4><span class="dot"></span>Géolocalisation</h4>
+          <ul>
+            <li><b>Zone cœur :</b> résidents et actifs du centre-ville d'Avignon</li>
+            <li><b>Périphérie proche :</b> 0-30 km</li>
+            <li><b>Zone d'attraction élargie :</b> 45-50 km</li>
+            <li><b>Tourisme :</b> visiteurs français et étrangers séjournant à Avignon et alentours, propriétaires de résidence secondaire</li>
+          </ul>
+          <p style="font-size:12.5px;color:var(--muted);margin-top:10px;margin-bottom:0;">Zonage inchangé vs 2026 — rien dans le bilan S1 n'indique de besoin d'ajustement géographique.</p>
+        </div>
+
+        <div class="target-card">
+          <h4><span class="dot"></span>Data affinitaires</h4>
+          <ul>
+            <li><b>Intentionnistes shopping & mode :</b> pouvoir d'achat confirmé, marques premium/moyennes gammes</li>
+            <li><b>Univers Bul d'Air :</b> mode, décoration, santé, bien-être, cuisinistes, sport, restauration</li>
+            <li><b>Lifestyle premium :</b> décoration, rénovation, ameublement, déménagement/aménagement</li>
+            <li><b>Familles & grands-parents actifs :</b> loisirs, sorties, week-ends, petits-enfants</li>
+            <li><b>Expérience shopping :</b> animations, événements, exclusivités, pop-up stores</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="target-card" style="margin-top:4px;">
+        <h4><span class="dot"></span>Segments complémentaires — ce qui reste, ce qui sort</h4>
+        <span class="chip-label">Conservés pour 2027</span>
+        <div class="chip-row">
+          <span class="chip">Premium & luxe (bijouterie, horlogerie, maroquinerie, cosmétiques haut de gamme)</span>
+          <span class="chip">Technophiles & omnicanaux (click & collect, e-shoppers)</span>
+        </div>
+        <span class="chip-label">Retirés — moins pertinents sur 35-60 ans</span>
+        <div class="chip-row">
+          <span class="chip out">Étudiants & jeunes actifs (mode abordable, food court, événements festifs)</span>
+          <span class="chip out">Générations digitales 25-35 ans / TikTok fashion &amp; deco lovers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="arrow">↗</span> Les trois principes de la baisse budgétaire</h2>
+      <p class="section-intro">Baisser le budget sans diluer chaque temps fort : la réduction s'appuie sur trois leviers structurels plutôt que sur un rabot uniforme.</p>
+      <ul>
+        <li><b>Sortie de TikTok du dispositif standard</b> — le levier le moins bien aligné avec la nouvelle cible et le plus complexe à piloter au quotidien.</li>
+        <li><b>Fusion de deux temps forts secondaires</b> — Rentrée et Halloween, proches au calendrier et moins structurants pour un centre commercial, deviennent une seule vague « Automne ».</li>
+        <li><b>Allègement du fil rouge et de l'été</b> — le fil rouge Meta passe d'une présence pleine (700 €/mois) à une présence de fond (400 €/mois) hors temps forts ; les « vendredis en musique » sont resserrés de 8 à 4 semaines.</li>
+      </ul>
+      <div class="callout">Les moments qui font vraiment vendre — Soldes, Black Friday, Noël — sont maintenus à un niveau quasi identique à 2026 : c'est là que la pression média a le plus d'impact direct sur le trafic en magasin.</div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2><span class="arrow">↗</span> Calendrier annuel 2027</h2>
+      <p class="section-intro">Vue d'ensemble de la présence média sur les 12 mois : fil rouge en continu, ponctué de 6 temps forts.</p>
+
+      <div class="timeline-legend">
+        <span><span class="legend-dot" style="background:var(--blue);"></span>Fil rouge seul (900 €)</span>
+        <span><span class="legend-dot" style="background:var(--orange);"></span>Fil rouge + temps fort</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-month tl-peak"><span class="m">JANV</span><span class="b">Soldes</span></div>
+        <div class="tl-month tl-fr"><span class="m">FÉV</span><span class="b">900 €</span></div>
+        <div class="tl-month tl-fr"><span class="m">MARS</span><span class="b">900 €</span></div>
+        <div class="tl-month tl-peak"><span class="m">AVRIL</span><span class="b">Pâques</span></div>
+        <div class="tl-month tl-fr"><span class="m">MAI</span><span class="b">900 €</span></div>
+        <div class="tl-month tl-fr"><span class="m">JUIN</span><span class="b">900 €</span></div>
+        <div class="tl-month tl-fr"><span class="m">JUIL.</span><span class="b">900 €</span></div>
+        <div class="tl-month tl-peak"><span class="m">AOÛT</span><span class="b">Été</span></div>
+        <div class="tl-month tl-fr"><span class="m">SEPT</span><span class="b">900 €</span></div>
+        <div class="tl-month tl-peak"><span class="m">OCT</span><span class="b">Automne</span></div>
+        <div class="tl-month tl-peak"><span class="m">NOV</span><span class="b">Black Friday</span></div>
+        <div class="tl-month tl-peak"><span class="m">DÉC</span><span class="b">Noël</span></div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);">En août, le fil rouge marque une pause (comme en 2026) : la présence média est entièrement portée par l'animation « vendredis en musique ».</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="arrow">↗</span> Plan média 2027 — vue mensuelle</h2>
+      <table>
+        <thead>
+          <tr><th>Mois</th><th>Fil rouge (Display + Meta)</th><th>Temps fort</th><th class="num">Total mensuel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Janvier</td><td>900 €</td><td>Soldes — 1 200 €</td><td class="num">2 100 €</td></tr>
+          <tr><td>Février</td><td>900 €</td><td>—</td><td class="num">900 €</td></tr>
+          <tr><td>Mars</td><td>900 €</td><td>—</td><td class="num">900 €</td></tr>
+          <tr><td>Avril</td><td>900 €</td><td>Printemps (Pâques) — 650 €</td><td class="num">1 550 €</td></tr>
+          <tr><td>Mai</td><td>900 €</td><td>—</td><td class="num">900 €</td></tr>
+          <tr><td>Juin</td><td>900 €</td><td>—</td><td class="num">900 €</td></tr>
+          <tr><td>Juillet</td><td>900 €</td><td>—</td><td class="num">900 €</td></tr>
+          <tr><td>Août</td><td>0 € (pause fil rouge)</td><td>Été (4 sem.) — 1 800 €</td><td class="num">1 800 €</td></tr>
+          <tr><td>Septembre</td><td>900 €</td><td>—</td><td class="num">900 €</td></tr>
+          <tr><td>Octobre</td><td>900 €</td><td>Automne (Rentrée + Halloween) — 650 €</td><td class="num">1 550 €</td></tr>
+          <tr><td>Novembre</td><td>900 €</td><td>Black Friday — 1 000 €</td><td class="num">1 900 €</td></tr>
+          <tr><td>Décembre</td><td>900 €</td><td>Noël — 1 800 €</td><td class="num">2 700 €</td></tr>
+          <tr class="total-row"><td>Total</td><td>9 900 €</td><td>7 100 €</td><td class="num">17 000 € HT</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Détail du fil rouge mensuel (900 €)</h3>
+      <p>Display 500 € (priorité 320x480) + Meta 400 € (75 % Facebook / 25 % Instagram, sans pStory ni TikTok en continu).</p>
+
+      <h3>Détail des temps forts</h3>
+      <table>
+        <thead>
+          <tr><th>Temps fort</th><th class="num">Budget</th><th>Durée</th><th>Composition</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Soldes (janvier)</td><td class="num">1 200 €</td><td>3 semaines</td><td>Meta 900 € (FB priorisé) + pStory FB/IG 300 €</td></tr>
+          <tr><td>Printemps (Pâques)</td><td class="num">650 €</td><td>1 semaine</td><td>Meta ou pStory FB/IG</td></tr>
+          <tr><td>Automne (Rentrée + Halloween)</td><td class="num">650 €</td><td>1 semaine</td><td>Meta (FB priorisé)</td></tr>
+          <tr><td>Été (vendredis en musique)</td><td class="num">1 800 €</td><td>4 semaines</td><td>pStory FB/IG 1 000 € + Spotify 800 €</td></tr>
+          <tr><td>Black Friday</td><td class="num">1 000 €</td><td>1 semaine</td><td>Meta (FB priorisé)</td></tr>
+          <tr><td>Noël</td><td class="num">1 800 €</td><td>3 semaines</td><td>Meta 1 200 € (FB priorisé) + pStory FB/IG 600 €<br><span style="color:var(--muted);font-size:13px;">+ test TikTok optionnel, hors budget, à cadrer ensemble</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2><span class="arrow">↗</span> Comparatif 2026 → 2027</h2>
+
+      <div class="compare">
+        <div class="compare-card">
+          <div class="year">2026</div>
+          <div class="amount">25 450 €</div>
+          <div class="bar-bg"><div class="bar-fill" style="width:100%;"></div></div>
+          <div style="font-size:13px;color:var(--muted);">7 temps forts · ~17,5 semaines · TikTok inclus</div>
+        </div>
+        <div class="compare-card new">
+          <div class="year">2027 (proposé)</div>
+          <div class="amount">17 000 €</div>
+          <div class="bar-bg"><div class="bar-fill" style="width:67%;"></div></div>
+          <div style="font-size:13px;color:var(--muted);">6 temps forts · 13 semaines · sans TikTok en continu</div>
+          <div class="delta">-8 450 € soit -33 %</div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>Indicateur</th><th>2026</th><th>2027 (proposé)</th><th>Évolution</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Budget total</td><td>25 450 € HT</td><td>17 000 € HT</td><td><b>-33 %</b></td></tr>
+          <tr><td>Fil rouge (12 mois)</td><td>15 450 €</td><td>9 900 €</td><td>-36 %</td></tr>
+          <tr><td>Temps forts</td><td>10 000 €</td><td>7 100 €</td><td>-29 %</td></tr>
+          <tr><td>Nombre de temps forts distincts</td><td>7</td><td>6</td><td>Fusion Rentrée/Halloween</td></tr>
+          <tr><td>Durée cumulée des temps forts</td><td>≈ 17,5 semaines</td><td>13 semaines</td><td>-26 %</td></tr>
+          <tr><td>Leviers actifs en continu</td><td>Display, Meta, pStory (dont TikTok)</td><td>Display, Meta</td><td>Simplification</td></tr>
+          <tr><td>Répartition Facebook / Instagram</td><td>Variable (souvent 70-80/20-30 de fait)</td><td>75/25 formalisé</td><td>Règle explicite</td></tr>
+          <tr><td>Cible socio-démo</td><td>Cœur féminin 60-65 %, 30-45 ans</td><td>35-60 ans, H/F confondus</td><td>Élargie, sans quota de genre</td></tr>
+        </tbody>
+      </table>
+      <div class="callout">Une baisse de budget de 33 % pour une baisse de durée de prise de parole de 26 % : le dispositif reste proportionnellement presque aussi présent qu'en 2026 rapporté à l'euro dépensé, ce qui limite la sensation de dilution.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="arrow">↗</span> Ce qui ne change pas</h2>
+      <p>Le Display reste le pilier de la présence continue toute l'année (hors août), avec un budget mensuel inchangé à 500 €. Les trois temps forts les plus engageants commercialement — Soldes, Black Friday, Noël — conservent un niveau de budget proche de 2026. Le ciblage géographique (zone cœur Avignon, périphérie 0-30 km, zone élargie 45-50 km, tourisme) et l'essentiel du ciblage affinitaire (shopping, mode, décoration, lifestyle) restent inchangés : rien dans le bilan S1 2026 n'indique qu'ils posent problème — le socle de supports Display (Elle, Gala, 20 Minutes, Le Figaro, Purepeople, presse régionale) est resté cohérent et pertinent mois après mois.</p>
+
+      <h2 style="margin-top:48px;"><span class="arrow">↗</span> Avant validation : deux points à trancher ensemble</h2>
+      <div class="callout">
+        <p style="margin-bottom:10px;"><b>Test TikTok à Noël</b> — non chiffré dans le total de 17 000 € : à voir ensemble si vous souhaitez l'intégrer (budget test suggéré : 300-400 €) ou l'exclure complètement, auquel cas Noël se limite à Meta + pStory FB/IG.</p>
+        <p style="margin-bottom:0;"><b>Fil rouge Meta allégé</b> (400 €/mois hors temps forts) — suppose un pilotage plus resserré sur Facebook en continu, Instagram étant réservé aux temps forts où son CTR a mieux performé historiquement (comme en juillet). À valider que ce niveau de présence de fond reste suffisant pour l'objectif de notoriété globale du centre.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">The Good Web — www.thegoodweb.eu</div>
+  </footer>
+
+</body>
+</html>
