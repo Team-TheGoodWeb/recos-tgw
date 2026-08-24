@@ -268,6 +268,37 @@ section{ padding:88px 0; border-bottom:var(--border); }
 .banner .logo-wordmark{ font-size:26px; }
 .banner .banner-sub{ font-family:'Space Mono', monospace; font-size:11.5px; text-align:right; }
 
+/* ---------- DIFFUSION ---------- */
+.platform-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; }
+.platform-card{
+  border-radius:var(--radius); border:var(--border); background:var(--cream-card);
+  padding:26px;
+}
+.platform-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
+.platform-name{ font-family:'Anton', sans-serif; font-size:20px; text-transform:uppercase; }
+.platform-badge{
+  font-family:'Space Mono', monospace; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 9px; border-radius:20px; background:var(--wine); color:var(--cream);
+}
+.platform-badge.fr{ background:var(--olive); }
+.platform-desc{ font-size:13.5px; color:var(--ink-dim); margin-bottom:16px; line-height:1.5; }
+.platform-tiers{ list-style:none; border-top:1px solid rgba(43,27,34,0.12); }
+.platform-tiers li{
+  display:flex; justify-content:space-between; gap:12px;
+  padding:9px 0; border-bottom:1px solid rgba(43,27,34,0.12);
+  font-size:13.5px;
+}
+.platform-tiers .tier-name{ color:var(--ink); }
+.platform-tiers .tier-price{ font-family:'Space Mono', monospace; color:var(--wine); font-weight:700; white-space:nowrap; }
+.platform-note{
+  font-family:'Space Mono', monospace; font-size:11px; color:var(--ink-dim);
+  margin-top:14px; line-height:1.5;
+}
+.diffusion-caveat{
+  margin-top:32px; font-size:12.5px; color:var(--ink-dim);
+  font-family:'Space Mono', monospace; max-width:640px; line-height:1.6;
+}
+
 /* ---------- VOICE ---------- */
 .voice-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
 @media (max-width:720px){ .voice-grid{ grid-template-columns:1fr; } }
@@ -299,6 +330,7 @@ footer .foot-note{ font-family:'Space Mono', monospace; font-size:12px; color:va
       <li><a href="#typo">Typo</a></li>
       <li><a href="#logo">Logo</a></li>
       <li><a href="#applications">Applications</a></li>
+      <li><a href="#diffusion">Diffusion</a></li>
       <li><a href="#voix">Ton & voix</a></li>
     </ul>
   </div>
@@ -534,10 +566,100 @@ footer .foot-note{ font-family:'Space Mono', monospace; font-size:12px; color:va
   </div>
 </section>
 
+<section id="diffusion">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">05 — Diffusion</span>
+      <h2>Où héberger le podcast</h2>
+      <p>L'hébergeur génère le flux RSS qui diffuse automatiquement vers Spotify, Apple Podcasts, Deezer, YouTube Music etc. — c'est le point de départ technique, à choisir avant même le nom de domaine.</p>
+    </div>
+
+    <div class="platform-grid">
+      <div class="platform-card">
+        <div class="platform-top">
+          <div class="platform-name">Spotify for Creators</div>
+          <span class="platform-badge">Gratuit</span>
+        </div>
+        <div class="platform-desc">Ex-Anchor. Hébergement et distribution illimités, gratuits, sans engagement — l'option la plus simple pour se lancer sans budget.</div>
+        <ul class="platform-tiers">
+          <li><span class="tier-name">Tout inclus</span><span class="tier-price">0 €/mois</span></li>
+        </ul>
+        <div class="platform-note">Idéal pour les 10-15 premiers épisodes, avant de juger si un outil plus avancé est nécessaire.</div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-top">
+          <div class="platform-name">Ausha</div>
+          <span class="platform-badge fr">FR</span>
+        </div>
+        <div class="platform-desc">Plateforme française, hébergement + outils marketing (SEO, clips vidéo, statistiques) dans un seul outil. Essai gratuit sans engagement.</div>
+        <ul class="platform-tiers">
+          <li><span class="tier-name">Launch</span><span class="tier-price">11 €/mois</span></li>
+          <li><span class="tier-name">Boost</span><span class="tier-price">24 €/mois</span></li>
+          <li><span class="tier-name">Supersonic</span><span class="tier-price">57 €/mois</span></li>
+        </ul>
+        <div class="platform-note">Tarifs avec engagement 12 mois. Boost ajoute les clips promo réseaux sociaux et la diffusion YouTube.</div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-top">
+          <div class="platform-name">Acast</div>
+        </div>
+        <div class="platform-desc">Suédois, forte orientation monétisation (pub dynamique, sponsoring, dons). Offre gratuite limitée pour démarrer.</div>
+        <ul class="platform-tiers">
+          <li><span class="tier-name">Free</span><span class="tier-price">0 €/mois</span></li>
+          <li><span class="tier-name">Influenceur</span><span class="tier-price">≈15 €/mois</span></li>
+          <li><span class="tier-name">Pro</span><span class="tier-price">≈30 €/mois</span></li>
+        </ul>
+        <div class="platform-note">Pertinent surtout si l'objectif à moyen terme est de monétiser par la pub plutôt que par le sponsoring direct.</div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-top">
+          <div class="platform-name">Buzzsprout</div>
+        </div>
+        <div class="platform-desc">Américain, réputé pour la simplicité d'interface — souvent cité comme la prise en main la plus facile du marché.</div>
+        <ul class="platform-tiers">
+          <li><span class="tier-name">Entrée de gamme</span><span class="tier-price">≈12 $/mois</span></li>
+        </ul>
+        <div class="platform-note">Facturé en dollars ; peu d'outils marketing francophones dédiés contrairement à Ausha.</div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-top">
+          <div class="platform-name">Podcastics</div>
+        </div>
+        <div class="platform-desc">Stockage illimité, essai gratuit d'un mois, formules d'entrée de gamme parmi les moins chères du marché.</div>
+        <ul class="platform-tiers">
+          <li><span class="tier-name">Formules</span><span class="tier-price">8 à 18 €/mois</span></li>
+        </ul>
+        <div class="platform-note">Bonne option si le budget prime sur les outils marketing avancés.</div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-top">
+          <div class="platform-name">Podbean</div>
+        </div>
+        <div class="platform-desc">Pensé pour la gestion mobile — pratique si les épisodes sont préparés et publiés depuis un téléphone.</div>
+        <ul class="platform-tiers">
+          <li><span class="tier-name">Free</span><span class="tier-price">0 €/mois*</span></li>
+          <li><span class="tier-name">Payant</span><span class="tier-price">sur devis</span></li>
+        </ul>
+        <div class="platform-note">*Plan gratuit limité à 5h de stockage — suffisant pour tester quelques épisodes.</div>
+      </div>
+    </div>
+
+    <p class="diffusion-caveat">
+      Prix indicatifs (relevés en 2026), susceptibles d'évoluer — à revérifier sur le site de chaque plateforme avant engagement.
+      Pour un lancement à budget zéro : Spotify for Creators. Pour investir dans des outils marketing dès le départ, en français : Ausha.
+    </p>
+  </div>
+</section>
+
 <section id="voix" style="border-bottom:none;">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num">05 — Ton & voix</span>
+      <span class="section-num">06 — Ton & voix</span>
       <h2>Comment on parle</h2>
       <p>Direct, chaleureux, jamais condescendant. On valorise autant l'artisan que la fondatrice de startup — pas de hiérarchie dans le ton.</p>
     </div>
