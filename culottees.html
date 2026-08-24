@@ -397,6 +397,30 @@ section{ padding:88px 0; border-bottom:var(--border); }
 .calendar-table td.day{ font-family:'Space Mono', monospace; font-weight:700; color:var(--wine); white-space:nowrap; }
 .calendar-table td.empty{ color:var(--ink-dim); font-style:italic; }
 
+/* ---------- MATÉRIEL ---------- */
+.gear-kits{ display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:20px; }
+@media (max-width:820px){ .gear-kits{ grid-template-columns:1fr; } }
+.gear-kit-title{ font-family:'Anton', sans-serif; font-size:19px; text-transform:uppercase; margin-bottom:4px; }
+.gear-kit-sub{ font-size:13px; color:var(--ink-dim); margin-bottom:18px; }
+.gear-item{
+  display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
+  padding:14px 0; border-top:1px solid rgba(43,27,34,0.12);
+}
+.gear-item:first-child{ border-top:none; }
+.gear-item-name{ font-weight:700; font-size:14.5px; }
+.gear-item-name a{ color:var(--wine); text-decoration:underline; text-underline-offset:2px; }
+.gear-item-desc{ font-size:12.5px; color:var(--ink-dim); margin-top:3px; line-height:1.5; }
+.gear-item-price{ font-family:'Space Mono', monospace; font-size:13px; color:var(--ink); white-space:nowrap; font-weight:700; }
+.gear-kit-total{
+  margin-top:16px; padding-top:14px; border-top:2px solid var(--ink);
+  display:flex; justify-content:space-between; font-family:'Space Mono', monospace; font-size:13.5px;
+}
+.gear-kit-total strong{ color:var(--wine); }
+.gear-caveat{
+  margin-top:8px; font-size:12.5px; color:var(--ink-dim);
+  font-family:'Space Mono', monospace; max-width:680px; line-height:1.6;
+}
+
 /* ---------- VOICE ---------- */
 .voice-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
 @media (max-width:720px){ .voice-grid{ grid-template-columns:1fr; } }
@@ -430,6 +454,7 @@ footer .foot-note{ font-family:'Space Mono', monospace; font-size:12px; color:va
       <li><a href="#applications">Applications</a></li>
       <li><a href="#diffusion">Diffusion</a></li>
       <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#materiel">Matériel</a></li>
       <li><a href="#voix">Ton & voix</a></li>
     </ul>
   </div>
@@ -819,7 +844,9 @@ footer .foot-note{ font-family:'Space Mono', monospace; font-size:12px; color:va
         </ul>
 
         <div class="bio-card">
-          <span class="bio-label">Proposition de bio Instagram</span>
+          <span class="bio-label">Compte Instagram</span>
+          <div class="hashtag-tags" style="margin-bottom:14px;">@culottees.podcast</div>
+          <span class="bio-label">Proposition de bio</span>
           <div class="bio-text">Culotté·es 🎙️
 Ils ont eu le culot. Ils racontent.
 Entrepreneur·es entre Toulon &amp; Marseille
@@ -851,7 +878,7 @@ Nouvel épisode chaque jeudi ⤵</div>
                 <span class="type-label" style="color:var(--ink); opacity:0.7;">Post carré</span>
                 <div>
                   <div class="quote">"Le culot, c'est juste dire oui avant d'être prêt."</div>
-                  <div class="who">EP.014 — Léa Ferrand</div>
+                  <div class="who">EP.014 — Léa Ferrand · @culottees.podcast</div>
                 </div>
               </div>
             </div>
@@ -940,10 +967,95 @@ Nouvel épisode chaque jeudi ⤵</div>
   </div>
 </section>
 
+<section id="materiel">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">07 — Matériel</span>
+      <h2>De quoi enregistrer correctement</h2>
+      <p>Deux configurations possibles selon où se font les interviews : à demeure (chez toi ou l'invité·e reçu·e) ou en déplacement (dans les locaux de l'invité·e). Prix relevés en 2026, à revérifier avant achat — ils bougent souvent sur Amazon.</p>
+    </div>
+
+    <div class="gear-kits">
+      <div>
+        <div class="gear-kit-title">Kit maison</div>
+        <div class="gear-kit-sub">Pour enregistrer chez toi, un invité en face à face</div>
+
+        <div class="gear-item">
+          <div>
+            <div class="gear-item-name"><a href="https://www.amazon.fr/Samson-Handheld-dynamique-denregistrement-Podcasting/dp/B07FKG8PGZ" target="_blank" rel="noopener">Micro Samson Q2U</a></div>
+            <div class="gear-item-desc">Dynamique, hybride USB/XLR — démarre en USB, évolue vers une interface plus tard sans racheter de micro.</div>
+          </div>
+          <div class="gear-item-price">≈90 €</div>
+        </div>
+
+        <div class="gear-item">
+          <div>
+            <div class="gear-item-name"><a href="https://www.amazon.fr/Audio-Technica-ATH-M20X-Casque-audio-professionnel/dp/B00HVLUR18" target="_blank" rel="noopener">Casque Audio-Technica ATH-M20x</a> ×2</div>
+            <div class="gear-item-desc">Fermé, pour le monitoring — un pour toi, un pour l'invité·e. Compter le double du prix unitaire.</div>
+          </div>
+          <div class="gear-item-price">≈55 €/u</div>
+        </div>
+
+        <div class="gear-item">
+          <div>
+            <div class="gear-item-name"><a href="https://www.amazon.fr/Neewer-Microphone-Anti-Pop-Adaptateur-Compatible/dp/B01GRMF5ZE" target="_blank" rel="noopener">Bras Neewer NW-35 + filtre anti-pop</a></div>
+            <div class="gear-item-desc">Bras articulé + filtre anti-pop intégré — stabilise la distance au micro et adoucit les "p" et "b".</div>
+          </div>
+          <div class="gear-item-price">≈25 €</div>
+        </div>
+
+        <div class="gear-kit-total">
+          <span>Total kit maison (1 micro + 2 casques + bras)</span>
+          <strong>≈225 €</strong>
+        </div>
+      </div>
+
+      <div>
+        <div class="gear-kit-title">Kit terrain</div>
+        <div class="gear-kit-sub">Pour aller enregistrer directement chez l'invité·e</div>
+
+        <div class="gear-item">
+          <div>
+            <div class="gear-item-name"><a href="https://www.amazon.fr/Zoom-H1n-IF-Enregistreur-Num%C3%A9rique/dp/B077QZPDM6" target="_blank" rel="noopener">Enregistreur Zoom H1n</a></div>
+            <div class="gear-item-desc">Autonome, micros stéréo intégrés — pas besoin d'ordinateur, tient dans une poche, idéal pour interviewer sur place.</div>
+          </div>
+          <div class="gear-item-price">≈130 €</div>
+        </div>
+
+        <div class="gear-item">
+          <div>
+            <div class="gear-item-name"><a href="https://www.amazon.fr/Audio-Technica-ATH-M20X-Casque-audio-professionnel/dp/B00HVLUR18" target="_blank" rel="noopener">Casque Audio-Technica ATH-M20x</a></div>
+            <div class="gear-item-desc">Pour vérifier le niveau d'enregistrement en direct pendant l'interview.</div>
+          </div>
+          <div class="gear-item-price">≈55 €</div>
+        </div>
+
+        <div class="gear-item">
+          <div>
+            <div class="gear-item-name">Carte microSD (32-64 Go)</div>
+            <div class="gear-item-desc">Le H1n n'en inclut pas toujours une — vérifier avant achat selon le pack choisi.</div>
+          </div>
+          <div class="gear-item-price">≈10 €</div>
+        </div>
+
+        <div class="gear-kit-total">
+          <span>Total kit terrain</span>
+          <strong>≈195 €</strong>
+        </div>
+      </div>
+    </div>
+
+    <p class="gear-caveat">
+      Les deux kits ne sont pas exclusifs : beaucoup de podcasteurs commencent avec le kit maison seul, puis ajoutent le Zoom H1n quand des interviews en extérieur ou chez l'invité·e deviennent régulières.
+      Prix indicatifs relevés sur Amazon.fr en 2026 — ils varient selon les promotions, à vérifier avant achat.
+    </p>
+  </div>
+</section>
+
 <section id="voix" style="border-bottom:none;">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num">07 — Ton & voix</span>
+      <span class="section-num">08 — Ton & voix</span>
       <h2>Comment on parle</h2>
       <p>Direct, chaleureux, jamais condescendant. On valorise autant l'artisan que la fondatrice de startup — pas de hiérarchie dans le ton.</p>
     </div>
