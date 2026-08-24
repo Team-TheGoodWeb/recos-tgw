@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Culotté·es — Charte graphique</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root{
+  --ink:#1A1425;
+  --ink-soft:#241C33;
+  --cream:#F7F1E8;
+  --cream-dim:#D9D0C2;
+  --fuchsia:#FF4D6D;
+  --yellow:#FFB100;
+  --turquoise:#2EC4B6;
+  --radius:22px;
+  --border: 1px solid rgba(247,241,232,0.14);
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+body{
+  background:var(--ink);
+  color:var(--cream);
+  font-family:'Space Grotesk', sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+
+::selection{ background:var(--fuchsia); color:var(--ink); }
+
+a{ color:inherit; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+
+/* ---------- NAV ---------- */
+nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(26,20,37,0.88);
+  backdrop-filter:blur(10px);
+  border-bottom:var(--border);
+}
+nav .wrap{
+  display:flex; align-items:center; justify-content:space-between;
+  height:64px;
+}
+.nav-logo{ font-family:'Anton', sans-serif; font-size:20px; letter-spacing:0.5px; }
+.nav-links{ display:flex; gap:28px; list-style:none; font-size:14px; }
+.nav-links a{ text-decoration:none; opacity:0.75; transition:opacity .2s; }
+.nav-links a:hover{ opacity:1; }
+@media (max-width:720px){ .nav-links{ display:none; } }
+
+/* ---------- signature dot ---------- */
+.dot{
+  display:inline-block;
+  width:0.32em; height:0.32em;
+  border-radius:50%;
+  background:var(--fuchsia);
+  vertical-align:0.05em;
+}
+.dot-pulse{ animation:pulse 2.6s ease-in-out infinite; }
+@keyframes pulse{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.28); }
+}
+@media (prefers-reduced-motion: reduce){ .dot-pulse{ animation:none; } }
+
+/* ---------- HERO ---------- */
+.hero{
+  padding:120px 0 90px;
+  border-bottom:var(--border);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute; top:-180px; right:-160px;
+  width:480px; height:480px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,77,109,0.28), transparent 70%);
+  pointer-events:none;
+}
+.eyebrow{
+  font-family:'Space Mono', monospace;
+  font-size:13px; text-transform:uppercase; letter-spacing:2px;
+  color:var(--yellow); margin-bottom:22px; display:block;
+}
+.hero h1{
+  font-family:'Anton', sans-serif;
+  font-size:clamp(56px, 11vw, 128px);
+  line-height:0.92;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+}
+.hero .baseline{
+  margin-top:24px;
+  font-size:clamp(18px,2.4vw,24px);
+  color:var(--cream-dim);
+  max-width:560px;
+}
+.hero .locus{
+  margin-top:36px;
+  font-family:'Space Mono', monospace;
+  font-size:13px;
+  color:var(--turquoise);
+  letter-spacing:1px;
+}
+
+/* ---------- SECTION SHELL ---------- */
+section{ padding:88px 0; border-bottom:var(--border); }
+.section-head{ margin-bottom:48px; }
+.section-num{
+  font-family:'Space Mono', monospace;
+  font-size:13px; color:var(--fuchsia); letter-spacing:1px;
+  display:block; margin-bottom:10px;
+}
+.section-head h2{
+  font-family:'Anton', sans-serif;
+  font-size:clamp(32px,4vw,48px);
+  text-transform:uppercase;
+}
+.section-head p{ color:var(--cream-dim); max-width:560px; margin-top:14px; font-size:15px; }
+
+/* ---------- PALETTE ---------- */
+.palette-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px;
+}
+.swatch{
+  border-radius:var(--radius); overflow:hidden; border:var(--border);
+  background:var(--ink-soft);
+}
+.swatch-color{ height:130px; }
+.swatch-info{ padding:18px 20px; }
+.swatch-name{ font-weight:700; font-size:15px; margin-bottom:4px; }
+.swatch-hex{ font-family:'Space Mono', monospace; font-size:13px; color:var(--cream-dim); }
+.swatch-use{ font-size:13px; color:var(--cream-dim); margin-top:10px; line-height:1.5; }
+
+/* ---------- TYPE ---------- */
+.type-row{ padding:32px 0; border-top:var(--border); }
+.type-row:first-child{ border-top:none; padding-top:0; }
+.type-label{
+  font-family:'Space Mono', monospace; font-size:12px; color:var(--yellow);
+  text-transform:uppercase; letter-spacing:1.5px; margin-bottom:14px; display:block;
+}
+.type-display{ font-family:'Anton', sans-serif; font-size:clamp(34px,5vw,60px); text-transform:uppercase; line-height:1.05; }
+.type-body-lg{ font-family:'Space Grotesk', sans-serif; font-weight:500; font-size:22px; max-width:620px; }
+.type-body{ font-family:'Space Grotesk', sans-serif; font-size:16px; color:var(--cream-dim); max-width:620px; }
+.type-mono{ font-family:'Space Mono', monospace; font-size:14px; color:var(--turquoise); }
+.type-meta{ margin-top:12px; font-size:12.5px; color:var(--cream-dim); font-family:'Space Mono', monospace; }
+
+/* ---------- LOGO LOCKUPS ---------- */
+.logo-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:20px; }
+.logo-card{
+  border-radius:var(--radius); border:var(--border); padding:44px 28px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:18px; min-height:260px; text-align:center;
+}
+.logo-card.bg-cream{ background:var(--cream); color:var(--ink); }
+.logo-card.bg-ink{ background:var(--ink-soft); }
+.logo-card.bg-fuchsia{ background:var(--fuchsia); color:var(--ink); }
+.logo-wordmark{ font-family:'Anton', sans-serif; font-size:38px; text-transform:uppercase; }
+.logo-caption{ font-family:'Space Mono', monospace; font-size:11.5px; letter-spacing:1px; text-transform:uppercase; opacity:0.7; }
+
+.symbol-lockup{ display:flex; align-items:center; gap:14px; }
+.hublot{
+  width:52px; height:52px; border-radius:50%;
+  border:4px solid var(--fuchsia);
+  display:flex; align-items:center; justify-content:center;
+}
+.hublot span{ width:14px; height:14px; border-radius:50%; background:var(--fuchsia); }
+.logo-card.bg-fuchsia .hublot{ border-color:var(--ink); }
+.logo-card.bg-fuchsia .hublot span{ background:var(--ink); }
+
+.tampon{
+  width:180px; height:180px; border-radius:50%;
+  border:3px dashed var(--ink);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:6px;
+}
+.tampon .logo-wordmark{ font-size:26px; }
+.tampon .logo-caption{ font-size:9.5px; }
+
+/* ---------- APPLICATIONS ---------- */
+.app-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:24px; }
+.app-card{ border-radius:var(--radius); overflow:hidden; border:var(--border); background:var(--ink-soft); }
+.cover-art{
+  aspect-ratio:1/1;
+  background:linear-gradient(155deg, var(--fuchsia) 0%, #B3123E 55%, var(--ink) 100%);
+  display:flex; flex-direction:column; justify-content:space-between;
+  padding:26px;
+  position:relative;
+}
+.cover-art .top-tag{ font-family:'Space Mono', monospace; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; }
+.cover-art .cover-word{ font-family:'Anton', sans-serif; font-size:15vw; line-height:0.85; text-transform:uppercase; }
+.cover-art .cover-sub{ font-family:'Space Mono', monospace; font-size:11px; opacity:0.85; }
+
+.episode-card{ padding:22px; }
+.ep-num{ font-family:'Space Mono', monospace; font-size:12px; color:var(--yellow); }
+.ep-title{ font-family:'Anton', sans-serif; font-size:22px; text-transform:uppercase; margin:8px 0 6px; }
+.ep-guest{ font-size:14px; color:var(--cream-dim); }
+
+.social-post{
+  background:var(--yellow); color:var(--ink);
+  aspect-ratio:4/5;
+  display:flex; flex-direction:column; justify-content:space-between; padding:24px;
+}
+.social-post .quote{ font-family:'Anton', sans-serif; font-size:26px; text-transform:uppercase; line-height:1.05; }
+.social-post .who{ font-family:'Space Mono', monospace; font-size:12px; }
+
+.banner{
+  background:var(--turquoise); color:var(--ink);
+  padding:30px 26px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.banner .logo-wordmark{ font-size:26px; }
+.banner .banner-sub{ font-family:'Space Mono', monospace; font-size:11.5px; text-align:right; }
+
+/* ---------- VOICE ---------- */
+.voice-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+@media (max-width:720px){ .voice-grid{ grid-template-columns:1fr; } }
+.voice-card{ border-radius:var(--radius); border:var(--border); padding:26px; }
+.voice-card h3{ font-family:'Space Mono', monospace; font-size:13px; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:16px; }
+.voice-card.do{ border-color:rgba(46,196,182,0.4); }
+.voice-card.do h3{ color:var(--turquoise); }
+.voice-card.dont{ border-color:rgba(255,77,109,0.4); }
+.voice-card.dont h3{ color:var(--fuchsia); }
+.voice-card ul{ list-style:none; }
+.voice-card li{ padding:10px 0; border-top:1px solid rgba(247,241,232,0.08); font-size:14.5px; }
+.voice-card li:first-child{ border-top:none; }
+
+/* ---------- FOOTER ---------- */
+footer{ padding:60px 0 80px; }
+footer .foot-grid{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; }
+footer .foot-logo{ font-family:'Anton', sans-serif; font-size:24px; text-transform:uppercase; }
+footer .foot-note{ font-family:'Space Mono', monospace; font-size:12px; color:var(--cream-dim); max-width:400px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-logo">Culotté<span class="dot"></span>es</div>
+    <ul class="nav-links">
+      <li><a href="#palette">Palette</a></li>
+      <li><a href="#typo">Typo</a></li>
+      <li><a href="#logo">Logo</a></li>
+      <li><a href="#applications">Applications</a></li>
+      <li><a href="#voix">Ton & voix</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Charte graphique — v1</span>
+    <h1>Culotté<span class="dot dot-pulse"></span>es</h1>
+    <p class="baseline">Les voix qui osent entreprendre entre Toulon et Marseille. Un podcast qui refuse de trier par secteur ou par taille — juste des gens qui ont eu le culot de se lancer.</p>
+    <div class="locus">TOULON · MARSEILLE — TOUS SECTEURS, TOUTES TAILLES</div>
+  </div>
+</header>
+
+<section id="palette">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">01 — Palette</span>
+      <h2>Des couleurs qui ont du répondant</h2>
+      <p>Pas de bleu corporate, pas de terre cuite carte postale. Un fond profond façon nuit méditerranéenne, et des accents qui claquent — cohérents avec le culot du nom.</p>
+    </div>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1A1425;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Encre — fond principal</div>
+          <div class="swatch-hex">#1A1425</div>
+          <div class="swatch-use">Fond de toutes les déclinaisons. Aubergine profond plutôt que noir pur — plus chaud, plus régional que le noir corporate.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F7F1E8;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Écru — texte / fonds clairs</div>
+          <div class="swatch-hex">#F7F1E8</div>
+          <div class="swatch-use">Texte principal sur fond sombre, ou fond pour les lockups logo en version claire.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FF4D6D;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Fuchsia — signature</div>
+          <div class="swatch-hex">#FF4D6D</div>
+          <div class="swatch-use">Le point médian du nom, les CTA, les accents forts. C'est LA couleur culot — à utiliser avec parcimonie pour garder son impact.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFB100;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Jaune soleil — énergie</div>
+          <div class="swatch-hex">#FFB100</div>
+          <div class="swatch-use">Étiquettes, eyebrows, fonds de posts réseaux sociaux. Apporte la lumière du sud sans tomber dans l'ocre cliché.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2EC4B6;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Turquoise — respiration</div>
+          <div class="swatch-hex">#2EC4B6</div>
+          <div class="swatch-use">Couleur de respiration / info secondaire. Rappel discret de la mer, jamais dominant.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="typo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">02 — Typographie</span>
+      <h2>Trois rôles, trois voix</h2>
+      <p>Une typo qui gueule un peu pour les titres, une typo ronde et lisible pour le fond, une mono façon tampon administratif détourné pour les données et légendes.</p>
+    </div>
+
+    <div class="type-row">
+      <span class="type-label">Display — Anton</span>
+      <div class="type-display">On y va quand même</div>
+      <div class="type-meta">Titres, wordmark, accroches d'épisodes — toujours en majuscules, jamais en dessous de 28px.</div>
+    </div>
+
+    <div class="type-row">
+      <span class="type-label">Corps — Space Grotesk / Medium</span>
+      <div class="type-body-lg">Chaque semaine, un·e entrepreneur·e du coin raconte son déclic, ses galères et ce qui a fini par payer.</div>
+      <div class="type-meta">Chapô, intros d'épisode, citations mises en avant.</div>
+    </div>
+
+    <div class="type-row">
+      <span class="type-label">Corps — Space Grotesk / Regular</span>
+      <p class="type-body">Texte courant : descriptions d'épisodes, notes de show, contenus de site. Toujours en écru sur fond encre, jamais en dessous de 15px pour rester lisible sur mobile.</p>
+      <div class="type-meta">Descriptions, articles, pages "à propos".</div>
+    </div>
+
+    <div class="type-row">
+      <span class="type-label">Utilitaire — Space Mono</span>
+      <div class="type-mono">EP.014 — 42:18 — TOULON</div>
+      <div class="type-meta">Numéros d'épisode, timestamps, tags de lieu, légendes techniques — toujours en majuscules avec espacement des lettres.</div>
+    </div>
+  </div>
+</section>
+
+<section id="logo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">03 — Logo</span>
+      <h2>Trois versions, un même culot</h2>
+      <p>Le point médian du nom devient la signature graphique : un rond plein, décliné en hublot ou en tampon selon le format.</p>
+    </div>
+    <div class="logo-grid">
+      <div class="logo-card bg-cream">
+        <div class="logo-wordmark">Culotté<span class="dot"></span>es</div>
+        <div class="logo-caption">Wordmark seul — usage courant</div>
+      </div>
+      <div class="logo-card bg-ink">
+        <div class="symbol-lockup">
+          <div class="hublot"><span></span></div>
+          <div class="logo-wordmark">Culotté<span class="dot"></span>es</div>
+        </div>
+        <div class="logo-caption">Wordmark + hublot — vignettes, avatars</div>
+      </div>
+      <div class="logo-card bg-fuchsia">
+        <div class="tampon">
+          <div class="logo-wordmark">Culotté<span class="dot"></span>es</div>
+          <div class="logo-caption">Toulon · Marseille</div>
+        </div>
+        <div class="logo-caption">Version tampon — stickers, print, partenariats</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="applications">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">04 — Applications</span>
+      <h2>Sur le terrain</h2>
+      <p>Cover de plateforme, carte d'épisode, post réseaux, bannière — les mêmes tokens partout, sans jamais mélanger plus de deux accents à la fois.</p>
+    </div>
+    <div class="app-grid">
+      <div class="app-card">
+        <div class="cover-art">
+          <span class="top-tag">Podcast</span>
+          <div class="cover-word">Culotté<span class="dot"></span>es</div>
+          <span class="cover-sub">TOULON · MARSEILLE</span>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="episode-card">
+          <span class="ep-num">EP.014 — 42 MIN</span>
+          <div class="ep-title">Zéro pointé, boîte lancée</div>
+          <div class="ep-guest">avec Léa Ferrand, fondatrice — La Ciotat</div>
+        </div>
+        <div class="banner">
+          <div class="logo-wordmark">Culotté<span class="dot"></span>es</div>
+          <div class="banner-sub">Nouvel épisode<br>chaque jeudi</div>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="social-post">
+          <span class="type-label" style="color:var(--ink); opacity:0.7;">Citation d'épisode</span>
+          <div class="quote">"J'ai eu le culot de dire oui avant d'avoir le budget."</div>
+          <span class="who">EP.014 — Léa Ferrand</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voix" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">05 — Ton & voix</span>
+      <h2>Comment on parle</h2>
+      <p>Direct, chaleureux, jamais condescendant. On valorise autant l'artisan que la fondatrice de startup — pas de hiérarchie dans le ton.</p>
+    </div>
+    <div class="voice-grid">
+      <div class="voice-card do">
+        <h3>On fait</h3>
+        <ul>
+          <li>Phrases courtes, verbes d'action</li>
+          <li>Citations brutes des invité·es, avec leurs mots</li>
+          <li>Un clin d'œil régional quand il vient naturellement</li>
+          <li>Nommer les lieux précisément (La Ciotat, Six-Fours, Toulon...)</li>
+        </ul>
+      </div>
+      <div class="voice-card dont">
+        <h3>On évite</h3>
+        <ul>
+          <li>Le jargon business ("scaler", "pitch deck")</li>
+          <li>Le misérabilisme sur les galères entrepreneuriales</li>
+          <li>Le folklore appuyé (accent écrit phonétiquement, clichés)</li>
+          <li>Les superlatifs vides ("incroyable", "exceptionnel")</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-logo">Culotté<span class="dot"></span>es</div>
+    <div class="foot-note">Kit de charte graphique v1 — à faire évoluer avec les premiers retours visuels une fois les 5-10 premiers épisodes enregistrés.</div>
+  </div>
+</footer>
+
+</body>
+</html>
