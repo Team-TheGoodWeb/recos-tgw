@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilan de campagne · Xtrem Park · Circuit Paul Ricard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#021859;
+    --babyblue:#7bbdff;
+    --terracota:#f25430;
+    --white:#ffffff;
+    --bg-soft:#F6F8FE;
+    --text:#1b2440;
+    --text-soft:#5b6478;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.5;}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);}
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  section{padding:64px 0;}
+  section.soft{background:var(--bg-soft);}
+
+  /* HERO */
+  header.hero{background:var(--navy);color:var(--white);padding:48px 0 40px;}
+  header.hero h1{color:var(--white);}
+  .hero-logo{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
+  .hero-logo svg{height:52px;width:auto;display:block;}
+  .hero-logo .wordmark{font-family:'Poppins',sans-serif;font-weight:600;letter-spacing:.04em;font-size:15px;line-height:1.2;}
+  .hero-logo .wordmark small{display:block;font-family:'Inter',sans-serif;font-weight:400;color:var(--babyblue);font-size:11px;letter-spacing:.03em;}
+  .eyebrow{display:inline-block;color:#ffb79e;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;}
+  header.hero h1{font-size:32px;font-weight:700;margin-bottom:8px;}
+  header.hero .subtitle{color:var(--babyblue);font-size:17px;margin-bottom:26px;}
+  .pills{display:flex;flex-wrap:wrap;gap:10px;}
+  .pill{border:1px solid var(--babyblue);border-radius:999px;padding:7px 16px;font-size:13px;background:rgba(255,255,255,.03);}
+  .pill b{font-weight:700;}
+
+  /* NAV */
+  nav.anchor{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid #e4e8f5;box-shadow:0 2px 8px rgba(2,24,89,.05);}
+  nav.anchor .wrap{display:flex;gap:24px;overflow-x:auto;padding-top:14px;padding-bottom:14px;}
+  nav.anchor a{font-weight:700;font-size:13.5px;color:var(--navy);white-space:nowrap;text-decoration:none;}
+  nav.anchor a:hover{color:var(--terracota);}
+
+  .kicker{display:flex;align-items:center;gap:8px;color:var(--terracota);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;}
+  h2{font-size:26px;margin-bottom:28px;}
+
+  /* CARDS */
+  .grid{display:grid;gap:18px;}
+  .grid.cols-2{grid-template-columns:repeat(2,1fr);}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr);}
+  .grid.cols-4{grid-template-columns:repeat(4,1fr);}
+  .card{background:var(--white);border:1px solid #e4e8f5;border-radius:14px;padding:22px;}
+  section.soft .card{background:var(--white);}
+  .card h4{font-size:14px;margin-bottom:8px;}
+  .card p{font-size:14px;color:var(--text-soft);}
+  .card .num{font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;color:var(--navy);}
+
+  .c-lavande{border-top:4px solid #5271FF;}
+  .c-rose{border-top:4px solid #4b3fae;}
+  .c-bleu{border-top:4px solid var(--babyblue);}
+  .c-menthe{border-top:4px solid var(--navy);}
+  .c-corail{border-top:4px solid var(--terracota);}
+  .c-peche{border-top:4px solid #ffb79e;}
+
+  /* STAT BAND */
+  .statband{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+  .stat{background:var(--navy);border-radius:14px;padding:20px 14px;text-align:center;color:var(--white);}
+  .stat .val{font-family:'Poppins',sans-serif;font-weight:700;font-size:22px;}
+  .stat .lbl{font-size:11.5px;color:var(--babyblue);margin-top:4px;text-transform:uppercase;letter-spacing:.04em;}
+  .stat.accent{background:var(--terracota);}
+  .note-box{margin-top:22px;background:#fff3ee;border:1px solid #ffd6c4;border-radius:12px;padding:16px 18px;font-size:13.5px;color:#7a3016;}
+  .note-box b{color:var(--terracota);}
+
+  /* TABLE */
+  table{width:100%;border-collapse:collapse;background:var(--white);border-radius:12px;overflow:hidden;font-size:14px;}
+  thead th{background:var(--navy);color:var(--white);text-align:left;padding:12px 14px;font-family:'Poppins',sans-serif;font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;}
+  tbody td{padding:11px 14px;border-bottom:1px solid #ecefFA;color:var(--text);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr.total td{font-weight:700;background:var(--bg-soft);}
+  .tag-best{display:inline-block;background:var(--terracota);color:#fff;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:middle;}
+
+  /* BARS */
+  .barlist{display:flex;flex-direction:column;gap:12px;}
+  .barrow{display:grid;grid-template-columns:220px 1fr 56px;align-items:center;gap:12px;font-size:13.5px;}
+  .barrow .track{background:#e9edf9;border-radius:999px;height:12px;overflow:hidden;}
+  .barrow .fill{height:100%;border-radius:999px;background:var(--terracota);}
+  .barrow .fill.blue{background:var(--babyblue);}
+  .barrow .pct{font-weight:700;color:var(--navy);text-align:right;}
+
+  /* DAILY CHART */
+  .daily{display:flex;align-items:flex-end;gap:5px;height:160px;padding-top:10px;}
+  .daily .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+  .daily .col .bar{width:100%;background:var(--babyblue);border-radius:4px 4px 0 0;}
+  .daily .col .bar.peak{background:var(--terracota);}
+  .daily .col .day{font-size:9px;color:var(--text-soft);margin-top:6px;writing-mode:vertical-rl;transform:rotate(180deg);height:38px;}
+
+  /* TWO COL */
+  .twocol{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:start;}
+
+  /* FOOTER CONTACTS */
+  footer.contacts{background:var(--navy);color:var(--white);padding:56px 0 40px;}
+  footer.contacts h2{color:var(--white);}
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;}
+  .contact-card{background:rgba(255,255,255,.06);border:1px solid rgba(123,189,255,.3);border-radius:14px;padding:18px;}
+  .contact-card .role{font-size:11.5px;color:var(--babyblue);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;}
+  .contact-card .name{font-family:'Poppins',sans-serif;font-weight:600;font-size:15px;margin-bottom:8px;}
+  .contact-card a.mail{display:block;font-size:13px;color:#fff;text-decoration:none;opacity:.9;}
+  .contact-card .phone{font-size:13px;opacity:.7;margin-top:2px;}
+  .contact-card.inactive{opacity:.45;}
+  footer .bottom{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--babyblue);flex-wrap:wrap;gap:10px;}
+
+  @media(max-width:820px){
+    .grid.cols-2,.grid.cols-3,.grid.cols-4{grid-template-columns:1fr;}
+    .statband{grid-template-columns:repeat(2,1fr);}
+    .twocol{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    header.hero h1{font-size:26px;}
+    .barrow{grid-template-columns:130px 1fr 46px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-logo">
+      <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg"><g fill="#ffffff"><circle cx="10" cy="10" r="6"/><circle cx="28" cy="10" r="6"/><circle cx="46" cy="10" r="6"/><path d="M60 4l6 6-6 6-6-6z"/></g></svg>
+      <div class="wordmark">THE GOOD WEB<small>* The Good Audience</small></div>
+    </div>
+    <div class="eyebrow">Bilan de campagne</div>
+    <h1>Xtrem Park · Circuit Paul Ricard</h1>
+    <div class="subtitle">Campagne Été 2026 Promo · Display programmatique</div>
+    <div class="pills">
+      <span class="pill">Période : <b>25 juillet — 10 août 2026</b> (Vague 2)</span>
+      <span class="pill">Budget : <b>300 € HT</b></span>
+      <span class="pill">Objectif : <b>Notoriété</b></span>
+      <span class="pill">Zone : <b>Littoral La Seyne · La Ciotat · Bandol · Sanary</b></span>
+    </div>
+  </div>
+</header>
+
+<nav class="anchor">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#resultats">Résultats</a>
+    <a href="#formats">Formats</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#zones">Zones géo</a>
+    <a href="#creas">Créas</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<section id="contexte">
+  <div class="wrap">
+    <div class="kicker">↘ Rappel du dispositif</div>
+    <h2>Contexte et paramètres de la campagne</h2>
+    <div class="grid cols-3">
+      <div class="card c-lavande">
+        <h4>Compte & campagne</h4>
+        <p><span class="num">Circuit Paul Ricard · Xtrem Park</span><br>Campagne Été 2026 Promo</p>
+      </div>
+      <div class="card c-corail">
+        <h4>Objectif</h4>
+        <p><span class="num">Notoriété</span><br>Site : xtrem-park.com</p>
+      </div>
+      <div class="card c-bleu">
+        <h4>Levier</h4>
+        <p><span class="num">Display</span><br>Sites éditeurs premium · CPM 3 €</p>
+      </div>
+      <div class="card c-menthe">
+        <h4>Vague 1</h4>
+        <p><span class="num">6 → 24 juillet 2026</span><br>300 € HT</p>
+      </div>
+      <div class="card c-rose">
+        <h4>Vague 2</h4>
+        <p><span class="num">25 juillet → 10 août 2026</span><br>300 € HT</p>
+      </div>
+      <div class="card c-peche">
+        <h4>Budget total & capping</h4>
+        <p><span class="num">600 € HT</span><br>Capping max : 5 vues / utilisateur</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <b>Périmètre de ce bilan :</b> la mise en ligne fournie couvre uniquement la <b>Vague 2</b> (25 juillet → 10 août 2026, 300 € HT). Les résultats détaillés ci-dessous portent donc sur cette vague. Dès que les données de la Vague 1 seront disponibles, elles pourront être ajoutées pour obtenir le bilan consolidé sur les 600 € HT du dispositif complet.
+    </div>
+
+    <div style="margin-top:32px;" class="grid cols-2">
+      <div class="card">
+        <h4>Ciblage géographique</h4>
+        <p>La Seyne-sur-Mer, Six-Fours-les-Plages, Bandol, Sanary-sur-Mer, Saint-Cyr-sur-Mer, La Ciotat, Cassis · littoral marin uniquement</p>
+      </div>
+      <div class="card">
+        <h4>Ciblage sociodémographique</h4>
+        <p>H/F 25 ans et plus, avec enfant(s)</p>
+      </div>
+      <div class="card">
+        <h4>Data Travel</h4>
+        <p>Familles (2 adultes + enfants, voyageurs loisirs) · séjours vacances (réservations été, juillet, août, côte méditerranéenne) · campings (Yelloh Village, Homair, Siblu) · résidences (Pierre & Vacances, Odalys) · hôtels 3 à 5 étoiles</p>
+      </div>
+      <div class="card">
+        <h4>Data & contextuel</h4>
+        <p>Plage, loisirs, outdoor, famille, enfant</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resultats" class="soft">
+  <div class="wrap">
+    <div class="kicker">↘ Performance globale · Vague 2</div>
+    <h2>Résultats de la campagne</h2>
+    <div class="statband">
+      <div class="stat"><div class="val">100 821</div><div class="lbl">Impressions</div></div>
+      <div class="stat accent"><div class="val">942</div><div class="lbl">Clics</div></div>
+      <div class="stat"><div class="val">0,93 %</div><div class="lbl">CTR</div></div>
+      <div class="stat"><div class="val">84,03 %</div><div class="lbl">Taux de visibilité</div></div>
+      <div class="stat"><div class="val">0,32 €</div><div class="lbl">CPC</div></div>
+      <div class="stat"><div class="val">5</div><div class="lbl">Répétition (capping)</div></div>
+    </div>
+
+    <div style="margin-top:40px;" class="twocol">
+      <div>
+        <h4 style="margin-bottom:14px;">Évolution quotidienne des impressions (25/07 → 10/08)</h4>
+        <div class="daily">
+          <div class="col"><div class="bar" style="height:96%;"></div><div class="day">25/07</div></div>
+          <div class="col"><div class="bar" style="height:88%;"></div><div class="day">26/07</div></div>
+          <div class="col"><div class="bar" style="height:75%;"></div><div class="day">27/07</div></div>
+          <div class="col"><div class="bar" style="height:83%;"></div><div class="day">28/07</div></div>
+          <div class="col"><div class="bar" style="height:82%;"></div><div class="day">29/07</div></div>
+          <div class="col"><div class="bar" style="height:89%;"></div><div class="day">30/07</div></div>
+          <div class="col"><div class="bar" style="height:92%;"></div><div class="day">31/07</div></div>
+          <div class="col"><div class="bar" style="height:86%;"></div><div class="day">01/08</div></div>
+          <div class="col"><div class="bar" style="height:85%;"></div><div class="day">02/08</div></div>
+          <div class="col"><div class="bar" style="height:74%;"></div><div class="day">03/08</div></div>
+          <div class="col"><div class="bar" style="height:86%;"></div><div class="day">04/08</div></div>
+          <div class="col"><div class="bar" style="height:91%;"></div><div class="day">05/08</div></div>
+          <div class="col"><div class="bar" style="height:70%;"></div><div class="day">06/08</div></div>
+          <div class="col"><div class="bar" style="height:87%;"></div><div class="day">07/08</div></div>
+          <div class="col"><div class="bar peak" style="height:100%;"></div><div class="day">08/08</div></div>
+          <div class="col"><div class="bar" style="height:88%;"></div><div class="day">09/08</div></div>
+          <div class="col"><div class="bar" style="height:75%;"></div><div class="day">10/08</div></div>
+        </div>
+        <p style="font-size:12.5px;color:var(--text-soft);margin-top:10px;">Volumétrie stable sur les 17 jours de diffusion, entre 5 442 et 6 259 impressions/jour. Pic le 8 août (6 259 imp.), plus bas le 6 août (5 442 imp.), sans lien avec un temps fort identifié : la diffusion programmatique a régulièrement lissé les volumes.</p>
+      </div>
+      <div class="card">
+        <h4 style="margin-bottom:10px;">Ce qu'il faut retenir</h4>
+        <ul style="padding-left:18px;font-size:13.5px;color:var(--text-soft);display:flex;flex-direction:column;gap:8px;">
+          <li>CTR de <b style="color:var(--navy);">0,93 %</b>, un niveau solide pour une campagne notoriété sur sites premium</li>
+          <li>Taux de visibilité de <b style="color:var(--navy);">84 %</b>, cohérent avec un dispositif sur environnements premium (IAS non fourni pour ce dossier)</li>
+          <li>Budget entièrement consommé : <b style="color:var(--navy);">300 € HT pour 100 821 impressions</b>, soit un CPM effectif proche des 3 € contractuels</li>
+          <li>Le format <b style="color:var(--navy);">320x480</b> tire nettement la performance vers le haut (voir section Formats)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formats">
+  <div class="wrap">
+    <div class="kicker">↘ Détails par format</div>
+    <h2>Performance par format publicitaire</h2>
+    <table>
+      <thead>
+        <tr><th>Format</th><th>Impressions</th><th>Clics</th><th>CTR</th><th>Taux de visibilité</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>728x90</td><td>10 082</td><td>25</td><td>0,25 %</td><td>82,90 %</td></tr>
+        <tr><td>300x600</td><td>15 123</td><td>52</td><td>0,35 %</td><td>83,31 %</td></tr>
+        <tr><td>300x250</td><td>20 164</td><td>90</td><td>0,45 %</td><td>82,67 %</td></tr>
+        <tr><td>320x50</td><td>25 205</td><td>176</td><td>0,70 %</td><td>84,34 %</td></tr>
+        <tr><td>320x480 <span class="tag-best">Meilleur format</span></td><td>30 246</td><td>599</td><td>1,98 %</td><td>86,92 %</td></tr>
+        <tr class="total"><td>Total</td><td>100 821</td><td>942</td><td>0,93 %</td><td>84,03 %</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:12.5px;color:var(--text-soft);margin-top:12px;">Le format 320x480 concentre à lui seul 30 % des impressions mais 64 % des clics de la campagne : c'est de loin le format le plus performant, à privilégier sur les prochaines vagues.</p>
+  </div>
+</section>
+
+<section id="environnements" class="soft">
+  <div class="wrap">
+    <div class="kicker">↘ Cadre de diffusion</div>
+    <h2>Environnements de diffusion (Top URL)</h2>
+    <div class="barlist">
+      <div class="barrow"><span>Le Point</span><div class="track"><div class="fill" style="width:13.39%;"></div></div><span class="pct">13,4 %</span></div>
+      <div class="barrow"><span>ELLE</span><div class="track"><div class="fill" style="width:13.13%;"></div></div><span class="pct">13,1 %</span></div>
+      <div class="barrow"><span>Le Monde</span><div class="track"><div class="fill" style="width:11.73%;"></div></div><span class="pct">11,7 %</span></div>
+      <div class="barrow"><span>Voici</span><div class="track"><div class="fill" style="width:9.85%;"></div></div><span class="pct">9,9 %</span></div>
+      <div class="barrow"><span>Marie Claire</span><div class="track"><div class="fill" style="width:8.10%;"></div></div><span class="pct">8,1 %</span></div>
+      <div class="barrow"><span>20 Minutes</span><div class="track"><div class="fill" style="width:6.84%;"></div></div><span class="pct">6,8 %</span></div>
+      <div class="barrow"><span>actu.fr</span><div class="track"><div class="fill" style="width:6.04%;"></div></div><span class="pct">6,0 %</span></div>
+      <div class="barrow"><span>Les Echos</span><div class="track"><div class="fill" style="width:3.66%;"></div></div><span class="pct">3,7 %</span></div>
+      <div class="barrow"><span>Le Figaro</span><div class="track"><div class="fill" style="width:2.31%;"></div></div><span class="pct">2,3 %</span></div>
+      <div class="barrow"><span>BFMTV</span><div class="track"><div class="fill" style="width:1.57%;"></div></div><span class="pct">1,6 %</span></div>
+    </div>
+    <p style="font-size:12.5px;color:var(--text-soft);margin-top:16px;">Diffusion concentrée sur des titres d'actualité générale et lifestyle premium (Le Point, ELLE, Le Monde), cohérente avec un ciblage familles CSP+ en période estivale.</p>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <div class="kicker">↘ Qui a été touché</div>
+    <h2>Audiences et centres d'intérêt</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <h4>Répartition H/F</h4>
+        <div class="barlist" style="margin-top:12px;">
+          <div class="barrow"><span>Femmes</span><div class="track"><div class="fill blue" style="width:52%;"></div></div><span class="pct">52 %</span></div>
+          <div class="barrow"><span>Hommes</span><div class="track"><div class="fill blue" style="width:48%;"></div></div><span class="pct">48 %</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Ciblage mobilisé</h4>
+        <div class="barlist" style="margin-top:12px;">
+          <div class="barrow"><span>Affinitaire</span><div class="track"><div class="fill" style="width:54.1%;"></div></div><span class="pct">54,1 %</span></div>
+          <div class="barrow"><span>Socio-démo</span><div class="track"><div class="fill" style="width:45.9%;"></div></div><span class="pct">45,9 %</span></div>
+        </div>
+        <p style="font-size:12.5px;color:var(--text-soft);margin-top:10px;">Le ciblage affinitaire (data travel, familles, plage) a généré la majorité des impressions, devant le socio-démo pur.</p>
+      </div>
+      <div class="card">
+        <h4>Top segments affinitaires</h4>
+        <div class="barlist" style="margin-top:12px;">
+          <div class="barrow"><span style="font-size:12px;">Loisirs famille & parcs</span><div class="track"><div class="fill" style="width:31%;"></div></div><span class="pct">31 %</span></div>
+          <div class="barrow"><span style="font-size:12px;">Tourisme local & plage</span><div class="track"><div class="fill" style="width:24%;"></div></div><span class="pct">24 %</span></div>
+          <div class="barrow"><span style="font-size:12px;">Outdoor & aventure</span><div class="track"><div class="fill" style="width:20%;"></div></div><span class="pct">20 %</span></div>
+          <div class="barrow"><span style="font-size:12px;">Karting & motorsport</span><div class="track"><div class="fill" style="width:14%;"></div></div><span class="pct">14 %</span></div>
+          <div class="barrow"><span style="font-size:12px;">Bons plans vacances</span><div class="track"><div class="fill" style="width:11%;"></div></div><span class="pct">11 %</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="zones" class="soft">
+  <div class="wrap">
+    <div class="kicker">↘ Répartition géographique</div>
+    <h2>Performance par zone</h2>
+    <table>
+      <thead>
+        <tr><th>Zone</th><th>Impressions</th><th>Budget consommé</th><th>Part du budget</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>La Seyne-sur-Mer <span class="tag-best">Top zone</span></td><td>24 197</td><td>72 €</td><td>24 %</td></tr>
+        <tr><td>La Ciotat</td><td>20 164</td><td>60 €</td><td>20 %</td></tr>
+        <tr><td>Six-Fours-les-Plages</td><td>16 131</td><td>48 €</td><td>16 %</td></tr>
+        <tr><td>Sanary-sur-Mer</td><td>13 107</td><td>39 €</td><td>13 %</td></tr>
+        <tr><td>Saint-Cyr-sur-Mer</td><td>10 082</td><td>30 €</td><td>10 %</td></tr>
+        <tr><td>Bandol</td><td>9 074</td><td>27 €</td><td>9 %</td></tr>
+        <tr><td>Cassis</td><td>8 066</td><td>24 €</td><td>8 %</td></tr>
+        <tr class="total"><td>Total</td><td>100 821</td><td>300 €</td><td>100 %</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:12.5px;color:var(--text-soft);margin-top:12px;">La Seyne-sur-Mer concentre le quart des impressions et du budget, suivie de La Ciotat : les deux plus grandes zones du littoral ciblé.</p>
+  </div>
+</section>
+
+<section id="creas">
+  <div class="wrap">
+    <div class="kicker">↘ Pige</div>
+    <h2>Créations diffusées</h2>
+    <div class="card">
+      <h4>Planche de pige display</h4>
+      <p>Les visuels diffusés sur cette vague sont consultables sur la planche de pige fournie par Mathilde : <a href="https://www.canva.com/design/DAHQTfw1Fq0/5OJCRzgWuBB7VZjL4M255w/edit" style="color:var(--terracota);font-weight:600;">voir la pige sur Canva ↗</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="contacts" id="contacts">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--babyblue);">↘ L'équipe TGW</div>
+    <h2>Contacts</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="role">Directeur commercial</div>
+        <div class="name">Jérôme Fages</div>
+        <a class="mail" href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+        <div class="phone">06 18 74 66 75</div>
+      </div>
+      <div class="contact-card">
+        <div class="role">Directrice de clientèle</div>
+        <div class="name">Mathilde Coriton</div>
+        <a class="mail" href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a>
+        <div class="phone">06 48 61 92 92</div>
+      </div>
+      <div class="contact-card">
+        <div class="role">Cheffe de publicité</div>
+        <div class="name">Leslie Rogé</div>
+        <a class="mail" href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+        <div class="phone">06 83 73 68 62</div>
+      </div>
+      <div class="contact-card inactive">
+        <div class="role">Pôle activation</div>
+        <div class="name">Andrea</div>
+        <span class="mail">andrea@thegoodweb.eu</span>
+      </div>
+      <div class="contact-card inactive">
+        <div class="role">Pôle activation</div>
+        <div class="name">Sofien</div>
+        <span class="mail">sofien@thegoodweb.eu</span>
+      </div>
+      <div class="contact-card inactive">
+        <div class="role">Pôle activation</div>
+        <div class="name">Activation</div>
+        <span class="mail">activation@thegoodweb.eu</span>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>THE GOOD WEB · rue Paradis, Marseille</span>
+      <span>Bilan Xtrem Park · Circuit Paul Ricard · Vague 2 · Août 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
