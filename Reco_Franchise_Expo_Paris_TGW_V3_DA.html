@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Franchise Expo Paris · Dispositif national : The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#021859;
+  --babyblue:#7bbdff;
+  --terracota:#f25430;
+  --white:#ffffff;
+  --bg-soft:#f6f8fe;
+  --text:#1c2440;
+  --peach:#ffb79e;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6;background:var(--white);}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);}
+a{color:inherit;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+/* HERO */
+header.hero{background:var(--navy);color:var(--white);padding:56px 0 44px;}
+header.hero h1{color:var(--white);font-size:2.05rem;font-weight:700;margin:14px 0 12px;max-width:820px;}
+header.hero .sub{color:#c9d6ff;font-size:1.05rem;max-width:700px;margin-bottom:26px;}
+.logo{display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+.logo-mark{display:flex;flex-direction:column;line-height:1;}
+.logo-mark .picto{display:flex;gap:3px;margin-bottom:6px;}
+.logo-mark .picto span{width:8px;height:20px;background:var(--white);border-radius:1px;opacity:.9;}
+.logo-mark .picto span:nth-child(4){opacity:1;background:var(--terracota);}
+.logo-mark .name{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.5px;}
+.logo-mark .baseline{font-size:.62rem;letter-spacing:.5px;color:var(--peach);margin-top:3px;}
+.eyebrow{display:inline-block;color:var(--peach);font-weight:600;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+.pill{border:1px solid var(--babyblue);border-radius:999px;padding:7px 16px;font-size:.85rem;font-weight:600;background:rgba(123,189,255,.08);}
+.pill b{font-weight:700;}
+.pill.hot{border-color:var(--terracota);background:rgba(242,84,48,.12);}
+
+/* NAV */
+nav.anchor{position:sticky;top:0;background:var(--white);border-bottom:1px solid #e6ebf7;z-index:50;}
+nav.anchor .wrap{display:flex;gap:20px;overflow-x:auto;padding:12px 24px;}
+nav.anchor a{font-size:.81rem;font-weight:700;color:var(--navy);white-space:nowrap;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent;}
+nav.anchor a:hover{border-bottom:2px solid var(--terracota);}
+
+section{padding:56px 0;}
+section.soft{background:var(--bg-soft);}
+h2{font-size:1.5rem;margin-bottom:6px;}
+h2 .arrow{color:var(--terracota);margin-right:8px;}
+.lead{color:#4a5578;max-width:740px;margin-bottom:30px;font-size:.98rem;}
+
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.card{background:var(--white);border:1px solid #e6ebf7;border-radius:14px;padding:22px;}
+.card .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--terracota);color:var(--white);font-weight:700;font-size:.85rem;margin-bottom:12px;}
+.card h3{font-size:1.02rem;margin-bottom:8px;}
+.card p{font-size:.88rem;color:#4a5578;}
+.card ul{margin:8px 0 0 18px;font-size:.86rem;color:#4a5578;}
+.card ul li{margin-bottom:4px;}
+.c-lavande{background:#eef2ff;}
+.c-menthe{background:#eaf6f4;}
+.c-corail{background:#fff1ea;}
+.c-bleu{background:#eaf4ff;}
+
+/* LEVIER CARDS */
+.levier-card{border-radius:16px;padding:26px;color:var(--white);}
+.levier-card.audio{background:var(--navy);}
+.levier-card.video{background:linear-gradient(135deg,var(--terracota),#c73c1f);}
+.levier-card.display{background:linear-gradient(135deg,#3d4f9e,var(--navy));}
+.levier-card.retarget{background:var(--babyblue);color:var(--navy);}
+.levier-card h3{font-size:1.15rem;margin-bottom:10px;}
+.levier-card.audio h3,.levier-card.video h3,.levier-card.display h3{color:var(--white);}
+.levier-card.retarget h3{color:var(--navy);}
+.levier-card .tag{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px;}
+.levier-card.retarget .tag{background:rgba(2,24,89,.12);color:var(--navy);}
+.levier-card ul{margin:12px 0 0 18px;font-size:.87rem;opacity:.95;}
+.levier-card li{margin-bottom:5px;}
+
+/* PHASE TIMELINE */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:10px;}
+.phase{border-radius:14px;padding:22px;border:2px solid transparent;}
+.phase.p1{background:#eaf4ff;border-color:var(--babyblue);}
+.phase.p2{background:#fff1ea;border-color:#ffb79e;}
+.phase.p3{background:var(--navy);color:var(--white);}
+.phase.p4{background:var(--peach);}
+.phase h4{font-size:.72rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:6px;}
+.phase.p1 h4,.phase.p2 h4,.phase.p4 h4{color:var(--navy);}
+.phase.p3 h4{color:var(--peach);}
+.phase .period{font-size:.85rem;font-weight:600;margin-bottom:10px;color:#4a5578;}
+.phase.p3 .period{color:#c9d6ff;}
+.phase.p4 .period{color:#7a3a24;}
+.phase p{font-size:.82rem;}
+.phase.p1 p,.phase.p2 p,.phase.p4 p{color:#4a5578;}
+.phase.p3 p{color:#dde5ff;}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:.85rem;background:var(--white);border-radius:10px;overflow:hidden;}
+thead tr{background:var(--navy);color:var(--white);}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid #e6ebf7;}
+tbody tr:last-child{font-weight:700;background:#f0f3fc;}
+.table-wrap{overflow-x:auto;border-radius:10px;border:1px solid #e6ebf7;}
+
+/* PERSONA */
+.persona{display:flex;flex-direction:column;gap:10px;}
+.persona .glyph{font-size:1.4rem;color:var(--terracota);}
+
+/* PYRAMID */
+.pyramid{display:flex;flex-direction:column;gap:10px;max-width:720px;margin:0 auto;}
+.pyramid .layer{border-radius:12px;padding:18px 24px;color:var(--white);}
+.pyramid .layer h4{color:var(--white);font-size:.95rem;margin-bottom:5px;}
+.pyramid .layer p{font-size:.83rem;opacity:.92;}
+.pyramid .l1{background:var(--navy);width:100%;}
+.pyramid .l2{background:#3d4f9e;width:88%;margin:0 auto;}
+.pyramid .l3{background:var(--babyblue);width:76%;margin:0 auto;color:var(--navy);}
+.pyramid .l3 h4{color:var(--navy);}
+
+/* ENV LOGOS */
+.env-block{display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start;}
+.env-col{flex:1;min-width:240px;}
+.env-col h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;color:var(--terracota);margin-bottom:10px;}
+.env-icons{display:flex;gap:12px;flex-wrap:wrap;}
+.env-icon{padding:0 14px;height:40px;border-radius:10px;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.72rem;}
+.env-icon.new{background:var(--terracota);}
+.env-text{font-size:.86rem;color:#4a5578;line-height:1.7;}
+.newtag{display:inline-block;background:var(--terracota);color:#fff;font-size:.63rem;font-weight:700;padding:2px 9px;border-radius:999px;margin-left:6px;vertical-align:2px;}
+
+/* PLANNING GRID */
+.planning{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;text-align:center;}
+.planning .month{font-size:.72rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.planning .bar{height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:700;color:var(--white);padding:0 4px;text-align:center;}
+
+/* FOOTER */
+footer{background:var(--navy);color:var(--white);padding:56px 0 34px;}
+footer h2{color:var(--white);font-size:1.7rem;margin-bottom:30px;}
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;margin-bottom:40px;}
+.contact h3{color:var(--white);font-size:1.05rem;}
+.contact p{font-size:.85rem;color:#c9d6ff;margin-top:2px;}
+.contact a{text-decoration:underline;}
+.contact.inactive p,.contact.inactive h3{opacity:.5;}
+footer .foot-logo{display:flex;align-items:center;gap:12px;border-top:1px solid rgba(255,255,255,.15);padding-top:26px;}
+
+@media(max-width:760px){
+  .phases{grid-template-columns:1fr 1fr;}
+  .planning{grid-template-columns:repeat(3,1fr);}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo">
+      <div class="logo-mark">
+        <div class="picto"><span></span><span></span><span></span><span></span></div>
+        <div class="name">THE GOOD WEB</div>
+        <div class="baseline">* THE GOOD AUDIENCE</div>
+      </div>
+    </div>
+    <span class="eyebrow">Recommandation média · Franchise Expo Paris : V3</span>
+    <h1>Un dispositif 100% couverture nationale, piloté au coût par inscription</h1>
+    <p class="sub">Retrait de l'Île-de-France à la demande de l'équipe : le budget est intégralement redéployé sur les 5 régions historiques, sans perte de puissance. Mesure et preuve de présence au salon confirmées, diffusion enrichie de la PQR.</p>
+    <div class="pills">
+      <span class="pill">Période : <b>15 janvier – 14 mars 2027</b></span>
+      <span class="pill">Budget : <b>15 000 € HT</b> (tarifs Karrow Médias)</span>
+      <span class="pill">Objectif : <b>Inscriptions & prise de badge</b></span>
+      <span class="pill hot">Marchés : <b>100% national hors IDF</b> · PACA · Nouvelle-Aquitaine · AuRA · Hauts-de-France · Occitanie</span>
+    </div>
+  </div>
+</header>
+
+<nav class="anchor">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#mesure">Mesure</a>
+    <a href="#preuve">Preuve salon</a>
+    <a href="#diffusion">Diffusion</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats-kpis">Formats & KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<section id="contexte">
+  <div class="wrap">
+    <h2><span class="arrow">↘</span>Contexte & objectifs</h2>
+    <p class="lead">Cette V3 recentre le dispositif validé (15 000 € HT, 4 leviers) à 100% hors Île-de-France, à la demande de l'équipe en vue de la présentation à la directrice.</p>
+    <div class="grid">
+      <div class="card c-lavande">
+        <div class="num">1</div>
+        <h3>Rupture vs dispositif historique</h3>
+        <p>Passer d'un pilotage 100% médiatique (impressions, CTR) à un pilotage <b>full-funnel mesurable</b> : pixel posé avant lancement, coût par inscription comme KPI d'arbitrage.</p>
+      </div>
+      <div class="card c-menthe">
+        <div class="num">2</div>
+        <h3>Enseignements 2026</h3>
+        <p>Trois failles corrigées : aucune conversion mesurée, activation régionale tardive, KPI médias flatteurs mais peu qualifiés. Cette V3 les corrige toutes les trois.</p>
+      </div>
+      <div class="card c-corail">
+        <div class="num">3</div>
+        <h3>Preuve exposants</h3>
+        <p>Un vrai sujet business pour Franchise Expo Paris : pouvoir dire combien de visiteurs présents au salon avaient été exposés à la campagne.</p>
+      </div>
+      <div class="card c-bleu">
+        <div class="num">4</div>
+        <h3>Quatre leviers, pas un de plus</h3>
+        <p>Audio, vidéo InStream+CTV, display IAB, retargeting DCO. Chaque levier atteint son seuil d'efficacité, pas de saupoudrage à 15 K€.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="dispositif">
+  <div class="wrap">
+    <h2><span class="arrow">↘</span>Dispositif recommandé</h2>
+    <p class="lead">Quatre leviers complémentaires, une logique funnel en 3 temps forts.</p>
+    <div class="grid" style="grid-template-columns:repeat(2,1fr);margin-bottom:36px;">
+      <div class="levier-card audio">
+        <span class="tag">Audio digital</span>
+        <h3>Notoriété & différenciation</h3>
+        <ul>
+          <li>Prospection + retargeting écouteurs</li>
+          <li>CPM : 12 €</li>
+          <li>4 000 € · ~334 000 imp. + 134K écoutes garanties</li>
+          <li>Levier conservé intact, socle du dispositif</li>
+        </ul>
+      </div>
+      <div class="levier-card video">
+        <span class="tag">Vidéo InStream + CTV</span>
+        <h3>Impact & mémorisation</h3>
+        <ul>
+          <li>Format badge/engagement, QR code inscription</li>
+          <li>CPM : 30 €</li>
+          <li>5 500 € · ~240 000 imp. + 70K vues garanties</li>
+        </ul>
+      </div>
+      <div class="levier-card display">
+        <span class="tag">Display programmatique IAB</span>
+        <h3>Trafic & visibilité</h3>
+        <ul>
+          <li>Contextuel emploi/éco + PQR régionale <span class="newtag">Nouveau</span></li>
+          <li>CPM : 6 €</li>
+          <li>3 000 € · 500 000 imp.</li>
+        </ul>
+      </div>
+      <div class="levier-card retarget">
+        <span class="tag">Retargeting DCO + CRM/lookalike</span>
+        <h3>Conversion & performance</h3>
+        <ul>
+          <li>Countdown « J-15 », onboarding inscrits N-1</li>
+          <li>CPM : 6 €</li>
+          <li>2 500 € · ~417 000 imp.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:16px;">Temps forts & phases d'activation</h3>
+    <div class="phases">
+      <div class="phase p1">
+        <h4>Phase 1 · Notoriété</h4>
+        <div class="period">15 jan → 15 fév</div>
+        <p>Audio + vidéo/CTV · déploiement national dès le lancement, 5 régions.</p>
+      </div>
+      <div class="phase p2">
+        <h4>Phase 2 · Considération</h4>
+        <div class="period">16 fév → 8 mars</div>
+        <p>Display contextuel + retargeting écouteurs · constitution des audiences.</p>
+      </div>
+      <div class="phase p3">
+        <h4>Countdown · J-15</h4>
+        <div class="period">1 → 14 mars</div>
+        <p>DCO « prenez votre badge » · pression renforcée sur les zones prioritaires · pilotage CPI serré.</p>
+      </div>
+      <div class="phase p4">
+        <h4>Salon · J-J</h4>
+        <div class="period">14 → 16 mars</div>
+        <p>Porte de Versailles · recoupement badges pour la preuve de présence exposants.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mesure">
+  <div class="wrap">
+    <h2><span class="arrow">↘</span>La mesure d'abord</h2>
+    <p class="lead">Le coût par inscription devient le KPI d'arbitrage, pas le clic.</p>
+    <div class="grid">
+      <div class="card c-lavande">
+        <div class="num">1</div>
+        <h3>Avant lancement</h3>
+        <p>Pixel de conversion posé sur le tunnel d'inscription, plan de taggage UTM par levier/format/zone/créa. <b>Test de pose dédié sur Event Maker</b> en amont pour sécuriser le point technique de 2026.</p>
+      </div>
+      <div class="card c-menthe">
+        <div class="num">2</div>
+        <h3>Attribution</h3>
+        <p>Post-clic prioritaire + post-view en fenêtre courte (J+1 à J+7), déduplication cross-levier. Les deux lectures sont restituées séparément, jamais additionnées.</p>
+      </div>
+      <div class="card c-corail">
+        <div class="num">3</div>
+        <h3>Pilotage CPI</h3>
+        <p>Lecture hebdomadaire par levier et par zone, réallocation vers les combinaisons les plus efficientes. 2 premières semaines en phase d'apprentissage.</p>
+      </div>
+      <div class="card c-bleu">
+        <div class="num">4</div>
+        <h3>Lecture démographique</h3>
+        <p>Segmentation des campagnes par cible dès la construction, complétée par les données déclaratives du formulaire d'inscription.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="preuve">
+  <div class="wrap">
+    <h2><span class="arrow">↘</span>La preuve de présence au salon</h2>
+    <p class="lead">Le sujet exposants : pouvoir dire combien de visiteurs présents avaient été exposés à la campagne.</p>
+    <div class="pyramid">
+      <div class="layer l1">
+        <h4>Maillon 1 : Exposition → Inscription</h4>
+        <p>Chaque inscription attribuée (post-clic ou post-view dédupliqué) est par définition une inscription exposée. L'ID d'inscription est conservé avec sa source média.</p>
+      </div>
+      <div class="layer l2">
+        <h4>Maillon 2 : Inscription → Venue</h4>
+        <p>Vos données de contrôle d'accès (badges scannés) croisées avec les ID d'inscription donnent le statut « venu / non venu ». C'est votre donnée, elle existe déjà.</p>
+      </div>
+      <div class="layer l3">
+        <h4>Recoupement : Le chiffre exposants</h4>
+        <p>« X visiteurs présents avaient été exposés à la campagne, dont Y inscrits directement via elle », restitué par zone et par levier. Plancher fiable plutôt que total invérifiable.</p>
+      </div>
+    </div>
+    <p style="font-size:.82rem;color:#7a86a8;margin-top:16px;max-width:720px;">Besoin côté client : export badges scannés avec ID d'inscription après le salon, conservation du paramètre source dans l'outil d'inscription.</p>
+  </div>
+</section>
+
+<section id="diffusion">
+  <div class="wrap">
+    <h2><span class="arrow">↘</span>Diffusion : environnements par levier</h2>
+    <p class="lead">Diffusion dans des environnements premium, brand safe & brand suitable, enrichie de la PQR.</p>
+    <div class="env-block" style="margin-bottom:26px;">
+      <div class="env-col">
+        <h4>Display</h4>
+        <div class="env-text">
+          Le Figaro, Le Monde, Le Parisien, Le Point, L'Obs, L'Équipe, HuffPost, Elle, Femina, Capital, RMC, BFM TV, GQ, La Chaîne Météo, Leboncoin, Vinted, Match, Voici, Gala…<br><br>
+          <b>Presse Quotidienne Régionale <span class="newtag">Nouveau</span> :</b> La Provence (PACA) · Sud Ouest (Nouvelle-Aquitaine) · La Montagne (AuRA) · La Voix du Nord (Hauts-de-France) · La Dépêche du Midi (Occitanie), intégrée sans coût additionnel.
+        </div>
+      </div>
+      <div class="env-col">
+        <h4>pStory Ads</h4>
+        <div class="env-icons">
+          <div class="env-icon">Facebook</div>
+          <div class="env-icon">Instagram</div>
+          <div class="env-icon">TikTok</div>
+        </div>
+      </div>
+    </div>
+    <div class="env-block">
+      <div class="env-col">
+        <h4>Audio</h4>
+        <div class="env-icons">
+          <div class="env-icon">Spotify</div>
+          <div class="env-icon">Ausha</div>
+          <div class="env-icon">Deezer</div>
+        </div>
+        <p class="env-text" style="margin-top:10px;"><b>Sur Dailymotion :</b> présent dans l'inventaire programmatique Equativ 2026, mais sur un volume trop faible pour être mesuré isolément (moins de 5% des impressions Audio identifiables par domaine, tous domaines confondus). Nous ne le recommandons pas comme levier prouvé sur la base du bilan disponible. <span class="newtag">Sur demande</span> une enveloppe test dédiée (300-500 €, prélevée sur le levier vidéo) peut être ouverte si le client le souhaite expressément : à défaut, nous recommandons de rediriger ce budget vers <b>YouTube Shorts</b>, un format équivalent en usage (vidéo courte, mobile-first) mais avec un volume et une mesure nettement plus robustes.</p>
+      </div>
+      <div class="env-col">
+        <h4>Vidéo : CTV + Vidéo</h4>
+        <div class="env-text">TF1, M6, TMC, W9, TFX, 6ter, RMC Découverte, RMC Sport, BFM TV, Canal+, France.tv, YouTube + ensemble de la presse premium ci-dessus en pré-roll.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="planning">
+  <div class="wrap">
+    <h2><span class="arrow">↘</span>Planning d'activation</h2>
+    <p class="lead">Les 4 leviers sont actifs en continu sur les 5 régions, à intensité croissante selon les 3 phases.</p>
+    <div class="planning">
+      <div><div class="month">Semaines 1-4<br>15 jan → 15 fév</div><div class="bar" style="background:#7bbdff;color:#021859;">Phase 1</div></div>
+      <div><div class="month">Semaines 5-7<br>16 fév → 8 mars</div><div class="bar" style="background:#f25430;">Phase 2</div></div>
+      <div><div class="month">Semaine 8<br>1 → 7 mars</div><div class="bar" style="background:#021859;">Countdown</div></div>
+      <div><div class="month">Semaine 9<br>8 → 14 mars</div><div class="bar" style="background:#021859;">Countdown</div></div>
+      <div><div class="month">14-16 mars<br>Salon</div><div class="bar" style="background:#ffb79e;color:#021859;">J-J</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="budgets">
+  <div class="wrap">
+    <h2><span class="arrow">↘</span>Couverture nationale, chiffrée : 100% hors IDF</h2>
+    <p class="lead">Le budget ex-Île-de-France (5 250 €, 35%) est intégralement redéployé sur les 5 régions, au prorata de leurs performances 2026.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Zone</th><th>Part budget</th><th>Budget</th><th>Ce que 2026 a montré</th><th>Volumes estimés</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PACA</td><td>30%</td><td>4 500 €</td><td>Meilleure zone display du dispositif : visibilité de 54% montée à 71%</td><td>~430 000 imp.</td></tr>
+          <tr><td>Nouvelle-Aquitaine</td><td>23%</td><td>3 450 €</td><td>86% d'écoute et de vue complètes sur audio & vidéo</td><td>~331 000 imp.</td></tr>
+          <tr><td>AuRA · Puy-de-Dôme</td><td>19%</td><td>2 850 €</td><td>Meilleure complétion vidéo (88%), display efficace (CTR 0,12%)</td><td>~272 000 imp.</td></tr>
+          <tr><td>Hauts-de-France · Nord</td><td>15%</td><td>2 250 €</td><td>Display au-dessus de l'objectif de clic (CTR 0,12%)</td><td>~215 000 imp.</td></tr>
+          <tr><td>Occitanie · Haute-Garonne</td><td>13%</td><td>1 950 €</td><td>Zone test 2026 sans historique · pilotée sur benchmarks nationaux</td><td>~187 000 imp.</td></tr>
+          <tr><td><b>Total</b></td><td><b>100%</b></td><td><b>15 000 €</b></td><td></td><td><b>~1,43 M imp.</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:34px 0 16px;">Hypothèse budgétaire par levier : tarifs Karrow Médias</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Levier</th><th>Budget</th><th>% budget</th><th>CPM</th><th>Volume estimé</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Audio digital</td><td>4 000 €</td><td>26,7%</td><td>12 €</td><td>~334 000 imp + 134K écoutes garanties</td></tr>
+          <tr><td>Vidéo InStream + CTV</td><td>5 500 €</td><td>36,7%</td><td>30 €</td><td>~183 000 imp + 70K vues garanties</td></tr>
+          <tr><td>Display IAB</td><td>3 000 €</td><td>20%</td><td>6 €</td><td>500 000 imp.</td></tr>
+          <tr><td>Retargeting DCO + CRM/lookalike</td><td>2 500 €</td><td>16,7%</td><td>6 €</td><td>~417 000 imp.</td></tr>
+          <tr><td><b>Total</b></td><td><b>15 000 €</b></td><td><b>100%</b></td><td><b>~10,5 € pondéré</b></td><td><b>~1,43 M imp.</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.8rem;color:#7a86a8;margin-top:14px;max-width:760px;">Inscriptions estimées : ~105 (hypothèses volontairement prudentes, CTR 0,12-0,15%, taux d'inscription 5%), recalées dès la phase d'apprentissage du pixel. Le Story Ads de 2026 n'est pas reconduit.</p>
+  </div>
+</section>
+
+<section class="soft" id="formats-kpis">
+  <div class="wrap">
+    <h2><span class="arrow">↘</span>Formats & KPIs de suivi par levier</h2>
+    <div class="grid">
+      <div class="card c-bleu">
+        <h3>Audio digital</h3>
+        <p><b>Format :</b> spot audio streaming/podcast/webradio</p>
+        <p style="margin-top:8px;"><b>KPIs :</b></p>
+        <ul>
+          <li>Impressions, reach, clics</li>
+          <li>Écoutes à 25/50/75/100%</li>
+          <li>Taux de complétion (visibilité)</li>
+          <li>Stats socio-démo, capping final</li>
+          <li>CPE & CPM finaux</li>
+        </ul>
+      </div>
+      <div class="card c-corail">
+        <h3>Vidéo InStream + CTV</h3>
+        <p><b>Format :</b> 15/20/30" non-skippable, QR code inscription</p>
+        <p style="margin-top:8px;"><b>KPIs :</b></p>
+        <ul>
+          <li>Impressions, clics, CTR, reach</li>
+          <li>Taux de complétion (visibilité)</li>
+          <li>Top chaînes & groupes de diffusion</li>
+          <li>Étude socio-démo, géoloc, affinitaires</li>
+          <li>Visites sur le salon (retargeting seulement)</li>
+        </ul>
+      </div>
+      <div class="card c-lavande">
+        <h3>Display IAB</h3>
+        <p><b>Formats :</b> 300×600, 300×250, 970×250, natif</p>
+        <p style="margin-top:8px;"><b>KPIs :</b></p>
+        <ul>
+          <li>Impressions, clics, CTR</li>
+          <li>Taux de complétion (visibilité)</li>
+          <li>Top 10 sites de diffusion</li>
+          <li>Étude socio-démo, géoloc, affinitaires</li>
+          <li>Conversions, visites post-clic et post-view</li>
+        </ul>
+      </div>
+      <div class="card c-menthe">
+        <h3>Retargeting DCO + CRM</h3>
+        <p><b>Format :</b> bannière dynamique countdown « J-15 »</p>
+        <p style="margin-top:8px;"><b>KPIs :</b></p>
+        <ul>
+          <li>Impressions, clics, CTR, conversions</li>
+          <li>Coût par inscription (CPI)</li>
+          <li>Visite sur le salon (exposés seulement)</li>
+          <li>Performance lookalike vs CRM onboardé</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <h2><span class="arrow">↘</span>Audiences cibles</h2>
+    <p class="lead">Quatre profils prioritaires, activés sur des combinaisons de leviers différentes.</p>
+    <div class="grid">
+      <div class="card persona">
+        <span class="glyph">●</span>
+        <h3>Futurs entrepreneurs</h3>
+        <p>Cœur de cible, 30-50 ans, projet actif. Signaux : « ouvrir une franchise », recherche de financement. Leviers : audio, vidéo CTV, display, retargeting.</p>
+      </div>
+      <div class="card persona">
+        <span class="glyph">■</span>
+        <h3>Reconversion professionnelle</h3>
+        <p>35-50 ans, en questionnement de carrière. Signaux : bilan de compétences, CPF. Leviers : audio, display, retargeting.</p>
+      </div>
+      <div class="card persona">
+        <span class="glyph">◆</span>
+        <h3>Salariés en réflexion & jeunes diplômés</h3>
+        <p>Forte écoute audio en commute, mobile-first. Leviers : audio, vidéo CTV, retargeting.</p>
+      </div>
+      <div class="card persona">
+        <span class="glyph">▲</span>
+        <h3>Anciens visiteurs & lookalikes</h3>
+        <p>CRM salon, first-party inscrits N-1, lookalike 1-3%, exclusion des déjà-inscrits. Leviers : display, retargeting.</p>
+      </div>
+    </div>
+    <div style="margin-top:24px;">
+      <p style="font-size:.88rem;color:#4a5578;"><b>Géolocalisation :</b> couverture 100% nationale hors Île-de-France, priorité PACA et Nouvelle-Aquitaine, puis AuRA, Hauts-de-France et Occitanie en zone test.</p>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="data">
+  <div class="wrap">
+    <h2><span class="arrow">↘</span>Stratégie data : architecture 3 couches</h2>
+    <p class="lead">On capitalise sur un socle first-party propriétaire, complété par les données plateformes et des segments d'intention.</p>
+    <div class="pyramid">
+      <div class="layer l1">
+        <h4>Couche 1 : First-party data</h4>
+        <p>CRM salon (inscrits & visiteurs N-1) · pixel site (visites, formulaires badge, abandons) · data d'exposition campagnes · newsletter. Socle propriétaire, le plus qualitatif et conforme RGPD.</p>
+      </div>
+      <div class="layer l2">
+        <h4>Couche 2 : Second-party data</h4>
+        <p>Données plateformes médias (écouteurs audio qualifiés, complétion vidéo, engagés 75%) · éditeurs presse éco, emploi et PQR partenaires · audiences contextuelles premium des régies.</p>
+      </div>
+      <div class="layer l3">
+        <h4>Couche 3 : Third-party data</h4>
+        <p>Segments DMP intentionnistes : création d'entreprise, franchise, reconversion, formation pro · socio-démo enrichie (CSP+, dirigeants) · contextuel brand-safe business & emploi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rgpd">
+  <div class="wrap">
+    <h2><span class="arrow">↘</span>RGPD & brand safety</h2>
+    <div class="grid">
+      <div class="card c-lavande">
+        <h3>Brand safety</h3>
+        <p>Exclusions systématiques : contenu pour adulte, piratage, armes et munitions, terrorisme, drogues, alcool.</p>
+      </div>
+      <div class="card c-menthe">
+        <h3>Conformité</h3>
+        <p>Ciblage basé sur des données cookieless et cookie-based conformes RGPD. Onboarding CRM et lookalike réalisés dans le respect des consentements utilisateurs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <h2>Contacts</h2>
+    <div class="contacts">
+      <div class="contact">
+        <h3>Jérôme Fages</h3>
+        <p>Directeur commercial<br>06 18 74 66 75<br><a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a></p>
+      </div>
+      <div class="contact">
+        <h3>Mathilde Coriton</h3>
+        <p>Directrice de clientèle<br>06 48 61 92 92<br><a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a></p>
+      </div>
+      <div class="contact">
+        <h3>Leslie Rogé</h3>
+        <p>Cheffe de publicité Région Sud<br>06 83 73 68 62<br><a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a></p>
+      </div>
+      <div class="contact inactive">
+        <h3>Andrea</h3>
+        <p>andrea@thegoodweb.eu</p>
+      </div>
+      <div class="contact inactive">
+        <h3>Sofien</h3>
+        <p>sofien@thegoodweb.eu</p>
+      </div>
+      <div class="contact inactive">
+        <h3>Pôle activation</h3>
+        <p>activation@thegoodweb.eu</p>
+      </div>
+    </div>
+    <div class="foot-logo">
+      <svg width="104" height="90" viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 292.128906 387.296875 L 249.160156 387.296875 L 249.160156 292.929688 L 217.746094 292.929688 L 217.746094 255.515625 L 323.546875 255.515625 L 323.546875 292.929688 L 292.128906 292.929688 Z M 292.128906 387.296875 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 411.105469 337.226562 L 376.082031 337.226562 L 376.082031 387.296875 L 333.113281 387.296875 L 333.113281 255.515625 L 375.902344 255.515625 L 375.902344 300.1875 L 410.925781 300.1875 L 410.925781 255.515625 L 454.074219 255.515625 L 454.074219 387.296875 L 411.105469 387.296875 Z M 411.105469 337.226562 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 474.292969 255.519531 L 562.21875 255.519531 L 562.21875 292.371094 L 514.734375 292.371094 L 514.734375 303.726562 L 559.328125 303.726562 L 559.328125 338.15625 L 514.734375 338.15625 L 514.734375 350.441406 L 565.285156 350.441406 L 565.285156 387.296875 L 474.292969 387.296875 Z M 474.292969 255.519531 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 288.417969 538.949219 C 278.308594 538.949219 268.945312 537.335938 260.34375 534.109375 C 251.734375 530.886719 244.273438 526.265625 237.957031 520.242188 C 231.636719 514.226562 226.671875 506.9375 223.0625 498.375 C 219.449219 489.8125 217.644531 480.261719 217.644531 469.710938 C 217.644531 459.164062 219.449219 449.609375 223.0625 441.046875 C 226.671875 432.484375 231.605469 425.164062 237.867188 419.082031 C 244.121094 413.003906 251.464844 408.320312 259.890625 405.03125 C 268.316406 401.746094 277.34375 400.097656 286.972656 400.097656 C 296.964844 400.097656 306.441406 401.773438 315.410156 405.125 C 324.375 408.476562 331.683594 413.066406 337.34375 418.898438 L 312.25 449.980469 C 309.601562 446.757812 306.472656 444.183594 302.859375 442.257812 C 299.25 440.335938 294.796875 439.371094 289.5 439.371094 C 286.007812 439.371094 282.609375 440.085938 279.300781 441.511719 C 275.988281 442.941406 273.070312 444.988281 270.542969 447.65625 C 268.015625 450.324219 265.96875 453.519531 264.40625 457.238281 C 262.839844 460.960938 262.058594 465.121094 262.058594 469.710938 C 262.058594 478.894531 264.375 486.367188 269.007812 492.140625 C 273.640625 497.910156 281.074219 500.792969 291.304688 500.792969 C 293.113281 500.792969 294.976562 500.640625 296.902344 500.328125 C 298.828125 500.019531 300.335938 499.554688 301.417969 498.933594 L 301.417969 488.882812 L 280.835938 488.882812 L 280.835938 454.074219 L 339.511719 454.074219 L 339.511719 526.105469 C 336.5 527.96875 333.039062 529.675781 329.128906 531.226562 C 325.21875 532.777344 321.0625 534.109375 316.671875 535.226562 C 312.277344 536.34375 307.671875 537.242188 302.859375 537.925781 C 298.046875 538.605469 293.230469 538.949219 288.417969 538.949219 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 397.285156 468.964844 C 397.285156 473.3125 397.914062 477.28125 399.179688 480.878906 C 400.445312 484.476562 402.1875 487.578125 404.414062 490.183594 C 406.640625 492.789062 409.316406 494.808594 412.449219 496.234375 C 415.578125 497.660156 418.949219 498.375 422.558594 498.375 C 426.171875 498.375 429.511719 497.660156 432.578125 496.234375 C 435.648438 494.808594 438.328125 492.789062 440.613281 490.183594 C 442.898438 487.578125 444.675781 484.476562 445.941406 480.878906 C 447.203125 477.28125 447.835938 473.3125 447.835938 468.964844 C 447.835938 464.75 447.203125 460.871094 445.941406 457.332031 C 444.675781 453.796875 442.898438 450.820312 440.613281 448.398438 C 438.328125 445.980469 435.648438 444.089844 432.578125 442.722656 C 429.511719 441.359375 426.171875 440.675781 422.558594 440.675781 C 418.949219 440.675781 415.578125 441.359375 412.449219 442.722656 C 409.316406 444.089844 406.640625 445.980469 404.414062 448.398438 C 402.1875 450.820312 400.445312 453.796875 399.179688 457.332031 C 397.914062 460.871094 397.285156 464.75 397.285156 468.964844 M 351.605469 468.964844 C 351.605469 458.421875 353.414062 448.898438 357.023438 440.394531 C 360.632812 431.898438 365.597656 424.667969 371.917969 418.710938 C 378.238281 412.757812 385.730469 408.167969 394.394531 404.9375 C 403.0625 401.714844 412.449219 400.097656 422.558594 400.097656 C 432.671875 400.097656 442.058594 401.714844 450.722656 404.9375 C 459.390625 408.167969 466.910156 412.757812 473.292969 418.710938 C 479.671875 424.667969 484.667969 431.898438 488.277344 440.394531 C 491.886719 448.898438 493.695312 458.421875 493.695312 468.964844 C 493.695312 479.515625 491.886719 489.132812 488.277344 497.816406 C 484.667969 506.503906 479.671875 513.917969 473.292969 520.058594 C 466.910156 526.199219 459.390625 530.945312 450.722656 534.296875 C 442.058594 537.644531 432.671875 539.324219 422.558594 539.324219 C 412.449219 539.324219 403.0625 537.644531 394.394531 534.296875 C 385.730469 530.945312 378.238281 526.199219 371.917969 520.058594 C 365.597656 513.917969 360.632812 506.503906 357.023438 497.816406 C 353.414062 489.132812 351.605469 479.515625 351.605469 468.964844 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 548.035156 468.964844 C 548.035156 473.3125 548.667969 477.28125 549.933594 480.878906 C 551.195312 484.476562 552.9375 487.578125 555.167969 490.183594 C 557.394531 492.789062 560.070312 494.808594 563.203125 496.234375 C 566.332031 497.660156 569.703125 498.375 573.3125 498.375 C 576.921875 498.375 580.265625 497.660156 583.332031 496.234375 C 586.402344 494.808594 589.078125 492.789062 591.367188 490.183594 C 593.652344 487.578125 595.429688 484.476562 596.691406 480.878906 C 597.957031 477.28125 598.589844 473.3125 598.589844 468.964844 C 598.589844 464.75 597.957031 460.871094 596.691406 457.332031 C 595.429688 453.796875 593.652344 450.820312 591.367188 448.398438 C 589.078125 445.980469 586.402344 444.089844 583.332031 442.722656 C 580.265625 441.359375 576.921875 440.675781 573.3125 440.675781 C 569.703125 440.675781 566.332031 441.359375 563.203125 442.722656 C 560.070312 444.089844 557.394531 445.980469 555.167969 448.398438 C 552.9375 450.820312 551.195312 453.796875 549.933594 457.332031 C 548.667969 460.871094 548.035156 464.75 548.035156 468.964844 M 502.359375 468.964844 C 502.359375 458.421875 504.164062 448.898438 507.777344 440.394531 C 511.386719 431.898438 516.351562 424.667969 522.671875 418.710938 C 528.988281 412.757812 536.480469 408.167969 545.148438 404.9375 C 553.8125 401.714844 563.203125 400.097656 573.3125 400.097656 C 583.421875 400.097656 592.8125 401.714844 601.476562 404.9375 C 610.144531 408.167969 617.664062 412.757812 624.046875 418.710938 C 630.421875 424.667969 635.417969 431.898438 639.03125 440.394531 C 642.640625 448.898438 644.445312 458.421875 644.445312 468.964844 C 644.445312 479.515625 642.640625 489.132812 639.03125 497.816406 C 635.417969 506.503906 630.421875 513.917969 624.046875 520.058594 C 617.664062 526.199219 610.144531 530.945312 601.476562 534.296875 C 592.8125 537.644531 583.421875 539.324219 573.3125 539.324219 C 563.203125 539.324219 553.8125 537.644531 545.148438 534.296875 C 536.480469 530.945312 528.988281 526.199219 522.671875 520.058594 C 516.351562 513.917969 511.386719 506.503906 507.777344 497.816406 C 504.164062 489.132812 502.359375 479.515625 502.359375 468.964844 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 700.234375 441.421875 L 700.234375 497.441406 L 708.179688 497.441406 C 718.289062 497.441406 726.050781 495.1875 731.46875 490.675781 C 736.882812 486.160156 739.589844 478.769531 739.589844 468.503906 C 739.589844 459.972656 736.882812 453.324219 731.46875 448.5625 C 726.050781 443.800781 718.828125 441.421875 709.804688 441.421875 Z M 658.890625 535.601562 L 658.890625 403.820312 L 706.550781 403.820312 C 716.664062 403.820312 726.320312 404.847656 735.53125 406.894531 C 744.738281 408.941406 752.863281 412.476562 759.902344 417.503906 C 766.945312 422.527344 772.570312 429.199219 776.785156 437.511719 C 780.996094 445.824219 783.101562 456.308594 783.101562 468.964844 C 783.101562 480.507812 781.085938 490.496094 777.054688 498.933594 C 773.019531 507.371094 767.636719 514.289062 760.894531 519.6875 C 754.152344 525.082031 746.390625 529.085938 737.605469 531.691406 C 728.820312 534.296875 719.671875 535.601562 710.164062 535.601562 Z M 658.890625 535.601562 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 295.652344 683.902344 L 252.324219 683.902344 L 217.476562 552.125 L 262.972656 552.125 L 276.695312 626.203125 L 277.417969 626.203125 L 292.222656 552.125 L 337.175781 552.125 L 353.246094 626.203125 L 353.96875 626.203125 L 367.871094 552.125 L 411.921875 552.125 L 376.355469 683.902344 L 333.023438 683.902344 L 314.96875 609.453125 L 314.25 609.453125 Z M 295.652344 683.902344 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 420.226562 552.125 L 508.152344 552.125 L 508.152344 588.980469 L 460.667969 588.980469 L 460.667969 600.332031 L 505.261719 600.332031 L 505.261719 634.765625 L 460.667969 634.765625 L 460.667969 647.050781 L 511.21875 647.050781 L 511.21875 683.902344 L 420.226562 683.902344 Z M 420.226562 552.125 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 565.5625 631.230469 L 565.5625 649.097656 L 578.378906 649.097656 C 581.75 649.097656 584.488281 648.324219 586.59375 646.769531 C 588.699219 645.222656 589.753906 642.957031 589.753906 639.976562 C 589.753906 638.242188 589.304688 636.8125 588.402344 635.695312 C 587.5 634.582031 586.382812 633.679688 585.0625 633 C 583.734375 632.316406 582.320312 631.851562 580.820312 631.601562 C 579.3125 631.355469 577.898438 631.230469 576.574219 631.230469 Z M 565.5625 586.558594 L 565.5625 602.753906 L 577.117188 602.753906 C 580.125 602.753906 582.59375 602.039062 584.519531 600.613281 C 586.445312 599.1875 587.410156 596.980469 587.410156 594.003906 C 587.410156 591.523438 586.382812 589.664062 584.339844 588.421875 C 582.292969 587.183594 579.582031 586.558594 576.214844 586.558594 Z M 609.074219 615.410156 C 612.082031 616.152344 615.03125 617.363281 617.921875 619.039062 C 620.808594 620.714844 623.394531 622.824219 625.683594 625.367188 C 627.96875 627.914062 629.773438 630.859375 631.101562 634.207031 C 632.421875 637.558594 633.085938 641.28125 633.085938 645.375 C 633.085938 652.574219 631.667969 658.621094 628.84375 663.523438 C 626.011719 668.425781 622.28125 672.394531 617.648438 675.433594 C 613.015625 678.476562 607.71875 680.648438 601.761719 681.949219 C 595.804688 683.253906 589.695312 683.902344 583.4375 683.902344 L 525.480469 683.902344 L 525.480469 552.125 L 578.019531 552.125 C 583.195312 552.125 588.699219 552.53125 594.539062 553.335938 C 600.375 554.144531 605.761719 555.753906 610.699219 558.175781 C 615.632812 560.59375 619.726562 564.132812 622.976562 568.785156 C 626.222656 573.4375 627.847656 579.550781 627.847656 587.117188 C 627.847656 594.191406 626.132812 600.023438 622.703125 604.613281 C 619.273438 609.207031 614.730469 612.617188 609.074219 614.851562 Z M 609.074219 615.410156 "/>
+</svg>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
