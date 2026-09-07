@@ -156,11 +156,13 @@ table.plan th, table.plan td{padding:10px 8px;text-align:center;border:1px solid
 table.plan thead th{background:var(--navy);color:var(--white);font-weight:600;}
 table.plan td.lever{text-align:left;font-weight:600;background:var(--bg-soft);white-space:nowrap;}
 td.active{background:var(--terracota);color:var(--white);font-weight:700;border-radius:4px;}
+td.continu{background:var(--c-bleu-bg);color:var(--navy);border-radius:4px;font-size:.78rem;}
 td.closed{background:#dfe3ee;color:#7a819c;font-size:.75rem;}
 .plan-legend{display:flex;gap:18px;margin-top:14px;font-size:.82rem;flex-wrap:wrap;}
 .plan-legend span{display:inline-flex;align-items:center;gap:6px;}
 .dot{width:12px;height:12px;border-radius:3px;display:inline-block;}
 .dot.active{background:var(--terracota);}
+.dot.continu{background:var(--c-bleu-bg);border:1px solid var(--babyblue);}
 .dot.closed{background:#dfe3ee;}
 
 /* BUDGETS */
@@ -410,7 +412,7 @@ footer h2::before{color:var(--terracota);}
 <section id="planning">
   <div class="wrap">
     <h2>Planning d'activation</h2>
-    <p>Dispositif concentré sur les 4 temps forts (pas de diffusion en continu entre les vagues), fermeture totale en août et du 15 au 31 décembre. Dates précises des temps forts à définir avec le client (durée indicative : 2 à 3 semaines chacun).</p>
+    <p>Logique de diffusion différente selon le scénario retenu : sur le scénario <b>10 000 € HT</b>, le budget reste concentré sur les 4 temps forts uniquement (pas de diffusion en continu). À partir de <b>13 000 € HT</b>, le budget est dilué sur tous les mois actifs (hors coupures), avec des pics de dépense plus marqués sur les 4 temps forts. Fermeture totale en août et du 15 au 31 décembre dans tous les cas. Dates précises des temps forts à définir avec le client (durée indicative : 2 à 3 semaines chacun).</p>
     <div class="planning">
       <table class="plan">
         <thead>
@@ -423,26 +425,28 @@ footer h2::before{color:var(--terracota);}
         <tbody>
           <tr>
             <td class="lever">Social Ads Meta</td>
-            <td class="active">●</td><td></td><td></td><td class="active">●</td><td></td><td></td>
-            <td></td><td class="closed">Fermé</td><td class="active">●</td><td class="active">●</td><td></td><td class="closed">Fermé*</td>
+            <td class="active">Pic</td><td class="continu">Continu</td><td class="continu">Continu</td><td class="active">Pic</td><td class="continu">Continu</td><td class="continu">Continu</td>
+            <td class="continu">Continu</td><td class="closed">Fermé</td><td class="active">Pic</td><td class="active">Pic</td><td class="continu">Continu</td><td class="closed">Fermé*</td>
           </tr>
           <tr>
             <td class="lever">pDisplay Drive-to-Store</td>
-            <td class="active">●</td><td></td><td></td><td class="active">●</td><td></td><td></td>
-            <td></td><td class="closed">Fermé</td><td class="active">●</td><td class="active">●</td><td></td><td class="closed">Fermé*</td>
+            <td class="active">Pic</td><td class="continu">Continu</td><td class="continu">Continu</td><td class="active">Pic</td><td class="continu">Continu</td><td class="continu">Continu</td>
+            <td class="continu">Continu</td><td class="closed">Fermé</td><td class="active">Pic</td><td class="active">Pic</td><td class="continu">Continu</td><td class="closed">Fermé*</td>
           </tr>
           <tr>
             <td class="lever">Marketing Direct (option)</td>
-            <td class="active">●</td><td></td><td></td><td></td><td></td><td></td>
+            <td class="active">Envoi</td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td class="closed">Fermé</td><td></td><td></td><td></td><td class="closed">Fermé*</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="plan-legend">
-      <span><span class="dot active"></span> Temps fort actif</span>
+      <span><span class="dot active"></span> Pic (temps fort)</span>
+      <span><span class="dot continu"></span> Diffusion continue (à partir de 13 000 € HT)</span>
       <span><span class="dot closed"></span> Coupure (boutique fermée / pas de communication)</span>
     </div>
+    <p class="budget-note">Sur le scénario 10 000 € HT, seuls les mois "Pic" sont actifs (pas de diffusion continue sur les autres mois).</p>
     <p class="budget-note">*Fermeture du 15 au 31 décembre uniquement (1re quinzaine de décembre disponible si besoin d'ajustement).</p>
   </div>
 </section>
@@ -482,6 +486,18 @@ footer h2::before{color:var(--terracota);}
         </tbody>
       </table>
       <p class="budget-note">Répartition sur les 4 temps forts : ≈ 3 250 € par temps fort (janvier, avril, septembre, octobre).</p>
+      <p class="budget-note" style="margin-top:14px;"><b>Répartition mensuelle indicative</b> (fil rouge dilué + pics sur les temps forts) :</p>
+      <div class="planning" style="margin-top:8px;">
+        <table class="plan" style="min-width:0;">
+          <thead><tr><th>Jan.</th><th>Fév.</th><th>Mars</th><th>Avr.</th><th>Mai</th><th>Juin</th><th>Juil.</th><th>Août</th><th>Sept.</th><th>Oct.</th><th>Nov.</th><th>Déc.</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="active">≈ 2 100 €</td><td class="continu">≈ 700 €</td><td class="continu">≈ 700 €</td><td class="active">≈ 2 100 €</td><td class="continu">≈ 700 €</td><td class="continu">≈ 700 €</td>
+              <td class="continu">≈ 700 €</td><td class="closed">Fermé</td><td class="active">≈ 2 100 €</td><td class="active">≈ 2 100 €</td><td class="continu">≈ 700 €</td><td class="closed">≈ 350 €*</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="budget-panel" id="b15">
@@ -495,11 +511,24 @@ footer h2::before{color:var(--terracota);}
         </tbody>
       </table>
       <p class="budget-note">Répartition sur les 4 temps forts : ≈ 3 750 € par temps fort (janvier, avril, septembre, octobre).</p>
+      <p class="budget-note" style="margin-top:14px;"><b>Répartition mensuelle indicative</b> (fil rouge dilué + pics sur les temps forts) :</p>
+      <div class="planning" style="margin-top:8px;">
+        <table class="plan" style="min-width:0;">
+          <thead><tr><th>Jan.</th><th>Fév.</th><th>Mars</th><th>Avr.</th><th>Mai</th><th>Juin</th><th>Juil.</th><th>Août</th><th>Sept.</th><th>Oct.</th><th>Nov.</th><th>Déc.</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="active">≈ 2 400 €</td><td class="continu">≈ 800 €</td><td class="continu">≈ 800 €</td><td class="active">≈ 2 400 €</td><td class="continu">≈ 800 €</td><td class="continu">≈ 800 €</td>
+              <td class="continu">≈ 800 €</td><td class="closed">Fermé</td><td class="active">≈ 2 400 €</td><td class="active">≈ 2 400 €</td><td class="continu">≈ 800 €</td><td class="closed">≈ 400 €*</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="context-note" style="margin-top:26px;">
       <b>Option supplémentaire — Marketing Direct :</b> +4 358 € HT, à ajouter à n'importe lequel des 3 scénarios ci-dessus. Sollicitation directe d'un fichier de 19 809 profils CSP+++ disponibles sur la zone magasin + 20 km, en complément du fil rouge Social Ads + Display.
     </div>
+    <p class="budget-note" style="margin-top:14px;">*Décembre : diffusion sur la 1re quinzaine uniquement (fermeture du 15 au 31/12), montant réduit en conséquence. Répartitions mensuelles arrondies, totalisant chacune ≈ le budget annoncé du scénario (à ajuster à la marge selon les dates définitives).</p>
     <div class="context-note" style="margin-top:14px;">
       Autres budgets annexes possibles (hors chiffrage ci-dessus) : Audio streaming/podcast, YouTube, cTV — leviers de notoriété non retenus dans une logique 100% performance, mais activables en complément si l'objectif évolue.
     </div>
