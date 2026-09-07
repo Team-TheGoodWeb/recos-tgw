@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Université d'Avignon · Recommandation média 2027 · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#021859;
+    --babyblue:#7bbdff;
+    --terracota:#f25430;
+    --white:#ffffff;
+    --c-lavande:#eef1ff;
+    --c-rose:#e9ebff;
+    --c-bleu:#eaf5ff;
+    --c-menthe:#e7ebf5;
+    --c-corail:#fff1ec;
+    --c-peche:#fff6ef;
+    --ink:#1c2340;
+    --muted:#5b6480;
+    --border:#e4e7f2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',sans-serif;color:var(--ink);background:var(--white);line-height:1.55;}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);margin:0 0 .4em;}
+  h2{font-size:1.9rem;}
+  h3{font-size:1.2rem;}
+  p{margin:0 0 1em;}
+  a{color:var(--terracota);}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  section{padding:64px 0;}
+  .section-alt{background:#f7f8fc;}
+
+  /* HERO */
+  header.hero{background:linear-gradient(135deg,var(--navy) 0%,#050f38 100%);color:var(--white);padding:56px 0 48px;}
+  .hero-top{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:36px;}
+  .logo-tgw{height:56px;width:auto;}
+  .hero h1{color:var(--white);font-size:2.4rem;max-width:780px;}
+  .hero .eyebrow{color:var(--babyblue);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;margin-bottom:.6em;}
+  .hero p.lead{color:#c9d2ec;max-width:640px;font-size:1.05rem;}
+  .pastilles{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+  .pastille{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:10px 18px;font-size:.88rem;color:var(--white);}
+  .pastille strong{color:var(--babyblue);}
+
+  /* NAV */
+  nav.sticky{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 2px 10px rgba(2,24,89,.05);}
+  nav.sticky .wrap{display:flex;gap:2px;overflow-x:auto;padding:0 24px;}
+  nav.sticky a{white-space:nowrap;display:block;padding:14px 14px;color:var(--navy);text-decoration:none;font-size:.85rem;font-weight:600;border-bottom:3px solid transparent;}
+  nav.sticky a:hover{border-bottom-color:var(--terracota);color:var(--terracota);}
+
+  /* GENERIC CARDS */
+  .grid{display:grid;gap:20px;}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  .grid-5{grid-template-columns:repeat(5,1fr);}
+  @media(max-width:900px){.grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr;}}
+
+  .card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px;}
+  .card.num{position:relative;padding-top:34px;}
+  .card.num .n{position:absolute;top:-14px;left:20px;background:var(--terracota);color:var(--white);font-family:'Poppins';font-weight:800;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;}
+
+  .lever-card{border-radius:18px;padding:24px;color:var(--navy);}
+  .lever-card h3{margin-bottom:6px;}
+  .lever-card .price{display:inline-block;margin-top:10px;background:var(--navy);color:var(--white);border-radius:8px;padding:6px 12px;font-weight:700;font-size:.85rem;}
+  .lever-card .price.new{background:var(--terracota);}
+  .lever-card .old{text-decoration:line-through;opacity:.6;font-weight:500;margin-right:6px;}
+  .c-lavande{background:var(--c-lavande);} .c-rose{background:var(--c-rose);} .c-bleu{background:var(--c-bleu);}
+  .c-menthe{background:var(--c-menthe);} .c-corail{background:var(--c-corail);} .c-peche{background:var(--c-peche);}
+
+  table{width:100%;border-collapse:collapse;background:var(--white);border-radius:12px;overflow:hidden;}
+  caption{text-align:left;font-weight:700;color:var(--navy);margin-bottom:8px;font-family:'Poppins';}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--border);font-size:.92rem;}
+  th{background:var(--navy);color:var(--white);font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  .table-wrap{overflow-x:auto;margin-bottom:24px;}
+  .tag-up{color:#1f9d55;font-weight:700;}
+  .tag-note{font-size:.78rem;color:var(--muted);}
+
+  .badge{display:inline-block;background:var(--terracota);color:var(--white);font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:4px 12px;margin-bottom:10px;}
+  .badge.alt{background:var(--navy);}
+  .kicker{color:var(--terracota);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.8rem;margin-bottom:.4em;}
+
+  .stat{text-align:center;}
+  .stat .val{font-family:'Poppins';font-weight:800;font-size:2.1rem;color:var(--navy);}
+  .stat .lbl{color:var(--muted);font-size:.85rem;}
+
+  .persona{border-radius:16px;padding:22px;background:var(--navy);color:var(--white);}
+  .persona .glyph{font-size:1.6rem;color:var(--babyblue);margin-bottom:8px;}
+  .persona h3{color:var(--white);}
+  .persona ul{margin:0;padding-left:18px;font-size:.9rem;color:#c9d2ec;}
+  .persona ul li{margin-bottom:4px;}
+
+  .funnel{display:flex;gap:14px;flex-wrap:wrap;align-items:stretch;}
+  .funnel .step{flex:1;min-width:150px;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center;}
+  .funnel .arrow{align-self:center;color:var(--terracota);font-size:1.4rem;}
+
+  .pyramid{display:flex;flex-direction:column;gap:6px;max-width:640px;margin:0 auto;}
+  .pyramid .layer{background:var(--navy);color:var(--white);text-align:center;padding:16px;border-radius:10px;font-weight:600;}
+  .pyramid .layer:nth-child(2){background:#123170;width:92%;margin:0 auto;}
+  .pyramid .layer:nth-child(3){background:var(--terracota);width:82%;margin:0 auto;}
+
+  .logo-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+  .logo-pill{background:#f2f4fa;border-radius:8px;padding:8px 14px;font-weight:600;font-size:.82rem;color:var(--navy);}
+
+  .schedule-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media(max-width:800px){.schedule-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.schedule-grid{grid-template-columns:1fr;}}
+  .schedule-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:18px;}
+  .schedule-card .time{display:inline-block;background:var(--babyblue);color:var(--navy);font-weight:700;border-radius:8px;padding:4px 10px;font-size:.8rem;margin-bottom:8px;}
+
+  .cta-box{background:var(--terracota);color:var(--white);border-radius:18px;padding:28px 32px;}
+  .cta-box h3{color:var(--white);}
+
+  footer.contacts{background:var(--navy);color:var(--white);padding:56px 0 40px;}
+  .footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;}
+  @media(max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+  .contact-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:18px;}
+  .contact-card a{color:var(--babyblue);text-decoration:none;font-size:.88rem;display:block;}
+  .contact-card strong{display:block;color:var(--white);margin-bottom:2px;}
+  .contact-card .role{color:#9fb0dd;font-size:.8rem;display:block;margin-bottom:8px;}
+  .footer-logo{height:48px;margin-top:36px;opacity:.85;}
+  .foot-note{color:#8b98c2;font-size:.78rem;margin-top:24px;}
+
+  .disclaimer{font-size:.78rem;color:var(--muted);font-style:italic;}
+  .section-intro{max-width:780px;margin-bottom:32px;}
+  .flex-between{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .total-banner{background:var(--navy);color:var(--white);border-radius:16px;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-top:8px;}
+  .total-banner .amount{font-family:'Poppins';font-size:1.7rem;font-weight:800;color:var(--babyblue);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <svg class="logo-tgw" viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+        <defs><style>.st0{fill:#fff;}</style></defs>
+        <g>
+          <path class="st0" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+          <path class="st0" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+          <path class="st0" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="st0" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+          <path class="st0" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="st0" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="st0" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+          <path class="st0" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+          <path class="st0" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="st0" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+        </g>
+        <path class="st0" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+        <g>
+          <path class="st0" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14Z"/>
+          <path class="st0" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22Z"/>
+          <path class="st0" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+          <path class="st0" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77Z"/>
+          <path class="st0" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22Z"/>
+          <path class="st0" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14Z"/>
+          <path class="st0" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22Z"/>
+          <path class="st0" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+          <path class="st0" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+        </g>
+        <g>
+          <path class="st0" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+          <path class="st0" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+          <path class="st0" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+          <path class="st0" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+          <path class="st0" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49Z"/>
+          <path class="st0" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49Z"/>
+          <path class="st0" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58Z"/>
+          <path class="st0" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35Z"/>
+          <path class="st0" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+          <path class="st0" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58Z"/>
+          <path class="st0" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+          <path class="st0" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+          <path class="st0" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+          <path class="st0" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+          <path class="st0" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+        </g>
+      </svg>
+      <span class="disclaimer" style="color:#9fb0dd;">reco.thegoodweb.eu</span>
+    </div>
+    <div class="eyebrow">Université d'Avignon · Recommandation média 2027</div>
+    <h1>Un dispositif compétitif et ultra ciblé pour recruter vos futurs étudiants</h1>
+    <p class="lead">Push de notoriété locale sur 3 mois auprès des lycéens, étudiants et parents du bassin avignonnais, avec des conditions négociées pour maximiser chaque euro investi et poser les bases d'une collaboration durable en 2027.</p>
+    <div class="pastilles">
+      <div class="pastille">Période : <strong>Janvier · Février · Mars 2027</strong></div>
+      <div class="pastille">Budget : <strong>41 500 € HT</strong> (33 500 € HT dispositif + 8 000 € HT option DOOH)</div>
+      <div class="pastille">Objectif : <strong>Notoriété locale & recrutement</strong></div>
+      <div class="pastille">Marché : <strong>Avignon & bassin de vie (Vaucluse)</strong></div>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats-kpis">Formats & KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<section id="contexte">
+  <div class="wrap">
+    <div class="kicker">Contexte</div>
+    <h2>Un plan média 2027 pensé pour installer la confiance sur la durée</h2>
+    <p class="section-intro">L'Université d'Avignon souhaite renforcer sa notoriété auprès des lycéens en phase d'orientation et de leurs parents, sur la période clé Parcoursup (janvier à mars). Nous proposons un dispositif digital et DOOH combiné, avec des tarifs négociés qui augmentent les volumes délivrés à budget strictement identique.</p>
+    <div class="grid grid-4">
+      <div class="card num"><span class="n">1</span><h3>Notoriété locale</h3><p>Faire de l'Université d'Avignon le réflexe naturel des lycéens et étudiants du bassin, sur tous les écrans du quotidien.</p></div>
+      <div class="card num"><span class="n">2</span><h3>Plus de volume, même budget</h3><p>Des CPM/CPV négociés pour augmenter le reach et les impressions délivrées, sans augmenter l'enveloppe.</p></div>
+      <div class="card num"><span class="n">3</span><h3>DOOH intelligent</h3><p>Une diffusion contextualisée par lieu et par créneau horaire, pour toucher chaque cible au bon moment.</p></div>
+      <div class="card num"><span class="n">4</span><h3>Cap sur 2027</h3><p>Un dispositif ultra compétitif pour installer une relation de confiance durable avec l'Université.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="dispositif" class="section-alt">
+  <div class="wrap">
+    <div class="kicker">Dispositif</div>
+    <h2>Une stratégie PUSH sur 5 leviers premium + option DOOH</h2>
+    <p class="section-intro">Développer la notoriété locale en favorisant la diffusion d'un message sur des leviers premiums, activés en simultané pour créer un effet de matraquage maîtrisé sur la cible étudiants et parents.</p>
+
+    <div class="funnel" style="margin-bottom:36px;">
+      <div class="step"><strong>Awareness</strong><br><span class="tag-note">Display IAB · CTV · DOOH</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><strong>Considération</strong><br><span class="tag-note">Social pStory Ads · YouTube</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><strong>Engagement</strong><br><span class="tag-note">Audio Spotify · YouTube</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><strong>Conversion</strong><br><span class="tag-note">Clics vers le site & Parcoursup</span></div>
+    </div>
+
+    <h3>Un geste commercial fort sur les prix d'achat</h3>
+    <p>Pour que ce dispositif soit ultra compétitif, nous avons revu à la baisse les modes d'achat sur 4 leviers, à budget strictement inchangé. Résultat : plus de reach, plus d'impressions, plus de vues, pour le même investissement.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Levier</th><th>Tarif catalogue</th><th>Tarif négocié 2027</th><th>Gain de volume</th></tr></thead>
+        <tbody>
+          <tr><td>Display IAB</td><td class="old">CPM 4,50 €</td><td><strong>CPM 3,00 €</strong></td><td class="tag-up">+ 50 %</td></tr>
+          <tr><td>pStory Ads (Social)</td><td class="old">CPM 6,00 €</td><td><strong>CPM 5,00 €</strong></td><td class="tag-up">+ 20 %</td></tr>
+          <tr><td>YouTube</td><td class="old">CPV 0,10 €</td><td><strong>CPV 0,06 €</strong></td><td class="tag-up">+ 67 %</td></tr>
+          <tr><td>Spotify (Audio)</td><td class="old">CPE 0,05 €</td><td><strong>CPE 0,03 €</strong></td><td class="tag-up">+ 67 %</td></tr>
+          <tr><td>CTV</td><td>CPV 0,10 €</td><td>CPV 0,10 € (inchangé)</td><td>·</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tag-note">Grâce à ce geste, le dispositif délivre désormais près de 8,9M d'impressions cumulées au lieu de 5,1M, soit + 74 % de volume à budget constant.</p>
+  </div>
+</section>
+
+<section id="environnements">
+  <div class="wrap">
+    <div class="kicker">Environnements</div>
+    <h2>Où votre message sera diffusé</h2>
+    <div class="grid grid-3" style="margin-bottom:32px;">
+      <div class="card">
+        <h3>Display & Native</h3>
+        <div class="logo-row">
+          <span class="logo-pill">L'Étudiant</span><span class="logo-pill">Studyrama</span><span class="logo-pill">France Bleu</span>
+          <span class="logo-pill">La Provence</span><span class="logo-pill">20 Minutes</span><span class="logo-pill">Le Parisien</span>
+          <span class="logo-pill">France Inter</span><span class="logo-pill">Onisep</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Audio</h3>
+        <div class="logo-row">
+          <span class="logo-pill">Spotify</span><span class="logo-pill">RFM</span><span class="logo-pill">NRJ</span>
+          <span class="logo-pill">Skyrock</span><span class="logo-pill">Radio France</span><span class="logo-pill">Europe 1</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Social & Vidéo</h3>
+        <div class="logo-row">
+          <span class="logo-pill">TikTok</span><span class="logo-pill">Instagram</span><span class="logo-pill">Snapchat</span>
+          <span class="logo-pill">Facebook</span><span class="logo-pill">YouTube</span><span class="logo-pill">YouTube Shorts</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border:2px solid var(--terracota);">
+      <span class="badge">Option DOOH</span>
+      <h3>Un DOOH géolocalisé et diffusé au bon moment</h3>
+      <p>260 écrans sur le bassin avignonnais (Avignon, Villeneuve, Les Angles, Le Pontet, Orange, Carpentras, Cavaillon, Isle-sur-la-Sorgue), répartis sur des lieux de vie réellement fréquentés par les étudiants et leurs parents. Les stations-service sont retirées du mix : peu pertinentes sur cette cible, au profit d'environnements à plus forte affinité étudiante.</p>
+      <div class="logo-row" style="margin-bottom:14px;">
+        <span class="logo-pill">Transport (gares, aéroport)</span><span class="logo-pill">Centres commerciaux</span>
+        <span class="logo-pill">Commerces de proximité</span><span class="logo-pill">Salles de sport</span>
+        <span class="logo-pill">Bar / Restaurant</span><span class="logo-pill">Cinéma</span>
+        <span class="logo-pill">Librairie / Éducation</span><span class="logo-pill">Centre d'affaire</span>
+      </div>
+      <a href="https://www.google.fr/maps/d/u/0/viewer?mid=15nYfO-z6nkEFCTOLc8X0akMmHb0oVkU&ll=43.993736321862%2C4.903830250000016&z=11" target="_blank" rel="noopener">Voir le mapping détaillé des écrans →</a>
+    </div>
+
+    <h3 style="margin-top:32px;">Stratégie de diffusion intelligente : le bon message, au bon endroit, au bon moment</h3>
+    <p class="section-intro">Plutôt qu'une diffusion uniforme, chaque type d'écran est activé sur les créneaux où sa cible est réellement présente, pour maximiser l'attention et l'efficacité du budget DOOH.</p>
+    <div class="schedule-grid">
+      <div class="schedule-card">
+        <span class="time">Matin 7h-9h · Soir 17h-19h</span>
+        <h3>Transport</h3>
+        <p class="tag-note">Gares, aéroport, flux pendulaires : on capte les trajets domicile-lycée / domicile-campus.</p>
+      </div>
+      <div class="schedule-card">
+        <span class="time">Mercredi & week-end</span>
+        <h3>Centres commerciaux</h3>
+        <p class="tag-note">Jours de plus forte affluence familiale, quand lycéens, étudiants et parents s'y croisent.</p>
+      </div>
+      <div class="schedule-card">
+        <span class="time">Midi 12h-14h · Soir 18h-20h</span>
+        <h3>Commerces de proximité</h3>
+        <p class="tag-note">Pauses déjeuner et sorties de journée, zones de passage quotidien du quartier.</p>
+      </div>
+      <div class="schedule-card">
+        <span class="time">Soir 18h-21h</span>
+        <h3>Salles de sport</h3>
+        <p class="tag-note">Créneau post-cours et post-travail, forte concentration d'étudiants et jeunes actifs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="planning" class="section-alt">
+  <div class="wrap">
+    <div class="kicker">Planning</div>
+    <h2>Activation sur 3 mois, digital + DOOH en relais</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Vague</th><th>Période digitale</th><th>Leviers actifs</th><th>DOOH</th></tr></thead>
+        <tbody>
+          <tr><td>Janvier 2027</td><td>05/01 → 25/01/2027</td><td>Display IAB · Spotify · pStory Ads · YouTube · CTV</td><td>·</td></tr>
+          <tr><td>Février vague 1 (2027)</td><td>02/02 → 08/02/2027</td><td>Display IAB · Spotify · pStory Ads</td><td>DOOH vague 1 · 08/02 → 18/02</td></tr>
+          <tr><td>Février vague 2 (2027)</td><td>23/02 → 28/02/2027</td><td>Display IAB · Spotify · pStory Ads</td><td>DOOH vague 2 · 18/02 → 28/02</td></tr>
+          <tr><td>Mars 2027</td><td>02/03 → 08/03/2027</td><td>Display IAB · Spotify · pStory Ads · YouTube</td><td>DOOH vague 3 · 09/03 → 19/03</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tag-note">Le digital reste concentré sur les temps forts Parcoursup (ouverture des vœux, salons d'orientation, portes ouvertes). Le DOOH prend le relais dans la rue pendant le creux entre les deux vagues digitales de février (08/02 → 28/02, couverture continue), puis prolonge la campagne après la dernière vague digitale de mars, pour garder une présence physique quand le digital est au repos.</p>
+  </div>
+</section>
+
+<section id="budgets">
+  <div class="wrap">
+    <div class="kicker">Budgets</div>
+    <h2>Hypothèse janvier 2027</h2>
+    <div class="grid grid-5" style="margin-bottom:28px;">
+      <div class="lever-card c-lavande"><h3>Display IAB</h3><span class="price old">CPM 4,50 €</span><span class="price new">CPM 3,00 €</span><p>1 000 000 impressions<br>Reach : 333K personnes<br>Capping : 3</p><strong>3 000 € HT</strong></div>
+      <div class="lever-card c-rose"><h3>Spotify</h3><span class="price old">CPE 0,05 €</span><span class="price new">CPE 0,03 €</span><p>66,7K écoutes 100 %<br>Reach : 74K personnes<br>Capping : 3</p><strong>2 000 € HT</strong></div>
+      <div class="lever-card c-bleu"><h3>pStory Ads</h3><span class="price old">CPM 6,00 €</span><span class="price new">CPM 5,00 €</span><p>600 000 impressions<br>Reach : 200K personnes<br>Capping : 3</p><strong>3 000 € HT</strong></div>
+      <div class="lever-card c-menthe"><h3>YouTube</h3><span class="price old">CPV 0,10 €</span><span class="price new">CPV 0,06 €</span><p>41,7K vues 100 %<br>Reach : 260K personnes<br>Capping : 4</p><strong>2 500 € HT</strong></div>
+      <div class="lever-card c-corail"><h3>CTV</h3><span class="price new">CPV 0,10 €</span><p>45K vues 100 %<br>Reach : 22K foyers<br>Capping : 6</p><strong>4 500 € HT</strong></div>
+    </div>
+    <div class="total-banner">
+      <div>5 leviers actifs · 05/01 → 25/01/2027</div>
+      <div>Objectif global : <strong>~2,75M impressions · ~889K personnes · 66,7K écoutes 100 % · 41,7K vues 100 %</strong></div>
+      <div class="amount">15 000 € HT</div>
+    </div>
+
+    <h2 style="margin-top:48px;">Hypothèse février 2027 (phases 1 & 2, identiques)</h2>
+    <div class="grid grid-3" style="margin-bottom:20px;">
+      <div class="lever-card c-lavande"><h3>Display IAB</h3><span class="price new">CPM 3,00 €</span><p>500 000 impressions<br>Reach : 167K personnes<br>Capping : 3</p><strong>1 500 € HT</strong></div>
+      <div class="lever-card c-rose"><h3>Spotify</h3><span class="price new">CPE 0,03 €</span><p>50K écoutes 100 %<br>Reach : 200K personnes<br>Capping : 2,5</p><strong>1 500 € HT</strong></div>
+      <div class="lever-card c-bleu"><h3>pStory Ads</h3><span class="price new">CPM 5,00 €</span><p>400 000 impressions<br>Reach : 133K personnes<br>Capping : 3</p><strong>2 000 € HT</strong></div>
+    </div>
+    <div class="total-banner">
+      <div>3 leviers actifs par phase · 02/02-08/02 et 23/02-28/02/2027</div>
+      <div>Objectif par phase : <strong>~1,4M impressions · ~500K personnes · 50K écoutes 100 %</strong></div>
+      <div class="amount">5 000 € HT / phase</div>
+    </div>
+
+    <h2 style="margin-top:48px;">Hypothèse mars 2027</h2>
+    <div class="grid grid-4" style="margin-bottom:20px;">
+      <div class="lever-card c-lavande"><h3>Display IAB</h3><span class="price new">CPM 3,00 €</span><p>833 333 impressions<br>Reach : 278K personnes<br>Capping : 3</p><strong>2 500 € HT</strong></div>
+      <div class="lever-card c-rose"><h3>Spotify</h3><span class="price new">CPE 0,03 €</span><p>66,7K écoutes 100 %<br>Reach : 223K personnes<br>Capping : 3</p><strong>2 000 € HT</strong></div>
+      <div class="lever-card c-bleu"><h3>pStory Ads</h3><span class="price new">CPM 5,00 €</span><p>500 000 impressions<br>Reach : 167K personnes<br>Capping : 3</p><strong>2 500 € HT</strong></div>
+      <div class="lever-card c-menthe"><h3>YouTube</h3><span class="price new">CPV 0,06 €</span><p>25K vues 100 %<br>Reach : 157K personnes<br>Capping : 4</p><strong>1 500 € HT</strong></div>
+    </div>
+    <div class="total-banner">
+      <div>4 leviers actifs · 02/03 → 08/03/2027</div>
+      <div>Objectif global : <strong>~2,1M impressions · ~825K personnes · 66,7K écoutes 100 %</strong></div>
+      <div class="amount">8 500 € HT</div>
+    </div>
+
+    <h2 style="margin-top:48px;">Objectifs globaux · dispositif digital (janvier-mars)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Levier</th><th>Budget</th><th>Mode d'achat</th><th>Objectifs</th></tr></thead>
+        <tbody>
+          <tr><td>Display IAB</td><td>8 500 € HT</td><td>CPM 3,00 €</td><td>~2,83M impressions · Reach moyen ~944K personnes*</td></tr>
+          <tr><td>Spotify (Audio)</td><td>7 000 € HT</td><td>CPE 0,03 €</td><td>~2,33M impressions · ~233K écoutes 100 % · Reach cumulé ~697K*</td></tr>
+          <tr><td>pStory Ads (Social)</td><td>9 500 € HT</td><td>CPM 5,00 €</td><td>~1,9M impressions · Reach moyen ~633K personnes*</td></tr>
+          <tr><td>YouTube</td><td>4 000 € HT</td><td>CPV 0,06 €</td><td>~1,67M impressions · ~66,7K vues 100 % · Reach cumulé ~417K*</td></tr>
+          <tr><td>CTV</td><td>4 500 € HT</td><td>CPV 0,10 €</td><td>129K impressions · 45K vues 100 % · Reach ~22K foyers*</td></tr>
+        </tbody>
+      </table>
+      <p class="tag-note">*Capping 2,5 à 6 selon période et budget. Chiffres arrondis et indicatifs, susceptibles d'ajustement en optimisation.</p>
+    </div>
+
+    <div class="total-banner" style="background:var(--terracota);">
+      <div>Total dispositif digital · Objectif : <strong>~8,9M impressions · > 2,7M personnes touchées · 112K vues 100 % · 233K écoutes 100 % · ~188K clics estimés</strong></div>
+      <div class="amount">33 500 € HT</div>
+    </div>
+
+    <h2 style="margin-top:48px;">Option DOOH : 3 vagues en relais du digital</h2>
+    <p class="section-intro">Pas de DOOH en janvier : le digital porte seul le lancement. À partir de février, le DOOH prend le relais dans la rue pour combler le creux entre les deux vagues digitales, puis prolonge la campagne après la dernière vague digitale de mars. Toujours hors stations-service, 260 écrans mobilisables sur l'ensemble du réseau.</p>
+    <div class="table-wrap">
+      <table>
+        <caption>Répartition des 3 vagues DOOH, 8 000 € HT au total</caption>
+        <thead><tr><th>Vague</th><th>Positionnement</th><th>Période</th><th>Écrans</th><th>Passages garantis</th><th>Budget</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>DOOH vague 1</td>
+            <td>À cheval sur la fin de la vague digitale de février 1, ouvre le relais dans le creux digital</td>
+            <td>08/02 → 18/02/2027 · 10 jours</td>
+            <td>260</td>
+            <td>50 000</td>
+            <td><strong>3 000 € HT</strong></td>
+          </tr>
+          <tr>
+            <td>DOOH vague 2</td>
+            <td>Enchaîne sur la vague 1, couverture continue jusqu'à la vague digitale de février 2</td>
+            <td>18/02 → 28/02/2027 · 10 jours</td>
+            <td>260</td>
+            <td>50 000</td>
+            <td><strong>3 000 € HT</strong></td>
+          </tr>
+          <tr>
+            <td>DOOH vague 3</td>
+            <td>Démarre après la fin de la vague digitale de mars, pour prolonger la campagne</td>
+            <td>09/03 → 19/03/2027 · 10 jours</td>
+            <td>260</td>
+            <td>33 333</td>
+            <td><strong>2 000 € HT</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="tag-note">Formats : 1080x1920 · 1920x1080 · 1024x668. Passages garantis calculés au prorata du budget de chaque vague (133 333 passages cumulés sur l'ensemble du dispositif DOOH). Dayparting intelligent par environnement appliqué sur les 3 vagues (voir section Environnements).</p>
+    </div>
+
+    <div class="total-banner" style="margin-top:12px;">
+      <div>Total option DOOH · 3 vagues · février et mars 2027</div>
+      <div class="amount">8 000 € HT</div>
+    </div>
+
+    <div class="total-banner" style="margin-top:20px;">
+      <div>Budget total du dispositif · digital + DOOH</div>
+      <div class="amount">41 500 € HT <span style="font-size:1rem;color:#c9d2ec;font-weight:500;">(49 800 € TTC)</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="formats-kpis" class="section-alt">
+  <div class="wrap">
+    <div class="kicker">Formats & KPIs</div>
+    <h2>Formats de créa et indicateurs suivis par levier</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>pDisplay</h3>
+        <p><strong>Formats :</strong> 300x600, 300x250, 320x480, 728x90, 320x50 px · jpeg/png/gif</p>
+        <p><strong>KPIs :</strong> impressions, clics, CTR, taux de complétion, étude socio-démo, géoloc, affinitaires, visite in-store.</p>
+      </div>
+      <div class="card">
+        <h3>YouTube & Social (pStory Ads)</h3>
+        <p><strong>Formats :</strong> post 1080x1080px, story 9:16 1920x1080px mp4, bumper ads 6s</p>
+        <p><strong>KPIs :</strong> impressions, clics, CTR, reach, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p>
+      </div>
+      <div class="card">
+        <h3>CTV</h3>
+        <p><strong>Format :</strong> 1920x1080px 16:9, 15-30s</p>
+        <p><strong>KPIs :</strong> impressions, clics, CTR, reach, taux de complétion, top chaînes, étude socio-démo/géoloc/affinitaires.</p>
+      </div>
+      <div class="card">
+        <h3>Audio (Spotify)</h3>
+        <p><strong>Formats :</strong> 1:1 640x640px ou 9:16 720x1280px, 15-20-30s</p>
+        <p><strong>KPIs :</strong> impressions, reach, clics, écoutes à 25/50/75/100 %, taux de complétion, stats socio-démo, capping, CPE & CPM finaux.</p>
+      </div>
+      <div class="card" style="grid-column:1/-1;">
+        <h3>pDOOH</h3>
+        <p><strong>Format :</strong> 9:16 1080x1920px mp4 10s (déclinable 1920x1080 et 1024x668)</p>
+        <p><strong>KPIs :</strong> impressions, diffusion, top publishers, nombre de plays, stats par écran et par créneau horaire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <div class="kicker">Audiences</div>
+    <h2>Deux cibles complémentaires</h2>
+    <div class="grid grid-2">
+      <div class="persona">
+        <div class="glyph">◆</div>
+        <h3>Étudiants & futurs étudiants (18-25 ans)</h3>
+        <ul>
+          <li>Lycéens en terminale, étudiants en BTS, IUT, licence ou master</li>
+          <li>Fréquentent les lycées d'Avignon et centres d'examen (Mistral, Aubanel, Vincent de Paul, Saint-Joseph...)</li>
+          <li>Visitent régulièrement le campus Hannah Arendt, le campus Agroparc, l'IUT, l'ESAA</li>
+          <li>Participent aux salons Studyrama, Salon de l'Étudiant, journées portes ouvertes</li>
+          <li>Fréquentent le CROUS, les bibliothèques universitaires, les lieux de vie étudiante (Délirium, Manutention, Utopia...)</li>
+        </ul>
+      </div>
+      <div class="persona">
+        <div class="glyph">●</div>
+        <h3>Parents de futurs étudiants (35-60 ans)</h3>
+        <ul>
+          <li>Suivent l'orientation scolaire et le parcours post-bac de leurs enfants</li>
+          <li>Recherchent des informations sur Parcoursup, Onisep, les aides financières et le logement étudiant</li>
+          <li>Consultent Onisep, L'Étudiant, Studyrama, CIDJ, les pages Facebook de parents d'élèves</li>
+          <li>Résident dans le Vaucluse et départements voisins (Gard, Bouches-du-Rhône, Drôme, Ardèche)</li>
+        </ul>
+      </div>
+    </div>
+    <p class="tag-note" style="margin-top:16px;">Géociblage : Avignon, Villeneuve, Les Angles, Le Pontet, Orange, Carpentras, Cavaillon, Isle-sur-la-Sorgue. Social Ads : départements 13, 30, 84 + Valence.</p>
+  </div>
+</section>
+
+<section id="data" class="section-alt">
+  <div class="wrap">
+    <div class="kicker">Stratégie data</div>
+    <h2>Une donnée cookieless et cookie-based au service du ciblage</h2>
+    <div class="grid grid-2" style="margin-bottom:32px;">
+      <div class="stat card"><div class="val">200M</div><div class="lbl">pages web scorées (cookieless)</div></div>
+      <div class="stat card"><div class="val">85%</div><div class="lbl">de la population française couverte via le réseau MediaSquare (490+ sites TV, radio, presse)</div></div>
+    </div>
+    <div class="pyramid" style="margin-bottom:32px;">
+      <div class="layer">Socio-démo : étudiants, parcours étudiants, foyers avec enfants 16+</div>
+      <div class="layer">Centres d'intérêt : orientation scolaire, Parcoursup, formations Bac+2 à Bac+5</div>
+      <div class="layer">Comportements digitaux : visites campus, salons, sites d'orientation</div>
+    </div>
+    <div class="logo-row">
+      <span class="logo-pill">MediaSquare</span><span class="logo-pill">Implicit</span><span class="logo-pill">Segments 3rd party</span>
+      <span class="logo-pill">Segments personnalisés</span><span class="logo-pill">Segments contextuels sémantiques</span>
+    </div>
+  </div>
+</section>
+
+<section id="rgpd">
+  <div class="wrap">
+    <div class="kicker">RGPD & brand safety</div>
+    <h2>Un dispositif conforme et sécurisé</h2>
+    <div class="grid grid-3">
+      <div class="card"><h3>Consentement</h3><p>Ciblage et collecte de données réalisés dans le strict respect du RGPD et des CMP en place chez nos partenaires.</p></div>
+      <div class="card"><h3>Brand safety</h3><p>Diffusion exclusivement sur des environnements premium et contrôlés, exclusion des contenus sensibles.</p></div>
+      <div class="card"><h3>Transparence</h3><p>Reporting complet et accès aux statistiques de diffusion tout au long de la campagne.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="contacts" id="contacts">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--babyblue);">Contacts</div>
+    <h2 style="color:var(--white);">Votre équipe The Good Web</h2>
+    <div class="footer-grid">
+      <div class="contact-card">
+        <strong>Jérôme Fages</strong><span class="role">Directeur commercial</span>
+        <a href="tel:0618746675">06 18 74 66 75</a>
+        <a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <strong>Mathilde Coriton</strong><span class="role">Directrice de clientèle</span>
+        <a href="tel:0648619292">06 48 61 92 92</a>
+        <a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <strong>Leslie Rogé</strong><span class="role">Cheffe de publicité Région Sud</span>
+        <a href="tel:0683736862">06 83 73 68 62</a>
+        <a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <strong>Sofien Chaganiou</strong><span class="role">Cheffe de publicité</span>
+        <a href="tel:0767847067">07 67 84 70 67</a>
+        <a href="mailto:sofien@thegoodweb.eu">sofien@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <strong>Andrea</strong><span class="role">Équipe TGW</span>
+        <span style="color:#9fb0dd;font-size:.88rem;">andrea@thegoodweb.eu</span>
+      </div>
+      <div class="contact-card">
+        <strong>Pôle activation</strong><span class="role">Équipe TGW</span>
+        <span style="color:#9fb0dd;font-size:.88rem;">activation@thegoodweb.eu</span>
+      </div>
+    </div>
+    <p class="foot-note" style="font-family:'Poppins';font-weight:700;letter-spacing:.04em;color:var(--babyblue);font-size:1rem;margin-top:36px;">THE GOOD WEB <span style="color:#9fb0dd;font-weight:500;">· The Good Audience</span></p>
+    <p class="foot-note">reco.thegoodweb.eu</p>
+  </div>
+</footer>
+
+</body>
+</html>
