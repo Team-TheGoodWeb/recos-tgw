@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Constructa · Manosque — Recommandation média</title>
+<title>Constructa · Manosque : Recommandation média</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -121,6 +121,8 @@
   /* FORMATS */
   .format-card{border-left:4px solid var(--babyblue);}
   .format-card h3{font-size:1rem;}
+  .spec-list{margin:10px 0 0;padding-left:18px;color:var(--gray);font-size:.88rem;}
+  .spec-list li{margin-bottom:6px;}
   .format-spec{font-size:.82rem;color:var(--navy);font-weight:600;margin-top:8px;}
   .kpi-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
   .kpi-tag{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:3px 10px;font-size:.72rem;color:var(--gray);}
@@ -205,7 +207,7 @@
       </svg>
     </div>
     <span class="section-label">Reco média · lancement commercial</span>
-    <h1>Constructa &mdash; Résidence seniors, Manosque</h1>
+    <h1>Constructa : Résidence seniors, Manosque</h1>
     <p class="lead">Proposition de dispositif média Meta (temps fort + fil rouge) pour accompagner la commercialisation d'un programme de 48 logements dédiés aux seniors autonomes.</p>
     <div class="pills">
       <div class="pill"><div class="pill-label">Client</div><div class="pill-value">Constructa</div></div>
@@ -248,14 +250,14 @@
 <section id="dispositif" style="background:var(--navy-tint);">
   <span class="section-label">Dispositif</span>
   <h2 class="section-title">Deux temps de campagne complémentaires, 100% Meta</h2>
-  <p class="section-sub">Le brief cible un seul levier &mdash; Meta (Facebook / Instagram) &mdash; que nous déclinons en deux dispositifs à la logique différente : un temps fort de lancement pour créer un pic de visibilité, puis un fil rouge pour maintenir la présence et convertir dans la durée.</p>
+  <p class="section-sub">Le brief cible un seul levier, Meta (Facebook / Instagram), que nous déclinons en deux dispositifs à la logique différente : un temps fort de lancement pour créer un pic de visibilité, puis un fil rouge pour maintenir la présence et convertir dans la durée.</p>
   <div class="grid grid-2">
     <div class="card c-menthe">
-      <h3>① Temps fort de lancement &mdash; 1 mois, 2 000&nbsp;€</h3>
+      <h3>① Temps fort de lancement : 1 mois, 2 000&nbsp;€</h3>
       <p>Concentration du budget sur les premières semaines de commercialisation pour maximiser la couverture et la notoriété au moment du lancement. Formats Post + Story, priorité aux cibles seniors et aidants sur la zone prioritaire.</p>
     </div>
     <div class="card c-peche">
-      <h3>② Fil rouge &mdash; 5 mois, 1 000&nbsp;€/mois</h3>
+      <h3>② Fil rouge : 5 mois, 1 000&nbsp;€/mois</h3>
       <p>Diffusion continue après le temps fort pour entretenir la notoriété, élargir progressivement la zone de chalandise (bassin de vie, puis PACA) et capter la demande au fil de l'eau, avec du retargeting sur les audiences engagées.</p>
     </div>
   </div>
@@ -305,8 +307,8 @@
   <h2 class="section-title">Deux scénarios, un seul objectif</h2>
   <p class="section-sub">CPM grille Achat TGW (Social Post 5&nbsp;€ / Social Story 6&nbsp;€ / Social Post+Story 5&nbsp;€). Estimations d'impressions calculées sur un CPM moyen mixte Post+Story de 5,5&nbsp;€.</p>
   <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('t1',this)">① Temps fort &mdash; 2 000&nbsp;€</button>
-    <button class="tab-btn" onclick="showTab('t2',this)">② Fil rouge &mdash; 5 000&nbsp;€</button>
+    <button class="tab-btn active" onclick="showTab('t1',this)">① Temps fort : 2 000&nbsp;€</button>
+    <button class="tab-btn" onclick="showTab('t2',this)">② Fil rouge : 5 000&nbsp;€</button>
   </div>
 
   <div id="t1" class="tab-panel active">
@@ -345,8 +347,27 @@
   <h2 class="section-title">Suivi de la performance Social Ads</h2>
   <div class="grid grid-2">
     <div class="card format-card">
-      <h3>Formats créatifs</h3>
-      <p>Post carré 1080x1080px &middot; Story/Reel 9:16 1920x1080px (mp4) &middot; Bumper ads 6s pour les formats vidéo courts.</p>
+      <h3>Specs Meta</h3>
+      <ul class="spec-list">
+        <li>Story : 9:16 (1 920 x 1 080 px), format mp4</li>
+        <li>Post : 1080 x 1080 px (carrousel idem)</li>
+        <li>Merci de nommer chaque slide si c'est un carrousel</li>
+        <li>URL de redirection à nous transmettre</li>
+      </ul>
+    </div>
+    <div class="card format-card">
+      <h3>Formulaire Lead</h3>
+      <p>Merci de nous transmettre soit :</p>
+      <ul class="spec-list">
+        <li>le nom du formulaire Lead déjà créé,</li>
+        <li>soit la liste des champs souhaités (à limiter à 3 ou 4 champs maximum)</li>
+      </ul>
+    </div>
+    <div class="card format-card">
+      <h3>Remontée vers le CRM</h3>
+      <p>Le portefeuille n'étant actuellement pas dans un état exploitable et personne n'y ayant accès, il est impossible en l'état de récupérer les leads directement dans le CRM.</p>
+      <p>Solution proposée : les leads issus du formulaire seront envoyés vers un Google Sheet automatisé, à charge pour quelqu'un de votre côté (ou chez eux directement) de les importer ensuite dans le CRM.</p>
+      <p>Cela vient du fait que les outils ne sont pas correctement paramétrés pour permettre une remontée propre.</p>
     </div>
     <div class="card format-card">
       <h3>KPIs suivis</h3>
