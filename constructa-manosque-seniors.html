@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constructa · Manosque — Recommandation média</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#021859;
+    --babyblue:#7bbdff;
+    --terracota:#f25430;
+    --white:#ffffff;
+    --navy-tint:#eef1fa;
+    --terracota-tint:#fdece6;
+    --babyblue-tint:#eef6ff;
+    --ink:#1a2135;
+    --gray:#5c6478;
+    --border:#e4e8f2;
+    --shadow:0 8px 24px rgba(2,24,89,.08);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',sans-serif;color:var(--ink);background:var(--white);line-height:1.6;}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);margin:0 0 .5em;}
+  a{color:var(--terracota);}
+  section{padding:64px 24px;max-width:1140px;margin:0 auto;}
+  .section-label{display:inline-block;background:var(--terracota);color:var(--white);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;}
+  .section-title{font-size:1.9rem;margin-bottom:8px;}
+  .section-sub{color:var(--gray);max-width:720px;margin-bottom:36px;}
+
+  /* HERO */
+  .hero{background:var(--navy);color:var(--white);padding:0;}
+  .hero-inner{max-width:1140px;margin:0 auto;padding:40px 24px 56px;}
+  .hero-logo{margin-bottom:32px;}
+  .hero-logo svg{height:56px;width:auto;display:block;}
+  .hero h1{color:var(--white);font-size:2.3rem;max-width:760px;}
+  .hero p.lead{color:var(--babyblue);max-width:640px;font-size:1.05rem;margin-bottom:28px;}
+  .pills{display:flex;flex-wrap:wrap;gap:12px;}
+  .pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:12px 18px;min-width:150px;}
+  .pill .pill-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--babyblue);margin-bottom:3px;}
+  .pill .pill-value{font-family:'Poppins',sans-serif;font-weight:600;font-size:1rem;color:var(--white);}
+
+  /* NAV */
+  .nav-sticky{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 2px 10px rgba(2,24,89,.04);}
+  .nav-inner{max-width:1140px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:0 24px;}
+  .nav-inner a{white-space:nowrap;color:var(--navy);text-decoration:none;font-size:.85rem;font-weight:600;padding:16px 12px;border-bottom:3px solid transparent;}
+  .nav-inner a:hover{border-bottom-color:var(--terracota);color:var(--terracota);}
+
+  /* GRID / CARDS */
+  .grid{display:grid;gap:20px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;box-shadow:var(--shadow);}
+  .card h3{font-size:1.05rem;margin-bottom:10px;}
+  .card p{margin:0;color:var(--gray);font-size:.92rem;}
+  .num-card{position:relative;padding-top:36px;}
+  .num-card .num{position:absolute;top:16px;right:20px;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.6rem;color:var(--babyblue);}
+
+  .c-lavande{background:var(--babyblue-tint);}
+  .c-rose{background:var(--navy-tint);}
+  .c-bleu{background:var(--babyblue-tint);}
+  .c-menthe{background:var(--navy-tint);}
+  .c-corail{background:var(--terracota-tint);}
+  .c-peche{background:var(--terracota-tint);}
+
+  /* PERSONA */
+  .persona-card{border-top:4px solid var(--terracota);}
+  .persona-glyph{font-size:1.6rem;color:var(--terracota);margin-bottom:10px;display:block;}
+  .persona-card ul{margin:12px 0 0;padding-left:18px;color:var(--gray);font-size:.88rem;}
+  .persona-card li{margin-bottom:4px;}
+  .persona-tag{display:inline-block;background:var(--navy);color:var(--white);font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:12px;margin-top:14px;}
+
+  /* TABLES */
+  table{width:100%;border-collapse:collapse;background:var(--white);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+  thead th{background:var(--navy);color:var(--white);font-family:'Poppins',sans-serif;font-weight:600;font-size:.85rem;text-align:left;padding:14px 16px;}
+  tbody td{padding:13px 16px;border-bottom:1px solid var(--border);font-size:.9rem;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:#fafbfe;}
+  .table-wrap{overflow-x:auto;margin-bottom:8px;}
+
+  /* TABS */
+  .tabs{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;}
+  .tab-btn{background:var(--navy-tint);border:1px solid var(--border);color:var(--navy);font-family:'Poppins',sans-serif;font-weight:600;font-size:.85rem;padding:10px 20px;border-radius:10px;cursor:pointer;}
+  .tab-btn.active{background:var(--navy);color:var(--white);}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+  .budget-total{margin-top:18px;background:var(--terracota-tint);border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .budget-total .label{font-family:'Poppins',sans-serif;font-weight:600;color:var(--navy);}
+  .budget-total .amount{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.4rem;color:var(--terracota);}
+
+  /* PLANNING */
+  .planning-row{display:flex;align-items:center;gap:16px;margin-bottom:14px;}
+  .planning-label{width:190px;flex-shrink:0;font-weight:600;font-size:.88rem;color:var(--navy);}
+  .planning-track{flex:1;background:var(--navy-tint);border-radius:8px;height:34px;position:relative;overflow:hidden;}
+  .planning-bar{position:absolute;top:0;bottom:0;background:var(--terracota);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:.72rem;font-weight:600;}
+  .planning-bar.alt{background:var(--babyblue);color:var(--navy);}
+  .months{display:flex;margin-left:206px;margin-top:6px;}
+  .months span{flex:1;text-align:center;font-size:.72rem;color:var(--gray);}
+
+  /* ENV LOGOS */
+  .env-logos{display:flex;gap:28px;flex-wrap:wrap;align-items:center;margin-top:12px;}
+  .env-logo{background:var(--navy-tint);border-radius:10px;padding:16px 26px;font-family:'Poppins',sans-serif;font-weight:600;color:var(--navy);font-size:.95rem;}
+
+  /* DATA PYRAMID */
+  .pyramid{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:0 auto;}
+  .pyr-layer{border-radius:10px;padding:18px 24px;color:var(--white);}
+  .pyr-layer h4{color:var(--white);margin-bottom:4px;font-size:.95rem;}
+  .pyr-layer p{margin:0;font-size:.85rem;opacity:.92;}
+  .pyr-1{background:var(--navy);width:100%;align-self:center;}
+  .pyr-2{background:#12308c;width:88%;align-self:center;}
+  .pyr-3{background:#3a5bc0;width:76%;align-self:center;}
+  .pyr-4{background:var(--terracota);width:64%;align-self:center;}
+
+  .funnel{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;}
+  .funnel-step{flex:1;min-width:200px;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;}
+  .funnel-step .glyph{font-size:1.4rem;color:var(--terracota);}
+  .funnel-arrow{align-self:center;color:var(--babyblue);font-size:1.4rem;}
+
+  /* FORMATS */
+  .format-card{border-left:4px solid var(--babyblue);}
+  .format-card h3{font-size:1rem;}
+  .format-spec{font-size:.82rem;color:var(--navy);font-weight:600;margin-top:8px;}
+  .kpi-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+  .kpi-tag{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:3px 10px;font-size:.72rem;color:var(--gray);}
+
+  /* RGPD */
+  .rgpd-list{list-style:none;padding:0;margin:0;display:grid;gap:14px;}
+  .rgpd-list li{background:var(--navy-tint);border-radius:10px;padding:16px 20px;font-size:.9rem;color:var(--ink);}
+
+  /* FOOTER / CONTACTS */
+  .footer{background:var(--navy);color:var(--white);padding:64px 24px 40px;}
+  .footer-inner{max-width:1140px;margin:0 auto;}
+  .footer h2{color:var(--white);}
+  .contacts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;}
+  .contact-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:18px;}
+  .contact-card .role{font-size:.72rem;color:var(--babyblue);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+  .contact-card .name{font-family:'Poppins',sans-serif;font-weight:600;margin-bottom:6px;}
+  .contact-card a{color:var(--white);text-decoration:none;font-size:.85rem;display:block;opacity:.85;}
+  .contact-card a:hover{opacity:1;text-decoration:underline;}
+  .footer-logo{margin-top:48px;opacity:.85;}
+  .footer-logo svg{height:44px;width:auto;}
+  .footer-bottom{margin-top:20px;font-size:.75rem;color:rgba(255,255,255,.5);}
+  .tgw-logo-fill{fill:#ffffff;}
+
+  @media(max-width:760px){
+    .grid-3,.grid-2,.contacts-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:1.7rem;}
+    .planning-row{flex-direction:column;align-items:flex-start;}
+    .planning-label{width:auto;}
+    .months{margin-left:0;}
+    .funnel{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-logo">
+      <svg viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <path class="tgw-logo-fill" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+          <path class="tgw-logo-fill" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+          <path class="tgw-logo-fill" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="tgw-logo-fill" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+          <path class="tgw-logo-fill" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="tgw-logo-fill" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="tgw-logo-fill" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+          <path class="tgw-logo-fill" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+          <path class="tgw-logo-fill" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="tgw-logo-fill" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+        </g>
+        <path class="tgw-logo-fill" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+        <g>
+          <path class="tgw-logo-fill" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+          <path class="tgw-logo-fill" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+          <path class="tgw-logo-fill" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+          <path class="tgw-logo-fill" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+          <path class="tgw-logo-fill" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+          <path class="tgw-logo-fill" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+          <path class="tgw-logo-fill" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+          <path class="tgw-logo-fill" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+          <path class="tgw-logo-fill" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+        </g>
+        <g>
+          <path class="tgw-logo-fill" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+          <path class="tgw-logo-fill" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+          <path class="tgw-logo-fill" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+          <path class="tgw-logo-fill" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+          <path class="tgw-logo-fill" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+          <path class="tgw-logo-fill" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+          <path class="tgw-logo-fill" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+          <path class="tgw-logo-fill" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+          <path class="tgw-logo-fill" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+          <path class="tgw-logo-fill" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+          <path class="tgw-logo-fill" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+          <path class="tgw-logo-fill" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+          <path class="tgw-logo-fill" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+          <path class="tgw-logo-fill" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+          <path class="tgw-logo-fill" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+        </g>
+      </svg>
+    </div>
+    <span class="section-label">Reco média · lancement commercial</span>
+    <h1>Constructa &mdash; Résidence seniors, Manosque</h1>
+    <p class="lead">Proposition de dispositif média Meta (temps fort + fil rouge) pour accompagner la commercialisation d'un programme de 48 logements dédiés aux seniors autonomes.</p>
+    <div class="pills">
+      <div class="pill"><div class="pill-label">Client</div><div class="pill-value">Constructa</div></div>
+      <div class="pill"><div class="pill-label">Marché</div><div class="pill-value">Manosque &amp; 04 / PACA</div></div>
+      <div class="pill"><div class="pill-label">Budget étudié</div><div class="pill-value">2 000&nbsp;€ + 5&nbsp;000&nbsp;€</div></div>
+      <div class="pill"><div class="pill-label">Objectif</div><div class="pill-value">Lancement commercial</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-sticky">
+  <div class="nav-inner">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats-kpis">Formats &amp; KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</div>
+
+<!-- CONTEXTE -->
+<section id="contexte">
+  <span class="section-label">Contexte</span>
+  <h2 class="section-title">Un nouveau programme senior à faire connaître à Manosque</h2>
+  <p class="section-sub">Constructa lance la commercialisation d'une résidence de 48 logements (majoritairement T2, avec T1 et T3) destinée aux seniors autonomes, à proximité immédiate du centre-ville de Manosque. Le positionnement est volontairement éloigné de l'EHPAD ou de la résidence médicalisée : c'est un habitat adapté, pas un établissement de soin.</p>
+  <div class="grid grid-3">
+    <div class="card num-card c-rose"><span class="num">01</span><h3>Faire connaître le programme</h3><p>Générer de la notoriété locale et régionale sur le lancement commercial auprès des cibles prioritaires.</p></div>
+    <div class="card num-card c-bleu"><span class="num">02</span><h3>Toucher les 3 profils clés</h3><p>Futurs occupants seniors, aidants familiaux prescripteurs et investisseurs, avec des messages adaptés à chacun.</p></div>
+    <div class="card num-card c-corail"><span class="num">03</span><h3>Générer des prises de contact</h3><p>Amener vers la demande d'information / prise de rendez-vous, sur toute la durée de la commercialisation.</p></div>
+  </div>
+</section>
+
+<!-- DISPOSITIF -->
+<section id="dispositif" style="background:var(--navy-tint);">
+  <span class="section-label">Dispositif</span>
+  <h2 class="section-title">Deux temps de campagne complémentaires, 100% Meta</h2>
+  <p class="section-sub">Le brief cible un seul levier &mdash; Meta (Facebook / Instagram) &mdash; que nous déclinons en deux dispositifs à la logique différente : un temps fort de lancement pour créer un pic de visibilité, puis un fil rouge pour maintenir la présence et convertir dans la durée.</p>
+  <div class="grid grid-2">
+    <div class="card c-menthe">
+      <h3>① Temps fort de lancement &mdash; 1 mois, 2 000&nbsp;€</h3>
+      <p>Concentration du budget sur les premières semaines de commercialisation pour maximiser la couverture et la notoriété au moment du lancement. Formats Post + Story, priorité aux cibles seniors et aidants sur la zone prioritaire.</p>
+    </div>
+    <div class="card c-peche">
+      <h3>② Fil rouge &mdash; 5 mois, 1 000&nbsp;€/mois</h3>
+      <p>Diffusion continue après le temps fort pour entretenir la notoriété, élargir progressivement la zone de chalandise (bassin de vie, puis PACA) et capter la demande au fil de l'eau, avec du retargeting sur les audiences engagées.</p>
+    </div>
+  </div>
+  <div class="funnel">
+    <div class="funnel-step"><span class="glyph">●</span><h4>Notoriété</h4><p>Temps fort de lancement, large reach sur Manosque &amp; bassin de vie.</p></div>
+    <div class="funnel-arrow">&rarr;</div>
+    <div class="funnel-step"><span class="glyph">■</span><h4>Considération</h4><p>Fil rouge, messages différenciés seniors / aidants / investisseurs.</p></div>
+    <div class="funnel-arrow">&rarr;</div>
+    <div class="funnel-step"><span class="glyph">◆</span><h4>Conversion</h4><p>Retargeting des audiences engagées vers la demande d'information.</p></div>
+  </div>
+</section>
+
+<!-- ENVIRONNEMENTS -->
+<section id="environnements">
+  <span class="section-label">Environnements</span>
+  <h2 class="section-title">Diffusion Meta</h2>
+  <p class="section-sub">Conformément au brief, la diffusion est concentrée sur l'écosystème Meta, en Post et Story.</p>
+  <div class="env-logos">
+    <div class="env-logo">Facebook</div>
+    <div class="env-logo">Instagram</div>
+    <div class="env-logo">Facebook &amp; Instagram Stories</div>
+    <div class="env-logo">Facebook &amp; Instagram Reels</div>
+  </div>
+</section>
+
+<!-- PLANNING -->
+<section id="planning" style="background:var(--navy-tint);">
+  <span class="section-label">Planning</span>
+  <h2 class="section-title">6 mois d'activation</h2>
+  <p class="section-sub">Le temps fort ouvre la commercialisation, le fil rouge prend le relais dès le mois 2 et court sur 5 mois pleins.</p>
+  <div class="planning-row">
+    <div class="planning-label">Temps fort lancement</div>
+    <div class="planning-track"><div class="planning-bar" style="left:0%;width:16.6%;">M1</div></div>
+  </div>
+  <div class="planning-row">
+    <div class="planning-label">Fil rouge</div>
+    <div class="planning-track"><div class="planning-bar alt" style="left:16.6%;width:83.4%;">M2 &rarr; M6</div></div>
+  </div>
+  <div class="months">
+    <span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span>
+  </div>
+</section>
+
+<!-- BUDGETS -->
+<section id="budgets">
+  <span class="section-label">Budgets</span>
+  <h2 class="section-title">Deux scénarios, un seul objectif</h2>
+  <p class="section-sub">CPM grille Achat TGW (Social Post 5&nbsp;€ / Social Story 6&nbsp;€ / Social Post+Story 5&nbsp;€). Estimations d'impressions calculées sur un CPM moyen mixte Post+Story de 5,5&nbsp;€.</p>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('t1',this)">① Temps fort &mdash; 2 000&nbsp;€</button>
+    <button class="tab-btn" onclick="showTab('t2',this)">② Fil rouge &mdash; 5 000&nbsp;€</button>
+  </div>
+
+  <div id="t1" class="tab-panel active">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Poste</th><th>Durée</th><th>Budget</th><th>CPM moyen</th><th>Impressions estimées</th></tr></thead>
+        <tbody>
+          <tr><td>Social Post + Story (Meta)</td><td>1 mois</td><td>2 000&nbsp;€</td><td>5,5&nbsp;€</td><td>&asymp; 360 000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="budget-total"><span class="label">Total temps fort</span><span class="amount">2 000&nbsp;€</span></div>
+  </div>
+
+  <div id="t2" class="tab-panel">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Poste</th><th>Durée</th><th>Budget mensuel</th><th>CPM moyen</th><th>Impressions estimées / mois</th></tr></thead>
+        <tbody>
+          <tr><td>Social Post + Story (Meta)</td><td>5 mois</td><td>1 000&nbsp;€/mois</td><td>5,5&nbsp;€</td><td>&asymp; 180 000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="budget-total"><span class="label">Total fil rouge (5 mois)</span><span class="amount">5 000&nbsp;€</span></div>
+  </div>
+
+  <div class="budget-total" style="margin-top:24px;background:var(--navy);">
+    <span class="label" style="color:var(--white);">Budget total des deux dispositifs (6 mois)</span>
+    <span class="amount" style="color:var(--babyblue);">7 000&nbsp;€ &middot; &asymp; 1 260 000 impressions cumulées</span>
+  </div>
+</section>
+
+<!-- FORMATS & KPIS -->
+<section id="formats-kpis" style="background:var(--navy-tint);">
+  <span class="section-label">Formats &amp; KPIs</span>
+  <h2 class="section-title">Suivi de la performance Social Ads</h2>
+  <div class="grid grid-2">
+    <div class="card format-card">
+      <h3>Formats créatifs</h3>
+      <p>Post carré 1080x1080px &middot; Story/Reel 9:16 1920x1080px (mp4) &middot; Bumper ads 6s pour les formats vidéo courts.</p>
+    </div>
+    <div class="card format-card">
+      <h3>KPIs suivis</h3>
+      <div class="kpi-tags">
+        <span class="kpi-tag">Impressions</span>
+        <span class="kpi-tag">Clics</span>
+        <span class="kpi-tag">CTR</span>
+        <span class="kpi-tag">Reach</span>
+        <span class="kpi-tag">Interactions</span>
+        <span class="kpi-tag">Coût par interaction</span>
+        <span class="kpi-tag">CPM final</span>
+        <span class="kpi-tag">Vues 25/50/75/100%</span>
+        <span class="kpi-tag">Taux de complétion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section id="audiences">
+  <span class="section-label">Audiences</span>
+  <h2 class="section-title">3 profils, 3 logiques de ciblage</h2>
+  <p class="section-sub">La cible investisseurs est isolée des deux premières, conformément au brief, pour ne pas diluer le message auprès des futurs occupants et de leurs proches.</p>
+  <div class="grid grid-3">
+    <div class="card persona-card">
+      <span class="persona-glyph">●</span>
+      <h3>Seniors autonomes</h3>
+      <ul>
+        <li>65 ans et plus, retraités</li>
+        <li>Propriétaires de leur résidence principale</li>
+        <li>En réflexion sur une maison devenue trop grande</li>
+      </ul>
+      <span class="persona-tag">Manosque &middot; bassin de vie &middot; 04</span>
+    </div>
+    <div class="card persona-card">
+      <span class="persona-glyph">■</span>
+      <h3>Enfants / aidants familiaux</h3>
+      <ul>
+        <li>45-65 ans, parent(s) âgé(s)</li>
+        <li>Sensibles à la sécurité, la proximité, l'autonomie</li>
+        <li>Peuvent résider à distance des parents</li>
+      </ul>
+      <span class="persona-tag">04 &middot; PACA &middot; 13 &middot; 84 &middot; 83/06</span>
+    </div>
+    <div class="card persona-card">
+      <span class="persona-glyph">◆</span>
+      <h3>Investisseurs</h3>
+      <ul>
+        <li>40-65 ans, CSP+</li>
+        <li>Propriétaires / investisseurs immobiliers</li>
+        <li>Professions libérales, dirigeants, cadres</li>
+      </ul>
+      <span class="persona-tag">PACA &middot; ciblage isolé des cibles 1 &amp; 2</span>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGIE DATA -->
+<section id="data" style="background:var(--navy-tint);">
+  <span class="section-label">Stratégie data</span>
+  <h2 class="section-title">Construire le ciblage aidant, moins direct qu'il n'y paraît</h2>
+  <p class="section-sub">Meta ne propose pas d'intérêt "aidant familial" en tant que tel : le ciblage se construit en couches, en croisant critères démographiques, centres d'intérêt proches et comportements, puis en l'affinant avec les audiences propres à Constructa.</p>
+  <div class="pyramid">
+    <div class="pyr-layer pyr-1"><h4>Couche 1 &middot; Socio-démo</h4><p>Âge, zone géographique, statut retraité (cible 1) &middot; âge 45-65 ans, zone élargie (cible 2) &middot; CSP+, zone PACA (cible 3).</p></div>
+    <div class="pyr-layer pyr-2"><h4>Couche 2 &middot; Centres d'intérêt</h4><p>Immobilier senior, résidences services, aide à domicile, silver économie, vie pratique des séniors, investissement locatif.</p></div>
+    <div class="pyr-layer pyr-3"><h4>Couche 3 &middot; Comportements</h4><p>Événements de vie (parent vieillissant, changement de logement), recherche active de biens immobiliers, interactions avec pages dédiées aux séniors.</p></div>
+    <div class="pyr-layer pyr-4"><h4>Couche 4 &middot; Audiences Constructa</h4><p>Lookalike à partir des demandes d'information déjà reçues (autres programmes) et retargeting des visiteurs du site / de la landing page dédiée.</p></div>
+  </div>
+</section>
+
+<!-- RGPD -->
+<section id="rgpd">
+  <span class="section-label">RGPD &amp; brand safety</span>
+  <h2 class="section-title">Un ciblage cadré</h2>
+  <ul class="rgpd-list">
+    <li>Ciblage basé sur des critères déclaratifs et comportementaux agrégés par Meta, aucune donnée nominative transmise à Constructa sans consentement explicite (formulaire de contact).</li>
+    <li>Aucun ciblage discriminatoire lié à l'âge ne sera utilisé de façon à exclure : l'âge sert à prioriser la diffusion, pas à restreindre l'accès au message.</li>
+    <li>Placements maîtrisés (Facebook, Instagram, environnements officiels Meta), exclusion des emplacements à risque de brand safety.</li>
+  </ul>
+</section>
+
+<!-- FOOTER / CONTACTS -->
+<div class="footer" id="contacts">
+  <div class="footer-inner">
+    <span class="section-label" style="background:var(--terracota);">Contacts</span>
+    <h2>L'équipe TGW à votre disposition</h2>
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <div class="role">Directeur commercial</div>
+        <div class="name">Jérôme Fages</div>
+        <a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+        <a href="tel:0618746675">06 18 74 66 75</a>
+      </div>
+      <div class="contact-card">
+        <div class="role">Directrice de clientèle</div>
+        <div class="name">Mathilde Coriton</div>
+        <a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a>
+        <a href="tel:0648619292">06 48 61 92 92</a>
+      </div>
+      <div class="contact-card">
+        <div class="role">Cheffe de publicité</div>
+        <div class="name">Leslie Rogé</div>
+        <a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+        <a href="tel:0683736862">06 83 73 68 62</a>
+      </div>
+      <div class="contact-card">
+        <div class="role">Chargée de compte</div>
+        <div class="name">Andrea</div>
+        <span style="opacity:.6;font-size:.85rem;">andrea@thegoodweb.eu</span>
+      </div>
+      <div class="contact-card">
+        <div class="role">Cheffe de publicité</div>
+        <div class="name">Sofien Chaganiou</div>
+        <a href="mailto:sofien@thegoodweb.eu">sofien@thegoodweb.eu</a>
+        <a href="tel:0767847067">07 67 84 70 67</a>
+      </div>
+      <div class="contact-card">
+        <div class="role">Pôle activation</div>
+        <div class="name">Activation TGW</div>
+        <span style="opacity:.6;font-size:.85rem;">activation@thegoodweb.eu</span>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <svg viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg" style="height:44px;width:auto;display:block;">
+        <g>
+          <path class="tgw-logo-fill" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+          <path class="tgw-logo-fill" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+          <path class="tgw-logo-fill" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="tgw-logo-fill" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+          <path class="tgw-logo-fill" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="tgw-logo-fill" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="tgw-logo-fill" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+          <path class="tgw-logo-fill" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+          <path class="tgw-logo-fill" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="tgw-logo-fill" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+        </g>
+        <path class="tgw-logo-fill" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+        <g>
+          <path class="tgw-logo-fill" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+          <path class="tgw-logo-fill" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+        </g>
+        <g>
+          <path class="tgw-logo-fill" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+          <path class="tgw-logo-fill" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+          <path class="tgw-logo-fill" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+          <path class="tgw-logo-fill" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+          <path class="tgw-logo-fill" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+          <path class="tgw-logo-fill" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+          <path class="tgw-logo-fill" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+          <path class="tgw-logo-fill" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+          <path class="tgw-logo-fill" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+        </g>
+      </svg>
+    </div>
+    <div class="footer-bottom">The Good Web &middot; Reco média Constructa &middot; Manosque &middot; confidentiel</div>
+  </div>
+</div>
+
+<script>
+function showTab(id, btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
