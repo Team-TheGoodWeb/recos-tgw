@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pigier — Melun &amp; Paris · Recommandation média 2026/27 · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#021859;
+    --babyblue:#7bbdff;
+    --terracota:#f25430;
+    --white:#ffffff;
+    --c-lavande:#eef1ff;
+    --c-rose:#eef0fb;
+    --c-bleu:#eaf4ff;
+    --c-menthe:#e9edf7;
+    --c-corail:#fdece5;
+    --c-peche:#fff1ea;
+    --ink:#1c2440;
+    --muted:#5b6280;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(2,24,89,.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Poppins',sans-serif;
+    color:var(--navy);
+    margin:0 0 .5em 0;
+  }
+  p{margin:0 0 1em 0;}
+  a{color:var(--terracota);}
+  img,svg{max-width:100%;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  section{padding:64px 0;}
+  section:nth-of-type(even){background:#fafbff;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(160deg,var(--navy) 0%,#041e6e 100%);
+    color:var(--white);
+    padding:48px 0 40px;
+  }
+  .hero .wrap{display:flex;flex-direction:column;gap:28px;}
+  .hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;}
+  .logo{width:118px;flex:0 0 auto;}
+  .hero-client{flex:1 1 320px;}
+  .hero-client .eyebrow{
+    color:var(--babyblue);
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-size:.78rem;
+    margin-bottom:8px;
+  }
+  .hero h1{color:var(--white);font-size:2.1rem;line-height:1.15;margin-bottom:6px;}
+  .hero .sub{color:#c9d6ff;font-size:1.02rem;max-width:640px;}
+  .pastilles{display:flex;flex-wrap:wrap;gap:12px;}
+  .pastille{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:999px;
+    padding:10px 18px;
+    font-size:.86rem;
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
+  .pastille b{color:var(--babyblue);font-family:'Poppins',sans-serif;font-weight:600;}
+
+  /* ---------- NAV STICKY ---------- */
+  nav.subnav{
+    position:sticky;top:0;z-index:50;
+    background:var(--white);
+    border-bottom:1px solid #e7e9f4;
+    box-shadow:0 2px 12px rgba(2,24,89,.05);
+  }
+  nav.subnav .wrap{display:flex;gap:4px;overflow-x:auto;padding:0 24px;}
+  nav.subnav a{
+    white-space:nowrap;
+    display:block;
+    padding:14px 14px;
+    color:var(--navy);
+    text-decoration:none;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:.84rem;
+    border-bottom:3px solid transparent;
+  }
+  nav.subnav a:hover{border-bottom-color:var(--terracota);color:var(--terracota);}
+
+  /* ---------- MARKET TOGGLE ---------- */
+  .market-toggle{
+    display:inline-flex;
+    background:var(--c-lavande);
+    border-radius:999px;
+    padding:4px;
+    gap:2px;
+    margin-bottom:28px;
+  }
+  .market-toggle button{
+    border:none;background:transparent;cursor:pointer;
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:.82rem;
+    padding:9px 20px;border-radius:999px;color:var(--navy);
+    transition:.15s;
+  }
+  .market-toggle button.active{background:var(--navy);color:var(--white);}
+  [data-market]{display:none;}
+  [data-market].active{display:block;}
+
+  /* ---------- SECTION HEADER ---------- */
+  .section-tag{
+    font-family:'Poppins',sans-serif;font-weight:700;
+    color:var(--terracota);font-size:.78rem;letter-spacing:.08em;
+    text-transform:uppercase;margin-bottom:8px;
+  }
+  .section-title{font-size:1.65rem;margin-bottom:8px;}
+  .section-intro{color:var(--muted);max-width:760px;margin-bottom:32px;}
+
+  /* ---------- CARDS GRID ---------- */
+  .grid{display:grid;gap:18px;}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  .card{
+    background:var(--white);
+    border:1px solid #eceefa;
+    border-radius:var(--radius);
+    padding:22px;
+    box-shadow:var(--shadow);
+  }
+  .card h4{font-size:1.02rem;margin-bottom:6px;}
+  .card.tint-lavande{background:var(--c-lavande);}
+  .card.tint-rose{background:var(--c-rose);}
+  .card.tint-bleu{background:var(--c-bleu);}
+  .card.tint-menthe{background:var(--c-menthe);}
+  .card.tint-corail{background:var(--c-corail);}
+  .card.tint-peche{background:var(--c-peche);}
+  .num-badge{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:10px;
+    background:var(--terracota);color:var(--white);
+    font-family:'Poppins',sans-serif;font-weight:700;font-size:.95rem;
+    margin-bottom:12px;
+  }
+
+  /* ---------- LOGO STRIP (environnements) ---------- */
+  .logo-strip{
+    display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .logo-strip span{
+    background:var(--white);
+    border:1px solid #eceefa;
+    border-radius:10px;
+    padding:8px 14px;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:.82rem;
+    color:var(--navy);
+  }
+
+  /* ---------- TABLES ---------- */
+  .table-scroll{overflow-x:auto;border-radius:var(--radius);box-shadow:var(--shadow);}
+  table{width:100%;border-collapse:collapse;min-width:760px;background:var(--white);}
+  thead th{
+    background:var(--navy);color:var(--white);
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:.8rem;
+    text-transform:uppercase;letter-spacing:.03em;
+    padding:14px 16px;text-align:left;white-space:nowrap;
+  }
+  tbody td{
+    padding:14px 16px;border-bottom:1px solid #eef0f8;
+    font-size:.9rem;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:#fafbff;}
+  td.budget{font-family:'Poppins',sans-serif;font-weight:700;color:var(--terracota);white-space:nowrap;}
+  td.levier{font-family:'Poppins',sans-serif;font-weight:600;color:var(--navy);}
+  .tag{
+    display:inline-block;background:var(--c-lavande);color:var(--navy);
+    border-radius:6px;padding:2px 8px;font-size:.72rem;font-weight:600;
+    font-family:'Poppins',sans-serif;
+  }
+
+  /* ---------- TOTAL RECAP ---------- */
+  .recap{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px;
+  }
+  .recap .box{
+    border-radius:var(--radius);padding:22px;color:var(--white);
+  }
+  .recap .box.navy{background:var(--navy);}
+  .recap .box.terracota{background:var(--terracota);}
+  .recap .box .amount{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.9rem;}
+  .recap .box .label{font-size:.82rem;opacity:.85;margin-top:4px;}
+  .note{
+    font-size:.82rem;color:var(--muted);
+    background:var(--c-bleu);border-radius:10px;padding:12px 16px;margin-top:18px;
+  }
+
+  /* ---------- PLANNING ---------- */
+  .plan-row{
+    display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:center;
+    padding:14px 0;border-bottom:1px solid #eef0f8;
+  }
+  .plan-row:last-child{border-bottom:none;}
+  .plan-bar-wrap{background:#eef0f8;border-radius:8px;height:36px;position:relative;overflow:hidden;}
+  .plan-bar{
+    position:absolute;top:0;bottom:0;border-radius:8px;
+    background:linear-gradient(90deg,var(--navy),var(--babyblue));
+    display:flex;align-items:center;padding:0 12px;
+    color:var(--white);font-size:.76rem;font-family:'Poppins',sans-serif;font-weight:600;
+    white-space:nowrap;
+  }
+
+  /* ---------- FORMATS & KPI ---------- */
+  .fk-card{padding:24px;}
+  .fk-card .fmt-list, .fk-card .kpi-list{margin:0;padding:0;list-style:none;}
+  .fk-card .fmt-list li, .fk-card .kpi-list li{
+    font-size:.86rem;padding:5px 0 5px 18px;position:relative;color:var(--ink);
+  }
+  .fk-card .fmt-list li:before{content:"■";position:absolute;left:0;color:var(--terracota);font-size:.6rem;top:9px;}
+  .fk-card .kpi-list li:before{content:"◆";position:absolute;left:0;color:var(--babyblue);font-size:.65rem;top:8px;}
+  .fk-card h4{display:flex;align-items:center;gap:8px;}
+
+  /* ---------- AUDIENCES ---------- */
+  .persona{padding:24px;}
+  .persona .glyph{font-size:1.5rem;color:var(--terracota);margin-bottom:10px;display:block;}
+  .persona ul{margin:10px 0 0;padding-left:18px;font-size:.86rem;color:var(--muted);}
+  .persona ul li{margin-bottom:4px;}
+
+  /* ---------- DATA PYRAMID ---------- */
+  .pyramid{display:flex;flex-direction:column;gap:10px;max-width:720px;}
+  .pyramid .layer{
+    border-radius:12px;padding:16px 22px;color:var(--white);
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:.92rem;
+  }
+  .pyramid .layer span{
+    display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.82rem;
+    opacity:.9;margin-top:4px;
+  }
+  .pyramid .l1{background:var(--navy);}
+  .pyramid .l2{background:#1e3a8a;}
+  .pyramid .l3{background:#3d63c4;}
+  .pyramid .l4{background:var(--babyblue);color:var(--navy);}
+
+  /* ---------- RGPD ---------- */
+  .rgpd-box{
+    background:var(--c-menthe);border-radius:var(--radius);padding:28px;
+    display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;
+  }
+  .rgpd-box .icon{font-size:1.8rem;color:var(--navy);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy);color:var(--white);padding:56px 0 32px;}
+  footer .logo{width:88px;margin-bottom:24px;}
+  footer h2{color:var(--white);}
+  .contacts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}
+  .contact-card{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;padding:18px;
+    text-decoration:none;color:var(--white);display:block;
+    transition:.15s;
+  }
+  .contact-card:hover{background:rgba(255,255,255,.12);}
+  .contact-card .role{color:var(--babyblue);font-size:.78rem;margin-bottom:6px;}
+  .contact-card .name{font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;margin-bottom:8px;}
+  .contact-card .detail{font-size:.82rem;opacity:.85;line-height:1.7;}
+  footer .bottom{
+    margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);
+    font-size:.76rem;opacity:.6;text-align:center;
+  }
+
+  @media(max-width:900px){
+    .grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;}
+    .recap{grid-template-columns:1fr;}
+    .contacts-grid{grid-template-columns:1fr 1fr;}
+    .plan-row{grid-template-columns:120px 1fr;}
+  }
+  @media(max-width:600px){
+    .hero h1{font-size:1.5rem;}
+    section{padding:44px 0;}
+    .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+    .contacts-grid{grid-template-columns:1fr;}
+    .plan-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <svg class="logo" viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <path class="st0" fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+          <path class="st0" fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+          <path class="st0" fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="st0" fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+          <path class="st0" fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="st0" fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="st0" fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+          <path class="st0" fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+          <path class="st0" fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="st0" fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+        </g>
+        <path class="st0" fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+        <g>
+          <path class="st0" fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+          <path class="st0" fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+        </g>
+      </svg>
+      <div class="pastilles" style="align-self:flex-start;">
+        <span class="pastille">Période&nbsp;: <b>Plan 2026/2027</b></span>
+      </div>
+    </div>
+
+    <div class="hero-client">
+      <div class="eyebrow">Recommandation média · The Good Web</div>
+      <h1>Pigier — Campus Melun &amp; Paris</h1>
+      <p class="sub">Dispositif de notoriété locale pour la campagne de recrutement étudiant, avec un ciblage dédié sur chacun des deux bassins (Melun et Paris) et une option d'affichage digital DOOH sur la zone parisienne.</p>
+    </div>
+
+    <div class="pastilles">
+      <span class="pastille">Objectif&nbsp;: <b>Notoriété locale &amp; recrutement étudiant</b></span>
+      <span class="pastille">Marchés&nbsp;: <b>Melun (+30 km) · Paris 19ᵉ &amp; Paris Est</b></span>
+      <span class="pastille">Budget Melun&nbsp;: <b>10 000 € – 12 000 € HT</b></span>
+      <span class="pastille">Budget Paris&nbsp;: <b>15 000 € – 18 000 € HT</b> (+ option DOOH 15 000 € HT)</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== NAV ===================== -->
+<nav class="subnav">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats-kpis">Formats &amp; KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#donnees">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<!-- ===================== CONTEXTE ===================== -->
+<section id="contexte">
+  <div class="wrap">
+    <div class="section-tag">01 · Contexte</div>
+    <h2 class="section-title">Deux campus, un même objectif de notoriété locale</h2>
+    <p class="section-intro">Pigier souhaite renforcer sa visibilité auprès des futurs étudiants et de leur entourage sur ses deux bassins de recrutement, Melun et Paris, avec une logique média premium et une couche de ciblage data sur-mesure.</p>
+
+    <div class="grid grid-3">
+      <div class="card tint-lavande">
+        <div class="num-badge">1</div>
+        <h4>Développer la notoriété locale</h4>
+        <p style="color:var(--muted);font-size:.88rem;">Favoriser la diffusion du message Pigier sur des leviers premium, à forte répétition, sur chaque bassin.</p>
+      </div>
+      <div class="card tint-rose">
+        <div class="num-badge">2</div>
+        <h4>Toucher les 3 profils clés</h4>
+        <p style="color:var(--muted);font-size:.88rem;">Étudiants, lycéens en orientation et parents de futurs étudiants, avec des messages et environnements adaptés à chacun.</p>
+      </div>
+      <div class="card tint-bleu">
+        <div class="num-badge">3</div>
+        <h4>Générer de la considération</h4>
+        <p style="color:var(--muted);font-size:.88rem;">Compléter la couverture par du retargeting programmatique pour accompagner la réflexion jusqu'à la prise de contact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DISPOSITIF ===================== -->
+<section id="dispositif">
+  <div class="wrap">
+    <div class="section-tag">02 · Dispositif</div>
+    <h2 class="section-title">Une logique PUSH sur leviers premium, déclinée par bassin</h2>
+    <p class="section-intro">Développer la notoriété locale en favorisant la diffusion d'un message sur des leviers premium, complétée par du retargeting programmatique pour ancrer le message.</p>
+
+    <div class="market-toggle" data-toggle-group="dispositif">
+      <button class="active" data-market-btn="melun">Melun</button>
+      <button data-market-btn="paris">Paris</button>
+    </div>
+
+    <div data-market="melun" data-group="dispositif" class="active">
+      <div class="grid grid-3">
+        <div class="card">
+          <h4>Social Ads (Post + Story)</h4>
+          <p style="color:var(--muted);font-size:.88rem;">Couverture large et répétée sur les réseaux sociaux pour installer la notoriété du campus de Melun.</p>
+        </div>
+        <div class="card">
+          <h4>Audio (Spotify / Deezer)</h4>
+          <p style="color:var(--muted);font-size:.88rem;">Environnement immersif à fort taux de complétion pour toucher l'audience étudiante en situation d'écoute.</p>
+        </div>
+        <div class="card">
+          <h4>cTV + Retargeting Display</h4>
+          <p style="color:var(--muted);font-size:.88rem;">Visibilité premium grand écran sur chaînes premium, complétée par un retargeting programmatique sur sites éditeurs premium pour réengager les internautes déjà exposés.</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-market="paris" data-group="dispositif">
+      <div class="grid grid-4">
+        <div class="card">
+          <h4>Social Ads (Post + Story)</h4>
+          <p style="color:var(--muted);font-size:.88rem;">Couverture large et répétée sur les réseaux sociaux pour installer la notoriété du campus parisien.</p>
+        </div>
+        <div class="card">
+          <h4>Audio (Spotify / Deezer)</h4>
+          <p style="color:var(--muted);font-size:.88rem;">Environnement immersif à fort taux de complétion pour capter une audience engagée.</p>
+        </div>
+        <div class="card">
+          <h4>cTV + Retargeting Display</h4>
+          <p style="color:var(--muted);font-size:.88rem;">Inventaire premium sur grand écran et réengagement des internautes déjà exposés à la campagne.</p>
+        </div>
+        <div class="card tint-corail">
+          <h4>DOOH — option</h4>
+          <p style="color:var(--muted);font-size:.88rem;">1 900 écrans en Île-de-France, avec des créneaux de diffusion adaptés aux rythmes de vie étudiants (transports, centres commerciaux, salles de sport).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ENVIRONNEMENTS ===================== -->
+<section id="environnements">
+  <div class="wrap">
+    <div class="section-tag">03 · Environnements</div>
+    <h2 class="section-title">Un cadre de diffusion premium et brand safe</h2>
+    <p class="section-intro">Les créations sont diffusées exclusivement sur des environnements premium, qualifiés et brand safe.</p>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h4>Audio — streaming &amp; radio</h4>
+        <div class="logo-strip">
+          <span>Spotify</span><span>Deezer</span><span>Ausha</span><span>RFM</span><span>NRJ</span><span>Skyrock</span><span>Radio France</span><span>Chérie FM</span><span>Europe 1</span>
+        </div>
+      </div>
+      <div class="card">
+        <h4>cTV — chaînes premium</h4>
+        <div class="logo-strip">
+          <span>TF1</span><span>M6</span><span>BFM TV</span><span>TMC</span><span>W9</span><span>RMC</span><span>TFX</span><span>6ter</span><span>Canal+</span><span>France.tv</span>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Social Ads</h4>
+        <div class="logo-strip">
+          <span>Meta / Facebook</span><span>Instagram</span><span>Snapchat</span><span>TikTok</span><span>YouTube Shorts</span>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Retargeting Display — sites éditeurs premium</h4>
+        <div class="logo-strip">
+          <span>Le Figaro</span><span>Le Monde</span><span>Le Parisien</span><span>Le Point</span><span>Leboncoin</span><span>La Provence</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card tint-corail" style="margin-top:18px;">
+      <h4>DOOH — réseaux Île-de-France (option Paris)</h4>
+      <p style="color:var(--muted);font-size:.88rem;">1 900 écrans répartis dans les réseaux de transport, centres commerciaux et salles de sport de la zone Paris 19ᵉ / Paris Est, avec une diffusion adaptée par typologie d'écran :</p>
+      <ul style="color:var(--muted);font-size:.88rem;padding-left:18px;">
+        <li>Réseaux de transport : diffusion 7h–10h et 17h–19h (trajets étudiants)</li>
+        <li>Centres commerciaux : diffusion renforcée le week-end</li>
+        <li>Salles de sport : diffusion 17h–20h (créneaux de forte fréquentation)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PLANNING ===================== -->
+<section id="planning">
+  <div class="wrap">
+    <div class="section-tag">04 · Planning</div>
+    <h2 class="section-title">Durées d'activation par levier</h2>
+    <p class="section-intro">Durées d'activation recommandées par levier, sur le cadre plan 2026/2027. Le calendrier précis de mise en ligne (vagues/dates) sera calé conjointement une fois la proposition validée.</p>
+
+    <div class="market-toggle" data-toggle-group="planning">
+      <button class="active" data-market-btn="melun">Melun</button>
+      <button data-market-btn="paris">Paris</button>
+    </div>
+
+    <div data-market="melun" data-group="planning" class="active card">
+      <div class="plan-row">
+        <div>Social Ads</div>
+        <div class="plan-bar-wrap"><div class="plan-bar" style="width:40%;">2 semaines</div></div>
+      </div>
+      <div class="plan-row">
+        <div>Audio</div>
+        <div class="plan-bar-wrap"><div class="plan-bar" style="width:40%;">2 semaines</div></div>
+      </div>
+      <div class="plan-row">
+        <div>cTV</div>
+        <div class="plan-bar-wrap"><div class="plan-bar" style="width:40%;">2 semaines</div></div>
+      </div>
+      <div class="plan-row">
+        <div>Retargeting Display</div>
+        <div class="plan-bar-wrap"><div class="plan-bar" style="width:20%;">1 semaine</div></div>
+      </div>
+    </div>
+
+    <div data-market="paris" data-group="planning" class="card">
+      <div class="plan-row">
+        <div>Social Ads</div>
+        <div class="plan-bar-wrap"><div class="plan-bar" style="width:60%;">2 à 3 semaines</div></div>
+      </div>
+      <div class="plan-row">
+        <div>Audio</div>
+        <div class="plan-bar-wrap"><div class="plan-bar" style="width:40%;">2 semaines</div></div>
+      </div>
+      <div class="plan-row">
+        <div>cTV</div>
+        <div class="plan-bar-wrap"><div class="plan-bar" style="width:40%;">2 semaines</div></div>
+      </div>
+      <div class="plan-row">
+        <div>Retargeting Display</div>
+        <div class="plan-bar-wrap"><div class="plan-bar" style="width:20%;">1 semaine</div></div>
+      </div>
+      <div class="plan-row">
+        <div>DOOH (option)</div>
+        <div class="plan-bar-wrap"><div class="plan-bar" style="width:20%;background:linear-gradient(90deg,var(--terracota),#ff9270);">1 semaine</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BUDGETS ===================== -->
+<section id="budgets">
+  <div class="wrap">
+    <div class="section-tag">05 · Budgets</div>
+    <h2 class="section-title">Enveloppe budgétaire détaillée, ligne par ligne</h2>
+    <p class="section-intro">Chaque ligne du dispositif est chiffrée avec son CPM, sa durée et son enveloppe budgétaire associée. Deux paliers de budget sont proposés par levier afin de visualiser l'effet sur les volumes.</p>
+
+    <div class="market-toggle" data-toggle-group="budgets">
+      <button class="active" data-market-btn="melun">Melun</button>
+      <button data-market-btn="paris">Paris</button>
+    </div>
+
+    <!-- MELUN BUDGETS -->
+    <div data-market="melun" data-group="budgets" class="active">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Levier</th>
+              <th>Mode d'achat</th>
+              <th>Durée</th>
+              <th>Palier essentiel</th>
+              <th>Palier recommandé</th>
+              <th>Impressions</th>
+              <th>Reach estimé</th>
+              <th>Capping</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="levier">Social Ads (Post + Story)</td>
+              <td>CPM 5 €</td>
+              <td>2 semaines</td>
+              <td class="budget">1 000 € HT</td>
+              <td class="budget">2 000 € HT</td>
+              <td>200K&nbsp;/&nbsp;400K</td>
+              <td>50K&nbsp;/&nbsp;100K</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td class="levier">Audio (Spotify / Deezer)</td>
+              <td>CPM 15 €</td>
+              <td>2 semaines</td>
+              <td class="budget">1 500 € HT</td>
+              <td class="budget">2 500 € HT</td>
+              <td>100K&nbsp;/&nbsp;166K</td>
+              <td>25K&nbsp;/&nbsp;41K</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td class="levier">cTV — chaînes premium</td>
+              <td>CPM 22 €</td>
+              <td>2 semaines</td>
+              <td class="budget" colspan="2" style="text-align:center;">6 000 € HT <span class="tag">bundle fixe</span></td>
+              <td>272K</td>
+              <td>68K</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td class="levier">Retargeting Display (pDisplay)</td>
+              <td>CPM 12 €</td>
+              <td>1 semaine</td>
+              <td class="budget" colspan="2" style="text-align:center;">1 500 € HT <span class="tag">bundle fixe</span></td>
+              <td>125K</td>
+              <td>31K</td>
+              <td>4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="recap">
+        <div class="box navy">
+          <div class="amount">10 000 € HT</div>
+          <div class="label">Scénario essentiel — paliers bas + bundle cTV/retargeting (7 500 € HT)</div>
+        </div>
+        <div class="box terracota">
+          <div class="amount">12 000 € HT</div>
+          <div class="label">Scénario recommandé — paliers hauts + bundle cTV/retargeting (7 500 € HT)</div>
+        </div>
+      </div>
+      <div class="note">Le bundle cTV + Retargeting Display (7 500 € HT) est proposé à budget fixe, identique dans les deux scénarios. CPM négociés spécifiques à ce dossier.</div>
+    </div>
+
+    <!-- PARIS BUDGETS -->
+    <div data-market="paris" data-group="budgets">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Levier</th>
+              <th>Mode d'achat</th>
+              <th>Durée</th>
+              <th>Palier 1</th>
+              <th>Palier 2</th>
+              <th>Impressions</th>
+              <th>Reach estimé</th>
+              <th>Capping</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="levier">Social Ads (Post + Story)</td>
+              <td>CPM 5 €</td>
+              <td>2 à 3 semaines</td>
+              <td class="budget">2 000 € HT</td>
+              <td class="budget">4 000 € HT</td>
+              <td>400K&nbsp;/&nbsp;800K</td>
+              <td>100K&nbsp;/&nbsp;200K</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td class="levier">Audio (Spotify / Deezer)</td>
+              <td>CPM 15 €</td>
+              <td>2 semaines</td>
+              <td class="budget">3 500 € HT</td>
+              <td class="budget">4 500 € HT</td>
+              <td>233K&nbsp;/&nbsp;300K</td>
+              <td>58K&nbsp;/&nbsp;75K</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td class="levier">cTV — chaînes premium</td>
+              <td>CPM 22 €</td>
+              <td>2 semaines</td>
+              <td class="budget" colspan="2" style="text-align:center;">8 000 € HT <span class="tag">bundle fixe</span></td>
+              <td>363K</td>
+              <td>90K</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td class="levier">Retargeting Display (pDisplay)</td>
+              <td>CPM 12 €</td>
+              <td>1 semaine</td>
+              <td class="budget" colspan="2" style="text-align:center;">1 500 € HT <span class="tag">bundle fixe</span></td>
+              <td>125K</td>
+              <td>31K</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td class="levier">DOOH — 1 900 écrans <span class="tag">option</span></td>
+              <td>CPM 48 €</td>
+              <td>1 semaine</td>
+              <td class="budget" colspan="2" style="text-align:center;">15 000 € HT</td>
+              <td>—</td>
+              <td>312 500 passages</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="recap">
+        <div class="box navy">
+          <div class="amount">15 000 € HT</div>
+          <div class="label">Scénario palier 1, hors DOOH (Social 2 000 € + Audio 3 500 € + bundle cTV/retargeting 9 500 €)</div>
+        </div>
+        <div class="box terracota">
+          <div class="amount">18 000 € HT</div>
+          <div class="label">Scénario palier 2, hors DOOH (Social 4 000 € + Audio 4 500 € + bundle cTV/retargeting 9 500 €)</div>
+        </div>
+        <div class="box navy">
+          <div class="amount">30 000 € HT</div>
+          <div class="label">Scénario palier 1, avec option DOOH (+ 15 000 € HT)</div>
+        </div>
+        <div class="box terracota">
+          <div class="amount">33 000 € HT</div>
+          <div class="label">Scénario palier 2, avec option DOOH (+ 15 000 € HT)</div>
+        </div>
+      </div>
+      <div class="note">Le bundle cTV + Retargeting Display (9 500 € HT = 8 000 € + 1 500 €) est proposé à budget fixe, identique dans les deux paliers. CPM négociés spécifiques à ce dossier ; le DOOH reste une option indépendante des paliers Social/Audio.</div>
+    </div>
+
+    <div class="card tint-lavande" style="margin-top:28px;">
+      <h4>Total combiné Melun + Paris</h4>
+      <div class="grid grid-2" style="margin-top:14px;">
+        <div>
+          <p style="margin-bottom:4px;color:var(--muted);font-size:.86rem;">Hors option DOOH</p>
+          <p style="font-family:'Poppins',sans-serif;font-weight:700;color:var(--navy);font-size:1.1rem;">25 000 € HT (essentiel) → 30 000 € HT (recommandé)</p>
+        </div>
+        <div>
+          <p style="margin-bottom:4px;color:var(--muted);font-size:.86rem;">Avec option DOOH Paris</p>
+          <p style="font-family:'Poppins',sans-serif;font-weight:700;color:var(--terracota);font-size:1.1rem;">40 000 € HT (essentiel) → 45 000 € HT (recommandé)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FORMATS & KPIS ===================== -->
+<section id="formats-kpis">
+  <div class="wrap">
+    <div class="section-tag">06 · Formats &amp; KPIs de suivi</div>
+    <h2 class="section-title">Spécifications techniques et indicateurs par levier</h2>
+    <p class="section-intro">Scopé aux seuls leviers recommandés dans cette proposition.</p>
+
+    <div class="grid grid-3">
+      <div class="card fk-card tint-bleu">
+        <h4>Social Ads (Post + Story)</h4>
+        <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">Formats</p>
+        <ul class="fmt-list">
+          <li>Post 1080x1080px</li>
+          <li>Story 9:16 — 1920x1080px, mp4</li>
+          <li>Bumper ads 6s</li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--muted);margin:14px 0 10px;">KPIs</p>
+        <ul class="kpi-list">
+          <li>Impressions, clics, CTR, reach</li>
+          <li>Interactions &amp; coût par interaction</li>
+          <li>CPM final</li>
+          <li>Vues à 25/50/75/100 %, taux de complétion</li>
+        </ul>
+      </div>
+
+      <div class="card fk-card tint-lavande">
+        <h4>Audio (Spotify / Deezer)</h4>
+        <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">Formats</p>
+        <ul class="fmt-list">
+          <li>1:1 — 640x640px</li>
+          <li>9:16 — 720x1280px</li>
+          <li>Spot 15/20/30 secondes</li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--muted);margin:14px 0 10px;">KPIs</p>
+        <ul class="kpi-list">
+          <li>Impressions, reach, clics</li>
+          <li>Écoutes à 25/50/75/100 %, taux de complétion</li>
+          <li>Statistiques socio-démo, capping</li>
+          <li>CPE &amp; CPM finaux</li>
+        </ul>
+      </div>
+
+      <div class="card fk-card tint-rose">
+        <h4>cTV — chaînes premium</h4>
+        <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">Formats</p>
+        <ul class="fmt-list">
+          <li>1920x1080px — 16:9, mp4</li>
+          <li>15 à 30 secondes</li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--muted);margin:14px 0 10px;">KPIs</p>
+        <ul class="kpi-list">
+          <li>Impressions, clics, CTR, reach</li>
+          <li>Taux de complétion</li>
+          <li>Top chaînes de diffusion</li>
+          <li>Étude socio-démo, géoloc, affinitaires</li>
+        </ul>
+      </div>
+
+      <div class="card fk-card tint-menthe">
+        <h4>Retargeting Display (pDisplay)</h4>
+        <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">Formats</p>
+        <ul class="fmt-list">
+          <li>300x600 · 300x250 · 320x480 px</li>
+          <li>728x90 · 160x600 · 320x50 px</li>
+          <li>jpeg, png, gif</li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--muted);margin:14px 0 10px;">KPIs</p>
+        <ul class="kpi-list">
+          <li>Impressions, clics, CTR</li>
+          <li>Taux de complétion</li>
+          <li>Étude socio-démo, géoloc, affinitaires</li>
+          <li>Visites in-store</li>
+        </ul>
+      </div>
+
+      <div class="card fk-card tint-corail">
+        <h4>DOOH <span class="tag">option Paris</span></h4>
+        <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px;">Formats</p>
+        <ul class="fmt-list">
+          <li>9:16 — 1080x1920px, mp4</li>
+          <li>10 secondes</li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--muted);margin:14px 0 10px;">KPIs</p>
+        <ul class="kpi-list">
+          <li>Impressions, diffusion</li>
+          <li>Top publishers</li>
+          <li>Nombre de plays / occasions de voir</li>
+          <li>Stats par typologie d'écran</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AUDIENCES ===================== -->
+<section id="audiences">
+  <div class="wrap">
+    <div class="section-tag">07 · Audiences</div>
+    <h2 class="section-title">Trois cibles complémentaires, un ciblage géo-comportemental fin</h2>
+    <p class="section-intro">Ciblage socio-démo H/F, 18 à 55 ans, sur un profil étudiant et son entourage proche, décliné par bassin géographique.</p>
+
+    <div class="grid grid-3">
+      <div class="card persona tint-lavande">
+        <span class="glyph">●</span>
+        <h4>Étudiants &amp; futurs étudiants</h4>
+        <p style="color:var(--muted);font-size:.86rem;">18-25 ans, lycéens en terminale, étudiants en BTS/IUT/licence/master, en recherche d'orientation post-bac.</p>
+        <ul>
+          <li>Poursuite d'études, intérêt formations du campus</li>
+          <li>Bac+2/+3/+5</li>
+          <li>Domaines : gestion, management, RH, communication, web marketing, comptabilité, finance, assurance, vente, commercial, banque, administratif</li>
+        </ul>
+      </div>
+      <div class="card persona tint-bleu">
+        <span class="glyph">■</span>
+        <h4>Parents de futurs étudiants</h4>
+        <p style="color:var(--muted);font-size:.86rem;">35-60 ans, en recherche active d'informations sur l'orientation et la vie étudiante de leurs enfants.</p>
+        <ul>
+          <li>Orientation scolaire &amp; parcours post-bac</li>
+          <li>Vie étudiante, logement, aides financières</li>
+          <li>Insertion professionnelle, alternance, stages</li>
+        </ul>
+      </div>
+      <div class="card persona tint-rose">
+        <span class="glyph">◆</span>
+        <h4>Lycéens en orientation</h4>
+        <p style="color:var(--muted);font-size:.86rem;">Foyers avec enfants en âge d'entrer à l'université (16 ans et +), en phase de recherche d'orientation.</p>
+        <ul>
+          <li>Fréquentation lycées &amp; centres d'examen</li>
+          <li>Salons et forums d'orientation</li>
+          <li>Recherches Parcoursup, Onisep</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:18px;">
+      <div class="card">
+        <h4>Géolocalisation — Melun</h4>
+        <p style="color:var(--muted);font-size:.88rem;">Melun et son bassin, dans un rayon de 30 km.</p>
+      </div>
+      <div class="card">
+        <h4>Géolocalisation — Paris</h4>
+        <p style="color:var(--muted);font-size:.88rem;">Paris 19ᵉ et Paris Est ; réseau DOOH étendu à l'Île-de-France pour l'option affichage digital.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STRATÉGIE DATA ===================== -->
+<section id="donnees">
+  <div class="wrap">
+    <div class="section-tag">08 · Stratégie data</div>
+    <h2 class="section-title">Une architecture data en couches, activable et affinable</h2>
+    <p class="section-intro">Ciblage construit à partir de partenaires data complémentaires, pour couvrir la mobilité, les comportements d'achat et les recherches actives liées aux études.</p>
+
+    <div class="pyramid">
+      <div class="layer l1">Socio-démo &amp; profils étudiants
+        <span>Sexe, âge, niveau d'études, filière, poursuite d'études</span>
+      </div>
+      <div class="layer l2">Data Seiki — mobilité &amp; GPS
+        <span>Campus, bibliothèques, coworking, salons étudiants et forums emploi, lieux de forte affluence, trajets domicile → campus aux heures de pointe</span>
+      </div>
+      <div class="layer l3">Data Le Bon Coin — recherches actives
+        <span>Recherche de matériel scolaire, offres d'emploi, d'alternance ou de stage</span>
+      </div>
+      <div class="layer l4">Data Cdiscount — comportements d'achat
+        <span>Fournitures, sacs à dos, gadgets tech, équipement informatique/bureautique, installation en premier logement</span>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:22px;">Possibilité d'affinage des segments à tout moment de la campagne, selon les priorités de ciblage de Pigier et les premiers enseignements de diffusion.</div>
+  </div>
+</section>
+
+<!-- ===================== RGPD ===================== -->
+<section id="rgpd">
+  <div class="wrap">
+    <div class="section-tag">09 · RGPD &amp; Brand Safety</div>
+    <h2 class="section-title">Diffusion conforme et environnements maîtrisés</h2>
+    <div class="rgpd-box">
+      <div class="icon">◐</div>
+      <div>
+        <p>L'ensemble des données utilisées dans le cadre de ce dispositif (cookieless, cookie-based, GPS, comportementales) sont collectées et traitées dans le respect du RGPD, avec consentement recueilli en amont par les partenaires data.</p>
+        <p style="margin-bottom:0;">La diffusion est exclusivement réalisée sur des environnements premium et qualifiés, garantissant une diffusion brand safe et brand suitable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER / CONTACTS ===================== -->
+<footer id="contacts">
+  <div class="wrap">
+    <svg class="logo" viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+        <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+        <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+        <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+        <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+        <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+      </g>
+    </svg>
+
+    <h2>Contacts</h2>
+    <p style="color:#c9d6ff;max-width:560px;">Une question sur cette proposition, un besoin d'affinage des ciblages ou de calage des dates ? L'équipe TGW reste à disposition.</p>
+
+    <div class="contacts-grid">
+      <a class="contact-card" href="mailto:leslie@thegoodweb.eu">
+        <div class="role">Cheffe de publicité</div>
+        <div class="name">Leslie Rogé</div>
+        <div class="detail">06 83 73 68 62<br>leslie@thegoodweb.eu</div>
+      </a>
+      <a class="contact-card" href="mailto:jerome@thegoodweb.eu">
+        <div class="role">Directeur commercial</div>
+        <div class="name">Jérôme Fages</div>
+        <div class="detail">06 18 74 66 75<br>jerome@thegoodweb.eu</div>
+      </a>
+      <a class="contact-card" href="mailto:mathilde@thegoodweb.eu">
+        <div class="role">Directrice de clientèle</div>
+        <div class="name">Mathilde Coriton</div>
+        <div class="detail">06 48 61 92 92<br>mathilde@thegoodweb.eu</div>
+      </a>
+      <a class="contact-card" href="mailto:sofien@thegoodweb.eu">
+        <div class="role">Chef de publicité</div>
+        <div class="name">Sofien Chaganiou</div>
+        <div class="detail">07 67 84 70 67<br>sofien@thegoodweb.eu</div>
+      </a>
+      <div class="contact-card" style="opacity:.6;cursor:default;">
+        <div class="role">—</div>
+        <div class="name">Andrea</div>
+        <div class="detail">andrea@thegoodweb.eu</div>
+      </div>
+      <div class="contact-card" style="opacity:.6;cursor:default;">
+        <div class="role">Pôle activation</div>
+        <div class="name">Activation TGW</div>
+        <div class="detail">activation@thegoodweb.eu</div>
+      </div>
+    </div>
+
+    <div class="bottom">The Good Web · The Good Audience — Recommandation confidentielle Pigier, Plan 2026/2027</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.market-toggle').forEach(function(toggle){
+    var group = toggle.getAttribute('data-toggle-group');
+    var buttons = toggle.querySelectorAll('button');
+    var panels = document.querySelectorAll('[data-group="' + group + '"]');
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var market = btn.getAttribute('data-market-btn');
+        buttons.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        panels.forEach(function(p){
+          if(p.getAttribute('data-market') === market){
+            p.classList.add('active');
+          } else {
+            p.classList.remove('active');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
