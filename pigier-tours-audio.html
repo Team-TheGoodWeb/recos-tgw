@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pigier Tours — Recommandation Audio | The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#021859;
+    --babyblue:#7bbdff;
+    --terracota:#f25430;
+    --white:#ffffff;
+    --c-lavande:#eef0ff;
+    --c-rose:#eee7fb;
+    --c-bleu:#eaf4ff;
+    --c-menthe:#e7ecf7;
+    --c-corail:#fdece6;
+    --c-peche:#fff2e8;
+    --ink:#1b2340;
+    --muted:#5b6480;
+    --line:#e4e8f4;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',sans-serif;color:var(--ink);background:var(--white);line-height:1.55;}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);margin:0 0 12px;}
+  .l{fill:var(--white);}
+  .hero h1{color:var(--white) !important;}
+  p{margin:0 0 12px;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  a{color:var(--terracota);}
+
+  /* HERO */
+  .hero{background:var(--navy);color:var(--white);padding:56px 0 44px;}
+  .hero h1{color:var(--white);font-size:clamp(28px,4vw,42px);margin-bottom:8px;}
+  .hero .sub{color:var(--babyblue);font-family:'Poppins',sans-serif;font-weight:600;font-size:16px;margin-bottom:28px;}
+  .hero-logo{width:110px;height:auto;margin-bottom:28px;display:block;}
+  .pills{display:flex;flex-wrap:wrap;gap:12px;}
+  .pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center;}
+  .pill b{color:var(--babyblue);font-weight:700;}
+
+  /* NAV */
+  nav.stickynav{position:sticky;top:0;background:var(--white);border-bottom:1px solid var(--line);z-index:50;box-shadow:0 2px 10px rgba(2,24,89,.04);}
+  nav.stickynav .navwrap{display:flex;gap:4px;overflow-x:auto;padding:0 24px;max-width:1120px;margin:0 auto;}
+  nav.stickynav a{white-space:nowrap;text-decoration:none;color:var(--navy);font-size:13px;font-weight:600;font-family:'Poppins',sans-serif;padding:14px 10px;border-bottom:3px solid transparent;}
+  nav.stickynav a:hover{border-bottom-color:var(--terracota);color:var(--terracota);}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  section .eyebrow{color:var(--terracota);font-family:'Poppins',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+  section h2{font-size:26px;margin-bottom:24px;}
+
+  .grid{display:grid;gap:18px;}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  @media(max-width:760px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+
+  .card{border-radius:14px;padding:22px;border:1px solid var(--line);background:var(--c-bleu);}
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:14px;color:var(--muted);margin-bottom:0;}
+  .card .num{font-family:'Poppins',sans-serif;font-weight:800;color:var(--terracota);font-size:22px;margin-bottom:6px;display:block;}
+
+  .tone-lavande{background:var(--c-lavande);}
+  .tone-rose{background:var(--c-rose);}
+  .tone-bleu{background:var(--c-bleu);}
+  .tone-menthe{background:var(--c-menthe);}
+  .tone-corail{background:var(--c-corail);}
+  .tone-peche{background:var(--c-peche);}
+
+  .placeholder{color:var(--terracota);font-weight:700;background:var(--c-corail);padding:1px 8px;border-radius:6px;font-size:.92em;white-space:nowrap;}
+
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  thead th{background:var(--navy);color:var(--white);font-family:'Poppins',sans-serif;font-weight:600;text-align:left;padding:12px 14px;}
+  tbody td{padding:12px 14px;border-bottom:1px solid var(--line);}
+  tbody tr:nth-child(even){background:var(--c-bleu);}
+  .tag{display:inline-block;background:var(--babyblue);color:var(--navy);font-weight:700;font-size:11px;padding:2px 8px;border-radius:6px;}
+
+  .funnel{display:flex;gap:14px;flex-wrap:wrap;}
+  .funnel .step{flex:1;min-width:200px;background:var(--navy);color:var(--white);border-radius:14px;padding:20px;position:relative;}
+  .funnel .step h4{color:var(--babyblue);font-family:'Poppins',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+  .funnel .step p{color:rgba(255,255,255,.85);font-size:13px;margin:0;}
+
+  .plan-row{display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:center;margin-bottom:10px;}
+  .plan-label{font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;color:var(--navy);}
+  .plan-track{background:var(--c-bleu);border-radius:10px;height:44px;position:relative;overflow:hidden;border:1px solid var(--line);}
+  .plan-bar{position:absolute;top:6px;bottom:6px;background:var(--terracota);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:12px;font-weight:700;padding:0 10px;font-family:'Poppins',sans-serif;}
+
+  .persona{display:flex;gap:14px;align-items:flex-start;border-radius:14px;padding:20px;border:1px solid var(--line);}
+  .glyph{font-size:22px;color:var(--terracota);flex-shrink:0;}
+  .persona h3{font-size:15px;margin-bottom:4px;}
+  .persona p{font-size:13.5px;color:var(--muted);margin:0;}
+
+  .pyramid{display:flex;flex-direction:column;gap:8px;max-width:640px;margin:0 auto;}
+  .pyramid .layer{background:var(--navy);color:var(--white);border-radius:10px;padding:14px 18px;text-align:center;font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;}
+  .pyramid .layer.l2{background:#122a73;width:88%;margin:0 auto;}
+  .pyramid .layer.l3{background:#233d8c;width:76%;margin:0 auto;}
+  .pyramid .layer small{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:12px;color:var(--babyblue);margin-top:4px;}
+
+  .kpi-list{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .kpi-list li{background:var(--c-bleu);border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:12.5px;color:var(--navy);font-weight:600;}
+
+  .footer{background:var(--navy);color:var(--white);padding:56px 0 32px;}
+  .footer h2{color:var(--white);}
+  .footer-logo{width:88px;height:auto;margin-bottom:20px;}
+  .contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:760px){.contacts{grid-template-columns:1fr;}}
+  .contact-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px;}
+  .contact-card b{font-family:'Poppins',sans-serif;display:block;margin-bottom:2px;}
+  .contact-card span{display:block;font-size:13px;color:rgba(255,255,255,.75);}
+  .contact-card a{color:var(--babyblue);text-decoration:none;font-size:13px;}
+  .footer .fine{margin-top:32px;font-size:12px;color:rgba(255,255,255,.5);}
+
+  .rgpd-box{background:var(--c-menthe);border-radius:14px;padding:22px;border:1px solid var(--line);}
+  .note-placeholder{font-size:13px;color:var(--muted);font-style:italic;margin-top:6px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <svg class="hero-logo" viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path class="l" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+        <path class="l" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+        <path class="l" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path class="l" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+        <path class="l" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path class="l" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path class="l" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+        <path class="l" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+        <path class="l" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path class="l" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+      </g>
+      <path class="l" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+      <g>
+        <path class="l" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path class="l" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+        <path class="l" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+        <path class="l" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path class="l" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+        <path class="l" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path class="l" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+        <path class="l" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+        <path class="l" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+      </g>
+      <g>
+        <path class="l" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+        <path class="l" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+        <path class="l" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+        <path class="l" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+        <path class="l" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+      </g>
+    </svg>
+    <p class="sub">Recommandation stratégique · Levier Audio</p>
+    <h1>Pigier Tours — Campagne Audio JPO 2027</h1>
+    <div class="pills">
+      <div class="pill">📅 <b>Période :</b> 10/02 → 20/03/2027</div>
+      <div class="pill">💰 <b>Budget :</b> 3 000 € HT</div>
+      <div class="pill">🎯 <b>Objectif :</b> Notoriété &amp; mémorisation JPO</div>
+      <div class="pill">📍 <b>Géo :</b> 10 villes ciblées, dép. 37 / 36 / 41</div>
+    </div>
+  </div>
+</header>
+
+<nav class="stickynav">
+  <div class="navwrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#kpis">Formats &amp; KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<!-- CONTEXTE -->
+<section id="contexte">
+  <div class="wrap">
+    <div class="eyebrow">01 · Contexte</div>
+    <h2>Une campagne audio pour accompagner les Journées Portes Ouvertes</h2>
+    <p style="max-width:760px;color:var(--muted);">Pigier Tours souhaite promouvoir ses prochaines Journées Portes Ouvertes auprès des étudiants en recherche de formation (Bac+2 à Bac+5), avec un budget resserré de 3 000 € priorisant l'audio digital pour sa force de mémorisation, calé sur le calendrier Parcoursup.</p>
+    <div class="card tone-corail" style="margin-bottom:22px;">
+      <h3>Arbitrage sur les dates de JPO</h3>
+      <p style="margin-bottom:0;">Sur les 7 JPO communiquées par Pigier Tours (23/01, 20/02, 06/03, 20/03, 24/04, 22/05, 19/06), nous recommandons de concentrer le budget sur les JPO du <b>20/02</b> et du <b>06/03</b> : ce sont les deux seules dates qui précèdent la clôture de la formulation des vœux Parcoursup, prévisionnellement située à la <b>mi-mars</b> (calendrier 2027 non encore officiel, calé sur la session 2026). La JPO du 20/03 intervient après cette échéance clé : les étudiants ont déjà formulé leurs vœux, ce qui en réduit fortement l'intérêt publicitaire. La date du 23/01 est quant à elle jugée trop précoce, la majorité des lycéens n'ayant pas encore ouvert leur dossier Parcoursup à cette période. Les JPO d'avril à juin sortent du cadre budgétaire de cette recommandation.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card tone-lavande"><h3>Objectif n°1</h3><p>Faire connaître les Journées Portes Ouvertes auprès des étudiants de la zone de chalandise.</p></div>
+      <div class="card tone-rose"><h3>Objectif n°2</h3><p>Maximiser la mémorisation du message plutôt que la génération directe de clics.</p></div>
+      <div class="card tone-bleu"><h3>Objectif n°3</h3><p>Couvrir deux temps forts du calendrier Parcoursup avec deux vagues distinctes.</p></div>
+      <div class="card tone-menthe"><h3>Objectif n°4</h3><p>Concentrer le budget sur un ciblage géographique resserré, ville par ville.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DISPOSITIF -->
+<section id="dispositif">
+  <div class="wrap">
+    <div class="eyebrow">02 · Dispositif</div>
+    <h2>Un levier Audio, deux options de dispositif</h2>
+    <p style="max-width:760px;color:var(--muted);">Le budget de 3 000 € est investi sur le levier Audio, structuré en deux vagues : une première vague courte pré-JPO du 20/02, et une seconde vague étirée en continu pour porter la JPO du 06/03 sans rupture jusqu'à la clôture des vœux Parcoursup à la mi-mars — plus efficace qu'une multiplication de courtes fenêtres avec un budget resserré. Deux variantes de dispositif sont proposées pour ce même calendrier.</p>
+    <div class="grid grid-2">
+      <div class="card tone-lavande">
+        <h3>Option A — Streaming pur <span class="tag" style="margin-left:6px;">recommandée</span></h3>
+        <p>Spotify + Deezer uniquement. CPM le plus compétitif du catalogue (9 €), volume d'impressions maximisé — la priorité en contexte de budget resserré.</p>
+      </div>
+      <div class="card tone-rose">
+        <h3>Option B — Streaming + Podcast</h3>
+        <p>Ajout des podcasts (orientation, actualité étudiante) en complément du streaming musical. CPM plus élevé (12 €) donc volume réduit à budget égal, mais audience en contexte d'écoute plus engagé et attentif — pertinent si l'objectif prioritaire est la qualité du contact plutôt que le volume.</p>
+      </div>
+    </div>
+    <div class="funnel" style="margin-top:22px;">
+      <div class="step"><h4>Awareness</h4><p>Diffusion audio, capping 5 répétitions par auditeur pour renforcer la mémorisation.</p></div>
+      <div class="step"><h4>Considération</h4><p>Message centré sur la date et les atouts de la JPO, diffusé sur la fenêtre pré-événement.</p></div>
+      <div class="step"><h4>Mémorisation</h4><p>KPI de suivi : taux de complétion d'écoute plutôt que le clic, plus représentatif en contexte audio.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ENVIRONNEMENTS -->
+<section id="environnements">
+  <div class="wrap">
+    <div class="eyebrow">03 · Environnements</div>
+    <h2>Diffusion sur les deux principales plateformes de streaming audio</h2>
+    <div class="grid grid-2">
+      <div class="card tone-corail">
+        <h3>Spotify</h3>
+        <p>Format audio natif au sein des playlists et contenus écoutés par la cible étudiante, avec ciblage socio-démographique et géographique fin.</p>
+      </div>
+      <div class="card tone-peche">
+        <h3>Deezer</h3>
+        <p>Intégré sans surcoût pour élargir la couverture, avec optimisation programmatique de la répartition du budget entre les deux plateformes gérée par les équipes TGW.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANNING -->
+<section id="planning">
+  <div class="wrap">
+    <div class="eyebrow">04 · Planning</div>
+    <h2>Deux vagues calées sur le calendrier Parcoursup</h2>
+    <div class="plan-row">
+      <div class="plan-label">Vague 1<br><span style="font-weight:400;color:var(--muted);">10/02 → 20/02</span></div>
+      <div class="plan-track"><div class="plan-bar" style="left:2%;width:26%;">Diffusion pré-JPO — 10 jours</div></div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-label">JPO n°1<br><span style="font-weight:400;color:var(--muted);">20/02</span></div>
+      <div class="plan-track"><div class="plan-bar" style="left:30%;width:3%;background:var(--navy);">📍</div></div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-label">Vague 2<br><span style="font-weight:400;color:var(--muted);">24/02 → 20/03</span></div>
+      <div class="plan-track"><div class="plan-bar" style="left:36%;width:60%;">Diffusion continue — porte le 06/03 jusqu'à mi-mars</div></div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-label">JPO n°2<br><span style="font-weight:400;color:var(--muted);">06/03</span></div>
+      <div class="plan-track"><div class="plan-bar" style="left:58%;width:3%;background:var(--navy);">📍</div></div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-label">Clôture vœux<br><span style="font-weight:400;color:var(--muted);">mi-mars (prév.)</span></div>
+      <div class="plan-track"><div class="plan-bar" style="left:82%;width:3%;background:var(--terracota);">🎯</div></div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-label">JPO n°3<br><span style="font-weight:400;color:var(--muted);">20/03</span></div>
+      <div class="plan-track"><div class="plan-bar" style="left:96%;width:3%;background:#9aa4c4;">📍</div></div>
+    </div>
+    <p class="note-placeholder">La JPO du 20/03 (repère grisé) tombe après la clôture prévisionnelle des vœux Parcoursup — elle n'est pas couverte par une vague dédiée dans cette recommandation, faute de budget disponible et d'intérêt publicitaire réduit à ce stade de la procédure. Dates 2027 prévisionnelles, calées sur le calendrier Parcoursup 2026 en l'absence de calendrier officiel 2027 (publication attendue nov.-déc. 2026).</p>
+  </div>
+</section>
+
+<!-- BUDGETS -->
+<section id="budgets">
+  <div class="wrap">
+    <div class="eyebrow">05 · Budgets</div>
+    <h2>Répartition du budget — Option A (recommandée)</h2>
+    <table>
+      <thead>
+        <tr><th>Vague</th><th>Levier</th><th>CPM (achat TGW)</th><th>Budget HT</th><th>Impressions estimées</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Vague 1 — 10/02 → 20/02 (JPO 20/02)</td><td>Audio streaming (Spotify + Deezer)</td><td>9 €</td><td>1 200 €</td><td>~133 300</td></tr>
+        <tr><td>Vague 2 — 24/02 → 20/03 (JPO 06/03)</td><td>Audio streaming (Spotify + Deezer)</td><td>9 €</td><td>1 800 €</td><td>~200 000</td></tr>
+        <tr style="font-weight:700;"><td colspan="3">Total</td><td>3 000 € HT</td><td>~333 300</td></tr>
+      </tbody>
+    </table>
+    <p class="note-placeholder">Volumes d'impressions estimés sur la base du CPM catalogue TGW (9 €) : arbitrage final entre Spotify et Deezer géré en programmatique par les équipes d'activation. Répartition légèrement supérieure sur la vague 2, plus longue, afin de maintenir une fréquence utile jusqu'à la clôture des vœux Parcoursup.</p>
+
+    <h2 style="margin-top:40px;">Scénario alternatif — Option B</h2>
+    <table>
+      <thead>
+        <tr><th>Vague</th><th>Levier</th><th>CPM (achat TGW)</th><th>Budget HT</th><th>Impressions estimées</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Vague 1 — 10/02 → 20/02 (JPO 20/02)</td><td>Audio streaming + podcast</td><td>12 €</td><td>1 200 €</td><td>~100 000</td></tr>
+        <tr><td>Vague 2 — 24/02 → 20/03 (JPO 06/03)</td><td>Audio streaming + podcast</td><td>12 €</td><td>1 800 €</td><td>~150 000</td></tr>
+        <tr style="font-weight:700;"><td colspan="3">Total</td><td>3 000 € HT</td><td>~250 000</td></tr>
+      </tbody>
+    </table>
+    <p class="note-placeholder">À budget identique, l'ajout du podcast réduit le volume d'impressions d'environ 25 % par rapport à l'option A, mais capte une audience en contexte d'écoute plus attentif : un arbitrage volume / qualité de contact à trancher.</p>
+  </div>
+</section>
+
+<!-- FORMATS & KPIS -->
+<section id="kpis">
+  <div class="wrap">
+    <div class="eyebrow">06 · Formats &amp; KPIs de suivi</div>
+    <h2>Audio streaming — spécifications et indicateurs</h2>
+    <div class="grid grid-2">
+      <div class="card tone-bleu">
+        <h3>Formats techniques</h3>
+        <p>1:1 — 640x640 px, ou 9:16 — 720x1280 px<br>Durée : 15, 20 ou 30 secondes (15 sec recommandé pour l'attention et la mémorisation)</p>
+      </div>
+      <div class="card tone-menthe">
+        <h3>Paramètres de diffusion</h3>
+        <p>Capping : 5 répétitions par auditeur<br>Territoire : 10 villes ciblées sur les départements 37, 41 et 36</p>
+      </div>
+    </div>
+    <div class="card tone-lavande" style="margin-top:18px;">
+      <h3>KPIs de suivi</h3>
+      <ul class="kpi-list">
+        <li>Impressions</li>
+        <li>Reach</li>
+        <li>Écoutes à 25 / 50 / 75 / 100%</li>
+        <li>Taux de complétion</li>
+        <li>Statistiques socio-démo</li>
+        <li>Capping</li>
+        <li>CPE &amp; CPM finaux</li>
+      </ul>
+      <p class="note-placeholder" style="margin-top:10px;">Le taux de complétion d'écoute reste l'indicateur principal ; les clics ne sont pas représentatifs en contexte d'écoute (notamment en voiture).</p>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section id="audiences">
+  <div class="wrap">
+    <div class="eyebrow">07 · Audiences</div>
+    <h2>Une cible étudiante précisément qualifiée</h2>
+    <div class="grid grid-3">
+      <div class="persona tone-corail"><span class="glyph">●</span><div><h3>Étudiants post-bac</h3><p>Bac +2 à Bac +5, en recherche active de formation ou de poursuite d'études.</p></div></div>
+      <div class="persona tone-peche"><span class="glyph">■</span><div><h3>Parcours ciblés</h3><p>Gestion, management, RH, communication, marketing, finance, banque, commerce, administratif.</p></div></div>
+      <div class="persona tone-bleu"><span class="glyph">◆</span><div><h3>Ciblage démographique</h3><p>Hommes et femmes, 18 ans et plus.</p></div></div>
+      <div class="persona tone-menthe"><span class="glyph">⌂</span><div><h3>Ciblage géographique — dép. 37</h3><p>Tours et agglomération proche (Saint-Cyr-sur-Loire, Joué-lès-Tours, Saint-Pierre-des-Corps), Amboise, Loches.</p></div></div>
+      <div class="persona tone-corail"><span class="glyph">⌂</span><div><h3>Ciblage géographique — dép. 41</h3><p>Blois, Vendôme.</p></div></div>
+      <div class="persona tone-peche"><span class="glyph">⌂</span><div><h3>Ciblage géographique — dép. 36</h3><p>Châteauroux, Issoudun.</p></div></div>
+      <div class="persona tone-lavande"><span class="glyph">◐</span><div><h3>Moment de contact</h3><p>Vague 1 : 10 jours avant la JPO du 20/02. Vague 2 : diffusion continue du 24/02 au 20/03, couvrant la JPO du 06/03 jusqu'à la clôture des vœux.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGIE DATA -->
+<section id="data">
+  <div class="wrap">
+    <div class="eyebrow">08 · Stratégie data</div>
+    <h2>Une architecture de ciblage en couches</h2>
+    <div class="pyramid">
+      <div class="layer">Socio-démographique<small>Âge 18+, 10 villes ciblées : Tours, Saint-Cyr-sur-Loire, Joué-lès-Tours, Saint-Pierre-des-Corps, Amboise, Loches, Blois, Vendôme, Châteauroux, Issoudun</small></div>
+      <div class="layer l2">Centres d'intérêt &amp; comportements<small>Recherche de formation, orientation post-bac, intérêt Parcoursup</small></div>
+      <div class="layer l3">Parcours d'écoute &amp; comportements digitaux<small>Auditeurs actifs Spotify / Deezer, habitudes d'écoute mobile et connectée</small></div>
+    </div>
+    <p style="max-width:760px;color:var(--muted);margin-top:20px;">Cette segmentation permet de concentrer la diffusion sur les auditeurs les plus pertinents dans la zone de chalandise de l'école, en maximisant la fréquence utile sans disperser le budget sur un territoire trop large.</p>
+  </div>
+</section>
+
+<!-- RGPD -->
+<section id="rgpd">
+  <div class="wrap">
+    <div class="eyebrow">09 · RGPD &amp; Brand Safety</div>
+    <div class="rgpd-box">
+      <h3>Conformité &amp; environnement de diffusion</h3>
+      <p style="margin-bottom:0;color:var(--muted);">La diffusion s'appuie sur les environnements certifiés Spotify et Deezer, avec un ciblage conforme au RGPD (aucune donnée personnelle nominative utilisée dans le ciblage). Le brand safety est garanti par la diffusion exclusive sur des plateformes premium, sans risque d'association à un contenu inapproprié.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS / FOOTER -->
+<footer class="footer" id="contacts">
+  <div class="wrap">
+    <svg class="footer-logo" viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path class="l" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+        <path class="l" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+        <path class="l" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path class="l" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+        <path class="l" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path class="l" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path class="l" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+        <path class="l" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+        <path class="l" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path class="l" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+      </g>
+      <path class="l" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+      <g>
+        <path class="l" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path class="l" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+        <path class="l" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+        <path class="l" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path class="l" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+        <path class="l" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path class="l" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+        <path class="l" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+        <path class="l" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+      </g>
+      <g>
+        <path class="l" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+        <path class="l" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+        <path class="l" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+        <path class="l" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+        <path class="l" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+      </g>
+    </svg>
+    <h2>Vos interlocuteurs The Good Web</h2>
+    <div class="contacts">
+      <div class="contact-card"><b>Jérôme Fages</b><span>Directeur commercial</span><a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a><span>06 18 74 66 75</span></div>
+      <div class="contact-card"><b>Mathilde Coriton</b><span>Directrice de clientèle</span><a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a><span>06 48 61 92 92</span></div>
+      <div class="contact-card"><b>Leslie Rogé</b><span>Cheffe de publicité</span><a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a><span>06 83 73 68 62</span></div>
+      <div class="contact-card"><b>Sofien Chaganiou</b><span>Chef de publicité</span><a href="mailto:sofien@thegoodweb.eu">sofien@thegoodweb.eu</a><span>07 67 84 70 67</span></div>
+      <div class="contact-card"><b>Pôle activation</b><span>Activation digitale</span><span style="color:var(--babyblue);">activation@thegoodweb.eu</span></div>
+      <div class="contact-card"><b>Andrea</b><span>Équipe commerciale</span><span style="color:var(--babyblue);">andrea@thegoodweb.eu</span></div>
+    </div>
+    <p class="fine">The Good Web — 40 Rue Paradis, 13001 Marseille · thegoodweb.eu</p>
+  </div>
+</footer>
+
+</body>
+</html>
