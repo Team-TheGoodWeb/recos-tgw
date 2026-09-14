@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pigier Saint-Quentin-en-Yvelines · Recommandation média 2027 · The Good Web</title>
+<style>
+  :root{
+    --navy:#021859;
+    --babyblue:#7bbdff;
+    --terracota:#f25430;
+    --white:#ffffff;
+    --c-lavande:#eef1ff;
+    --c-rose:#eee9fb;
+    --c-bleu:#eaf4ff;
+    --c-menthe:#e8ecf7;
+    --c-corail:#fdece6;
+    --c-peche:#fff1e8;
+    --ink:#1c2340;
+    --muted:#5c6483;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Inter',Arial,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Poppins','Inter',Arial,sans-serif;
+    color:var(--navy);
+    margin:0 0 .4em;
+  }
+  a{color:var(--terracota);}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:.72rem;
+    font-weight:600;
+    color:var(--babyblue);
+  }
+  section{padding:64px 24px;max-width:1080px;margin:0 auto;}
+  .hero{
+    background:var(--navy);
+    color:var(--white);
+    padding:56px 24px 44px;
+    text-align:left;
+  }
+  .hero-inner{max-width:1080px;margin:0 auto;}
+  .hero h1{color:var(--white);font-size:clamp(1.6rem,3.4vw,2.5rem);max-width:820px;}
+  .hero p.lede{color:#dbe6ff;max-width:720px;font-size:1.02rem;}
+  .pastilles{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .pastille{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:999px;
+    padding:8px 16px;
+    font-size:.85rem;
+  }
+  .pastille b{color:var(--babyblue);}
+  nav.subnav{
+    position:sticky;top:0;z-index:50;
+    background:var(--white);
+    border-bottom:1px solid #e6e9f5;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+  nav.subnav .inner{max-width:1080px;margin:0 auto;padding:0 24px;}
+  nav.subnav a{
+    display:inline-block;
+    padding:14px 14px;
+    font-size:.82rem;
+    font-weight:600;
+    color:var(--navy);
+    text-decoration:none;
+    border-bottom:3px solid transparent;
+  }
+  nav.subnav a:hover{border-bottom-color:var(--terracota);color:var(--terracota);}
+  .grid{display:grid;gap:18px;}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  @media (max-width:820px){
+    .grid-4,.grid-3,.grid-2{grid-template-columns:1fr;}
+  }
+  .card{
+    background:var(--c-lavande);
+    border-radius:14px;
+    padding:22px;
+  }
+  .card .num{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    color:var(--terracota);
+    font-size:1.3rem;
+    margin-bottom:6px;
+  }
+  .badge{
+    display:inline-block;
+    background:var(--terracota);
+    color:var(--white);
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    border-radius:999px;
+    padding:4px 12px;
+    margin-bottom:10px;
+  }
+  .funnel{
+    display:flex;flex-wrap:wrap;gap:14px;align-items:stretch;margin:26px 0;
+  }
+  .funnel .step{
+    flex:1;min-width:180px;
+    background:var(--white);
+    border:1px solid #e0e6f7;
+    border-top:4px solid var(--terracota);
+    border-radius:14px;
+    padding:20px 18px;
+    box-shadow:0 2px 10px rgba(2,24,89,.06);
+  }
+  .funnel .step:nth-child(1){border-top-color:var(--navy);}
+  .funnel .step:nth-child(2){border-top-color:var(--babyblue);}
+  .funnel .step:nth-child(3){border-top-color:var(--terracota);}
+  .funnel .step:nth-child(4){border-top-color:#8f6fd9;}
+  .funnel .step .f-label{
+    display:block;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:.68rem;
+    font-weight:700;
+    color:var(--terracota);
+    margin-bottom:8px;
+  }
+  .funnel .step h4{margin:0 0 6px;font-size:1rem;color:var(--navy);}
+  .funnel .step p{margin:0;font-size:.85rem;color:var(--muted);}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:16px 0;
+    font-size:.88rem;
+  }
+  th,td{
+    padding:11px 12px;
+    text-align:left;
+    border-bottom:1px solid #e6e9f5;
+  }
+  th{
+    background:var(--navy);
+    color:var(--white);
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  tr:nth-child(even) td{background:#f7f9ff;}
+  .note{
+    background:var(--c-corail);
+    border-left:4px solid var(--terracota);
+    border-radius:8px;
+    padding:16px 18px;
+    font-size:.9rem;
+    margin:18px 0;
+  }
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .tag{
+    background:var(--c-menthe);
+    border-radius:8px;
+    padding:6px 12px;
+    font-size:.82rem;
+    color:var(--navy);
+    font-weight:600;
+  }
+  .env-col h4{font-size:.9rem;margin-bottom:8px;color:var(--terracota);}
+  .logos{font-size:.85rem;color:var(--muted);line-height:1.9;}
+  .env-box{
+    background:var(--white);
+    border:1px solid #e0e6f7;
+    border-top:4px solid var(--babyblue);
+    border-radius:14px;
+    padding:20px 18px;
+    box-shadow:0 2px 10px rgba(2,24,89,.06);
+  }
+  .env-box:nth-of-type(1){border-top-color:var(--navy);}
+  .env-box:nth-of-type(2){border-top-color:var(--terracota);}
+  .env-box:nth-of-type(3){border-top-color:#8f6fd9;}
+  .env-box h4{font-family:'Poppins',sans-serif;font-size:.95rem;margin:0 0 14px;color:var(--navy);}
+  .env-box .tag-row{margin-top:0;}
+  .budget-card{
+    background:var(--white);
+    border:1px solid #e6e9f5;
+    border-radius:14px;
+    padding:20px;
+  }
+  .budget-card h4{font-size:1rem;margin-bottom:4px;}
+  .budget-card .rate{font-size:.8rem;color:var(--muted);margin-bottom:10px;}
+  .budget-card .metric{font-size:.85rem;margin:2px 0;}
+  .budget-card .price{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    color:var(--terracota);
+    font-size:1.15rem;
+    margin-top:10px;
+  }
+  .phase-total{
+    background:var(--navy);
+    color:var(--white);
+    border-radius:14px;
+    padding:20px 24px;
+    margin-top:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .phase-total .amount{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.5rem;color:var(--babyblue);}
+  .persona{
+    background:var(--c-rose);
+    border-radius:14px;
+    padding:22px;
+  }
+  .persona .glyph{font-size:1.4rem;color:var(--terracota);}
+  .persona ul{margin:10px 0 0;padding-left:0;font-size:.88rem;color:var(--muted);list-style:none;}
+  .persona ul li{margin-bottom:7px;padding-left:20px;position:relative;}
+  .persona ul li::before{
+    content:"◆";
+    position:absolute;
+    left:0;
+    top:0;
+    font-size:.65rem;
+    color:var(--terracota);
+  }
+  .stat{
+    text-align:center;
+    background:var(--c-bleu);
+    border-radius:14px;
+    padding:22px;
+  }
+  .stat .n{font-family:'Poppins',sans-serif;font-weight:700;color:var(--navy);font-size:1.7rem;}
+  .stat .l{font-size:.82rem;color:var(--muted);}
+  .layer{
+    background:var(--c-peche);
+    border-radius:12px;
+    padding:16px 18px;
+    margin-bottom:10px;
+    font-size:.88rem;
+  }
+  .layer b{color:var(--navy);}
+  .footer{
+    background:var(--navy);
+    color:var(--white);
+    padding:56px 24px 32px;
+  }
+  .footer .inner{max-width:1080px;margin:0 auto;}
+  .contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}
+  @media (max-width:820px){.contacts{grid-template-columns:1fr;}}
+  .contact-card{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:12px;
+    padding:16px 18px;
+    font-size:.88rem;
+  }
+  .contact-card b{display:block;color:var(--white);margin-bottom:2px;}
+  .contact-card span{color:#b9c4ea;display:block;font-size:.8rem;}
+  .contact-card a{color:var(--babyblue);text-decoration:none;font-size:.82rem;}
+  .foot-logo{margin-bottom:18px;}
+  .foot-bottom{
+    margin-top:32px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.15);
+    font-size:.78rem;
+    color:#9aa6cf;
+  }
+  .rgpd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (max-width:820px){.rgpd-grid{grid-template-columns:1fr;}}
+  .rgpd-card{
+    background:var(--white);
+    border:1px solid #e0e6f7;
+    border-top:4px solid var(--terracota);
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 2px 10px rgba(2,24,89,.06);
+  }
+  .rgpd-card:nth-child(1){border-top-color:var(--navy);}
+  .rgpd-card:nth-child(2){border-top-color:var(--babyblue);}
+  .rgpd-card:nth-child(3){border-top-color:#8f6fd9;}
+  .rgpd-card h4{font-family:'Poppins',sans-serif;font-size:.95rem;margin:0 0 8px;color:var(--navy);}
+  .section-eyebrow{margin-bottom:6px;}
+  .budget-drawer{
+    border:1px solid #e6e9f5;
+    border-radius:14px;
+    margin-bottom:14px;
+    overflow:hidden;
+  }
+  .budget-drawer summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:14px;
+    padding:18px 22px;
+    background:var(--c-lavande);
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    color:var(--navy);
+    font-size:1rem;
+  }
+  .budget-drawer summary::-webkit-details-marker{display:none;}
+  .budget-drawer summary::marker{content:"";}
+  .budget-drawer .d-right{display:flex;align-items:center;gap:16px;flex-shrink:0;}
+  .budget-drawer .drawer-amount{
+    color:var(--terracota);
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+  }
+  .budget-drawer .chevron{
+    display:inline-block;
+    font-size:1.1rem;
+    color:var(--terracota);
+    transition:transform .2s ease;
+  }
+  .budget-drawer[open] summary .chevron{transform:rotate(90deg);}
+  .budget-drawer .drawer-body{padding:22px;}
+  .budget-drawer .drawer-sub{font-size:.85rem;color:var(--muted);margin:0 0 16px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">reco.thegoodweb.eu</span>
+    <p style="color:#9db4e8;font-weight:600;margin:6px 0 14px;">Pigier Saint-Quentin-en-Yvelines · Recommandation média 2027</p>
+    <h1>Un plan média Parcoursup pour transformer l'intérêt en candidatures</h1>
+    <p class="lede">Un dispositif digital + DOOH sur 4 mois, de la JPO de décembre à la clôture des vœux Parcoursup : on mise en priorité sur Spotify et YouTube, et on muscle le dispositif avec Display, CTV et DOOH géolocalisé.</p>
+    <div class="pastilles">
+      <div class="pastille">Période : <b>Décembre 2026 → Mars 2027</b></div>
+      <div class="pastille">Budget : <b>41 500 € HT</b> (33 500 € HT dispositif + 8 000 € HT option DOOH)</div>
+      <div class="pastille">Objectif : <b>Recrutement étudiants & candidatures Parcoursup</b></div>
+      <div class="pastille">Marché : <b>Saint-Quentin-en-Yvelines & bassin Yvelines</b> (Île-de-France)</div>
+    </div>
+  </div>
+</header>
+
+<nav class="subnav">
+  <div class="inner">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats-kpis">Formats & KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<section id="contexte">
+  <span class="eyebrow section-eyebrow">Contexte</span>
+  <h2>Un plan média structuré sur tout le calendrier Parcoursup 2027</h2>
+  <p>Après un premier dispositif JPO à la rentrée 2026, vous souhaitez désormais un plan média structuré sur toute la période clé de l'orientation, de la JPO de décembre à la clôture des vœux Parcoursup en mars, pour transformer l'intérêt déjà suscité en flux de candidatures.</p>
+  <div class="grid grid-4">
+    <div class="card">
+      <div class="num">1</div>
+      <h4>Capitaliser sur les leviers gagnants</h4>
+      <p style="font-size:.85rem;color:var(--muted);margin:0;">On mise en priorité sur Spotify et YouTube, vos deux canaux les plus efficaces, pour maximiser l'engagement de la cible.</p>
+    </div>
+    <div class="card">
+      <div class="num">2</div>
+      <h4>Couvrir tout le calendrier Parcoursup</h4>
+      <p style="font-size:.85rem;color:var(--muted);margin:0;">JPO du 12 décembre, salons de janvier, présence de février, clôture des vœux en mars : un dispositif continu sur les 4 temps forts.</p>
+    </div>
+    <div class="card">
+      <div class="num">3</div>
+      <h4>Toucher étudiants, futurs étudiants et parents</h4>
+      <p style="font-size:.85rem;color:var(--muted);margin:0;">Une cible parents particulièrement active fin février-mars, au moment où elle accompagne activement le choix d'orientation de ses enfants.</p>
+    </div>
+    <div class="card">
+      <div class="num">4</div>
+      <h4>DOOH pour ancrer la présence locale</h4>
+      <p style="font-size:.85rem;color:var(--muted);margin:0;">Un relais DOOH géolocalisé sur le bassin de Saint-Quentin-en-Yvelines pour occuper le terrain quand le digital marque une pause.</p>
+    </div>
+  </div>
+</section>
+
+<section id="dispositif" style="background:var(--c-bleu);">
+  <span class="eyebrow section-eyebrow">Dispositif</span>
+  <h2>Un dispositif digital 100% dédié à votre école</h2>
+  <p>Le dispositif s'appuie sur quatre leviers complémentaires : Display IAB pour la couverture, Spotify et YouTube pour l'engagement, et CTV pour la notoriété au lancement.</p>
+  <div class="funnel">
+    <div class="step"><span class="f-label">Étape 1</span><h4>Awareness</h4><p>Display IAB · CTV · DOOH</p></div>
+    <div class="step"><span class="f-label">Étape 2</span><h4>Considération</h4><p>YouTube (pré-roll & mid-roll)</p></div>
+    <div class="step"><span class="f-label">Étape 3</span><h4>Engagement</h4><p>Audio Spotify</p></div>
+    <div class="step"><span class="f-label">Étape 4</span><h4>Conversion</h4><p>Clics vers dossier de candidature & JPO</p></div>
+  </div>
+  <h3 style="margin-top:30px;">Un geste commercial sur les prix d'achat, comme sur le dispositif de référence</h3>
+  <table>
+    <tr><th>Levier</th><th>Tarif catalogue</th><th>Tarif négocié 2027</th><th>Gain de volume</th></tr>
+    <tr><td>Display IAB</td><td>CPM 4,50 €</td><td><b>CPM 3,00 €</b></td><td>+ 50 %</td></tr>
+    <tr><td>YouTube</td><td>CPV 0,10 €</td><td><b>CPV 0,06 €</b></td><td>+ 67 %</td></tr>
+    <tr><td>Spotify (Audio)</td><td>CPE 0,05 €</td><td><b>CPE 0,03 €</b></td><td>+ 67 %</td></tr>
+    <tr><td>CTV</td><td>CPV 0,10 €</td><td>CPV 0,10 € (inchangé)</td><td>·</td></tr>
+  </table>
+</section>
+
+<section id="environnements">
+  <span class="eyebrow section-eyebrow">Environnements</span>
+  <h2>Où votre message sera diffusé</h2>
+  <div class="grid grid-3">
+    <div class="env-box">
+      <h4>Display & Native</h4>
+      <div class="tag-row">
+        <span class="tag">L'Étudiant</span><span class="tag">Studyrama</span><span class="tag">20 Minutes</span><span class="tag">Le Parisien</span><span class="tag">France Bleu Paris</span><span class="tag">France Inter</span><span class="tag">Onisep</span><span class="tag">Actu.fr Yvelines</span>
+      </div>
+    </div>
+    <div class="env-box">
+      <h4>Audio</h4>
+      <div class="tag-row">
+        <span class="tag">Spotify</span><span class="tag">RFM</span><span class="tag">NRJ</span><span class="tag">Skyrock</span><span class="tag">Radio France</span><span class="tag">Europe 1</span>
+      </div>
+    </div>
+    <div class="env-box">
+      <h4>Vidéo</h4>
+      <div class="tag-row">
+        <span class="tag">YouTube</span><span class="tag">YouTube Shorts</span><span class="tag">CTV : Molotov</span><span class="tag">Pluto TV</span><span class="tag">myCANAL</span><span class="tag">Salto</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:34px;">Option DOOH : un maillage géolocalisé sur le bassin de Saint-Quentin-en-Yvelines</h3>
+  <p><b>260 écrans</b> mobilisables : volume et budget identiques à la campagne de référence déjà validée. Le maillage précis (gares, centres commerciaux, salles de sport...) sera recalé avec le prestataire DOOH sur le réseau Yvelines dès réception des codes postaux prioritaires.</p>
+  <div class="tag-row">
+    <span class="tag">Transport (gares SQY, Trappes, La Verrière, Montigny-le-Bretonneux)</span>
+    <span class="tag">Centres commerciaux</span>
+    <span class="tag">Commerces de proximité</span>
+    <span class="tag">Salles de sport</span>
+    <span class="tag">Bar / Restaurant</span>
+    <span class="tag">Cinéma</span>
+    <span class="tag">Librairie / Éducation</span>
+    <span class="tag">Centre d'affaires (SQY / Vélizy)</span>
+  </div>
+  <div class="grid grid-4" style="margin-top:22px;">
+    <div class="card">
+      <div class="num" style="font-size:.9rem;">Matin 7h-9h · Soir 17h-19h</div>
+      <h4 style="font-size:.9rem;">Transport</h4>
+      <p style="font-size:.82rem;color:var(--muted);margin:0;">On capte les trajets domicile-lycée / domicile-campus.</p>
+    </div>
+    <div class="card">
+      <div class="num" style="font-size:.9rem;">Mercredi & week-end</div>
+      <h4 style="font-size:.9rem;">Centres commerciaux</h4>
+      <p style="font-size:.82rem;color:var(--muted);margin:0;">Jours de plus forte affluence familiale, étudiants et parents.</p>
+    </div>
+    <div class="card">
+      <div class="num" style="font-size:.9rem;">Midi 12h-14h · Soir 18h-20h</div>
+      <h4 style="font-size:.9rem;">Commerces de proximité</h4>
+      <p style="font-size:.82rem;color:var(--muted);margin:0;">Pauses déjeuner et sorties de journée.</p>
+    </div>
+    <div class="card">
+      <div class="num" style="font-size:.9rem;">Soir 18h-21h</div>
+      <h4 style="font-size:.9rem;">Salles de sport</h4>
+      <p style="font-size:.82rem;color:var(--muted);margin:0;">Créneau post-cours, forte concentration d'étudiants.</p>
+    </div>
+  </div>
+</section>
+
+<section id="planning" style="background:var(--c-bleu);">
+  <span class="eyebrow section-eyebrow">Planning</span>
+  <h2>Activation sur 4 mois, digital + DOOH en relais</h2>
+  <table>
+    <tr><th>Vague</th><th>Période digitale</th><th>Leviers actifs</th><th>DOOH</th></tr>
+    <tr><td>Décembre 2026 (JPO 12/12)</td><td>01/12 → 12/12/2026</td><td>Display IAB · Spotify · YouTube · CTV</td><td>·</td></tr>
+    <tr><td>Janvier 2027 (salons)</td><td>05/01 → 25/01/2027</td><td>Display IAB · Spotify · YouTube</td><td>·</td></tr>
+    <tr><td>Février 2027 (présence continue)</td><td>05/02 → 15/02/2027</td><td>Display IAB · Spotify · YouTube</td><td>DOOH vague 1 · 26/01 → 05/02<br>DOOH vague 2 · 05/02 → 15/02</td></tr>
+    <tr><td>Mars 2027 (clôture des vœux Parcoursup)</td><td>01/03 → 08/03/2027</td><td>Display IAB · Spotify · YouTube</td><td>DOOH vague 3 · 09/03 → 19/03</td></tr>
+  </table>
+  <p style="font-size:.9rem;color:var(--muted);">Le digital porte seul le lancement en décembre (JPO) puis se maintient sur chaque temps fort. Le DOOH prend le relais dans la rue entre les vagues de janvier et février, puis prolonge la campagne après la dernière vague digitale de mars, pour garder une présence physique jusqu'à la clôture des vœux.</p>
+</section>
+
+<section id="budgets">
+  <span class="eyebrow section-eyebrow">Budgets</span>
+  <h2>Le dispositif en tiroirs, vague par vague</h2>
+  <p>Cliquez sur chaque tiroir pour déplier le détail des leviers, volumes et budgets de la vague.</p>
+
+  <details class="budget-drawer" open>
+    <summary>
+      <span>Décembre 2026, JPO du 12/12</span>
+      <span class="d-right"><span class="drawer-amount">15 000 € HT</span><span class="chevron">▸</span></span>
+    </summary>
+    <div class="drawer-body">
+      <p class="drawer-sub">4 leviers actifs, 01/12 → 12/12/2026. Objectif global : ~1M impressions Display + volumes Spotify/YouTube/CTV cumulés, ~900K personnes touchées.</p>
+      <div class="grid grid-4">
+        <div class="budget-card">
+          <h4>Display IAB</h4>
+          <div class="rate">CPM 3,00 €</div>
+          <div class="metric">1 000 000 impressions</div>
+          <div class="metric">Reach : 333K personnes</div>
+          <div class="metric">Capping : 3</div>
+          <div class="price">3 000 € HT</div>
+        </div>
+        <div class="budget-card">
+          <h4>Spotify</h4>
+          <div class="rate">CPE 0,03 €</div>
+          <div class="metric">116,7K écoutes 100%</div>
+          <div class="metric">Reach : ~130K personnes</div>
+          <div class="metric">Capping : 3</div>
+          <div class="price">3 500 € HT</div>
+        </div>
+        <div class="budget-card">
+          <h4>YouTube</h4>
+          <div class="rate">CPV 0,06 €</div>
+          <div class="metric">66,7K vues 100%</div>
+          <div class="metric">Reach : ~417K personnes</div>
+          <div class="metric">Capping : 4</div>
+          <div class="price">4 000 € HT</div>
+        </div>
+        <div class="budget-card">
+          <h4>CTV</h4>
+          <div class="rate">CPV 0,10 €</div>
+          <div class="metric">45K vues 100%</div>
+          <div class="metric">Reach : 22K foyers</div>
+          <div class="metric">Capping : 6</div>
+          <div class="price">4 500 € HT</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="budget-drawer">
+    <summary>
+      <span>Janvier 2027, salons</span>
+      <span class="d-right"><span class="drawer-amount">5 000 € HT</span><span class="chevron">▸</span></span>
+    </summary>
+    <div class="drawer-body">
+      <p class="drawer-sub">3 leviers actifs, 05/01 → 25/01/2027.</p>
+      <div class="grid grid-3">
+        <div class="budget-card">
+          <h4>Display IAB</h4>
+          <div class="rate">CPM 3,00 €</div>
+          <div class="metric">500 000 impressions</div>
+          <div class="metric">Reach : 167K personnes</div>
+          <div class="metric">Capping : 3</div>
+          <div class="price">1 500 € HT</div>
+        </div>
+        <div class="budget-card">
+          <h4>Spotify</h4>
+          <div class="rate">CPE 0,03 €</div>
+          <div class="metric">83,3K écoutes 100%</div>
+          <div class="metric">Reach : ~93K personnes</div>
+          <div class="metric">Capping : 2,5</div>
+          <div class="price">2 500 € HT</div>
+        </div>
+        <div class="budget-card">
+          <h4>YouTube</h4>
+          <div class="rate">CPV 0,06 €</div>
+          <div class="metric">16,7K vues 100%</div>
+          <div class="metric">Reach : ~104K personnes</div>
+          <div class="metric">Capping : 4</div>
+          <div class="price">1 000 € HT</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="budget-drawer">
+    <summary>
+      <span>Février 2027, présence continue</span>
+      <span class="d-right"><span class="drawer-amount">5 000 € HT</span><span class="chevron">▸</span></span>
+    </summary>
+    <div class="drawer-body">
+      <p class="drawer-sub">3 leviers actifs, 05/02 → 15/02/2027.</p>
+      <div class="grid grid-3">
+        <div class="budget-card">
+          <h4>Display IAB</h4>
+          <div class="rate">CPM 3,00 €</div>
+          <div class="metric">500 000 impressions</div>
+          <div class="metric">Reach : 167K personnes</div>
+          <div class="metric">Capping : 3</div>
+          <div class="price">1 500 € HT</div>
+        </div>
+        <div class="budget-card">
+          <h4>Spotify</h4>
+          <div class="rate">CPE 0,03 €</div>
+          <div class="metric">83,3K écoutes 100%</div>
+          <div class="metric">Reach : ~93K personnes</div>
+          <div class="metric">Capping : 2,5</div>
+          <div class="price">2 500 € HT</div>
+        </div>
+        <div class="budget-card">
+          <h4>YouTube</h4>
+          <div class="rate">CPV 0,06 €</div>
+          <div class="metric">16,7K vues 100%</div>
+          <div class="metric">Reach : ~104K personnes</div>
+          <div class="metric">Capping : 4</div>
+          <div class="price">1 000 € HT</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="budget-drawer">
+    <summary>
+      <span>Mars 2027, clôture des vœux Parcoursup</span>
+      <span class="d-right"><span class="drawer-amount">8 500 € HT</span><span class="chevron">▸</span></span>
+    </summary>
+    <div class="drawer-body">
+      <p class="drawer-sub">3 leviers actifs, 01/03 → 08/03/2027. La vague la plus forte du dispositif, calée sur la clôture des vœux.</p>
+      <div class="grid grid-3">
+        <div class="budget-card">
+          <h4>Display IAB</h4>
+          <div class="rate">CPM 3,00 €</div>
+          <div class="metric">833 333 impressions</div>
+          <div class="metric">Reach : 278K personnes</div>
+          <div class="metric">Capping : 3</div>
+          <div class="price">2 500 € HT</div>
+        </div>
+        <div class="budget-card">
+          <h4>Spotify</h4>
+          <div class="rate">CPE 0,03 €</div>
+          <div class="metric">108,3K écoutes 100%</div>
+          <div class="metric">Reach : ~121K personnes</div>
+          <div class="metric">Capping : 3</div>
+          <div class="price">3 250 € HT</div>
+        </div>
+        <div class="budget-card">
+          <h4>YouTube</h4>
+          <div class="rate">CPV 0,06 €</div>
+          <div class="metric">45,8K vues 100%</div>
+          <div class="metric">Reach : ~287K personnes</div>
+          <div class="metric">Capping : 4</div>
+          <div class="price">2 750 € HT</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="budget-drawer">
+    <summary>
+      <span>Objectifs globaux, dispositif digital</span>
+      <span class="d-right"><span class="drawer-amount">33 500 € HT</span><span class="chevron">▸</span></span>
+    </summary>
+    <div class="drawer-body">
+      <p class="drawer-sub">4 leviers, décembre 2026 à mars 2027.</p>
+      <table>
+        <tr><th>Levier</th><th>Budget</th><th>Mode d'achat</th><th>Objectifs</th></tr>
+        <tr><td>Display IAB</td><td>8 500 € HT</td><td>CPM 3,00 €</td><td>~2,83M impressions cumulées</td></tr>
+        <tr><td>Spotify (Audio)</td><td>11 750 € HT</td><td>CPE 0,03 €</td><td>~391,7K écoutes 100% cumulées</td></tr>
+        <tr><td>YouTube</td><td>8 750 € HT</td><td>CPV 0,06 €</td><td>~145,8K vues 100% cumulées</td></tr>
+        <tr><td>CTV</td><td>4 500 € HT</td><td>CPV 0,10 €</td><td>45K vues 100%, Reach 22K foyers</td></tr>
+      </table>
+      <p style="font-size:.85rem;color:var(--muted);">Chiffres arrondis et indicatifs, susceptibles d'ajustement en optimisation.</p>
+    </div>
+  </details>
+
+  <details class="budget-drawer">
+    <summary>
+      <span>Option DOOH, 3 vagues en relais du digital</span>
+      <span class="d-right"><span class="drawer-amount">8 000 € HT</span><span class="chevron">▸</span></span>
+    </summary>
+    <div class="drawer-body">
+      <p class="drawer-sub">Pas de DOOH en décembre ni en janvier : le digital porte seul le lancement et la première présence. À partir de fin janvier, le DOOH prend le relais dans la rue pour combler le creux entre les vagues digitales, puis prolonge la campagne après la dernière vague digitale de mars. Budget et nombre d'écrans identiques à la campagne de référence déjà validée.</p>
+      <table>
+        <tr><th>Vague</th><th>Positionnement</th><th>Période</th><th>Écrans</th><th>Passages garantis</th><th>Budget</th></tr>
+        <tr><td>DOOH vague 1</td><td>Comble le creux entre la vague digitale de janvier et celle de février</td><td>26/01 → 05/02/2027, 10 jours</td><td>260</td><td>50 000</td><td><b>3 000 € HT</b></td></tr>
+        <tr><td>DOOH vague 2</td><td>Enchaîne sur la vague 1, en relais de la vague digitale de février</td><td>05/02 → 15/02/2027, 10 jours</td><td>260</td><td>50 000</td><td><b>3 000 € HT</b></td></tr>
+        <tr><td>DOOH vague 3</td><td>Démarre après la fin de la vague digitale de mars, prolonge la présence jusqu'à la clôture des vœux</td><td>09/03 → 19/03/2027, 10 jours</td><td>260</td><td>33 333</td><td><b>2 000 € HT</b></td></tr>
+      </table>
+      <p style="font-size:.85rem;color:var(--muted);">Formats : 1080x1920 · 1920x1080 · 1024x668. Passages garantis calculés au prorata du budget de chaque vague (133 333 passages cumulés). Dayparting intelligent par environnement appliqué sur les 3 vagues (voir section Environnements). Maillage écrans à recaler localement sur SQY/Yvelines une fois les codes postaux prioritaires reçus.</p>
+    </div>
+  </details>
+
+  <div class="note" style="margin-top:30px;">
+    <b>Budget total du dispositif, digital + DOOH</b><br>
+    41 500 € HT (49 800 € TTC). Nous pouvons aussi vous proposer une version resserrée de ce dispositif, plus proche de votre budget de campagne habituel, en conservant la même structure et la même logique de répartition entre les leviers.
+  </div>
+</section>
+
+<section id="formats-kpis">
+  <span class="eyebrow section-eyebrow">Formats & KPIs</span>
+  <h2>Formats de créa et indicateurs suivis par levier</h2>
+  <div class="grid grid-2">
+    <div class="card" style="background:var(--c-bleu);">
+      <h4>pDisplay</h4>
+      <p style="font-size:.85rem;"><b>Formats :</b> 300x600, 300x250, 320x480, 728x90, 160x600, 320x50 px · jpeg/png/gif</p>
+      <p style="font-size:.85rem;margin:0;"><b>KPIs :</b> impressions, clics, CTR, taux de complétion, étude socio-démo, géoloc, affinitaires, visite in-store.</p>
+    </div>
+    <div class="card" style="background:var(--c-peche);">
+      <h4>YouTube</h4>
+      <p style="font-size:.85rem;"><b>Formats :</b> post 1080x1080px, story 9:16 1920x1080px mp4, bumper ads 6s</p>
+      <p style="font-size:.85rem;margin:0;"><b>KPIs :</b> impressions, clics, CTR, reach, interactions, coût par interaction, CPM final, vues à 25/50/75/100%, taux de complétion.</p>
+    </div>
+    <div class="card" style="background:var(--c-menthe);">
+      <h4>CTV</h4>
+      <p style="font-size:.85rem;"><b>Format :</b> 1920x1080px 16:9, 15-30s</p>
+      <p style="font-size:.85rem;margin:0;"><b>KPIs :</b> impressions, clics, CTR, reach, taux de complétion, top chaînes, étude socio-démo/géoloc/affinitaires.</p>
+    </div>
+    <div class="card" style="background:var(--c-rose);">
+      <h4>Audio (Spotify)</h4>
+      <p style="font-size:.85rem;"><b>Formats :</b> 1:1 640x640px ou 9:16 720x1280px, 15-20-30s</p>
+      <p style="font-size:.85rem;margin:0;"><b>KPIs :</b> impressions, reach, clics, écoutes à 25/50/75/100%, taux de complétion, stats socio-démo, capping, CPE & CPM finaux.</p>
+    </div>
+    <div class="card" style="background:var(--c-lavande);">
+      <h4>pDOOH</h4>
+      <p style="font-size:.85rem;"><b>Format :</b> 9:16 1080x1920px mp4 10s</p>
+      <p style="font-size:.85rem;margin:0;"><b>KPIs :</b> impressions, diffusion, top publishers, nombre de plays, stats par écran et par créneau horaire.</p>
+    </div>
+  </div>
+</section>
+
+<section id="audiences" style="background:var(--c-bleu);">
+  <span class="eyebrow section-eyebrow">Audiences</span>
+  <h2>Trois cibles complémentaires</h2>
+  <div class="grid grid-3">
+    <div class="persona">
+      <span class="glyph">◆</span>
+      <h3 style="font-size:1.05rem;">Étudiants (Bac+2 à Bac+5)</h3>
+      <ul>
+        <li>Déjà inscrits ou en poursuite d'études, cibles de fidélisation et de bouche-à-oreille</li>
+        <li>Intérêts : Gestion, Management, RH, Communication, Web marketing, Comptabilité, Commerce, Banque, Administratif</li>
+        <li>Fréquentent votre campus de Saint-Quentin-en-Yvelines et les lieux de vie étudiante du bassin</li>
+      </ul>
+    </div>
+    <div class="persona">
+      <span class="glyph">◆</span>
+      <h3 style="font-size:1.05rem;">Futurs étudiants (lycéens & en réorientation)</h3>
+      <ul>
+        <li>Lycéens en terminale, étudiants en réorientation post-Bac ou en poursuite d'études</li>
+        <li>Participent aux salons d'orientation de janvier et aux JPO</li>
+        <li>En recherche active sur Parcoursup entre janvier et la clôture de mars</li>
+      </ul>
+    </div>
+    <div class="persona">
+      <span class="glyph">◆</span>
+      <h3 style="font-size:1.05rem;">Parents de futurs étudiants</h3>
+      <ul>
+        <li>Cible particulièrement active fin février et en mars, au moment où ils accompagnent leurs enfants pour sécuriser la rentrée</li>
+        <li>Suivent Parcoursup, l'Onisep et les délais de clôture de vœux</li>
+        <li>Recherchent des informations sur les débouchés, l'alternance et le coût des formations</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note" style="margin-top:26px;">
+    <b>Géociblage (base provisoire, à confirmer)</b> : Dreux, Épernon, Gallardon, Nogent-le-Roi, Anet, Orsay, Gif-sur-Yvette, Saclay, Villebon-sur-Yvette, Limours (Centre-Val de Loire & Île-de-France), + Saint-Quentin-en-Yvelines (78).
+  </div>
+</section>
+
+<section id="data">
+  <span class="eyebrow section-eyebrow">Stratégie data</span>
+  <h2>Une donnée cookieless et cookie-based au service du ciblage</h2>
+  <div class="grid grid-2" style="margin-bottom:24px;">
+    <div class="stat">
+      <div class="n">200M</div>
+      <div class="l">pages web scorées (cookieless)</div>
+    </div>
+    <div class="stat">
+      <div class="n">85%</div>
+      <div class="l">de la population française couverte via le réseau MediaSquare (490+ sites TV, radio, presse)</div>
+    </div>
+  </div>
+  <div class="layer"><b>Socio-démo</b> : étudiants, lycéens en terminale, foyers avec enfants 16-20 ans</div>
+  <div class="layer"><b>Centres d'intérêt</b> : orientation scolaire, Parcoursup, formations Bac+2 à Bac+5 (Gestion, Management, RH, Communication, Web marketing, Comptabilité, Commerce, Banque, Administratif)</div>
+  <div class="layer"><b>Comportements digitaux</b> : visites de votre campus SQY, salons étudiants, sites d'orientation (Onisep, Parcoursup, L'Étudiant, Studyrama)</div>
+  <div class="layer"><b>Profils / parcours d'achat</b> : candidats en recherche d'alternance, en poursuite d'études, en réorientation</div>
+</section>
+
+<section id="rgpd" style="background:var(--c-bleu);">
+  <span class="eyebrow section-eyebrow">RGPD & brand safety</span>
+  <h2>Un dispositif conforme et sécurisé</h2>
+  <div class="rgpd-grid">
+    <div class="rgpd-card">
+      <h4>Consentement</h4>
+      <p style="font-size:.88rem;margin:0;">Ciblage et collecte de données réalisés dans le strict respect du RGPD et des CMP en place chez nos partenaires.</p>
+    </div>
+    <div class="rgpd-card">
+      <h4>Brand safety</h4>
+      <p style="font-size:.88rem;margin:0;">Diffusion exclusivement sur des environnements premium et contrôlés, exclusion des contenus sensibles.</p>
+    </div>
+    <div class="rgpd-card">
+      <h4>Transparence</h4>
+      <p style="font-size:.88rem;margin:0;">Reporting complet et accès aux statistiques de diffusion tout au long de la campagne.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" id="contacts">
+  <div class="inner">
+    <div class="foot-logo">
+      <svg viewBox="214 252 572 496" width="88" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <path class="st0" fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+          <path class="st0" fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+          <path class="st0" fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="st0" fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+          <path class="st0" fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="st0" fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="st0" fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+          <path class="st0" fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+          <path class="st0" fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="st0" fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+        </g>
+        <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+        <g>
+          <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+          <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+          <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+        </g>
+      </svg>
+      <p style="font-size:.78rem;color:#9aa6cf;margin-top:10px;">THE GOOD WEB · The Good Audience</p>
+    </div>
+    <h3 style="color:var(--white);">Votre équipe The Good Web</h3>
+    <div class="contacts">
+      <div class="contact-card"><b>Jérôme Fages</b><span>Directeur commercial</span><span>06 18 74 66 75</span><a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a></div>
+      <div class="contact-card"><b>Mathilde Coriton</b><span>Directrice de clientèle</span><span>06 48 61 92 92</span><a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a></div>
+      <div class="contact-card"><b>Leslie Rogé</b><span>Cheffe de publicité</span><span>06 83 73 68 62</span><a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a></div>
+      <div class="contact-card"><b>Sofien Chaganiou</b><span>Chef de publicité</span><span>07 67 84 70 67</span><a href="mailto:sofien@thegoodweb.eu">sofien@thegoodweb.eu</a></div>
+      <div class="contact-card"><b>Andrea</b><span>Équipe TGW</span><span>andrea@thegoodweb.eu</span></div>
+      <div class="contact-card"><b>Pôle activation</b><span>Équipe TGW</span><span>activation@thegoodweb.eu</span></div>
+    </div>
+    <div class="foot-bottom">The Good Web · Pigier Saint-Quentin-en-Yvelines · Recommandation média 2027 · Décembre 2026 : Mars 2027</div>
+  </div>
+</footer>
+
+</body>
+</html>
