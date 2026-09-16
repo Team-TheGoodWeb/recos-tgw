@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OT Risoul · Proposition média Ouverture de saison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+:root{
+  --navy:#021859;
+  --babyblue:#7bbdff;
+  --terracota:#f25430;
+  --white:#ffffff;
+  --ink:#0c1730;
+  --muted:#5b6784;
+  --bg:#f5f7fb;
+  --card-bg:#ffffff;
+  --border:#e3e8f2;
+  --c-lavande:#eef0ff;
+  --c-rose:#f4eefc;
+  --c-bleu:#eaf4ff;
+  --c-menthe:#eef1f7;
+  --c-corail:#fff1ec;
+  --c-peche:#fff7ec;
+  --shadow:0 6px 24px rgba(2,24,89,0.08);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0a1024;
+    --card-bg:#101a36;
+    --border:#1e2a4d;
+    --ink:#eef1fb;
+    --muted:#a6b0cc;
+    --c-lavande:#151c3d;
+    --c-rose:#1a1a3d;
+    --c-bleu:#122238;
+    --c-menthe:#141b30;
+    --c-corail:#2a1a15;
+    --c-peche:#2a2115;
+    --shadow:0 6px 24px rgba(0,0,0,0.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0a1024;
+  --card-bg:#101a36;
+  --border:#1e2a4d;
+  --ink:#eef1fb;
+  --muted:#a6b0cc;
+  --c-lavande:#151c3d;
+  --c-rose:#1a1a3d;
+  --c-bleu:#122238;
+  --c-menthe:#141b30;
+  --c-corail:#2a1a15;
+  --c-peche:#2a2115;
+  --shadow:0 6px 24px rgba(0,0,0,0.35);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);}
+:root[data-theme="dark"] h1,:root[data-theme="dark"] h2,:root[data-theme="dark"] h3,:root[data-theme="dark"] h4{color:var(--ink);}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) h1,:root:not([data-theme="light"]) h2,:root:not([data-theme="light"]) h3,:root:not([data-theme="light"]) h4{color:var(--ink);}
+}
+a{color:var(--terracota);}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+/* HERO */
+.hero{background:var(--navy);color:var(--white);padding:56px 0 40px;}
+.hero h1{color:var(--white);font-size:2.1rem;font-weight:800;margin-bottom:6px;}
+.hero .sub{color:var(--babyblue);font-size:1.05rem;font-weight:500;margin-bottom:28px;}
+.hero-logo{width:110px;height:auto;margin-bottom:24px;display:block;}
+.pastilles{display:flex;flex-wrap:wrap;gap:12px;}
+.pastille{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:999px;padding:9px 18px;font-size:0.88rem;}
+.pastille b{color:var(--terracota);font-weight:700;margin-right:6px;}
+
+/* NAV */
+nav.sticky{position:sticky;top:0;background:var(--card-bg);border-bottom:1px solid var(--border);z-index:999;overflow-x:auto;}
+nav.sticky .navrow{display:flex;gap:4px;padding:10px 24px;max-width:1120px;margin:0 auto;white-space:nowrap;}
+nav.sticky a{color:var(--muted);text-decoration:none;font-size:0.86rem;font-weight:600;padding:8px 12px;border-radius:8px;}
+nav.sticky a:hover{background:var(--c-bleu);color:var(--navy);}
+:root[data-theme="dark"] nav.sticky a:hover{color:var(--babyblue);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) nav.sticky a:hover{color:var(--babyblue);}}
+
+/* SECTIONS */
+section{padding:52px 0;border-bottom:1px solid var(--border);}
+section h2{font-size:1.5rem;margin-bottom:6px;}
+.section-kicker{color:var(--terracota);font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;}
+.section-intro{color:var(--muted);margin-bottom:28px;max-width:70ch;}
+
+/* CARDS GRID */
+.grid{display:grid;gap:18px;}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:860px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px;box-shadow:var(--shadow);}
+.card h3{font-size:1.02rem;margin-bottom:8px;}
+.card p{color:var(--muted);font-size:0.92rem;}
+.c-lavande{background:var(--c-lavande);}
+.c-rose{background:var(--c-rose);}
+.c-bleu{background:var(--c-bleu);}
+.c-menthe{background:var(--c-menthe);}
+.c-corail{background:var(--c-corail);}
+.c-peche{background:var(--c-peche);}
+
+.num-badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--white);font-weight:700;font-size:0.85rem;margin-bottom:10px;}
+
+/* LEVER CARDS */
+.lever-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow);}
+.lever-card h3{font-size:1.15rem;display:flex;align-items:center;gap:10px;}
+.lever-tag{background:var(--terracota);color:var(--white);font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;padding:4px 10px;border-radius:999px;}
+.hyp-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;}
+.hyp-box{border:1px solid var(--border);border-radius:10px;padding:14px;}
+.hyp-box .hlabel{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;font-weight:700;color:var(--muted);margin-bottom:6px;}
+.hyp-box.basse .hlabel{color:var(--babyblue);}
+.hyp-box.haute .hlabel{color:var(--terracota);}
+.hyp-box .hbudget{font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);}
+:root[data-theme="dark"] .hyp-box .hbudget{color:var(--white);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .hyp-box .hbudget{color:var(--white);}}
+.hyp-box .hdetail{font-size:0.82rem;color:var(--muted);margin-top:4px;}
+
+.lever-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:0.83rem;}
+.lever-table th{background:var(--navy);color:var(--white);text-align:left;padding:8px 10px;font-weight:600;font-size:0.76rem;text-transform:uppercase;letter-spacing:0.03em;}
+.lever-table td{padding:9px 10px;border-bottom:1px solid var(--border);}
+.lever-table tr:last-child td{border-bottom:none;}
+.lever-table td.rowlabel{font-weight:600;color:var(--navy);}
+:root[data-theme="dark"] .lever-table td.rowlabel{color:var(--white);}
+.lever-table tr.optional td{background:var(--c-corail);}
+.lever-table tr.optional td.rowlabel{color:var(--terracota);}
+.lever-table tr.total td{background:var(--c-bleu);font-weight:700;}
+.opt-badge{display:inline-block;background:var(--terracota);color:var(--white);font-size:0.64rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle;}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;background:var(--card-bg);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+thead th{background:var(--navy);color:var(--white);text-align:left;padding:12px 16px;font-size:0.82rem;font-weight:600;}
+tbody td{padding:12px 16px;border-bottom:1px solid var(--border);font-size:0.88rem;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.total td{font-weight:700;background:var(--c-bleu);}
+tbody tr.optional td{background:var(--c-corail);}
+tbody tr.optional td:first-child{color:var(--terracota);font-weight:600;}
+.table-wrap{overflow-x:auto;}
+
+/* ENVIRONNEMENTS / CHIPS */
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}
+.chip{background:var(--c-bleu);border:1px solid var(--border);border-radius:999px;padding:7px 14px;font-size:0.82rem;font-weight:600;color:var(--navy);}
+:root[data-theme="dark"] .chip{color:var(--babyblue);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chip{color:var(--babyblue);}}
+
+/* MAP */
+.map-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.map-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:12px;font-size:0.82rem;color:var(--muted);}
+.map-legend span{display:inline-flex;align-items:center;gap:6px;}
+.dot{width:11px;height:11px;border-radius:50%;display:inline-block;}
+#doohMap{width:100%;height:520px;display:block;border-radius:10px;background:var(--c-menthe);z-index:1;}
+.leaflet-popup-content-wrapper{border-radius:10px;}
+.leaflet-popup-content{font-family:'Inter',sans-serif;font-size:0.84rem;margin:10px 12px;}
+.leaflet-popup-content b{font-family:'Poppins',sans-serif;color:var(--navy);display:block;margin-bottom:3px;}
+.map-loading{position:absolute;inset:20px 20px auto 20px;text-align:center;color:var(--muted);font-size:0.85rem;padding-top:220px;pointer-events:none;}
+.map-note{font-size:0.78rem;color:var(--muted);margin-top:10px;}
+.dooh-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px;}
+@media(max-width:700px){.dooh-stats{grid-template-columns:repeat(2,1fr);}}
+.dstat{border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
+.dstat .dval{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);}
+:root[data-theme="dark"] .dstat .dval{color:var(--white);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dstat .dval{color:var(--white);}}
+.dstat .dlabel{font-size:0.74rem;color:var(--muted);margin-top:3px;}
+
+/* PLANNING */
+.planning-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:700px){.planning-grid{grid-template-columns:1fr;}}
+.plan-col{border:1px solid var(--border);border-radius:14px;padding:18px;background:var(--card-bg);}
+.plan-col h4{font-size:0.95rem;margin-bottom:12px;color:var(--navy);}
+:root[data-theme="dark"] .plan-col h4{color:var(--white);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .plan-col h4{color:var(--white);}}
+.plan-item{background:var(--c-corail);border-radius:8px;padding:9px 12px;font-size:0.85rem;font-weight:600;margin-bottom:8px;color:var(--navy);}
+:root[data-theme="dark"] .plan-item{color:var(--ink);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .plan-item{color:var(--ink);}}
+
+/* AUDIENCES */
+.persona-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow);}
+.persona-card h3{margin-bottom:14px;}
+.persona-layer{margin-bottom:14px;}
+.persona-layer .glabel{font-weight:700;font-size:0.8rem;color:var(--terracota);margin-bottom:6px;display:block;}
+.persona-layer ul{list-style:none;}
+.persona-layer li{font-size:0.86rem;color:var(--muted);margin-bottom:5px;padding-left:18px;position:relative;}
+.persona-layer li::before{content:attr(data-glyph);position:absolute;left:0;color:var(--babyblue);font-weight:700;}
+
+/* DATA PYRAMID */
+.pyramid{display:flex;flex-direction:column;gap:8px;max-width:640px;margin:0 auto 24px;}
+.pyramid .layer{padding:16px 20px;border-radius:10px;color:var(--white);font-weight:600;font-size:0.9rem;text-align:center;}
+.pyramid .layer small{display:block;font-weight:400;font-size:0.78rem;opacity:0.9;margin-top:3px;}
+.pyramid .l1{background:var(--navy);width:100%;align-self:center;}
+.pyramid .l2{background:#1b3a8c;width:88%;align-self:center;}
+.pyramid .l3{background:#3f66c9;width:76%;align-self:center;}
+.pyramid .l4{background:var(--terracota);width:64%;align-self:center;}
+
+/* CONTACTS */
+.contact-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:left;}
+.contact-card .role{color:var(--terracota);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px;}
+.contact-card a{color:var(--navy);text-decoration:none;font-weight:600;}
+:root[data-theme="dark"] .contact-card a{color:var(--babyblue);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .contact-card a{color:var(--babyblue);}}
+
+footer.tgw-footer{background:var(--navy);color:var(--white);padding:48px 0 32px;}
+footer.tgw-footer h2{color:var(--white);font-size:1.3rem;margin-bottom:24px;}
+.footer-logo{width:82px;height:auto;margin-bottom:20px;display:block;}
+.footer-note{margin-top:32px;color:rgba(255,255,255,0.6);font-size:0.78rem;}
+
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.small-badge{background:var(--c-peche);color:var(--navy);border-radius:6px;padding:4px 9px;font-size:0.72rem;font-weight:700;}
+:root[data-theme="dark"] .small-badge{color:var(--ink);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .small-badge{color:var(--ink);}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <svg class="hero-logo" viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+        <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+        <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+        <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+        <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+        <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+      </g>
+      <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+      <g>
+        <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+        <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+        <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+        <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+        <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+        <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+      </g>
+      <g>
+        <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+        <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+        <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+        <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+        <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+        <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+        <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+        <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+        <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+        <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+        <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+        <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+        <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+        <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+        <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+      </g>
+    </svg>
+    <h1>Proposition média · OT Risoul</h1>
+    <div class="sub">Ouverture de saison, station de Risoul</div>
+    <div class="pastilles">
+      <div class="pastille"><b>Période</b>Mi&#8209;novembre au 15 janvier</div>
+      <div class="pastille"><b>Budget</b>14 000 € à 21 000 € selon options</div>
+      <div class="pastille"><b>Objectif</b>Notoriété, drive&#8209;to&#8209;station</div>
+      <div class="pastille"><b>Géo</b>Marseille, Aix&#8209;en&#8209;Provence, Var, Montpellier</div>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky">
+  <div class="navrow">
+    <a href="#contexte">Contexte</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats-kpis">Formats &amp; KPIs</a>
+    <a href="#strategie-data">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="contexte">
+  <div class="section-kicker">Contexte</div>
+  <h2>Une ouverture de saison à accompagner sur trois temps forts</h2>
+  <p class="section-intro">La station de Risoul ouvre sa saison le 12 décembre. L'enjeu média est de construire la notoriété de l'ouverture dès la mi&#8209;novembre, puis de soutenir la fréquentation jusqu'au 15 janvier, sur le bassin Marseille, Aix&#8209;en&#8209;Provence, avec une extension possible au Var et à Montpellier.</p>
+  <div class="grid grid-4">
+    <div class="card c-lavande"><div class="num-badge">1</div><h3>Notoriété</h3><p>Installer l'ouverture de la station de Risoul auprès d'un public élargi, dès mi&#8209;novembre.</p></div>
+    <div class="card c-rose"><div class="num-badge">2</div><h3>Ciblage familles et jeunes actifs</h3><p>Toucher deux profils prioritaires sur le bassin Marseille et Aix&#8209;en&#8209;Provence.</p></div>
+    <div class="card c-bleu"><div class="num-badge">3</div><h3>Drive&#8209;to&#8209;station</h3><p>Accompagner la fréquentation et les réservations sur toute la période de lancement.</p></div>
+    <div class="card c-menthe"><div class="num-badge">4</div><h3>Couverture et reciblage</h3><p>Combiner une couverture large (DOOH, cTV, YouTube) avec un reciblage performant en display.</p></div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="section-kicker">Audiences</div>
+  <h2>Deux cibles complémentaires</h2>
+  <div class="grid grid-2">
+    <div class="persona-card">
+      <h3>● Familles avec enfant</h3>
+      <div class="persona-layer">
+        <span class="glabel">Comportementale</span>
+        <ul>
+          <li data-glyph="■">Fréquentation de stations de ski et de montagne, hiver 2025</li>
+          <li data-glyph="■">Visites en magasins outdoor et sports d'hiver : Snowleader, Au Vieux Campeur, Decathlon Mountain, Ekosport</li>
+          <li data-glyph="■">Fréquentation d'enseignes mode préado/ado : Zara, H&amp;M, JD Sports, Courir, Foot Locker, Okaïdi, Kiabi</li>
+          <li data-glyph="■">Fréquentation de centres commerciaux mode et loisirs familiaux, complexes de loisirs</li>
+        </ul>
+      </div>
+      <div class="persona-layer">
+        <span class="glabel">Voyage</span>
+        <ul>
+          <li data-glyph="◆">Séjours récents ou réservés à la montagne, adulte et enfant</li>
+          <li data-glyph="◆">Réservations vols ou hôtels adulte et enfant sur vacances scolaires</li>
+        </ul>
+      </div>
+      <div class="persona-layer">
+        <span class="glabel">Fidélité</span>
+        <ul>
+          <li data-glyph="⌂">Cartes de fidélité activées : Décathlon, Intersport, Courir, JD Sports</li>
+          <li data-glyph="⌂">Cartes de fidélité loisirs, culture, jouets : Fnac, Cultura, King Jouet, Smyths Toys</li>
+        </ul>
+      </div>
+      <div class="persona-layer">
+        <span class="glabel">Achat</span>
+        <ul>
+          <li data-glyph="◐">Achats de vêtements premium ado</li>
+          <li data-glyph="◐">Achats d'équipements sport et outdoor</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="persona-card">
+      <h3>■ Jeunes actifs</h3>
+      <div class="persona-layer">
+        <span class="glabel">Comportementale</span>
+        <ul>
+          <li data-glyph="■">Fréquentation de stations de ski et de montagne, hiver 2025</li>
+          <li data-glyph="■">Visites en magasins outdoor et sports d'hiver</li>
+          <li data-glyph="■">Fréquentation de centres commerciaux</li>
+        </ul>
+      </div>
+      <div class="persona-layer">
+        <span class="glabel">Voyage</span>
+        <ul>
+          <li data-glyph="◆">Séjours récents ou réservés à la montagne, en station de ski</li>
+        </ul>
+      </div>
+      <div class="persona-layer">
+        <span class="glabel">Fidélité</span>
+        <ul>
+          <li data-glyph="⌂">Cartes de fidélité sport et outdoor : Decathlon, Go Sport, Sport 2000</li>
+        </ul>
+      </div>
+      <div class="persona-layer">
+        <span class="glabel">Achat</span>
+        <ul>
+          <li data-glyph="◐">Produits ski, montagne, outdoor : UGG, Napapijri, Maison Labiche</li>
+          <li data-glyph="◐">Participation à des ventes privées sport et lifestyle : Nike, Adidas, Puma, New Balance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dispositif">
+  <div class="section-kicker">Dispositif</div>
+  <h2>Cinq leviers, une logique en entonnoir</h2>
+  <p class="section-intro">Le dispositif combine des leviers de couverture large pour installer la notoriété et un levier vidéo engageant pour raconter la station. Deux leviers intègrent un volet retargeting : il s'agit dans les deux cas d'une option facultative, activable indépendamment de l'hypothèse basse ou haute, et chiffrée séparément du budget de base.</p>
+
+  <div class="grid grid-2">
+    <div class="lever-card">
+      <h3>Display programmatique <span class="lever-tag">Notoriété</span></h3>
+      <p>CPM 5 €, diffusion IAB sur la zone de chalandise.</p>
+      <div class="hyp-row">
+        <div class="hyp-box basse"><div class="hlabel">Hypothèse basse</div><div class="hbudget">1 500 €</div><div class="hdetail">300 000 impressions</div></div>
+        <div class="hyp-box haute"><div class="hlabel">Hypothèse haute</div><div class="hbudget">2 000 €</div><div class="hdetail">400 000 impressions</div></div>
+      </div>
+    </div>
+
+    <div class="lever-card">
+      <h3>cTV <span class="lever-tag">Notoriété</span></h3>
+      <p>Diffusion vidéo premium sur toute la zone. Un volet retargeting display peut être ajouté en option pour recapter les audiences exposées.</p>
+      <table class="lever-table">
+        <thead><tr><th>Poste</th><th>Hypothèse basse</th><th>Hypothèse haute</th></tr></thead>
+        <tbody>
+          <tr><td class="rowlabel">Budget cTV (base)</td><td>4 500 €, 195 652 impressions</td><td>7 000 €, 304 348 impressions</td></tr>
+          <tr class="optional"><td class="rowlabel">Retargeting<span class="opt-badge">Optionnel</span></td><td>+ 1 000 €, + 200 000 impressions</td><td>+ 2 000 €, + 400 000 impressions</td></tr>
+          <tr class="total"><td class="rowlabel">Total si option activée</td><td>5 500 €, 395 652 impressions</td><td>9 000 €, 704 348 impressions</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="lever-card">
+      <h3>YouTube <span class="lever-tag">Notoriété</span></h3>
+      <p>Budget de 1 500 €, activé en CPV pour garantir un volume de vues qualifiées.</p>
+      <div class="hyp-row">
+        <div class="hyp-box basse"><div class="hlabel">Budget</div><div class="hbudget">1 500 €</div><div class="hdetail">CPV 0,10 €</div></div>
+        <div class="hyp-box haute"><div class="hlabel">Volume garanti</div><div class="hbudget">15 000</div><div class="hdetail">vues</div></div>
+      </div>
+    </div>
+
+    <div class="lever-card">
+      <h3>Spotify <span class="lever-tag">Notoriété</span></h3>
+      <p>Budget de 1 500 €, CPM 15 €, diffusion audio streaming ciblée.</p>
+      <div class="hyp-row">
+        <div class="hyp-box basse"><div class="hlabel">Budget</div><div class="hbudget">1 500 €</div><div class="hdetail">100 000 impressions</div></div>
+        <div class="hyp-box haute"><div class="hlabel">Fenêtre</div><div class="hbudget">Janvier</div><div class="hdetail">Diffusion début janvier</div></div>
+      </div>
+    </div>
+
+    <div class="lever-card">
+      <h3>DOOH <span class="lever-tag">Notoriété</span></h3>
+      <p>Budget de base de 5 000 €, CPM 48 €, diffusion sur écrans digitaux en centres commerciaux à Marseille et Aix&#8209;en&#8209;Provence. Un volet retargeting display peut être ajouté en option.</p>
+      <table class="lever-table">
+        <thead><tr><th>Poste</th><th>Coût</th><th>Détail</th></tr></thead>
+        <tbody>
+          <tr><td class="rowlabel">Budget DOOH (base)</td><td>5 000 €</td><td>104 167 impressions estimées, CPM 48 €</td></tr>
+          <tr class="optional"><td class="rowlabel">Retargeting<span class="opt-badge">Optionnel</span></td><td>+ 2 000 €</td><td>+ 400 000 impressions, CPM 5 €, visibilité &gt; 90 %, CTR 0,8 % à 1,1 %, 3 200 à 4 400 clics estimés</td></tr>
+          <tr class="total"><td class="rowlabel">Total si option activée</td><td>7 000 €</td><td>504 167 impressions estimées</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="environnements">
+  <div class="section-kicker">Environnements</div>
+  <h2>Un maillage DOOH dense sur Marseille et Aix&#8209;en&#8209;Provence</h2>
+  <p class="section-intro">L'inventaire disponible couvre 51 emplacements en centres commerciaux, pour un total de 153 écrans digitaux actifs. Chaque point de la carte représente un emplacement, la taille du point est proportionnelle au nombre d'écrans sur site.</p>
+
+  <div class="map-card">
+    <div class="map-legend">
+      <span><i class="dot" style="background:#f25430"></i>Marseille</span>
+      <span><i class="dot" style="background:#7bbdff"></i>Aix&#8209;en&#8209;Provence</span>
+    </div>
+    <div id="doohMap"></div>
+    <p class="map-note">Carte réelle, zoomable, construite à partir des coordonnées GPS des écrans. Cliquez sur un point pour le détail de l'emplacement, molette ou pincement pour zoomer.</p>
+
+    <div class="dooh-stats">
+      <div class="dstat"><div class="dval">51</div><div class="dlabel">Emplacements</div></div>
+      <div class="dstat"><div class="dval">153</div><div class="dlabel">Écrans digitaux</div></div>
+      <div class="dstat"><div class="dval">104 167</div><div class="dlabel">Impressions mensuelles au budget de base</div></div>
+      <div class="dstat"><div class="dval">48 €</div><div class="dlabel">CPM</div></div>
+    </div>
+  </div>
+
+  <div class="grid grid-2" style="margin-top:20px;">
+    <div class="card c-corail">
+      <h3>Diffuseurs DOOH</h3>
+      <p>Cityz Media, In&#8209;Store Media, FNAC Darty, IMedia Center, sur des totems et écrans en centres commerciaux.</p>
+      <div class="chip-row"><span class="chip">Cityz Media</span><span class="chip">In&#8209;Store Media</span><span class="chip">FNAC Darty</span><span class="chip">IMedia Center</span></div>
+    </div>
+    <div class="card c-peche">
+      <h3>Display, cTV, YouTube, Spotify</h3>
+      <p>Diffusion programmatique sur réseaux IAB, inventaire cTV premium, YouTube et Spotify en environnements audio et vidéo brand safe.</p>
+      <div class="chip-row"><span class="chip">Programmatique IAB</span><span class="chip">cTV premium</span><span class="chip">YouTube</span><span class="chip">Spotify</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="planning">
+  <div class="section-kicker">Planning</div>
+  <h2>Une séquence proposée, à ajuster selon vos disponibilités</h2>
+  <p class="section-intro">Le séquencement ci&#8209;dessous est une proposition de notre part, construite pour accompagner la montée en notoriété jusqu'à l'ouverture puis la conversion sur la période de vacances. Chaque levier reste indépendant des autres : vous pouvez le placer sur la vague suggérée, l'avancer, le décaler, ou le faire courir sur une autre période selon vos besoins.</p>
+  <div class="planning-grid">
+    <div class="plan-col">
+      <h4>Mi/fin novembre</h4>
+      <div class="plan-item">DOOH</div>
+      <div class="plan-item">Retargeting DOOH <span class="opt-badge">Optionnel</span></div>
+    </div>
+    <div class="plan-col">
+      <h4>Décembre : ouverture le 12</h4>
+      <div class="plan-item">YouTube</div>
+      <div class="plan-item">cTV</div>
+      <div class="plan-item">Retargeting cTV <span class="opt-badge">Optionnel</span></div>
+    </div>
+    <div class="plan-col">
+      <h4>Début janvier, jusqu'au 15</h4>
+      <div class="plan-item">Spotify</div>
+    </div>
+  </div>
+  <p class="map-note" style="margin-top:16px;">Le display programmatique n'est pas positionné sur une vague en particulier : il peut être diffusé en continu sur toute la période, ou concentré sur la fenêtre de votre choix. L'ensemble de ce calendrier reste une base de travail, à valider et ajuster ensemble.</p>
+</section>
+
+<section id="budgets">
+  <div class="section-kicker">Budgets</div>
+  <h2>De 14 000 € à 21 000 € selon les options activées</h2>
+  <p class="section-intro">Le budget de base couvre les cinq leviers essentiels au dispositif. Les deux lignes de retargeting, sur cTV et sur DOOH, sont facultatives : elles s'ajoutent au budget de base si vous souhaitez les activer, dans l'une ou l'autre hypothèse, ou dans les deux.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Levier</th><th>Hypothèse basse</th><th>Hypothèse haute</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Display programmatique</td><td>1 500 €</td><td>2 000 €</td></tr>
+        <tr><td>cTV (base)</td><td>4 500 €</td><td>7 000 €</td></tr>
+        <tr><td>YouTube</td><td>1 500 €</td><td>1 500 €</td></tr>
+        <tr><td>Spotify</td><td>1 500 €</td><td>1 500 €</td></tr>
+        <tr><td>DOOH (base)</td><td>5 000 €</td><td>5 000 €</td></tr>
+        <tr class="total"><td>Sous&#8209;total budget de base, obligatoire</td><td>14 000 €</td><td>17 000 €</td></tr>
+        <tr class="optional"><td>Retargeting cTV, optionnel</td><td>+ 1 000 €</td><td>+ 2 000 €</td></tr>
+        <tr class="optional"><td>Retargeting DOOH, optionnel</td><td>+ 2 000 €</td><td>+ 2 000 €</td></tr>
+        <tr class="total"><td>Total si toutes les options sont activées</td><td>17 000 €</td><td>21 000 €</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="map-note" style="margin-top:14px;">Les deux options de retargeting peuvent être activées indépendamment l'une de l'autre, sur l'hypothèse basse ou haute, selon vos priorités. Si la zone de chalandise diminue par rapport au périmètre proposé, le budget diminue proportionnellement.</p>
+</section>
+
+<section id="formats-kpis">
+  <div class="section-kicker">Formats &amp; KPIs de suivi</div>
+  <h2>Un suivi dédié par levier</h2>
+  <div class="grid grid-3">
+    <div class="card c-bleu">
+      <h3>Display</h3>
+      <p><b>Formats</b> : 300x600, 300x250, 320x480, 728x90, 160x600, 320x50 px, jpeg, png, gif.</p>
+      <p style="margin-top:8px;"><b>KPIs</b> : impressions, clics, CTR, étude socio&#8209;démo, géolocalisation, affinitaires.</p>
+    </div>
+    <div class="card c-lavande">
+      <h3>cTV</h3>
+      <p><b>Format</b> : 1920x1080 px, 16:9, 15 à 30 secondes.</p>
+      <p style="margin-top:8px;"><b>KPIs</b> : impressions, reach, taux de complétion, top chaînes, socio&#8209;démo, géolocalisation.</p>
+    </div>
+    <div class="card c-rose">
+      <h3>YouTube</h3>
+      <p><b>Formats</b> : post 1080x1080 px, bumper ads 6 secondes.</p>
+      <p style="margin-top:8px;"><b>KPIs</b> : impressions, reach, vues à 25/50/75/100 %, taux de complétion, coût par vue.</p>
+    </div>
+    <div class="card c-menthe">
+      <h3>Spotify</h3>
+      <p><b>Formats</b> : 1:1 640x640 px ou 9:16 720x1280 px, 15 à 30 secondes.</p>
+      <p style="margin-top:8px;"><b>KPIs</b> : impressions, reach, écoutes à 25/50/75/100 %, CPE et CPM finaux.</p>
+    </div>
+    <div class="card c-corail">
+      <h3>DOOH</h3>
+      <p><b>Format</b> : 9:16 1080x1920 px mp4, 10 secondes.</p>
+      <p style="margin-top:8px;"><b>KPIs</b> : impressions, diffusion, nombre de plays, statistiques par écran.</p>
+    </div>
+    <div class="card c-peche">
+      <h3>Retargeting <span class="opt-badge">Optionnel</span></h3>
+      <p>Commun aux deux options de retargeting, sur cTV et sur DOOH.</p>
+      <p style="margin-top:8px;"><b>Formats</b> : formats IAB standards, jpeg, png, gif.</p>
+      <p style="margin-top:8px;"><b>KPIs</b> : impressions, clics, CTR, taux de visibilité.</p>
+    </div>
+  </div>
+</section>
+
+<section id="strategie-data">
+  <div class="section-kicker">Stratégie data</div>
+  <h2>Une architecture en quatre couches</h2>
+  <p class="section-intro">La stratégie de ciblage s'appuie sur quatre partenaires data complémentaires, activés en entonnoir : du comportement large jusqu'à l'intention d'achat.</p>
+  <div class="pyramid">
+    <div class="layer l1">Socio&#8209;démo et comportements<small>Fréquentation stations de ski, montagne, outdoor</small></div>
+    <div class="layer l2">Data Seiki<small>Comportements de fréquentation physique, retail et loisirs</small></div>
+    <div class="layer l3">Data Travel et data encartée<small>Réservations séjours montagne, fidélité enseignes sport et loisirs</small></div>
+    <div class="layer l4">Data The Bradery<small>Achats et intention d'achat sport, outdoor, montagne</small></div>
+  </div>
+  <div class="chip-row">
+    <span class="chip">Seiki</span>
+    <span class="chip">Travel</span>
+    <span class="chip">Data encartée</span>
+    <span class="chip">The Bradery</span>
+  </div>
+</section>
+
+<section id="rgpd">
+  <div class="section-kicker">RGPD &amp; brand safety</div>
+  <h2>Une diffusion conforme et sécurisée</h2>
+  <div class="grid grid-2">
+    <div class="card c-menthe">
+      <h3>RGPD</h3>
+      <p>Les partenaires data mobilisés opèrent dans le cadre du RGPD, sur des bases de consentement et d'intérêt légitime encadrées. Les données utilisées sont anonymisées et agrégées, sans identification individuelle des personnes ciblées.</p>
+    </div>
+    <div class="card c-bleu">
+      <h3>Brand safety</h3>
+      <p>La diffusion est réalisée sur des environnements premium et contrôlés, avec exclusion des contenus sensibles et vérification de la visibilité des campagnes sur l'ensemble des leviers.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="tgw-footer" id="contacts">
+  <div class="wrap">
+    <svg class="footer-logo" viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+        <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+        <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+        <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+        <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+        <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+      </g>
+      <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+      <g>
+        <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+        <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+        <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+        <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+        <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+        <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+        <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+      </g>
+      <g>
+        <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+        <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+        <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+        <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+        <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+        <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+        <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+        <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+        <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+        <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+        <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+        <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+        <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+        <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+        <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+      </g>
+    </svg>
+    <h2>Contacts</h2>
+    <div class="grid grid-3">
+      <div class="contact-card">
+        <div class="role">Directeur commercial</div>
+        <h3>Jérôme Fages</h3>
+        <p>06 18 74 66 75</p>
+        <a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <div class="role">Directrice de clientèle</div>
+        <h3>Mathilde Coriton</h3>
+        <p>06 48 61 92 92</p>
+        <a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <div class="role">Cheffe de publicité</div>
+        <h3>Leslie Rogé</h3>
+        <p>06 83 73 68 62</p>
+        <a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <div class="role">Chef de publicité</div>
+        <h3>Sofien Chaganiou</h3>
+        <p>07 67 84 70 67</p>
+        <a href="mailto:sofien@thegoodweb.eu">sofien@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <div class="role">Pôle activation</div>
+        <h3>Activation</h3>
+        <p>activation@thegoodweb.eu</p>
+      </div>
+      <div class="contact-card">
+        <div class="role">Contact</div>
+        <h3>Andrea</h3>
+        <p>andrea@thegoodweb.eu</p>
+      </div>
+    </div>
+    <div class="footer-note">The Good Web · Proposition média confidentielle, réalisée pour l'Office de Tourisme de Risoul.</div>
+  </div>
+</footer>
+
+<script>
+// ---- CARTE DOOH INTERACTIVE ----
+var VENUES = [{"lat": 43.26041, "lon": 5.39399, "addr": "325 Av. de Mazargues", "city": "Marseille", "pub": "In-Store Media", "screens": 2, "impr": 225536}, {"lat": 43.26041, "lon": 5.39399, "addr": "325 Av. de Mazargues", "city": "Marseille", "pub": "Instore Media", "screens": 2, "impr": 361858}, {"lat": 43.26993, "lon": 5.39347, "addr": "41 Bd Michelet", "city": "Marseille", "pub": "Cityz Media", "screens": 3, "impr": 74254}, {"lat": 43.27006, "lon": 5.39345, "addr": "41 Bd Michelet", "city": "Marseille", "pub": "Cityz Media", "screens": 1, "impr": 74254}, {"lat": 43.27027, "lon": 5.39346, "addr": "1245 Bd Michelet", "city": "Marseille", "pub": "Cityz Media", "screens": 4, "impr": 74254}, {"lat": 43.27034, "lon": 5.39353, "addr": "Centre Commercial Prado", "city": "Marseille", "pub": "Cityz Media", "screens": 1, "impr": 74254}, {"lat": 43.27046, "lon": 5.39365, "addr": "Galeries Lafayette Prado", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 74254}, {"lat": 43.27944, "lon": 5.42417, "addr": "Centre Commercial", "city": "Marseille", "pub": "IMedia Center", "screens": 5, "impr": 467532}, {"lat": 43.28397, "lon": 5.38728, "addr": "20 Av. de Delphes", "city": "Marseille", "pub": "FNAC Darty", "screens": 1, "impr": 132192}, {"lat": 43.29159, "lon": 5.47573, "addr": "Centre Commercial La Valentine Trav. de la Sablière", "city": "Marseille", "pub": "FNAC Darty", "screens": 1, "impr": 155520}, {"lat": 43.29162, "lon": 5.47819, "addr": "1 Trav. de la Sablière", "city": "Marseille", "pub": "FNAC Darty", "screens": 4, "impr": 155520}, {"lat": 43.29177, "lon": 5.47695, "addr": "11 Rte de la Valentine", "city": "Marseille", "pub": "Instore Media", "screens": 6, "impr": 2652381}, {"lat": 43.29491, "lon": 5.47769, "addr": "30 Trav. de la Montre", "city": "Marseille", "pub": "In-Store Media", "screens": 12, "impr": 478393}, {"lat": 43.29523, "lon": 5.44226, "addr": "Dom. des Solleillades", "city": "Marseille", "pub": "In-Store Media", "screens": 2, "impr": 248120}, {"lat": 43.29593, "lon": 5.44363, "addr": "12 Mister Minit Intermarche", "city": "Marseille", "pub": "Instore Media", "screens": 2, "impr": 398088}, {"lat": 43.29694, "lon": 5.37624, "addr": "18 Rue de Bir Hakeim", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 230842}, {"lat": 43.29696, "lon": 5.37561, "addr": "28 Rue de Bir Hakeim", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 230842}, {"lat": 43.29761, "lon": 5.3758, "addr": "10 Rue de Bir Hakeim", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 230842}, {"lat": 43.2977, "lon": 5.37581, "addr": "C.C BOURSE", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 230842}, {"lat": 43.29772, "lon": 5.37564, "addr": "17 Cr Belsunce", "city": "Marseille", "pub": "Cityz Media", "screens": 1, "impr": 230842}, {"lat": 43.29776, "lon": 5.37625, "addr": "14 Cr Belsunce", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 230842}, {"lat": 43.29781, "lon": 5.37594, "addr": "17 Cr Belsunce", "city": "Marseille", "pub": "FNAC Darty", "screens": 4, "impr": 225504}, {"lat": 43.29824, "lon": 5.37569, "addr": "Centre Bourse", "city": "Marseille", "pub": "Cityz Media", "screens": 3, "impr": 230842}, {"lat": 43.30622, "lon": 5.36519, "addr": "9 Quai du Lazaret", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 392244}, {"lat": 43.30633, "lon": 5.36507, "addr": "Centre Commercial Les Terrasses du Port", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 392244}, {"lat": 43.30636, "lon": 5.36528, "addr": "Centre commercial Les Terrasse du Port", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 392244}, {"lat": 43.30644, "lon": 5.36366, "addr": "9 Quai du Lazaret", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 392244}, {"lat": 43.30652, "lon": 5.36443, "addr": "9 Quai du Lazaret", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 392244}, {"lat": 43.30653, "lon": 5.36511, "addr": "Les Terrasses du Port 9 quai Lazaret Printemps", "city": "Marseille", "pub": "Cityz Media", "screens": 4, "impr": 392244}, {"lat": 43.30653, "lon": 5.36368, "addr": "9 Quai du Lazaret", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 392244}, {"lat": 43.30664, "lon": 5.36531, "addr": "9 Quai du Lazaret", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 392244}, {"lat": 43.30664, "lon": 5.36531, "addr": "9 Quai du Lazaret", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 392244}, {"lat": 43.30676, "lon": 5.3646, "addr": "Les Terrasses du Port", "city": "Marseille", "pub": "FNAC Darty", "screens": 3, "impr": 163296}, {"lat": 43.30677, "lon": 5.36425, "addr": "Les Terrasses Du Port", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 392244}, {"lat": 43.30694, "lon": 5.36381, "addr": "9 Quai du Lazaret", "city": "Marseille", "pub": "Cityz Media", "screens": 4, "impr": 392244}, {"lat": 43.30699, "lon": 5.36374, "addr": "9 Quai du Lazaret", "city": "Marseille", "pub": "Cityz Media", "screens": 1, "impr": 392244}, {"lat": 43.3301, "lon": 5.3993, "addr": "18 Av. Salvador Allende", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 143395}, {"lat": 43.33053, "lon": 5.39941, "addr": "Avenue Salvador Allende", "city": "Marseille", "pub": "Cityz Media", "screens": 2, "impr": 143395}, {"lat": 43.3647, "lon": 5.34983, "addr": "11 Avenue de St antoine", "city": "Marseille", "pub": "Cityz Media", "screens": 30, "impr": 248111}, {"lat": 43.50497, "lon": 5.39519, "addr": "1175 Rue Guillaume Du Vair Pole", "city": "Aix-en-Provence", "pub": "Cityz Media", "screens": 2, "impr": 255437}, {"lat": 43.5051, "lon": 5.39566, "addr": "C.C. Carrefour la Pioline", "city": "Aix-en-Provence", "pub": "Cityz Media", "screens": 2, "impr": 255437}, {"lat": 43.50564, "lon": 5.39642, "addr": "1175 Av. Guillaume du Vair", "city": "Aix-en-Provence", "pub": "Cityz Media", "screens": 2, "impr": 255437}, {"lat": 43.50574, "lon": 5.3963, "addr": "1175 Av. Guillaume du Vair", "city": "Aix-en-Provence", "pub": "Cityz Media", "screens": 2, "impr": 255437}, {"lat": 43.50592, "lon": 5.39744, "addr": "Rue Guillaume Du Vair Pole", "city": "Aix-en-Provence", "pub": "Cityz Media", "screens": 2, "impr": 255437}, {"lat": 43.5072, "lon": 5.39995, "addr": "727 Av. Guillaume du Vair", "city": "Aix-en-Provence", "pub": "FNAC Darty", "screens": 1, "impr": 163296}, {"lat": 43.52631, "lon": 5.44289, "addr": "15 Pl. François Villon", "city": "Aix-en-Provence", "pub": "FNAC Darty", "screens": 2, "impr": 217728}, {"lat": 43.52651, "lon": 5.44305, "addr": "165 Av. Giuseppe Verdi", "city": "Aix-en-Provence", "pub": "FNAC Darty", "screens": 1, "impr": 217728}, {"lat": 43.53295, "lon": 5.41789, "addr": "210 Av. de Bredasque", "city": "Aix-en-Provence", "pub": "Cityz Media", "screens": 2, "impr": 242561}, {"lat": 43.53311, "lon": 5.41985, "addr": "210 Av. de Bredasque", "city": "Aix-en-Provence", "pub": "Cityz Media", "screens": 2, "impr": 242561}, {"lat": 43.53317, "lon": 5.41836, "addr": "210 Av. de Bredasque", "city": "Aix-en-Provence", "pub": "Cityz Media", "screens": 2, "impr": 242561}, {"lat": 43.53332, "lon": 5.41935, "addr": "210 Av. de Bredasque", "city": "Aix-en-Provence", "pub": "Cityz Media", "screens": 2, "impr": 242561}];
+
+(function(){
+  var map = L.map('doohMap', { scrollWheelZoom: true });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var bounds = [];
+  function fmt(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+
+  VENUES.forEach(function(v){
+    bounds.push([v.lat, v.lon]);
+    var color = v.city === 'Marseille' ? '#f25430' : '#7bbdff';
+    var r = 5 + Math.sqrt(v.screens) * 2.2;
+    var marker = L.circleMarker([v.lat, v.lon], {
+      radius: r,
+      color: '#ffffff',
+      weight: 1.6,
+      fillColor: color,
+      fillOpacity: 0.85
+    }).addTo(map);
+    marker.bindPopup(
+      '<b>' + v.addr + '</b>' + v.city + ', ' + v.pub + '<br>' +
+      v.screens + ' écran(s), ' + fmt(v.impr) + ' impressions/mois'
+    );
+  });
+
+  map.fitBounds(bounds, { padding: [28, 28] });
+})();
+</script>
+
+</body>
+</html>
