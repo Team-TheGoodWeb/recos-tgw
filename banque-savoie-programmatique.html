@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banque de Savoie · Volet programmatique · « Nos différences font la différence »</title>
+<style>
+:root{
+  --navy:#021859;
+  --babyblue:#7bbdff;
+  --terracota:#f25430;
+  --white:#ffffff;
+  --bg-soft:#f6f8fe;
+  --text:#1a1f36;
+  --c-lavande:#5271FF;
+  --c-rose:#6a5acd;
+  --c-bleu:#7bbdff;
+  --c-menthe:#021859;
+  --c-corail:#f25430;
+  --c-peche:#ffb79e;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--text);line-height:1.55;background:var(--white);}
+h1,h2,h3,h4{font-family:'Poppins',Arial,sans-serif;color:var(--navy);}
+h2{font-size:1.7rem;margin-bottom:.3rem;}
+h2 .arrow{color:var(--terracota);margin-right:.4rem;}
+h3{font-size:1.15rem;margin-bottom:.5rem;}
+p{margin-bottom:.8rem;}
+.section{padding:60px 24px;max-width:1180px;margin:0 auto;}
+.section.alt{background:var(--bg-soft);}
+.section.alt > div, .section.alt{}
+.wrap-alt{background:var(--bg-soft);}
+.eyebrow{color:var(--terracota);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;margin-bottom:.6rem;}
+
+/* HERO */
+header.hero{background:var(--navy);color:var(--white);padding:70px 24px 50px;text-align:center;}
+header.hero h1{color:var(--white);font-size:2.1rem;margin:18px 0 10px;}
+header.hero .sub{color:var(--babyblue);font-size:1.05rem;max-width:760px;margin:0 auto 26px;}
+.hero-logo{height:74px;margin-bottom:6px;}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:10px;}
+.pill{border:1px solid var(--babyblue);border-radius:999px;padding:8px 18px;font-size:.85rem;font-weight:600;color:var(--white);background:rgba(255,255,255,.04);}
+.pill b{font-weight:700;}
+.confidential{margin-top:24px;font-size:.75rem;color:var(--babyblue);opacity:.8;}
+
+/* NAV */
+nav.stickynav{position:sticky;top:0;background:var(--white);border-bottom:1px solid #e4e9f7;z-index:50;overflow-x:auto;white-space:nowrap;}
+nav.stickynav ul{list-style:none;display:flex;padding:0 24px;max-width:1180px;margin:0 auto;}
+nav.stickynav a{display:block;padding:14px 16px;color:var(--navy);text-decoration:none;font-weight:700;font-size:.85rem;}
+nav.stickynav a:hover{color:var(--terracota);}
+
+/* DURATION CALLOUT */
+.duration-callout{background:var(--terracota);color:var(--white);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:18px;margin:34px 0 10px;}
+.duration-callout .big{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:1.15rem;}
+.duration-callout .icon{font-size:1.8rem;}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:24px;}
+.card{border-radius:16px;padding:22px;background:var(--bg-soft);border:1px solid #e4e9f7;}
+.card .num{font-family:'Poppins',Arial,sans-serif;font-weight:700;color:var(--terracota);font-size:1.3rem;margin-bottom:8px;}
+.card h4{font-family:'Poppins',Arial,sans-serif;color:var(--navy);font-size:1rem;margin-bottom:6px;}
+.card p{font-size:.92rem;margin-bottom:0;color:#3a4260;}
+.c-lavande{background:#eef1ff;}
+.c-rose{background:#f2effa;}
+.c-bleu{background:#eaf4ff;}
+.c-menthe{background:#e8ecf7;}
+.c-corail{background:#fdece8;}
+.c-peche{background:#fff1ea;}
+
+/* LEVER TABLE */
+table{width:100%;border-collapse:collapse;margin-top:18px;font-size:.9rem;}
+thead th{background:var(--navy);color:var(--white);text-align:left;padding:12px 14px;font-family:'Poppins',Arial,sans-serif;font-size:.82rem;}
+tbody td{padding:11px 14px;border-bottom:1px solid #e4e9f7;}
+tbody tr:nth-child(even){background:var(--bg-soft);}
+tfoot td{padding:13px 14px;font-weight:700;background:var(--navy);color:var(--white);}
+.table-wrap{overflow-x:auto;}
+.tag-min{display:inline-block;background:var(--terracota);color:var(--white);font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:999px;}
+
+/* TABS */
+.tabs{display:flex;gap:10px;margin:24px 0 6px;flex-wrap:wrap;}
+.tab-btn{border:2px solid var(--navy);background:var(--white);color:var(--navy);font-weight:700;padding:10px 20px;border-radius:999px;cursor:pointer;font-size:.88rem;font-family:'Poppins',Arial,sans-serif;}
+.tab-btn.active{background:var(--navy);color:var(--white);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.reco-badge{display:inline-block;background:var(--terracota);color:var(--white);font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:10px;}
+
+/* PLANNING GRID */
+.planning{overflow-x:auto;margin-top:20px;}
+.planning table{min-width:820px;}
+.planning td.lever-name{font-weight:700;color:var(--navy);white-space:nowrap;}
+.bar{height:22px;border-radius:6px;background:var(--babyblue);}
+.bar.ctv{background:var(--navy);}
+.bar.dooh{background:var(--terracota);}
+.bar.vol{background:var(--c-lavande);}
+.bar.audio{background:#7bbdff;}
+.bar.iab{background:#ffb79e;}
+
+/* PERSONA */
+.persona{border-radius:16px;padding:24px;background:var(--bg-soft);border:1px solid #e4e9f7;}
+.persona .glyph{font-size:1.6rem;color:var(--terracota);margin-bottom:10px;}
+.persona h4{margin-bottom:8px;}
+.persona ul{padding-left:18px;font-size:.9rem;color:#3a4260;}
+
+/* PYRAMID */
+.pyramid{display:flex;flex-direction:column;align-items:center;gap:6px;margin:30px 0;}
+.pyr-layer{color:var(--white);text-align:center;padding:16px;border-radius:10px;font-weight:700;font-family:'Poppins',Arial,sans-serif;font-size:.92rem;}
+.pyr-1{width:100%;background:var(--navy);}
+.pyr-2{width:82%;background:#1c3a8a;}
+.pyr-3{width:64%;background:var(--c-lavande);}
+.pyr-4{width:46%;background:var(--babyblue);color:var(--navy);}
+.pyr-layer small{display:block;font-weight:400;font-size:.78rem;margin-top:4px;}
+
+/* RGPD */
+.rgpd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:20px;}
+.rgpd-card{border-left:4px solid var(--terracota);background:var(--bg-soft);padding:18px 20px;border-radius:0 12px 12px 0;}
+
+/* ENVIRONMENTS */
+.env-block{margin-top:26px;}
+.env-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}
+.env-chip{background:var(--white);border:1px solid #d7deef;border-radius:999px;padding:7px 16px;font-size:.85rem;font-weight:600;color:var(--navy);}
+
+/* FOOTER */
+footer.contacts{background:var(--navy);color:var(--white);padding:60px 24px 30px;}
+footer.contacts h2{color:var(--white);}
+footer.contacts h2 .arrow{color:var(--terracota);}
+.contact-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:26px;}
+.contact-card{background:rgba(255,255,255,.06);border-radius:14px;padding:20px;}
+.contact-card h4{color:var(--white);font-size:.98rem;margin-bottom:4px;}
+.contact-card span{display:block;font-size:.82rem;color:var(--babyblue);}
+.contact-card a{color:var(--white);text-decoration:none;font-size:.85rem;}
+.contact-card a:hover{text-decoration:underline;}
+.contact-card.inactive{opacity:.5;}
+.footer-logo{height:52px;margin:36px auto 10px;display:block;}
+.footer-bottom{text-align:center;font-size:.75rem;color:var(--babyblue);margin-top:20px;}
+
+@media(max-width:640px){
+  header.hero h1{font-size:1.5rem;}
+  .section{padding:40px 16px;}
+  nav.stickynav a{padding:12px 12px;font-size:.78rem;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="hero-logo" viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+      <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+      <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+      <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+      <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+      <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+      <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+      <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+      <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+      <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+    </g>
+    <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+    <g>
+      <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+      <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+      <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+      <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+      <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+      <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+      <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+      <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+      <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+    </g>
+    <g>
+      <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+      <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+      <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+      <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+      <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+      <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+      <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+      <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+      <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+      <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+      <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+      <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+      <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+      <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+      <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    </g>
+  </svg>
+  <div class="eyebrow" style="color:var(--babyblue);">AO 2026 · Volet programmatique · Chiffrage Karrow Médias</div>
+  <h1>Banque de Savoie<br>« Nos différences font la différence »</h1>
+  <p class="sub">Campagne institutionnelle sans promotion produit : stratégie programmatique premium sur les cibles CSP+, dirigeants et patrimoniaux de Savoie et Haute-Savoie</p>
+  <div class="pills">
+    <div class="pill"><b>Mi-nov. 2026 → fin mars 2027</b></div>
+    <div class="pill"><b>54 000 € HT</b> · volet programmatique</div>
+    <div class="pill">Notoriété &amp; préférence de marque CSP+</div>
+    <div class="pill">Savoie · Haute-Savoie · Bassin lémanique</div>
+  </div>
+  <div class="confidential">Document confidentiel : usage interne TGW / Karrow Médias uniquement, dans le cadre de l'AO Banque de Savoie</div>
+</header>
+
+<nav class="stickynav">
+  <ul>
+    <li><a href="#contexte">Contexte</a></li>
+    <li><a href="#dispositif">Dispositif</a></li>
+    <li><a href="#environnements">Environnements</a></li>
+    <li><a href="#planning">Planning</a></li>
+    <li><a href="#budgets">Budgets</a></li>
+    <li><a href="#formats-kpis">Formats &amp; KPIs</a></li>
+    <li><a href="#audiences">Audiences</a></li>
+    <li><a href="#data">Stratégie data</a></li>
+    <li><a href="#rgpd">RGPD</a></li>
+    <li><a href="#contacts">Contacts</a></li>
+  </ul>
+</nav>
+
+<!-- CONTEXTE -->
+<section class="section" id="contexte">
+  <div class="eyebrow">↘ Contexte</div>
+  <h2><span class="arrow">↘</span>Contexte &amp; objectifs</h2>
+  <p>La Banque de Savoie lance sa nouvelle campagne institutionnelle conçue par Publicis LMA, sans promotion produit ni offre à l'écran, pour installer durablement sa différenciation face aux grandes banques de réseau : proximité relationnelle, décision locale, ancrage savoyard. Karrow Médias nous sollicite pour chiffrer l'intégralité du volet programmatique de ce dispositif, en environnement premium et sous brand safety stricte.</p>
+
+  <div class="duration-callout">
+    <div class="icon">⏱</div>
+    <div>
+      <div class="big">Durée du dispositif : mi-novembre 2026 → fin mars 2027</div>
+      <div>Soit environ 19 semaines (4,5 mois), à l'intérieur de la fenêtre AO mi-nov. 2026 – fin avril 2027</div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card c-lavande"><div class="num">01</div><h4>Notoriété</h4><p>Installer la nouvelle signature de marque sur les cibles et territoires prioritaires, développer la notoriété spontanée.</p></div>
+    <div class="card c-rose"><div class="num">02</div><h4>Image &amp; préférence</h4><p>Renforcer la perception banque premium, agile, du territoire, qui décide localement ; faire progresser l'intention de contact.</p></div>
+    <div class="card c-bleu"><div class="num">03</div><h4>Business</h4><p>Générer du trafic qualifié vers les conseillers, alimenter les parcours digitaux, accélérer le développement en Haute-Savoie.</p></div>
+    <div class="card c-corail"><div class="num">04</div><h4>Contrainte créative</h4><p>Environnement premium exigé, brand safety stricte, conformité forte côté annonceur (secteur bancaire) : pas d'inventaire à l'aveugle.</p></div>
+  </div>
+</section>
+
+<!-- DISPOSITIF -->
+<section class="section alt" id="dispositif">
+  <div class="eyebrow">↘ Dispositif</div>
+  <h2><span class="arrow">↘</span>Le dispositif recommandé</h2>
+  <p>Un socle commun de 4 leviers programmatiques premium, complété d'un volet vidéo décliné en <strong>deux options comparables à budget identique</strong> (20 000 € HT chacune) pour permettre l'arbitrage entre CTV+OTT seul et CTV+OTT+YouTube, comme demandé. Le social (Meta/Insta/TikTok/LinkedIn) reste hors périmètre, géré par l'agence digitale de l'annonceur.</p>
+
+  <div class="cards">
+    <div class="card c-menthe" style="background:var(--navy);color:#fff;">
+      <div class="num" style="color:var(--babyblue);">◆</div>
+      <h4 style="color:#fff;">Volet vidéo : à arbitrer</h4>
+      <p style="color:#dce6fb;">CTV+OTT seul <em>ou</em> CTV+OTT+YouTube, même enveloppe, deux mix de reach. Détail en section Budgets.</p>
+    </div>
+    <div class="card c-corail"><div class="num">■</div><h4>DOOH programmatique</h4><p>Accès multi-régies via Karrow (JCDecaux, Cityz Media, DoohYouLike, Mediatransports, Adgency, Phenix Digital…), écrans premium centre-ville / centres commerciaux / mobilités sur les zones prioritaires. Validation de la liste des écrans par la cliente avant diffusion, condition non négociable.</p></div>
+    <div class="card c-bleu"><div class="num">●</div><h4>Display VOL</h4><p>Vidéo en ligne programmatique, complément du volet CTV, environnements premium et liste blanche d'éditeurs.</p></div>
+    <div class="card c-peche"><div class="num">◐</div><h4>Audio streaming + podcast</h4><p>Pack combiné (streaming seul écarté : forte affinité mais pas de mémorisation d'image). Le podcast ajoute contexte éditorial et mémorisation.</p></div>
+    <div class="card c-lavande"><div class="num">⌂</div><h4>Display IAB + native</h4><p>Environnement maîtrisable pour ce client, formats natifs inclus, en appui de la couverture globale.</p></div>
+  </div>
+
+  <h3 style="margin-top:34px;">Ce que nous ne chiffrons pas</h3>
+  <p style="font-size:.92rem;color:#3a4260;">Social Ads (géré par l'agence digitale en place chez l'annonceur) : hors périmètre de ce chiffrage programmatique. L'affichage papier classique reste acheté en direct par la cliente auprès des régies, hors dispositif Karrow.</p>
+</section>
+
+<!-- ENVIRONNEMENTS -->
+<section class="section" id="environnements">
+  <div class="eyebrow">↘ Environnements</div>
+  <h2><span class="arrow">↘</span>Environnements &amp; inventaires accessibles</h2>
+
+  <div class="env-block">
+    <h3>CTV / OTT / YouTube</h3>
+    <div class="env-list">
+      <span class="env-chip">TF1+</span><span class="env-chip">M6+</span><span class="env-chip">Amazon Prime Video</span>
+      <span class="env-chip">myCANAL</span><span class="env-chip">YouTube (option B)</span>
+    </div>
+    <p style="font-size:.88rem;color:#3a4260;margin-top:10px;">Le budget du volet vidéo (20 000 € HT, options A et B) reste inchangé : sans Molotov, l'enveloppe se répartit sur un nombre réduit de diffuseurs (TF1+, M6+, Amazon Prime Video, myCANAL, et YouTube en option B), ce qui renforce mécaniquement le volume disponible sur chacun.</p>
+  </div>
+
+  <div class="env-block">
+    <h3>DOOH programmatique : inventaires accessibles par régie</h3>
+    <p style="font-size:.9rem;">Via la plateforme d'achat programmatique de Karrow, TGW agrège plusieurs régies dans un même dispositif, ce qu'aucune régie ne peut offrir seule :</p>
+    <div class="env-list">
+      <span class="env-chip">JCDecaux</span><span class="env-chip">Cityz Media</span><span class="env-chip">DoohYouLike</span>
+      <span class="env-chip">Mediatransports</span><span class="env-chip">Adgency</span><span class="env-chip">Phenix Digital</span>
+      <span class="env-chip">Outfront / Officeo</span><span class="env-chip">Clear Channel</span>
+    </div>
+    <p style="font-size:.88rem;color:#3a4260;margin-top:10px;">La densité d'écrans par régie sur le 73/74 est moindre qu'en grande métropole. Un audit d'inventaire précis (écran par écran, avec cartographie) sera fourni avant diffusion, comme sur nos dispositifs DOOH précédents, la liste finale sera soumise à validation cliente, condition explicitement posée dans le brief.</p>
+  </div>
+
+  <div class="env-block">
+    <h3>Display VOL / IAB / native : liste blanche premium</h3>
+    <div class="env-list">
+      <span class="env-chip">Les Echos</span><span class="env-chip">Challenges</span><span class="env-chip">Capital</span>
+      <span class="env-chip">La Tribune</span><span class="env-chip">Le Dauphiné Libéré (digital)</span><span class="env-chip">France Bleu</span>
+      <span class="env-chip">Sites immobilier premium</span>
+    </div>
+  </div>
+
+  <div class="env-block">
+    <h3>Audio streaming + podcast</h3>
+    <div class="env-list">
+      <span class="env-chip">Spotify</span><span class="env-chip">Deezer</span><span class="env-chip">YouTube Music</span>
+      <span class="env-chip">Les Echos (podcasts)</span><span class="env-chip">France Inter / Radio France</span><span class="env-chip">L'Équipe</span>
+      <span class="env-chip">Podcasts business &amp; patrimoine</span>
+    </div>
+  </div>
+</section>
+
+<!-- PLANNING -->
+<section class="section alt" id="planning">
+  <div class="eyebrow">↘ Planning</div>
+  <h2><span class="arrow">↘</span>Planning d'activation</h2>
+  <p>Mi-novembre 2026 → fin mars 2027, soit 19 semaines réparties en 4 phases.</p>
+  <div class="planning">
+    <table>
+      <thead>
+        <tr><th>Levier</th><th>Nov. 2026</th><th>Déc. 2026</th><th>Jan.–Fév. 2027</th><th>Mars 2027</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="lever-name">CTV / OTT (+ YouTube)</td><td><div class="bar ctv"></div></td><td><div class="bar ctv"></div></td><td><div class="bar ctv" style="opacity:.5;"></div></td><td><div class="bar ctv"></div></td></tr>
+        <tr><td class="lever-name">DOOH programmatique</td><td><div class="bar dooh"></div></td><td><div class="bar dooh"></div></td><td></td><td><div class="bar dooh"></div></td></tr>
+        <tr><td class="lever-name">Display VOL</td><td><div class="bar vol"></div></td><td><div class="bar vol"></div></td><td><div class="bar vol" style="opacity:.5;"></div></td><td><div class="bar vol"></div></td></tr>
+        <tr><td class="lever-name">Audio streaming + podcast</td><td><div class="bar audio"></div></td><td><div class="bar audio"></div></td><td><div class="bar audio" style="opacity:.5;"></div></td><td><div class="bar audio"></div></td></tr>
+        <tr><td class="lever-name">Display IAB + native</td><td><div class="bar iab"></div></td><td><div class="bar iab"></div></td><td><div class="bar iab"></div></td><td><div class="bar iab"></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.88rem;color:#3a4260;margin-top:14px;">Logique de répétition : pleine puissance sur le lancement (nov.–déc.) et la clôture (mars), palier réduit en janvier–février pour maintenir la présence à moindre coût sur la période la plus creuse.</p>
+</section>
+
+<!-- BUDGETS -->
+<section class="section" id="budgets">
+  <div class="eyebrow">↘ Budgets</div>
+  <h2><span class="arrow">↘</span>Scénarios budgétaires</h2>
+  <p>Les deux options ci-dessous partagent le même socle commun (34 000 € HT) et le même budget vidéo (20 000 € HT), pour permettre un arbitrage à enveloppe strictement identique, comme demandé. Total volet programmatique : <strong>54 000 € HT</strong>, à intégrer dans l'enveloppe globale AO de 130 000 € TTC (qui couvre en plus création, honoraires, affichage papier acheté en direct, frais de suivi).</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('optA')">Option A : CTV + OTT</button>
+    <button class="tab-btn" onclick="showTab('optB')">Option B : CTV + OTT + YouTube</button>
+  </div>
+
+  <div class="tab-panel active" id="optA">
+    <span class="reco-badge">Indice d'affinité le plus élevé : 114 CSP+ · 115 patrimoniaux</span>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Levier</th><th>CPM net</th><th>Budget HT</th><th>Impressions est.</th><th>Ticket d'entrée mini</th></tr></thead>
+        <tbody>
+          <tr><td>CTV + OTT</td><td>30 €</td><td>20 000 €</td><td>≈ 667 000</td><td><span class="tag-min">10 000 €</span></td></tr>
+          <tr><td>DOOH programmatique multi-régies</td><td>46 €</td><td>15 000 €</td><td>≈ 326 000</td><td><span class="tag-min">8 000 €</span></td></tr>
+          <tr><td>Audio streaming + podcast</td><td>13 €</td><td>8 000 €</td><td>≈ 615 000</td><td><span class="tag-min">5 000 €</span></td></tr>
+          <tr><td>Display VOL</td><td>12 €</td><td>6 000 €</td><td>≈ 500 000</td><td><span class="tag-min">3 000 €</span></td></tr>
+          <tr><td>Display IAB + native</td><td>5,5 €</td><td>5 000 €</td><td>≈ 909 000</td><td><span class="tag-min">2 000 €</span></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total Option A</td><td></td><td>54 000 € HT</td><td>≈ 3,02 M imp.</td><td></td></tr></tfoot>
+      </table>
+    </div>
+    <p style="font-size:.9rem;margin-top:14px;">Le plus efficace en couverture qualifiée pure sur les cibles CSP+ et patrimoniaux (indices Kantar TGI les plus élevés), sans dilution sur les dirigeants.</p>
+  </div>
+
+  <div class="tab-panel" id="optB">
+    <span class="reco-badge">YouTube : indice 128 dirigeants · 99 patrimoniaux, mix élargi</span>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Levier</th><th>CPM net</th><th>Budget HT</th><th>Impressions est.</th><th>Ticket d'entrée mini</th></tr></thead>
+        <tbody>
+          <tr><td>CTV + OTT + YouTube</td><td>30 €</td><td>20 000 €</td><td>≈ 667 000</td><td><span class="tag-min">10 000 €</span></td></tr>
+          <tr><td>DOOH programmatique multi-régies</td><td>46 €</td><td>15 000 €</td><td>≈ 326 000</td><td><span class="tag-min">8 000 €</span></td></tr>
+          <tr><td>Audio streaming + podcast</td><td>13 €</td><td>8 000 €</td><td>≈ 615 000</td><td><span class="tag-min">5 000 €</span></td></tr>
+          <tr><td>Display VOL</td><td>12 €</td><td>6 000 €</td><td>≈ 500 000</td><td><span class="tag-min">3 000 €</span></td></tr>
+          <tr><td>Display IAB + native</td><td>5,5 €</td><td>5 000 €</td><td>≈ 909 000</td><td><span class="tag-min">2 000 €</span></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total Option B</td><td></td><td>54 000 € HT</td><td>≈ 3,02 M imp.</td><td></td></tr></tfoot>
+      </table>
+    </div>
+    <p style="font-size:.9rem;margin-top:14px;">Même CPM, même budget : l'ajout de YouTube élargit la couverture sur les dirigeants (indice 128) mais dilue légèrement l'efficacité sur les patrimoniaux (indice 99 vs 115 en CTV+OTT seul). Arbitrage à trancher selon la priorité donnée à l'une ou l'autre cible.</p>
+  </div>
+
+  <h3 style="margin-top:38px;">Tickets d'entrée minimums : synthèse</h3>
+  <p style="font-size:.9rem;color:#3a4260;">Seuils indicatifs en dessous desquels un levier perd sa pertinence (visibilité insuffisante ou accès multi-régies non justifié pour le DOOH) :</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Levier</th><th>Minimum pour être visible</th></tr></thead>
+      <tbody>
+        <tr><td>CTV / OTT (+ YouTube)</td><td>10 000 € HT</td></tr>
+        <tr><td>DOOH programmatique multi-régies</td><td>8 000 € HT</td></tr>
+        <tr><td>Audio streaming + podcast</td><td>5 000 € HT</td></tr>
+        <tr><td>Display VOL</td><td>3 000 € HT</td></tr>
+        <tr><td>Display IAB + native</td><td>2 000 € HT</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:38px;">Répartition budgétaire par mois</h3>
+  <p style="font-size:.9rem;color:#3a4260;">Valable pour les deux options (A et B) : mêmes montants par levier, seule la composition du volet vidéo change. Reflète la logique du planning : pleine puissance au lancement (nov.-déc.) et à la clôture (mars), palier réduit en janvier-février, DOOH suspendu sur cette période creuse.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Levier</th><th>Novembre</th><th>Décembre</th><th>Janvier-Février</th><th>Mars</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>CTV + OTT (± YouTube)</td><td>6 000 €</td><td>6 000 €</td><td>3 000 €</td><td>5 000 €</td><td>20 000 €</td></tr>
+        <tr><td>DOOH programmatique</td><td>5 250 €</td><td>5 250 €</td><td>0 €</td><td>4 500 €</td><td>15 000 €</td></tr>
+        <tr><td>Audio streaming + podcast</td><td>2 400 €</td><td>2 400 €</td><td>1 200 €</td><td>2 000 €</td><td>8 000 €</td></tr>
+        <tr><td>Display VOL</td><td>1 800 €</td><td>1 800 €</td><td>900 €</td><td>1 500 €</td><td>6 000 €</td></tr>
+        <tr><td>Display IAB + native</td><td>1 250 €</td><td>1 250 €</td><td>1 250 €</td><td>1 250 €</td><td>5 000 €</td></tr>
+      </tbody>
+      <tfoot><tr><td>Total mensuel</td><td>16 700 €</td><td>16 700 €</td><td>6 350 €</td><td>14 250 €</td><td>54 000 € HT</td></tr></tfoot>
+    </table>
+  </div>
+</section>
+
+<!-- FORMATS & KPIS -->
+<section class="section alt" id="formats-kpis">
+  <div class="eyebrow">↘ Formats &amp; KPIs</div>
+  <h2><span class="arrow">↘</span>Formats &amp; KPIs de suivi par levier</h2>
+  <div class="cards">
+    <div class="card c-menthe" style="background:var(--navy);color:#fff;"><h4 style="color:#fff;">cTV / OTT / YouTube</h4><p style="color:#dce6fb;">Format 1920×1080px 16:9, 15-30s. KPIs : impressions, clics, CTR, reach, taux de complétion, top chaînes, étude socio-démo/géoloc/affinitaires.</p></div>
+    <div class="card c-corail"><h4>pDOOH</h4><p>Format 9:16 1080×1920px mp4, 10s. KPIs : impressions, diffusion, top publishers, nombre de plays, stats par écran.</p></div>
+    <div class="card c-peche"><h4>Audio streaming + podcast</h4><p>Format 1:1 640×640px ou 9:16 720×1280px, 15-20-30s. KPIs : impressions, reach, clics, écoutes à 25/50/75/100 %, taux de complétion, socio-démo, capping, CPE &amp; CPM finaux.</p></div>
+    <div class="card c-bleu"><h4>Display VOL</h4><p>Format 9:16 1920×1080px ou 1600×900px, 15-20-30s. KPIs partagés avec le pDisplay : impressions, clics, CTR, taux de complétion, étude socio-démo/géoloc/affinitaires.</p></div>
+    <div class="card c-lavande"><h4>Display IAB + native</h4><p>Formats 300×600 / 300×250 / 320×480 / 728×90 / 160×600 / 320×50 px, jpeg/png/gif. KPIs : impressions, clics, CTR, taux de complétion, socio-démo, géoloc, affinitaires.</p></div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section class="section" id="audiences">
+  <div class="eyebrow">↘ Audiences</div>
+  <h2><span class="arrow">↘</span>Cibles &amp; personas</h2>
+  <div class="cards">
+    <div class="persona"><div class="glyph">●</div><h4>Cadre dirigeant CSP+</h4><ul><li>Revenus &gt; 5 000 €/mois (9 000 € en couple)</li><li>Cadres dirigeants, managers, experts</li><li>Attend service personnalisé, réactivité mobile</li><li>Reach indicatif : ≈ 45 000 individus adressables sur les zones prioritaires</li></ul></div>
+    <div class="persona"><div class="glyph">■</div><h4>Entrepreneur / dirigeant</h4><ul><li>TPE-PME, professions libérales, CA &gt; 750 K€</li><li>Tourisme, hôtellerie, artisanat, commerce établi</li><li>Attend décision rapide, connaissance du terrain</li><li>Reach indicatif : ≈ 28 000 individus adressables sur les zones prioritaires</li></ul></div>
+    <div class="persona"><div class="glyph">◆</div><h4>Patrimonial / investisseur</h4><ul><li>45 ans et +, patrimoine constitué</li><li>Attend gestion patrimoniale, transmission</li><li>Indice d'affinité CTV+OTT le plus élevé (115)</li><li>Reach indicatif : ≈ 22 000 individus adressables sur les zones prioritaires</li></ul></div>
+    <div class="persona"><div class="glyph">⌂</div><h4>Frontalier / nouvel arrivant premium</h4><ul><li>Axe Annecy → Genève, bassin lémanique</li><li>Cadres à l'international, télétravailleurs hauts revenus</li><li>Attend relation humaine, expertise locale, accompagnement immobilier</li><li>Reach indicatif : ≈ 18 000 individus adressables sur les zones prioritaires</li></ul></div>
+    <div class="persona"><div class="glyph">◐</div><h4>Famille premium</h4><ul><li>Revenus élevés, projet immobilier, épargne</li><li>Attend accompagnement global, simplification, confiance, transmission</li><li>Cible 5 du cahier des charges AO, non mentionnée dans le brief Karrow</li><li>Reach indicatif : ≈ 32 000 individus adressables sur les zones prioritaires</li></ul></div>
+  </div>
+  <p style="font-size:.85rem;color:#3a4260;margin-top:16px;">Reach indicatifs à affiner une fois le ciblage définitif validé avec la cliente. La cible « famille premium » est ajoutée pour coller au cahier des charges de l'AO, le brief Karrow ne portant que sur les 4 cibles programmatiques prioritaires ; à confirmer si elle doit être intégrée au dispositif chiffré ou laissée en options.</p>
+</section>
+
+<!-- STRATEGIE DATA -->
+<section class="section alt" id="data">
+  <div class="eyebrow">↘ Stratégie data</div>
+  <h2><span class="arrow">↘</span>Ciblage &amp; architecture data</h2>
+
+  <h3>Géociblage</h3>
+  <p style="font-size:.92rem;">Descente jusqu'à la commune / code postal sur les 5 zones prioritaires du brief, appuyée sur la géolocalisation device (IP + GPS mobile) et les data partenaires de Karrow :</p>
+  <div class="env-list">
+    <span class="env-chip">1 · Grand Annecy + axe Annecy-Genève</span>
+    <span class="env-chip">2 · Chambéry / Aix-les-Bains / Albertville</span>
+    <span class="env-chip">3 · Bassin lémanique (Annemasse, St-Julien, Thonon, Évian)</span>
+    <span class="env-chip">4 · Vallée de l'Arve (Cluses, Sallanches)</span>
+    <span class="env-chip">5 · Accès stations Tarentaise / Beaufortin / Maurienne</span>
+  </div>
+
+  <h3 style="margin-top:30px;">Définition CSP+ retenue</h3>
+  <p style="font-size:.92rem;">Source : Kantar TGI (déjà mobilisé côté annonceur pour le dossier), croisé avec la donnée comportementale et contextuelle Karrow. Périmètre retenu : revenus nets &gt; 5 000 €/mois (9 000 €/mois en couple), cadres dirigeants/managers/experts, professions libérales, dirigeants TPE-PME, à mettre en regard du périmètre propre à chaque régie pour comparaison, comme demandé.</p>
+
+  <div class="pyramid">
+    <div class="pyr-layer pyr-1">Socio-démo &amp; revenus<small>Kantar TGI : CSP+, tranches de revenus, patrimoine déclaré</small></div>
+    <div class="pyr-layer pyr-2">Comportemental &amp; contextuel<small>Navigation sites finance/patrimoine/entrepreneuriat, device graph pro</small></div>
+    <div class="pyr-layer pyr-3">Géographique &amp; frontalier<small>Géociblage commune/code postal, zones transfrontalières Suisse</small></div>
+    <div class="pyr-layer pyr-4">Profils &amp; parcours<small>Look-alike clientèle banque premium, intentionnistes immobilier haut de gamme</small></div>
+  </div>
+
+  <h3 style="margin-top:10px;">Couverture &amp; répétition indicatives : 73 / 74</h3>
+  <p style="font-size:.86rem;color:#3a4260;">Estimations à affiner une fois le ciblage définitif validé avec la cliente.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Zone</th><th>Couverture cible CSP+ est.</th><th>Répétition moyenne</th></tr></thead>
+      <tbody>
+        <tr><td>Grand Annecy + axe Genève</td><td>≈ 65 %</td><td>5-6</td></tr>
+        <tr><td>Chambéry / Aix / Albertville</td><td>≈ 55 %</td><td>4-5</td></tr>
+        <tr><td>Bassin lémanique</td><td>≈ 50 %</td><td>4</td></tr>
+        <tr><td>Vallée de l'Arve</td><td>≈ 40 %</td><td>3</td></tr>
+        <tr><td>Accès stations (Tarentaise/Beaufortin/Maurienne)</td><td>Couverture saisonnière</td><td>Variable</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- RGPD -->
+<section class="section" id="rgpd">
+  <div class="eyebrow">↘ RGPD</div>
+  <h2><span class="arrow">↘</span>RGPD &amp; brand safety</h2>
+  <div class="rgpd-grid">
+    <div class="rgpd-card"><h4>Environnements certifiés</h4><p style="font-size:.9rem;">Mesure de viewability et de brand safety via IAS / DoubleVerify sur l'ensemble des leviers digitaux.</p></div>
+    <div class="rgpd-card"><h4>Listes d'exclusion</h4><p style="font-size:.9rem;">Contenus polémiques, actualité sensible, UGC non modéré exclus systématiquement, conformité renforcée exigée par le secteur bancaire.</p></div>
+    <div class="rgpd-card"><h4>Validation DOOH écran par écran</h4><p style="font-size:.9rem;">Liste des écrans fournie en Excel + cartographie avant diffusion, soumise à validation cliente. Aucun achat de réseau à l'aveugle.</p></div>
+    <div class="rgpd-card"><h4>Conformité RGPD</h4><p style="font-size:.9rem;">Bases légales documentées, CMP conforme, aucun ciblage sur données sensibles bancaires, pas de discrimination sur les critères protégés.</p></div>
+  </div>
+</section>
+
+<footer class="contacts" id="contacts">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div class="eyebrow">↘ Contacts</div>
+    <h2><span class="arrow">↘</span>Vos interlocuteurs TGW</h2>
+    <div class="contact-cards">
+      <div class="contact-card"><h4>Jérôme Fages</h4><span>Directeur commercial</span><a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a><br><a href="tel:0618746675">06 18 74 66 75</a></div>
+      <div class="contact-card"><h4>Mathilde Coriton</h4><span>Directrice de clientèle</span><a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a><br><a href="tel:0648619292">06 48 61 92 92</a></div>
+      <div class="contact-card"><h4>Leslie Rogé</h4><span>Cheffe de publicité</span><a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a><br><a href="tel:0683736862">06 83 73 68 62</a></div>
+      <div class="contact-card"><h4>Sofien Chaganiou</h4><span>Chef de publicité</span><a href="mailto:sofien@thegoodweb.eu">sofien@thegoodweb.eu</a><br><a href="tel:0767847067">07 67 84 70 67</a></div>
+      <div class="contact-card inactive"><h4>Andrea</h4><span>andrea@thegoodweb.eu</span></div>
+      <div class="contact-card inactive"><h4>Pôle activation</h4><span>activation@thegoodweb.eu</span></div>
+    </div>
+    <svg class="footer-logo" viewBox="214 252 572 460" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+        <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+        <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+        <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+        <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+        <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+      </g>
+      <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+    </svg>
+    <div class="footer-bottom">THE GOOD WEB · * The Good Audience, reco.thegoodweb.eu</div>
+  </div>
+</footer>
+
+<script>
+function showTab(id){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
