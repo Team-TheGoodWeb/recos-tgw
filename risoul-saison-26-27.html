@@ -207,10 +207,14 @@ tbody tr.optional td:first-child{color:var(--terracota);font-weight:600;}
 
 /* CONTACTS */
 .contact-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:left;}
+.contact-card h3{color:var(--navy);}
+.contact-card p{color:var(--ink);}
 .contact-card .role{color:var(--terracota);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px;}
 .contact-card a{color:var(--navy);text-decoration:none;font-weight:600;}
+:root[data-theme="dark"] .contact-card h3{color:var(--white);}
+:root[data-theme="dark"] .contact-card p{color:var(--ink);}
 :root[data-theme="dark"] .contact-card a{color:var(--babyblue);}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .contact-card a{color:var(--babyblue);}}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .contact-card h3{color:var(--white);}:root:not([data-theme="light"]) .contact-card p{color:var(--ink);}:root:not([data-theme="light"]) .contact-card a{color:var(--babyblue);}}
 
 footer.tgw-footer{background:var(--navy);color:var(--white);padding:48px 0 32px;}
 footer.tgw-footer h2{color:var(--white);font-size:1.3rem;margin-bottom:24px;}
