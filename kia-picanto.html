@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kia Picanto · Recommandation média TGW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#021859;
+    --babyblue:#7bbdff;
+    --terracota:#f25430;
+    --white:#ffffff;
+    --bg-soft:#F6F8FE;
+    --c-lavande:#5271FF;
+    --c-rose:#6C63FF;
+    --c-bleu:#7bbdff;
+    --c-menthe:#021859;
+    --c-corail:#f25430;
+    --c-peche:#ffb79e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;color:var(--navy);line-height:1.6;background:var(--white);}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);}
+  a{color:inherit;}
+  img{max-width:100%;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+  section{padding:64px 0;}
+  section:nth-of-type(even){background:var(--bg-soft);}
+
+  /* HERO */
+  header.hero{background:var(--navy);color:var(--white);padding:56px 0 48px;}
+  header.hero .wrap{display:flex;flex-direction:column;gap:22px;}
+  .logo-row{display:flex;align-items:center;}
+  .logo-row svg{height:64px;width:auto;}
+  .eyebrow{display:inline-block;color:#ffb79e;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;}
+  header.hero h1{color:var(--white);font-size:2.3rem;font-weight:800;max-width:820px;}
+  header.hero .subtitle{color:var(--babyblue);font-size:1.05rem;max-width:720px;}
+  .pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;}
+  .pill{border:1px solid var(--babyblue);border-radius:999px;padding:8px 18px;font-size:.9rem;background:rgba(255,255,255,.04);}
+  .pill b{font-weight:700;}
+  .pill .dot{color:var(--terracota);margin:0 4px;}
+
+  /* NAV */
+  nav.subnav{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid #e3e8f5;box-shadow:0 2px 10px rgba(2,24,89,.05);}
+  nav.subnav .wrap{display:flex;gap:26px;overflow-x:auto;padding:14px 24px;}
+  nav.subnav a{white-space:nowrap;font-weight:700;font-size:.88rem;text-decoration:none;color:var(--navy);}
+  nav.subnav a:hover{color:var(--terracota);}
+
+  h2{font-size:1.6rem;font-weight:700;margin-bottom:8px;}
+  h2::before{content:"↘ ";color:var(--terracota);}
+  .section-intro{color:#445;max-width:760px;margin-bottom:32px;font-size:.98rem;}
+
+  .grid{display:grid;gap:20px;}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+
+  .card{border-radius:14px;padding:24px;background:var(--white);border:1px solid #e3e8f5;}
+  .card h3{font-size:1.05rem;margin-bottom:8px;}
+  .card p, .card li{font-size:.92rem;color:#334;}
+  .card .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:var(--white);font-weight:700;font-family:'Poppins',sans-serif;margin-bottom:12px;}
+
+  .c-lavande{background:#EEF1FF;}
+  .c-rose{background:#F1EEFF;}
+  .c-bleu{background:#EAF4FF;}
+  .c-menthe{background:#EAF0FB;}
+  .c-corail{background:#FFF0EC;}
+  .c-peche{background:#FFF3EE;}
+
+  table{width:100%;border-collapse:collapse;background:var(--white);border-radius:12px;overflow:hidden;}
+  thead th{background:var(--navy);color:var(--white);text-align:left;padding:12px 16px;font-family:'Poppins',sans-serif;font-size:.88rem;}
+  tbody td{padding:12px 16px;border-bottom:1px solid #e3e8f5;font-size:.9rem;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr.total td{font-weight:700;background:var(--bg-soft);}
+  .tag{display:inline-block;background:var(--terracota);color:var(--white);border-radius:6px;padding:2px 10px;font-size:.75rem;font-weight:700;}
+
+  .funnel{display:flex;gap:0;align-items:stretch;flex-wrap:wrap;}
+  .funnel .step{flex:1;min-width:220px;background:var(--white);border:1px solid #e3e8f5;border-radius:12px;padding:22px;position:relative;}
+  .funnel .step + .step::before{content:"→";position:absolute;left:-24px;top:50%;transform:translateY(-50%);color:var(--terracota);font-size:1.4rem;font-weight:700;display:none;}
+  @media(min-width:800px){.funnel .step + .step::before{display:block;}}
+  .funnel .step h3{color:var(--terracota);font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;}
+
+  .pyramid{display:flex;flex-direction:column;gap:6px;max-width:760px;margin:0 auto;}
+  .pyramid .layer{background:var(--navy);color:var(--white);border-radius:10px;padding:16px 22px;}
+  .pyramid .layer:nth-child(1){opacity:1;}
+  .pyramid .layer:nth-child(2){opacity:.88;margin:0 4%;}
+  .pyramid .layer:nth-child(3){opacity:.76;margin:0 9%;}
+  .pyramid .layer:nth-child(4){opacity:.64;margin:0 14%;background:var(--terracota);}
+  .pyramid .layer b{font-family:'Poppins',sans-serif;display:block;margin-bottom:4px;font-size:.88rem;text-transform:uppercase;letter-spacing:.03em;}
+  .pyramid .layer span{font-size:.88rem;}
+
+  .planning{overflow-x:auto;}
+  .planning table{min-width:640px;}
+  .planning td.lever{font-weight:700;white-space:nowrap;}
+  .planning td.on{background:var(--terracota);color:var(--white);text-align:center;font-size:.8rem;}
+  .planning td.off{text-align:center;color:#bbb;}
+
+  .persona-glyph{font-size:1.4rem;color:var(--terracota);margin-bottom:10px;display:block;}
+
+  .zones-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+  .zones-list .zone{background:var(--white);border:1px solid #e3e8f5;border-radius:10px;padding:16px;}
+  .zones-list .zone b{display:block;font-family:'Poppins',sans-serif;color:var(--navy);}
+  .zones-list .zone span{font-size:.85rem;color:#556;}
+
+  footer{background:var(--navy);color:var(--white);padding:56px 0 36px;}
+  footer .foot-logo svg{height:52px;width:auto;margin-bottom:22px;}
+  footer h2{color:var(--white);}
+  footer h2::before{color:var(--terracota);}
+  .contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px;}
+  .contact-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:18px;}
+  .contact-card b{display:block;font-family:'Poppins',sans-serif;margin-bottom:2px;}
+  .contact-card .role{color:var(--babyblue);font-size:.82rem;display:block;margin-bottom:8px;}
+  .contact-card a{color:var(--white);text-decoration:none;font-size:.86rem;display:block;}
+  .contact-card a:hover{color:var(--terracota);}
+  .contact-card.inactive{opacity:.55;}
+  footer .baseline{margin-top:36px;color:var(--babyblue);font-size:.8rem;}
+
+  @media(max-width:820px){
+    .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+    .contacts{grid-template-columns:1fr;}
+    header.hero h1{font-size:1.7rem;}
+    section{padding:44px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo-row">
+      <svg viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+        <defs><style>.st0{fill:#fff;}</style></defs>
+        <g>
+          <path class="st0" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+          <path class="st0" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+          <path class="st0" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="st0" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+          <path class="st0" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="st0" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="st0" d="M225 700 h550 v20 h-550 Z" opacity="0"/>
+        </g>
+        <text x="215" y="620" font-family="Poppins, sans-serif" font-weight="800" font-size="58" fill="#fff" letter-spacing="1">THE GOOD WEB</text>
+        <text x="215" y="655" font-family="Inter, sans-serif" font-weight="600" font-size="24" fill="#7bbdff">* The Good Audience</text>
+      </svg>
+    </div>
+    <span class="eyebrow">Recommandation média · Groupe Kia</span>
+    <h1>Lancement Kia Picanto : Story Ads + retargeting display sur 5 concessions</h1>
+    <p class="subtitle">Dispositif drive-to-store multi-sites (Gap, Marseille, Aix-en-Provence, Manosque, Sallanches), activable au plus vite, aux CPM négociés du dossier.</p>
+    <div class="pills">
+      <div class="pill"><b>Budget</b><span class="dot">·</span>3 000 € HT</div>
+      <div class="pill"><b>Objectif</b><span class="dot">·</span>Notoriété Picanto &amp; visites en concession</div>
+      <div class="pill"><b>Marchés</b><span class="dot">·</span>5 concessions · rayon 15 km</div>
+      <div class="pill"><b>Lancement</b><span class="dot">·</span>Dès validation</div>
+    </div>
+  </div>
+</header>
+
+<nav class="subnav">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats-kpis">Formats &amp; KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<section id="contexte">
+  <div class="wrap">
+    <h2>Contexte &amp; objectifs</h2>
+    <p class="section-intro">Le groupe Kia souhaite lancer rapidement la nouvelle Kia Picanto sur son réseau de 5 concessions, avec un budget maîtrisé de 3 000 € et une logique 100 % activable dans l'instant : Story Ads sur Meta et TikTok pour faire connaître le modèle, complétées par du retargeting display Drive-to-Store pour transformer l'intérêt généré en visite en concession.</p>
+    <div class="grid grid-3">
+      <div class="card c-lavande">
+        <div class="num">1</div>
+        <h3>Faire connaître la Picanto</h3>
+        <p>Créer de la visibilité immédiate autour du lancement du modèle sur les 5 zones de chalandise, via un format court et impactant (Story Ads).</p>
+      </div>
+      <div class="card c-rose">
+        <div class="num">2</div>
+        <h3>Générer du trafic qualifié</h3>
+        <p>Rediriger l'audience touchée vers les pages Picanto / concessions du groupe pour amorcer une audience de retargeting.</p>
+      </div>
+      <div class="card c-bleu">
+        <div class="num">3</div>
+        <h3>Convertir en visite concession</h3>
+        <p>Recibler les internautes intéressés avec du display Drive-to-Store pour les faire venir en concession (essai, RDV vente).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dispositif">
+  <div class="wrap">
+    <h2>Dispositif recommandé</h2>
+    <p class="section-intro">Un dispositif à deux leviers complémentaires, activable en quelques jours, aux CPM négociés transmis dans le brief.</p>
+    <div class="funnel">
+      <div class="step">
+        <h3>Awareness</h3>
+        <p><b>Social Ads · pStory Meta + TikTok</b><br>Vidéo verticale courte sur la Picanto, diffusée sur les 5 zones. Génère la notoriété et amène du trafic vers les pages concessions.</p>
+      </div>
+      <div class="step">
+        <h3>Conversion</h3>
+        <p><b>Display retargeting · Drive-to-Store</b><br>Reciblage des visiteurs des pages Picanto / concessions avec un message orienté visite en concession et essai.</p>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:24px;">
+      <div class="card c-menthe">
+        <h3>Logique d'activation</h3>
+        <p>Le pStory est activé dès le lancement sur l'ensemble de la période pour construire l'audience de retargeting le plus vite possible. Le display DTS prend le relais dès les premiers visiteurs qualifiés collectés (à partir de J+3 à J+5), afin de maximiser le volume d'audience recyclée sur la durée du dispositif.</p>
+      </div>
+      <div class="card c-corail">
+        <h3>Pourquoi ce mix</h3>
+        <p>Le pStory capte l'attention sur un format consommé massivement sur mobile, cohérent avec une citadine premier prix. Le DTS, moins cher au CPM parmi les display, permet un volume élevé d'impressions de reciblage pour amener les prospects jusqu'en concession.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="environnements">
+  <div class="wrap">
+    <h2>Environnements &amp; zones de diffusion</h2>
+    <p class="section-intro">Diffusion sur les réseaux sociaux Meta et TikTok pour le pStory, et sur le réseau display partenaire pour le retargeting Drive-to-Store, géociblés sur les 5 zones de chalandise du groupe.</p>
+    <div class="zones-list" style="margin-bottom:28px;">
+      <div class="zone"><b>Gap</b><span>Rayon 15 km</span></div>
+      <div class="zone"><b>Marseille</b><span>Rayon 15 km</span></div>
+      <div class="zone"><b>Aix-en-Provence</b><span>Rayon 15 km</span></div>
+      <div class="zone"><b>Manosque</b><span>Rayon 15 km</span></div>
+      <div class="zone"><b>Sallanches</b><span>Rayon 15 km</span></div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Social Ads pStory</h3>
+        <p>Facebook, Instagram, TikTok. Placements Story et Reels, format 9:16 natif.</p>
+      </div>
+      <div class="card">
+        <h3>Display retargeting DTS</h3>
+        <p>Réseau display partenaire Drive-to-Store, inventaire desktop / mobile / tablette, mesure de la visite en concession.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="planning">
+  <div class="wrap">
+    <h2>Planning d'activation</h2>
+    <p class="section-intro">Dispositif conçu pour un lancement au plus vite : 4 semaines d'activation continue, le retargeting prenant le relais dès que l'audience de trafic est suffisante.</p>
+    <div class="planning">
+      <table>
+        <thead><tr><th>Levier</th><th>Semaine 1</th><th>Semaine 2</th><th>Semaine 3</th><th>Semaine 4</th></tr></thead>
+        <tbody>
+          <tr><td class="lever">Social Ads pStory (Meta + TikTok)</td><td class="on">Live</td><td class="on">Live</td><td class="on">Live</td><td class="on">Live</td></tr>
+          <tr><td class="lever">Display retargeting DTS</td><td class="off">Constitution audience</td><td class="on">Live</td><td class="on">Live</td><td class="on">Live</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="budgets">
+  <div class="wrap">
+    <h2>Budgets</h2>
+    <p class="section-intro">Répartition sur 3 000 € HT, aux CPM négociés transmis dans le brief : 3,50 € pour le pStory Meta + TikTok, 4,50 € pour le retargeting display Drive-to-Store.</p>
+    <table>
+      <thead><tr><th>Levier</th><th>CPM</th><th>Budget HT</th><th>Volume estimé</th></tr></thead>
+      <tbody>
+        <tr><td>Social Ads pStory (Meta + TikTok)</td><td>3,50 €</td><td>2 000 €</td><td>≈ 571 000 impressions</td></tr>
+        <tr><td>Display retargeting Drive-to-Store</td><td>4,50 €</td><td>1 000 €</td><td>≈ 222 000 impressions</td></tr>
+        <tr class="total"><td>Total dispositif</td><td>-</td><td>3 000 € HT</td><td>≈ 793 000 impressions</td></tr>
+      </tbody>
+    </table>
+    <p class="section-intro" style="margin-top:20px;">Oui, ce dispositif est envisageable avec ce budget sur les 5 zones : la répartition ci-dessus (2/3 pStory pour la notoriété, 1/3 display DTS pour la conversion) est un point de départ, ajustable selon vos priorités entre couverture et volume de reciblage.</p>
+  </div>
+</section>
+
+<section id="formats-kpis">
+  <div class="wrap">
+    <h2>Formats &amp; KPIs de suivi par levier</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Social Ads pStory (Meta + TikTok)</h3>
+        <p><b>Formats :</b> post 1080x1080 px, story 9:16 1920x1080 px (mp4), bumper ads 6 s.</p>
+        <p><b>KPIs :</b> impressions, clics, CTR, reach, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p>
+      </div>
+      <div class="card">
+        <h3>Display retargeting Drive-to-Store</h3>
+        <p><b>Formats :</b> 300x600, 300x250, 320x480, 728x90, 160x600, 320x50 px, jpeg/png/gif.</p>
+        <p><b>KPIs :</b> impressions, clics, CTR, taux de complétion, étude socio-démo, géolocalisation, profils affinitaires, visite en concession.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <h2>Audiences ciblées</h2>
+    <p class="section-intro">Un ciblage pensé pour une citadine premier prix : primo-accédants, familles en quête d'une seconde voiture urbaine, actifs et seniors en recherche d'une compacte facile à conduire et à garer.</p>
+    <div class="grid grid-3">
+      <div class="card c-lavande">
+        <span class="persona-glyph">●</span>
+        <h3>Primo-accédants</h3>
+        <p>18-30 ans, permis récent, premier véhicule, budget contraint, sensibles au prix d'entrée et au format compact.</p>
+      </div>
+      <div class="card c-rose">
+        <span class="persona-glyph">■</span>
+        <h3>Familles multi-véhicules</h3>
+        <p>Foyers à la recherche d'une seconde voiture pour les trajets urbains du quotidien, facile à garer et économique.</p>
+      </div>
+      <div class="card c-bleu">
+        <span class="persona-glyph">◆</span>
+        <h3>Actifs urbains</h3>
+        <p>CSP toutes, trajets domicile-travail en zone urbaine ou périurbaine, sensibles à la consommation et au stationnement.</p>
+      </div>
+      <div class="card c-menthe">
+        <span class="persona-glyph">⌂</span>
+        <h3>Seniors mobilité réduite</h3>
+        <p>Recherche d'un véhicule compact, simple à conduire et à manœuvrer, pour remplacer un véhicule plus imposant.</p>
+      </div>
+      <div class="card c-corail">
+        <span class="persona-glyph">◐</span>
+        <h3>Intenders citadine</h3>
+        <p>En recherche active d'une citadine, comparant plusieurs marques du segment sur les comparateurs et configurateurs auto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <h2>Stratégie data</h2>
+    <p class="section-intro">Architecture en 4 couches, de la donnée socio-démographique large jusqu'aux profils en parcours d'achat actif sur le segment citadine, avec exclusion des propriétaires récents de Picanto.</p>
+    <div class="pyramid">
+      <div class="layer"><b>Couche 1 · Socio-démo</b><span>18-45 ans, zones urbaines/périurbaines des 5 marchés, primo-accédants, familles, seniors mobilité réduite, toutes CSP.</span></div>
+      <div class="layer"><b>Couche 2 · Intérêts &amp; comportements</b><span>Intérêt automobile citadine/premier véhicule, mobilité urbaine, économie de carburant, facilité de stationnement, permis de conduire récent.</span></div>
+      <div class="layer"><b>Couche 3 · Comportements digitaux &amp; médias</b><span>Visiteurs de comparateurs auto (LaCentrale, L'Argus, AutoScout24, ParuVendu), configurateurs Kia et citadines concurrentes, recherches "voiture pas chère" / "citadine".</span></div>
+      <div class="layer"><b>Couche 4 · Profils &amp; parcours d'achat</b><span>Retargeting propre (visiteurs pages Picanto / concessions), géociblage 15 km autour des 5 concessions, ciblage concurrentiel citadines (Peugeot 108/208, Citroën C1/C3, Renault Twingo/Clio, Toyota Aygo X, Fiat Panda, Dacia Sandero, Hyundai i10), exclusion des propriétaires Picanto récents.</span></div>
+    </div>
+    <div class="grid grid-2" style="margin-top:28px;">
+      <div class="card">
+        <h3>Funnel d'activation</h3>
+        <p>pStory (couches 1 &amp; 2, notoriété large sur les 5 zones) → trafic vers pages Picanto/concessions → retargeting Display DTS (couches 3 &amp; 4, audience qualifiée jusqu'à la visite en concession).</p>
+      </div>
+      <div class="card">
+        <h3>Data à activer</h3>
+        <p>Pixel de retargeting propre sur les pages Picanto et concessions dès le lancement du pStory, pour amorcer l'audience de reciblage display au plus vite. Data 3rd party comparateurs/configurateurs auto en complément dès la 2e semaine si le volume propre est insuffisant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rgpd">
+  <div class="wrap">
+    <h2>RGPD &amp; brand safety</h2>
+    <p class="section-intro">L'ensemble du dispositif respecte le cadre RGPD en vigueur : recueil du consentement sur les pixels de retargeting, data 3rd party issue de partenaires conformes, exclusion des mineurs, environnements de diffusion certifiés brand safety (Meta, TikTok et réseau display partenaire).</p>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <div class="foot-logo">
+      <svg viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+        <defs><style>.st0f{fill:#fff;}</style></defs>
+        <g>
+          <path class="st0f" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+          <path class="st0f" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+          <path class="st0f" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+          <path class="st0f" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+          <path class="st0f" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+          <path class="st0f" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        </g>
+        <text x="215" y="620" font-family="Poppins, sans-serif" font-weight="800" font-size="58" fill="#fff" letter-spacing="1">THE GOOD WEB</text>
+        <text x="215" y="655" font-family="Inter, sans-serif" font-weight="600" font-size="24" fill="#7bbdff">* The Good Audience</text>
+      </svg>
+    </div>
+    <h2>Contacts</h2>
+    <div class="contacts">
+      <div class="contact-card">
+        <b>Jérôme Fages</b><span class="role">Directeur commercial</span>
+        <a href="tel:0618746675">06 18 74 66 75</a>
+        <a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <b>Mathilde Coriton</b><span class="role">Directrice de clientèle</span>
+        <a href="tel:0648619292">06 48 61 92 92</a>
+        <a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <b>Leslie Rogé</b><span class="role">Cheffe de publicité</span>
+        <a href="tel:0683736862">06 83 73 68 62</a>
+        <a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card inactive">
+        <b>Andrea</b><span class="role">The Good Web</span>
+        <span>andrea@thegoodweb.eu</span>
+      </div>
+      <div class="contact-card">
+        <b>Sofien Chaganiou</b><span class="role">Chef de publicité</span>
+        <a href="tel:0767847067">07 67 84 70 67</a>
+        <a href="mailto:sofien@thegoodweb.eu">sofien@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card inactive">
+        <b>Pôle activation</b><span class="role">The Good Web</span>
+        <span>activation@thegoodweb.eu</span>
+      </div>
+    </div>
+    <p class="baseline">THE GOOD WEB · * The Good Audience</p>
+  </div>
+</footer>
+
+</body>
+</html>
