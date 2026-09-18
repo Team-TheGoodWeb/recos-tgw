@@ -137,15 +137,14 @@ footer.contacts h2 .arrow{color:var(--terracota);}
   .section{padding:40px 16px;}
   nav.stickynav a{padding:12px 12px;font-size:.78rem;}
 }
-</style>
-</head>
-<body>
-
-.lever-icon{width:44px;height:44px;margin-bottom:12px;}
-.lever-card{border-radius:16px;padding:22px;background:var(--bg-soft);border:1px solid #e4e9f7;}
-.lever-card h4{font-family:'Poppins',Arial,sans-serif;color:var(--navy);font-size:1.05rem;margin-bottom:6px;}
-.lever-card .target{font-size:.82rem;color:#3a4260;margin-bottom:8px;}
-.lever-card p{font-size:.88rem;color:#3a4260;margin-bottom:0;}
+.lever-icon{width:22px;height:22px;}
+.lever-card{border-radius:16px;padding:24px;background:#fff;border:1px solid #eef1f8;box-shadow:0 2px 12px rgba(2,24,89,.07);}
+.lever-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.lever-icon-wrap{width:40px;height:40px;border-radius:10px;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.lever-card h4{font-family:'Poppins',Arial,sans-serif;color:var(--navy);font-size:1.05rem;margin-bottom:0;}
+.lever-card .target{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--terracota);font-weight:700;margin-bottom:8px;}
+.lever-card p{font-size:.88rem;color:#3a4260;margin-bottom:0;line-height:1.5;}
+.lever-card .specs{font-size:.78rem;color:var(--navy);background:var(--bg-soft);border-radius:8px;padding:6px 10px;margin-top:10px;display:inline-block;font-weight:600;}
 .funnel{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap;}
 .funnel-step{flex:1;min-width:220px;border-radius:16px;padding:24px;color:#fff;}
 .funnel-step h4{color:#fff;font-family:'Poppins',Arial,sans-serif;font-size:1.05rem;margin-bottom:8px;}
@@ -251,40 +250,58 @@ footer.contacts h2 .arrow{color:var(--terracota);}
   <p>Le catalogue arrêté par Karrow, commun aux trois scénarios. Seul le poids de chaque levier change d'un scénario à l'autre, détaillé en section Budgets.</p>
   <div class="cards">
     <div class="lever-card">
-      <svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="19" stroke="#021859" stroke-width="2.5"/><path d="M20 17l12 7-12 7V17z" fill="#f25430"/></svg>
-      <h4>AVOD</h4>
+      <div class="lever-head">
+        <span class="lever-icon-wrap"><svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="19" stroke="#021859" stroke-width="2.5"/><path d="M20 17l12 7-12 7V17z" fill="#f25430"/></svg></span>
+        <h4>AVOD</h4>
+      </div>
       <div class="target">Replay et catch-up gratuits financés par la publicité</div>
       <p>Département, commune, tranche d'âge et CSP via la data des régies TV. Capping foyer.</p>
+      <div class="specs">Format 1920×1080 px, 16:9, 15-30 s</div>
     </div>
     <div class="lever-card">
-      <svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="8" width="28" height="26" rx="3" stroke="#021859" stroke-width="2.5"/><rect x="17" y="24" width="14" height="12" rx="2" fill="#f25430"/><path d="M21 24v-3a3 3 0 0 1 6 0v3" stroke="#021859" stroke-width="2"/></svg>
-      <h4>SVOD</h4>
+      <div class="lever-head">
+        <span class="lever-icon-wrap"><svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="8" width="28" height="26" rx="3" stroke="#021859" stroke-width="2.5"/><rect x="17" y="24" width="14" height="12" rx="2" fill="#f25430"/><path d="M21 24v-3a3 3 0 0 1 6 0v3" stroke="#021859" stroke-width="2"/></svg></span>
+        <h4>SVOD</h4>
+      </div>
       <div class="target">Netflix, Prime Video et Disney+, offres avec publicité</div>
       <p>Profil déclaré de l'abonné, département, foyer. Pas de cookie, ciblage first party.</p>
+      <div class="specs">Format 1920×1080 px, 16:9, 15-30 s</div>
     </div>
     <div class="lever-card">
-      <svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 10v28M15 17a13 13 0 0 0 0 14M33 17a13 13 0 0 1 0 14M9 12a20 20 0 0 0 0 24M39 12a20 20 0 0 1 0 24" stroke="#021859" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="10" r="3" fill="#f25430"/></svg>
-      <h4>BVOD</h4>
+      <div class="lever-head">
+        <span class="lever-icon-wrap"><svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 10v28M15 17a13 13 0 0 0 0 14M33 17a13 13 0 0 1 0 14M9 12a20 20 0 0 0 0 24M39 12a20 20 0 0 1 0 24" stroke="#021859" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="10" r="3" fill="#f25430"/></svg></span>
+        <h4>BVOD</h4>
+      </div>
       <div class="target">TF1+, M6+ et france.tv, les plateformes des chaînes</div>
       <p>Département, environnement chaîne et programme, exclusion de contextes sensibles.</p>
+      <div class="specs">Format 1920×1080 px, 16:9, 15-30 s</div>
     </div>
     <div class="lever-card">
-      <svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="22" rx="2" stroke="#021859" stroke-width="2.5"/><path d="M17 40h14M24 32v8" stroke="#021859" stroke-width="2.5"/><path d="M19 17l9 5-9 5V17z" fill="#f25430"/></svg>
-      <h4>CTV</h4>
+      <div class="lever-head">
+        <span class="lever-icon-wrap"><svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="22" rx="2" stroke="#021859" stroke-width="2.5"/><path d="M17 40h14M24 32v8" stroke="#021859" stroke-width="2.5"/><path d="M19 17l9 5-9 5V17z" fill="#f25430"/></svg></span>
+        <h4>CTV</h4>
+      </div>
       <div class="target">La télévision connectée, l'écran du salon</div>
       <p>Adresse IP du foyer, département, sans cookie. Diffusion plein écran, son actif.</p>
+      <div class="specs">Format 1920×1080 px, 16:9, 15-30 s</div>
     </div>
     <div class="lever-card">
-      <svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="12" width="36" height="24" rx="2" stroke="#021859" stroke-width="2.5"/><rect x="10" y="16" width="12" height="8" fill="#f25430"/><path d="M26 17h12M26 22h12M10 28h28" stroke="#021859" stroke-width="2"/></svg>
-      <h4>DISPLAY</h4>
+      <div class="lever-head">
+        <span class="lever-icon-wrap"><svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="12" width="36" height="24" rx="2" stroke="#021859" stroke-width="2.5"/><rect x="10" y="16" width="12" height="8" fill="#f25430"/><path d="M26 17h12M26 22h12M10 28h28" stroke="#021859" stroke-width="2"/></svg></span>
+        <h4>DISPLAY</h4>
+      </div>
       <div class="target">Bannières et habillages, presse régionale et sites premium</div>
       <p>Contextuel sur la presse régionale, géociblage à la commune, retargeting des visiteurs du site.</p>
+      <div class="specs">Formats 300×600 / 300×250 / 320×480 / 728×90 / 160×600 / 320×50 px, jpeg/png/gif</div>
     </div>
     <div class="lever-card">
-      <svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6C15 6 8 13 8 21c0 11 16 21 16 21s16-10 16-21c0-8-7-15-16-15z" stroke="#021859" stroke-width="2.5"/><rect x="17" y="15" width="14" height="10" rx="1.5" fill="#f25430"/></svg>
-      <h4>DOOH</h4>
+      <div class="lever-head">
+        <span class="lever-icon-wrap"><svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6C15 6 8 13 8 21c0 11 16 21 16 21s16-10 16-21c0-8-7-15-16-15z" stroke="#021859" stroke-width="2.5"/><rect x="17" y="15" width="14" height="10" rx="1.5" fill="#f25430"/></svg></span>
+        <h4>DOOH</h4>
+      </div>
       <div class="target">Écrans numériques achetés en programmatique</div>
       <p>À l'écran près, au créneau horaire, à la commune, avec déclenchement météo ou trafic.</p>
+      <div class="specs">Formats 16:9 et 9:16, mp4, 10 s, sans son</div>
     </div>
   </div>
 </section>
@@ -310,14 +327,14 @@ footer.contacts h2 .arrow{color:var(--terracota);}
           <tr><td>AVOD</td><td>30 €</td><td>9 272 €</td><td>≈ 309 000</td><td>Reconstruit une couverture large et qualifiée sur les CSP+ en réorientant l'audience TV vers les usages replay.</td></tr>
           <tr><td>BVOD</td><td>30 €</td><td>9 272 €</td><td>≈ 309 000</td><td>Univers TF1+/M6+/france.tv : contexte premium et brand safe pour installer la marque dès le lancement.</td></tr>
           <tr><td>CTV</td><td>30 €</td><td>7 727 €</td><td>≈ 258 000</td><td>Le grand écran du salon capte l'attention en plein écran : la meilleure première impression.</td></tr>
-          <tr><td>Display</td><td>12 €</td><td>3 091 €</td><td>≈ 258 000</td><td>Contextualisation presse régionale pour ancrer la marque dans l'actualité locale.</td></tr>
+          <tr><td>Display</td><td>10 €</td><td>3 091 €</td><td>≈ 309 000</td><td>Contextualisation presse régionale pour ancrer la marque dans l'actualité locale.</td></tr>
           <tr><td>SVOD</td><td>30 €</td><td>1 545 €</td><td>≈ 52 000</td><td>Touche ciblée sur les foyers premium abonnés, pour toucher les patrimoniaux.</td></tr>
           <tr><td>DOOH</td><td>46 €</td><td>0 €</td><td>0</td><td>Non activé : la seule considération est visée sur ce scénario, portée par la vidéo et le display. Réservé aux scénarios travaillant la mémorisation et l'engagement.</td></tr>
         </tbody>
-        <tfoot><tr><td>Total digital</td><td></td><td>30 908 € HT</td><td>≈ 1,18 M imp.</td><td></td></tr></tfoot>
+        <tfoot><tr><td>Total digital</td><td></td><td>30 908 € HT</td><td>≈ 1,24 M imp.</td><td></td></tr></tfoot>
       </table>
     </div>
-    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 12 € pour le Display, 46 € pour le DOOH.</p>
+    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 10 € pour le Display, 46 € pour le DOOH.</p>
   </div>
 
   <div class="tab-panel" id="sc2">
@@ -329,14 +346,14 @@ footer.contacts h2 .arrow{color:var(--terracota);}
           <tr><td>CTV</td><td>30 €</td><td>9 696 €</td><td>≈ 323 000</td><td>Répétée sur les deux vagues, la CTV construit la mémorisation par la fréquence.</td></tr>
           <tr><td>AVOD</td><td>30 €</td><td>8 888 €</td><td>≈ 296 000</td><td>Maintient la couverture large, avec un recapping foyer qui limite la déperdition entre les deux vagues.</td></tr>
           <tr><td>BVOD</td><td>30 €</td><td>8 888 €</td><td>≈ 296 000</td><td>Univers premium maintenu, fréquence répartie sur les deux vagues pour réinstaller la marque.</td></tr>
-          <tr><td>Display</td><td>12 €</td><td>6 060 €</td><td>≈ 505 000</td><td>Le retargeting des visiteurs du site ajoute la mémorisation en reciblant les internautes déjà exposés.</td></tr>
+          <tr><td>Display</td><td>10 €</td><td>6 060 €</td><td>≈ 606 000</td><td>Le retargeting des visiteurs du site ajoute la mémorisation en reciblant les internautes déjà exposés.</td></tr>
           <tr><td>SVOD</td><td>30 €</td><td>4 040 €</td><td>≈ 135 000</td><td>Renforcé : une complétion à 100 % qui consolide le souvenir publicitaire entre les deux temps forts.</td></tr>
           <tr><td>DOOH</td><td>46 €</td><td>2 828 €</td><td>≈ 61 000</td><td>Première dose de DOOH programmatique, pour ajouter des occasions de voir sur les zones déjà couvertes.</td></tr>
         </tbody>
-        <tfoot><tr><td>Total digital</td><td></td><td>40 401 € HT</td><td>≈ 1,62 M imp.</td><td></td></tr></tfoot>
+        <tfoot><tr><td>Total digital</td><td></td><td>40 401 € HT</td><td>≈ 1,72 M imp.</td><td></td></tr></tfoot>
       </table>
     </div>
-    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 12 € pour le Display, 46 € pour le DOOH.</p>
+    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 10 € pour le Display, 46 € pour le DOOH.</p>
   </div>
 
   <div class="tab-panel" id="sc3">
@@ -346,16 +363,16 @@ footer.contacts h2 .arrow{color:var(--terracota);}
         <thead><tr><th>Levier</th><th>CPM net Karrow Médias</th><th>Montant</th><th>Impressions est.</th><th>Pourquoi ce levier</th></tr></thead>
         <tbody>
           <tr><td>CTV</td><td>30 €</td><td>11 014 €</td><td>≈ 367 000</td><td>Poste vidéo le plus doté des trois scénarios : la fréquence la plus soutenue avant de pousser vers l'action.</td></tr>
-          <tr><td>Display</td><td>12 €</td><td>10 012 €</td><td>≈ 834 000</td><td>Premier poste du digital : le retargeting pousse jusqu'au clic et à la visite en agence.</td></tr>
+          <tr><td>Display</td><td>10 €</td><td>10 012 €</td><td>≈ 1 001 000</td><td>Premier poste du digital : le retargeting pousse jusqu'au clic et à la visite en agence.</td></tr>
           <tr><td>BVOD</td><td>30 €</td><td>8 010 €</td><td>≈ 267 000</td><td>Univers premium maintenu comme socle de brand safety, en appui du display et du DOOH.</td></tr>
           <tr><td>AVOD</td><td>30 €</td><td>8 010 €</td><td>≈ 267 000</td><td>Toujours le socle de couverture, réduit en valeur relative au profit du display et du DOOH.</td></tr>
           <tr><td>DOOH</td><td>46 €</td><td>8 010 €</td><td>≈ 174 000</td><td>Devient un vrai troisième poste, déclenché à la commune et au créneau horaire : convertit la visibilité en passage en agence.</td></tr>
           <tr><td>SVOD</td><td>30 €</td><td>5 006 €</td><td>≈ 167 000</td><td>La touche la plus qualitative pour installer durablement l'image de marque sur les patrimoniaux.</td></tr>
         </tbody>
-        <tfoot><tr><td>Total digital</td><td></td><td>50 061 € HT</td><td>≈ 2,08 M imp.</td><td></td></tr></tfoot>
+        <tfoot><tr><td>Total digital</td><td></td><td>50 061 € HT</td><td>≈ 2,24 M imp.</td><td></td></tr></tfoot>
       </table>
     </div>
-    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 12 € pour le Display, 46 € pour le DOOH.</p>
+    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 10 € pour le Display, 46 € pour le DOOH.</p>
     <p style="font-size:.9rem;margin-top:14px;">Le seul scénario qui mesure une action, pas seulement une exposition : display et DOOH pilotent jusqu'à la visite en agence.</p>
   </div>
 </section>
@@ -363,15 +380,29 @@ footer.contacts h2 .arrow{color:var(--terracota);}
 <!-- PLANNING -->
 <section class="section alt" id="planning">
   <div class="eyebrow">↘ Planning</div>
-  <h2><span class="arrow">↘</span>Le digital calé sur les vagues d'affichage</h2>
-  <p>Novembre 2026 à avril 2027, en vagues et non en fil rouge, calées sur le rythme propre à chaque scénario.</p>
+  <h2><span class="arrow">↘</span>Novembre 2026 à avril 2027, pour les trois scénarios</h2>
+  <p>Le digital suit la même période sur les trois scénarios : novembre 2026 à avril 2027, en vagues et non en fil rouge. Seule son intensité varie mois par mois, en écho aux vagues d'affichage propres à chaque scénario.</p>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Scénario</th><th>Vagues d'affichage</th><th>Rythme du digital</th></tr></thead>
+      <thead><tr><th>Mois</th><th>Scénario 1</th><th>Scénario 2</th><th>Scénario 3</th></tr></thead>
       <tbody>
-        <tr><td>Scénario 1</td><td>1 vague en janvier 2027 + longue conservation décembre 2026 à février 2027</td><td>Montée en puissance dès novembre, plateau décembre-février aligné sur la longue conservation, pic en janvier</td></tr>
-        <tr><td>Scénario 2</td><td>2 vagues, janvier et mars 2027</td><td>Deux pics alignés sur les vagues d'affichage, creux en février, reprise fin mars</td></tr>
-        <tr><td>Scénario 3</td><td>1 vague en janvier 2027, print et DOOH ensemble</td><td>Pic janvier renforcé, prolongement jusqu'en avril pour laisser le temps à l'engagement de se mesurer</td></tr>
+        <tr><td>Novembre</td><td>Montée en puissance</td><td>Montée en puissance</td><td>Montée en puissance</td></tr>
+        <tr><td>Décembre</td><td>Plateau, aligné sur la longue conservation</td><td>Creux entre les deux vagues</td><td>Plateau</td></tr>
+        <tr><td>Janvier</td><td>Pic, vague d'affichage</td><td>Pic, 1ère vague d'affichage</td><td>Pic renforcé, vague print et DOOH ensemble</td></tr>
+        <tr><td>Février</td><td>Plateau, aligné sur la longue conservation</td><td>Creux entre les deux vagues</td><td>Plateau</td></tr>
+        <tr><td>Mars</td><td>Maintien</td><td>Pic, 2e vague d'affichage</td><td>Maintien</td></tr>
+        <tr><td>Avril</td><td>Sortie en douceur</td><td>Sortie en douceur</td><td>Prolongement, pour laisser le temps à l'engagement de se mesurer</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 style="margin-top:30px;">Pour mémoire, les vagues d'affichage propres à chaque scénario</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Scénario</th><th>Vagues d'affichage</th></tr></thead>
+      <tbody>
+        <tr><td>Scénario 1</td><td>1 vague en janvier 2027, plus 13 emplacements en longue conservation, décembre 2026 à février 2027</td></tr>
+        <tr><td>Scénario 2</td><td>2 vagues, janvier et mars 2027, sans longue conservation</td></tr>
+        <tr><td>Scénario 3</td><td>1 vague en janvier 2027, réseaux print et réseau digital des 13 gares ensemble</td></tr>
       </tbody>
     </table>
   </div>
