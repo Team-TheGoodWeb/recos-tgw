@@ -151,6 +151,11 @@ footer.contacts h2 .arrow{color:var(--terracota);}
 .funnel-step p{font-size:.88rem;color:#dce6fb;margin-bottom:0;}
 .funnel-step .scenario-tag{display:inline-block;background:rgba(255,255,255,.2);border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;margin-bottom:10px;}
 .scenario-badge{display:inline-block;background:var(--terracota);color:#fff;font-size:.75rem;font-weight:700;padding:5px 14px;border-radius:999px;margin-bottom:12px;}
+.subtabs{margin-top:16px;}
+.subtab-btn{border:1.5px solid var(--babyblue);background:#fff;color:var(--navy);font-weight:700;padding:7px 16px;border-radius:999px;cursor:pointer;font-size:.8rem;font-family:'Poppins',Arial,sans-serif;}
+.subtab-btn.active{background:var(--babyblue);color:var(--navy);}
+.subtab-panel{display:none;}
+.subtab-panel.active{display:block;}
 </style>
 </head>
 <body>
@@ -310,70 +315,146 @@ footer.contacts h2 .arrow{color:var(--terracota);}
 <section class="section" id="budgets">
   <div class="eyebrow">↘ Budgets</div>
   <h2><span class="arrow">↘</span>L'enveloppe digitale, scénario par scénario</h2>
-  <p>Chaque scénario Karrow réserve une part différente de son enveloppe totale (108 333 € HT) au digital. Voici comment TGW la ventile sur les six leviers, avec le pourquoi de chaque choix.</p>
-
+  <p>Chaque scénario Karrow réserve une part différente de son enveloppe totale (108 333 € HT) au digital. Le DOOH est retiré des trois recommandations : chaque scénario se décline en trois variantes, sans DOOH, avec LinkedIn, ou avec de l'audio à la place.</p>
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('sc1')">Scénario 1 : 30 908 € HT</button>
     <button class="tab-btn" onclick="showTab('sc2')">Scénario 2 : 40 401 € HT</button>
     <button class="tab-btn" onclick="showTab('sc3')">Scénario 3 : 50 061 € HT</button>
   </div>
-
   <div class="tab-panel active" id="sc1">
     <span class="scenario-badge">Objectif digital : Considération</span>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Levier</th><th>CPM net Karrow Médias</th><th>Montant</th><th>Impressions est.</th><th>Pourquoi ce levier</th></tr></thead>
-        <tbody>
+    <p style="font-size:.85rem;color:#3a4260;">Ce scénario n'a jamais activé de DOOH (0 € sur les trois précédentes versions) : les trois variantes ci-dessous sont donc identiques.</p>
+    <div class="tabs subtabs">
+      <button class="subtab-btn active" onclick="showSubTab('sc1v1','sc1')">1.1 Sans DOOH</button>
+      <button class="subtab-btn" onclick="showSubTab('sc1v2','sc1')">1.2 + LinkedIn</button>
+      <button class="subtab-btn" onclick="showSubTab('sc1v3','sc1')">1.3 + Audio</button>
+    </div>
+    <div class="subtab-panel active" id="sc1v1">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>CPM net Karrow Médias</th><th>Montant</th><th>Volume est.</th><th>Pourquoi ce levier</th></tr></thead><tbody>
           <tr><td>AVOD</td><td>30 €</td><td>9 272 €</td><td>≈ 309 000</td><td>Reconstruit une couverture large et qualifiée sur les CSP+ en réorientant l'audience TV vers les usages replay.</td></tr>
           <tr><td>BVOD</td><td>30 €</td><td>9 272 €</td><td>≈ 309 000</td><td>Univers TF1+/M6+/france.tv : contexte premium et brand safe pour installer la marque dès le lancement.</td></tr>
           <tr><td>CTV</td><td>30 €</td><td>7 727 €</td><td>≈ 258 000</td><td>Le grand écran du salon capte l'attention en plein écran : la meilleure première impression.</td></tr>
           <tr><td>Display</td><td>10 €</td><td>3 091 €</td><td>≈ 309 000</td><td>Contextualisation presse régionale pour ancrer la marque dans l'actualité locale.</td></tr>
           <tr><td>SVOD</td><td>30 €</td><td>1 545 €</td><td>≈ 52 000</td><td>Touche ciblée sur les foyers premium abonnés, pour toucher les patrimoniaux.</td></tr>
-          <tr><td>DOOH</td><td>46 €</td><td>0 €</td><td>0</td><td>Non activé : la seule considération est visée sur ce scénario, portée par la vidéo et le display. Réservé aux scénarios travaillant la mémorisation et l'engagement.</td></tr>
-        </tbody>
-        <tfoot><tr><td>Total digital</td><td></td><td>30 908 € HT</td><td>≈ 1,24 M imp.</td><td></td></tr></tfoot>
-      </table>
+        </tbody><tfoot><tr><td>Total digital</td><td></td><td>30 908 € HT</td><td>≈ 1 236 000 imp.</td><td></td></tr></tfoot>
+      </table></div>
     </div>
-    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 10 € pour le Display, 46 € pour le DOOH.</p>
+    <div class="subtab-panel" id="sc1v2">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>CPM net</th><th>Montant</th><th>Volume est.</th><th>Pourquoi ce levier</th></tr></thead><tbody>
+          <tr><td>AVOD</td><td>30 €</td><td>9 272 €</td><td>≈ 309 000</td><td>Reconstruit une couverture large et qualifiée sur les CSP+ en réorientant l'audience TV vers les usages replay.</td></tr>
+          <tr><td>BVOD</td><td>30 €</td><td>9 272 €</td><td>≈ 309 000</td><td>Univers TF1+/M6+/france.tv : contexte premium et brand safe pour installer la marque dès le lancement.</td></tr>
+          <tr><td>CTV</td><td>30 €</td><td>7 727 €</td><td>≈ 258 000</td><td>Le grand écran du salon capte l'attention en plein écran : la meilleure première impression.</td></tr>
+          <tr><td>Display</td><td>10 €</td><td>3 091 €</td><td>≈ 309 000</td><td>Contextualisation presse régionale pour ancrer la marque dans l'actualité locale.</td></tr>
+          <tr><td>SVOD</td><td>30 €</td><td>1 545 €</td><td>≈ 52 000</td><td>Touche ciblée sur les foyers premium abonnés, pour toucher les patrimoniaux.</td></tr>
+          <tr><td>LinkedIn Ads</td><td>60 €</td><td>0 €</td><td>0</td><td>Non activé : à ce niveau de budget, l'effort reste concentré sur la vidéo et le display pour la seule considération.</td></tr>
+        </tbody><tfoot><tr><td>Total digital</td><td></td><td>30 908 € HT</td><td>≈ 1 236 000 imp.</td><td></td></tr></tfoot>
+      </table></div>
+    </div>
+    <div class="subtab-panel" id="sc1v3">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>CPM / CPE net</th><th>Montant</th><th>Volume est.</th><th>Pourquoi ce levier</th></tr></thead><tbody>
+          <tr><td>AVOD</td><td>30 €</td><td>9 272 €</td><td>≈ 309 000</td><td>Reconstruit une couverture large et qualifiée sur les CSP+ en réorientant l'audience TV vers les usages replay.</td></tr>
+          <tr><td>BVOD</td><td>30 €</td><td>9 272 €</td><td>≈ 309 000</td><td>Univers TF1+/M6+/france.tv : contexte premium et brand safe pour installer la marque dès le lancement.</td></tr>
+          <tr><td>CTV</td><td>30 €</td><td>7 727 €</td><td>≈ 258 000</td><td>Le grand écran du salon capte l'attention en plein écran : la meilleure première impression.</td></tr>
+          <tr><td>Display</td><td>10 €</td><td>3 091 €</td><td>≈ 309 000</td><td>Contextualisation presse régionale pour ancrer la marque dans l'actualité locale.</td></tr>
+          <tr><td>SVOD</td><td>30 €</td><td>1 545 €</td><td>≈ 52 000</td><td>Touche ciblée sur les foyers premium abonnés, pour toucher les patrimoniaux.</td></tr>
+          <tr><td>Audio (streaming + podcast)</td><td>0,05 € / écoute</td><td>0 €</td><td>0</td><td>Non activé : à ce niveau de budget, l'effort reste concentré sur la vidéo et le display pour la seule considération.</td></tr>
+        </tbody><tfoot><tr><td>Total digital</td><td></td><td>30 908 € HT</td><td>≈ 1 236 000 imp. </td><td></td></tr></tfoot>
+      </table></div>
+    </div>
+    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 10 € pour le Display, 60 € pour LinkedIn. Audio en CPE (coût par écoute) à 0,05 €, hors grille Karrow, estimation TGW à confirmer.</p>
   </div>
-
   <div class="tab-panel" id="sc2">
     <span class="scenario-badge">Objectif digital : Considération + Mémorisation</span>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Levier</th><th>CPM net Karrow Médias</th><th>Montant</th><th>Impressions est.</th><th>Pourquoi ce levier</th></tr></thead>
-        <tbody>
+    <div class="tabs subtabs">
+      <button class="subtab-btn active" onclick="showSubTab('sc2v1','sc2')">2.1 Sans DOOH</button>
+      <button class="subtab-btn" onclick="showSubTab('sc2v2','sc2')">2.2 + LinkedIn</button>
+      <button class="subtab-btn" onclick="showSubTab('sc2v3','sc2')">2.3 + Audio</button>
+    </div>
+    <div class="subtab-panel active" id="sc2v1">
+      <p style="font-size:.85rem;color:#3a4260;">Le budget DOOH est redistribué au prorata sur les cinq autres leviers, sans levier supplémentaire.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>CPM net Karrow Médias</th><th>Montant</th><th>Volume est.</th><th>Pourquoi ce levier</th></tr></thead><tbody>
+          <tr><td>CTV</td><td>30 €</td><td>10 426 €</td><td>≈ 348 000</td><td>Répétée sur les deux vagues, la CTV construit la mémorisation par la fréquence.</td></tr>
+          <tr><td>AVOD</td><td>30 €</td><td>9 557 €</td><td>≈ 319 000</td><td>Maintient la couverture large, avec un recapping foyer qui limite la déperdition entre les deux vagues.</td></tr>
+          <tr><td>BVOD</td><td>30 €</td><td>9 557 €</td><td>≈ 319 000</td><td>Univers premium maintenu, fréquence répartie sur les deux vagues pour réinstaller la marque.</td></tr>
+          <tr><td>Display</td><td>10 €</td><td>6 516 €</td><td>≈ 652 000</td><td>Le retargeting des visiteurs du site ajoute la mémorisation en reciblant les internautes déjà exposés.</td></tr>
+          <tr><td>SVOD</td><td>30 €</td><td>4 344 €</td><td>≈ 145 000</td><td>Renforcé : une complétion à 100 % qui consolide le souvenir publicitaire entre les deux temps forts.</td></tr>
+        </tbody><tfoot><tr><td>Total digital</td><td></td><td>40 401 € HT</td><td>≈ 1 781 000 imp.</td><td></td></tr></tfoot>
+      </table></div>
+    </div>
+    <div class="subtab-panel" id="sc2v2">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>CPM net</th><th>Montant</th><th>Volume est.</th><th>Pourquoi ce levier</th></tr></thead><tbody>
           <tr><td>CTV</td><td>30 €</td><td>9 696 €</td><td>≈ 323 000</td><td>Répétée sur les deux vagues, la CTV construit la mémorisation par la fréquence.</td></tr>
           <tr><td>AVOD</td><td>30 €</td><td>8 888 €</td><td>≈ 296 000</td><td>Maintient la couverture large, avec un recapping foyer qui limite la déperdition entre les deux vagues.</td></tr>
           <tr><td>BVOD</td><td>30 €</td><td>8 888 €</td><td>≈ 296 000</td><td>Univers premium maintenu, fréquence répartie sur les deux vagues pour réinstaller la marque.</td></tr>
           <tr><td>Display</td><td>10 €</td><td>6 060 €</td><td>≈ 606 000</td><td>Le retargeting des visiteurs du site ajoute la mémorisation en reciblant les internautes déjà exposés.</td></tr>
           <tr><td>SVOD</td><td>30 €</td><td>4 040 €</td><td>≈ 135 000</td><td>Renforcé : une complétion à 100 % qui consolide le souvenir publicitaire entre les deux temps forts.</td></tr>
-          <tr><td>DOOH</td><td>46 €</td><td>2 828 €</td><td>≈ 61 000</td><td>Première dose de DOOH programmatique, pour ajouter des occasions de voir sur les zones déjà couvertes.</td></tr>
-        </tbody>
-        <tfoot><tr><td>Total digital</td><td></td><td>40 401 € HT</td><td>≈ 1,72 M imp.</td><td></td></tr></tfoot>
-      </table>
+          <tr><td>LinkedIn Ads</td><td>60 €</td><td>2 828 €</td><td>≈ 47 000</td><td>LinkedIn cible directement les dirigeants et cadres CSP+ en environnement professionnel B2B, une alternative qualifiée au DOOH pour ajouter de la mémorisation sur une audience à haute valeur.</td></tr>
+        </tbody><tfoot><tr><td>Total digital</td><td></td><td>40 401 € HT</td><td>≈ 1 704 000 imp.</td><td></td></tr></tfoot>
+      </table></div>
     </div>
-    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 10 € pour le Display, 46 € pour le DOOH.</p>
+    <div class="subtab-panel" id="sc2v3">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>CPM / CPE net</th><th>Montant</th><th>Volume est.</th><th>Pourquoi ce levier</th></tr></thead><tbody>
+          <tr><td>CTV</td><td>30 €</td><td>9 696 €</td><td>≈ 323 000</td><td>Répétée sur les deux vagues, la CTV construit la mémorisation par la fréquence.</td></tr>
+          <tr><td>AVOD</td><td>30 €</td><td>8 888 €</td><td>≈ 296 000</td><td>Maintient la couverture large, avec un recapping foyer qui limite la déperdition entre les deux vagues.</td></tr>
+          <tr><td>BVOD</td><td>30 €</td><td>8 888 €</td><td>≈ 296 000</td><td>Univers premium maintenu, fréquence répartie sur les deux vagues pour réinstaller la marque.</td></tr>
+          <tr><td>Display</td><td>10 €</td><td>6 060 €</td><td>≈ 606 000</td><td>Le retargeting des visiteurs du site ajoute la mémorisation en reciblant les internautes déjà exposés.</td></tr>
+          <tr><td>SVOD</td><td>30 €</td><td>4 040 €</td><td>≈ 135 000</td><td>Renforcé : une complétion à 100 % qui consolide le souvenir publicitaire entre les deux temps forts.</td></tr>
+          <tr><td>Audio (streaming + podcast)</td><td>0,05 € / écoute</td><td>2 828 €</td><td>≈ 57 000 écoutes</td><td>L'audio (streaming + podcast) ajoute un contexte d'écoute engageant à moindre coût par engagement, en alternative au DOOH pour la mémorisation.</td></tr>
+        </tbody><tfoot><tr><td>Total digital</td><td></td><td>40 401 € HT</td><td>≈ 1 656 000 imp. + 57 000 écoutes</td><td></td></tr></tfoot>
+      </table></div>
+    </div>
+    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 10 € pour le Display, 60 € pour LinkedIn. Audio en CPE (coût par écoute) à 0,05 €, hors grille Karrow, estimation TGW à confirmer.</p>
   </div>
-
   <div class="tab-panel" id="sc3">
     <span class="scenario-badge">Objectif digital : Considération + Mémorisation + Engagement</span>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Levier</th><th>CPM net Karrow Médias</th><th>Montant</th><th>Impressions est.</th><th>Pourquoi ce levier</th></tr></thead>
-        <tbody>
+    <div class="tabs subtabs">
+      <button class="subtab-btn active" onclick="showSubTab('sc3v1','sc3')">3.1 Sans DOOH</button>
+      <button class="subtab-btn" onclick="showSubTab('sc3v2','sc3')">3.2 + LinkedIn</button>
+      <button class="subtab-btn" onclick="showSubTab('sc3v3','sc3')">3.3 + Audio</button>
+    </div>
+    <div class="subtab-panel active" id="sc3v1">
+      <p style="font-size:.85rem;color:#3a4260;">Le budget DOOH est redistribué au prorata sur les cinq autres leviers, sans levier supplémentaire.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>CPM net Karrow Médias</th><th>Montant</th><th>Volume est.</th><th>Pourquoi ce levier</th></tr></thead><tbody>
+          <tr><td>CTV</td><td>30 €</td><td>13 111 €</td><td>≈ 437 000</td><td>Poste vidéo le plus doté des trois scénarios : la fréquence la plus soutenue avant de pousser vers l'action.</td></tr>
+          <tr><td>Display</td><td>10 €</td><td>11 919 €</td><td>≈ 1 192 000</td><td>Premier poste du digital : le retargeting pousse jusqu'au clic et à la visite en agence.</td></tr>
+          <tr><td>BVOD</td><td>30 €</td><td>9 536 €</td><td>≈ 318 000</td><td>Univers premium maintenu comme socle de brand safety, en appui du display.</td></tr>
+          <tr><td>AVOD</td><td>30 €</td><td>9 536 €</td><td>≈ 318 000</td><td>Toujours le socle de couverture, réduit en valeur relative au profit du display.</td></tr>
+          <tr><td>SVOD</td><td>30 €</td><td>5 960 €</td><td>≈ 199 000</td><td>La touche la plus qualitative pour installer durablement l'image de marque sur les patrimoniaux.</td></tr>
+        </tbody><tfoot><tr><td>Total digital</td><td></td><td>50 061 € HT</td><td>≈ 2 463 000 imp.</td><td></td></tr></tfoot>
+      </table></div>
+    </div>
+    <div class="subtab-panel" id="sc3v2">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>CPM net</th><th>Montant</th><th>Volume est.</th><th>Pourquoi ce levier</th></tr></thead><tbody>
           <tr><td>CTV</td><td>30 €</td><td>11 014 €</td><td>≈ 367 000</td><td>Poste vidéo le plus doté des trois scénarios : la fréquence la plus soutenue avant de pousser vers l'action.</td></tr>
           <tr><td>Display</td><td>10 €</td><td>10 012 €</td><td>≈ 1 001 000</td><td>Premier poste du digital : le retargeting pousse jusqu'au clic et à la visite en agence.</td></tr>
-          <tr><td>BVOD</td><td>30 €</td><td>8 010 €</td><td>≈ 267 000</td><td>Univers premium maintenu comme socle de brand safety, en appui du display et du DOOH.</td></tr>
-          <tr><td>AVOD</td><td>30 €</td><td>8 010 €</td><td>≈ 267 000</td><td>Toujours le socle de couverture, réduit en valeur relative au profit du display et du DOOH.</td></tr>
-          <tr><td>DOOH</td><td>46 €</td><td>8 010 €</td><td>≈ 174 000</td><td>Devient un vrai troisième poste, déclenché à la commune et au créneau horaire : convertit la visibilité en passage en agence.</td></tr>
+          <tr><td>BVOD</td><td>30 €</td><td>8 010 €</td><td>≈ 267 000</td><td>Univers premium maintenu comme socle de brand safety, en appui du display.</td></tr>
+          <tr><td>AVOD</td><td>30 €</td><td>8 010 €</td><td>≈ 267 000</td><td>Toujours le socle de couverture, réduit en valeur relative au profit du display.</td></tr>
           <tr><td>SVOD</td><td>30 €</td><td>5 006 €</td><td>≈ 167 000</td><td>La touche la plus qualitative pour installer durablement l'image de marque sur les patrimoniaux.</td></tr>
-        </tbody>
-        <tfoot><tr><td>Total digital</td><td></td><td>50 061 € HT</td><td>≈ 2,24 M imp.</td><td></td></tr></tfoot>
-      </table>
+          <tr><td>LinkedIn Ads</td><td>60 €</td><td>8 010 €</td><td>≈ 133 000</td><td>LinkedIn pousse la mémorisation jusque dans l'environnement professionnel des dirigeants et entrepreneurs, en alternative au DOOH pour ce scénario orienté action.</td></tr>
+        </tbody><tfoot><tr><td>Total digital</td><td></td><td>50 061 € HT</td><td>≈ 2 203 000 imp.</td><td></td></tr></tfoot>
+      </table></div>
     </div>
-    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 10 € pour le Display, 46 € pour le DOOH.</p>
-    <p style="font-size:.9rem;margin-top:14px;">Le seul scénario qui mesure une action, pas seulement une exposition : display et DOOH pilotent jusqu'à la visite en agence.</p>
+    <div class="subtab-panel" id="sc3v3">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>CPM / CPE net</th><th>Montant</th><th>Volume est.</th><th>Pourquoi ce levier</th></tr></thead><tbody>
+          <tr><td>CTV</td><td>30 €</td><td>11 014 €</td><td>≈ 367 000</td><td>Poste vidéo le plus doté des trois scénarios : la fréquence la plus soutenue avant de pousser vers l'action.</td></tr>
+          <tr><td>Display</td><td>10 €</td><td>10 012 €</td><td>≈ 1 001 000</td><td>Premier poste du digital : le retargeting pousse jusqu'au clic et à la visite en agence.</td></tr>
+          <tr><td>BVOD</td><td>30 €</td><td>8 010 €</td><td>≈ 267 000</td><td>Univers premium maintenu comme socle de brand safety, en appui du display.</td></tr>
+          <tr><td>AVOD</td><td>30 €</td><td>8 010 €</td><td>≈ 267 000</td><td>Toujours le socle de couverture, réduit en valeur relative au profit du display.</td></tr>
+          <tr><td>SVOD</td><td>30 €</td><td>5 006 €</td><td>≈ 167 000</td><td>La touche la plus qualitative pour installer durablement l'image de marque sur les patrimoniaux.</td></tr>
+          <tr><td>Audio (streaming + podcast)</td><td>0,05 € / écoute</td><td>8 010 €</td><td>≈ 160 000 écoutes</td><td>L'audio prolonge l'exposition dans un moment d'écoute actif, en alternative au DOOH pour renforcer l'engagement à moindre coût par action.</td></tr>
+        </tbody><tfoot><tr><td>Total digital</td><td></td><td>50 061 € HT</td><td>≈ 2 069 000 imp. + 160 000 écoutes</td><td></td></tr></tfoot>
+      </table></div>
+    </div>
+    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">CPM net Karrow Médias, grille de rachat 2026 : 30 € pour tous les formats vidéo (AVOD, SVOD, BVOD, CTV), 10 € pour le Display, 60 € pour LinkedIn. Audio en CPE (coût par écoute) à 0,05 €, hors grille Karrow, estimation TGW à confirmer.</p>
   </div>
 </section>
 
@@ -433,13 +514,39 @@ footer.contacts h2 .arrow{color:var(--terracota);}
     <div class="pyr-layer pyr-3">Analyse<small>Résultats de la campagne comparés à un benchmark de plus de 25 000 références, par média, industrie et zone géographique</small></div>
   </div>
 
-  <h3 style="margin-top:30px;">Trois familles d'indicateurs</h3>
-  <div class="cards">
-    <div class="card c-bleu"><h4>Performance de diffusion</h4><p>Mémorisation et intérêt personnel : évalue la stratégie de diffusion et la capacité de la publicité à marquer les esprits.</p></div>
-    <div class="card c-peche"><h4>Diagnostic créatif</h4><p>Évalue la pertinence de la création et la façon dont elle est perçue par les répondants exposés.</p></div>
-    <div class="card c-lavande"><h4>Impact du souvenir publicitaire</h4><p>Mesure les uplifts sur les indicateurs clés : image de marque, considération, préférence.</p></div>
+  <h3 style="margin-top:30px;">Le protocole, en détail</h3>
+  <div class="rgpd-grid">
+    <div class="rgpd-card"><h4>Deux groupes, une seule variable</h4><p style="font-size:.9rem;">Les répondants exposés-mémos et le groupe de contrôle sont homogènes sur l'âge, le genre et la probabilité d'exposition : seul le souvenir publicitaire les distingue, pour isoler l'effet propre de la campagne.</p></div>
+    <div class="rgpd-card"><h4>Souvenir contextualisé par média</h4><p style="font-size:.9rem;">La question de mémorisation s'adapte à chaque support ("Vous souvenez-vous avoir vu cette publicité en ligne ?", à la télévision, en affichage...), pour une précision maximale.</p></div>
+    <div class="rgpd-card"><h4>Répondants non rémunérés</h4><p style="font-size:.9rem;">Chaque répondant est unique à son questionnaire et non rémunéré, pour éviter les biais de professionnalisation des panels.</p></div>
+    <div class="rgpd-card"><h4>Même méthode, tous médias</h4><p style="font-size:.9rem;">Le protocole est identique en ligne et hors ligne (affichage, DOOH), pour comparer les leviers du dispositif entre eux sur une base commune.</p></div>
   </div>
-  <p style="font-size:.85rem;color:#3a4260;margin-top:16px;">Un « écart significatif » atteste qu'une différence n'est pas attribuable au hasard : la campagne a été efficace sur l'indicateur concerné. Chaque uplift est lu contre son propre benchmark, pas dans l'absolu.</p>
+
+  <h3 style="margin-top:34px;">Trois familles d'indicateurs</h3>
+  <div class="cards">
+    <div class="card c-bleu"><h4>Performance de diffusion</h4><p>Mémorisation et intérêt personnel : évalue la stratégie de diffusion et la capacité de la publicité à marquer les esprits, avant même de juger la création.</p></div>
+    <div class="card c-peche"><h4>Diagnostic créatif</h4><p>Évalue la pertinence de la création et la façon dont elle est perçue par les répondants exposés, pour ajuster le message en cours de campagne si besoin.</p></div>
+    <div class="card c-lavande"><h4>Impact du souvenir publicitaire</h4><p>Mesure les uplifts sur trois indicateurs clés : image de marque, considération, préférence, chacun comparé à son propre benchmark.</p></div>
+  </div>
+
+  <h3 style="margin-top:34px;">Ce que chaque scénario permettrait de mesurer</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Scénario</th><th>Indicateurs mesurables en priorité</th></tr></thead>
+      <tbody>
+        <tr><td>Scénario 1</td><td>Mémorisation et image de marque : la considération installée par AVOD, BVOD et CTV se lit dans l'uplift image de marque.</td></tr>
+        <tr><td>Scénario 2</td><td>S'ajoutent la considération et un uplift préférence plus net, portés par la répétition sur les deux vagues et le retargeting display.</td></tr>
+        <tr><td>Scénario 3</td><td>S'ajoute un indicateur d'action, via le CPLU (coût par utilisateur converti) sur le display et le DOOH, en complément des uplifts classiques.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:34px;">Trois questions pour lire les résultats</h3>
+  <div class="rgpd-grid">
+    <div class="rgpd-card"><h4>Qu'est-ce qu'un uplift ?</h4><p style="font-size:.9rem;">L'écart mesuré entre la population ayant mémorisé la campagne et le groupe de contrôle, sur un indicateur donné (image, considération, préférence).</p></div>
+    <div class="rgpd-card"><h4>Qu'est-ce qu'un écart significatif ?</h4><p style="font-size:.9rem;">Une différence statistique qui ne peut pas être attribuée au hasard : elle atteste que la campagne a été efficace sur l'indicateur concerné.</p></div>
+    <div class="rgpd-card"><h4>Comment lire l'Impact Score ?</h4><p style="font-size:.9rem;">Un score sur 100 qui résume la performance globale par rapport au benchmark choisi : 50 situe la campagne dans la moyenne de son secteur, au-delà elle surperforme.</p></div>
+  </div>
 </section>
 
 <footer class="contacts" id="contacts">
@@ -477,6 +584,13 @@ footer.contacts h2 .arrow{color:var(--terracota);}
 function showTab(id){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+function showSubTab(id, scope){
+  const root = document.getElementById(scope);
+  root.querySelectorAll('.subtab-panel').forEach(p=>p.classList.remove('active'));
+  root.querySelectorAll('.subtab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   event.target.classList.add('active');
 }
