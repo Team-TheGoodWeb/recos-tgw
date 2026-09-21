@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banque de Savoie · Volet programmatique · « Nos différences font la différence »</title>
+<style>
+:root{
+  --navy:#021859;
+  --babyblue:#7bbdff;
+  --terracota:#f25430;
+  --white:#ffffff;
+  --bg-soft:#f6f8fe;
+  --text:#1a1f36;
+  --c-lavande:#5271FF;
+  --c-rose:#6a5acd;
+  --c-bleu:#7bbdff;
+  --c-menthe:#021859;
+  --c-corail:#f25430;
+  --c-peche:#ffb79e;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{overflow-x:hidden;max-width:100%;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--text);line-height:1.55;background:var(--white);overflow-x:hidden;max-width:100%;}
+h1,h2,h3,h4{font-family:'Poppins',Arial,sans-serif;color:var(--navy);}
+h2{font-size:1.7rem;margin-bottom:.3rem;}
+h2 .arrow{color:var(--terracota);margin-right:.4rem;}
+h3{font-size:1.15rem;margin-bottom:.5rem;}
+p{margin-bottom:.8rem;}
+.section{padding:60px 24px;max-width:1180px;margin:0 auto;}
+.section.alt{background:var(--bg-soft);}
+.section.alt > div, .section.alt{}
+.wrap-alt{background:var(--bg-soft);}
+.eyebrow{color:var(--terracota);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;margin-bottom:.6rem;}
+
+/* HERO */
+header.hero{background:var(--navy);color:var(--white);padding:70px 24px 50px;text-align:center;}
+header.hero h1{color:var(--white);font-size:2.1rem;margin:18px 0 10px;}
+header.hero .sub{color:var(--babyblue);font-size:1.05rem;max-width:760px;margin:0 auto 26px;}
+.hero-logo{height:74px;width:85px;margin-bottom:6px;}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:10px;}
+.pill{border:1px solid var(--babyblue);border-radius:999px;padding:8px 18px;font-size:.85rem;font-weight:600;color:var(--white);background:rgba(255,255,255,.04);}
+.pill b{font-weight:700;}
+.confidential{margin-top:24px;font-size:.75rem;color:var(--babyblue);opacity:.8;}
+
+/* NAV */
+nav.stickynav{position:sticky;top:0;background:var(--white);border-bottom:1px solid #e4e9f7;z-index:50;overflow-x:auto;white-space:nowrap;}
+nav.stickynav ul{list-style:none;display:flex;padding:0 24px;max-width:1180px;margin:0 auto;}
+nav.stickynav a{display:block;padding:14px 16px;color:var(--navy);text-decoration:none;font-weight:700;font-size:.85rem;}
+nav.stickynav a:hover{color:var(--terracota);}
+
+/* DURATION CALLOUT */
+.duration-callout{background:var(--terracota);color:var(--white);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:18px;margin:34px 0 10px;}
+.duration-callout .big{font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:1.15rem;}
+.duration-callout .icon{font-size:1.8rem;}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:24px;}
+.card{border-radius:16px;padding:22px;background:var(--bg-soft);border:1px solid #e4e9f7;}
+.card .num{font-family:'Poppins',Arial,sans-serif;font-weight:700;color:var(--terracota);font-size:1.3rem;margin-bottom:8px;}
+.card h4{font-family:'Poppins',Arial,sans-serif;color:var(--navy);font-size:1rem;margin-bottom:6px;}
+.card p{font-size:.92rem;margin-bottom:0;color:#3a4260;}
+.c-lavande{background:#eef1ff;}
+.c-rose{background:#f2effa;}
+.c-bleu{background:#eaf4ff;}
+.c-menthe{background:#e8ecf7;}
+.c-corail{background:#fdece8;}
+.c-peche{background:#fff1ea;}
+
+/* LEVER TABLE */
+table{width:100%;border-collapse:collapse;margin-top:18px;font-size:.9rem;}
+thead th{background:var(--navy);color:var(--white);text-align:left;padding:12px 14px;font-family:'Poppins',Arial,sans-serif;font-size:.82rem;}
+tbody td{padding:11px 14px;border-bottom:1px solid #e4e9f7;}
+tbody tr:nth-child(even){background:var(--bg-soft);}
+tfoot td{padding:13px 14px;font-weight:700;background:var(--navy);color:var(--white);}
+.table-wrap{overflow-x:auto;}
+.tag-min{display:inline-block;background:var(--terracota);color:var(--white);font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:999px;}
+
+/* TABS */
+.tabs{display:flex;gap:10px;margin:24px 0 6px;flex-wrap:wrap;}
+.tab-btn{border:2px solid var(--navy);background:var(--white);color:var(--navy);font-weight:700;padding:10px 20px;border-radius:999px;cursor:pointer;font-size:.88rem;font-family:'Poppins',Arial,sans-serif;}
+.tab-btn.active{background:var(--navy);color:var(--white);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.reco-badge{display:inline-block;background:var(--terracota);color:var(--white);font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:10px;}
+
+/* PLANNING GRID */
+.planning{overflow-x:auto;margin-top:20px;}
+.planning table{min-width:820px;}
+.planning td.lever-name{font-weight:700;color:var(--navy);white-space:nowrap;}
+.bar{height:22px;border-radius:6px;background:var(--babyblue);}
+.bar.ctv{background:var(--navy);}
+.bar.dooh{background:var(--terracota);}
+.bar.vol{background:var(--c-lavande);}
+.bar.audio{background:#7bbdff;}
+.bar.iab{background:#ffb79e;}
+
+/* PERSONA */
+.persona{border-radius:16px;padding:24px;background:var(--bg-soft);border:1px solid #e4e9f7;}
+.persona .glyph{font-size:1.6rem;color:var(--terracota);margin-bottom:10px;}
+.persona h4{margin-bottom:8px;}
+.persona ul{padding-left:18px;font-size:.9rem;color:#3a4260;}
+
+/* PYRAMID */
+.pyramid{display:flex;flex-direction:column;align-items:center;gap:6px;margin:30px 0;}
+.pyr-layer{color:var(--white);text-align:center;padding:16px;border-radius:10px;font-weight:700;font-family:'Poppins',Arial,sans-serif;font-size:.92rem;}
+.pyr-1{width:100%;background:var(--navy);}
+.pyr-2{width:82%;background:#1c3a8a;}
+.pyr-3{width:64%;background:var(--c-lavande);}
+.pyr-4{width:46%;background:var(--babyblue);color:var(--navy);}
+.pyr-layer small{display:block;font-weight:400;font-size:.78rem;margin-top:4px;}
+
+/* RGPD */
+.rgpd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:20px;}
+.rgpd-card{border-left:4px solid var(--terracota);background:var(--bg-soft);padding:18px 20px;border-radius:0 12px 12px 0;}
+
+/* ENVIRONMENTS */
+.env-block{margin-top:26px;}
+.env-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}
+.env-chip{background:var(--white);border:1px solid #d7deef;border-radius:999px;padding:7px 16px;font-size:.85rem;font-weight:600;color:var(--navy);}
+
+/* FOOTER */
+footer.contacts{background:var(--navy);color:var(--white);padding:60px 24px 30px;}
+footer.contacts h2{color:var(--white);}
+footer.contacts h2 .arrow{color:var(--terracota);}
+.contact-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:26px;}
+.contact-card{background:rgba(255,255,255,.06);border-radius:14px;padding:20px;}
+.contact-card h4{color:var(--white);font-size:.98rem;margin-bottom:4px;}
+.contact-card span{display:block;font-size:.82rem;color:var(--babyblue);}
+.contact-card a{color:var(--white);text-decoration:none;font-size:.85rem;}
+.contact-card a:hover{text-decoration:underline;}
+.contact-card.inactive{opacity:.5;}
+.footer-logo{height:52px;width:60px;margin:36px auto 10px;display:block;}
+.footer-bottom{text-align:center;font-size:.75rem;color:var(--babyblue);margin-top:20px;}
+
+@media(max-width:640px){
+  header.hero h1{font-size:1.5rem;}
+  .section{padding:40px 16px;}
+  nav.stickynav a{padding:12px 12px;font-size:.78rem;}
+}
+.lever-icon{width:22px;height:22px;}
+.lever-card{border-radius:16px;padding:24px;background:#fff;border:1px solid #eef1f8;box-shadow:0 2px 12px rgba(2,24,89,.07);}
+.lever-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.lever-icon-wrap{width:40px;height:40px;border-radius:10px;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.lever-card h4{font-family:'Poppins',Arial,sans-serif;color:var(--navy);font-size:1.05rem;margin-bottom:0;}
+.lever-card .target{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--terracota);font-weight:700;margin-bottom:8px;}
+.lever-card p{font-size:.88rem;color:#3a4260;margin-bottom:0;line-height:1.5;}
+.lever-card .specs{font-size:.78rem;color:var(--navy);background:var(--bg-soft);border-radius:8px;padding:6px 10px;margin-top:10px;display:inline-block;font-weight:600;}
+.funnel{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap;}
+.funnel-step{flex:1;min-width:220px;border-radius:16px;padding:24px;color:#fff;}
+.funnel-step h4{color:#fff;font-family:'Poppins',Arial,sans-serif;font-size:1.05rem;margin-bottom:8px;}
+.funnel-step p{font-size:.88rem;color:#dce6fb;margin-bottom:0;}
+.funnel-step .scenario-tag{display:inline-block;background:rgba(255,255,255,.2);border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;margin-bottom:10px;}
+.funnel-pilot{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--babyblue);font-weight:700;margin-top:16px;margin-bottom:4px;}
+.funnel-step .pilot-text{font-size:.86rem;color:#dce6fb;margin-bottom:0;}
+.scenario-badge{display:inline-block;background:var(--terracota);color:#fff;font-size:.75rem;font-weight:700;padding:5px 14px;border-radius:999px;margin-bottom:12px;}
+.subtabs{margin-top:16px;}
+.subtab-btn{border:1.5px solid var(--babyblue);background:#fff;color:var(--navy);font-weight:700;padding:7px 16px;border-radius:999px;cursor:pointer;font-size:.8rem;font-family:'Poppins',Arial,sans-serif;}
+.subtab-btn.active{background:var(--babyblue);color:var(--navy);}
+.subtab-panel{display:none;}
+.subtab-panel.active{display:block;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="hero-logo" viewBox="214 252 572 496" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+      <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+      <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+      <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+      <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+      <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+      <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+      <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+      <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+      <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+    </g>
+    <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  </svg>
+  <div class="eyebrow" style="color:var(--babyblue);">AO 2026 · Volet digital · Karrow Médias confie le digital à TGW</div>
+  <h1>Banque de Savoie<br>« Nos différences font la différence »</h1>
+  <p class="sub">Quatre leviers, trois scénarios, un objectif qui grandit avec le budget : faire connaître, faire retenir, faire agir.</p>
+  <div class="pills">
+    <div class="pill"><b>23 novembre 2026 → 26 avril 2027</b>, en vagues</div>
+    <div class="pill"><b>Digital : 26 098 à 46 220 € HT</b> selon le scénario</div>
+    <div class="pill">Considération → Mémorisation → Engagement</div>
+    <div class="pill">Savoie · Haute-Savoie · Lyon 6e/8e</div>
+  </div>
+  <div class="confidential">Document confidentiel, usage interne TGW / Karrow Médias uniquement, dans le cadre de l'AO Banque de Savoie</div>
+</header>
+
+<nav class="stickynav">
+  <ul>
+    <li><a href="#contexte">Contexte</a></li>
+    <li><a href="#cibles">Cibles</a></li>
+    <li><a href="#strategie">Stratégie</a></li>
+    <li><a href="#recit">Récit digital</a></li>
+    <li><a href="#dispositif">Dispositif</a></li>
+    <li><a href="#budgets">Budgets</a></li>
+    <li><a href="#geo">Géoloc</a></li>
+    <li><a href="#vigilance">Vigilance KPI</a></li>
+    <li><a href="#planning">Planning</a></li>
+<!-- CONTEXTE -->
+<section class="section" id="contexte">
+  <div class="eyebrow">↘ Contexte</div>
+  <h2><span class="arrow">↘</span>Une histoire à raconter, pas une addition de leviers</h2>
+  <p>La Banque de Savoie déploie sa nouvelle campagne institutionnelle, conçue par Publicis LMA autour d'une signature simple : « Nos différences font la différence ». Pas de promotion produit, pas d'offre à l'écran, un environnement premium exigé et des mentions légales BPCE strictes. L'enjeu : faire émerger une banque régionale premium face à des concurrents aux budgets dix à vingt fois supérieurs, en misant sur l'impact mémoriel plutôt que sur le seul volume.</p>
+  <p>La pige confirme l'espace disponible : le frontalier est adressé par la concurrence, mais uniquement sur le prix (taux, frais, change). Les patrimoniaux sont presque absents du terrain publicitaire. LinkedIn local n'est tenu que par deux acteurs, en rafales courtes. Une prise de parole institutionnelle et tenue dans la durée reste un espace libre.</p>
+  <p>Karrow Médias a construit trois scénarios budgétaires, chacun avec une enveloppe digitale propre, quatre leviers communs (AVOD, BVOD, CTV, LinkedIn Ads) et un objectif qui grandit avec le budget : le scénario 1 installe la considération, le scénario 2 y ajoute la mémorisation, le scénario 3 va jusqu'à l'engagement.</p>
+</section>
+
+<!-- CIBLES -->
+<section class="section alt" id="cibles">
+  <div class="eyebrow">↘ Cibles</div>
+  <h2><span class="arrow">↘</span>Les cinq cibles du brief</h2>
+  <p>Quatre sont mesurées par le Kantar TGI France 2026 R1, une ne l'est pas. Le pourcentage indique le poids de chaque cible dans l'ensemble des adultes français.</p>
+  <div class="cards">
+    <div class="persona"><div class="glyph">●</div><h4>CSP+ et cadres supérieurs</h4><ul><li>5,9 % des adultes français, mesurée</li><li>6 adultes sur 100 : le cœur de la promesse premium</li><li>Réseaux sociaux et TV en tête de couverture (107 et 96 d'affinité)</li></ul></div>
+    <div class="persona"><div class="glyph">■</div><h4>Entrepreneurs et dirigeants</h4><ul><li>5,3 % des adultes français, mesurée</li><li>5 adultes sur 100 : la cible du Club Affinitis</li><li>Vidéo gratuite très affinitaire (128 sur 63 % de la cible), presse en retrait (99)</li></ul></div>
+    <div class="persona"><div class="glyph">◆</div><h4>Patrimoniaux et investisseurs</h4><ul><li>3,7 % des adultes français, mesurée</li><li>4 sur 100 seulement, mais la valeur la plus élevée par client pour une banque</li><li>Seule cible où la presse est le média le plus affinitaire (134 sur 80 % de couverture)</li></ul></div>
+    <div class="persona"><div class="glyph">⌂</div><h4>Frontaliers et navetteurs</h4><ul><li>Non mesurée : le Kantar TGI n'isole ni les frontaliers ni les navetteurs</li><li>Traitée par le territoire, les gares et les axes qu'elle emprunte</li><li>Indice d'affinité presse de 134, priorité de la prise de parole institutionnelle</li></ul></div>
+    <div class="persona"><div class="glyph">◐</div><h4>Familles premium</h4><ul><li>20,2 % des adultes français, mesurée</li><li>1 adulte sur 5 : la plus large des cinq cibles du brief</li></ul></div>
+  </div>
+</section>
+
+<!-- STRATEGIE -->
+<section class="section" id="strategie">
+  <div class="eyebrow">↘ Stratégie</div>
+  <h2><span class="arrow">↘</span>Considération, mémorisation, engagement</h2>
+  <p>Un dispositif qui progresse avec le budget, pas trois campagnes différentes. Les mêmes quatre leviers reviennent sur les trois scénarios, mais un objectif s'ajoute à chaque palier : la considération d'abord, la mémorisation ensuite, l'engagement enfin, chacun avec son propre rythme de vagues et ses propres réglages de fréquence.</p>
+  <div class="funnel">
+    <div class="funnel-step" style="background:var(--navy);">
+      <span class="scenario-tag">Scénario 1 · Prudent</span>
+      <h4>Faire connaître</h4>
+      <p>BVOD et AVOD portent 58 % du digital : le film vu en entier, dans des contextes de chaîne premium. Quatre vagues de trois semaines tiennent le fil de novembre à avril, avec une fréquence plafonnée pour convaincre une cible exigeante sans la lasser. 65 000 impressions par semaine active.</p>
+      <div class="funnel-pilot">Ce que nous pilotons</div>
+      <p class="pilot-text">Le taux de complétion en cours de campagne, puis la considération mesurée par le Brand Lift en parallèle de la diffusion.</p>
+    </div>
+    <div class="funnel-step" style="background:#1c3a8a;">
+      <span class="scenario-tag">Scénario 2 · Recommandé</span>
+      <h4>Faire retenir</h4>
+      <p>Chaque temps fort d'affichage a sa vague digitale : les mêmes personnes voient le message dans la rue, puis sur leurs écrans. La CTV prend le premier poste, et le retargeting des personnes exposées à l'affichage vient renforcer la répétition. Cinq vagues plus courtes, dont une dédiée en février pour tenir l'intervalle. 85 000 impressions par semaine active.</p>
+      <div class="funnel-pilot">Ce que nous pilotons</div>
+      <p class="pilot-text">La fréquence moyenne sur cible en cours de campagne, puis la mémorisation mesurée par le Brand Lift. L'apport du retargeting est suivi en complément.</p>
+    </div>
+    <div class="funnel-step" style="background:var(--terracota);">
+      <span class="scenario-tag">Scénario 3 · Ambitieux</span>
+      <h4>Faire agir</h4>
+      <p>LinkedIn prend le premier poste, un tiers du digital : les dirigeants ciblés par fonction et taille d'entreprise, sur des formats qui appellent un clic ou un formulaire. Le budget s'arbitre chaque semaine vers l'audience la plus réceptive, mais l'objectif reste publicitaire : faire venir, pas faire signer. 108 000 impressions par semaine active.</p>
+      <div class="funnel-pilot">Ce que nous pilotons</div>
+      <p class="pilot-text">Les clics et formulaires chaque semaine, pour arbitrer la répartition média, puis l'engagement mesuré par le Brand Lift en fin de campagne. Jamais un objectif de conversion.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RECIT -->
+<section class="section alt" id="recit">
+  <div class="eyebrow">↘ Récit digital</div>
+  <h2><span class="arrow">↘</span>Quatre leviers, une seule histoire</h2>
+  <p>Le digital n'est pas une addition de lignes budgétaires : c'est un parcours. Sur les trois scénarios, les mêmes quatre leviers reviennent, dans un ordre qui change avec l'objectif.</p>
+  <p><strong>BVOD et AVOD ouvrent le récit.</strong> Le film de 15 secondes, déjà validé ARPP, s'installe dans des contextes de chaîne (TF1+, M6+, france.tv) et sur les plateformes de replay gratuites. C'est la brand safety et la couverture : le socle sur lequel tout le reste s'appuie.</p>
+  <p><strong>La CTV donne de la mémoire.</strong> Sur l'écran du salon, sans cookie, adressée à l'IP du foyer : elle prend le premier poste dès que l'objectif devient la répétition, en scénario 2.</p>
+  <p><strong>LinkedIn ferme la boucle.</strong> Seul inventaire capable d'adresser un dirigeant par sa fonction et la taille de son entreprise, il devient le premier poste du scénario 3, un tiers du digital, avec des formats qui appellent une action : formulaire, prise de rendez-vous.</p>
+  <p>Le fil conducteur : la même création, seulement redéployée. Un master 15 secondes en 1920×1080, décliné sur BVOD, AVOD et CTV, complété par un habillage LinkedIn en 1200×627 et vidéo jusqu'à 30 secondes. Pas de nouvelle production, seulement des mises au format : le budget va au média, pas à la fabrication.</p>
+</section>
+
+<!-- DISPOSITIF -->
+<section class="section" id="dispositif">
+  <div class="eyebrow">↘ Dispositif</div>
+  <h2><span class="arrow">↘</span>Les quatre leviers digitaux</h2>
+  <p>Le catalogue arrêté par Karrow pour cet AO : quatre leviers, communs aux trois scénarios. Écartés à dessein : la SVOD, un cinquième écran vidéo qui n'ajoute pas de couverture, et l'audio, sans image à mémoriser.</p>
+  <div class="cards">
+    <div class="lever-card">
+      <div class="lever-head">
+        <span class="lever-icon-wrap"><svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="19" stroke="#021859" stroke-width="2.5"/><path d="M20 17l12 7-12 7V17z" fill="#f25430"/></svg></span>
+        <h4>AVOD</h4>
+      </div>
+      <div class="target">La vidéo gratuite, replay et catch-up</div>
+      <p>Couverture. Département, commune, tranche d'âge et CSP via la data des régies TV.</p>
+      <div class="specs">Format 1920×1080 px, 16:9, 15 s</div>
+    </div>
+    <div class="lever-card">
+      <div class="lever-head">
+        <span class="lever-icon-wrap"><svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 10v28M15 17a13 13 0 0 0 0 14M33 17a13 13 0 0 1 0 14M9 12a20 20 0 0 0 0 24M39 12a20 20 0 0 1 0 24" stroke="#021859" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="10" r="3" fill="#f25430"/></svg></span>
+        <h4>BVOD</h4>
+      </div>
+      <div class="target">TF1+, M6+ et france.tv, les plateformes des chaînes</div>
+      <p>Brand safety. Département, environnement chaîne et programme, exclusion de contextes sensibles.</p>
+      <div class="specs">Format 1920×1080 px, 16:9, 15 s</div>
+    </div>
+    <div class="lever-card">
+      <div class="lever-head">
+        <span class="lever-icon-wrap"><svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="22" rx="2" stroke="#021859" stroke-width="2.5"/><path d="M17 40h14M24 32v8" stroke="#021859" stroke-width="2.5"/><path d="M19 17l9 5-9 5V17z" fill="#f25430"/></svg></span>
+        <h4>CTV</h4>
+      </div>
+      <div class="target">La télévision connectée, l'écran du salon</div>
+      <p>Mémorisation. Adresse IP du foyer, sans cookie, diffusion plein écran, son actif.</p>
+      <div class="specs">Format 1920×1080 px, 16:9, 15 s</div>
+    </div>
+    <div class="lever-card">
+      <div class="lever-head">
+        <span class="lever-icon-wrap"><svg class="lever-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="8" width="32" height="32" rx="6" stroke="#021859" stroke-width="2.5"/><circle cx="19" cy="19" r="3.5" fill="#f25430"/><path d="M13 33c0-4.5 3.5-8 8-8" stroke="#021859" stroke-width="2" stroke-linecap="round"/><rect x="28" y="22" width="3" height="10" fill="#f25430"/><rect x="28" y="16" width="3" height="3" fill="#f25430"/></svg></span>
+        <h4>LinkedIn Ads</h4>
+      </div>
+      <div class="target">Sponsored Content en environnement professionnel</div>
+      <p>Engagement. Fonction, secteur d'activité et taille d'entreprise, sur les cadres dirigeants et entrepreneurs.</p>
+      <div class="specs">Image 1200×627 px, ou vidéo 1:1 / 16:9 / 9:16, jusqu'à 30 s</div>
+    </div>
+  </div>
+  <p style="font-size:.85rem;color:#3a4260;margin-top:16px;">Le spot existe et il est validé ARPP : aucune production nouvelle, seulement des mises au format. Les formats produits pour LinkedIn servent aussi de déclinaison social organique.</p>
+</section><!-- BUDGETS -->
+<section class="section alt" id="budgets">
+  <div class="eyebrow">↘ Budgets</div>
+  <h2><span class="arrow">↘</span>L'enveloppe digitale, scénario par scénario</h2>
+  <p>Chiffrage Karrow Médias, quatre leviers communs, un objectif qui grandit avec le budget. Les montants sont des budgets nets, le CPM est le coût pour mille impressions.</p>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('sc1')">Scénario 1 : 26 098 € HT</button>
+    <button class="tab-btn" onclick="showTab('sc2')">Scénario 2 : 32 138 € HT</button>
+    <button class="tab-btn" onclick="showTab('sc3')">Scénario 3 : 46 220 € HT</button>
+  </div>
+  <div class="tab-panel active" id="sc1">
+    <span class="scenario-badge">Prudent · Objectif digital : Considération</span>
+    <p style="font-size:.9rem;color:#3a4260;">4 vagues de 3 semaines, du 23 novembre 2026 au 26 avril 2027 · 65 000 impressions par semaine active.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Levier</th><th>Impressions</th><th>CPM</th><th>Budget net</th><th>Rôle et ciblage</th></tr></thead><tbody>
+        <tr><td>BVOD</td><td>260 983</td><td>30 €</td><td>7 830 €</td><td>Brand safety. Département, chaîne et programme</td></tr>
+        <tr><td>AVOD</td><td>243 584</td><td>30 €</td><td>7 308 €</td><td>Couverture. Département, commune, âge et CSP</td></tr>
+        <tr><td>CTV</td><td>191 389</td><td>30 €</td><td>5 742 €</td><td>Mémorisation. Adresse IP du foyer, sans cookie</td></tr>
+        <tr><td>LinkedIn Ads</td><td>86 995</td><td>60 €</td><td>5 220 €</td><td>Engagement. Fonction, secteur, taille d'entreprise</td></tr>
+      </tbody><tfoot><tr><td>Total digital</td><td>782 951</td><td></td><td>26 098 € HT</td><td></td></tr></tfoot>
+    </table></div>
+    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">Indicateur principal : la considération. Mesure sur panel avant et après, exposés contre non exposés : la Banque de Savoie entre-t-elle dans la liste des banques envisagées par la cible. Lue aussi sur l'image de marque.</p>
+  </div>
+  <div class="tab-panel" id="sc2">
+    <span class="scenario-badge">Recommandé · Objectif digital : Mémorisation</span>
+    <p style="font-size:.9rem;color:#3a4260;">5 vagues plus courtes (11 semaines cumulées), du 23 novembre 2026 au 26 avril 2027 · 85 000 impressions par semaine active.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Levier</th><th>Impressions</th><th>CPM</th><th>Budget net</th><th>Rôle et ciblage</th></tr></thead><tbody>
+        <tr><td>CTV</td><td>299 955</td><td>30 €</td><td>8 999 €</td><td>Mémorisation. Adresse IP du foyer, sans cookie</td></tr>
+        <tr><td>BVOD</td><td>267 818</td><td>30 €</td><td>8 035 €</td><td>Brand safety. Département, chaîne et programme</td></tr>
+        <tr><td>LinkedIn Ads</td><td>133 908</td><td>60 €</td><td>8 035 €</td><td>Engagement. Fonction, secteur, taille d'entreprise</td></tr>
+        <tr><td>AVOD</td><td>235 679</td><td>30 €</td><td>7 070 €</td><td>Couverture. Département, commune, âge et CSP</td></tr>
+      </tbody><tfoot><tr><td>Total digital</td><td>937 360</td><td></td><td>32 138 € HT</td><td></td></tr></tfoot>
+    </table></div>
+    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">Indicateur principal : la mémorisation publicitaire, lue entre exposés et non exposés. C'est l'effet direct de la répétition : deux temps forts d'affichage et cinq vagues digitales sur les mêmes personnes.</p>
+  </div>
+  <div class="tab-panel" id="sc3">
+    <span class="scenario-badge">Ambitieux · Objectif digital : Engagement</span>
+    <p style="font-size:.9rem;color:#3a4260;">4 vagues de 3 semaines, du 23 novembre 2026 au 26 avril 2027 · 108 000 impressions par semaine active.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Levier</th><th>Impressions</th><th>CPM</th><th>Budget net</th><th>Rôle et ciblage</th></tr></thead><tbody>
+        <tr><td>LinkedIn Ads</td><td>246 506</td><td>60 €</td><td>14 790 €</td><td>Engagement. Fonction, secteur, taille d'entreprise</td></tr>
+        <tr><td>CTV</td><td>400 573</td><td>30 €</td><td>12 017 €</td><td>Mémorisation. Adresse IP du foyer, sans cookie</td></tr>
+        <tr><td>AVOD</td><td>323 540</td><td>30 €</td><td>9 706 €</td><td>Couverture. Département, commune, âge et CSP</td></tr>
+        <tr><td>BVOD</td><td>323 539</td><td>30 €</td><td>9 706 €</td><td>Brand safety. Département, chaîne et programme</td></tr>
+      </tbody><tfoot><tr><td>Total digital</td><td>1 294 158</td><td></td><td>46 220 € HT</td><td></td></tr></tfoot>
+    </table></div>
+    <p style="font-size:.85rem;color:#3a4260;margin-top:12px;">Indicateur principal : l'engagement. Clics, formulaires LinkedIn et prises de rendez-vous en agence, suivis chaque semaine, en complément du Brand Lift.</p>
+  </div>
+</section><!-- GEO -->
+<section class="section" id="geo">
+  <div class="eyebrow">↘ Répartition géolocalisée</div>
+  <h2><span class="arrow">↘</span>Zone × levier, scénario par scénario</h2>
+  <p>La clé géographique change avec l'objectif : la Haute-Savoie pèse 37,3 % du digital sur le scénario prudent, contre 63,3 % sur l'ambitieux, où le budget suit la surpression du print. Lyon reste fixe à 10 %, en digital adressé, sans achat d'espace physique.</p>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('sc1geo')">Scénario 1 : 26 098 € HT</button>
+    <button class="tab-btn" onclick="showTab('sc2geo')">Scénario 2 : 32 138 € HT</button>
+    <button class="tab-btn" onclick="showTab('sc3geo')">Scénario 3 : 46 220 € HT</button>
+  </div>
+  <div class="tab-panel active" id="sc1geo">
+    <div class="tabs subtabs">
+      <button class="subtab-btn active" onclick="showSubTab('sc1haute-savoie','sc1geo')">Haute-Savoie (74) · 37.3%</button>
+      <button class="subtab-btn" onclick="showSubTab('sc1savoie','sc1geo')">Savoie (73) · 52.7%</button>
+      <button class="subtab-btn" onclick="showSubTab('sc1lyon','sc1geo')">Lyon (6e/8e) · 10.0%</button>
+    </div>
+    <div class="subtab-panel active" id="sc1haute-savoie">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>Budget</th></tr></thead><tbody>
+          <tr><td>BVOD</td><td>2 921 €</td></tr>
+          <tr><td>AVOD</td><td>2 726 €</td></tr>
+          <tr><td>CTV</td><td>2 142 €</td></tr>
+          <tr><td>LinkedIn Ads</td><td>1 947 €</td></tr>
+        </tbody><tfoot><tr><td>Total Haute-Savoie (74)</td><td>9 731 €</td></tr></tfoot>
+      </table></div>
+    </div>
+    <div class="subtab-panel" id="sc1savoie">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>Budget</th></tr></thead><tbody>
+          <tr><td>BVOD</td><td>4 126 €</td></tr>
+          <tr><td>AVOD</td><td>3 851 €</td></tr>
+          <tr><td>CTV</td><td>3 026 €</td></tr>
+          <tr><td>LinkedIn Ads</td><td>2 751 €</td></tr>
+        </tbody><tfoot><tr><td>Total Savoie (73)</td><td>13 757 €</td></tr></tfoot>
+      </table></div>
+    </div>
+    <div class="subtab-panel" id="sc1lyon">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>Budget</th></tr></thead><tbody>
+          <tr><td>BVOD</td><td>783 €</td></tr>
+          <tr><td>AVOD</td><td>731 €</td></tr>
+          <tr><td>CTV</td><td>574 €</td></tr>
+          <tr><td>LinkedIn Ads</td><td>522 €</td></tr>
+        </tbody><tfoot><tr><td>Total Lyon (6e/8e)</td><td>2 610 €</td></tr></tfoot>
+      </table></div>
+    </div>
+  </div>
+  <div class="tab-panel" id="sc2geo">
+    <div class="tabs subtabs">
+      <button class="subtab-btn active" onclick="showSubTab('sc2haute-savoie','sc2geo')">Haute-Savoie (74) · 50.3%</button>
+      <button class="subtab-btn" onclick="showSubTab('sc2savoie','sc2geo')">Savoie (73) · 39.7%</button>
+      <button class="subtab-btn" onclick="showSubTab('sc2lyon','sc2geo')">Lyon (6e/8e) · 10.0%</button>
+    </div>
+    <div class="subtab-panel active" id="sc2haute-savoie">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>Budget</th></tr></thead><tbody>
+          <tr><td>CTV</td><td>4 526 €</td></tr>
+          <tr><td>BVOD</td><td>4 042 €</td></tr>
+          <tr><td>LinkedIn Ads</td><td>4 042 €</td></tr>
+          <tr><td>AVOD</td><td>3 556 €</td></tr>
+        </tbody><tfoot><tr><td>Total Haute-Savoie (74)</td><td>16 161 €</td></tr></tfoot>
+      </table></div>
+    </div>
+    <div class="subtab-panel" id="sc2savoie">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>Budget</th></tr></thead><tbody>
+          <tr><td>CTV</td><td>3 573 €</td></tr>
+          <tr><td>BVOD</td><td>3 190 €</td></tr>
+          <tr><td>LinkedIn Ads</td><td>3 190 €</td></tr>
+          <tr><td>AVOD</td><td>2 807 €</td></tr>
+        </tbody><tfoot><tr><td>Total Savoie (73)</td><td>12 763 €</td></tr></tfoot>
+      </table></div>
+    </div>
+    <div class="subtab-panel" id="sc2lyon">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>Budget</th></tr></thead><tbody>
+          <tr><td>CTV</td><td>900 €</td></tr>
+          <tr><td>BVOD</td><td>804 €</td></tr>
+          <tr><td>LinkedIn Ads</td><td>804 €</td></tr>
+          <tr><td>AVOD</td><td>707 €</td></tr>
+        </tbody><tfoot><tr><td>Total Lyon (6e/8e)</td><td>3 214 €</td></tr></tfoot>
+      </table></div>
+    </div>
+  </div>
+  <div class="tab-panel" id="sc3geo">
+    <div class="tabs subtabs">
+      <button class="subtab-btn active" onclick="showSubTab('sc3haute-savoie','sc3geo')">Haute-Savoie (74) · 63.3%</button>
+      <button class="subtab-btn" onclick="showSubTab('sc3savoie','sc3geo')">Savoie (73) · 26.7%</button>
+      <button class="subtab-btn" onclick="showSubTab('sc3lyon','sc3geo')">Lyon (6e/8e) · 10.0%</button>
+    </div>
+    <div class="subtab-panel active" id="sc3haute-savoie">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>Budget</th></tr></thead><tbody>
+          <tr><td>LinkedIn Ads</td><td>9 362 €</td></tr>
+          <tr><td>CTV</td><td>7 607 €</td></tr>
+          <tr><td>AVOD</td><td>6 144 €</td></tr>
+          <tr><td>BVOD</td><td>6 144 €</td></tr>
+        </tbody><tfoot><tr><td>Total Haute-Savoie (74)</td><td>29 251 €</td></tr></tfoot>
+      </table></div>
+    </div>
+    <div class="subtab-panel" id="sc3savoie">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>Budget</th></tr></thead><tbody>
+          <tr><td>LinkedIn Ads</td><td>3 949 €</td></tr>
+          <tr><td>CTV</td><td>3 209 €</td></tr>
+          <tr><td>AVOD</td><td>2 592 €</td></tr>
+          <tr><td>BVOD</td><td>2 592 €</td></tr>
+        </tbody><tfoot><tr><td>Total Savoie (73)</td><td>12 347 €</td></tr></tfoot>
+      </table></div>
+    </div>
+    <div class="subtab-panel" id="sc3lyon">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Levier</th><th>Budget</th></tr></thead><tbody>
+          <tr><td>LinkedIn Ads</td><td>1 479 €</td></tr>
+          <tr><td>CTV</td><td>1 202 €</td></tr>
+          <tr><td>AVOD</td><td>971 €</td></tr>
+          <tr><td>BVOD</td><td>971 €</td></tr>
+        </tbody><tfoot><tr><td>Total Lyon (6e/8e)</td><td>4 622 €</td></tr></tfoot>
+      </table></div>
+    </div>
+  </div>
+  <p style="font-size:.85rem;color:#3a4260;margin-top:16px;">Montants arrondis à l'euro. Lyon (6e/8e) reste du digital adressé autour des agences, sans achat d'espace physique, capping strict par levier.</p>
+</section><!-- VIGILANCE -->
+<section class="section alt" id="vigilance">
+  <div class="eyebrow">↘ Vigilance KPI</div>
+  <h2><span class="arrow">↘</span>Des leviers de notoriété, pas de conversion</h2>
+  <p>Un point à poser clairement avant diffusion, pour que personne ne se retrouve à arbitrer sur le mauvais chiffre en cours de campagne.</p>
+  <div class="rgpd-grid">
+    <div class="rgpd-card"><h4>100 % notoriété</h4><p style="font-size:.9rem;">AVOD, BVOD, CTV et LinkedIn sont ici mobilisés pour la considération, la mémorisation ou l'engagement au sens publicitaire (un clic, une visite), pas pour générer des leads.</p></div>
+    <div class="rgpd-card"><h4>Le pixel n'est pas un objectif</h4><p style="font-size:.9rem;">Des pixels de tracking sont posés, y compris sur le scénario 3, pour qualifier la visite et nourrir le retargeting. Ce n'est pas pour autant que la conversion devient un KPI de pilotage ou de résultat final.</p></div>
+    <div class="rgpd-card"><h4>Le point d'arrêt : la visite qualifiée</h4><p style="font-size:.9rem;">La mesure s'arrête à la visite qualifiée sur le site ou la page dédiée. C'est ce déclencheur qui lance le retargeting, pas une promesse de lead ou de rendez-vous chiffré en amont.</p></div>
+    <div class="rgpd-card"><h4>Le Brand Lift reste la référence</h4><p style="font-size:.9rem;">Le KPI qui tranche la performance de chaque scénario est la mesure Brand Lift (considération, mémorisation, image de marque), pas un volume de formulaires ou de rendez-vous.</p></div>
+  </div>
+  <p style="font-size:.85rem;color:#3a4260;margin-top:16px;">Sur le scénario 3, Karrow suit aussi les clics, formulaires LinkedIn et prises de rendez-vous chaque semaine pour réallouer le budget vers l'audience la plus engageante : un pilotage média, pas un engagement de génération de leads.</p>
+</section>
+
+<!-- PLANNING -->
+<section class="section" id="planning">
+  <div class="eyebrow">↘ Planning</div>
+  <h2><span class="arrow">↘</span>23 novembre 2026 → 26 avril 2027, en vagues</h2>
+  <p>Même fenêtre sur les trois scénarios, un rythme différent selon l'objectif.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Scénario</th><th>Vagues</th><th>Durée cumulée</th><th>Logique</th></tr></thead>
+      <tbody>
+        <tr><td>Scénario 1</td><td>4 vagues de 3 semaines</td><td>13 semaines</td><td>Fréquence plafonnée, pour convaincre une cible exigeante sans la lasser.</td></tr>
+        <tr><td>Scénario 2</td><td>5 vagues plus courtes</td><td>11 semaines cumulées</td><td>Une vague calée sur chaque temps fort d'affichage (20 janvier, 10 mars), plus une vague dédiée pour tenir les six semaines de février.</td></tr>
+        <tr><td>Scénario 3</td><td>4 vagues de 3 semaines</td><td>12 semaines</td><td>Le budget se réalloue chaque semaine vers l'audience la plus réceptive, sur un pilotage média (clics, formulaires), pas un objectif de conversion.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 style="margin-top:34px;">Répartition par vague et par levier</h3>
+  <p style="font-size:.9rem;color:#3a4260;">Budget de chaque levier réparti à égalité sur les vagues actives du scénario.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Scénario 1 (4 vagues)</th><th>Par vague</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>BVOD</td><td>1 958 €</td><td>7 830 €</td></tr>
+        <tr><td>AVOD</td><td>1 827 €</td><td>7 308 €</td></tr>
+        <tr><td>CTV</td><td>1 436 €</td><td>5 742 €</td></tr>
+        <tr><td>LinkedIn Ads</td><td>1 305 €</td><td>5 220 €</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-wrap" style="margin-top:20px;">
+    <table>
+      <thead><tr><th>Scénario 2 (5 vagues)</th><th>Par vague</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>CTV</td><td>1 800 €</td><td>8 999 €</td></tr>
+        <tr><td>BVOD</td><td>1 607 €</td><td>8 035 €</td></tr>
+        <tr><td>LinkedIn Ads</td><td>1 607 €</td><td>8 035 €</td></tr>
+        <tr><td>AVOD</td><td>1 414 €</td><td>7 070 €</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-wrap" style="margin-top:20px;">
+    <table>
+      <thead><tr><th>Scénario 3 (4 vagues)</th><th>Par vague</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>LinkedIn Ads</td><td>3 698 €</td><td>14 790 €</td></tr>
+        <tr><td>CTV</td><td>3 004 €</td><td>12 017 €</td></tr>
+        <tr><td>AVOD</td><td>2 426 €</td><td>9 706 €</td></tr>
+        <tr><td>BVOD</td><td>2 426 €</td><td>9 706 €</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- RSE -->
+<section class="section" id="rse">
+  <div class="eyebrow">↘ RSE</div>
+  <h2><span class="arrow">↘</span>Charte RSE du dispositif digital</h2>
+  <p style="font-size:.9rem;color:#3a4260;">Base de travail à valider avec votre charte RSE si vous en avez une version propre à faire remonter.</p>
+  <div class="rgpd-grid">
+    <div class="rgpd-card"><h4>Sobriété publicitaire</h4><p style="font-size:.9rem;">Capping foyer sur tous les leviers vidéo, pas de sur-fréquence, un dispositif dimensionné au strict nécessaire pour atteindre l'objectif de chaque scénario.</p></div>
+    <div class="rgpd-card"><h4>Environnements responsables</h4><p style="font-size:.9rem;">Formats et régies sélectionnés pour leur écoconception (poids des créas, formats vidéo optimisés), en cohérence avec l'exigence de brand safety du client.</p></div>
+    <div class="rgpd-card"><h4>Données maîtrisées</h4><p style="font-size:.9rem;">Ciblage first party et contextuel privilégié sur AVOD et BVOD, sans cookie sur CTV, dans une logique de minimisation des données collectées.</p></div>
+    <div class="rgpd-card"><h4>Inclusion territoriale</h4><p style="font-size:.9rem;">Le réseau des 13 gares et le géociblage aux stations touchent les zones les moins denses, pour ne pas laisser la Savoie de côté au profit des seuls pôles urbains.</p></div>
+  </div>
+</section>
+
+<!-- BRAND LIFT -->
+<section class="section alt" id="brandlift">
+  <div class="eyebrow">↘ Brand Lift</div>
+  <h2><span class="arrow">↘</span>Mesurer l'impact, pas seulement l'exposition</h2>
+  <p>Méthodologie proposée pour mesurer l'effet réel de la campagne sur la marque, indépendamment de la diffusion média elle-même. Trame de la méthodologie, pas de chiffres : les résultats viendront après diffusion.</p>
+
+  <div class="pyramid">
+    <div class="pyr-layer pyr-1">Ciblage<small>Données d'exposition à la campagne, sur l'ensemble des médias, en ligne et hors ligne</small></div>
+    <div class="pyr-layer pyr-2">Collecte<small>250 répondants exposés-mémos comparés à 250 répondants d'un groupe de contrôle, homogènes en âge, genre et probabilité d'exposition</small></div>
+    <div class="pyr-layer pyr-3">Analyse<small>Résultats de la campagne comparés à un benchmark de plus de 25 000 références, par média, industrie et zone géographique</small></div>
+  </div>
+
+  <h3 style="margin-top:30px;">Le protocole, en détail</h3>
+  <div class="rgpd-grid">
+    <div class="rgpd-card"><h4>Deux groupes, une seule variable</h4><p style="font-size:.9rem;">Les répondants exposés-mémos et le groupe de contrôle sont homogènes sur l'âge, le genre et la probabilité d'exposition : seul le souvenir publicitaire les distingue, pour isoler l'effet propre de la campagne.</p></div>
+    <div class="rgpd-card"><h4>Souvenir contextualisé par média</h4><p style="font-size:.9rem;">La question de mémorisation s'adapte à chaque support digital ("Vous souvenez-vous avoir vu cette publicité en ligne ?", sur écran connecté...), pour une précision maximale.</p></div>
+    <div class="rgpd-card"><h4>Répondants non rémunérés</h4><p style="font-size:.9rem;">Chaque répondant est unique à son questionnaire et non rémunéré, pour éviter les biais de professionnalisation des panels.</p></div>
+    <div class="rgpd-card"><h4>Même méthode, tous les leviers</h4><p style="font-size:.9rem;">Le protocole est identique sur l'ensemble des leviers digitaux du dispositif, pour comparer les leviers entre eux sur une base commune.</p></div>
+  </div>
+
+  <h3 style="margin-top:34px;">Trois familles d'indicateurs</h3>
+  <div class="cards">
+    <div class="card c-bleu"><h4>Performance de diffusion</h4><p>Mémorisation et intérêt personnel : évalue la stratégie de diffusion et la capacité de la publicité à marquer les esprits, avant même de juger la création.</p></div>
+    <div class="card c-peche"><h4>Diagnostic créatif</h4><p>Évalue la pertinence de la création et la façon dont elle est perçue par les répondants exposés, pour ajuster le message en cours de campagne si besoin.</p></div>
+    <div class="card c-lavande"><h4>Impact du souvenir publicitaire</h4><p>Mesure les uplifts sur trois indicateurs clés : image de marque, considération, préférence, chacun comparé à son propre benchmark.</p></div>
+  </div>
+
+  <h3 style="margin-top:34px;">Ce que chaque scénario permettrait de mesurer</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Scénario</th><th>Indicateurs mesurables en priorité</th></tr></thead>
+      <tbody>
+        <tr><td>Scénario 1</td><td>Mémorisation et image de marque : la considération installée par AVOD, BVOD et CTV se lit dans l'uplift image de marque.</td></tr>
+        <tr><td>Scénario 2</td><td>S'ajoutent la considération et un uplift préférence plus net, portés par la répétition sur les cinq vagues et le retargeting des personnes ayant vu l'affichage.</td></tr>
+        <tr><td>Scénario 3</td><td>S'ajoute un indicateur d'action, via le CPLU (coût par utilisateur converti) sur LinkedIn, en complément des uplifts classiques.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:34px;">Trois questions pour lire les résultats</h3>
+  <div class="rgpd-grid">
+    <div class="rgpd-card"><h4>Qu'est-ce qu'un uplift ?</h4><p style="font-size:.9rem;">L'écart mesuré entre la population ayant mémorisé la campagne et le groupe de contrôle, sur un indicateur donné (image, considération, préférence).</p></div>
+    <div class="rgpd-card"><h4>Qu'est-ce qu'un écart significatif ?</h4><p style="font-size:.9rem;">Une différence statistique qui ne peut pas être attribuée au hasard : elle atteste que la campagne a été efficace sur l'indicateur concerné.</p></div>
+    <div class="rgpd-card"><h4>Comment lire l'Impact Score ?</h4><p style="font-size:.9rem;">Un score sur 100 qui résume la performance globale par rapport au benchmark choisi : 50 situe la campagne dans la moyenne de son secteur, au-delà elle surperforme.</p></div>
+  </div>
+</section>
+
+<footer class="contacts" id="contacts">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div class="eyebrow">↘ Contacts</div>
+    <h2><span class="arrow">↘</span>Vos interlocuteurs TGW</h2>
+    <div class="contact-cards">
+      <div class="contact-card"><h4>Jérôme Fages</h4><span>Directeur commercial</span><a href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a><br><a href="tel:0618746675">06 18 74 66 75</a></div>
+      <div class="contact-card"><h4>Mathilde Coriton</h4><span>Directrice de clientèle</span><a href="mailto:mathilde@thegoodweb.eu">mathilde@thegoodweb.eu</a><br><a href="tel:0648619292">06 48 61 92 92</a></div>
+      <div class="contact-card"><h4>Leslie Rogé</h4><span>Cheffe de publicité</span><a href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a><br><a href="tel:0683736862">06 83 73 68 62</a></div>
+      <div class="contact-card"><h4>Sofien Chaganiou</h4><span>Chef de publicité</span><a href="mailto:sofien@thegoodweb.eu">sofien@thegoodweb.eu</a><br><a href="tel:0767847067">07 67 84 70 67</a></div>
+      <div class="contact-card inactive"><h4>Andrea</h4><span>andrea@thegoodweb.eu</span></div>
+      <div class="contact-card inactive"><h4>Pôle activation</h4><span>activation@thegoodweb.eu</span></div>
+    </div>
+    <svg class="footer-logo" viewBox="214 252 572 460" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+        <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+        <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+        <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+        <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+        <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+        <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+        <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+      </g>
+      <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+    </svg>
+    <div class="footer-bottom">THE GOOD WEB · reco.thegoodweb.eu</div>
+  </div>
+</footer>
+
+<script>
+function showTab(id){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+function showSubTab(id, scope){
+  const root = document.getElementById(scope);
+  root.querySelectorAll('.subtab-panel').forEach(p=>p.classList.remove('active'));
+  root.querySelectorAll('.subtab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
