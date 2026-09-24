@@ -56,11 +56,19 @@ footer .conf{color:var(--terra);font-weight:600;letter-spacing:.04em}
   .grid2{grid-template-columns:1fr}
   .page{margin:0}
 }
+th.sc{text-align:center;background:#0b2a7a}
+th.sa{background:var(--terra)}
+th.s2{font-size:10.5px;background:#0b2a7a}
+th.s2.sa{background:#d9451f}
+td.a{background:#fff7f4}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+@media (max-width:760px){.levers{grid-template-columns:1fr !important}}
 @media print{
   @page{size:A4;margin:8mm}
-  body{background:#fff;font-size:10.4px} .page{zoom:.9}
+  body{background:#fff;font-size:10.4px} .page{zoom:.84}
   .page{box-shadow:none;margin:0;max-width:none}
-  header,footer,th,.tag,tr.tot td,.parti,.cpm span{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  header,footer,th,td.a,.tag,tr.tot td,.parti,.cpm span{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   header{padding:14px 22px} main{padding:12px 22px 4px} footer{padding:8px 22px}
   section{margin-bottom:9px}
   table{font-size:10.3px} td,th{padding:4px 6px}
@@ -127,7 +135,7 @@ footer .conf{color:var(--terra);font-weight:600;letter-spacing:.04em}
 <div class="sub">Contribution The Good Web à la note d'intention média et acquisition</div>
 <div class="tags">
 <span class="tag t">T4 2027 à T4 2028</span>
-<span class="tag">Budget 600 à 850 k€ HT</span>
+<span class="tag">2 scénarios : 350-450 k€ ou 500-700 k€ HT</span>
 <span class="tag">Cible 18-64 ans IDF</span>
 <span class="tag">500 → 2 215 véhicules</span>
 </div>
@@ -138,54 +146,63 @@ footer .conf{color:var(--terra);font-weight:600;letter-spacing:.04em}
 <section>
 <h2>Parti pris</h2>
 <div class="parti">
-<p>Une notoriété <b>visible à l'échelle régionale, activée à l'échelle de la station</b>. Une couverture large (vidéo, cTV, audio) installe le service ; un géociblage fin autour de chaque station transforme la notoriété en « il y a une voiture près de chez moi ».</p>
-<p><b>Différenciation :</b> créas dynamiques alimentées par le réseau de stations (« votre voiture partagée à 4 min à pied, rue X »), ciblage par zone de déploiement (IRIS / code postal, rayon 500 m à 1 km autour des stations) et montée en charge par vagues, calée sur l'ouverture des zones.</p>
+<p>Une notoriété <b>visible à l'échelle régionale, activée à l'échelle de la station</b>. Une couverture large (vidéo, cTV, audio) installe le service, puis des activations géolocalisées par zone de déploiement le rendent concret : « il y a une voiture près de chez moi ».</p>
+<p><b>Différenciation :</b> créas dynamiques alimentées par le réseau de stations (« votre voiture partagée à 4 min à pied, rue X »), ciblage IRIS / code postal par zone ouverte, montée en charge par vagues calée sur le déploiement. <b>Prérequis :</b> accès à l'API de disponibilité de l'opérateur (celle qui alimente son application).</p>
 </div>
 </section>
 
-<section>
-<h2>Cible de référence</h2>
-<p>18-64 ans franciliens, environ <b>7,5 M d'individus</b> (hypothèse à consolider). Surpondération petite et grande couronne (70 % du déploiement). Segments data : ménages multi-motorisés, véhicules anciens ou peu utilisés, usagers TC et modes actifs, jeunes conducteurs.</p>
+<section class="grid2">
+<div>
+<h2>Cible et zones</h2>
+<p>Base de couverture : <b>18-64 ans franciliens, environ 7,5 M d'individus</b>. Hypothèse de déploiement : <b>Paris et petite couronne en décembre 2027</b>, extension en grande couronne ensuite (relances par zone). Segments data : ménages multi-motorisés, véhicules anciens ou peu utilisés, usagers TC et modes actifs, jeunes conducteurs.</p>
+</div>
+<div>
+<h2>Articulation avec les partenaires</h2>
+<p><b>Karrow</b> : OOH classique (gares, pôles d'échange) pour la puissance du lancement. <b>Metrixx</b> : display géolocalisé autour des stations, piloté au coût par inscription. <b>TGW</b> : notoriété digitale et pDOOH géo-activé sur les relances par zone.</p>
+</div>
 </section>
 
 <section>
 <h2>Rôle des leviers</h2>
-<div class="levers">
-<div class="lever"><h3><span class="g">■</span>cTV / vidéo programmatique</h3><p>Installation de la marque. Activée au lancement et aux relances, géolocalisée par zone de déploiement (cTV, OTT, YouTube).</p></div>
-<div class="lever"><h3><span class="g">●</span>Audio digital</h3><p>Répétition à faible coût et appel à l'action local (« disponible à Montreuil dès décembre »), déclencheurs moments : week-ends, vacances.</p></div>
-<div class="lever"><h3><span class="g">◆</span>pDOOH</h3><p>Présence aux points de décision : gares RER / Transilien, pôles d'échange, centres commerciaux, parkings relais. Pertinent surtout en couronne.</p></div>
-<div class="lever"><h3><span class="g">⌂</span>Display DTS stations</h3><p>Levier hyperlocal autour des stations : relais entre notoriété et usage, prépare le terrain de l'acquisition portée par Metrixx.</p></div>
+<div class="levers" style="grid-template-columns:repeat(3,1fr)">
+<div class="lever"><h3><span class="g">■</span>cTV / vidéo programmatique</h3><p>Installation de la marque (cTV, OTT, YouTube). Pression maximale au lancement, puis géolocalisée par zone lors des relances.</p></div>
+<div class="lever"><h3><span class="g">●</span>Audio digital</h3><p>Répétition à faible coût et appel à l'action local (« disponible à Montreuil dès décembre »), déclencheurs moments : week-ends, vacances. Colonne vertébrale de l'entretien.</p></div>
+<div class="lever"><h3><span class="g">◆</span>pDOOH géo-activé</h3><p>Réservé aux relances par zone en grande couronne (mobilier urbain, centres commerciaux, parkings relais) : activation à l'ouverture de chaque zone, là où la flexibilité programmatique fait la différence.</p></div>
 </div>
 </section>
 
 <section>
-<h2>Phasage, budget et couverture</h2>
+<h2>Phasage, budget et couverture : deux niveaux</h2>
 <div class="tw"><table>
-<thead><tr><th>Phase</th><th>Poids</th><th>Budget HT</th><th>Mix dominant</th><th>CPM pond.</th><th>Impressions</th><th>Reach cible</th><th>Fréq.</th></tr></thead>
+<thead>
+<tr><th rowspan="2">Phase</th><th rowspan="2">Poids</th><th rowspan="2">Mix</th><th colspan="3" class="sc">Scénario bas</th><th colspan="3" class="sc sa">Scénario ambition</th></tr>
+<tr><th class="s2">Budget HT</th><th class="s2">Impr.</th><th class="s2">Reach · fréq.</th><th class="s2 sa">Budget HT</th><th class="s2 sa">Impr.</th><th class="s2 sa">Reach · fréq.</th></tr>
+</thead>
 <tbody>
-<tr><td>Teasing<br><span class="note">T4 2027</span></td><td><span class="w">15 %</span></td><td class="n">90-130 k€</td><td>cTV, audio, DOOH</td><td class="n">~22 €</td><td class="n">4-6 M</td><td>1,2-1,6 M<br><span class="note">zones de lancement</span></td><td class="n">3-4</td></tr>
-<tr><td>Lancement<br><span class="note">déc-janv</span></td><td><span class="w">40 %</span></td><td class="n">240-340 k€</td><td>cTV, YouTube, DOOH, DTS stations</td><td class="n">~23 €</td><td class="n">10-15 M</td><td>2,3-2,9 M<br><span class="note">30-38 % de la cible</span></td><td class="n">4,5-5</td></tr>
-<tr><td>Entretien<br><span class="note">T1-T2 2028</span></td><td><span class="w">20 %</span></td><td class="n">120-170 k€</td><td>audio, DTS, YouTube, DOOH (sans cTV)</td><td class="n">~16 €</td><td class="n">7,5-10,5 M</td><td>1,8-2,4 M</td><td class="n">4-4,5</td></tr>
-<tr><td>Relance nouvelles zones<br><span class="note">T3-T4 2028</span></td><td><span class="w">25 %</span></td><td class="n">150-210 k€</td><td>mini-lancement géolocalisé par zone</td><td class="n">~21 €</td><td class="n">7-10 M</td><td>1,5-2 M<br><span class="note">nouvelles zones</span></td><td class="n">4,5-5</td></tr>
-<tr class="tot"><td>Total année 1</td><td class="n">100 %</td><td class="n">600-850 k€</td><td></td><td class="n">~20 €</td><td class="n">29-41 M</td><td>4-5 M dédupliqués<br>55-65 % de la cible</td><td></td></tr>
+<tr><td>Teasing<br><span class="note">T4 2027 · Paris + PC</span></td><td><span class="w">15 %</span></td><td>cTV, YouTube, audio</td><td class="n">50-70 k€</td><td class="n">3,3-4,7 M</td><td class="n">1,0-1,3 M · 3-3,5</td><td class="n a">75-105 k€</td><td class="n a">4-6 M</td><td class="n a">1,2-1,6 M · 3,5</td></tr>
+<tr><td>Lancement<br><span class="note">déc-janv · Paris + PC</span></td><td><span class="w">40 %</span></td><td>cTV, YouTube, audio</td><td class="n">140-180 k€</td><td class="n">7,8-10 M</td><td class="n">1,8-2,2 M · 4,5</td><td class="n a">200-280 k€</td><td class="n a">10-14 M</td><td class="n a">2,2-2,8 M · 4,5-5</td></tr>
+<tr><td>Entretien<br><span class="note">T1-T2 2028</span></td><td><span class="w">20 %</span></td><td>audio, YouTube</td><td class="n">70-90 k€</td><td class="n">6-7,5 M</td><td class="n">1,4-1,7 M · 4-4,5</td><td class="n a">100-140 k€</td><td class="n a">8-12 M</td><td class="n a">1,9-2,6 M · 4,5</td></tr>
+<tr><td>Relance zones<br><span class="note">T3-T4 2028 · GC</span></td><td><span class="w">25 %</span></td><td>cTV géo, YouTube, audio, pDOOH</td><td class="n">90-110 k€</td><td class="n">4-5 M</td><td class="n">0,9-1,1 M · 4,5</td><td class="n a">125-175 k€</td><td class="n a">5-7 M</td><td class="n a">1,1-1,5 M · 4,5-5</td></tr>
+<tr class="tot"><td>Total année 1</td><td class="n">100 %</td><td>CPM moyen ~16 € / ~18 €</td><td class="n">350-450 k€</td><td class="n">21-27 M</td><td>2,9-3,5 M dédup.<br>40-47 % cible</td><td class="n">500-700 k€</td><td class="n">28-39 M</td><td>3,8-4,6 M dédup.<br>50-60 % cible</td></tr>
 </tbody></table></div>
+<p class="note" style="margin-top:4px">Scénario bas : part cTV réduite au profit de YouTube et de l'audio. Reach des phases de lancement exprimé sur Paris + petite couronne (environ 4,4 M de 18-64 ans), relance sur les zones de grande couronne ouvertes.</p>
 </section>
 
 <section class="grid2">
 <div class="box">
-<h3>Indexation sur le parc</h3>
-<div class="big">1 000 à 1 400 € / véhicule / an</div>
-<p class="note">Année 1, effet lancement inclus, base parc moyen d'environ 600 véhicules (500 au lancement, montée progressive vers 2 215).</p>
-<div class="big" style="font-size:15px;margin-top:6px">350 à 500 € / véhicule / an</div>
-<p class="note">À partir de l'année 2 : entretien et relance par nouvelle vague de zones.</p>
+<h3>Indexation sur le parc (base parc moyen ~600 véhicules en année 1)</h3>
+<div class="duo">
+<div><span class="lab">Scénario bas</span><div class="big">580-750 €</div><span class="note">/ véhicule / an en année 1<br>puis 200-300 € dès l'année 2</span></div>
+<div><span class="lab">Scénario ambition</span><div class="big">850-1 150 €</div><span class="note">/ véhicule / an en année 1<br>puis 300-450 € dès l'année 2</span></div>
+</div>
 </div>
 <div class="box">
 <h3>CPM de référence</h3>
 <div class="cpm">
-<span><b>cTV</b> 30 €</span><span><b>cTV + OTT (+ YouTube)</b> 40 €</span><span><b>YouTube</b> 9-10 €</span><span><b>Audio</b> 12-15 €</span><span><b>DOOH</b> 45-48 €</span><span><b>Display DTS</b> 10 €</span>
+<span><b>cTV</b> 30 €</span><span><b>cTV + OTT (+ YouTube)</b> 40 €</span><span><b>YouTube</b> 9-10 €</span><span><b>Audio</b> 12-15 €</span><span><b>pDOOH</b> 45-48 €</span>
 </div>
 <h3 style="margin-top:8px">KPIs de pilotage</h3>
-<p class="note" style="font-size:11px">Reach et fréquence par zone, taux de complétion vidéo et audio, visites en proximité des stations (DTS), étude de notoriété avant / après sur zones de lancement vs zones témoins.</p>
+<p class="note" style="font-size:11px">Reach et fréquence par zone, taux de complétion vidéo et audio, étude de notoriété avant / après sur zones exposées vs zones témoins, lecture croisée avec les inscriptions pilotées par Metrixx.</p>
 </div>
 </section>
 </main>
