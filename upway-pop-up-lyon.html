@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Upway · Pop Up Store Lyon, Recommandation pDOOH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root{
+    --navy:#021859;
+    --babyblue:#7bbdff;
+    --terracota:#f25430;
+    --white:#ffffff;
+    --ink:#0c1230;
+    --grey:#6b7280;
+    --line:#e6e9f2;
+    --bg-soft:#f5f7fc;
+    --c-lavande:#5271ff;
+    --c-rose:#3b2fb8;
+    --c-bleu:#7bbdff;
+    --c-menthe:#021859;
+    --c-corail:#f25430;
+    --c-peche:#ffb199;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); scroll-behavior:smooth;}
+  body{
+    margin:0; font-family:'Inter',sans-serif; color:var(--ink); background:var(--white);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif; color:var(--navy); margin:0 0 .5em;}
+  p{line-height:1.6; margin:0 0 1em;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  section{padding:64px 0; border-bottom:1px solid var(--line);}
+  .section-label{
+    display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:.72rem;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--terracota); margin-bottom:10px;
+  }
+  .section-title{font-size:clamp(1.5rem,3vw,2.1rem); font-weight:700; margin-bottom:14px;}
+  .section-intro{max-width:760px; color:var(--grey); font-size:1.02rem;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(160deg,var(--navy) 0%,#041c66 60%,#0a2a82 100%);
+    color:var(--white); padding:56px 0 44px; position:relative; overflow:hidden;
+  }
+  .hero::after{
+    content:""; position:absolute; right:-120px; top:-120px; width:420px; height:420px;
+    border-radius:50%; background:radial-gradient(circle,rgba(123,189,255,.25),transparent 70%);
+  }
+  .hero-top{display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:40px;}
+  .hero-top svg{height:52px; width:auto;}
+  .hero-badge{
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:999px;
+    padding:7px 16px; font-size:.78rem; font-weight:600; letter-spacing:.04em;
+  }
+  .hero h1{color:var(--white); font-size:clamp(1.9rem,4.2vw,3rem); max-width:820px; position:relative; z-index:1;}
+  .hero-sub{color:var(--babyblue); font-size:1.05rem; max-width:680px; margin-bottom:32px; position:relative; z-index:1;}
+  .hero-pills{display:flex; flex-wrap:wrap; gap:12px; position:relative; z-index:1;}
+  .pill{
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); border-radius:14px;
+    padding:14px 18px; min-width:150px;
+  }
+  .pill .pill-label{font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; color:var(--babyblue); margin-bottom:4px;}
+  .pill .pill-value{font-family:'Poppins',sans-serif; font-weight:700; font-size:1.05rem;}
+
+  /* NAV */
+  nav.subnav{
+    position:sticky; top:0; z-index:50; background:rgba(255,255,255,.97); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line); padding-top: env(safe-area-inset-top, 0px);
+  }
+  nav.subnav .nav-inner{
+    max-width:1180px; margin:0 auto; padding:0 24px; display:flex; gap:4px; overflow-x:auto;
+    -ms-overflow-style:none; scrollbar-width:none;
+  }
+  nav.subnav .nav-inner::-webkit-scrollbar{display:none;}
+  nav.subnav a{
+    white-space:nowrap; font-size:.86rem; font-weight:600; color:var(--navy); text-decoration:none;
+    padding:16px 14px; border-bottom:3px solid transparent;
+  }
+  nav.subnav a:hover{border-bottom-color:var(--babyblue);}
+
+  /* GRID / CARDS */
+  .grid{display:grid; gap:20px;}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  @media (max-width:900px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--white); border:1px solid var(--line); border-radius:16px; padding:24px;
+  }
+  .card h3{font-size:1.05rem; margin-bottom:8px;}
+  .card p{color:var(--grey); font-size:.92rem; margin-bottom:0;}
+  .card .num{font-family:'Poppins',sans-serif; font-weight:800; font-size:2.1rem; color:var(--navy); line-height:1;}
+
+  .obj-card{
+    background:var(--bg-soft); border-radius:16px; padding:22px; display:flex; gap:16px; align-items:flex-start;
+  }
+  .obj-num{
+    flex:none; width:38px; height:38px; border-radius:10px; background:var(--navy); color:var(--white);
+    display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:700;
+  }
+
+  .c-lavande{background:#eef1ff;} .c-rose{background:#f1effb;} .c-bleu{background:#eaf4ff;}
+  .c-menthe{background:#eef1fa;} .c-corail{background:#fff1ec;} .c-peche{background:#fff5f0;}
+
+  .tag{
+    display:inline-flex; align-items:center; gap:6px; font-size:.74rem; font-weight:700; padding:5px 11px;
+    border-radius:999px; background:var(--navy); color:var(--white); letter-spacing:.02em;
+  }
+  .tag.terra{background:var(--terracota);}
+  .tag.blue{background:var(--babyblue); color:var(--navy);}
+  .tag.outline{background:transparent; border:1.5px solid var(--navy); color:var(--navy);}
+
+  table{width:100%; border-collapse:collapse; font-size:.9rem;}
+  thead th{
+    background:var(--navy); color:var(--white); text-align:left; padding:12px 14px; font-family:'Poppins',sans-serif;
+    font-weight:600; font-size:.82rem;
+  }
+  thead th:first-child{border-radius:10px 0 0 0;}
+  thead th:last-child{border-radius:0 10px 0 0;}
+  tbody td{padding:11px 14px; border-bottom:1px solid var(--line);}
+  tbody tr:nth-child(even){background:var(--bg-soft);}
+  tbody tr:last-child td{border-bottom:none;}
+  .table-wrap{overflow-x:auto; border-radius:10px; border:1px solid var(--line);}
+  .table-wrap table{border:none;}
+  .table-wrap thead th{border-radius:0;}
+
+  /* MAP */
+  #map-container{width:100%;}
+  #dooh-map{width:100%; height:560px; min-height:560px; border-radius:16px; border:1px solid var(--line); z-index:1; background:var(--bg-soft);}
+  @media (max-width:700px){#dooh-map{height:440px; min-height:440px;}}
+  .map-legend{display:flex; flex-wrap:wrap; gap:10px 18px; margin:16px 0 4px; font-size:.86rem;}
+  .map-legend .item{display:flex; align-items:center; gap:8px;}
+  .dot{width:13px; height:13px; border-radius:50%; display:inline-block; border:2px solid #fff; box-shadow:0 0 0 1px rgba(0,0,0,.15);}
+  .leaflet-popup-content{font-family:'Inter',sans-serif; font-size:.86rem; line-height:1.45;}
+  .leaflet-popup-content b{font-family:'Poppins',sans-serif; color:var(--navy);}
+
+  /* TIMELINE / PLANNING */
+  .wave-card{border:1px solid var(--line); border-radius:16px; overflow:hidden; margin-bottom:20px;}
+  .wave-head{background:var(--navy); color:var(--white); padding:18px 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;}
+  .wave-head h3{color:var(--white); margin:0; font-size:1.1rem;}
+
+  /* RECO BANNER */
+  .reco-banner{
+    display:flex; align-items:center; gap:16px; padding:20px 26px; border-radius:16px;
+    margin:40px 0 22px; box-shadow:0 4px 16px rgba(2,24,89,.12);
+  }
+  .reco-banner.reco-a{background:linear-gradient(120deg,var(--terracota),#ff7d54);}
+  .reco-banner.reco-b{background:linear-gradient(120deg,var(--navy),#1a3aa8);}
+  .reco-banner .reco-letter{
+    flex:none; width:52px; height:52px; border-radius:50%; background:rgba(255,255,255,.22);
+    border:2px solid rgba(255,255,255,.55); display:flex; align-items:center; justify-content:center;
+    font-family:'Poppins',sans-serif; font-weight:800; font-size:1.5rem; color:var(--white);
+  }
+  .reco-banner .reco-text{color:var(--white);}
+  .reco-banner .reco-eyebrow{font-size:.72rem; text-transform:uppercase; letter-spacing:.14em; font-weight:700; opacity:.85; margin-bottom:2px;}
+  .reco-banner .reco-name{font-family:'Poppins',sans-serif; font-weight:700; font-size:1.3rem; margin:0;}
+  .reco-banner:first-child{margin-top:0;}
+  .wave-body{padding:22px 24px;}
+  .bar-row{display:flex; align-items:center; gap:14px; margin-bottom:10px;}
+  .bar-label{width:150px; flex:none; font-size:.84rem; font-weight:600;}
+  .bar-track{flex:1; height:10px; background:var(--bg-soft); border-radius:6px; overflow:hidden;}
+  .bar-fill{height:100%; border-radius:6px;}
+
+  /* PERSONA */
+  .persona-card{border:1px solid var(--line); border-radius:16px; padding:22px;}
+  .persona-glyph{font-size:1.6rem; color:var(--terracota); margin-bottom:10px; display:block;}
+
+  /* DATA PYRAMID */
+  .pyramid{display:flex; flex-direction:column; gap:10px; max-width:640px; margin:0 auto;}
+  .pyr-level{padding:18px 22px; border-radius:12px; color:var(--white); font-size:.92rem;}
+  .pyr-level b{display:block; font-family:'Poppins',sans-serif; margin-bottom:4px;}
+  .pyr-1{background:var(--navy); width:100%;}
+  .pyr-2{background:#213a8f; width:88%; align-self:center;}
+  .pyr-3{background:#4a63c7; width:76%; align-self:center;}
+
+  /* FOOTER */
+  footer{background:var(--navy); color:var(--white); padding:64px 0 32px;}
+  footer h2{color:var(--white);}
+  .contact-card{
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); border-radius:14px; padding:20px;
+  }
+  .contact-card .role{color:var(--babyblue); font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;}
+  .contact-card .name{font-family:'Poppins',sans-serif; font-weight:700; margin-bottom:6px;}
+  .contact-card a.mail{color:var(--white); font-size:.86rem; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.3);}
+  .footer-bottom{
+    margin-top:40px; padding-top:24px; border-top:1px solid rgba(255,255,255,.15);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  }
+  .footer-bottom svg{height:34px; width:auto;}
+  .footer-bottom span{font-size:.78rem; color:rgba(255,255,255,.6);}
+
+  .note{
+    background:#fff8ec; border:1px solid #f5dfa8; border-radius:12px; padding:16px 20px; font-size:.88rem; color:#6b4e00;
+    margin-top:18px;
+  }
+  .note.warn{background:#fff1ec; border-color:#f5c3ae; color:#8a2c0f;}
+  .kpi-inline{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
+  .kpi-chip{background:var(--bg-soft); border-radius:10px; padding:10px 14px; font-size:.82rem;}
+  .kpi-chip b{color:var(--navy); font-family:'Poppins',sans-serif;}
+
+  .venue-icon-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+  .venue-chip{
+    display:flex; align-items:center; gap:8px; background:var(--white); border:1px solid var(--line);
+    border-radius:10px; padding:8px 12px; font-size:.82rem;
+  }
+  .venue-chip .dot{width:10px;height:10px;}
+
+  .logo-upway-box{
+    background:var(--white); border:1px solid var(--line); border-radius:14px; padding:16px 22px;
+    display:inline-flex; align-items:center;
+  }
+  .logo-upway-box img{height:26px; width:auto;}
+
+  @media (max-width:700px){
+    section{padding:44px 0;}
+    .hero{padding:40px 0 32px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <svg style="height:52px;width:auto;" id="Calque_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="214 252 572 496">
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="st0" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path class="st0" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path class="st0" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path class="st0" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path class="st0" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path class="st0" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path class="st0" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path class="st0" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path class="st0" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path class="st0" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path class="st0" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path class="st0" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path class="st0" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path class="st0" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path class="st0" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path class="st0" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path class="st0" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path class="st0" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path class="st0" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg>
+      <span class="hero-badge">Recommandation pDOOH · Confidentiel</span>
+    </div>
+    <div class="logo-upway-box" style="margin-bottom:22px;">
+      <img src="data:image/png;base64,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" alt="Upway">
+    </div>
+    <h1>Ouverture du Pop Up Store Upway à Lyon, Dispositif Digital Out-of-Home</h1>
+    <p class="hero-sub">Recommandation d'écrans DOOH sur le 1<sup>er</sup> et le 2<sup>e</sup> arrondissement de Lyon, avec un fil rouge de 3 mois et deux vagues d'activation renforcée, pour accompagner l'ouverture et la notoriété du Pop Up Store Upway.</p>
+    <div class="hero-pills">
+      <div class="pill"><div class="pill-label">Client</div><div class="pill-value">Upway</div></div>
+      <div class="pill"><div class="pill-label">Marché</div><div class="pill-value">Lyon 1er &amp; 2e</div></div>
+      <div class="pill"><div class="pill-label">Période</div><div class="pill-value">Déc. 2026 → Mars 2027</div></div>
+      <div class="pill"><div class="pill-label">Levier</div><div class="pill-value">pDOOH</div></div>
+      <div class="pill"><div class="pill-label">Écrans identifiés</div><div class="pill-value">191 écrans</div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="subnav">
+  <div class="nav-inner">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#mapping">Mapping</a>
+    <a href="#planning">Planning</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats-kpis">Formats &amp; KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+<section id="contexte">
+  <div class="wrap">
+    <span class="section-label">Contexte</span>
+    <h2 class="section-title">Un temps fort local pour accompagner l'ouverture du Pop Up Store</h2>
+    <p class="section-intro">Upway ouvre un Pop Up Store à Lyon pendant 3 mois, de décembre 2026 à février 2027. L'enjeu : générer de la visibilité de proximité sur les 1<sup>er</sup> et 2<sup>e</sup> arrondissements pour drainer du trafic vers le point de vente éphémère, avec un dispositif capable de tenir la durée tout en marquant deux temps forts d'activation.</p>
+
+    <div class="grid grid-4" style="margin:32px 0 40px;">
+      <div class="card"><h3>Période</h3><p>16/12/2026 → 14/03/2027 (fil rouge) + 2 vagues ciblées</p></div>
+      <div class="card"><h3>Zone</h3><p>Lyon 1<sup>er</sup> &amp; 2<sup>e</sup> arrondissement</p></div>
+      <div class="card"><h3>Objectif</h3><p>Notoriété locale &amp; trafic vers le Pop Up Store</p></div>
+      <div class="card"><h3>Levier</h3><p>pDOOH, 191 écrans identifiés et qualifiés</p></div>
+    </div>
+
+    <div class="grid grid-3" style="margin-top:36px;">
+      <div class="obj-card c-lavande">
+        <div class="obj-num">1</div>
+        <div><h3 style="font-size:1rem;">Notoriété locale</h3><p style="color:var(--grey);font-size:.9rem;">Faire connaître l'ouverture du Pop Up Store auprès des riverains, actifs et étudiants du centre de Lyon.</p></div>
+      </div>
+      <div class="obj-card c-bleu">
+        <div class="obj-num">2</div>
+        <div><h3 style="font-size:1rem;">Trafic en point de vente</h3><p style="color:var(--grey);font-size:.9rem;">Générer des visites sur le Pop Up Store pendant les 3 mois d'ouverture, avec un pic sur les temps forts.</p></div>
+      </div>
+      <div class="obj-card c-corail">
+        <div class="obj-num">3</div>
+        <div><h3 style="font-size:1rem;">Répétition &amp; mémorisation</h3><p style="color:var(--grey);font-size:.9rem;">Tenir la présence sur la durée (fil rouge) tout en marquant deux pics de pression au lancement et en janvier.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="dispositif">
+  <div class="wrap">
+    <span class="section-label">Dispositif</span>
+    <h2 class="section-title">2 recommandations, un seul levier pDOOH</h2>
+    <p class="section-intro">Le dispositif repose sur le pDOOH, décliné en deux recommandations complémentaires : un fil rouge qui assure une présence continue sur toute la durée d'ouverture, et deux vagues d'activation qui viennent renforcer la pression sur les temps forts. Chacune applique la même logique horaire par moment de la journée.</p>
+
+    <div class="reco-banner reco-a">
+      <div class="reco-letter">A</div>
+      <div class="reco-text">
+        <div class="reco-eyebrow">Recommandation A</div>
+        <p class="reco-name">Fil rouge</p>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card" style="border:2px solid var(--terracota);">
+        <h3>16/12/2026 → 14/03/2027</h3>
+        <p style="margin-top:10px;">88 jours de présence continue sur l'ensemble de l'inventaire qualifié (191 écrans), pour accompagner toute la durée d'ouverture du Pop Up Store.</p>
+      </div>
+    </div>
+
+    <div class="reco-banner reco-b">
+      <div class="reco-letter">B</div>
+      <div class="reco-text">
+        <div class="reco-eyebrow">Recommandation B</div>
+        <p class="reco-name">Vagues d'activation</p>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card" style="border:2px solid var(--babyblue);">
+        <h3>Lancement</h3>
+        <p style="margin-top:10px;">16 → 22/12/2026 : sur-pression sur l'ensemble de l'inventaire qualifié au moment de l'ouverture.</p>
+      </div>
+      <div class="card" style="border:2px solid var(--babyblue);">
+        <h3>Relance</h3>
+        <p style="margin-top:10px;">13 → 20/01/2027 : sur-pression sur l'ensemble de l'inventaire qualifié pour la relance de janvier.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px;">Logique d'activation par moment de la journée</h3>
+    <p style="color:var(--grey); font-size:.92rem; margin-top:-6px; margin-bottom:20px;">Cette répartition horaire s'applique aux deux recommandations.</p>
+    <div class="grid grid-3">
+      <div class="card c-menthe" style="border:none;">
+        <h3>Matin</h3>
+        <p><b style="color:var(--navy);">Transports</b> (gares, stations, mobilier urbain sur les axes de flux) + <b style="color:var(--navy);">salles de sport</b>, capter la cible pendant ses trajets domicile-travail et ses séances matinales.</p>
+      </div>
+      <div class="card c-corail" style="border:none;">
+        <h3>Midi</h3>
+        <p><b style="color:var(--navy);">Commerces de proximité</b> (supérettes, épiceries) + <b style="color:var(--navy);">salles de sport</b>, toucher la cible sur sa pause déjeuner et ses habitudes de quartier.</p>
+      </div>
+      <div class="card c-bleu" style="border:none;">
+        <h3>Reste de la journée</h3>
+        <p>Inventaire <b style="color:var(--navy);">dispatché</b> : mobilier urbain digital, centres commerciaux, bars &amp; restaurants, universités, bureaux, pour maximiser la couverture et la répétition sur l'ensemble de la journée.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="environnements">
+  <div class="wrap">
+    <span class="section-label">Environnements</span>
+    <h2 class="section-title">191 écrans pDOOH qualifiés sur Lyon 1er et 2e</h2>
+    <p class="section-intro">Répartition exacte de l'inventaire disponible par type de lieu (venue type), après dédoublonnage. Chaque écran est géolocalisé et catégorisé selon la stratégie horaire du dispositif, visible sur la carte dans la section Mapping ci-après.</p>
+
+    <div class="grid grid-4" style="margin:28px 0 8px;">
+      <div class="card"><div class="num">191</div><p>écrans uniques identifiés</p></div>
+      <div class="card"><div class="num">21</div><p>écrans transport (matin)</p></div>
+      <div class="card"><div class="num">64</div><p>écrans commerces de proximité (midi)</p></div>
+      <div class="card"><div class="num">13</div><p>écrans salles de sport (matin et midi)</p></div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:32px;">
+      <div>
+        <h3 style="font-size:1.05rem;">Répartition détaillée, inventaire "reste de la journée"</h3>
+        <div class="venue-icon-row" style="flex-direction:column; align-items:stretch;">
+          <div class="venue-chip"><span class="dot" style="background:#7bbdff;"></span> Mobilier urbain digital, 35 écrans</div>
+          <div class="venue-chip"><span class="dot" style="background:#7bbdff;"></span> Bars, 25 écrans</div>
+          <div class="venue-chip"><span class="dot" style="background:#7bbdff;"></span> Universités / écoles, 15 écrans</div>
+          <div class="venue-chip"><span class="dot" style="background:#7bbdff;"></span> Centres commerciaux, 9 écrans</div>
+          <div class="venue-chip"><span class="dot" style="background:#7bbdff;"></span> Restauration, 5 écrans</div>
+          <div class="venue-chip"><span class="dot" style="background:#7bbdff;"></span> Immeubles de bureaux, 2 écrans</div>
+          <div class="venue-chip"><span class="dot" style="background:#7bbdff;"></span> Cabinets médicaux, 1 écran</div>
+          <div class="venue-chip"><span class="dot" style="background:#7bbdff;"></span> Restauration haut de gamme, 1 écran</div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;">Répartition par arrondissement</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Arrondissement</th><th>Écrans</th><th>Part</th></tr></thead>
+            <tbody>
+              <tr><td>Lyon 2<sup>e</sup> (69002)</td><td>128</td><td>67 %</td></tr>
+              <tr><td>Lyon 1<sup>er</sup> (69001)</td><td>63</td><td>33 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:14px;font-size:.86rem;color:var(--grey);">Le 2<sup>e</sup> arrondissement concentre près des deux tiers de l'inventaire, porté notamment par les gares/stations de transport et les commerces de la Presqu'île, cohérent avec un dispositif orienté trafic piéton dense.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:24px;">
+      <b>Diffuseurs présents sur l'inventaire qualifié :</b> DoohYouLike, Adgency, Phenix Digital, MEDIATRANSPORTS, Media Bar, LittleCorner, Cityz Media, JCDecaux, Turnadon, Basic-Fit, ECN, Executive Channel Network France, IDS Media France.
+    </div>
+  </div>
+</section>
+<section id="mapping">
+  <div class="wrap">
+    <span class="section-label">Mapping</span>
+    <h2 class="section-title">Localisation des 191 écrans sur Lyon 1er et 2e</h2>
+    <p class="section-intro">Carte interactive : chaque point correspond à un écran pDOOH, coloré selon son créneau stratégique d'activation. Cliquez sur un point pour voir son adresse, son type de lieu et son diffuseur.</p>
+
+    <div class="map-legend" style="margin-top:24px;">
+      <div class="item"><span class="dot" style="background:#021859;"></span> Matin, Transport (21)</div>
+      <div class="item"><span class="dot" style="background:#f25430;"></span> Midi, Commerces de proximité (64)</div>
+      <div class="item"><span class="dot" style="background:#22b07d;"></span> Matin + Midi, Salles de sport (13)</div>
+      <div class="item"><span class="dot" style="background:#7bbdff;"></span> Reste de la journée, dispatché (93)</div>
+    </div>
+
+    <div id="map-container" style="margin-top:16px; position:relative;">
+      <div id="dooh-map"></div>
+      <div id="map-fallback" style="display:none; padding:40px; text-align:center; background:var(--bg-soft); border-radius:16px; border:1px solid var(--line);">
+        <p style="margin:0;color:var(--grey);">La carte interactive n'a pas pu se charger dans cet environnement. Les 191 écrans restent listés en détail dans la section Environnements ci-dessus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+  var points = [{"lat": 45.743388, "lon": 4.822088, "label": "Mobilier urbain digital", "addr": "10 Cr Bayard, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.773193, "lon": 4.83199, "label": "Mobilier urbain digital", "addr": "142-150 Bd de la Croix-Rousse, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Phenix Digital"}, {"lat": 45.768648, "lon": 4.834749, "label": "Mobilier urbain digital", "addr": "21 Rue Romarin, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Phenix Digital"}, {"lat": 45.752865, "lon": 4.827327, "label": "Mobilier urbain digital", "addr": "16 Rue Franklin, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.772101, "lon": 4.826889, "label": "Mobilier urbain digital", "addr": "1 Pl. du Lieutenant Morel, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Phenix Digital"}, {"lat": 45.751117, "lon": 4.830522, "label": "Mobilier urbain digital", "addr": "62B Rue de la Charité, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.747324, "lon": 4.82452, "label": "Mobilier urbain digital", "addr": "18 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.761548, "lon": 4.831709, "label": "Mobilier urbain digital", "addr": "36 Quai Saint-Antoine, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.746695, "lon": 4.823972, "label": "Mobilier urbain digital", "addr": "32 Cr Suchet, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.766929, "lon": 4.831313, "label": "Mobilier urbain digital", "addr": "5 Rue Constantine, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Phenix Digital"}, {"lat": 45.764279, "lon": 4.835308, "label": "Mobilier urbain digital", "addr": "6 Rue de la Gerbe, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.768479, "lon": 4.834839, "label": "Mobilier urbain digital", "addr": "3 Rue Désirée, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Phenix Digital"}, {"lat": 45.766323, "lon": 4.830799, "label": "Mobilier urbain digital", "addr": "3 Pont de la Feuillée, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Phenix Digital"}, {"lat": 45.762076, "lon": 4.835169, "label": "Mobilier urbain digital", "addr": "24 Rue Ferrandière, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.77281, "lon": 4.821368, "label": "Mobilier urbain digital", "addr": "30 Bd de la Croix-Rousse, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Phenix Digital"}, {"lat": 45.741868, "lon": 4.819113, "label": "Mobilier urbain digital", "addr": "25 Quai Antoine Riboud, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.766929, "lon": 4.831313, "label": "Mobilier urbain digital", "addr": "5 Rue Constantine, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Phenix Digital"}, {"lat": 45.752521, "lon": 4.827994, "label": "Mobilier urbain digital", "addr": "7 Rue Henri IV, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.742782, "lon": 4.816945, "label": "Mobilier urbain digital", "addr": "7 Quai Antoine Riboud, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.764545, "lon": 4.832476, "label": "Mobilier urbain digital", "addr": "1 Rue Mercière, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.765247, "lon": 4.836652, "label": "Mobilier urbain digital", "addr": "34 Rue Neuve, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.753484, "lon": 4.829228, "label": "Mobilier urbain digital", "addr": "44 Rue Victor Hugo, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.762076, "lon": 4.835169, "label": "Mobilier urbain digital", "addr": "24 Rue Ferrandière, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.752002, "lon": 4.826605, "label": "Mobilier urbain digital", "addr": "16 Rue de Condé, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Turnadon, FR"}, {"lat": 45.745744, "lon": 4.823688, "label": "Mobilier urbain digital", "addr": "27 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Phenix Digital"}, {"lat": 45.752002, "lon": 4.826605, "label": "Mobilier urbain digital", "addr": "16 Rue de Condé, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Turnadon, FR"}, {"lat": 45.76332, "lon": 4.83593, "label": "Mobilier urbain digital", "addr": "2 Rue Grolée, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "JCDecaux, FR"}, {"lat": 45.767754, "lon": 4.832666, "label": "Mobilier urbain digital", "addr": "23 Rue d'Algérie, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "JCDecaux, FR"}, {"lat": 45.76506, "lon": 4.836051, "label": "Mobilier urbain digital", "addr": "17 Rue de la République, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "JCDecaux, FR"}, {"lat": 45.766365, "lon": 4.832832, "label": "Mobilier urbain digital", "addr": "8 Rue Paul Chenavard, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "JCDecaux, FR"}, {"lat": 45.76339, "lon": 4.83604, "label": "Mobilier urbain digital", "addr": "251 Place des Cordeliers, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "JCDecaux, FR"}, {"lat": 45.766386, "lon": 4.834291, "label": "Mobilier urbain digital", "addr": "24 Rue du Président Édouard Herriot, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "JCDecaux, FR"}, {"lat": 45.765654, "lon": 4.836186, "label": "Salles de sport", "addr": "13 Rue de la République, 69001 Lyon, France", "grp": "sport", "zc": "69001", "pub": "Basic-Fit"}, {"lat": 45.765654, "lon": 4.836186, "label": "Salles de sport", "addr": "13 Rue de la République, 69001 Lyon, France", "grp": "sport", "zc": "69001", "pub": "Basic-Fit"}, {"lat": 45.767685, "lon": 4.83254, "label": "Épiceries / supérettes", "addr": "23 Rue d'Algérie, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.763121, "lon": 4.836132, "label": "Épiceries / supérettes", "addr": "27 Rue de la République, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.765414, "lon": 4.836441, "label": "Épiceries / supérettes", "addr": "23 Rue Neuve, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.741053, "lon": 4.81837, "label": "Salles de sport", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "sport", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.765806, "lon": 4.833217, "label": "Épiceries / supérettes", "addr": "29 Rue Paul Chenavard, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.765806, "lon": 4.833217, "label": "Épiceries / supérettes", "addr": "29 Rue Paul Chenavard, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.763121, "lon": 4.836132, "label": "Épiceries / supérettes", "addr": "27 Rue de la République, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.765414, "lon": 4.836441, "label": "Épiceries / supérettes", "addr": "23 Rue Neuve, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.765806, "lon": 4.833217, "label": "Épiceries / supérettes", "addr": "29 Rue Paul Chenavard, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.741053, "lon": 4.81837, "label": "Salles de sport", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "sport", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.747809, "lon": 4.826558, "label": "Gares / stations transport", "addr": "Porte Rhône, niveau 0, Gare SNCF de Lyon, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.764613, "lon": 4.832631, "label": "Universités / écoles", "addr": "6 Pl. Saint-Nizier, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.767685, "lon": 4.83254, "label": "Épiceries / supérettes", "addr": "23 Rue d'Algérie, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.741053, "lon": 4.81837, "label": "Salles de sport", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "sport", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.74799, "lon": 4.826706, "label": "Gares / stations transport", "addr": "14 Cr de Verdun Gensoul, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.747596, "lon": 4.82638, "label": "Gares / stations transport", "addr": "34 Rue Dugas-Montbel, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748331, "lon": 4.825482, "label": "Gares / stations transport", "addr": "14 Place des Archives, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748073, "lon": 4.825607, "label": "Gares / stations transport", "addr": "14 Cr de Verdun Gensoul, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748528, "lon": 4.825581, "label": "Gares / stations transport", "addr": "2 Perrache Passerelle Sncf, 10 Cr de Verdun Perrache, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748196, "lon": 4.825374, "label": "Gares / stations transport", "addr": "14 Place des Archives, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.74824, "lon": 4.825374, "label": "Gares / stations transport", "addr": "14 Place des Archives, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748308, "lon": 4.825429, "label": "Gares / stations transport", "addr": "14 Place des Archives, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748537, "lon": 4.825559, "label": "Gares / stations transport", "addr": "2 Perrache Passerelle Sncf, 10 Cr de Verdun Perrache, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.747702, "lon": 4.826469, "label": "Gares / stations transport", "addr": "34 Rue Dugas-Montbel, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748606, "lon": 4.826045, "label": "Gares / stations transport", "addr": "14 Cr de Verdun Rambaud, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.747802, "lon": 4.825377, "label": "Gares / stations transport", "addr": "14 Pl. des Archives, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748057, "lon": 4.826629, "label": "Gares / stations transport", "addr": "Porte Rhône, niveau 0, Gare SNCF de Lyon, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748691, "lon": 4.825757, "label": "Gares / stations transport", "addr": "Lyon-Perrache, 14 Cr de Verdun Gensoul, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.747795, "lon": 4.825372, "label": "Gares / stations transport", "addr": "14 Pl. des Archives, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748532, "lon": 4.82557, "label": "Gares / stations transport", "addr": "2 Perrache Passerelle Sncf, 10 Cr de Verdun Perrache, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748066, "lon": 4.8256, "label": "Gares / stations transport", "addr": "14 Cr de Verdun Gensoul, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.747941, "lon": 4.826672, "label": "Gares / stations transport", "addr": "14 Cr de Verdun Gensoul, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.748749, "lon": 4.825799, "label": "Gares / stations transport", "addr": "Lyon-Perrache, 14 Cr de Verdun Gensoul, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.747528, "lon": 4.826325, "label": "Gares / stations transport", "addr": "34 Rue Dugas-Montbel, 69002 Lyon, France", "grp": "matin", "zc": "69002", "pub": "MEDIATRANSPORTS, FR"}, {"lat": 45.741133, "lon": 4.817286, "label": "Centres commerciaux", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Cityz Media"}, {"lat": 45.741133, "lon": 4.817286, "label": "Centres commerciaux", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Cityz Media"}, {"lat": 45.741133, "lon": 4.817286, "label": "Centres commerciaux", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Cityz Media"}, {"lat": 45.741514, "lon": 4.816432, "label": "Centres commerciaux", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Cityz Media"}, {"lat": 45.741514, "lon": 4.816432, "label": "Centres commerciaux", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Cityz Media"}, {"lat": 45.74145, "lon": 4.816757, "label": "Centres commerciaux", "addr": "Centre commercial Lyon, 112 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Cityz Media"}, {"lat": 45.74145, "lon": 4.816757, "label": "Centres commerciaux", "addr": "Centre commercial Lyon, 112 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Cityz Media"}, {"lat": 45.74145, "lon": 4.816757, "label": "Centres commerciaux", "addr": "Centre commercial Lyon, 112 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Cityz Media"}, {"lat": 45.74145, "lon": 4.816757, "label": "Centres commerciaux", "addr": "Centre commercial Lyon, 112 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Cityz Media"}, {"lat": 45.767685, "lon": 4.83254, "label": "Épiceries / supérettes", "addr": "23 Rue d'Algérie, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.768259, "lon": 4.833015, "label": "Universités / écoles", "addr": "9 Rue Sainte-Catherine, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.769642, "lon": 4.835896, "label": "Épiceries / supérettes", "addr": "1 Pl. Croix-Paquet, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.768599, "lon": 4.832952, "label": "Salles de sport", "addr": "3 Rue Sainte-Marie-des-Terreaux, 69001 Lyon, France", "grp": "sport", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.765806, "lon": 4.833217, "label": "Épiceries / supérettes", "addr": "29 Rue Paul Chenavard, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.765806, "lon": 4.833217, "label": "Épiceries / supérettes", "addr": "29 Rue Paul Chenavard, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.765806, "lon": 4.833217, "label": "Épiceries / supérettes", "addr": "29 Rue Paul Chenavard, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.740876, "lon": 4.818793, "label": "Salles de sport", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "sport", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.740876, "lon": 4.818793, "label": "Salles de sport", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "sport", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.740876, "lon": 4.818793, "label": "Salles de sport", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "sport", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.739336, "lon": 4.817545, "label": "Universités / écoles", "addr": "11 Pass. Panama, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.739283, "lon": 4.817512, "label": "Universités / écoles", "addr": "11 Pass. Panama, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.765469, "lon": 4.836375, "label": "Épiceries / supérettes", "addr": "23 Rue Neuve, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.765469, "lon": 4.836375, "label": "Épiceries / supérettes", "addr": "23 Rue Neuve, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.74294, "lon": 4.81672, "label": "Bars", "addr": "5 Quai Antoine Riboud, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.739629, "lon": 4.817583, "label": "Universités / écoles", "addr": "132 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.767685, "lon": 4.83254, "label": "Épiceries / supérettes", "addr": "23 Rue d'Algérie, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.74077, "lon": 4.823487, "label": "Universités / écoles", "addr": "44 Quai Perrache, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.764617, "lon": 4.832587, "label": "Universités / écoles", "addr": "2 Rue des Bouquetiers, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.767909, "lon": 4.833831, "label": "Bars", "addr": "2 Pl. des Terreaux, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.739336, "lon": 4.817545, "label": "Universités / écoles", "addr": "11 Pass. Panama, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.765125, "lon": 4.836136, "label": "Épiceries / supérettes", "addr": "17 Rue de la République, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.765125, "lon": 4.836136, "label": "Épiceries / supérettes", "addr": "17 Rue de la République, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.765125, "lon": 4.836136, "label": "Épiceries / supérettes", "addr": "17 Rue de la République, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.765125, "lon": 4.836136, "label": "Épiceries / supérettes", "addr": "17 Rue de la République, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.740876, "lon": 4.818793, "label": "Salles de sport", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "sport", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.740876, "lon": 4.818793, "label": "Salles de sport", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "sport", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.768599, "lon": 4.832952, "label": "Salles de sport", "addr": "3 Rue Sainte-Marie-des-Terreaux, 69001 Lyon, France", "grp": "sport", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.739283, "lon": 4.817512, "label": "Universités / écoles", "addr": "11 Pass. Panama, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.764617, "lon": 4.832587, "label": "Universités / écoles", "addr": "2 Rue des Bouquetiers, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.768259, "lon": 4.833015, "label": "Universités / écoles", "addr": "9 Rue Sainte-Catherine, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.74077, "lon": 4.823487, "label": "Universités / écoles", "addr": "44 Quai Perrache, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.740876, "lon": 4.818793, "label": "Salles de sport", "addr": "112 Cr Charlemagne, 69002 Lyon, France", "grp": "sport", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.739629, "lon": 4.817583, "label": "Universités / écoles", "addr": "132 Cr Charlemagne, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.765806, "lon": 4.833217, "label": "Épiceries / supérettes", "addr": "29 Rue Paul Chenavard, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.767909, "lon": 4.833831, "label": "Bars", "addr": "2 Pl. des Terreaux, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.769642, "lon": 4.835896, "label": "Épiceries / supérettes", "addr": "1 Pl. Croix-Paquet, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.739336, "lon": 4.817545, "label": "Universités / écoles", "addr": "11 Pass. Panama, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.739336, "lon": 4.817545, "label": "Universités / écoles", "addr": "11 Pass. Panama, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.767685, "lon": 4.83254, "label": "Épiceries / supérettes", "addr": "23 Rue d'Algérie, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.767685, "lon": 4.83254, "label": "Épiceries / supérettes", "addr": "23 Rue d'Algérie, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.765806, "lon": 4.833217, "label": "Épiceries / supérettes", "addr": "29 Rue Paul Chenavard, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.765806, "lon": 4.833217, "label": "Épiceries / supérettes", "addr": "29 Rue Paul Chenavard, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.74294, "lon": 4.81672, "label": "Bars", "addr": "5 Quai Antoine Riboud, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "DoohYouLike"}, {"lat": 45.765469, "lon": 4.836375, "label": "Épiceries / supérettes", "addr": "23 Rue Neuve, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.765469, "lon": 4.836375, "label": "Épiceries / supérettes", "addr": "23 Rue Neuve, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "DoohYouLike"}, {"lat": 45.763038, "lon": 4.837477, "label": "Immeubles de bureaux", "addr": "2 Rue du Président Carnot, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "ECN, FR"}, {"lat": 45.763036, "lon": 4.83745, "label": "Immeubles de bureaux", "addr": "2 Rue du Président Carnot, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Executive Channel Network France"}, {"lat": 45.762903, "lon": 4.836011, "label": "Cabinets médicaux", "addr": "33bis Rue de la République, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "IDS Media France"}, {"lat": 45.763083, "lon": 4.832141, "label": "Bars", "addr": "19 Quai Saint-Antoine, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Media Bar"}, {"lat": 45.767767, "lon": 4.833299, "label": "Bars", "addr": "7 Pl. des Terreaux, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Media Bar"}, {"lat": 45.761547, "lon": 4.832142, "label": "Bars", "addr": "12 Rue de la Monnaie, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Media Bar"}, {"lat": 45.766079, "lon": 4.831085, "label": "Bars", "addr": "1 Rue de la Platière, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Media Bar"}, {"lat": 45.772997, "lon": 4.831633, "label": "Bars", "addr": "26 Rue Jean-Baptiste-Say, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Media Bar"}, {"lat": 45.766612, "lon": 4.836409, "label": "Bars", "addr": "26 Rue de l'Arbre Sec, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Media Bar"}, {"lat": 45.751823, "lon": 4.827192, "label": "Bars", "addr": "24 Pl. Carnot, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Media Bar"}, {"lat": 45.76669, "lon": 4.836589, "label": "Bars", "addr": "30 Rue de l'Arbre Sec, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Media Bar"}, {"lat": 45.762969, "lon": 4.832763, "label": "Bars", "addr": "35 Rue Mercière, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Media Bar"}, {"lat": 45.751778, "lon": 4.828, "label": "Bars", "addr": "3 Pl. Carnot, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Media Bar"}, {"lat": 45.763937, "lon": 4.832634, "label": "Bars", "addr": "15 Rue Mercière, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Media Bar"}, {"lat": 45.768124, "lon": 4.832912, "label": "Bars", "addr": "6 Rue Sainte-Catherine, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Media Bar"}, {"lat": 45.751767, "lon": 4.828146, "label": "Bars", "addr": "4 Pl. Carnot, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Media Bar"}, {"lat": 45.76794, "lon": 4.834333, "label": "Bars", "addr": "1 Rue Puits Gaillot, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Media Bar"}, {"lat": 45.768185, "lon": 4.832477, "label": "Bars", "addr": "5 Rue Sainte-Catherine, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "Media Bar"}, {"lat": 45.742327, "lon": 4.81793, "label": "Bars", "addr": "14 Quai Antoine Riboud, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "LittleCorner"}, {"lat": 45.762675, "lon": 4.83438, "label": "Bars", "addr": "4 Rue des Quatre Chapeaux, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "LittleCorner"}, {"lat": 45.762675, "lon": 4.83438, "label": "Bars", "addr": "4 Rue des Quatre Chapeaux, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "LittleCorner"}, {"lat": 45.751956, "lon": 4.830325, "label": "Restauration haut de gamme", "addr": "42 Rue Franklin, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "LittleCorner"}, {"lat": 45.750942, "lon": 4.82459, "label": "Bars", "addr": "3 Cr de Verdun Gensoul, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "LittleCorner"}, {"lat": 45.750942, "lon": 4.82459, "label": "Bars", "addr": "3 Cr de Verdun Gensoul, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "LittleCorner"}, {"lat": 45.761985, "lon": 4.832775, "label": "Restauration", "addr": "2 Rue de la Monnaie, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "LittleCorner"}, {"lat": 45.761985, "lon": 4.832775, "label": "Restauration", "addr": "2 Rue de la Monnaie, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "LittleCorner"}, {"lat": 45.742327, "lon": 4.81793, "label": "Bars", "addr": "14 Quai Antoine Riboud, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "LittleCorner"}, {"lat": 45.768069, "lon": 4.832908, "label": "Restauration", "addr": "6 Rue Sainte-Catherine, 69001 Lyon, France", "grp": "reste", "zc": "69001", "pub": "LittleCorner"}, {"lat": 45.751258, "lon": 4.829541, "label": "Restauration", "addr": "26 Rue de Condé, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "LittleCorner"}, {"lat": 45.752661, "lon": 4.830085, "label": "Restauration", "addr": "41 Rue Auguste Comte, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "LittleCorner"}, {"lat": 45.752002, "lon": 4.826605, "label": "Mobilier urbain digital", "addr": "16 Rue de Condé, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Turnadon"}, {"lat": 45.752002, "lon": 4.826605, "label": "Mobilier urbain digital", "addr": "16 Rue de Condé, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Turnadon"}, {"lat": 45.761789, "lon": 4.834712, "label": "Mobilier urbain digital", "addr": "19 Rue des Quatre Chapeaux, 69002 Lyon, France", "grp": "reste", "zc": "69002", "pub": "Turnadon"}, {"lat": 45.747006, "lon": 4.824107, "label": "Commerces de proximité", "addr": "20 Cours Charlemagne, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.763843, "lon": 4.836998, "label": "Commerces de proximité", "addr": "55 Rue de la Bourse, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.75371, "lon": 4.825889, "label": "Épiceries / supérettes", "addr": "28 Rue Vaubecour, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.76523, "lon": 4.83668, "label": "Commerces de proximité", "addr": "36 Rue Neuve, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}, {"lat": 45.747006, "lon": 4.824107, "label": "Commerces de proximité", "addr": "20 Cours Charlemagne, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.747006, "lon": 4.824107, "label": "Commerces de proximité", "addr": "20 Cr Charlemagne, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.747006, "lon": 4.824107, "label": "Commerces de proximité", "addr": "20 Cours Charlemagne, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.763382, "lon": 4.832694, "label": "Commerces de proximité", "addr": "50 Rue Mercière, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.763382, "lon": 4.832694, "label": "Commerces de proximité", "addr": "50 Rue Mercière, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.752433, "lon": 4.824944, "label": "Commerces de proximité", "addr": "36 Rue Vaubecour, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.764796, "lon": 4.832444, "label": "Commerces de proximité", "addr": "13 Rue Chavanne, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}, {"lat": 45.75371, "lon": 4.825889, "label": "Commerces de proximité", "addr": "28 Rue Vaubecour, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.766834, "lon": 4.835872, "label": "Commerces de proximité", "addr": "4 Rue de la République, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}, {"lat": 45.766442, "lon": 4.836181, "label": "Commerces de proximité", "addr": "7 Rue de la République, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}, {"lat": 45.766834, "lon": 4.835872, "label": "Commerces de proximité", "addr": "4 Rue de la République, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}, {"lat": 45.753051, "lon": 4.830322, "label": "Commerces de proximité", "addr": "37 Rue Auguste Comte, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.766442, "lon": 4.836181, "label": "Commerces de proximité", "addr": "Parc Maurice Sauthier, 7 bis Rue de la République, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}, {"lat": 45.763843, "lon": 4.836998, "label": "Commerces de proximité", "addr": "55 Rue de la Bourse, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.763843, "lon": 4.836998, "label": "Commerces de proximité", "addr": "55 Rue de la Bourse, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.766834, "lon": 4.835872, "label": "Commerces de proximité", "addr": "4 Rue de la République, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}, {"lat": 45.767807, "lon": 4.833636, "label": "Commerces de proximité", "addr": "4 Place des Terreaux, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}, {"lat": 45.766834, "lon": 4.835872, "label": "Commerces de proximité", "addr": "4 Rue de la République, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}, {"lat": 45.754367, "lon": 4.827276, "label": "Commerces de proximité", "addr": "4b Rue Jarente, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.753059, "lon": 4.830355, "label": "Commerces de proximité", "addr": "37 Rue Auguste Comte, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.763347, "lon": 4.832675, "label": "Commerces de proximité", "addr": "3 Rue Grenette, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.764794, "lon": 4.832439, "label": "Commerces de proximité", "addr": "15 Rue Chavanne, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}, {"lat": 45.772765, "lon": 4.821382, "label": "Commerces de proximité", "addr": "30 Bd de la Croix-Rousse, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}, {"lat": 45.754367, "lon": 4.827276, "label": "Commerces de proximité", "addr": "4b Rue Jarente, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.763843, "lon": 4.836998, "label": "Commerces de proximité", "addr": "55 Rue de la Bourse, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.763347, "lon": 4.832675, "label": "Commerces de proximité", "addr": "3 Rue Grenette, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.754523, "lon": 4.82731, "label": "Commerces de proximité", "addr": "5 Rue Jarente, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.763843, "lon": 4.836998, "label": "Commerces de proximité", "addr": "55 Rue de la Bourse, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.765247, "lon": 4.836679, "label": "Commerces de proximité", "addr": "34 Rue Neuve, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.752433, "lon": 4.824944, "label": "Commerces de proximité", "addr": "36 Rue Vaubecour, 69002 Lyon, France", "grp": "midi", "zc": "69002", "pub": "Adgency"}, {"lat": 45.767807, "lon": 4.833636, "label": "Commerces de proximité", "addr": "4 Place des Terreaux, 69001 Lyon, France", "grp": "midi", "zc": "69001", "pub": "Adgency"}];
+  var colors = { matin:'#021859', midi:'#f25430', sport:'#22b07d', reste:'#7bbdff' };
+  var labels = { matin:'Matin, Transport', midi:'Midi, Commerce de proximité', sport:'Matin + Midi, Salle de sport', reste:'Reste de la journée, dispatché' };
+
+  function initMap(){
+    try {
+      var mapEl = document.getElementById('dooh-map');
+      if (!mapEl || typeof L === 'undefined') { showFallback(); return; }
+
+      var map = L.map(mapEl, { scrollWheelZoom: false }).setView([45.759, 4.827], 14);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19
+      }).addTo(map);
+
+      var bounds = [];
+      points.forEach(function(p){
+        var color = colors[p.grp] || '#7bbdff';
+        var marker = L.circleMarker([p.lat, p.lon], {
+          radius: 6, fillColor: color, color: '#fff', weight: 1.5, fillOpacity: 0.9
+        }).addTo(map);
+        marker.bindPopup(
+          '<b>' + p.label + '</b><br>' + p.addr +
+          '<br><span style="color:#6b7280;">' + labels[p.grp] + ' &middot; ' + p.pub + '</span>'
+        );
+        bounds.push([p.lat, p.lon]);
+      });
+      if (bounds.length) { map.fitBounds(bounds, { padding: [24,24] }); }
+
+      setTimeout(function(){ map.invalidateSize(); }, 300);
+    } catch(e){
+      showFallback();
+    }
+  }
+
+  function showFallback(){
+    var mapEl = document.getElementById('dooh-map');
+    var fb = document.getElementById('map-fallback');
+    if (mapEl) mapEl.style.display = 'none';
+    if (fb) fb.style.display = 'block';
+  }
+
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(initMap, 50);
+  } else {
+    document.addEventListener('DOMContentLoaded', initMap);
+  }
+
+  setTimeout(function(){
+    var mapEl = document.getElementById('dooh-map');
+    if (mapEl && mapEl.children.length === 0) { showFallback(); }
+  }, 4000);
+})();
+</script>
+<section id="planning">
+  <div class="wrap">
+    <span class="section-label">Planning</span>
+    <h2 class="section-title">2 recommandations, un calendrier complémentaire</h2>
+    <p class="section-intro">La Reco A assure une présence continue sur toute la durée d'ouverture du Pop Up Store. La Reco B vient renforcer la pression sur les deux temps forts : le lancement et la relance de janvier.</p>
+
+    <div class="reco-banner reco-a">
+      <div class="reco-letter">A</div>
+      <div class="reco-text">
+        <div class="reco-eyebrow">Recommandation A</div>
+        <p class="reco-name">Fil rouge</p>
+      </div>
+    </div>
+    <div class="wave-card">
+      <div class="wave-head"><h3>Fil rouge</h3><span class="tag terra">16/12/2026 → 14/03/2027 · 88 jours</span></div>
+      <div class="wave-body">
+        <div class="bar-row"><div class="bar-label">Déc. 2026</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--navy);"></div></div></div>
+        <div class="bar-row"><div class="bar-label">Janv. 2027</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--navy);"></div></div></div>
+        <div class="bar-row"><div class="bar-label">Fév. 2027</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--navy);"></div></div></div>
+        <div class="bar-row"><div class="bar-label">Mars 2027</div><div class="bar-track"><div class="bar-fill" style="width:45%;background:var(--navy);"></div></div></div>
+        <p style="margin-top:12px;font-size:.86rem;color:var(--grey);">Diffusion sur les 191 écrans qualifiés, 7j/7, en continu sur toute la durée d'ouverture du Pop Up Store.</p>
+      </div>
+    </div>
+
+    <div class="reco-banner reco-b">
+      <div class="reco-letter">B</div>
+      <div class="reco-text">
+        <div class="reco-eyebrow">Recommandation B</div>
+        <p class="reco-name">Vagues d'activation</p>
+      </div>
+    </div>
+    <div class="wave-card">
+      <div class="wave-head"><h3>Vague Lancement</h3><span class="tag blue" style="color:var(--navy);">16/12 → 22/12/2026 · 7 jours</span></div>
+      <div class="wave-body">
+        <div class="bar-row"><div class="bar-label">Semaine du 16/12</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--terracota);"></div></div></div>
+        <p style="margin-top:12px;font-size:.86rem;color:var(--grey);">Sur-pression au moment de l'ouverture, en pleine période d'affluence de fin d'année dans le centre de Lyon.</p>
+      </div>
+    </div>
+
+    <div class="wave-card" style="margin-bottom:0;">
+      <div class="wave-head"><h3>Vague Relance</h3><span class="tag outline">13/01 → 20/01/2027 · 8 jours</span></div>
+      <div class="wave-body">
+        <div class="bar-row"><div class="bar-label">Semaine du 13/01</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--babyblue);"></div></div></div>
+        <p style="margin-top:12px;font-size:.86rem;color:var(--grey);">Relance en janvier pour soutenir le trafic sur la période la plus creuse de l'ouverture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="budgets">
+  <div class="wrap">
+    <span class="section-label">Budgets</span>
+    <h2 class="section-title">CPM DOOH sur les 2 recommandations</h2>
+    <p class="section-intro">Le budget est modulé pour chaque recommandation par la part de voix (SOV) retenue par écran, pour ajuster précisément la pression publicitaire au niveau souhaité.</p>
+
+    <div class="table-wrap" style="margin-top:28px;">
+      <table>
+        <thead><tr><th>Levier</th><th>CPM</th></tr></thead>
+        <tbody>
+          <tr><td>DOOH</td><td><b>48 €</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="reco-banner reco-a">
+      <div class="reco-letter">A</div>
+      <div class="reco-text">
+        <div class="reco-eyebrow">Recommandation A</div>
+        <p class="reco-name">Fil rouge</p>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card" style="border:2px solid var(--terracota);">
+        <span class="tag terra">16/12/2026 → 14/03/2027</span>
+        <p style="margin-top:12px;"><b style="color:var(--navy);">191 écrans</b> · 88 jours</p>
+        <p style="font-size:.86rem;">Présence continue sur l'ensemble de l'inventaire qualifié, tous créneaux confondus (matin, midi, reste de la journée).</p>
+      </div>
+    </div>
+
+    <div class="reco-banner reco-b">
+      <div class="reco-letter">B</div>
+      <div class="reco-text">
+        <div class="reco-eyebrow">Recommandation B</div>
+        <p class="reco-name">Vagues d'activation</p>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card" style="border:2px solid var(--babyblue);">
+        <span class="tag blue" style="color:var(--navy);">Lancement · 16/12 → 22/12/2026</span>
+        <p style="margin-top:12px;"><b style="color:var(--navy);">191 écrans</b> · 7 jours</p>
+        <p style="font-size:.86rem;">Sur-pression sur l'ensemble de l'inventaire qualifié, semaine du 16/12/2026.</p>
+      </div>
+      <div class="card" style="border:2px solid var(--babyblue);">
+        <span class="tag outline">Relance · 13/01 → 20/01/2027</span>
+        <p style="margin-top:12px;"><b style="color:var(--navy);">191 écrans</b> · 8 jours</p>
+        <p style="font-size:.86rem;">Relance sur l'ensemble de l'inventaire qualifié, semaine du 13/01/2027.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:28px;">
+      Le budget final est ajusté selon la part de voix (SOV) retenue par écran et le nombre de spots diffusés par boucle publicitaire, pour caler précisément l'investissement sur le niveau de pression souhaité pour chaque recommandation.
+    </div>
+  </div>
+</section>
+<section id="formats-kpis">
+  <div class="wrap">
+    <span class="section-label">Formats &amp; KPIs de suivi</span>
+    <h2 class="section-title">pDOOH, specs techniques &amp; indicateurs de suivi</h2>
+
+    <div class="grid grid-2" style="margin-top:28px;">
+      <div class="card">
+        <h3>Format créatif</h3>
+        <div class="kpi-inline">
+          <div class="kpi-chip"><b>9:16</b>, 1080×1920 px</div>
+          <div class="kpi-chip"><b>MP4</b></div>
+          <div class="kpi-chip"><b>10 secondes</b></div>
+        </div>
+        <p style="margin-top:14px;font-size:.86rem;">Créatif à livrer <b>7 jours minimum</b> avant le lancement (règle DOOH TGW). BAT écrit obligatoire avant mise en ligne.</p>
+      </div>
+      <div class="card">
+        <h3>KPIs de suivi</h3>
+        <ul style="margin:0; padding-left:18px; color:var(--grey); font-size:.9rem; line-height:1.8;">
+          <li>Impressions &amp; diffusion réalisée</li>
+          <li>Top publishers</li>
+          <li>Nombre de plays / occasions de voir (OTS)</li>
+          <li>Statistiques par typologie d'écran (transport, sport, proximité, dispatché)</li>
+          <li>Commentaire global de fin de campagne</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="audiences">
+  <div class="wrap">
+    <span class="section-label">Audiences</span>
+    <h2 class="section-title">3 profils touchés selon le moment de la journée</h2>
+
+    <div class="grid grid-3" style="margin-top:28px;">
+      <div class="persona-card">
+        <span class="persona-glyph">●</span>
+        <h3>L'actif pendulaire</h3>
+        <p style="color:var(--grey);font-size:.9rem;">Touché le matin dans les transports (gares, stations) et sur le mobilier urbain des axes de flux domicile-travail. Sensible à un message court et visuel pendant son trajet.</p>
+      </div>
+      <div class="persona-card">
+        <span class="persona-glyph">■</span>
+        <h3>Le riverain de quartier</h3>
+        <p style="color:var(--grey);font-size:.9rem;">Touché le midi près des commerces de proximité (supérettes, épiceries) de la Presqu'île et de la Croix-Rousse. Habitué de son quartier, sensible à une offre locale et nouvelle.</p>
+      </div>
+      <div class="persona-card">
+        <span class="persona-glyph">◆</span>
+        <h3>Le sportif urbain</h3>
+        <p style="color:var(--grey);font-size:.9rem;">Touché matin et midi en salle de sport (13 écrans). Cible active, CSP+, réceptive à une offre de mobilité alternative comme le vélo électrique reconditionné.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="data">
+  <div class="wrap">
+    <span class="section-label">Stratégie data</span>
+    <h2 class="section-title">Un ciblage géographique et comportemental à 3 couches</h2>
+    <p class="section-intro">Le pDOOH se pilote par la donnée de fréquentation et de géolocalisation des écrans plutôt que par du ciblage individuel, la stratégie data repose ici sur le croisement du lieu, du moment et du flux.</p>
+
+    <div class="pyramid" style="margin-top:36px;">
+      <div class="pyr-level pyr-1"><b>Couche 1, Géolocalisation &amp; venue type</b>Sélection des écrans par type de lieu (transport, sport, commerce de proximité, mobilier urbain) sur la zone de chalandise du Pop Up Store (69001 / 69002).</div>
+      <div class="pyr-level pyr-2"><b>Couche 2, Moment de la journée</b>Activation différenciée matin / midi / reste de la journée selon les habitudes de mobilité de la cible autour de chaque type d'écran.</div>
+      <div class="pyr-level pyr-3"><b>Couche 3, Fréquence de diffusion</b>Fil rouge en fond continu + 2 pics de pression calés sur le lancement et la relance de janvier, pour construire la répétition sans lasser.</div>
+    </div>
+  </div>
+</section>
+<section id="rgpd">
+  <div class="wrap">
+    <span class="section-label">RGPD &amp; Brand Safety</span>
+    <h2 class="section-title">Un dispositif conforme et maîtrisé</h2>
+    <div class="grid grid-2" style="margin-top:24px;">
+      <div class="card">
+        <h3>RGPD</h3>
+        <p>Le pDOOH ne repose pas sur de la donnée personnelle individuelle : le ciblage se fait par emplacement et typologie de lieu, sans identification des passants. Aucune collecte de données personnelles n'est réalisée dans le cadre de ce dispositif.</p>
+      </div>
+      <div class="card">
+        <h3>Brand safety</h3>
+        <p>Diffusion exclusivement sur des écrans qualifiés et des diffuseurs identifiés (JCDecaux, Phenix Digital, MEDIATRANSPORTS, DoohYouLike, etc.), sur un environnement physique maîtrisé et contrôlé par emplacement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <span class="section-label" style="color:var(--babyblue);">Contacts</span>
+    <h2>Votre interlocuteur chez The Good Web</h2>
+    <div class="grid grid-3" style="margin-top:28px;">
+      <div class="contact-card">
+        <div class="role">Chef de publicité</div>
+        <div class="name">Sofien Chaganiou</div>
+        <div style="font-size:.86rem; margin-bottom:8px; color:rgba(255,255,255,.75);">07 67 84 70 67</div>
+        <a class="mail" href="mailto:sofien@thegoodweb.eu">sofien@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <div class="role">Cheffe de publicité</div>
+        <div class="name">Leslie Rogé</div>
+        <div style="font-size:.86rem; margin-bottom:8px; color:rgba(255,255,255,.75);">06 83 73 68 62</div>
+        <a class="mail" href="mailto:leslie@thegoodweb.eu">leslie@thegoodweb.eu</a>
+      </div>
+      <div class="contact-card">
+        <div class="role">Directeur commercial</div>
+        <div class="name">Jérôme Fages</div>
+        <div style="font-size:.86rem; margin-bottom:8px; color:rgba(255,255,255,.75);">06 18 74 66 75</div>
+        <a class="mail" href="mailto:jerome@thegoodweb.eu">jerome@thegoodweb.eu</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <svg style="height:34px;width:auto;" id="Calque_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="214 252 572 496">
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="st0" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path class="st0" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path class="st0" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path class="st0" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path class="st0" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path class="st0" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path class="st0" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path class="st0" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path class="st0" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path class="st0" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path class="st0" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path class="st0" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path class="st0" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path class="st0" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path class="st0" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path class="st0" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path class="st0" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path class="st0" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path class="st0" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg>
+      <span>The Good Web · 40 rue Paradis, 13001 Marseille · Recommandation confidentielle Upway, Pop Up Store Lyon</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
