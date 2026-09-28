@@ -68,7 +68,7 @@ h2::before{content:"↘ ";color:var(--terra)}
 .tabs button .reco{display:inline-block;background:var(--terra);color:#fff;font-size:11px;border-radius:10px;padding:2px 8px;margin-left:8px;vertical-align:middle}
 .panel{display:none}.panel.active{display:block}
 .tbl{overflow-x:auto;border-radius:14px;border:1px solid var(--line);background:#fff}
-.tbl table{border-collapse:collapse;width:100%;min-width:640px}
+.tbl table{border-collapse:collapse;width:100%;min-width:820px}
 .tbl th{background:var(--navy);color:#fff;font-family:Poppins;font-weight:600;font-size:14px;padding:13px 14px;text-align:left}
 .tbl td{padding:13px 14px;border-bottom:1px solid var(--line);font-size:15px}
 .tbl tr.total td{font-weight:700;background:var(--c-bleu);color:var(--navy)}
@@ -224,7 +224,7 @@ header.hero .top{flex-direction:column;align-items:flex-start;gap:18px}section{p
 <section id="budgets"><div class="wrap">
 <div class="kicker">Budgets</div>
 <h2>Deux scénarios pour 2 000 € HT</h2>
-<p class="lead">CPM appliqué : audio streaming 9 € (grille Achat TGW). Le volume total est identique dans les deux scénarios, seule la répartition dans le temps change.</p>
+<p class="lead">CPM appliqué : audio streaming 9 € (grille Achat TGW). Coût par écoute (CPE) estimé à 0,03 €, soit le coût d'une écoute complète du spot. Les volumes totaux sont identiques dans les deux scénarios, seule la répartition dans le temps change.</p>
 <div class="tabs">
 <button class="active" data-tab="s2">2 vagues de 1 000 €<span class="reco">Recommandé</span></button>
 <button data-tab="s3">3 vagues</button>
@@ -235,13 +235,13 @@ header.hero .top{flex-direction:column;align-items:flex-start;gap:18px}section{p
 <div class="kpi"><b>2 000 €</b><span>budget HT</span></div>
 <div class="kpi"><b>≈ 222 200</b><span>impressions audio</span></div>
 <div class="kpi"><b>2 × 10 j</b><span>durée d'activation</span></div>
-<div class="kpi"><b>≈ 111 100</b><span>impressions par vague</span></div>
+<div class="kpi"><b>≈ 66 700</b><span>écoutes (CPE 0,03 €)</span></div>
 </div>
 <div class="tbl"><table>
-<tr><th>Vague</th><th>Dates indicatives</th><th>Temps fort</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
-<tr><td>Vague 1 · janvier</td><td>18/01 → 27/01/2027</td><td>Ouverture des vœux Parcoursup, JPO d'hiver</td><td class="r">1 000 €</td><td class="r">9 €</td><td class="r">≈ 111 100</td></tr>
-<tr><td>Vague 2 · février</td><td>15/02 → 24/02/2027</td><td>Cœur de la période de formulation des vœux</td><td class="r">1 000 €</td><td class="r">9 €</td><td class="r">≈ 111 100</td></tr>
-<tr class="total"><td>Total</td><td>20 jours</td><td></td><td class="r">2 000 €</td><td class="r">9 €</td><td class="r">≈ 222 200</td></tr>
+<tr><th>Vague</th><th>Dates indicatives</th><th>Temps fort</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th><th class="r">CPE</th><th class="r">Écoutes</th></tr>
+<tr><td>Vague 1 · janvier</td><td>18/01 → 27/01/2027</td><td>Ouverture des vœux Parcoursup, JPO d'hiver</td><td class="r">1 000 €</td><td class="r">9 €</td><td class="r">≈ 111 100</td><td class="r">0,03 €</td><td class="r">≈ 33 300</td></tr>
+<tr><td>Vague 2 · février</td><td>15/02 → 24/02/2027</td><td>Cœur de la période de formulation des vœux</td><td class="r">1 000 €</td><td class="r">9 €</td><td class="r">≈ 111 100</td><td class="r">0,03 €</td><td class="r">≈ 33 300</td></tr>
+<tr class="total"><td>Total</td><td>20 jours</td><td></td><td class="r">2 000 €</td><td class="r">9 €</td><td class="r">≈ 222 200</td><td class="r">0,03 €</td><td class="r">≈ 66 700</td></tr>
 </table></div>
 <div class="note"><b>Pourquoi TGW recommande 2 vagues :</b> sur un territoire aussi large (métropole de Lyon + Ain + Isère), 1 000 € par vague garantit une pression suffisante pour que chaque auditeur entende le spot plusieurs fois en 10 jours. Au-delà, on fragmente le budget et on perd en mémorisation entre deux périodes d'exposition. Les deux vagues, en janvier puis en février, accompagnent la période de formulation des vœux, quand le choix de l'élève est encore ouvert : l'ouverture de la plateforme, puis le moment où les lycéens comparent et arrêtent leur liste.</div>
 </div>
@@ -251,14 +251,14 @@ header.hero .top{flex-direction:column;align-items:flex-start;gap:18px}section{p
 <div class="kpi"><b>2 000 €</b><span>budget HT</span></div>
 <div class="kpi"><b>≈ 222 200</b><span>impressions audio</span></div>
 <div class="kpi"><b>3 × 10 j</b><span>durée d'activation</span></div>
-<div class="kpi"><b>≈ 72 200 à 77 800</b><span>impressions par vague</span></div>
+<div class="kpi"><b>≈ 66 700</b><span>écoutes (CPE 0,03 €)</span></div>
 </div>
 <div class="tbl"><table>
-<tr><th>Vague</th><th>Dates indicatives</th><th>Temps fort</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
-<tr><td>Vague 1 · janvier</td><td>18/01 → 27/01/2027</td><td>Ouverture des vœux Parcoursup, JPO d'hiver</td><td class="r">700 €</td><td class="r">9 €</td><td class="r">≈ 77 800</td></tr>
-<tr><td>Vague 2 · février</td><td>08/02 → 17/02/2027</td><td>Cœur de la période de formulation des vœux</td><td class="r">650 €</td><td class="r">9 €</td><td class="r">≈ 72 200</td></tr>
-<tr><td>Vague 3 · mars</td><td>01/03 → 10/03/2027</td><td>Derniers jours avant la date limite des vœux</td><td class="r">650 €</td><td class="r">9 €</td><td class="r">≈ 72 200</td></tr>
-<tr class="total"><td>Total</td><td>30 jours</td><td></td><td class="r">2 000 €</td><td class="r">9 €</td><td class="r">≈ 222 200</td></tr>
+<tr><th>Vague</th><th>Dates indicatives</th><th>Temps fort</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th><th class="r">CPE</th><th class="r">Écoutes</th></tr>
+<tr><td>Vague 1 · janvier</td><td>18/01 → 27/01/2027</td><td>Ouverture des vœux Parcoursup, JPO d'hiver</td><td class="r">700 €</td><td class="r">9 €</td><td class="r">≈ 77 800</td><td class="r">0,03 €</td><td class="r">≈ 23 300</td></tr>
+<tr><td>Vague 2 · février</td><td>08/02 → 17/02/2027</td><td>Cœur de la période de formulation des vœux</td><td class="r">650 €</td><td class="r">9 €</td><td class="r">≈ 72 200</td><td class="r">0,03 €</td><td class="r">≈ 21 700</td></tr>
+<tr><td>Vague 3 · mars</td><td>01/03 → 10/03/2027</td><td>Derniers jours avant la date limite des vœux</td><td class="r">650 €</td><td class="r">9 €</td><td class="r">≈ 72 200</td><td class="r">0,03 €</td><td class="r">≈ 21 700</td></tr>
+<tr class="total"><td>Total</td><td>30 jours</td><td></td><td class="r">2 000 €</td><td class="r">9 €</td><td class="r">≈ 222 200</td><td class="r">0,03 €</td><td class="r">≈ 66 700</td></tr>
 </table></div>
 <div class="note ice"><b>Intérêt de ce scénario :</b> une présence chaque mois, de janvier à mars, qui accompagne toute la période des vœux jusqu'à la dernière ligne droite avant la date limite de mi-mars. Contrepartie : une pression plus faible sur chaque vague (environ 70 000 à 78 000 impressions), donc une répétition moindre par auditeur.</div>
 </div>
