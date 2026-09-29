@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grand Var · Fin d'année 2026 · Recommandation média TGW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#021859;--ice:#7bbdff;--terra:#f25430;--white:#fff;--bg:#f6f8fe;--ink:#1d2640;--mute:#5b6784;--line:#dfe6f5;
+--c-bleu:#e9f4ff;--c-menthe:#e7eaf3;--c-corail:#fde8e2;--c-peche:#fff2eb;--c-lavande:#eef1ff;--c-rose:#eeecf8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 120px)}
+body{margin:0;background:#fff;color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.6}
+h1,h2,h3,h4{font-family:Poppins,system-ui,Arial,sans-serif;color:var(--navy);line-height:1.2;margin:0 0 .6em}
+h2{font-size:clamp(1.5rem,3vw,2.1rem)}
+h2:before{content:"↘ ";color:var(--terra)}
+h3{font-size:1.15rem}
+p{margin:0 0 1em}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+img,svg{max-width:100%}
+/* HERO */
+header.hero{background:var(--navy);color:var(--white);padding:46px 0 52px;position:relative;overflow:hidden}
+header.hero:after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(123,189,255,.22),rgba(123,189,255,0) 70%)}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:30px}
+.hero .eyebrow{color:#ffb79e;font-family:Poppins,sans-serif;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin-bottom:10px}
+header.hero h1{color:var(--white);font-size:clamp(2rem,5vw,3.3rem);font-weight:800;margin-bottom:12px}
+.hero .sub{color:#d4e6ff;font-size:1.08rem;max-width:760px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.pill{border:1.5px solid var(--ice);background:rgba(123,189,255,.07);color:#fff;border-radius:999px;padding:7px 15px;font-size:.9rem}
+.pill b{font-weight:700}
+.pill.light{border-color:var(--navy);background:#fff;color:var(--navy)}
+/* NAV */
+nav.sticky{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:12px 0 8px;scrollbar-width:none}
+.tabs::-webkit-scrollbar,.anchors::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:1.5px solid var(--navy);background:#fff;color:var(--navy);font-family:Poppins,sans-serif;font-weight:600;font-size:.92rem;border-radius:999px;padding:8px 16px;cursor:pointer}
+.tab .n{color:var(--terra);margin-right:6px}
+.tab.on{background:var(--navy);color:#fff}
+.tab.on .n{color:#ffb79e}
+.anchors{display:flex;gap:18px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+.anchors a{flex:0 0 auto;color:var(--navy);font-weight:700;font-size:.86rem;text-decoration:none;opacity:.78}
+.anchors a:hover{opacity:1;color:var(--terra)}
+/* SECTIONS */
+section{padding:62px 0}
+section.alt{background:var(--bg)}
+.lead{font-size:1.08rem;color:var(--mute);max-width:820px}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}section{padding:46px 0}}
+.card{border-radius:18px;padding:22px;background:#fff;border:1px solid var(--line)}
+.card h3{margin-bottom:.4em}
+.card p:last-child{margin-bottom:0}
+.c-bleu{background:var(--c-bleu);border-color:transparent}.c-menthe{background:var(--c-menthe);border-color:transparent}.c-corail{background:var(--c-corail);border-color:transparent}.c-peche{background:var(--c-peche);border-color:transparent}.c-lavande{background:var(--c-lavande);border-color:transparent}.c-rose{background:var(--c-rose);border-color:transparent}
+.c-navy{background:var(--navy);color:#e6efff;border-color:transparent}.c-navy h3,.c-navy h4{color:#fff}
+.num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--terra);color:#fff;font-family:Poppins,sans-serif;font-weight:700;margin-bottom:12px}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--terra);margin-bottom:6px}
+.big{font-family:Poppins,sans-serif;font-weight:800;font-size:1.9rem;color:var(--navy);line-height:1.1}
+.c-navy .big{color:#fff}
+.small{font-size:.88rem;color:var(--mute)}
+.c-navy .small{color:#b9cdf2}
+ul.clean{list-style:none;padding:0;margin:0}
+ul.clean li{padding:6px 0 6px 20px;position:relative}
+ul.clean li:before{content:"·";position:absolute;left:4px;color:var(--terra);font-weight:800}
+.callout{border-left:5px solid var(--terra);background:var(--c-peche);border-radius:0 16px 16px 0;padding:20px 24px;margin:24px 0}
+.callout h3{margin-bottom:.35em}
+.glyph{font-size:1.5rem;color:var(--terra);line-height:1;margin-bottom:10px}
+/* FUNNEL */
+.funnel{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:24px}
+.funnel div{padding:20px 22px;color:#fff;position:relative}
+.funnel div:nth-child(1){background:var(--navy);border-radius:16px 0 0 16px}
+.funnel div:nth-child(2){background:#23407f}
+.funnel div:nth-child(3){background:var(--terra);border-radius:0 16px 16px 0}
+.funnel b{display:block;font-family:Poppins,sans-serif;font-size:1.05rem;margin-bottom:4px}
+.funnel span{font-size:.9rem;opacity:.9}
+@media(max-width:620px){.funnel{grid-template-columns:1fr}.funnel div:nth-child(1){border-radius:16px 16px 0 0}.funnel div:nth-child(3){border-radius:0 0 16px 16px}}
+/* CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-weight:600;color:var(--navy);font-size:.92rem}
+.chip.soc{background:var(--navy);color:#fff;border-color:var(--navy)}
+.chip.hot{background:var(--terra);color:#fff;border-color:var(--terra)}
+/* TABLES */
+.tw{overflow-x:auto;border-radius:16px;border:1px solid var(--line);background:#fff;margin:14px 0 8px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+th{background:var(--navy);color:#fff;text-align:left;font-family:Poppins,sans-serif;font-weight:600;padding:12px 14px;white-space:nowrap}
+td{padding:11px 14px;border-top:1px solid var(--line)}
+td.r,th.r{text-align:right;white-space:nowrap}
+tr.sub td{background:var(--c-bleu);font-weight:700;color:var(--navy)}
+tr.tot td{background:var(--c-corail);font-weight:800;color:var(--navy)}
+/* PLANNING */
+.plan{min-width:760px}
+.plan th{text-align:center;font-size:.8rem;padding:9px 6px}
+.plan th:first-child{text-align:left}
+.plan td{padding:8px 6px;text-align:center;font-size:.8rem}
+.plan td:first-child{text-align:left;font-weight:600;color:var(--navy);font-size:.88rem;padding-left:14px;white-space:nowrap}
+.b{display:block;height:22px;border-radius:6px;background:var(--ice)}
+.b.n{background:var(--navy)}.b.a{background:#1db954}.b.t{background:var(--terra)}.b.l{background:#cfe5ff}
+.b.star{background:var(--terra);color:#fff;font-weight:700;line-height:22px;font-size:.72rem}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--mute);margin-top:10px}
+.legend i{display:inline-block;width:16px;height:12px;border-radius:3px;margin-right:6px;vertical-align:middle}
+/* PYRAMID */
+.pyr{display:flex;flex-direction:column;align-items:center;gap:8px;margin:18px 0}
+.pyr div{color:#fff;text-align:center;border-radius:12px;padding:14px 18px}
+.pyr div b{display:block;font-family:Poppins,sans-serif}
+.pyr div span{font-size:.88rem;opacity:.92}
+.pyr .l1{width:54%;background:var(--terra)}.pyr .l2{width:74%;background:#23407f}.pyr .l3{width:94%;background:var(--navy)}
+@media(max-width:620px){.pyr .l1,.pyr .l2,.pyr .l3{width:100%}}
+/* MAP */
+.map{width:100%;height:auto;display:block}
+.map .mt{font:600 12px Inter,Arial,sans-serif;fill:#1d2640}
+.map .ml{font:700 12px Poppins,Arial,sans-serif;fill:#021859}
+.map .mc{font:800 14px Poppins,Arial,sans-serif;fill:#f25430}
+.map .ms{font:500 11px Inter,Arial,sans-serif;fill:#5b6784}
+/* TAB PANELS */
+.panel{display:none}.panel.on{display:block}
+.tab-intro{background:var(--c-lavande);padding:34px 0;border-bottom:1px solid var(--line)}
+.tab-intro h2{margin-bottom:.3em}
+/* FOOTER */
+footer{background:var(--navy);color:#dbe7ff;padding:56px 0 36px}
+footer h2{color:#fff}footer h2:before{color:var(--terra)}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0 34px}
+@media(max-width:900px){.contacts{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.contacts{grid-template-columns:1fr}}
+.ct{display:block;border:1.5px solid rgba(123,189,255,.5);border-radius:16px;padding:18px;color:#fff;text-decoration:none;background:rgba(123,189,255,.06)}
+a.ct:hover{border-color:var(--terra)}
+.ct b{display:block;font-family:Poppins,sans-serif;font-size:1.02rem}
+.ct span{display:block;font-size:.88rem;color:#b9cdf2}
+.ct.off{opacity:.6;cursor:default}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(123,189,255,.3);padding-top:26px;font-size:.85rem;color:#9fb6e0}
+</style>
+</head>
+<body>
+
+<header class="hero">
+ <div class="wrap">
+  <div class="hero-top"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="214 252 572 496" width="136" height="118" role="img" aria-label="The Good Web"><g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g></svg></div>
+  <div class="eyebrow">Recommandation média · 3 devis en un</div>
+  <h1>Grand Var · Fin d'année 2026</h1>
+  <p class="sub">Notoriété fil rouge, temps forts de Noël et grand casting du 22 novembre : un dispositif social Story + display in-app 320x480, renforcé par l'audio Spotify, pensé comme un seul plan de novembre à décembre.</p>
+  <div class="pills">
+   <span class="pill"><b>Période</b> · 2 nov. → 31 déc. 2026</span>
+   <span class="pill"><b>Budget</b> · 6 500 € HT + 3 350 € Spotify</span>
+   <span class="pill"><b>Objectifs</b> · notoriété · trafic · recrutement</span>
+   <span class="pill"><b>Zone</b> · Grand Var + 30 à 50 km</span>
+   <span class="pill"><b>Leviers</b> · pStory Ads · Display In-App · Audio Spotify</span>
+  </div>
+ </div>
+</header>
+
+<nav class="sticky" aria-label="Navigation">
+ <div class="wrap">
+  <div class="tabs" role="tablist">
+   <button class="tab" data-tab="synthese"><span class="n">00</span>Synthèse</button>
+   <button class="tab" data-tab="notoriete"><span class="n">01</span>Notoriété nov.-déc.</button>
+   <button class="tab" data-tab="noel"><span class="n">02</span>Noël · dimanches · cartes cadeaux</button>
+   <button class="tab" data-tab="casting"><span class="n">03</span>Casting &amp; défilé 22/11</button>
+  </div>
+  <div class="anchors" id="anchors"></div>
+ </div>
+</nav>
+
+<main>
+<!-- ================= 00 SYNTHESE ================= -->
+<div class="panel" id="p-synthese" data-sections="contexte:Les 3 devis|planning:Calendrier global|budgets:Budgets|rgpd:RGPD|contacts:Contacts">
+ <section id="synthese-contexte">
+  <div class="wrap">
+   <h2>Les 3 devis en un coup d'œil</h2>
+   <p class="lead">Trois demandes, un même bassin et une même fenêtre de fin d'année. Nous les avons construites comme trois onglets d'un seul plan : la notoriété installe Grand Var dans la durée, Noël convertit sur les temps forts, et le casting du 22 novembre apporte une audience jeune le jour du premier dimanche d'ouverture.</p>
+   <div class="grid g3" style="margin-top:26px">
+    <div class="card c-bleu"><span class="tag">Onglet 01</span><h3>Notoriété clients &amp; non-clients</h3><div class="big">2 000 € HT</div><p class="small">1 000 € en novembre · 1 000 € en décembre<br>Zone 40-50 km · ≈333 000 impressions</p><p>pStory Ads 50 % · Display In-App 320x480 50 %</p><p class="small"><b>+ Spotify</b> · 1 000 € en novembre · 1 500 € en décembre</p></div>
+    <div class="card c-corail"><span class="tag">Onglet 02</span><h3>Noël : dimanches, magie de Noël, cartes cadeaux</h3><div class="big">3 500 € HT</div><p class="small">Recommandé (vs 2 000 € évoqués)<br>Zone 40-50 km · ≈583 000 impressions</p><p>pStory Ads 50 % · Display In-App 320x480 50 %</p></div>
+    <div class="card c-lavande"><span class="tag">Onglet 03</span><h3>Grand casting &amp; défilé 18-25 ans</h3><div class="big">1 000 € HT</div><p class="small">Option renforcée 1 500 € HT<br>Zone 30-40 km · ≈167 000 impressions</p><p>100 % pStory Ads, TikTok surpondéré (60 %)</p><p class="small"><b>+ Spotify</b> · 850 € ciblé 18-25 ans</p></div>
+   </div>
+   <div class="callout"><h3>Pourquoi un plan unique</h3><p>Les trois campagnes touchent le même bassin toulonnais sur les mêmes semaines. Pilotées ensemble, elles partagent un capping global (pas de sur-exposition d'une même personne), une rotation des messages cohérente et un reporting consolidé. La campagne notoriété sert en plus de réservoir d'audience : les personnes exposées en novembre sont reciblées par les messages Noël de décembre.</p></div>
+  </div>
+ </section>
+ <section class="alt" id="synthese-planning">
+  <div class="wrap">
+   <h2>Calendrier global</h2>
+   <div class="tw"><table class="plan">
+    <tr><th>Campagne</th><th>S45<br>02/11</th><th>S46<br>09/11</th><th>S47<br>16/11</th><th>S48<br>23/11</th><th>S49<br>30/11</th><th>S50<br>07/12</th><th>S51<br>14/12</th><th>S52<br>21/12</th><th>S53<br>28/12</th></tr>
+    <tr><td>01 · Notoriété</td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td></tr>
+    <tr><td>02 · Cartes cadeaux CSE</td><td><i class="b l"></i></td><td><i class="b l"></i></td><td><i class="b l"></i></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>02 · Dimanches d'ouverture</td><td></td><td></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td></td></tr>
+    <tr><td>02 · Magie de Noël</td><td></td><td></td><td></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td></td></tr>
+    <tr><td>02 · Cartes cadeaux particuliers</td><td></td><td></td><td></td><td></td><td><i class="b l"></i></td><td><i class="b l"></i></td><td><i class="b l"></i></td><td><i class="b l"></i></td><td></td></tr>
+    <tr><td>03 · Casting &amp; défilé</td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b star">22/11</i></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>+ Spotify notoriété / Noël</td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td></tr>
+    <tr><td>+ Spotify casting</td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+   </table></div>
+   <div class="legend"><span><i style="background:#021859"></i>Fil rouge notoriété</span><span><i style="background:#f25430"></i>Dimanches (pic jeudi → dimanche)</span><span><i style="background:#7bbdff"></i>Magie de Noël / casting</span><span><i style="background:#cfe5ff"></i>Cartes cadeaux</span><span><i style="background:#1db954"></i>Audio Spotify</span></div>
+  </div>
+ </section>
+ <section id="synthese-budgets">
+  <div class="wrap">
+   <h2>Récapitulatif budgétaire</h2>
+   <div class="tw"><table>
+    <tr><th>Devis</th><th>Période</th><th>Zone</th><th>Leviers</th><th class="r">Budget HT</th><th class="r">Impressions</th></tr>
+    <tr><td>01 · Notoriété</td><td>02/11 → 31/12</td><td>40-50 km</td><td>pStory + Display In-App</td><td class="r">2 000 €</td><td class="r">≈333 300</td></tr>
+    <tr><td>02 · Noël (recommandé)</td><td>02/11 → 27/12</td><td>40-50 km</td><td>pStory + Display In-App</td><td class="r">3 500 €</td><td class="r">≈583 300</td></tr>
+    <tr><td>03 · Casting &amp; défilé</td><td>02/11 → 22/11</td><td>30-40 km</td><td>pStory (TikTok, Instagram, Snapchat)</td><td class="r">1 000 €</td><td class="r">≈166 700</td></tr>
+    <tr class="sub"><td colspan="4">Sous-total social &amp; display</td><td class="r">6 500 €</td><td class="r">≈1,08 M</td></tr>
+    <tr><td>+ Spotify · notoriété</td><td>Novembre</td><td>40-50 km</td><td>Audio Spotify</td><td class="r">1 000 €</td><td class="r">≈111 100</td></tr>
+    <tr><td>+ Spotify · notoriété &amp; Noël</td><td>Décembre</td><td>40-50 km</td><td>Audio Spotify</td><td class="r">1 500 €</td><td class="r">≈166 700</td></tr>
+    <tr><td>+ Spotify · casting</td><td>02/11 → 22/11</td><td>30-40 km</td><td>Audio Spotify 18-25 ans</td><td class="r">850 €</td><td class="r">≈94 400</td></tr>
+    <tr class="sub"><td colspan="4">Sous-total ajout Spotify</td><td class="r">3 350 €</td><td class="r">≈372 200</td></tr>
+    <tr class="tot"><td colspan="4">Total dispositif avec Spotify</td><td class="r">9 850 €</td><td class="r">≈1,46 M</td></tr>
+    <tr><td colspan="4" class="small">Option casting renforcé (+500 € de social, soit 1 500 € sur l'onglet 03)</td><td class="r">10 350 €</td><td class="r">≈1,54 M</td></tr>
+   </table></div>
+   <p class="small">CPM 6 € HT en Social Story et Display In-App, CPM 9 € HT en audio Spotify. Budgets exprimés en HT, tout compris.</p>
+  </div>
+ </section>
+</div>
+
+<!-- ================= 01 NOTORIETE ================= -->
+<div class="panel" id="p-notoriete" data-sections="contexte:Contexte|dispositif:Dispositif|environnements:Environnements|planning:Planning|budgets:Budgets|formats:Formats &amp; KPIs|audiences:Audiences|data:Stratégie data|rgpd:RGPD|contacts:Contacts">
+ <div class="tab-intro"><div class="wrap"><span class="tag">Onglet 01</span><h2>Notoriété clients &amp; non-clients</h2>
+  <div class="pills"><span class="pill light"><b>Période</b> · 02/11 → 31/12</span><span class="pill light"><b>Budget</b> · 1 000 € nov. + 1 000 € déc.</span><span class="pill light"><b>+ Spotify</b> · 1 000 € nov. + 1 500 € déc.</span><span class="pill light"><b>Zone</b> · 40-50 km</span><span class="pill light"><b>Objectif</b> · notoriété</span></div></div></div>
+ <section id="notoriete-contexte">
+  <div class="wrap">
+   <h2>Contexte &amp; objectifs</h2>
+   <p class="lead">En fin d'année, chaque pôle commercial de l'aire toulonnaise parle en même temps. L'enjeu est de maintenir Grand Var présent à l'esprit pendant deux mois, auprès de ceux qui y viennent déjà comme de ceux qui ont pris l'habitude d'aller ailleurs.</p>
+   <div class="grid g3">
+    <div class="card c-bleu"><span class="num">1</span><h3>Occuper l'espace mental</h3><p>Installer Grand Var comme la destination shopping de fin d'année du bassin, avec une présence continue de novembre à décembre.</p></div>
+    <div class="card c-rose"><span class="num">2</span><h3>Clients et non-clients</h3><p>Entretenir la préférence des habitués et aller chercher les foyers de la zone qui fréquentent d'autres pôles commerciaux.</p></div>
+    <div class="card c-peche"><span class="num">3</span><h3>Préparer les temps forts</h3><p>Constituer un socle d'audience exposée, réactivée ensuite par les messages Noël (onglet 02) pour un meilleur rendement de chaque euro.</p></div>
+   </div>
+  </div>
+ </section>
+ <section class="alt" id="notoriete-dispositif">
+  <div class="wrap">
+   <h2>Dispositif</h2>
+   <p class="lead">Deux leviers mobiles plein écran, ceux qui ont fait leurs preuves sur Grand Var, à parts égales chaque mois.</p>
+   <div class="grid g2">
+    <div class="card"><span class="tag">Levier 1 · 50 %</span><h3>pStory Ads</h3><p>Formats verticaux plein écran sur Facebook, Instagram et TikTok. La Story est le format de l'attention : immersif, sonore, consommé au pouce sur mobile. Idéal pour montrer l'ambiance du centre, les enseignes et les nouveautés.</p><p class="small">CPM 6 € HT · capping 3/jour</p></div>
+    <div class="card"><span class="tag">Levier 2 · 50 %</span><h3>Display In-App 320x480</h3><p>Interstitiel plein écran diffusé dans les applications mobiles (info, météo, lifestyle, services). Le 320x480 est le format display le plus impactant sur mobile, et permet de mesurer les visites effectives au centre après exposition.</p><p class="small">CPM 6 € HT · géolocalisation GPS</p></div>
+    <div class="card c-bleu" style="grid-column:1/-1"><span class="tag">Ajout · audio</span><h3>Audio Spotify · 1 000 € en novembre, 1 500 € en décembre</h3><p>Spots audio de 15 à 30 s diffusés entre deux titres ou épisodes, à un moment d'écoute exclusive (voiture, casque, cuisine), accompagnés d'un visuel cliquable. L'audio apporte ce que l'image ne donne pas : la voix de Grand Var, et une présence dans les trajets en voiture vers les pôles commerciaux. En novembre, le spot porte le message d'image ; en décembre, il alterne image et temps forts de Noël (dimanches d'ouverture, Père Noël, cartes cadeaux) avec un budget renforcé pour le pic de fréquentation.</p><p class="small">CPM 9 € HT · géolocalisation 40-50 km · capping 2/jour</p></div>
+   </div>
+   <div class="funnel">
+    <div><b>Voir</b><span>pStory : couverture large du bassin, image et ambiance</span></div>
+    <div><b>Retenir</b><span>Display In-App : répétition du message dans les applis du quotidien</span></div>
+    <div><b>Venir</b><span>Mesure des visites en centre et réactivation par les messages Noël</span></div>
+   </div>
+  </div>
+ </section>
+ <section id="notoriete-environnements">
+  <div class="wrap">
+   <h2>Environnements de diffusion</h2>
+   <div class="grid g2">
+    <div>
+     <h3>Réseaux sociaux (Story)</h3>
+     <div class="chips"><span class="chip soc">Facebook</span><span class="chip soc">Instagram</span><span class="chip soc">TikTok</span></div>
+     <h3 style="margin-top:26px">Audio (ajout)</h3>
+     <div class="chips"><span class="chip" style="background:#1db954;color:#fff;border-color:#1db954">Spotify</span></div>
+     <h3 style="margin-top:26px">Applications mobiles (exemples)</h3>
+     <div class="chips"><span class="chip">leboncoin</span><span class="chip">20 Minutes</span><span class="chip">Le Figaro</span><span class="chip">La Chaîne Météo</span><span class="chip">ELLE</span><span class="chip">Marie Claire</span><span class="chip">Gala</span><span class="chip">Voici</span><span class="chip">Version Femina</span><span class="chip">L'Équipe</span><span class="chip">BFM TV</span><span class="chip">Vinted</span></div>
+     <p class="small" style="margin-top:12px">Liste indicative : la diffusion s'adapte à l'inventaire disponible sur la zone et aux applications les plus performantes en cours de campagne.</p>
+    </div>
+    <div class="card" style="padding:12px"><svg class="map" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zone de diffusion autour de Grand Var"><rect x="0" y="0" width="600" height="560" rx="18" fill="#f3f7ff"/><circle cx="300" cy="290" r="229.99999999999997" fill="rgba(123,189,255,.18)" stroke="#7bbdff" stroke-width="2" stroke-dasharray="6 5"/><circle cx="300" cy="290" r="184.0" fill="rgba(123,189,255,.28)" stroke="#021859" stroke-width="1.6"/><text x="300" y="52.00000000000003" text-anchor="middle" class="ml">50 km</text><text x="300" y="98.0" text-anchor="middle" class="ml">40 km</text><circle cx="281" cy="297" r="4" fill="#021859"/><text x="273" y="291" text-anchor="end" class="mt">Toulon</text><circle cx="262" cy="308" r="4" fill="#021859"/><text x="255" y="312" text-anchor="end" class="mt">La Seyne-sur-Mer</text><circle cx="233" cy="299" r="4" fill="#021859"/><text x="226" y="303" text-anchor="end" class="mt">Sanary</text><circle cx="215" cy="291" r="4" fill="#021859"/><text x="208" y="295" text-anchor="end" class="mt">Bandol</text><circle cx="356" cy="299" r="4" fill="#021859"/><text x="363" y="303" text-anchor="start" class="mt">Hyères</text><circle cx="323" cy="262" r="4" fill="#021859"/><text x="330" y="266" text-anchor="start" class="mt">Solliès-Pont</text><circle cx="334" cy="238" r="4" fill="#021859"/><text x="341" y="242" text-anchor="start" class="mt">Cuers</text><circle cx="330" cy="153" r="4" fill="#021859"/><text x="337" y="157" text-anchor="start" class="mt">Brignoles</text><circle cx="445" cy="290" r="4" fill="#021859"/><text x="452" y="294" text-anchor="start" class="mt">Le Lavandou</text><circle cx="160" cy="271" r="4" fill="#021859"/><text x="153" y="275" text-anchor="end" class="mt">La Ciotat</text><circle cx="147" cy="210" r="4" fill="#021859"/><text x="140" y="214" text-anchor="end" class="mt">Aubagne</text><circle cx="234" cy="259" r="4" fill="#021859"/><text x="227" y="263" text-anchor="end" class="mt">Le Beausset</text><circle cx="256" cy="129" r="4" fill="#021859"/><text x="249" y="133" text-anchor="end" class="mt">Saint-Maximin</text><circle cx="424" cy="159" r="4" fill="#021859"/><text x="431" y="163" text-anchor="start" class="mt">Le Luc</text><circle cx="505" cy="272" r="4" fill="#4b6aa8"/><text x="512" y="276" text-anchor="start" class="mt">Cavalaire</text><circle cx="300" cy="290" r="10" fill="#f25430" stroke="#fff" stroke-width="3"/><text x="300" y="318" text-anchor="middle" class="mc">Grand Var</text><text x="300" y="540" text-anchor="middle" class="ms">Méditerranée · schéma indicatif, rayons à vol d'oiseau</text></svg><p class="small" style="padding:6px 10px 0">Cœur de zone 40 km, extension à 50 km pour les communes à fort potentiel (La Ciotat, Aubagne, Brignoles, Le Lavandou, Cavalaire).</p></div>
+   </div>
+  </div>
+ </section>
+ <section class="alt" id="notoriete-planning">
+  <div class="wrap">
+   <h2>Planning</h2>
+   <div class="tw"><table class="plan">
+    <tr><th>Levier</th><th>S45<br>02/11</th><th>S46<br>09/11</th><th>S47<br>16/11</th><th>S48<br>23/11</th><th>S49<br>30/11</th><th>S50<br>07/12</th><th>S51<br>14/12</th><th>S52<br>21/12</th><th>S53<br>28/12</th></tr>
+    <tr><td>pStory Ads</td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td></tr>
+    <tr><td>Display In-App 320x480</td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td></tr>
+    <tr><td>+ Audio Spotify</td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td></tr>
+   </table></div>
+   <p class="small">Diffusion continue et lissée : 1 000 € du 2 au 30 novembre, 1 000 € du 1er au 31 décembre. Les dimanches d'ouverture bénéficient d'un léger surpoids naturel lié à la hausse d'usage mobile en week-end.</p>
+  </div>
+ </section>
+ <section id="notoriete-budgets">
+  <div class="wrap">
+   <h2>Budget</h2>
+   <div class="tw"><table>
+    <tr><th>Mois</th><th>Levier</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
+    <tr><td>Novembre</td><td>pStory Ads</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
+    <tr><td>Novembre</td><td>Display In-App 320x480</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total novembre</td><td class="r">1 000 €</td><td class="r"></td><td class="r">≈166 700</td></tr>
+    <tr><td>Décembre</td><td>pStory Ads</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
+    <tr><td>Décembre</td><td>Display In-App 320x480</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total décembre</td><td class="r">1 000 €</td><td class="r"></td><td class="r">≈166 700</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total social &amp; display</td><td class="r">2 000 €</td><td class="r">6 €</td><td class="r">≈333 300</td></tr>
+    <tr><td>Novembre</td><td>+ Audio Spotify</td><td class="r">1 000 €</td><td class="r">9 €</td><td class="r">≈111 100</td></tr>
+    <tr><td>Décembre</td><td>+ Audio Spotify</td><td class="r">1 500 €</td><td class="r">9 €</td><td class="r">≈166 700</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total ajout Spotify</td><td class="r">2 500 €</td><td class="r">9 €</td><td class="r">≈277 800</td></tr>
+    <tr class="tot"><td colspan="2">Total notoriété avec Spotify</td><td class="r">4 500 €</td><td class="r"></td><td class="r">≈611 100</td></tr>
+   </table></div>
+  </div>
+ </section>
+ <section class="alt" id="notoriete-formats">
+  <div class="wrap">
+   <h2>Formats &amp; KPIs de suivi</h2>
+   <div class="grid g2">
+    <div class="card"><h3>pStory Ads</h3><p><b>Format</b> · Story 9:16, 1080x1920 px, vidéo mp4 (6 à 15 s recommandées) ou visuel fixe.</p><p><b>KPIs</b> · impressions, reach, clics, CTR, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p></div>
+    <div class="card"><h3>Display In-App</h3><p><b>Format</b> · interstitiel 320x480 px, jpeg, png ou gif.</p><p><b>KPIs</b> · impressions, clics, CTR, taux de visibilité, étude socio-démo, géolocalisation, affinitaires, visites mesurées en centre.</p></div>
+    <div class="card"><h3>Audio Spotify</h3><p><b>Format</b> · spot audio 15, 20 ou 30 s (mp3/wav) + visuel compagnon 1:1 640x640 px ou 9:16 720x1280 px.</p><p><b>KPIs</b> · impressions, reach, clics, écoutes à 25/50/75/100 %, taux de complétion, stats socio-démo, capping, CPE &amp; CPM finaux.</p></div>
+   </div>
+  </div>
+ </section>
+ <section id="notoriete-audiences">
+  <div class="wrap">
+   <h2>Audiences</h2>
+   <div class="grid g4">
+    <div class="card c-bleu"><div class="glyph">●</div><h3>Familles du bassin</h3><p>Parents 30-50 ans de l'aire toulonnaise, qui arbitrent leurs sorties shopping du week-end.</p></div>
+    <div class="card c-rose"><div class="glyph">■</div><h3>Actifs périurbains</h3><p>25-49 ans des communes autour de Toulon, mobiles et motorisés, sensibles au gain de temps et au stationnement.</p></div>
+    <div class="card c-peche"><div class="glyph">◆</div><h3>Non-clients à conquérir</h3><p>Résidents de la zone repérés dans d'autres pôles commerciaux de l'aire toulonnaise.</p></div>
+    <div class="card c-menthe"><div class="glyph">◐</div><h3>Seniors actifs</h3><p>55 ans et plus, clientèle fidèle et disponible en semaine, relais des achats de fin d'année pour la famille.</p></div>
+   </div>
+  </div>
+ </section>
+ <section class="alt" id="notoriete-data">
+  <div class="wrap">
+   <h2>Stratégie data</h2>
+   <div class="pyr">
+    <div class="l1"><b>Couche 1 · Comportements de fréquentation</b><span>Visiteurs géo-historiques de Grand Var (clients) et d'autres pôles commerciaux de la zone (non-clients)</span></div>
+    <div class="l2"><b>Couche 2 · Centres d'intérêt</b><span>Mode, beauté, maison &amp; déco, loisirs en famille, high-tech, bons plans</span></div>
+    <div class="l3"><b>Couche 3 · Socio-démographie &amp; géographie</b><span>Hommes et femmes 25-65 ans, rayon 40-50 km autour de Grand Var</span></div>
+   </div>
+   <div class="chips" style="justify-content:center"><span class="chip">Data géo-historique mobile</span><span class="chip">The Bradery · acheteurs mode &amp; déco</span><span class="chip">Leboncoin · profils maison &amp; famille</span><span class="chip">Choose · amateurs de bonnes affaires</span></div>
+  </div>
+ </section>
+</div>
+
+<!-- ================= 02 NOEL ================= -->
+<div class="panel" id="p-noel" data-sections="contexte:Contexte|dispositif:Dispositif|environnements:Environnements|planning:Planning|budgets:Budgets|formats:Formats &amp; KPIs|audiences:Audiences|data:Stratégie data|rgpd:RGPD|contacts:Contacts">
+ <div class="tab-intro"><div class="wrap"><span class="tag">Onglet 02</span><h2>Noël · dimanches · cartes cadeaux</h2>
+  <div class="pills"><span class="pill light"><b>Période</b> · 02/11 → 27/12</span><span class="pill light"><b>Budget</b> · 3 500 € HT recommandé</span><span class="pill light"><b>Zone</b> · 40-50 km</span><span class="pill light"><b>Objectif</b> · trafic en centre</span></div></div></div>
+ <section id="noel-contexte">
+  <div class="wrap">
+   <h2>Contexte &amp; objectifs</h2>
+   <p class="lead">Trois messages à porter sur la même période, avec chacun son rythme : un rendez-vous hebdomadaire (les dimanches), une ambiance à faire vivre (la magie de Noël) et une solution cadeau à installer tôt (les cartes cadeaux).</p>
+   <div class="grid g3">
+    <div class="card c-corail"><span class="num">1</span><h3>Dimanches d'ouverture</h3><p>Six dimanches ouverts, du 22 novembre au 27 décembre. Objectif : faire du dimanche à Grand Var un réflexe, avec une pression concentrée du jeudi au dimanche midi.</p></div>
+    <div class="card c-bleu"><span class="num">2</span><h3>Magie de Noël</h3><p>Décoration, Père Noël et boutiques du 25 novembre au 25 décembre. Objectif : donner envie de venir en famille et faire de la visite une sortie.</p></div>
+    <div class="card c-peche"><span class="num">3</span><h3>Cartes cadeaux</h3><p>Novembre et décembre. Objectif : capter les CSE et entreprises en novembre, puis les particuliers en quête du cadeau qui fait plaisir à coup sûr en décembre.</p></div>
+   </div>
+   <div class="callout"><h3>2 000 € par campagne, est-ce assez ?</h3><p>Avec 2 000 € pour porter ces trois messages sur six semaines, chaque message ne dispose que d'environ 20 000 impressions par semaine sur une zone de 40 à 50 km : c'est trop peu pour installer un rendez-vous comme le dimanche. Nous recommandons <b>3 500 € HT</b>, qui portent le volume à ≈583 000 impressions (+75 %) et permettent de tenir une vraie pression chaque week-end d'ouverture. Les deux options sont chiffrées dans la section Budgets.</p></div>
+  </div>
+ </section>
+ <section class="alt" id="noel-dispositif">
+  <div class="wrap">
+   <h2>Dispositif</h2>
+   <p class="lead">Appli + réseaux sociaux, comme souhaité : pStory Ads et Display In-App 320x480 à parts égales, avec une créa dédiée par temps fort.</p>
+   <div class="grid g3">
+    <div class="card"><span class="tag">Dimanches</span><h3>Le rendez-vous</h3><p>Message court et daté (« Ouvert ce dimanche »), diffusion renforcée jeudi, vendredi, samedi et dimanche matin. Le Display In-App capte les recherches de dernière minute.</p></div>
+    <div class="card"><span class="tag">Magie de Noël</span><h3>L'émotion</h3><p>Vidéo Story de la décoration et du Père Noël, idéalement tournée sur place : c'est le contenu qui génère le plus d'envie de visite en famille.</p></div>
+    <div class="card"><span class="tag">Cartes cadeaux</span><h3>La solution</h3><p>Novembre orienté CSE et entreprises (commandes groupées), décembre orienté particuliers : la carte cadeau comme réponse au cadeau de dernière minute.</p></div>
+   </div>
+   <div class="funnel">
+    <div><b>Réactiver</b><span>Audiences exposées à la campagne notoriété (onglet 01)</span></div>
+    <div><b>Déclencher</b><span>Messages datés : dimanche, Père Noël, carte cadeau</span></div>
+    <div><b>Mesurer</b><span>Visites en centre par temps fort et par jour de la semaine</span></div>
+   </div>
+  </div>
+ </section>
+ <section id="noel-environnements">
+  <div class="wrap">
+   <h2>Environnements de diffusion</h2>
+   <div class="grid g2">
+    <div>
+     <h3>Réseaux sociaux (Story)</h3>
+     <div class="chips"><span class="chip soc">Facebook</span><span class="chip soc">Instagram</span><span class="chip soc">TikTok</span></div>
+     <h3 style="margin-top:26px">Applications mobiles (exemples)</h3>
+     <div class="chips"><span class="chip">leboncoin</span><span class="chip">20 Minutes</span><span class="chip">La Chaîne Météo</span><span class="chip">Le Figaro</span><span class="chip">ELLE</span><span class="chip">Gala</span><span class="chip">Voici</span><span class="chip">Marie Claire</span><span class="chip">Version Femina</span><span class="chip">BFM TV</span><span class="chip">Paris Match</span><span class="chip">Vinted</span></div>
+     <p class="small" style="margin-top:12px">Liste indicative, ajustée à l'inventaire de la zone et aux performances observées.</p>
+    </div>
+    <div class="card" style="padding:12px"><svg class="map" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zone de diffusion autour de Grand Var"><rect x="0" y="0" width="600" height="560" rx="18" fill="#f3f7ff"/><circle cx="300" cy="290" r="229.99999999999997" fill="rgba(123,189,255,.18)" stroke="#7bbdff" stroke-width="2" stroke-dasharray="6 5"/><circle cx="300" cy="290" r="184.0" fill="rgba(123,189,255,.28)" stroke="#021859" stroke-width="1.6"/><text x="300" y="52.00000000000003" text-anchor="middle" class="ml">50 km</text><text x="300" y="98.0" text-anchor="middle" class="ml">40 km</text><circle cx="281" cy="297" r="4" fill="#021859"/><text x="273" y="291" text-anchor="end" class="mt">Toulon</text><circle cx="262" cy="308" r="4" fill="#021859"/><text x="255" y="312" text-anchor="end" class="mt">La Seyne-sur-Mer</text><circle cx="233" cy="299" r="4" fill="#021859"/><text x="226" y="303" text-anchor="end" class="mt">Sanary</text><circle cx="215" cy="291" r="4" fill="#021859"/><text x="208" y="295" text-anchor="end" class="mt">Bandol</text><circle cx="356" cy="299" r="4" fill="#021859"/><text x="363" y="303" text-anchor="start" class="mt">Hyères</text><circle cx="323" cy="262" r="4" fill="#021859"/><text x="330" y="266" text-anchor="start" class="mt">Solliès-Pont</text><circle cx="334" cy="238" r="4" fill="#021859"/><text x="341" y="242" text-anchor="start" class="mt">Cuers</text><circle cx="330" cy="153" r="4" fill="#021859"/><text x="337" y="157" text-anchor="start" class="mt">Brignoles</text><circle cx="445" cy="290" r="4" fill="#021859"/><text x="452" y="294" text-anchor="start" class="mt">Le Lavandou</text><circle cx="160" cy="271" r="4" fill="#021859"/><text x="153" y="275" text-anchor="end" class="mt">La Ciotat</text><circle cx="147" cy="210" r="4" fill="#021859"/><text x="140" y="214" text-anchor="end" class="mt">Aubagne</text><circle cx="234" cy="259" r="4" fill="#021859"/><text x="227" y="263" text-anchor="end" class="mt">Le Beausset</text><circle cx="256" cy="129" r="4" fill="#021859"/><text x="249" y="133" text-anchor="end" class="mt">Saint-Maximin</text><circle cx="424" cy="159" r="4" fill="#021859"/><text x="431" y="163" text-anchor="start" class="mt">Le Luc</text><circle cx="505" cy="272" r="4" fill="#4b6aa8"/><text x="512" y="276" text-anchor="start" class="mt">Cavalaire</text><circle cx="300" cy="290" r="10" fill="#f25430" stroke="#fff" stroke-width="3"/><text x="300" y="318" text-anchor="middle" class="mc">Grand Var</text><text x="300" y="540" text-anchor="middle" class="ms">Méditerranée · schéma indicatif, rayons à vol d'oiseau</text></svg><p class="small" style="padding:6px 10px 0">Même zone que la campagne notoriété, pour cumuler les expositions sur les mêmes foyers.</p></div>
+   </div>
+  </div>
+ </section>
+ <section class="alt" id="noel-planning">
+  <div class="wrap">
+   <h2>Planning</h2>
+   <div class="tw"><table class="plan">
+    <tr><th>Temps fort</th><th>S45<br>02/11</th><th>S46<br>09/11</th><th>S47<br>16/11</th><th>S48<br>23/11</th><th>S49<br>30/11</th><th>S50<br>07/12</th><th>S51<br>14/12</th><th>S52<br>21/12</th></tr>
+    <tr><td>Cartes cadeaux · CSE</td><td><i class="b l"></i></td><td><i class="b l"></i></td><td><i class="b l"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>Dimanches d'ouverture</td><td></td><td></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td><i class="b t"></i></td></tr>
+    <tr><td>Magie de Noël</td><td></td><td></td><td></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td></tr>
+    <tr><td>Cartes cadeaux · particuliers</td><td></td><td></td><td></td><td></td><td><i class="b l"></i></td><td><i class="b l"></i></td><td><i class="b l"></i></td><td><i class="b l"></i></td></tr>
+   </table></div>
+   <p class="small">Dimanches d'ouverture : 22/11, 29/11, 06/12, 13/12, 20/12 et 27/12, avec une diffusion concentrée du jeudi au dimanche midi chaque semaine. Magie de Noël : 23/11 → 24/12 pour annoncer l'arrivée du Père Noël dès le 25/11. Cartes cadeaux : 02/11 → 22/11 (CSE) puis 30/11 → 24/12 (particuliers).</p>
+  </div>
+ </section>
+ <section id="noel-budgets">
+  <div class="wrap">
+   <h2>Budgets</h2>
+   <div class="grid g2" style="margin-bottom:22px">
+    <div class="card c-menthe"><span class="tag">Option A · budget évoqué</span><div class="big">2 000 € HT</div><p class="small">≈333 300 impressions · ≈55 500 par semaine pour 3 messages</p></div>
+    <div class="card c-navy"><span class="tag" style="color:#ffb79e">Option B · recommandée</span><div class="big">3 500 € HT</div><p class="small">≈583 300 impressions · ≈97 200 par semaine pour 3 messages</p></div>
+   </div>
+   <h3>Détail option B · 3 500 € HT (recommandée)</h3>
+   <div class="tw"><table>
+    <tr><th>Temps fort</th><th>Levier</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
+    <tr><td>Dimanches d'ouverture</td><td>pStory Ads</td><td class="r">600 €</td><td class="r">6 €</td><td class="r">100 000</td></tr>
+    <tr><td>Dimanches d'ouverture</td><td>Display In-App 320x480</td><td class="r">600 €</td><td class="r">6 €</td><td class="r">100 000</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total dimanches</td><td class="r">1 200 €</td><td></td><td class="r">200 000</td></tr>
+    <tr><td>Magie de Noël</td><td>pStory Ads</td><td class="r">700 €</td><td class="r">6 €</td><td class="r">≈116 700</td></tr>
+    <tr><td>Magie de Noël</td><td>Display In-App 320x480</td><td class="r">700 €</td><td class="r">6 €</td><td class="r">≈116 700</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total magie de Noël</td><td class="r">1 400 €</td><td></td><td class="r">≈233 300</td></tr>
+    <tr><td>Cartes cadeaux · CSE (nov.)</td><td>pStory Ads</td><td class="r">150 €</td><td class="r">6 €</td><td class="r">25 000</td></tr>
+    <tr><td>Cartes cadeaux · CSE (nov.)</td><td>Display In-App 320x480</td><td class="r">150 €</td><td class="r">6 €</td><td class="r">25 000</td></tr>
+    <tr><td>Cartes cadeaux · particuliers (déc.)</td><td>pStory Ads</td><td class="r">300 €</td><td class="r">6 €</td><td class="r">50 000</td></tr>
+    <tr><td>Cartes cadeaux · particuliers (déc.)</td><td>Display In-App 320x480</td><td class="r">300 €</td><td class="r">6 €</td><td class="r">50 000</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total cartes cadeaux</td><td class="r">900 €</td><td></td><td class="r">150 000</td></tr>
+    <tr class="tot"><td colspan="2">Total Noël · option B</td><td class="r">3 500 €</td><td class="r">6 €</td><td class="r">≈583 300</td></tr>
+   </table></div>
+   <h3 style="margin-top:26px">Détail option A · 2 000 € HT</h3>
+   <div class="tw"><table>
+    <tr><th>Temps fort</th><th>Répartition</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
+    <tr><td>Dimanches d'ouverture</td><td>50 % pStory · 50 % In-App</td><td class="r">700 €</td><td class="r">6 €</td><td class="r">≈116 700</td></tr>
+    <tr><td>Magie de Noël</td><td>50 % pStory · 50 % In-App</td><td class="r">800 €</td><td class="r">6 €</td><td class="r">≈133 300</td></tr>
+    <tr><td>Cartes cadeaux</td><td>50 % pStory · 50 % In-App</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
+    <tr class="tot"><td colspan="2">Total Noël · option A</td><td class="r">2 000 €</td><td class="r">6 €</td><td class="r">≈333 300</td></tr>
+   </table></div>
+  </div>
+ </section>
+ <section class="alt" id="noel-formats">
+  <div class="wrap">
+   <h2>Formats &amp; KPIs de suivi</h2>
+   <div class="grid g2">
+    <div class="card"><h3>pStory Ads</h3><p><b>Format</b> · Story 9:16, 1080x1920 px, vidéo mp4 (6 à 15 s) ou visuel fixe. Une créa par temps fort, avec date ou mention « ce dimanche » bien lisible dans les 2 premières secondes.</p><p><b>KPIs</b> · impressions, reach, clics, CTR, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p></div>
+    <div class="card"><h3>Display In-App</h3><p><b>Format</b> · interstitiel 320x480 px, jpeg, png ou gif. Une déclinaison par temps fort.</p><p><b>KPIs</b> · impressions, clics, CTR, taux de visibilité, étude socio-démo, géolocalisation, affinitaires, visites mesurées en centre (lecture par temps fort et par jour).</p></div>
+   </div>
+  </div>
+ </section>
+ <section id="noel-audiences">
+  <div class="wrap">
+   <h2>Audiences</h2>
+   <div class="grid g4">
+    <div class="card c-bleu"><div class="glyph">●</div><h3>Parents de jeunes enfants</h3><p>Foyers avec enfants de 2 à 10 ans : le Père Noël et la décoration sont leur raison de venir.</p></div>
+    <div class="card c-corail"><div class="glyph">■</div><h3>Acheteurs de dernière minute</h3><p>Actifs 25-50 ans pour qui le dimanche est le seul créneau disponible pour boucler les cadeaux.</p></div>
+    <div class="card c-peche"><div class="glyph">◆</div><h3>CSE &amp; entreprises</h3><p>Élus de CSE, dirigeants de TPE-PME et services RH du bassin, prescripteurs de cartes cadeaux en novembre.</p></div>
+    <div class="card c-menthe"><div class="glyph">◐</div><h3>Grands-parents</h3><p>55 ans et plus, gros offreurs de fin d'année, réceptifs à la carte cadeau et à la sortie avec les petits-enfants.</p></div>
+   </div>
+  </div>
+ </section>
+ <section class="alt" id="noel-data">
+  <div class="wrap">
+   <h2>Stratégie data</h2>
+   <div class="pyr">
+    <div class="l1"><b>Couche 1 · Intentionnistes Noël</b><span>Recherche de jouets, idées cadeaux, décoration de fêtes ; intérêts RH/CSE pour les cartes cadeaux</span></div>
+    <div class="l2"><b>Couche 2 · Retargeting notoriété &amp; fréquentation</b><span>Personnes exposées à l'onglet 01, visiteurs géo-historiques de Grand Var et des pôles commerciaux de la zone</span></div>
+    <div class="l3"><b>Couche 3 · Socio-démographie &amp; géographie</b><span>Foyers avec enfants, 25-65 ans, rayon 40-50 km</span></div>
+   </div>
+   <div class="chips" style="justify-content:center"><span class="chip">The Bradery · acheteurs cadeaux &amp; déco</span><span class="chip">Leboncoin · jouets &amp; puériculture</span><span class="chip">Choose · ventes exclusives</span><span class="chip">Data géo-historique mobile</span></div>
+  </div>
+ </section>
+</div>
+
+<!-- ================= 03 CASTING ================= -->
+<div class="panel" id="p-casting" data-sections="contexte:Contexte|dispositif:Dispositif|environnements:Environnements|planning:Planning|budgets:Budgets|formats:Formats &amp; KPIs|audiences:Audiences|data:Stratégie data|rgpd:RGPD|contacts:Contacts">
+ <div class="tab-intro"><div class="wrap"><span class="tag">Onglet 03</span><h2>Grand casting &amp; défilé 18-25 ans</h2>
+  <div class="pills"><span class="pill light"><b>Période</b> · 02/11 → 22/11</span><span class="pill light"><b>Budget</b> · 1 000 € HT (option 1 500 €)</span><span class="pill light"><b>+ Spotify</b> · 850 €</span><span class="pill light"><b>Zone</b> · 30-40 km</span><span class="pill light"><b>Cible</b> · 18-25 ans</span></div></div></div>
+ <section id="casting-contexte">
+  <div class="wrap">
+   <h2>Contexte &amp; objectifs</h2>
+   <p class="lead">Un grand casting et un défilé pour recruter des jeunes de 18 à 25 ans, avec une animation le dimanche 22 novembre, qui est aussi le premier dimanche d'ouverture de fin d'année : une belle occasion de faire entrer une nouvelle génération à Grand Var.</p>
+   <div class="grid g3">
+    <div class="card c-lavande"><span class="num">1</span><h3>Recruter</h3><p>Générer un maximum de candidatures 18-25 ans pour le casting, dans un rayon de 30 à 40 km.</p></div>
+    <div class="card c-corail"><span class="num">2</span><h3>Remplir le 22 novembre</h3><p>Faire venir candidat·es, proches et curieux le jour du défilé, en synergie avec l'ouverture dominicale.</p></div>
+    <div class="card c-bleu"><span class="num">3</span><h3>Rajeunir l'image</h3><p>Installer Grand Var dans les usages des 18-25 ans, là où ils passent leur temps : TikTok, Instagram, Snapchat.</p></div>
+   </div>
+  </div>
+ </section>
+ <section class="alt" id="casting-dispositif">
+  <div class="wrap">
+   <h2>Dispositif</h2>
+   <p class="lead">100 % Social en format Story, avec une sur-exploitation de TikTok : c'est la plateforme où les 18-25 ans passent le plus de temps, et où un casting se partage naturellement.</p>
+   <div class="grid g3">
+    <div class="card c-navy"><span class="tag" style="color:#ffb79e">60 %</span><h3>TikTok</h3><p>Levier principal. Format natif plein écran, son activé, fort potentiel de partage et de commentaires (« tague la personne qui doit postuler »).</p></div>
+    <div class="card"><span class="tag">25 %</span><h3>Instagram</h3><p>Stories et Reels placements Story : terrain naturel de la mode et du mannequinat, relais visuel du casting.</p></div>
+    <div class="card"><span class="tag">15 %</span><h3>Snapchat</h3><p>Complément d'affinité sur les 18-21 ans, très présents sur la plateforme au quotidien.</p></div>
+    <div class="card c-bleu" style="grid-column:1/-1"><span class="tag">Ajout · audio · 850 €</span><h3>Audio Spotify ciblé 18-25 ans</h3><p>Les 18-25 ans écoutent massivement Spotify, en version gratuite donc exposés à la publicité : dans les transports, à la fac, en soirée. Un spot court au ton direct (« Grand Var cherche ses mannequins ») complète la Story en touchant la cible dans un moment d'écoute exclusive, avec un visuel cliquable vers le formulaire d'inscription. Ciblage 18-25 ans, zone 30-40 km, affinités playlists pop, rap, électro et mode.</p><p class="small">CPM 9 € HT · 02/11 → 22/11 · 60 % phase candidatures, 40 % phase rendez-vous</p></div>
+   </div>
+   <div class="funnel">
+    <div><b>Phase 1 · Appel à candidatures</b><span>02 → 15/11 · 60 % du budget · message « Deviens mannequin d'un jour »</span></div>
+    <div><b>Phase 2 · Rendez-vous</b><span>16 → 22/11 · 40 % du budget · message « Le défilé, c'est dimanche »</span></div>
+    <div><b>Jour J · 22/11</b><span>Pic de diffusion du vendredi au dimanche midi</span></div>
+   </div>
+  </div>
+ </section>
+ <section id="casting-environnements">
+  <div class="wrap">
+   <h2>Environnements de diffusion</h2>
+   <div class="grid g2">
+    <div>
+     <h3>Plateformes (Story)</h3>
+     <div class="chips"><span class="chip hot">TikTok · 60 %</span><span class="chip soc">Instagram · 25 %</span><span class="chip soc">Snapchat · 15 %</span></div>
+     <h3 style="margin-top:22px">Audio (ajout)</h3>
+     <div class="chips"><span class="chip" style="background:#1db954;color:#fff;border-color:#1db954">Spotify · 850 €</span></div>
+     <p style="margin-top:20px">Zone resserrée à 30-40 km : c'est le rayon dans lequel un·e jeune de 18-25 ans se déplace pour un casting un dimanche. Le campus de La Garde, à quelques minutes de Grand Var, est au cœur de la zone.</p>
+    </div>
+    <div class="card" style="padding:12px"><svg class="map" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zone de diffusion autour de Grand Var"><rect x="0" y="0" width="600" height="560" rx="18" fill="#f3f7ff"/><circle cx="300" cy="290" r="230.0" fill="rgba(123,189,255,.18)" stroke="#7bbdff" stroke-width="2" stroke-dasharray="6 5"/><circle cx="300" cy="290" r="172.5" fill="rgba(123,189,255,.28)" stroke="#021859" stroke-width="1.6"/><text x="300" y="52.0" text-anchor="middle" class="ml">40 km</text><text x="300" y="109.5" text-anchor="middle" class="ml">30 km</text><circle cx="276" cy="298" r="4" fill="#021859"/><text x="268" y="292" text-anchor="end" class="mt">Toulon</text><circle cx="252" cy="313" r="4" fill="#021859"/><text x="245" y="317" text-anchor="end" class="mt">La Seyne-sur-Mer</text><circle cx="217" cy="301" r="4" fill="#021859"/><text x="210" y="305" text-anchor="end" class="mt">Sanary</text><circle cx="194" cy="291" r="4" fill="#021859"/><text x="187" y="295" text-anchor="end" class="mt">Bandol</text><circle cx="370" cy="301" r="4" fill="#021859"/><text x="377" y="305" text-anchor="start" class="mt">Hyères</text><circle cx="329" cy="256" r="4" fill="#021859"/><text x="336" y="260" text-anchor="start" class="mt">Solliès-Pont</text><circle cx="342" cy="226" r="4" fill="#021859"/><text x="349" y="230" text-anchor="start" class="mt">Cuers</text><circle cx="338" cy="118" r="4" fill="#4b6aa8"/><text x="345" y="122" text-anchor="start" class="mt">Brignoles</text><circle cx="481" cy="290" r="4" fill="#4b6aa8"/><text x="488" y="294" text-anchor="start" class="mt">Le Lavandou</text><circle cx="125" cy="266" r="4" fill="#4b6aa8"/><text x="118" y="270" text-anchor="end" class="mt">La Ciotat</text><circle cx="109" cy="190" r="4" fill="#4b6aa8"/><text x="102" y="194" text-anchor="end" class="mt">Aubagne</text><circle cx="218" cy="251" r="4" fill="#021859"/><text x="211" y="255" text-anchor="end" class="mt">Le Beausset</text><circle cx="245" cy="89" r="4" fill="#4b6aa8"/><text x="238" y="93" text-anchor="end" class="mt">Saint-Maximin</text><circle cx="455" cy="126" r="4" fill="#4b6aa8"/><text x="462" y="130" text-anchor="start" class="mt">Le Luc</text><circle cx="300" cy="290" r="10" fill="#f25430" stroke="#fff" stroke-width="3"/><text x="300" y="318" text-anchor="middle" class="mc">Grand Var</text><text x="300" y="540" text-anchor="middle" class="ms">Méditerranée · schéma indicatif, rayons à vol d'oiseau</text></svg><p class="small" style="padding:6px 10px 0">Cœur de zone 30 km, extension à 40 km (La Ciotat, Aubagne, Brignoles, Saint-Maximin, Le Luc).</p></div>
+   </div>
+  </div>
+ </section>
+ <section class="alt" id="casting-planning">
+  <div class="wrap">
+   <h2>Planning</h2>
+   <div class="tw"><table class="plan">
+    <tr><th>Plateforme</th><th>S45<br>02/11</th><th>S46<br>09/11</th><th>S47<br>16/11</th><th>Dim.<br>22/11</th></tr>
+    <tr><td>TikTok</td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b star">Défilé</i></td></tr>
+    <tr><td>Instagram</td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b star">Défilé</i></td></tr>
+    <tr><td>Snapchat</td><td><i class="b l"></i></td><td><i class="b l"></i></td><td><i class="b l"></i></td><td><i class="b star">Défilé</i></td></tr>
+    <tr><td>+ Audio Spotify</td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b star">Défilé</i></td></tr>
+   </table></div>
+   <p class="small">Phase 1 (S45-S46) : appel à candidatures. Phase 2 (S47) : rendez-vous du défilé, avec surpoids du vendredi 20 au dimanche 22 midi. Dates de clôture des inscriptions à caler avec l'organisation du casting.</p>
+  </div>
+ </section>
+ <section id="casting-budgets">
+  <div class="wrap">
+   <h2>Budgets</h2>
+   <div class="grid g2" style="margin-bottom:22px">
+    <div class="card c-navy"><span class="tag" style="color:#ffb79e">Recommandé</span><div class="big">1 000 € HT</div><p class="small">≈166 700 impressions sur 3 semaines<br>+ Spotify 850 € · total 1 850 € HT</p></div>
+    <div class="card c-lavande"><span class="tag">Option renforcée</span><div class="big">1 500 € HT</div><p class="small">250 000 impressions · davantage de répétition sur la phase candidatures</p></div>
+   </div>
+   <h3>Détail · 1 000 € HT</h3>
+   <div class="tw"><table>
+    <tr><th>Phase</th><th>Plateforme</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
+    <tr><td>Phase 1 · candidatures</td><td>TikTok</td><td class="r">360 €</td><td class="r">6 €</td><td class="r">60 000</td></tr>
+    <tr><td>Phase 1 · candidatures</td><td>Instagram</td><td class="r">150 €</td><td class="r">6 €</td><td class="r">25 000</td></tr>
+    <tr><td>Phase 1 · candidatures</td><td>Snapchat</td><td class="r">90 €</td><td class="r">6 €</td><td class="r">15 000</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total phase 1</td><td class="r">600 €</td><td></td><td class="r">100 000</td></tr>
+    <tr><td>Phase 2 · rendez-vous</td><td>TikTok</td><td class="r">240 €</td><td class="r">6 €</td><td class="r">40 000</td></tr>
+    <tr><td>Phase 2 · rendez-vous</td><td>Instagram</td><td class="r">100 €</td><td class="r">6 €</td><td class="r">≈16 700</td></tr>
+    <tr><td>Phase 2 · rendez-vous</td><td>Snapchat</td><td class="r">60 €</td><td class="r">6 €</td><td class="r">10 000</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total phase 2</td><td class="r">400 €</td><td></td><td class="r">≈66 700</td></tr>
+    <tr class="sub"><td colspan="2">Total social</td><td class="r">1 000 €</td><td class="r">6 €</td><td class="r">≈166 700</td></tr>
+    <tr><td>Phase 1 · candidatures</td><td>+ Audio Spotify</td><td class="r">510 €</td><td class="r">9 €</td><td class="r">≈56 700</td></tr>
+    <tr><td>Phase 2 · rendez-vous</td><td>+ Audio Spotify</td><td class="r">340 €</td><td class="r">9 €</td><td class="r">≈37 800</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total ajout Spotify</td><td class="r">850 €</td><td class="r">9 €</td><td class="r">≈94 400</td></tr>
+    <tr class="tot"><td colspan="2">Total casting &amp; défilé avec Spotify</td><td class="r">1 850 €</td><td class="r"></td><td class="r">≈261 100</td></tr>
+   </table></div>
+   <h3 style="margin-top:26px">Détail · option 1 500 € HT</h3>
+   <div class="tw"><table>
+    <tr><th>Plateforme</th><th>Part</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
+    <tr><td>TikTok</td><td>60 %</td><td class="r">900 €</td><td class="r">6 €</td><td class="r">150 000</td></tr>
+    <tr><td>Instagram</td><td>25 %</td><td class="r">375 €</td><td class="r">6 €</td><td class="r">62 500</td></tr>
+    <tr><td>Snapchat</td><td>15 %</td><td class="r">225 €</td><td class="r">6 €</td><td class="r">37 500</td></tr>
+    <tr class="tot"><td colspan="2">Total option renforcée</td><td class="r">1 500 €</td><td class="r">6 €</td><td class="r">250 000</td></tr>
+   </table></div>
+  </div>
+ </section>
+ <section class="alt" id="casting-formats">
+  <div class="wrap">
+   <h2>Formats &amp; KPIs de suivi</h2>
+   <div class="grid g2">
+    <div class="card"><h3>Story TikTok, Instagram, Snapchat</h3><p><b>Format</b> · 9:16, 1080x1920 px, vidéo mp4, 9 à 15 s, son activé.</p><p><b>Conseils créa</b> · tournage au smartphone plutôt que film publicitaire, visage ou silhouette dès la première seconde, message casting et date du 22/11 en texte à l'écran, appel à l'action clair (lien d'inscription).</p></div>
+    <div class="card"><h3>KPIs</h3><p>Impressions, reach, clics vers le formulaire d'inscription, CTR, interactions (partages, commentaires), coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion. À croiser avec le nombre de candidatures reçues et la fréquentation du 22/11.</p></div>
+    <div class="card" style="grid-column:1/-1"><h3>Audio Spotify</h3><p><b>Format</b> · spot audio 15 ou 20 s (mp3/wav) + visuel compagnon 1:1 640x640 px ou 9:16 720x1280 px, cliquable vers l'inscription. <b>KPIs</b> · impressions, reach, clics, écoutes à 25/50/75/100 %, taux de complétion, stats socio-démo, capping, CPE &amp; CPM finaux.</p></div>
+   </div>
+  </div>
+ </section>
+ <section id="casting-audiences">
+  <div class="wrap">
+   <h2>Audiences</h2>
+   <div class="grid g4">
+    <div class="card c-lavande"><div class="glyph">●</div><h3>Étudiant·es</h3><p>18-23 ans, université de Toulon (campus de La Garde), BTS, écoles de mode, de commerce et d'esthétique du bassin.</p></div>
+    <div class="card c-corail"><div class="glyph">■</div><h3>Passionné·es de mode</h3><p>Suivent les tendances, les créateurs et les défilés, consomment beaucoup de contenus beauté et style.</p></div>
+    <div class="card c-bleu"><div class="glyph">◆</div><h3>Aspirant·es mannequins &amp; créateurs</h3><p>Créent déjà du contenu, cherchent une première expérience et de la visibilité.</p></div>
+    <div class="card c-menthe"><div class="glyph">◐</div><h3>Jeunes actifs</h3><p>21-25 ans en premier emploi ou en alternance, disponibles le dimanche.</p></div>
+   </div>
+  </div>
+ </section>
+ <section class="alt" id="casting-data">
+  <div class="wrap">
+   <h2>Stratégie data</h2>
+   <div class="pyr">
+    <div class="l1"><b>Couche 1 · Engagement</b><span>Utilisateurs engagés sur les contenus mode, mannequinat, défilés et beauté ; audiences similaires aux abonnés des comptes de Grand Var</span></div>
+    <div class="l2"><b>Couche 2 · Centres d'intérêt</b><span>Mode, beauté, danse, musique, photographie, sorties</span></div>
+    <div class="l3"><b>Couche 3 · Âge &amp; géographie</b><span>18-25 ans, rayon 30-40 km, surpoids sur les campus et quartiers étudiants</span></div>
+   </div>
+   <div class="chips" style="justify-content:center"><span class="chip">Ciblages natifs TikTok · Instagram · Snapchat</span><span class="chip">The Bradery · mode</span><span class="chip">Leboncoin · mode &amp; seconde main</span><span class="chip">Géofencing campus</span></div>
+  </div>
+ </section>
+</div>
+
+<!-- ================= COMMUN ================= -->
+<section class="alt" id="rgpd">
+ <div class="wrap">
+  <h2>RGPD &amp; brand safety</h2>
+  <div class="grid g3">
+   <div class="card"><h3>Données</h3><p>Ciblages fondés sur des données consenties (CMP conformes IAB TCF 2.2), agrégées et anonymisées. Aucune donnée personnelle client n'est transmise ni stockée par TGW.</p></div>
+   <div class="card"><h3>Environnements</h3><p>Listes d'exclusion d'applications et de contenus sensibles, contrôle de la visibilité et du trafic invalide sur l'ensemble de la diffusion display.</p></div>
+   <div class="card"><h3>Jeunes publics</h3><p>Campagne casting strictement réservée aux 18 ans et plus, conformément aux règles publicitaires de TikTok, Meta et Snapchat.</p></div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer id="contacts">
+ <div class="wrap">
+  <h2>Contacts</h2>
+  <div class="contacts">
+   <a class="ct" href="mailto:mathilde@thegoodweb.eu"><b>Mathilde Coriton</b><span>Directrice de clientèle</span><span>06 48 61 92 92 · mathilde@thegoodweb.eu</span></a>
+   <a class="ct" href="mailto:jerome@thegoodweb.eu"><b>Jérôme Fages</b><span>Directeur commercial</span><span>06 18 74 66 75 · jerome@thegoodweb.eu</span></a>
+   <a class="ct" href="mailto:leslie@thegoodweb.eu"><b>Leslie Rogé</b><span>Cheffe de publicité</span><span>06 83 73 68 62 · leslie@thegoodweb.eu</span></a>
+   <a class="ct" href="mailto:sofien@thegoodweb.eu"><b>Sofien Chaganiou</b><span>Chef de publicité</span><span>07 67 84 70 67 · sofien@thegoodweb.eu</span></a>
+   <div class="ct off"><b>Andrea</b><span>Cheffe de publicité</span><span>andrea@thegoodweb.eu</span></div>
+   <div class="ct off"><b>Pôle activation</b><span>Mise en ligne &amp; suivi</span><span>activation@thegoodweb.eu</span></div>
+  </div>
+  <div class="foot-bottom"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="214 252 572 496" width="101" height="88" role="img" aria-label="The Good Web"><g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g></svg><span>Recommandation établie pour Grand Var · septembre 2026 · document confidentiel</span></div>
+ </div>
+</footer>
+
+<script>
+(function(){
+ var tabs=[].slice.call(document.querySelectorAll('.tab')),panels={},anchors=document.getElementById('anchors');
+ [].forEach.call(document.querySelectorAll('.panel'),function(p){panels[p.id.slice(2)]=p});
+ function show(key,scroll){
+  if(!panels[key])key='synthese';
+  tabs.forEach(function(t){var on=t.dataset.tab===key;t.classList.toggle('on',on);t.setAttribute('aria-selected',on)});
+  Object.keys(panels).forEach(function(k){panels[k].classList.toggle('on',k===key)});
+  anchors.innerHTML='';
+  panels[key].dataset.sections.split('|').forEach(function(s){
+   var p=s.split(':'),a=document.createElement('a'),id=(p[0]==='rgpd'||p[0]==='contacts')?p[0]:key+'-'+p[0];
+   a.href='#'+id;a.innerHTML=p[1];
+   a.addEventListener('click',function(e){e.preventDefault();var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})});
+   anchors.appendChild(a)});
+  try{history.replaceState(null,'','#'+key)}catch(e){}
+  if(scroll){var h=document.querySelector('nav.sticky');window.scrollTo({top:h.offsetTop,behavior:'smooth'})}
+ }
+ tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.tab,true)})});
+ show((location.hash||'#synthese').slice(1).split('-')[0],false);
+})();
+</script>
+</body>
+</html>
