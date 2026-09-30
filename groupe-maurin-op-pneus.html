@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Groupe Maurin · OP Pneus automne 2026 · Reco Story Ads · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#021859;--ice:#7bbdff;--terra:#f25430;--white:#fff;
+  --bg-alt:#f4f7fd;--ink:#1c2a55;--muted:#5b6687;--line:#dfe6f3;
+  --c-lavande:#e8edfb;--c-rose:#ece9f7;--c-bleu:#e6f2ff;--c-menthe:#e3e8f2;--c-corail:#fde6df;--c-peche:#fff0e9;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:16px}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);line-height:1.25}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+header.hero{background:var(--navy);color:var(--white);padding:48px 0 56px}
+header.hero .top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.logo-h svg{width:136px;height:118px;display:block}
+.hero-client{text-align:right;font-family:'Poppins';font-size:14px;color:var(--ice)}
+.hero-client strong{display:block;color:var(--white);font-size:18px;font-weight:600}
+.eyebrow{color:#ffb79e;font-family:'Poppins';font-weight:500;font-size:15px;margin-top:40px}
+header.hero h1{color:var(--white);font-size:clamp(30px,5vw,52px);font-weight:600;margin:10px 0 14px;max-width:880px}
+.hero-sub{color:#cfe3ff;font-size:18px;max-width:760px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.pill{border:1.5px solid var(--ice);background:rgba(123,189,255,.08);color:var(--white);border-radius:999px;padding:8px 16px;font-size:14px}
+.pill b{font-weight:700}
+
+/* NAV */
+nav.anchors{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(2,24,89,.05)}
+nav.anchors .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.anchors .wrap::-webkit-scrollbar{display:none}
+nav.anchors a{white-space:nowrap;text-decoration:none;font-weight:700;font-size:14px;color:var(--navy);padding:16px 12px;border-bottom:3px solid transparent}
+nav.anchors a:hover,nav.anchors a:focus-visible{border-bottom-color:var(--terra);outline:none}
+
+/* SECTIONS */
+section{padding:72px 0}
+section.alt{background:var(--bg-alt)}
+h2{font-size:clamp(24px,3.2vw,34px);font-weight:600;margin-bottom:10px}
+h2::before{content:"↘";color:var(--terra);margin-right:12px}
+.lead{color:var(--muted);max-width:780px;margin-bottom:34px;font-size:17px}
+h3{font-size:20px;font-weight:600;margin-bottom:8px}
+h4{font-size:16px;font-weight:600;margin-bottom:6px}
+p+p{margin-top:10px}
+
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{border-radius:16px;padding:24px;background:var(--white);border:1px solid var(--line)}
+.c-lavande{background:var(--c-lavande);border-color:transparent}
+.c-rose{background:var(--c-rose);border-color:transparent}
+.c-bleu{background:var(--c-bleu);border-color:transparent}
+.c-menthe{background:var(--c-menthe);border-color:transparent}
+.c-corail{background:var(--c-corail);border-color:transparent}
+.c-peche{background:var(--c-peche);border-color:transparent}
+.c-navy{background:var(--navy);color:#dbe8ff;border-color:transparent}
+.c-navy h3,.c-navy h4{color:var(--white)}
+.num{font-family:'Poppins';font-weight:700;font-size:30px;color:var(--terra);line-height:1;margin-bottom:12px}
+.tag{display:inline-block;font-size:12px;font-weight:700;background:var(--terra);color:var(--white);border-radius:999px;padding:3px 10px;margin-bottom:10px}
+.tag.ice{background:var(--ice);color:var(--navy)}
+.tag.navy{background:var(--navy)}
+ul.clean{list-style:none}
+ul.clean li{padding-left:18px;position:relative;margin:6px 0}
+ul.clean li::before{content:"■";position:absolute;left:0;top:1px;color:var(--terra);font-size:10px}
+.c-navy ul.clean li::before{color:var(--ice)}
+.small{font-size:14px;color:var(--muted)}
+.c-navy .small{color:#aac6f2}
+
+/* stat band */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:16px;overflow:hidden;margin:26px 0}
+.stat{background:var(--navy);padding:22px;border-right:1px solid rgba(123,189,255,.25)}
+.stat:last-child{border-right:none}
+.stat .v{font-family:'Poppins';font-size:28px;font-weight:600;color:var(--white)}
+.stat .l{font-size:13px;color:#aac6f2}
+
+/* funnel */
+.funnel{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:10px}
+.fstep{border-radius:12px;padding:16px 22px;color:var(--white);text-align:center}
+.fstep b{font-family:'Poppins';display:block;font-size:16px}
+.fstep span{font-size:14px;opacity:.9}
+.f1{background:var(--navy);width:100%}
+.f2{background:#2c4a9a;width:84%}
+.f3{background:var(--terra);width:68%}
+
+/* tables */
+.tbl{overflow-x:auto;border-radius:14px;border:1px solid var(--line);background:var(--white)}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:640px}
+thead th{background:var(--navy);color:var(--white);font-family:'Poppins';font-weight:500;text-align:left;padding:12px 14px;font-size:14px}
+tbody td{padding:11px 14px;border-top:1px solid var(--line)}
+tbody tr:nth-child(even) td{background:#fafbfe}
+td.r,th.r{text-align:right}
+tr.total td{background:var(--c-corail)!important;font-weight:700;color:var(--navy)}
+
+/* planning */
+.plan th,.plan td{text-align:center}
+.plan td:first-child,.plan th:first-child{text-align:left}
+.bar{display:block;height:22px;border-radius:6px}
+.b-n{background:var(--navy)}.b-i{background:var(--ice)}.b-t{background:var(--terra)}.b-p{background:#ffb79e}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;font-size:14px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tabs button{font-family:'Poppins';font-size:14px;font-weight:600;border:1.5px solid var(--navy);background:var(--white);color:var(--navy);border-radius:999px;padding:9px 18px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--navy);color:var(--white)}
+.tabs button .reco{color:var(--terra);margin-left:6px}
+.tabs button[aria-selected="true"] .reco{color:#ffb79e}
+.tabs button:focus-visible{outline:3px solid var(--ice);outline-offset:2px}
+.panel[hidden]{display:none}
+
+/* envs */
+.plat{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.plat .mk{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-family:'Poppins';font-weight:700;color:#fff;font-size:18px;flex-shrink:0}
+.mk.fb{background:#1877f2}.mk.ig{background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)}.mk.tt{background:#000}
+
+/* pyramid */
+.pyr{display:flex;flex-direction:column;align-items:center;gap:8px}
+.lvl{border-radius:12px;padding:18px 22px;text-align:center}
+.lvl h4{margin-bottom:4px}
+.l1{width:56%;background:var(--terra);color:#fff}.l1 h4{color:#fff}
+.l2{width:78%;background:var(--ice)}
+.l3{width:100%;background:var(--navy);color:#dbe8ff}.l3 h4{color:#fff}
+.glyph{font-size:22px;color:var(--terra);margin-bottom:8px;display:block}
+
+/* footer */
+footer{background:var(--navy);color:var(--white);padding:64px 0 40px}
+footer h2{color:var(--white)}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.ct{border:1px solid rgba(123,189,255,.35);border-radius:14px;padding:18px 20px;text-decoration:none;display:block}
+a.ct:hover,a.ct:focus-visible{background:rgba(123,189,255,.1);outline:none}
+.ct b{font-family:'Poppins';font-size:17px;display:block}
+.ct span{display:block;font-size:14px;color:#aac6f2}
+.ct.off{opacity:.55}
+.foot-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:48px;gap:20px;flex-wrap:wrap}
+.logo-f svg{width:101px;height:88px;display:block}
+.foot-bottom p{font-size:13px;color:#aac6f2}
+
+@media (max-width:900px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:none}
+  .contacts{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+  .g2,.g3,.g4,.contacts{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  section{padding:52px 0}
+  .hero-client{text-align:left}
+  .l1,.l2{width:100%}.f2,.f3{width:100%}
+  .logo-h svg{width:110px;height:95px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <div class="logo-h" aria-label="The Good Web"><svg  xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="214 252 572 496">
+  
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="st0" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path class="st0" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path class="st0" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path class="st0" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path class="st0" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path class="st0" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path class="st0" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path class="st0" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path class="st0" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path class="st0" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path class="st0" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path class="st0" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path class="st0" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path class="st0" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path class="st0" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path class="st0" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path class="st0" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path class="st0" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path class="st0" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg></div>
+      <div class="hero-client">Recommandation média préparée pour<strong>Groupe Maurin</strong>à l'attention de Marianna</div>
+    </div>
+    <p class="eyebrow">Recommandation Social Ads · OP Pneus automne 2026</p>
+    <h1>Faire passer les automobilistes à l'atelier avant les premiers froids</h1>
+    <p class="hero-sub">Un dispositif pStory Ads Facebook, Instagram et TikTok, piloté à la conversion grâce au pixel de suivi, et calé sur l'échéance du 1er novembre.</p>
+    <div class="pills">
+      <span class="pill"><b>Période</b> · 7 octobre au 15 novembre 2026</span>
+      <span class="pill"><b>Budget</b> · 20 000 € HT</span>
+      <span class="pill"><b>Objectif</b> · rendez-vous atelier pneus</span>
+      <span class="pill"><b>Zones</b> · Bouches-du-Rhône et Alpes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="anchors" aria-label="Sommaire">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a><a href="#dispositif">Dispositif</a><a href="#environnements">Environnements</a><a href="#planning">Planning</a><a href="#budgets">Budgets</a><a href="#formats">Formats &amp; KPIs</a><a href="#audiences">Audiences</a><a href="#data">Stratégie data</a><a href="#rgpd">RGPD</a><a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<!-- CONTEXTE -->
+<section id="contexte">
+  <div class="wrap">
+    <h2>Contexte &amp; objectifs</h2>
+    <p class="lead">Le Groupe Maurin lance son OP Pneus et souhaite reconduire le levier Story Ads déjà activé sur la campagne KIA Électrique, avec un budget quinze fois supérieur et, nouveauté décisive, un pixel de suivi et de conversion.</p>
+    <div class="grid g3">
+      <div class="card c-lavande"><div class="num">1</div><h3>Générer des rendez-vous</h3><p>Transformer l'audience des stories en prises de rendez-vous atelier, demandes de devis ou appels concession, mesurés par le pixel.</p></div>
+      <div class="card c-bleu"><div class="num">2</div><h3>Occuper le créneau de saison</h3><p>Être présent au moment où la question des pneus se pose : baisse des températures, vacances de la Toussaint et obligation d'équipement hiver en zone de montagne au 1er novembre.</p></div>
+      <div class="card c-peche"><div class="num">3</div><h3>Rentabiliser chaque euro</h3><p>Réallouer le budget chaque semaine vers la plateforme et les créas qui convertissent le mieux, plutôt qu'une répartition figée sur 40 jours.</p></div>
+    </div>
+
+    <h3 style="margin-top:48px">Ce que nous a appris la campagne Story Ads KIA Électrique</h3>
+    <p class="small">Rappel des résultats pStory Ads (budget 1 300 € HT, Facebook, Instagram, TikTok).</p>
+    <div class="stats">
+      <div class="stat"><div class="v">508 473</div><div class="l">impressions</div></div>
+      <div class="stat"><div class="v">1 103</div><div class="l">clics · CTR 0,22 %</div></div>
+      <div class="stat"><div class="v">2,56 €</div><div class="l">CPM constaté</div></div>
+      <div class="stat"><div class="v">1,18 €</div><div class="l">CPC moyen</div></div>
+    </div>
+    <div class="grid g3">
+      <div class="card"><span class="tag navy">TikTok</span><h4>Le moteur de performance</h4><p>66 % des impressions, meilleur CTR (0,28 %) et CPC le plus bas à 0,68 €. Levier à reconduire en tête.</p></div>
+      <div class="card"><span class="tag navy">Instagram</span><h4>Le levier de couverture</h4><p>79 131 personnes touchées et le plus grand volume de vues vidéo (7 061 vues à 25 %), pour un CPM de 3,34 €.</p></div>
+      <div class="card"><span class="tag navy">Facebook</span><h4>Sous-dimensionné</h4><p>119 € seulement : trop peu pour sortir de la phase d'apprentissage (CPC 14,88 €). Le résultat n'est pas représentatif, mais Facebook reste utile pour toucher les 45-64 ans propriétaires de véhicules.</p></div>
+    </div>
+    <p class="small" style="margin-top:16px">Lecture socio-démo : Meta a délivré une audience majoritairement masculine (60 à 67 % selon l'âge), TikTok une audience majoritairement féminine (55 à 60 %). Les deux se complètent bien pour un achat entretien qui concerne tous les conducteurs du foyer.</p>
+  </div>
+</section>
+
+<!-- DISPOSITIF -->
+<section id="dispositif" class="alt">
+  <div class="wrap">
+    <h2>Dispositif recommandé</h2>
+    <p class="lead">Un seul levier, les pStory Ads, mais utilisé en deux temps : une prospection large sur les trois plateformes pour créer la demande, puis un retargeting alimenté par le pixel pour convertir ceux qui ont déjà vu l'offre ou visité la page.</p>
+    <div class="grid g2">
+      <div class="card">
+        <span class="tag">Prospection · 80 % du budget</span>
+        <h3>Story Ads Facebook, Instagram, TikTok</h3>
+        <ul class="clean">
+          <li>Diffusion en stories, reels et fil « Pour toi » TikTok, format vertical plein écran.</li>
+          <li>Géociblage autour des concessions participantes, avec un message adapté à chaque zone (voir Audiences).</li>
+          <li>Campagnes optimisées sur l'événement de conversion dès que le pixel remonte assez de signaux, en trafic qualifié les premiers jours.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">Retargeting · 20 % du budget</span>
+        <h3>Story Ads de relance via le pixel</h3>
+        <ul class="clean">
+          <li>Visiteurs de la page OP Pneus n'ayant pas pris rendez-vous.</li>
+          <li>Personnes ayant vu au moins 50 % d'une story.</li>
+          <li>Créa dédiée plus directe : rappel de l'offre, créneaux disponibles, échéance du 1er novembre ou de fin d'opération.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:44px">Ce que change le pixel de suivi</h3>
+    <div class="grid g4" style="margin-top:14px">
+      <div class="card c-bleu"><span class="glyph">●</span><h4>Optimisation à la conversion</h4><p class="small">Les algorithmes Meta et TikTok cherchent des profils susceptibles de réserver, et non plus seulement de cliquer.</p></div>
+      <div class="card c-rose"><span class="glyph">■</span><h4>Retargeting</h4><p class="small">Relance des visiteurs qui ne sont pas allés au bout, le public le plus rentable de l'opération.</p></div>
+      <div class="card c-peche"><span class="glyph">◆</span><h4>Coût par rendez-vous</h4><p class="small">Un vrai KPI business dans le bilan : conversions, coût par conversion, taux de conversion par plateforme.</p></div>
+      <div class="card c-menthe"><span class="glyph">◐</span><h4>Audiences similaires</h4><p class="small">Création de lookalikes à partir des convertis pour élargir la prospection en cours de campagne.</p></div>
+    </div>
+
+    <div class="card c-navy" style="margin-top:22px">
+      <h3>Prérequis pour un démarrage le 7 octobre</h3>
+      <div class="grid g2" style="margin-top:10px">
+        <ul class="clean">
+          <li>Définir l'événement de conversion principal : prise de rendez-vous atelier en ligne, envoi du formulaire de devis ou clic sur le numéro de téléphone.</li>
+          <li>Poser le pixel Meta et le pixel TikTok sur la page de destination et sur la page de confirmation, idéalement complétés par l'API Conversions de Meta.</li>
+        </ul>
+        <ul class="clean">
+          <li>Mise en place au plus tard le 2 octobre pour laisser le temps de tester les remontées avant le lancement.</li>
+          <li>Une page de destination dédiée à l'OP Pneus, avec l'offre visible dès l'arrivée et un formulaire court, sur le modèle de la page KIA utilisée précédemment.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:44px">Logique d'activation</h3>
+    <div class="funnel">
+      <div class="fstep f1"><b>Capter</b><span>Story Ads prospection sur les 3 plateformes · messages saison et sécurité</span></div>
+      <div class="fstep f2"><b>Convaincre</b><span>Offre pneus, créneaux atelier, obligation hiver en montagne · optimisation au pixel</span></div>
+      <div class="fstep f3"><b>Convertir</b><span>Retargeting des visiteurs et viewers · rendez-vous atelier</span></div>
+    </div>
+
+    <h3 style="margin-top:44px">Nos préconisations d'optimisation</h3>
+    <div class="grid g3" style="margin-top:14px">
+      <div class="card"><h4>Des créas pensées pour la story</h4><p class="small">Accroche dans les 2 premières secondes, offre et prix à l'écran, sous-titres systématiques, 6 à 15 secondes. Prévoir 3 à 4 versions pour tester et renouveler toutes les deux semaines.</p></div>
+      <div class="card"><h4>Un message par zone</h4><p class="small">En montagne, l'obligation d'équipement du 1er novembre. Sur Marseille et Aix, la sécurité par temps de pluie et l'entretien avant l'hiver. Même offre, deux angles.</p></div>
+      <div class="card"><h4>Un pilotage hebdomadaire</h4><p class="small">Point chaque semaine, réallocation jusqu'à 20 % du budget vers la plateforme la plus efficace, coupe des créas en dessous du seuil de performance.</p></div>
+      <div class="card"><h4>Une répétition maîtrisée</h4><p class="small">Capping de 3 expositions par semaine en prospection pour éviter la lassitude sur 40 jours, plus serré en retargeting.</p></div>
+      <div class="card"><h4>Facebook dimensionné correctement</h4><p class="small">3 000 € minimum pour que l'algorithme sorte de l'apprentissage et touche les 45-64 ans, public clé de l'entretien auto.</p></div>
+      <div class="card"><h4>Le vendredi en temps fort</h4><p class="small">Sur la campagne KIA, le vendredi et le milieu d'après-midi ont concentré les meilleurs taux de clics : pression renforcée avant chaque week-end.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ENVIRONNEMENTS -->
+<section id="environnements">
+  <div class="wrap">
+    <h2>Environnements de diffusion</h2>
+    <p class="lead">Les trois plateformes déjà testées par le Groupe Maurin, sur leurs emplacements verticaux plein écran.</p>
+    <div class="grid g3">
+      <div class="card"><div class="plat"><div class="mk tt" aria-hidden="true">Tk</div><div><h3>TikTok</h3><p class="small">Fil « Pour toi »</p></div></div><p>Le meilleur rapport coût-performance de la campagne précédente. Audience plus jeune et plus féminine, très réactive aux formats natifs et incarnés.</p></div>
+      <div class="card"><div class="plat"><div class="mk ig" aria-hidden="true">Ig</div><div><h3>Instagram</h3><p class="small">Stories et Reels</p></div></div><p>Le cœur de la couverture 25-44 ans et le plus fort volume de vues vidéo. Emplacement idéal pour la créa principale de l'offre.</p></div>
+      <div class="card"><div class="plat"><div class="mk fb" aria-hidden="true">f</div><div><h3>Facebook</h3><p class="small">Stories et Reels</p></div></div><p>Le relais vers les 45-64 ans, propriétaires de véhicules plus anciens et clientèle atelier naturelle des concessions.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANNING -->
+<section id="planning" class="alt">
+  <div class="wrap">
+    <h2>Planning d'activation</h2>
+    <p class="lead">Trois temps sur six semaines, avec un pic de pression juste avant le 1er novembre et pendant les vacances de la Toussaint, moment où beaucoup de foyers prennent la route ou montent en station.</p>
+    <div class="tbl">
+      <table class="plan">
+        <thead><tr><th>Levier</th><th>7 au 11/10</th><th>12 au 18/10</th><th>19 au 25/10</th><th>26/10 au 1/11</th><th>2 au 8/11</th><th>9 au 15/11</th></tr></thead>
+        <tbody>
+          <tr><td>Story prospection TikTok</td><td><span class="bar b-n"></span></td><td><span class="bar b-n"></span></td><td><span class="bar b-t"></span></td><td><span class="bar b-t"></span></td><td><span class="bar b-n"></span></td><td><span class="bar b-i"></span></td></tr>
+          <tr><td>Story prospection Instagram</td><td><span class="bar b-n"></span></td><td><span class="bar b-n"></span></td><td><span class="bar b-t"></span></td><td><span class="bar b-t"></span></td><td><span class="bar b-n"></span></td><td><span class="bar b-i"></span></td></tr>
+          <tr><td>Story prospection Facebook</td><td><span class="bar b-n"></span></td><td><span class="bar b-n"></span></td><td><span class="bar b-t"></span></td><td><span class="bar b-t"></span></td><td><span class="bar b-n"></span></td><td><span class="bar b-i"></span></td></tr>
+          <tr><td>Story retargeting pixel</td><td></td><td><span class="bar b-p"></span></td><td><span class="bar b-t"></span></td><td><span class="bar b-t"></span></td><td><span class="bar b-t"></span></td><td><span class="bar b-t"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend"><span><i class="b-n"></i>Pression standard</span><span><i class="b-t"></i>Pression renforcée</span><span><i class="b-i"></i>Pression allégée</span><span><i class="b-p"></i>Montée en charge des audiences</span></div>
+    <div class="grid g3" style="margin-top:28px">
+      <div class="card c-bleu"><span class="tag ice">Du 7 au 19 octobre</span><h4>Anticiper</h4><p class="small">Premiers froids, lancement de l'offre, collecte des signaux pixel. 30 % du budget.</p></div>
+      <div class="card c-corail"><span class="tag">Du 20 octobre au 1er novembre</span><h4>Accélérer</h4><p class="small">Vacances de la Toussaint et compte à rebours avant l'obligation hiver. 40 % du budget.</p></div>
+      <div class="card c-lavande"><span class="tag navy">Du 2 au 15 novembre</span><h4>Convertir</h4><p class="small">Priorité au retargeting des indécis et aux retardataires, message de fin d'opération. 30 % du budget.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUDGETS -->
+<section id="budgets">
+  <div class="wrap">
+    <h2>Budgets</h2>
+    <p class="lead">Trois répartitions possibles des 20 000 € HT. Les volumes indiqués sont des minimums garantis au CPM maximum d'achat ; sur la campagne KIA, le CPM réellement constaté était de 2,56 €, les volumes délivrés devraient donc être nettement supérieurs.</p>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" aria-controls="s1" id="t1">Scénario 1 · Mix conversion<span class="reco">recommandé</span></button>
+      <button role="tab" aria-selected="false" aria-controls="s2" id="t2">Scénario 2 · Meta renforcé</button>
+      <button role="tab" aria-selected="false" aria-controls="s3" id="t3">Scénario 3 · Story + Feed</button>
+    </div>
+
+    <div class="panel" id="s1" role="tabpanel" aria-labelledby="t1">
+      <div class="tbl"><table>
+        <thead><tr><th>Levier</th><th>Rôle</th><th class="r">CPM max</th><th class="r">Budget HT</th><th class="r">Impressions min.</th></tr></thead>
+        <tbody>
+          <tr><td>Story Ads TikTok</td><td>Prospection · performance</td><td class="r">6 €</td><td class="r">7 000 €</td><td class="r">1 166 667</td></tr>
+          <tr><td>Story Ads Instagram</td><td>Prospection · couverture 25-44</td><td class="r">6 €</td><td class="r">6 000 €</td><td class="r">1 000 000</td></tr>
+          <tr><td>Story Ads Facebook</td><td>Prospection · 45-64 ans</td><td class="r">6 €</td><td class="r">3 000 €</td><td class="r">500 000</td></tr>
+          <tr><td>Story Ads retargeting Meta + TikTok</td><td>Conversion via pixel</td><td class="r">6 €</td><td class="r">4 000 €</td><td class="r">666 667</td></tr>
+          <tr class="total"><td colspan="3">Total</td><td class="r">20 000 €</td><td class="r">3 333 333</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small" style="margin-top:12px">Pourquoi ce scénario : il reconduit en tête le levier le plus efficace de la campagne précédente (TikTok), redonne à Facebook un budget suffisant pour être jugé, et réserve 20 % à la conversion, la vraie valeur ajoutée du pixel.</p>
+    </div>
+
+    <div class="panel" id="s2" role="tabpanel" aria-labelledby="t2" hidden>
+      <div class="tbl"><table>
+        <thead><tr><th>Levier</th><th>Rôle</th><th class="r">CPM max</th><th class="r">Budget HT</th><th class="r">Impressions min.</th></tr></thead>
+        <tbody>
+          <tr><td>Story Ads Instagram</td><td>Prospection · couverture 25-44</td><td class="r">6 €</td><td class="r">7 000 €</td><td class="r">1 166 667</td></tr>
+          <tr><td>Story Ads Facebook</td><td>Prospection · 45-64 ans</td><td class="r">6 €</td><td class="r">5 000 €</td><td class="r">833 333</td></tr>
+          <tr><td>Story Ads TikTok</td><td>Prospection · performance</td><td class="r">6 €</td><td class="r">6 000 €</td><td class="r">1 000 000</td></tr>
+          <tr><td>Story Ads retargeting Meta + TikTok</td><td>Conversion via pixel</td><td class="r">6 €</td><td class="r">2 000 €</td><td class="r">333 333</td></tr>
+          <tr class="total"><td colspan="3">Total</td><td class="r">20 000 €</td><td class="r">3 333 333</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small" style="margin-top:12px">Pour qui : si la clientèle atelier du groupe est majoritairement au-dessus de 45 ans. Plus de poids sur Meta, retargeting réduit.</p>
+    </div>
+
+    <div class="panel" id="s3" role="tabpanel" aria-labelledby="t3" hidden>
+      <div class="tbl"><table>
+        <thead><tr><th>Levier</th><th>Rôle</th><th class="r">CPM max</th><th class="r">Budget HT</th><th class="r">Impressions min.</th></tr></thead>
+        <tbody>
+          <tr><td>Post + Story Ads TikTok</td><td>Prospection · performance</td><td class="r">5 €</td><td class="r">7 000 €</td><td class="r">1 400 000</td></tr>
+          <tr><td>Post + Story Ads Facebook et Instagram</td><td>Prospection · couverture</td><td class="r">5 €</td><td class="r">9 000 €</td><td class="r">1 800 000</td></tr>
+          <tr><td>Post + Story Ads retargeting</td><td>Conversion via pixel</td><td class="r">5 €</td><td class="r">4 000 €</td><td class="r">800 000</td></tr>
+          <tr class="total"><td colspan="3">Total</td><td class="r">20 000 €</td><td class="r">4 000 000</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small" style="margin-top:12px">Pour aller plus loin : ajouter le fil d'actualité aux stories élargit les emplacements et fait baisser le CPM. Nécessite une déclinaison carrée 1080 x 1080 des créas.</p>
+    </div>
+
+    <h3 style="margin-top:40px">Répartition du scénario 1 dans le temps</h3>
+    <div class="tbl" style="margin-top:12px"><table>
+      <thead><tr><th>Phase</th><th class="r">Prospection</th><th class="r">Retargeting</th><th class="r">Total HT</th><th class="r">Part</th></tr></thead>
+      <tbody>
+        <tr><td>Anticiper · 7 au 19/10</td><td class="r">5 500 €</td><td class="r">500 €</td><td class="r">6 000 €</td><td class="r">30 %</td></tr>
+        <tr><td>Accélérer · 20/10 au 1/11</td><td class="r">6 500 €</td><td class="r">1 500 €</td><td class="r">8 000 €</td><td class="r">40 %</td></tr>
+        <tr><td>Convertir · 2 au 15/11</td><td class="r">4 000 €</td><td class="r">2 000 €</td><td class="r">6 000 €</td><td class="r">30 %</td></tr>
+        <tr class="total"><td>Total</td><td class="r">16 000 €</td><td class="r">4 000 €</td><td class="r">20 000 €</td><td class="r">100 %</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small" style="margin-top:12px">Répartition géographique recommandée : 50 % zone Marseille et Aix-en-Provence, 50 % zone Alpes et Provence intérieure, à ajuster selon la liste des concessions participant à l'OP Pneus.</p>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section id="formats" class="alt">
+  <div class="wrap">
+    <h2>Formats &amp; KPIs de suivi</h2>
+    <p class="lead">Spécifications pour le levier Social Ads (pStory) et indicateurs restitués dans le bilan, enrichis cette fois des données de conversion.</p>
+    <div class="grid g2">
+      <div class="card">
+        <span class="tag">Formats</span>
+        <h3>pStory Ads</h3>
+        <ul class="clean">
+          <li>Story vertical 9:16, 1080 x 1920 px, vidéo mp4, 6 à 15 secondes recommandées.</li>
+          <li>Post carré 1080 x 1080 px (scénario 3 uniquement).</li>
+          <li>Bumper 6 secondes en option pour le retargeting.</li>
+          <li>Texte principal, titre, bouton d'appel à l'action (« Prendre rendez-vous ») et URL de la page de destination.</li>
+          <li>3 à 4 créas par phase, dont au moins une déclinaison montagne et une déclinaison ville.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">KPIs</span>
+        <h3>Suivi et bilan</h3>
+        <ul class="clean">
+          <li>Impressions, reach, répétition, clics, CTR, CPM final.</li>
+          <li>Interactions et coût par interaction.</li>
+          <li>Vues à 25, 50, 75 et 100 %, taux de complétion.</li>
+          <li>Conversions, coût par conversion et taux de conversion, par plateforme et par zone (nouveau, grâce au pixel).</li>
+          <li>Répartition socio-démographique.</li>
+        </ul>
+        <p class="small" style="margin-top:12px">Repères issus de la campagne KIA : CTR 0,22 %, CPC 1,18 €. Objectif de coût par rendez-vous fixé avec vous après 10 jours de diffusion, une fois l'apprentissage terminé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section id="audiences">
+  <div class="wrap">
+    <h2>Audiences</h2>
+    <p class="lead">Hommes et femmes de 25 à 64 ans, conducteurs, autour des concessions participantes. Quatre profils guident les messages et les créas.</p>
+    <div class="grid g4">
+      <div class="card c-bleu"><span class="glyph">⌂</span><h4>Les conducteurs de montagne</h4><p class="small">Gap, Digne-les-Bains, Sallanches, arrière-pays de Manosque. Concernés par l'obligation d'équipement hiver du 1er novembre dans les communes classées. Message : se mettre en règle avant l'échéance.</p></div>
+      <div class="card c-lavande"><span class="glyph">■</span><h4>Les urbains du quotidien</h4><p class="small">Marseille, Aix-en-Provence. Trajets domicile-travail, pluies d'automne, pneus usés remarqués tardivement. Message : sécurité et freinage.</p></div>
+      <div class="card c-peche"><span class="glyph">◆</span><h4>Les familles sur la route</h4><p class="small">Départs en vacances de la Toussaint et premiers week-ends en station. Message : partir l'esprit tranquille.</p></div>
+      <div class="card c-menthe"><span class="glyph">◐</span><h4>Les clients à réactiver</h4><p class="small">Clients atelier et acheteurs de véhicules du groupe, touchés en retargeting et via des audiences similaires aux convertis.</p></div>
+    </div>
+    <p class="small" style="margin-top:16px">Rayon indicatif : 20 km autour des concessions urbaines, 30 km autour des concessions alpines pour couvrir des bassins de vie plus étendus.</p>
+  </div>
+</section>
+
+<!-- DATA -->
+<section id="data" class="alt">
+  <div class="wrap">
+    <h2>Stratégie data</h2>
+    <p class="lead">Une architecture en trois couches, de la plus large à la plus qualifiée. La couche haute, issue du pixel, n'existait pas sur la campagne précédente : c'est elle qui fera la différence sur le coût par rendez-vous.</p>
+    <div class="pyr">
+      <div class="lvl l1"><h4>Couche 1 · Données propriétaires</h4><p>Visiteurs de la page OP Pneus, viewers à 50 % et plus, convertis, audiences similaires aux convertis, fichier clients atelier si disponible.</p></div>
+      <div class="lvl l2"><h4>Couche 2 · Centres d'intérêt et comportements</h4><p>Entretien et équipement automobile, marques auto, économie de carburant, ski et sports d'hiver, voyages en voiture. Ce sont les affinités qui ont le mieux répondu sur la campagne KIA.</p></div>
+      <div class="lvl l3"><h4>Couche 3 · Socio-démographie et géographie</h4><p>Hommes et femmes 25-64 ans, rayons autour des concessions, segmentation zone ville et zone montagne.</p></div>
+    </div>
+    <div class="grid g3" style="margin-top:28px">
+      <div class="card"><h4>Démarrage</h4><p class="small">Couches 2 et 3 en prospection, pendant que le pixel collecte ses premiers signaux.</p></div>
+      <div class="card"><h4>À partir du 14 octobre</h4><p class="small">Ouverture du retargeting dès que les audiences pixel atteignent un volume suffisant.</p></div>
+      <div class="card"><h4>Fin octobre</h4><p class="small">Lancement des audiences similaires aux convertis, qui prennent le relais d'une partie de la prospection.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RGPD -->
+<section id="rgpd">
+  <div class="wrap">
+    <h2>RGPD &amp; brand safety</h2>
+    <div class="grid g3">
+      <div class="card"><h4>Consentement</h4><p class="small">Les pixels ne se déclenchent qu'après consentement via le bandeau cookies du site. À vérifier sur la page de destination avant le lancement.</p></div>
+      <div class="card"><h4>Données clients</h4><p class="small">Un éventuel fichier clients n'est transmis aux plateformes que haché et uniquement pour des personnes ayant accepté la prospection commerciale.</p></div>
+      <div class="card"><h4>Environnements sûrs</h4><p class="small">Listes d'exclusion et contrôles de brand safety natifs activés sur Meta et TikTok, commentaires modérés pendant toute la campagne.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <h2>Contacts</h2>
+    <div class="contacts">
+      <a class="ct" href="mailto:jerome@thegoodweb.eu"><b>Jérôme Fages</b><span>Directeur commercial</span><span>06 18 74 66 75</span><span>jerome@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:mathilde@thegoodweb.eu"><b>Mathilde Coriton</b><span>Directrice de clientèle</span><span>06 48 61 92 92</span><span>mathilde@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:leslie@thegoodweb.eu"><b>Leslie Rogé</b><span>Cheffe de publicité</span><span>06 83 73 68 62</span><span>leslie@thegoodweb.eu</span></a>
+      <div class="ct off"><b>Andrea</b><span>Chef de publicité</span><span>andrea@thegoodweb.eu</span></div>
+      <a class="ct" href="mailto:sofien@thegoodweb.eu"><b>Sofien Chaganiou</b><span>Chef de publicité</span><span>07 67 84 70 67</span><span>sofien@thegoodweb.eu</span></a>
+      <div class="ct off"><b>Pôle activation</b><span>Mise en ligne et suivi</span><span>activation@thegoodweb.eu</span></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="logo-f" aria-label="The Good Web"><svg  xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="214 252 572 496">
+  
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="st0" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path class="st0" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path class="st0" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path class="st0" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path class="st0" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path class="st0" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path class="st0" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path class="st0" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path class="st0" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path class="st0" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path class="st0" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path class="st0" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path class="st0" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path class="st0" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path class="st0" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path class="st0" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path class="st0" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path class="st0" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path class="st0" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg></div>
+      <p>The Good Web · Marseille · Recommandation établie pour le Groupe Maurin, septembre 2026. Montants exprimés en euros HT.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('[role="tab"]');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(o){o.setAttribute('aria-selected','false');document.getElementById(o.getAttribute('aria-controls')).hidden=true;});
+      t.setAttribute('aria-selected','true');document.getElementById(t.getAttribute('aria-controls')).hidden=false;
+    });
+  });
+})();
+</script>
+</body>
+</html>
