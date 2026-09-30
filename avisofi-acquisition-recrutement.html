@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Avisofi · Recommandation média TGW · Acquisition & recrutement licenciés</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#021859;--ice:#7bbdff;--terra:#f25430;--white:#fff;--bg2:#f4f7fd;--ink:#1d2745;--mute:#5b6685;--line:#dfe6f3;
+--c-lavande:#e8edff;--c-rose:#ebe9fb;--c-bleu:#e4f1ff;--c-menthe:#e6eaf4;--c-corail:#fde7e1;--c-peche:#fff1ea}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:#fff;line-height:1.6;font-size:15.5px}
+h1,h2,h3,h4{font-family:Poppins,system-ui,sans-serif;color:var(--navy);line-height:1.2;margin:0 0 .5em}
+h2{font-size:clamp(1.5rem,3vw,2.1rem)}h2::before{content:"↘ ";color:var(--terra)}
+h3{font-size:1.12rem}
+p{margin:0 0 1em}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+/* HERO */
+header.hero{background:var(--navy);color:#fff;padding:calc(38px + env(safe-area-inset-top,0px)) 0 44px;position:relative;overflow:hidden}
+header.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:60px solid rgba(123,189,255,.08)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.hero-client{font-family:Poppins;font-weight:600;color:var(--ice);font-size:.9rem;text-align:right}
+.hero-client b{display:block;color:#fff;font-size:1.5rem;letter-spacing:.02em}
+.eyebrow{color:#ffb79e;font-family:Poppins;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;margin-bottom:10px}
+header.hero h1{color:var(--white);font-size:clamp(1.8rem,4.6vw,3rem);max-width:880px;margin-bottom:14px}
+header.hero h1 em{font-style:normal;color:var(--terra)}
+.sub{color:#cfdcf5;max-width:760px;font-size:1.05rem}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.pill{border:1.5px solid var(--ice);background:rgba(123,189,255,.07);color:#fff;border-radius:999px;padding:7px 15px;font-size:.88rem}
+.pill b{font-weight:700;color:var(--ice)}
+/* NAV */
+nav.anchors{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav.anchors .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.anchors a{white-space:nowrap;padding:16px 12px;color:var(--navy);text-decoration:none;font-weight:700;font-size:.9rem;border-bottom:3px solid transparent}
+nav.anchors a:hover{border-bottom-color:var(--terra)}
+section{padding:64px 0}
+section:nth-of-type(even){background:var(--bg2)}
+.lead{color:var(--mute);max-width:820px;font-size:1.02rem}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.card.c-lavande{background:var(--c-lavande);border-color:transparent}.card.c-rose{background:var(--c-rose);border-color:transparent}
+.card.c-bleu{background:var(--c-bleu);border-color:transparent}.card.c-menthe{background:var(--c-menthe);border-color:transparent}
+.card.c-corail{background:var(--c-corail);border-color:transparent}.card.c-peche{background:var(--c-peche);border-color:transparent}
+.card.navy{background:var(--navy);color:#dfe8fb;border:0}.card.navy h3,.card.navy h4{color:#fff}
+.num{font-family:Poppins;font-weight:800;color:var(--terra);font-size:1.8rem;line-height:1;margin-bottom:10px}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--terra);color:#fff;margin-bottom:10px}
+.tag.ice{background:var(--ice);color:var(--navy)}.tag.navy{background:var(--navy)}
+ul.clean{margin:0;padding-left:18px}ul.clean li{margin-bottom:5px}
+.muted{color:var(--mute);font-size:.9rem}
+.kpi{font-family:Poppins;font-weight:800;color:var(--navy);font-size:1.7rem}
+/* Tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 18px}
+.tab{border:1.5px solid var(--navy);background:#fff;color:var(--navy);padding:9px 16px;border-radius:999px;font-weight:700;cursor:pointer;font-family:Inter;font-size:.9rem}
+.tab.on{background:var(--navy);color:#fff}
+.panel{display:none}.panel.on{display:block}
+/* Funnel */
+.funnel{display:grid;gap:10px}
+.fstep{display:grid;grid-template-columns:160px 1fr;gap:16px;align-items:center;border-radius:14px;padding:16px 20px;background:#fff;border:1px solid var(--line)}
+.fstep .lvl{font-family:Poppins;font-weight:700;color:#fff;background:var(--navy);border-radius:10px;padding:10px;text-align:center;font-size:.9rem}
+.fstep:nth-child(2) .lvl{background:#1d3a8a}.fstep:nth-child(3) .lvl{background:var(--terra)}.fstep:nth-child(4) .lvl{background:#b8391c}
+/* Tables */
+.tscroll{overflow-x:auto;border-radius:14px;border:1px solid var(--line);background:#fff}
+table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:620px}
+th{background:var(--navy);color:#fff;text-align:left;padding:12px 14px;font-family:Poppins;font-weight:600;font-size:.85rem}
+td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+tr.total td{background:var(--c-bleu);font-weight:700;color:var(--navy)}
+td.r,th.r{text-align:right;white-space:nowrap}
+.reco-badge{background:var(--terra);color:#fff;font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:6px;margin-left:6px;vertical-align:middle}
+/* Planning */
+.plan{min-width:720px}
+.plan td{padding:8px 6px}.plan td:first-child{padding-left:14px;font-weight:600;color:var(--navy);width:250px}
+.bar{height:22px;border-radius:6px;background:var(--navy)}.bar.t{background:var(--terra)}.bar.i{background:var(--ice)}.bar.l{background:#c9d5ee}
+/* Chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-weight:600;color:var(--navy);font-size:.88rem}
+/* Pyramid */
+.pyr{display:grid;gap:8px;max-width:860px;margin:0 auto}
+.pyr div{margin:0 auto;border-radius:12px;padding:16px 20px;color:#fff;text-align:center}
+.pyr .p1{width:56%;background:var(--terra)}.pyr .p2{width:78%;background:#1d3a8a}.pyr .p3{width:100%;background:var(--navy)}
+.pyr b{font-family:Poppins;display:block;margin-bottom:4px}
+.pyr span{font-size:.88rem;color:#e5ecfb}
+.glyph{font-size:1.4rem;color:var(--terra);line-height:1;margin-bottom:8px}
+.note{border-left:4px solid var(--terra);background:var(--c-peche);padding:14px 18px;border-radius:0 12px 12px 0;font-size:.93rem}
+.note.ice{border-left-color:var(--ice);background:var(--c-bleu)}
+a.lk{color:var(--terra);font-weight:600}
+/* Footer */
+footer{background:var(--navy);color:#cfdcf5;padding:56px 0 calc(40px + env(safe-area-inset-bottom,0px))}
+footer h2{color:#fff}footer h2::before{color:var(--terra)}
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0 40px}
+.ct{border:1px solid rgba(123,189,255,.35);border-radius:14px;padding:16px 18px;color:#fff;text-decoration:none;display:block}
+a.ct:hover{border-color:var(--terra)}
+.ct b{font-family:Poppins;display:block}.ct small{color:var(--ice);display:block;margin-bottom:6px}
+.ct span{font-size:.86rem;color:#cfdcf5;display:block}
+.ct.off{opacity:.6}
+.foot-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(123,189,255,.25);padding-top:26px;font-size:.85rem}
+@media(max-width:640px){
+ section{padding:46px 0}.hero-client{text-align:left}
+ .fstep{grid-template-columns:1fr}.pyr .p1,.pyr .p2{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+ <div class="wrap">
+  <div class="hero-top">
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="214 252 572 496" style="height:118px;width:auto;display:block" role="img" aria-label="The Good Web"><g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g></svg>
+   <div class="hero-client">Recommandation média préparée pour<b>AVISOFI</b>Réseau national de courtiers · licence de marque</div>
+  </div>
+  <div class="eyebrow">Recommandation média · Octobre 2026</div>
+  <h1>Deux moteurs pour un réseau : <em>des clients</em> pour les agences, <em>des licenciés</em> pour les zones blanches.</h1>
+  <p class="sub">Un dispositif digital en deux volets indépendants, construits autour des contenus vidéo déjà produits par Avisofi : un volet acquisition géolocalisé sur les zones des agences existantes, et un volet recrutement de nouveaux licenciés ciblé sur les territoires sans agence (Sud-Ouest sous Bordeaux, Bretagne).</p>
+  <div class="pills">
+   <span class="pill"><b>Période ·</b> nov. 2026 → mars 2027</span>
+   <span class="pill"><b>Budget ·</b> 25 000 € HT recommandé (dès 14 000 € HT)</span>
+   <span class="pill"><b>Objectifs ·</b> acquisition clients + recrutement licenciés</span>
+   <span class="pill"><b>Marchés ·</b> zones agences + Sud-Ouest & Bretagne</span>
+  </div>
+ </div>
+</header>
+
+<nav class="anchors"><div class="wrap">
+ <a href="#contexte">Contexte</a><a href="#dispositif">Dispositif</a><a href="#environnements">Environnements</a><a href="#planning">Planning</a><a href="#budgets">Budgets</a><a href="#formats">Formats & KPIs</a><a href="#audiences">Audiences</a><a href="#data">Stratégie data</a><a href="#rgpd">RGPD</a><a href="#contacts">Contacts</a>
+</div></nav>
+
+<!-- CONTEXTE -->
+<section id="contexte"><div class="wrap">
+ <h2>Contexte & objectifs</h2>
+ <p class="lead">Avisofi, spécialiste du courtage en crédit immobilier depuis 20 ans, vit un nouvel élan depuis sa reprise en 2024 par les licenciés de Marseille et Lyon : kit de communication renouvelé en 2025, ouvertures récentes (Lille, Saintes, Saint-Cloud, Le Havre-Montivilliers) et une réputation client très solide (4,87/5 sur plus de 3 600 avis). La marque a produit un volume important de contenus vidéo (site, chaîne YouTube, Shorts) qu'il s'agit désormais de mettre au travail en média.</p>
+ <div class="grid g3" style="margin-top:26px">
+  <div class="card c-lavande"><div class="num">01</div><h3>Générer des demandes clients</h3><p>Transformer la notoriété locale des agences en demandes de financement qualifiées : simulations, demandes de rappel, prises de contact agence.</p></div>
+  <div class="card c-corail"><div class="num">02</div><h3>Recruter de nouveaux licenciés</h3><p>Faire connaître l'offre licence de marque auprès de profils bancaires et d'entrepreneurs sur les territoires sans agence, et générer des candidatures qualifiées.</p></div>
+  <div class="card c-bleu"><div class="num">03</div><h3>Rentabiliser les contenus vidéo</h3><p>Diffuser les formats existants (témoignages clients, témoignages partenaires, Short licence de marque) auprès d'audiences ciblées plutôt qu'en organique seul.</p></div>
+ </div>
+ <div class="grid g4" style="margin-top:18px">
+  <div class="card"><div class="kpi">4,87/5</div><span class="muted">note moyenne, plus de 3 600 avis clients</span></div>
+  <div class="card"><div class="kpi">½ Md€</div><span class="muted">de crédits obtenus chaque année par le réseau</span></div>
+  <div class="card"><div class="kpi">40 K€</div><span class="muted">investissement global licencié (dont 20 K€ de droit d'entrée)</span></div>
+  <div class="card"><div class="kpi">300 K€</div><span class="muted">CA potentiel annoncé après deux ans</span></div>
+ </div>
+</div></section>
+
+<!-- DISPOSITIF -->
+<section id="dispositif"><div class="wrap">
+ <h2>Dispositif recommandé</h2>
+ <p class="lead">Deux volets pilotés séparément, avec leurs propres budgets, messages, ciblages et KPIs. Ils peuvent être activés ensemble ou l'un après l'autre : le brief prévoit l'acquisition en priorité, le recrutement en second temps.</p>
+ <div class="tabs" data-group="vol"><button class="tab on" data-t="volA">Volet A · Acquisition clients</button><button class="tab" data-t="volB">Volet B · Recrutement licenciés</button></div>
+
+ <div class="panel on" id="volA">
+  <div class="grid g2">
+   <div class="card navy"><span class="tag">Volet A</span><h3>Acquisition clients, 100 % performance</h3><p>Ciblage géographique calé sur les zones d'exclusivité des agences existantes (un rayon ou un département par licencié). Message : un courtier de proximité qui négocie pour vous, preuve sociale en avant (avis Google, témoignages vidéo).</p><p style="margin:0"><b style="color:#fff">KPI principal :</b> demandes de contact et simulations réalisées sur avisofi.fr, attribuées par agence.</p></div>
+   <div class="card"><h3>Leviers activés</h3><ul class="clean">
+    <li><b>SEA Google Ads Search</b> : capter l'intention « courtier crédit immobilier + ville » au moment du projet.</li>
+    <li><b>Social Ads Post+Story</b> (Facebook, Instagram) : témoignages clients vidéo, format vertical.</li>
+    <li><b>YouTube ALL</b> (Shorts + in-stream) : diffusion des vidéos existantes aux intentionnistes immobiliers.</li>
+    <li><b>pDisplay IAB</b> data intentionnistes + <b>retargeting</b> des visiteurs du site.</li>
+    <li><b>Audio streaming + podcast</b> (scénario Ambition) : présence locale sur les zones les plus denses.</li>
+   </ul></div>
+  </div>
+  <h3 style="margin-top:30px">Logique d'activation</h3>
+  <div class="funnel">
+   <div class="fstep"><div class="lvl">Découverte</div><div>YouTube ALL et Social Ads : vidéos témoignages clients sur les primo-accédants et acquéreurs en projet de la zone de l'agence.</div></div>
+   <div class="fstep"><div class="lvl">Considération</div><div>pDisplay IAB sur data intentionnistes (consultation d'annonces immobilières, simulateurs, déménagement) avec message avis 4,87/5.</div></div>
+   <div class="fstep"><div class="lvl">Intention</div><div>SEA sur requêtes locales et génériques (« courtier immobilier Marseille », « meilleur taux crédit immobilier »), vers la page agence ou le simulateur.</div></div>
+   <div class="fstep"><div class="lvl">Conversion</div><div>Retargeting display et Social des visiteurs n'ayant pas converti : « Votre agence Avisofi vous rappelle sous 24 h ».</div></div>
+  </div>
+ </div>
+
+ <div class="panel" id="volB">
+  <div class="grid g2">
+   <div class="card navy"><span class="tag">Volet B</span><h3>Recrutement de licenciés, zones blanches</h3><p>Ciblage exclusif des territoires sans agence. Zones du brief : tout le Sud-Ouest sous Bordeaux et la Bretagne, à affiner avec la carte des localisations agence. Message : entreprendre sous licence de marque plutôt qu'en franchise, avec exclusivité territoriale.</p><p style="margin:0"><b style="color:#fff">KPI principal :</b> candidatures qualifiées (zone, expérience, capacité d'investissement) via un formulaire dédié.</p></div>
+   <div class="card"><h3>Leviers activés</h3><ul class="clean">
+    <li><b>Social Ads Post+Story</b> (Facebook, Instagram) avec le Short « licence de marque » en tête de campagne.</li>
+    <li><b>YouTube ALL</b> : Shorts + in-stream sur contextes économie, entrepreneuriat, finance.</li>
+    <li><b>SEA Google Ads Search</b> : « devenir courtier », « franchise courtage immobilier », « reconversion banque ».</li>
+    <li><b>pDisplay IAB</b> data profils banque/finance et intentionnistes création d'entreprise.</li>
+    <li><b>Audio podcast</b> (scénario Recommandé) : podcasts business, entrepreneuriat, finance perso.</li>
+   </ul></div>
+  </div>
+  <div class="grid g2" style="margin-top:18px">
+   <div class="card c-peche"><h3>Arguments à pousser</h3><ul class="clean">
+    <li>Licence de marque et non franchise : le licencié reste propriétaire de son fichier client.</li>
+    <li>Exclusivité de la zone de chalandise, jusqu'à un département entier.</li>
+    <li>Droit d'entrée 20 000 €, investissement global 40 000 €, contrats de 3 ans renouvelables.</li>
+    <li>CA potentiel de 300 000 € après deux ans, formation certifiée Qualiopi, 100 % des relations bancaires sous contrat.</li>
+   </ul></div>
+   <div class="card c-bleu"><h3>Préconisations pour la page licence de marque</h3><p style="margin-bottom:8px">La page étant en cours de refonte, trois points conditionnent la performance du volet B :</p><ul class="clean">
+    <li>Intégrer la vidéo Short licence en haut de page, au-dessus de la ligne de flottaison.</li>
+    <li>Remplacer le lien « Prenons contact » générique par un formulaire de candidature dédié (zone visée, parcours, apport disponible) pour qualifier les leads et mesurer la campagne.</li>
+    <li>Ajouter une carte des zones disponibles : l'exclusivité territoriale devient un argument d'urgence concret.</li>
+   </ul></div>
+  </div>
+  <h3 style="margin-top:30px">Logique d'activation</h3>
+  <div class="funnel">
+   <div class="fstep"><div class="lvl">Découverte</div><div>Social Ads et YouTube : Short licence de marque auprès des profils banque, courtage, cadres commerciaux et reconversion des zones blanches.</div></div>
+   <div class="fstep"><div class="lvl">Considération</div><div>pDisplay IAB contextuel économie et entrepreneuriat + audio podcast business : les chiffres clés (investissement, CA potentiel, exclusivité).</div></div>
+   <div class="fstep"><div class="lvl">Intention</div><div>SEA sur les requêtes de reconversion et de création d'agence de courtage, vers la page licence refondue.</div></div>
+   <div class="fstep"><div class="lvl">Candidature</div><div>Retargeting des visiteurs de la page licence : « Votre département est encore disponible ».</div></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- ENVIRONNEMENTS -->
+<section id="environnements"><div class="wrap">
+ <h2>Environnements de diffusion</h2>
+ <p class="lead">Des environnements premium et de confiance, cohérents avec un sujet financier engageant.</p>
+ <div class="grid g2" style="margin-top:22px">
+  <div class="card"><span class="tag navy">pDisplay · info & lifestyle</span><div class="chips" style="margin-top:6px"><span class="chip">Le Figaro</span><span class="chip">Le Monde</span><span class="chip">Le Point</span><span class="chip">L'Express</span><span class="chip">BFM TV</span><span class="chip">20 Minutes</span><span class="chip">leboncoin</span><span class="chip">La Chaîne Météo</span><span class="chip">Marie Claire</span><span class="chip">Version Femina</span><span class="chip">Télérama</span><span class="chip">Paris Match</span></div><p class="muted" style="margin:12px 0 0">Volet B : priorité aux rubriques économie, emploi et entrepreneuriat des titres ci-dessus.</p></div>
+  <div class="card"><span class="tag navy">Social & vidéo</span><div class="chips" style="margin-top:6px"><span class="chip">Facebook</span><span class="chip">Instagram</span><span class="chip">YouTube</span><span class="chip">YouTube Shorts</span></div><p class="muted" style="margin:12px 0 0">TikTok est volontairement écarté : politique publicitaire restrictive sur les produits de crédit et audience moins alignée avec les deux cibles.</p></div>
+  <div class="card"><span class="tag navy">Audio</span><div class="chips" style="margin-top:6px"><span class="chip">Spotify</span><span class="chip">Deezer</span><span class="chip">YouTube Music</span><span class="chip">Le Figaro</span><span class="chip">Groupe M6</span><span class="chip">Ausha</span><span class="chip">Acast</span></div><p class="muted" style="margin:12px 0 0">Podcasts économie, finances personnelles et entrepreneuriat en priorité.</p></div>
+  <div class="card"><span class="tag navy">Search</span><div class="chips" style="margin-top:6px"><span class="chip">Google Search</span></div><p class="muted" style="margin:12px 0 0">Campagnes séparées par volet et par agence (volet A) pour un pilotage et un reporting au niveau de chaque licencié.</p></div>
+ </div>
+ <div class="note ice" style="margin-top:22px"><b>Zones de diffusion.</b> Volet A : zones d'exclusivité des agences existantes. Volet B : Sud-Ouest sous Bordeaux (Landes, Pyrénées-Atlantiques, Hautes-Pyrénées, Gers, Lot-et-Garonne) et Bretagne (Finistère, Côtes-d'Armor, Morbihan, Ille-et-Vilaine), liste indicative à valider d'après la carte des localisations agence.</div>
+</div></section>
+
+<!-- PLANNING -->
+<section id="planning"><div class="wrap">
+ <h2>Planning d'activation</h2>
+ <p class="lead">Acquisition en deux vagues calées sur les temps forts du marché immobilier ; recrutement concentré sur la période de la « nouvelle année, nouveau projet » et en amont des salons de la franchise du printemps.</p>
+ <div class="tscroll" style="margin-top:22px"><table class="plan">
+  <tr><th>Levier</th><th>Nov.</th><th>Déc.</th><th>Janv.</th><th>Févr.</th><th>Mars</th></tr>
+  <tr><td>A · SEA + Social + YouTube</td><td colspan="2"><div class="bar"></div></td><td colspan="2"><div class="bar"></div></td><td></td></tr>
+  <tr><td>A · pDisplay data + retargeting</td><td colspan="2"><div class="bar i"></div></td><td colspan="2"><div class="bar i"></div></td><td></td></tr>
+  <tr><td>A · Audio (Ambition)</td><td></td><td></td><td colspan="2"><div class="bar l"></div></td><td></td></tr>
+  <tr><td>B · Social + YouTube</td><td></td><td></td><td colspan="3"><div class="bar t"></div></td></tr>
+  <tr><td>B · SEA + retargeting</td><td></td><td></td><td colspan="3"><div class="bar t"></div></td></tr>
+  <tr><td>B · Display + audio podcast</td><td></td><td></td><td colspan="2"><div class="bar i"></div></td><td></td></tr>
+ </table></div>
+ <p class="muted" style="margin-top:12px">Vague A1 : 2 nov. → 20 déc. 2026 · Vague A2 : 11 janv. → 7 mars 2027 · Volet B : 11 janv. → 21 mars 2027. Dates ajustables selon la date de mise en ligne de la nouvelle page licence de marque.</p>
+</div></section>
+
+<!-- BUDGETS -->
+<section id="budgets"><div class="wrap">
+ <h2>Budgets & scénarios</h2>
+ <p class="lead">Aucun budget n'étant communiqué, trois scénarios pour l'acquisition et deux pour le recrutement. CPM d'achat TGW ; les budgets SEA sont des budgets média au clic, avec un volume de clics estimé.</p>
+ <div class="tabs" data-group="bud"><button class="tab on" data-t="budA">Volet A · Acquisition</button><button class="tab" data-t="budB">Volet B · Recrutement</button><button class="tab" data-t="budT">Synthèse</button></div>
+
+ <div class="panel on" id="budA">
+  <div class="tabs" data-group="sa"><button class="tab" data-t="a1">Essentiel · 8 000 €</button><button class="tab on" data-t="a2">Recommandé · 15 000 €</button><button class="tab" data-t="a3">Ambition · 25 000 €</button></div>
+  <div class="panel" id="a1"><div class="tscroll"><table>
+   <tr><th>Levier</th><th class="r">CPM / CPC</th><th class="r">Budget HT</th><th class="r">Volume estimé</th></tr>
+   <tr><td>SEA Google Ads Search</td><td class="r">CPC est. 2,5 à 5 €</td><td class="r">3 000 €</td><td class="r">600 à 1 200 clics</td></tr>
+   <tr><td>Social Ads Post+Story (Meta)</td><td class="r">5 €</td><td class="r">2 500 €</td><td class="r">500 000 imp.</td></tr>
+   <tr><td>YouTube ALL</td><td class="r">4 €</td><td class="r">1 500 €</td><td class="r">375 000 imp.</td></tr>
+   <tr><td>pDisplay IAB retargeting</td><td class="r">4 €</td><td class="r">1 000 €</td><td class="r">250 000 imp.</td></tr>
+   <tr class="total"><td>Total</td><td></td><td class="r">8 000 €</td><td class="r">≈1,13 M imp. + clics SEA</td></tr>
+  </table></div></div>
+  <div class="panel on" id="a2"><div class="tscroll"><table>
+   <tr><th>Levier <span class="reco-badge">Recommandé</span></th><th class="r">CPM / CPC</th><th class="r">Budget HT</th><th class="r">Volume estimé</th></tr>
+   <tr><td>SEA Google Ads Search</td><td class="r">CPC est. 2,5 à 5 €</td><td class="r">5 000 €</td><td class="r">1 000 à 2 000 clics</td></tr>
+   <tr><td>Social Ads Post+Story (Meta)</td><td class="r">5 €</td><td class="r">4 000 €</td><td class="r">800 000 imp.</td></tr>
+   <tr><td>YouTube ALL</td><td class="r">4 €</td><td class="r">3 000 €</td><td class="r">750 000 imp.</td></tr>
+   <tr><td>pDisplay IAB data intentionnistes</td><td class="r">4 €</td><td class="r">1 500 €</td><td class="r">375 000 imp.</td></tr>
+   <tr><td>pDisplay IAB retargeting</td><td class="r">4 €</td><td class="r">1 500 €</td><td class="r">375 000 imp.</td></tr>
+   <tr class="total"><td>Total</td><td></td><td class="r">15 000 €</td><td class="r">≈2,30 M imp. + clics SEA</td></tr>
+  </table></div></div>
+  <div class="panel" id="a3"><div class="tscroll"><table>
+   <tr><th>Levier</th><th class="r">CPM / CPC</th><th class="r">Budget HT</th><th class="r">Volume estimé</th></tr>
+   <tr><td>SEA Google Ads Search</td><td class="r">CPC est. 2,5 à 5 €</td><td class="r">7 000 €</td><td class="r">1 400 à 2 800 clics</td></tr>
+   <tr><td>Social Ads Post+Story (Meta)</td><td class="r">5 €</td><td class="r">6 000 €</td><td class="r">1 200 000 imp.</td></tr>
+   <tr><td>YouTube ALL</td><td class="r">4 €</td><td class="r">4 000 €</td><td class="r">1 000 000 imp.</td></tr>
+   <tr><td>pDisplay IAB data intentionnistes</td><td class="r">4 €</td><td class="r">2 500 €</td><td class="r">625 000 imp.</td></tr>
+   <tr><td>pDisplay IAB retargeting</td><td class="r">4 €</td><td class="r">2 000 €</td><td class="r">500 000 imp.</td></tr>
+   <tr><td>Audio streaming + podcast</td><td class="r">12 €</td><td class="r">3 500 €</td><td class="r">≈291 700 imp.</td></tr>
+   <tr class="total"><td>Total</td><td></td><td class="r">25 000 €</td><td class="r">≈3,62 M imp. + clics SEA</td></tr>
+  </table></div></div>
+  <p class="muted" style="margin-top:12px">Répartition entre agences au prorata du potentiel de chaque zone (population, volume de transactions), ou à parts égales si le budget est mutualisé entre licenciés.</p>
+ </div>
+
+ <div class="panel" id="budB">
+  <div class="tabs" data-group="sb"><button class="tab" data-t="b1">Essentiel · 6 000 €</button><button class="tab on" data-t="b2">Recommandé · 10 000 €</button></div>
+  <div class="panel" id="b1"><div class="tscroll"><table>
+   <tr><th>Levier</th><th class="r">CPM / CPC</th><th class="r">Budget HT</th><th class="r">Volume estimé</th></tr>
+   <tr><td>Social Ads Post+Story (Meta)</td><td class="r">5 €</td><td class="r">2 500 €</td><td class="r">500 000 imp.</td></tr>
+   <tr><td>SEA Google Ads Search</td><td class="r">CPC est. 1,5 à 3 €</td><td class="r">1 500 €</td><td class="r">500 à 1 000 clics</td></tr>
+   <tr><td>YouTube ALL</td><td class="r">4 €</td><td class="r">1 000 €</td><td class="r">250 000 imp.</td></tr>
+   <tr><td>pDisplay IAB data + retargeting</td><td class="r">4 €</td><td class="r">1 000 €</td><td class="r">250 000 imp.</td></tr>
+   <tr class="total"><td>Total</td><td></td><td class="r">6 000 €</td><td class="r">≈1,00 M imp. + clics SEA</td></tr>
+  </table></div></div>
+  <div class="panel on" id="b2"><div class="tscroll"><table>
+   <tr><th>Levier <span class="reco-badge">Recommandé</span></th><th class="r">CPM / CPC</th><th class="r">Budget HT</th><th class="r">Volume estimé</th></tr>
+   <tr><td>Social Ads Post+Story (Meta)</td><td class="r">5 €</td><td class="r">3 500 €</td><td class="r">700 000 imp.</td></tr>
+   <tr><td>SEA Google Ads Search</td><td class="r">CPC est. 1,5 à 3 €</td><td class="r">2 500 €</td><td class="r">≈830 à 1 670 clics</td></tr>
+   <tr><td>YouTube ALL</td><td class="r">4 €</td><td class="r">1 500 €</td><td class="r">375 000 imp.</td></tr>
+   <tr><td>pDisplay IAB data + retargeting</td><td class="r">4 €</td><td class="r">1 000 €</td><td class="r">250 000 imp.</td></tr>
+   <tr><td>Audio streaming + podcast business</td><td class="r">12 €</td><td class="r">1 500 €</td><td class="r">125 000 imp.</td></tr>
+   <tr class="total"><td>Total</td><td></td><td class="r">10 000 €</td><td class="r">≈1,45 M imp. + clics SEA</td></tr>
+  </table></div></div>
+  <p class="muted" style="margin-top:12px">Option complémentaire sur devis : location de fichiers de prospection B2B ou eMailing ciblé sur des profils banque et finance des zones blanches.</p>
+ </div>
+
+ <div class="panel" id="budT"><div class="tscroll"><table>
+  <tr><th>Combinaison</th><th class="r">Volet A</th><th class="r">Volet B</th><th class="r">Total HT</th></tr>
+  <tr><td>Essentiel + Essentiel</td><td class="r">8 000 €</td><td class="r">6 000 €</td><td class="r">14 000 €</td></tr>
+  <tr><td><b>Recommandé + Recommandé</b> <span class="reco-badge">Reco TGW</span></td><td class="r">15 000 €</td><td class="r">10 000 €</td><td class="r"><b>25 000 €</b></td></tr>
+  <tr><td>Ambition + Recommandé</td><td class="r">25 000 €</td><td class="r">10 000 €</td><td class="r">35 000 €</td></tr>
+ </table></div></div>
+</div></section>
+
+<!-- FORMATS -->
+<section id="formats"><div class="wrap">
+ <h2>Formats & KPIs de suivi par levier</h2>
+ <div class="grid g2" style="margin-top:22px">
+  <div class="card c-lavande"><h3>YouTube & Social Ads</h3><p><b>Formats :</b> post 1080x1080 px, story / Shorts 9:16 1920x1080 px mp4, bumper ads 6 s.</p><p style="margin:0"><b>KPIs :</b> impressions, clics, CTR, reach, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p></div>
+  <div class="card c-bleu"><h3>pDisplay (data + retargeting)</h3><p><b>Formats :</b> 300x600, 300x250, 320x480, 728x90, 160x600, 320x50 px, jpeg/png/gif.</p><p style="margin:0"><b>KPIs :</b> impressions, clics, CTR, taux de complétion, étude socio-démo, géoloc, affinitaires.</p></div>
+  <div class="card c-peche"><h3>SEA Google Ads Search</h3><p><b>Formats :</b> annonces responsives (15 titres, 4 descriptions), extensions de lieu, d'appel et de liens annexes.</p><p style="margin:0"><b>KPIs :</b> impressions, clics, CTR, CPC moyen, taux de conversion, coût par lead, part d'impressions.</p></div>
+  <div class="card c-menthe"><h3>Audio streaming + podcast</h3><p><b>Formats :</b> spot 15, 20 ou 30 s + visuel compagnon 1:1 640x640 px ou 9:16 720x1280 px.</p><p style="margin:0"><b>KPIs :</b> impressions, reach, clics, écoutes à 25/50/75/100 %, taux de complétion, stats socio-démo, capping, CPE & CPM finaux.</p></div>
+ </div>
+ <div class="note" style="margin-top:22px"><b>Créas.</b> Les Shorts existants couvrent directement les formats Story et YouTube Shorts. Pour le in-stream YouTube et les posts 1:1, prévoir une déclinaison 16:9 et carrée des témoignages. Les spots audio sont à produire (15 à 20 s suffisent).</div>
+</div></section>
+
+<!-- AUDIENCES -->
+<section id="audiences"><div class="wrap">
+ <h2>Audiences</h2>
+ <h3 style="margin-top:18px">Volet A · Clients</h3>
+ <div class="grid g4">
+  <div class="card"><div class="glyph">●</div><h4>Primo-accédants</h4><p class="muted" style="margin:0">25-40 ans, premier achat, besoin d'être rassurés et accompagnés pas à pas.</p></div>
+  <div class="card"><div class="glyph">■</div><h4>Secundo-accédants</h4><p class="muted" style="margin:0">35-55 ans, revente-achat, crédit relais, recherche du meilleur taux.</p></div>
+  <div class="card"><div class="glyph">◆</div><h4>Investisseurs</h4><p class="muted" style="margin:0">40-65 ans CSP+, investissement locatif et patrimonial.</p></div>
+  <div class="card"><div class="glyph">⌂</div><h4>Emprunteurs en place</h4><p class="muted" style="margin:0">Renégociation, assurance emprunteur, regroupement de crédits.</p></div>
+ </div>
+ <h3 style="margin-top:30px">Volet B · Futurs licenciés</h3>
+ <div class="grid g4">
+  <div class="card"><div class="glyph">●</div><h4>Banquiers en poste</h4><p class="muted" style="margin:0">Conseillers et directeurs d'agence bancaire, 30-55 ans, envie d'indépendance.</p></div>
+  <div class="card"><div class="glyph">■</div><h4>Courtiers indépendants</h4><p class="muted" style="margin:0">Déjà IOBSP, à la recherche d'une marque et d'un réseau bancaire.</p></div>
+  <div class="card"><div class="glyph">◆</div><h4>Cadres en reconversion</h4><p class="muted" style="margin:0">Profils commerciaux ou immobilier avec capacité d'investissement.</p></div>
+  <div class="card"><div class="glyph">◐</div><h4>Entrepreneurs locaux</h4><p class="muted" style="margin:0">Intéressés par la franchise et la création d'entreprise sur leur territoire.</p></div>
+ </div>
+</div></section>
+
+<!-- DATA -->
+<section id="data"><div class="wrap">
+ <h2>Stratégie data</h2>
+ <div class="tabs" data-group="dt"><button class="tab on" data-t="dA">Volet A · Acquisition</button><button class="tab" data-t="dB">Volet B · Recrutement</button></div>
+ <div class="panel on" id="dA">
+  <div class="pyr">
+   <div class="p1"><b>Couche 1 · Intentionnistes immobiliers</b><span>Consultation d'annonces immobilières (data Leboncoin immobilier), utilisation de simulateurs de crédit, requêtes crédit immobilier, visiteurs avisofi.fr (retargeting)</span></div>
+   <div class="p2"><b>Couche 2 · Moments de vie</b><span>Déménagement en cours, jeunes couples, naissance, mobilité professionnelle, recherche de location haut de gamme</span></div>
+   <div class="p3"><b>Couche 3 · Socio-démo géolocalisée</b><span>25-55 ans actifs, revenus moyens à supérieurs, ciblage jusqu'au code postal dans la zone de chaque agence</span></div>
+  </div>
+ </div>
+ <div class="panel" id="dB">
+  <div class="pyr">
+   <div class="p1"><b>Couche 1 · Profils métier</b><span>Professionnels banque, assurance, courtage et immobilier (data B2B et affinités sectorielles), visiteurs de la page licence de marque</span></div>
+   <div class="p2"><b>Couche 2 · Intentionnistes création & reconversion</b><span>Lecteurs de contenus franchise, création d'entreprise et reconversion, audiences podcasts business et finances</span></div>
+   <div class="p3"><b>Couche 3 · Socio-démo zones blanches</b><span>30-55 ans CSP+, départements du Sud-Ouest et de Bretagne sans agence Avisofi</span></div>
+  </div>
+ </div>
+ <div class="note ice" style="margin-top:24px"><b>Mesure.</b> Google Tag Manager est déjà en place sur avisofi.fr : poser des conversions distinctes (simulation, demande de rappel, contact agence, candidature licence) et des UTM par volet et par agence pour attribuer chaque lead.</div>
+</div></section>
+
+<!-- RGPD -->
+<section id="rgpd"><div class="wrap">
+ <h2>RGPD, conformité & brand safety</h2>
+ <div class="grid g3" style="margin-top:22px">
+  <div class="card"><h3>Publicité du crédit</h3><p style="margin:0">Mentions légales obligatoires d'intermédiaire en crédit (IOBSP, n° ORIAS, mention relative à l'absence de versement avant obtention du prêt, « Un crédit vous engage… ») sur les landing pages et, selon les formats, dans les créas. À valider par le service conformité d'Avisofi.</p></div>
+  <div class="card"><h3>Règles des plateformes</h3><p style="margin:0">Services financiers : vérification annonceur Google Ads et catégorie publicitaire spéciale Meta pouvant limiter le ciblage (âge, genre, code postal). Volet B : formuler l'offre comme une opportunité entrepreneuriale et non comme une offre d'emploi. Points vérifiés au lancement.</p></div>
+  <div class="card"><h3>Données & brand safety</h3><p style="margin:0">Data 100 % consentie et conforme RGPD, sans donnée personnelle transmise. Listes d'exclusion (contenus sensibles, sites MFA), contrôle IAS de la visibilité et du trafic invalide, capping maîtrisé.</p></div>
+ </div>
+</div></section>
+
+<footer id="contacts"><div class="wrap">
+ <h2>Contacts</h2>
+ <div class="contacts">
+  <a class="ct" href="mailto:jerome@thegoodweb.eu"><b>Jérôme Fages</b><small>Directeur commercial</small><span>06 18 74 66 75</span><span>jerome@thegoodweb.eu</span></a>
+  <a class="ct" href="mailto:mathilde@thegoodweb.eu"><b>Mathilde Coriton</b><small>Directrice de clientèle</small><span>06 48 61 92 92</span><span>mathilde@thegoodweb.eu</span></a>
+  <a class="ct" href="mailto:leslie@thegoodweb.eu"><b>Leslie Rogé</b><small>Cheffe de publicité</small><span>06 83 73 68 62</span><span>leslie@thegoodweb.eu</span></a>
+  <div class="ct off"><b>Andrea</b><small>Chef de publicité</small><span>andrea@thegoodweb.eu</span></div>
+  <a class="ct" href="mailto:sofien@thegoodweb.eu"><b>Sofien Chaganiou</b><small>Chef de publicité</small><span>07 67 84 70 67</span><span>sofien@thegoodweb.eu</span></a>
+  <div class="ct off"><b>Pôle activation</b><small>Mise en ligne & suivi</small><span>activation@thegoodweb.eu</span></div>
+ </div>
+ <div class="foot-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="214 252 572 496" style="height:88px;width:auto;display:block" role="img" aria-label="The Good Web"><g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g></svg><span>The Good Web · Marseille · Recommandation Avisofi · Document confidentiel</span></div>
+</div></footer>
+
+<script>
+document.querySelectorAll('.tabs').forEach(function(g){
+ var btns=g.querySelectorAll('.tab');
+ btns.forEach(function(b){b.addEventListener('click',function(){
+  btns.forEach(function(x){x.classList.remove('on');var p=document.getElementById(x.dataset.t);if(p)p.classList.remove('on');});
+  b.classList.add('on');var p=document.getElementById(b.dataset.t);if(p)p.classList.add('on');
+ });});
+});
+</script>
+</body>
+</html>
