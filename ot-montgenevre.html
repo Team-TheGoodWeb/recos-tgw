@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Montgenèvre · Recommandation média</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#021859; --ice:#7bbdff; --terra:#f25430; --white:#ffffff;
+  --ink:#1c2440; --muted:#5b6585; --line:#e3e8f3; --bg:#f6f8fc;
+  --ice-soft:#eaf4ff; --terra-soft:#fff0eb; --navy-soft:#e8ecf6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
+h1,h2,h3,h4{font-family:Poppins,sans-serif;color:var(--navy);line-height:1.25}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+b,strong{font-weight:600}
+
+/* HERO */
+header.hero{background:var(--navy);color:var(--white);padding:40px 0 56px;position:relative;overflow:hidden}
+header.hero:after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(123,189,255,.25),transparent 70%)}
+.logo{width:118px;height:auto;display:block;margin-bottom:36px}
+.hero .kicker{font-family:Poppins;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ice)}
+header.hero h1{color:var(--white);font-size:clamp(28px,5vw,46px);margin:10px 0 14px;max-width:820px}
+.hero p.sub{color:#cdd6ef;max-width:720px;font-size:17px}
+.pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;position:relative;z-index:1}
+.pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:10px 16px}
+.pill small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ice)}
+.pill b{font-family:Poppins;font-weight:600;color:var(--white)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--terra);margin-right:8px;vertical-align:middle}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav a{white-space:nowrap;padding:16px 12px;font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent}
+nav a:hover{color:var(--navy)}
+nav a.opt{color:var(--terra)}
+nav a.active{color:var(--navy);border-bottom-color:var(--terra)}
+
+section{padding:64px 0 8px}
+.eyebrow{font-family:Poppins;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
+section h2{font-size:clamp(24px,3.4vw,32px);margin-bottom:14px}
+p.lead{font-size:17px;color:var(--muted);max-width:820px;margin-bottom:28px}
+
+.part{margin-top:64px;border-radius:22px;padding:30px 32px;background:var(--navy);color:var(--white);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.part .n{font-family:Poppins;font-weight:700;font-size:44px;color:var(--terra);line-height:1}
+.part h2{color:var(--white);margin:0;font-size:clamp(22px,3vw,30px)}
+.part p{color:#cdd6ef;margin-top:4px}
+.part.opt{background:linear-gradient(120deg,var(--terra),#ff7a52)}
+.part.opt .n{color:var(--white)}
+.part.opt p{color:#fff3ee}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:24px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card h4{font-size:16px;margin-bottom:6px}
+.card p,.card li{color:var(--muted);font-size:15px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--terra);color:#fff;font-family:Poppins;font-weight:600;margin-bottom:12px}
+.c-bleu{background:var(--ice-soft);border-color:#d3e7fc}
+.c-corail{background:var(--terra-soft);border-color:#fbd9cd}
+.c-menthe{background:var(--navy-soft);border-color:#d6ddee}
+
+.lever{position:relative;overflow:hidden}
+.lever .tag{display:inline-block;font-size:12px;font-weight:600;border-radius:999px;padding:4px 12px;background:var(--navy);color:#fff;margin-bottom:12px}
+.lever .tag.t2{background:var(--ice);color:var(--navy)}
+.lever .tag.t3{background:var(--terra)}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:16px 0 4px;padding-top:16px;border-top:1px dashed var(--line)}
+.specs div small{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.specs div b{font-family:Poppins;color:var(--navy);font-size:15px}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0}
+.kpi{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px}
+.kpi .v{font-family:Poppins;font-weight:700;font-size:26px;color:var(--navy)}
+.kpi .l{font-size:13px;color:var(--muted)}
+.kpi.hl{background:var(--navy)}
+.kpi.hl .v{color:var(--white)}
+.kpi.hl .l{color:#cdd6ef}
+.kpi.tc .v{color:var(--terra)}
+
+.funnel{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:22px;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.funnel div{padding:22px;background:var(--white);position:relative}
+.funnel div+div{border-left:1px solid var(--line)}
+.funnel small{font-family:Poppins;font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
+.funnel h4{margin:6px 0}
+.funnel p{font-size:14px;color:var(--muted)}
+
+.callout{background:var(--white);border-left:4px solid var(--terra);border-radius:12px;padding:16px 20px;margin-top:22px;color:var(--ink);font-size:15px}
+.callout.ice{border-left-color:var(--ice)}
+
+.persona .g{font-size:22px;color:var(--terra);margin-bottom:8px}
+.persona ul{list-style:none;margin-top:10px}
+.persona li{padding-left:16px;position:relative;margin-bottom:6px}
+.persona li:before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--ice)}
+
+.pyr{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:10px}
+.pyr div{border-radius:14px;padding:16px 22px;text-align:center;color:#fff}
+.pyr div b{display:block;font-family:Poppins;font-size:15px}
+.pyr div span{font-size:14px;opacity:.9}
+.pyr .l1{width:56%;background:var(--terra)}
+.pyr .l2{width:78%;background:#1b3a86}
+.pyr .l3{width:100%;background:var(--navy)}
+
+.tblw{overflow-x:auto;border-radius:16px;border:1px solid var(--line);background:var(--white)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+thead th{background:var(--navy);color:#fff;font-family:Poppins;font-weight:600;font-size:13px;text-align:left;padding:13px 14px}
+td{padding:12px 14px;border-top:1px solid var(--line)}
+td.r,th.r{text-align:right}
+tr.tot td{background:var(--navy-soft);font-weight:600;color:var(--navy)}
+tr.o td{background:var(--terra-soft)}
+tr.o td:first-child{color:var(--terra);font-weight:600}
+.meta{font-size:13px;color:var(--muted);margin-top:10px}
+
+.plan td{text-align:center;padding:10px 6px}
+.plan td:first-child{text-align:left;font-weight:600;color:var(--navy);white-space:nowrap}
+.plan .on{background:var(--navy);border-radius:6px;display:block;height:22px}
+.plan .on.d{background:var(--ice)}
+.plan .on.o{background:var(--terra)}
+.plan thead th{text-align:center}
+.plan thead th:first-child{text-align:left}
+
+.why{list-style:none;margin-top:14px}
+.why li{padding:10px 0 10px 30px;position:relative;border-top:1px solid var(--line);font-size:15px;color:var(--ink)}
+.why li:before{content:"◆";position:absolute;left:4px;top:10px;color:var(--terra);font-size:13px}
+.why li b{color:var(--navy)}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{border:1px solid var(--line);background:var(--white);border-radius:999px;padding:9px 16px;font:500 14px Inter;color:var(--muted);cursor:pointer}
+.tab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.scn{display:none}
+.scn.on{display:block}
+.reco-badge{display:inline-block;background:var(--terra);color:#fff;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:3px 10px;margin-left:8px;vertical-align:middle}
+
+.bars{margin-top:8px}
+.bar{display:grid;grid-template-columns:150px 1fr 90px;gap:12px;align-items:center;margin:10px 0;font-size:14px}
+.bar .t{height:14px;background:var(--navy-soft);border-radius:999px;overflow:hidden}
+.bar .t i{display:block;height:100%;border-radius:999px;background:var(--navy)}
+.bar.o .t i{background:var(--terra)}
+.bar b{text-align:right;font-family:Poppins;color:var(--navy)}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.st{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px}
+.st small{color:var(--terra);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.st h4{margin:6px 0}
+.st p{font-size:14px;color:var(--muted)}
+
+footer{background:var(--navy);color:#fff;margin-top:72px;padding:56px 0 36px}
+footer h2{color:#fff;font-size:26px;margin-bottom:22px}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ct{display:block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:18px;color:#fff;text-decoration:none}
+a.ct:hover{border-color:var(--ice)}
+.ct b{font-family:Poppins;display:block}
+.ct small{display:block;color:var(--ice);font-size:13px;margin-bottom:6px}
+.ct span{display:block;font-size:14px;color:#cdd6ef}
+.ct.ph{opacity:.6}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:13px;color:#cdd6ef}
+.foot .logo{width:88px;margin:0}
+
+@media (max-width:900px){
+  .grid3,.grid4,.kpis,.steps{grid-template-columns:1fr 1fr}
+  .contacts{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  .wrap{padding:0 16px}
+  .grid2,.grid3,.grid4,.steps,.contacts,.funnel{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+  .funnel div+div{border-left:0;border-top:1px solid var(--line)}
+  .part{padding:24px}
+  .bar{grid-template-columns:110px 1fr 70px}
+  .pyr .l1,.pyr .l2{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    
+<svg id="tgw1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="214 252 572 496" class="logo" role="img" aria-label="The Good Web">
+  
+  <defs>
+    <style>
+      #tgw1 .st0 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="st0" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path class="st0" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path class="st0" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path class="st0" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path class="st0" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path class="st0" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path class="st0" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path class="st0" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path class="st0" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path class="st0" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path class="st0" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path class="st0" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path class="st0" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path class="st0" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path class="st0" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path class="st0" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path class="st0" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path class="st0" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path class="st0" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg>
+    <div class="kicker">Recommandation média · Saison d'hiver 2027</div>
+    <h1>Office de Tourisme de Montgenèvre : faire de la station le premier réflexe montagne de vos futurs visiteurs</h1>
+    <p class="sub">Suite à nos échanges, voici notre recommandation construite sur le dispositif que vous avez retenu, ainsi qu'une option pour en démultiplier les effets.</p>
+    <div class="pills">
+      <div class="pill"><small>Période</small><b><span class="dot"></span>Janvier à mars 2027</b></div>
+      <div class="pill"><small>Budget socle</small><b><span class="dot"></span>13 500 € HT</b></div>
+      <div class="pill"><small>Objectif</small><b><span class="dot"></span>Notoriété et intention de séjour</b></div>
+      <div class="pill"><small>Marchés</small><b><span class="dot"></span>PACA et Grand Est</b></div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#planning">Planning</a>
+    <a href="#budget">Budget</a>
+    <a href="#option" class="opt">Option recommandée</a>
+    <a href="#impact">Impact attendu</a>
+    <a href="#formats">Formats &amp; KPIs</a>
+    <a href="#rgpd">Brand safety</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <div class="part">
+    <div class="n">01</div>
+    <div><h2>Le cœur de notre recommandation</h2><p>Le dispositif CTV et retargeting display que vous avez retenu, détaillé et optimisé.</p></div>
+  </div>
+
+  <section id="contexte">
+    <div class="eyebrow">Contexte &amp; objectifs</div>
+    <h2>Être choisie avant même que le séjour ne soit réservé</h2>
+    <p class="lead">Le choix d'une station se joue bien en amont des vacances, souvent en famille, autour de l'écran du salon. Notre recommandation vise à installer Montgenèvre dans ce moment de décision, auprès des foyers des régions PACA et Grand Est, puis à accompagner l'envie jusqu'à votre site.</p>
+    <div class="grid3">
+      <div class="card"><div class="num">1</div><h3>Gagner en notoriété</h3><p>Faire connaître Montgenèvre à grande échelle auprès des familles et des couples CSP+, dans un cadre premium et valorisant pour la destination.</p></div>
+      <div class="card"><div class="num">2</div><h3>Créer l'intention de séjour</h3><p>Transformer l'attention suscitée par le spot TV en visites qualifiées sur votre site, grâce à une relance ciblée sur les écrans personnels.</p></div>
+      <div class="card"><div class="num">3</div><h3>Concentrer l'investissement</h3><p>Prioriser vos deux bassins clés, PACA et Grand Est, pour une pression publicitaire suffisante là où se trouvent vos visiteurs potentiels.</p></div>
+    </div>
+  </section>
+
+  <section id="dispositif">
+    <div class="eyebrow">Dispositif</div>
+    <h2>Un duo pensé pour marquer, puis relancer</h2>
+    <p class="lead">Le dispositif associe la puissance émotionnelle de la télévision connectée à la précision du display programmatique. Chaque levier joue un rôle distinct dans le parcours de décision.</p>
+
+    <div class="grid2">
+      <div class="card lever">
+        <span class="tag">Levier 1 · Notoriété</span>
+        <h3>CTV, chaînes premium</h3>
+        <p>Votre spot diffusé sur les grandes chaînes françaises en TV connectée, replay et OTT, avec la granularité du digital : ciblage géographique précis, données sociodémographiques et affinitaires du foyer.</p>
+        <div class="specs">
+          <div><small>Mode d'achat</small><b>CPM 22,00 €</b></div>
+          <div><small>Format</small><b>Vidéo</b></div>
+          <div><small>Durée</small><b>3 semaines</b></div>
+          <div><small>Budget</small><b>11 000 € HT</b></div>
+          <div><small>Impressions</small><b>500 000</b></div>
+          <div><small>Capping · Reach estimé</small><b>4 · 125 000 foyers</b></div>
+        </div>
+      </div>
+      <div class="card lever">
+        <span class="tag t2">Levier 2 · Relance</span>
+        <h3>Retargeting pDisplay</h3>
+        <p>Les foyers exposés au spot sont ensuite reconnus sur leurs écrans personnels, mobile et ordinateur, et retrouvent Montgenèvre sur des sites éditeurs premium, au moment où ils se renseignent.</p>
+        <div class="specs">
+          <div><small>Mode d'achat</small><b>CPM 5,50 €</b></div>
+          <div><small>Format</small><b>Formats IAB</b></div>
+          <div><small>Durée</small><b>3 semaines</b></div>
+          <div><small>Budget</small><b>2 500 € HT</b></div>
+          <div><small>Impressions</small><b>454 545</b></div>
+          <div><small>Capping · Reach estimé</small><b>4 · 113 000 personnes</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel">
+      <div><small>Étape 1 · CTV</small><h4>Voir et ressentir</h4><p>Le grand écran installe l'image de la station : attention, émotion et mémorisation, en famille.</p></div>
+      <div><small>Étape 2 · Retargeting</small><h4>Se souvenir</h4><p>La relance rappelle Montgenèvre aux foyers déjà exposés et entretient la préférence.</p></div>
+      <div><small>Étape 3 · Votre site</small><h4>Passer à l'action</h4><p>Le clic mène vers vos offres de séjour, au moment où le projet de vacances se concrétise.</p></div>
+    </div>
+
+    <div class="callout ice"><b>Environnements de diffusion :</b> chaînes TV premium en CTV, IPTV, OTT et replay, puis sites éditeurs premium en display IAB, tous sélectionnés pour leur qualité et leur brand safety.</div>
+  </section>
+
+  <section id="audiences">
+    <div class="eyebrow">Audiences</div>
+    <h2>Trois profils au cœur de votre clientèle</h2>
+    <p class="lead">Nous nous adressons aux hommes et femmes des régions PACA et Grand Est qui partagent une appétence pour la montagne, les activités de plein air et les séjours en station.</p>
+    <div class="grid3">
+      <div class="card persona c-bleu"><div class="g">●</div><h3>Familles avec préadolescents</h3><p>Parents CSP+ avec enfants de 12 à 14 ans, qui organisent leurs vacances autour des congés scolaires.</p>
+        <ul><li>Séjours adaptés aux familles</li><li>Activités nature et station</li><li>Réservations pendant les vacances scolaires</li></ul></div>
+      <div class="card persona c-menthe"><div class="g">■</div><h3>Couples CSP+</h3><p>Couples à fort pouvoir d'achat, amateurs de montagne, de bonnes tables et d'escapades de qualité.</p>
+        <ul><li>Habitués des stations de ski</li><li>Voyageurs en TGV et vers les Alpes</li><li>Sensibles aux marques premium</li></ul></div>
+      <div class="card persona c-corail"><div class="g">◆</div><h3>Sportifs urbains de 25 à 35 ans</h3><p>Urbains actifs, passionnés de glisse et d'outdoor, friands de week ends sportifs et de courts séjours.</p>
+        <ul><li>Ski, snowboard, freeride</li><li>Trail, VTT, escalade, alpinisme</li><li>Escapades courtes en montagne</li></ul></div>
+    </div>
+  </section>
+
+  <section id="data">
+    <div class="eyebrow">Stratégie data</div>
+    <h2>Un ciblage fondé sur des comportements réels</h2>
+    <p class="lead">Au delà des déclarations d'intérêt, nous activons des données de comportements observés : lieux fréquentés, voyages réservés, achats réalisés. C'est ce qui garantit que chaque impression touche un foyer réellement susceptible de séjourner à Montgenèvre.</p>
+    <div class="grid2">
+      <div class="pyr">
+        <div class="l1"><b>Comportements réels</b><span>GPS Seiki, Travel, données encartées, Beebs, The Bradery</span></div>
+        <div class="l2"><b>Centres d'intérêt</b><span>Sports de montagne, glisse, vacances nature, courts séjours dans les Alpes</span></div>
+        <div class="l3"><b>Sociodémographie et zone</b><span>Hommes et femmes, familles 25 ans et plus, sportifs urbains 25 à 35 ans, PACA et Grand Est</span></div>
+      </div>
+      <div class="card">
+        <h4>Nos partenaires data</h4>
+        <ul class="why">
+          <li><b>Seiki (GPS) :</b> fréquentation de stations de ski, de magasins outdoor et sports d'hiver, de gares TGV, de centres commerciaux et loisirs familiaux.</li>
+          <li><b>Travel :</b> réservations de vols et d'hôtels pendant les vacances scolaires, vols à deux vers les Alpes françaises et italiennes.</li>
+          <li><b>Données encartées :</b> cartes de fidélité actives dans les enseignes sport et outdoor (Decathlon, Intersport, Ekosport) et en grande distribution.</li>
+          <li><b>Beebs et The Bradery :</b> achats d'équipements techniques, ski et outdoor, de vêtements de marques premium et pour les 12 à 14 ans.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout"><b>Zone de diffusion.</b> Région PACA : Marseille, Aix-en-Provence, Toulon, Nice, Avignon, Gap, Briançon. Grand Est : Strasbourg, Nancy, Metz, Mulhouse, Colmar, Reims, Troyes.</div>
+  </section>
+
+  <section id="planning">
+    <div class="eyebrow">Planning</div>
+    <h2>Une prise de parole calée sur les décisions de séjour</h2>
+    <p class="lead">Le socle s'active en janvier, au moment où se préparent les vacances d'hiver. Les lignes en terracotta correspondent à l'option recommandée, présentée en partie 2.</p>
+    <div class="tblw">
+      <table class="plan">
+        <thead><tr><th>Levier</th><th>Janv. S1</th><th>Janv. S2</th><th>Janv. S3</th><th>Janv. S4</th><th>Février</th><th>Mars S1</th><th>Mars S2</th><th>Mars S3</th></tr></thead>
+        <tbody>
+          <tr><td>CTV</td><td><i class="on"></i></td><td><i class="on"></i></td><td><i class="on"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Retargeting pDisplay</td><td><i class="on d"></i></td><td><i class="on d"></i></td><td><i class="on d"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Option · Social Ads Story</td><td><i class="on o"></i></td><td><i class="on o"></i></td><td><i class="on o"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Option · pDOOH</td><td></td><td></td><td></td><td></td><td></td><td><i class="on o"></i></td><td><i class="on o"></i></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="meta">Dates exactes de démarrage à caler ensemble selon la date de livraison des éléments créatifs.</p>
+  </section>
+
+  <section id="budget">
+    <div class="eyebrow">Budget</div>
+    <h2>Votre investissement socle : 13 500 € HT</h2>
+    <div class="tblw">
+      <table>
+        <thead><tr><th>Levier</th><th>Diffusion</th><th class="r">CPM</th><th class="r">Budget HT</th><th class="r">Impressions</th><th class="r">Capping</th><th class="r">Reach estimé</th></tr></thead>
+        <tbody>
+          <tr><td>CTV · Offre Nexstream</td><td>Chaînes premium</td><td class="r">22,00 €</td><td class="r">11 000 €</td><td class="r">500 000</td><td class="r">4</td><td class="r">125 000</td></tr>
+          <tr><td>Retargeting pDisplay</td><td>Sites éditeurs premium</td><td class="r">5,50 €</td><td class="r">2 500 €</td><td class="r">454 545</td><td class="r">4</td><td class="r">113 000</td></tr>
+          <tr class="tot"><td>Total socle</td><td>3 semaines</td><td class="r"></td><td class="r">13 500 €</td><td class="r">954 545</td><td class="r"></td><td class="r"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="meta">Le retargeting s'adresse en priorité aux foyers exposés à la CTV : les deux audiences se recoupent volontairement et ne s'additionnent donc pas.</p>
+  </section>
+
+  <div class="part opt" id="option">
+    <div class="n">02</div>
+    <div><h2>Option recommandée</h2><p>Deux leviers complémentaires et un enrichissement data Mastercard, qui prolongent votre dispositif sans rien en retirer.</p></div>
+  </div>
+
+  <section>
+    <div class="eyebrow">Pourquoi aller plus loin</div>
+    <h2>Couvrir les angles que le socle touche moins</h2>
+    <p class="lead">Le dispositif retenu est solide : il touche les foyers devant leur téléviseur, puis les relance sur leurs écrans personnels. Trois angles peuvent toutefois être renforcés. D'abord, les sportifs urbains de 25 à 35 ans, présents dans votre ciblage mais qui regardent moins la télévision et consomment davantage de vidéo verticale sur mobile. Ensuite, la seconde partie de saison : après janvier, aucune prise de parole ne vient entretenir la mémorisation au moment où se décident les séjours de fin de saison et des vacances de printemps. Enfin, la conquête des skieurs déjà acquis à la montagne, mais fidèles aujourd'hui à une autre station.</p>
+
+    <div class="grid2">
+      <div class="card lever c-corail">
+        <span class="tag t3">Complément 1 · Social Ads Story</span>
+        <h3>Instagram, TikTok, YouTube Shorts</h3>
+        <p>Une déclinaison verticale de votre spot TV, diffusée en Story sur les réseaux sociaux, en simultané avec la CTV.</p>
+        <div class="specs">
+          <div><small>Mode d'achat</small><b>CPM 8,00 €</b></div>
+          <div><small>Format</small><b>Vidéo 9:16</b></div>
+          <div><small>Durée</small><b>3 semaines, janvier</b></div>
+          <div><small>Budget</small><b>2 000 € HT</b></div>
+          <div><small>Impressions</small><b>250 000</b></div>
+          <div><small>Capping · Reach estimé</small><b>4 · 62 500 personnes</b></div>
+        </div>
+        <ul class="why">
+          <li><b>Couvre un angle mort :</b> il atteint les sportifs urbains de 25 à 35 ans là où ils passent réellement leur temps, quand la CTV parle avant tout aux foyers.</li>
+          <li><b>Sans doublon :</b> la CTV occupe le grand écran du salon, le display les sites éditeurs ; la Story occupe un troisième espace, les réseaux sociaux, absent du socle.</li>
+          <li><b>Effet de levier :</b> même message, même période, sur un écran de plus. La répétition entre TV et mobile renforce la mémorisation de la station.</li>
+          <li><b>Coût de production maîtrisé :</b> nous partons de votre spot existant, simplement recadré en vertical.</li>
+        </ul>
+      </div>
+      <div class="card lever c-corail">
+        <span class="tag t3">Complément 2 · pDOOH</span>
+        <h3>Écrans digitaux extérieurs ciblés</h3>
+        <p>Une relance en mars sur des écrans situés dans les lieux fréquentés par vos cibles : gares TGV, centres commerciaux premium, enseignes sport et outdoor.</p>
+        <div class="specs">
+          <div><small>Mode d'achat</small><b>CPM 48,00 €</b></div>
+          <div><small>Format</small><b>Vidéo 9:16, 10 s</b></div>
+          <div><small>Durée</small><b>2 semaines, mars</b></div>
+          <div><small>Budget</small><b>5 000 € HT</b></div>
+          <div><small>Occasions de voir</small><b>104 167</b></div>
+          <div><small>Zones</small><b>PACA et Grand Est</b></div>
+        </div>
+        <ul class="why">
+          <li><b>Prolonge dans le temps :</b> le socle travaille en janvier, le pDOOH réactive le souvenir en mars, quand se décident les séjours de fin de saison et de printemps.</li>
+          <li><b>Touche hors du foyer :</b> en mobilité, dans un contexte que ni la TV ni le display ne couvrent.</li>
+          <li><b>Cohérence data :</b> les écrans sont choisis dans les lieux identifiés par la data Seiki (gares TGV, centres commerciaux, magasins outdoor), sur les mêmes profils que le socle.</li>
+          <li><b>Un levier déjà étudié ensemble :</b> il figurait dans notre proposition initiale ; nous le calibrons ici sur deux semaines ciblées, en complément du socle.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card lever c-menthe" style="margin-top:18px">
+      <span class="tag">Complément 3 · Data Mastercard</span>
+      <h3>Un ciblage fondé sur les dépenses réelles</h3>
+      <p>Nous enrichissons le ciblage de l'ensemble du dispositif avec les données de transactions Mastercard, anonymisées et agrégées. Elles identifient trois profils à très forte intention :</p>
+      <div class="grid3" style="margin-top:14px">
+        <div class="card"><div class="num">1</div><h4>Acheteurs en retail sportif</h4><p>Personnes ayant effectué des achats dans des magasins de sport et d'équipement outdoor.</p></div>
+        <div class="card"><div class="num">2</div><h4>Loueurs de matériel de ski</h4><p>Personnes ayant loué du matériel de ski lors des saisons précédentes.</p></div>
+        <div class="card"><div class="num">3</div><h4>Clients de stations voisines</h4><p>Personnes ayant déjà réservé un séjour dans une station proche ou concurrente de Montgenèvre.</p></div>
+      </div>
+      <ul class="why">
+        <li><b>Complète la data existante :</b> Seiki mesure les lieux fréquentés, Travel les voyages réservés ; Mastercard apporte la preuve de la dépense effective. Trois signaux distincts, qui se renforcent sans se répéter.</li>
+        <li><b>Ouvre un levier de conquête :</b> les clients de stations voisines sont des skieurs déjà convaincus par la montagne. Les exposer à Montgenèvre, c'est capter une demande existante plutôt que la créer.</li>
+        <li><b>Rend chaque levier plus efficace :</b> appliquée à la CTV, au retargeting, aux Stories et au pDOOH, cette data concentre les impressions sur les foyers les plus susceptibles de réserver, et améliore le rendement de chaque euro investi.</li>
+        <li><b>Mémoire de saison :</b> les achats et locations des années précédentes révèlent des pratiquants réguliers, pour qui la question n'est pas de partir au ski, mais de choisir où.</li>
+      </ul>
+    </div>
+
+    <h3 style="margin:44px 0 14px;font-size:22px">Trois paliers, à votre convenance</h3>
+    <div class="tabs" role="tablist">
+      <button class="tab" data-s="s1">Socle · 13 500 €</button>
+      <button class="tab" data-s="s2">Socle + Social · 15 500 €</button>
+      <button class="tab on" data-s="s3">Option complète · 20 500 €</button>
+    </div>
+
+    <div class="scn" id="s1">
+      <div class="tblw"><table>
+        <thead><tr><th>Levier</th><th>Période</th><th class="r">Budget HT</th><th class="r">Impressions</th><th class="r">Reach estimé</th></tr></thead>
+        <tbody>
+          <tr><td>CTV</td><td>Janvier, 3 semaines</td><td class="r">11 000 €</td><td class="r">500 000</td><td class="r">125 000</td></tr>
+          <tr><td>Retargeting pDisplay</td><td>Janvier, 3 semaines</td><td class="r">2 500 €</td><td class="r">454 545</td><td class="r">113 000</td></tr>
+          <tr class="tot"><td>Total</td><td></td><td class="r">13 500 €</td><td class="r">954 545</td><td class="r"></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="scn" id="s2">
+      <div class="tblw"><table>
+        <thead><tr><th>Levier</th><th>Période</th><th class="r">Budget HT</th><th class="r">Impressions</th><th class="r">Reach estimé</th></tr></thead>
+        <tbody>
+          <tr><td>CTV</td><td>Janvier, 3 semaines</td><td class="r">11 000 €</td><td class="r">500 000</td><td class="r">125 000</td></tr>
+          <tr><td>Retargeting pDisplay</td><td>Janvier, 3 semaines</td><td class="r">2 500 €</td><td class="r">454 545</td><td class="r">113 000</td></tr>
+          <tr class="o"><td>Social Ads Story</td><td>Janvier, 3 semaines</td><td class="r">2 000 €</td><td class="r">250 000</td><td class="r">62 500</td></tr>
+          <tr class="tot"><td>Total</td><td></td><td class="r">15 500 €</td><td class="r">1 204 545</td><td class="r"></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="scn on" id="s3">
+      <div class="tblw"><table>
+        <thead><tr><th>Levier <span class="reco-badge">Recommandé</span></th><th>Période</th><th class="r">Budget HT</th><th class="r">Impressions</th><th class="r">Reach estimé</th></tr></thead>
+        <tbody>
+          <tr><td>CTV</td><td>Janvier, 3 semaines</td><td class="r">11 000 €</td><td class="r">500 000</td><td class="r">125 000</td></tr>
+          <tr><td>Retargeting pDisplay</td><td>Janvier, 3 semaines</td><td class="r">2 500 €</td><td class="r">454 545</td><td class="r">113 000</td></tr>
+          <tr class="o"><td>Social Ads Story</td><td>Janvier, 3 semaines</td><td class="r">2 000 €</td><td class="r">250 000</td><td class="r">62 500</td></tr>
+          <tr class="o"><td>pDOOH</td><td>Mars, 2 semaines</td><td class="r">5 000 €</td><td class="r">104 167 occasions de voir</td><td class="r"></td></tr>
+          <tr class="tot"><td>Total</td><td></td><td class="r">20 500 €</td><td class="r">1 204 545 + 104 167</td><td class="r"></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <p class="meta">Chaque complément peut être activé indépendamment : le pDOOH seul porte le total à 18 500 € HT. L'enrichissement data Mastercard s'applique à l'ensemble des leviers activés.</p>
+  </section>
+
+  <section id="impact">
+    <div class="eyebrow">Impact attendu</div>
+    <h2>Ce que l'option recommandée vous apporte</h2>
+    <div class="kpis">
+      <div class="kpi hl"><div class="v">+26 %</div><div class="l">d'impressions digitales par rapport au socle</div></div>
+      <div class="kpi"><div class="v">4</div><div class="l">types d'écrans couverts, contre 2</div></div>
+      <div class="kpi tc"><div class="v">5</div><div class="l">semaines de présence, sur deux temps forts</div></div>
+      <div class="kpi"><div class="v">62 500</div><div class="l">contacts supplémentaires estimés sur les 25 à 35 ans</div></div>
+    </div>
+
+    <div class="card">
+      <h4>Volume d'impressions digitales par palier</h4>
+      <div class="bars">
+        <div class="bar"><span>Socle</span><div class="t"><i style="width:79%"></i></div><b>954 545</b></div>
+        <div class="bar o"><span>Socle + Social</span><div class="t"><i style="width:100%"></i></div><b>1 204 545</b></div>
+      </div>
+      <p class="meta">L'option complète ajoute 104 167 occasions de voir en affichage digital extérieur, en mars.</p>
+    </div>
+
+    <div class="grid2" style="margin-top:18px">
+      <div class="card c-bleu"><h4>Une mémorisation renforcée</h4><p>Votre message est vu sur le téléviseur, sur les sites consultés, sur les réseaux sociaux puis dans la rue. Cette répétition sur des écrans complémentaires est l'un des moteurs les plus sûrs de la mémorisation d'une destination.</p></div>
+      <div class="card c-menthe"><h4>Une cible complète et plus qualifiée</h4><p>Familles et couples sont touchés par la TV, les sportifs urbains par les réseaux sociaux, et la data Mastercard oriente la diffusion vers les skieurs réguliers, y compris ceux des stations voisines.</p></div>
+      <div class="card c-corail"><h4>Une présence dans la durée</h4><p>La station reste à l'esprit au delà de janvier, jusqu'aux décisions de fin de saison et des vacances de printemps, sans relancer une campagne entière.</p></div>
+      <div class="card"><h4>Un investissement maîtrisé</h4><p>Avec 20 500 € HT, vous bénéficiez d'un dispositif à quatre leviers enrichi par la data Mastercard, pour un budget inférieur à l'hypothèse CTV la plus large étudiée ensemble, chaque euro supplémentaire étant affecté à une audience ou à un moment nouveau.</p></div>
+    </div>
+  </section>
+
+  <section id="formats">
+    <div class="eyebrow">Formats &amp; KPIs</div>
+    <h2>Éléments attendus et indicateurs de suivi</h2>
+    <div class="grid2">
+      <div class="card"><h4>CTV</h4><p><b>Format :</b> 1920 × 1080 px, 16:9, 15 à 30 secondes.</p><p><b>KPIs :</b> impressions, clics, CTR, reach, taux de complétion, top chaînes et groupes, étude sociodémographique, géolocalisation, affinités.</p></div>
+      <div class="card"><h4>Retargeting pDisplay</h4><p><b>Formats :</b> 300x600, 300x250, 320x480, 728x90, 160x600, 320x50 px, en jpeg, png ou gif.</p><p><b>KPIs :</b> impressions, clics, CTR, taux de visibilité, top 10 diffusion, étude sociodémographique, géolocalisation, affinités.</p></div>
+      <div class="card c-corail"><h4>Option · Social Ads Story</h4><p><b>Format :</b> Story 9:16, 1080 × 1920 px, mp4.</p><p><b>KPIs :</b> impressions, reach, clics, CTR, interactions, vues à 25, 50, 75 et 100 %, taux de complétion, CPM final.</p></div>
+      <div class="card c-corail"><h4>Option · pDOOH</h4><p><b>Format :</b> 9:16, 1080 × 1920 px, mp4, 10 secondes.</p><p><b>KPIs :</b> impressions, diffusion, top publishers, nombre de plays, statistiques par typologie d'écran.</p></div>
+    </div>
+  </section>
+
+  <section id="rgpd">
+    <div class="eyebrow">Brand safety &amp; RGPD</div>
+    <h2>Une diffusion sûre et conforme</h2>
+    <div class="grid3">
+      <div class="card"><h4>Environnements maîtrisés</h4><p>Diffusion exclusive sur des chaînes et sites premium, avec exclusion des contenus sensibles : contenus pour adultes, piratage, violence, drogues.</p></div>
+      <div class="card"><h4>Données conformes</h4><p>Toutes les données activées sont collectées avec consentement et traitées dans le respect du RGPD, sans transmission de données personnelles.</p></div>
+      <div class="card"><h4>Visibilité mesurée</h4><p>La visibilité est mesurée par un outil tiers selon la norme MRC, et nos traders optimisent la diffusion en continu.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Prochaines étapes</div>
+    <h2>La suite, ensemble</h2>
+    <div class="steps">
+      <div class="st"><small>Étape 1</small><h4>Votre validation</h4><p>Choix du palier : socle seul, ou avec un ou deux compléments.</p></div>
+      <div class="st"><small>Étape 2</small><h4>Éléments créatifs</h4><p>Réception du spot 16:9 et, en option, de sa déclinaison verticale 9:16.</p></div>
+      <div class="st"><small>Étape 3</small><h4>Lancement</h4><p>Activation en janvier, avec un point de suivi à mi parcours.</p></div>
+      <div class="st"><small>Étape 4</small><h4>Bilan</h4><p>Restitution complète des résultats et enseignements pour la saison suivante.</p></div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contacts">
+  <div class="wrap">
+    <h2>Vos contacts</h2>
+    <div class="contacts">
+      <a class="ct" href="mailto:sofien@thegoodweb.eu"><b>Sofien Chaganiou</b><small>Chef de publicité</small><span>07 67 84 70 67</span><span>sofien@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:mathilde@thegoodweb.eu"><b>Mathilde Coriton</b><small>Directrice de clientèle</small><span>06 48 61 92 92</span><span>mathilde@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:jerome@thegoodweb.eu"><b>Jérôme Fages</b><small>Directeur commercial</small><span>06 18 74 66 75</span><span>jerome@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:andrea@thegoodweb.eu"><b>Andréa</b><small>The Good Web</small><span>andrea@thegoodweb.eu</span></a>
+      <div class="ct ph"><b>Pôle activation</b><small>The Good Web</small><span>activation@thegoodweb.eu</span></div>
+    </div>
+    <div class="foot">
+      
+<svg id="tgw2" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="214 252 572 496" class="logo" role="img" aria-label="The Good Web">
+  
+  <defs>
+    <style>
+      #tgw2 .st0 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="st0" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path class="st0" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path class="st0" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path class="st0" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path class="st0" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path class="st0" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path class="st0" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path class="st0" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path class="st0" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path class="st0" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path class="st0" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path class="st0" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path class="st0" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path class="st0" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path class="st0" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path class="st0" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path class="st0" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path class="st0" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path class="st0" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path class="st0" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path class="st0" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path class="st0" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path class="st0" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path class="st0" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path class="st0" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path class="st0" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path class="st0" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg>
+      <span>The Good Web · www.thegoodweb.eu · Proposition confidentielle établie pour l'Office de Tourisme de Montgenèvre</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});
+    document.querySelectorAll('.scn').forEach(function(x){x.classList.remove('on')});
+    t.classList.add('on');
+    document.getElementById(t.dataset.s).classList.add('on');
+  });
+});
+var links=[].slice.call(document.querySelectorAll('nav a'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+window.addEventListener('scroll',function(){
+  var y=window.scrollY+90,idx=0;
+  secs.forEach(function(s,i){if(s&&s.offsetTop<=y)idx=i});
+  links.forEach(function(a,i){a.classList.toggle('active',i===idx)});
+},{passive:true});
+</script>
+</body>
+</html>
