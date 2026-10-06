@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ville de Marseille · Capitale de la Biodiversité 2026 · Reco YouTube · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#021859;--ice:#7bbdff;--terra:#f25430;--white:#fff;--ink:#1c2340;--muted:#5b6482;--line:#e3e8f3;--bg:#f6f8fc;
+--c-bleu:#eaf4ff;--c-menthe:#e8ecf6;--c-corail:#fdebe6;--c-peche:#fff3ee;--c-rose:#eceefa;--c-lavande:#eef1ff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+h1,h2,h3,h4{font-family:Poppins,sans-serif;color:var(--navy);line-height:1.25}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* HERO */
+.hero{background:var(--navy);color:var(--white);padding:36px 0 48px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(123,189,255,.22),transparent 70%)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.hero-logo svg{width:118px;height:auto;display:block}
+.hero-tag{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ice);font-weight:600;border:1px solid rgba(123,189,255,.4);padding:6px 12px;border-radius:30px}
+.hero h1{color:var(--white);font-size:clamp(26px,4.4vw,42px);font-weight:800;margin:34px 0 10px;max-width:820px}
+.hero h1 em{font-style:normal;color:var(--terra)}
+.hero p.lead{color:#c9d6f2;max-width:760px;font-size:16px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:10px 16px}
+.pill small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ice)}
+.pill b{font-family:Poppins;font-size:16px;color:var(--white)}
+.pill.accent{background:var(--terra);border-color:var(--terra)}
+.pill.accent small{color:#ffe2d9}
+
+/* NAV */
+nav.anchors{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.anchors .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.anchors .wrap::-webkit-scrollbar{display:none}
+nav.anchors a{white-space:nowrap;text-decoration:none;font-size:13px;font-weight:600;color:var(--muted);padding:14px 12px;border-bottom:3px solid transparent}
+nav.anchors a:hover,nav.anchors a.on{color:var(--navy);border-bottom-color:var(--terra)}
+
+section{padding:56px 0 8px;scroll-margin-top:54px}
+.eyebrow{font-family:Poppins;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--terra);margin-bottom:6px}
+section h2{font-size:clamp(22px,3vw,30px);margin-bottom:10px}
+.intro{color:var(--muted);max-width:820px;margin-bottom:26px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{font-size:17px;margin-bottom:8px}
+.card p,.card li{color:#3b4363;font-size:14px}
+.card ul{padding-left:18px}.card li{margin-bottom:5px}
+.c-bleu{background:var(--c-bleu);border-color:#d3e7fd}.c-menthe{background:var(--c-menthe);border-color:#d7ddee}
+.c-corail{background:var(--c-corail);border-color:#f9d3c8}.c-peche{background:var(--c-peche);border-color:#fbe0d4}
+.c-rose{background:var(--c-rose)}.c-lavande{background:var(--c-lavande)}
+.num{width:34px;height:34px;border-radius:50%;background:var(--terra);color:#fff;font-family:Poppins;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.glyph{font-size:22px;color:var(--terra);margin-bottom:6px;display:block}
+.badge{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 9px;border-radius:20px;background:var(--navy);color:#fff;margin-bottom:10px}
+.badge.t{background:var(--terra)}.badge.i{background:var(--ice);color:var(--navy)}
+
+/* KPI tiles */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:8px 0 26px}
+.kpi{background:var(--navy);color:#fff;border-radius:14px;padding:18px}
+.kpi small{display:block;color:var(--ice);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.kpi b{font-family:Poppins;font-size:24px;display:block;margin-top:4px}
+.kpi span{font-size:12px;color:#b8c6e6}
+.kpi.t{background:var(--terra)}.kpi.t small,.kpi.t span{color:#ffe2d9}
+
+/* Funnel */
+.funnel{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.fstep{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.fstep .lbl{font-family:Poppins;font-weight:700;color:var(--navy);font-size:14px}
+.fstep .lbl small{display:block;font-family:Inter;font-weight:500;color:var(--terra);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.fstep:nth-child(1){margin-right:0}.fstep:nth-child(2){margin:0 4%}.fstep:nth-child(3){margin:0 8%}
+
+/* Tables */
+.tbl{overflow-x:auto;border-radius:14px;border:1px solid var(--line);background:#fff;margin-bottom:18px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+thead th{background:var(--navy);color:#fff;font-family:Poppins;font-weight:600;font-size:12px;letter-spacing:.5px;text-transform:uppercase;text-align:left;padding:13px 14px}
+td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr.total td{background:var(--c-corail);font-weight:700;color:var(--navy)}
+td.r,th.r{text-align:right;white-space:nowrap}
+.note{font-size:12.5px;color:var(--muted);margin-top:-6px;margin-bottom:18px}
+
+/* Planning */
+.plan{overflow-x:auto;border-radius:14px;border:1px solid var(--line);background:#fff}
+.plan table{min-width:720px}
+.plan td.bar{padding:10px 6px}
+.plan .b{height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff}
+.b.n{background:var(--navy)}.b.t{background:var(--terra)}.b.i{background:var(--ice);color:var(--navy)}
+.b.n.l{opacity:.75}.b.t.l{opacity:.8}
+
+/* Tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:30px;padding:8px 16px;font-weight:600;font-size:13px;cursor:pointer;color:var(--muted);font-family:Inter,system-ui,sans-serif}
+.tab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.pane{display:none}.pane.on{display:block}
+
+/* Pyramid */
+.pyr{display:flex;flex-direction:column;align-items:center;gap:8px}
+.pyr div{border-radius:12px;padding:14px 18px;text-align:center;color:#fff;font-size:14px}
+.pyr div b{display:block;font-family:Poppins;font-size:15px}
+.pyr .p1{background:var(--terra);width:46%}.pyr .p2{background:#2d4a8f;width:70%}.pyr .p3{background:var(--navy);width:94%}
+
+.warn{background:#fff;border:2px solid var(--terra);border-radius:18px;overflow:hidden;margin:36px 0 0}
+.warn-head{background:var(--terra);color:#fff;display:flex;align-items:center;gap:14px;padding:16px 22px}
+.warn-head .ic{flex:0 0 38px;height:38px;border-radius:50%;background:#fff;color:var(--terra);font-family:Poppins;font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center}
+.warn-head h2{color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0}
+.warn-body{padding:20px 22px}
+.warn-body p{color:#3b4363;font-size:14.5px;margin-bottom:12px}
+.warn-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:6px}
+.warn-cols .card h3{font-size:15px}
+.ok h3{color:var(--navy)}.ko h3{color:var(--terra)}
+.callout{border-left:4px solid var(--terra);background:#fff;border-radius:0 12px 12px 0;padding:16px 20px;margin:18px 0;font-size:14px;color:#3b4363}
+.callout b{color:var(--navy)}
+
+/* Footer */
+footer{background:var(--navy);color:#fff;margin-top:64px;padding:48px 0 30px}
+footer h2{color:#fff;font-size:24px;margin-bottom:6px}
+footer .sub{color:#b8c6e6;margin-bottom:24px}
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.contact{display:block;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px 18px;transition:.2s}
+a.contact:hover{background:rgba(242,84,48,.18);border-color:var(--terra)}
+.contact b{font-family:Poppins;display:block;font-size:15px}
+.contact span{display:block;font-size:13px;color:#b8c6e6}
+.contact .mail{color:var(--ice)}
+.contact.ph{opacity:.6;cursor:default}
+.foot-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:12px;color:#8fa0c8}
+.foot-logo svg{width:88px;height:auto;display:block}
+
+@media (max-width:640px){
+  body{font-size:14px}
+  .fstep{grid-template-columns:1fr;gap:6px}
+  .fstep:nth-child(n){margin:0}
+  .pyr div{width:100%!important}
+  section{padding-top:42px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-logo" aria-label="The Good Web"><svg  xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="214 252 572 496">
+  
+  
+  <g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg></div>
+      <span class="hero-tag">Recommandation média · YouTube</span>
+    </div>
+    <h1>Marseille, <em>Capitale de la Biodiversité 2026</em></h1>
+    <p class="lead">Un dispositif vidéo YouTube 100 % local pour faire connaître aux Marseillais les actions de la Ville en faveur de la biodiversité, avec une couverture maximale et une répétition suffisante pour ancrer le message.</p>
+    <div class="pills">
+      <div class="pill"><small>Annonceur</small><b>Ville de Marseille</b></div>
+      <div class="pill"><small>Période</small><b>19 oct. → 15 nov. 2026</b></div>
+      <div class="pill accent"><small>Budget</small><b>4 000 € HT</b></div>
+      <div class="pill"><small>Objectif</small><b>Notoriété</b></div>
+      <div class="pill"><small>Zone</small><b>Marseille · Bouches-du-Rhône</b></div>
+    </div>
+  </div>
+</header>
+
+<nav class="anchors"><div class="wrap">
+  <a href="#contexte">Contexte</a><a href="#dispositif">Dispositif</a><a href="#environnements">Environnements</a><a href="#planning">Planning</a><a href="#budgets">Budgets</a><a href="#formats">Formats &amp; KPIs</a><a href="#audiences">Audiences</a><a href="#data">Stratégie data</a><a href="#rgpd">RGPD</a><a href="#contacts">Contacts</a>
+</div></nav>
+
+<main class="wrap">
+
+<div class="warn" role="alert">
+  <div class="warn-head"><span class="ic">!</span><h2>Point de vigilance majeur : la réglementation européenne sur la publicité politique</h2></div>
+  <div class="warn-body">
+    <p>Depuis octobre 2025, <b>Google (YouTube, Google Ads) et Meta (Facebook, Instagram) n'acceptent plus dans l'Union européenne les publicités à caractère politique</b>. Cette décision fait suite au règlement européen 2024/900 sur la transparence et le ciblage de la publicité politique. Une annonce identifiée comme politique, électorale ou portant sur un enjeu de société est refusée ou suspendue.</p>
+    <p>Une campagne d'une collectivité est particulièrement exposée à ce contrôle. <b>Le message des capsules doit donc être conçu dès le départ pour rester une information institutionnelle, factuelle et non politique.</b> Dans le cas contraire, la diffusion peut être bloquée au lancement ou en cours de campagne.</p>
+    <p style="margin-bottom:0"><a href="#rgpd" style="color:var(--terra);font-weight:700">Voir nos recommandations éditoriales →</a></p>
+  </div>
+</div>
+
+<!-- CONTEXTE -->
+<section id="contexte">
+  <div class="eyebrow">01 · Contexte</div>
+  <h2>Faire savoir pourquoi Marseille a été distinguée</h2>
+  <p class="intro">Marseille est lauréate du titre de Capitale de la Biodiversité 2026. La campagne doit faire connaître aux habitants les actions menées par la Ville qui ont contribué à ce prix, à travers des capsules vidéo diffusées sur YouTube.</p>
+  <div class="grid g3">
+    <div class="card c-bleu"><div class="num">1</div><h3>Toucher un maximum de Marseillais</h3><p>Une couverture locale aussi large que possible, tous âges et tous écrans confondus, y compris la télévision connectée.</p></div>
+    <div class="card c-corail"><div class="num">2</div><h3>Favoriser la mémorisation</h3><p>Une fréquence moyenne estimée à environ 3 expositions par personne sur la période, grâce à la répétition des bumpers et des capsules.</p></div>
+    <div class="card c-menthe"><div class="num">3</div><h3>Faire passer le fond du message</h3><p>Au-delà du rappel du titre, faire regarder les capsules en entier par une partie de l'audience pour expliquer les actions concrètes de la Ville.</p></div>
+  </div>
+</section>
+
+<!-- DISPOSITIF -->
+<section id="dispositif">
+  <div class="eyebrow">02 · Dispositif</div>
+  <h2>YouTube ALL : couverture + vues, en 3 campagnes</h2>
+  <p class="intro">Nous recommandons un dispositif 100 % vidéo YouTube qui combine des formats courts non désactivables (Bumper 6 s) pour la couverture et la répétition, et des capsules InStream pour la compréhension du message. Le budget est concentré sur la ville de Marseille (80 %), avec une extension au reste des Bouches-du-Rhône (20 %).</p>
+
+  <div class="kpis">
+    <div class="kpi"><small>Impressions estimées</small><b>≈ 655 000</b><span>sur 4 semaines</span></div>
+    <div class="kpi t"><small>Couverture estimée</small><b>≈ 210 000</b><span>personnes uniques</span></div>
+    <div class="kpi"><small>Fréquence moyenne</small><b>≈ 3,1</b><span>expositions / personne</span></div>
+    <div class="kpi"><small>Vues TrueView</small><b>≈ 48 000</b><span>capsules regardées</span></div>
+    <div class="kpi"><small>CPM moyen</small><b>6,10 €</b><span>sur le budget total</span></div>
+  </div>
+
+  <div class="grid g3">
+    <div class="card">
+      <span class="badge">Campagne 1 · 50 %</span>
+      <h3>Couverture efficace · Marseille</h3>
+      <p>Mix Bumper 6 s (16:9 et 9:16), InStream désactivable et Shorts, optimisé par Google pour obtenir le plus de personnes uniques au meilleur CPM. <b>Le socle de notoriété du dispositif.</b></p>
+      <ul style="margin-top:10px"><li>Enchère : CPM cible</li><li>Écrans : mobile, ordinateur, TV connectée</li></ul>
+    </div>
+    <div class="card">
+      <span class="badge t">Campagne 2 · 30 %</span>
+      <h3>Vues de vidéo · Marseille</h3>
+      <p>Capsules InStream désactivables, In-Feed et Shorts. Facturation à la vue uniquement : 30 s regardées en InStream (ou la vidéo entière si elle est plus courte), 10 s en In-Feed et Shorts, ou une interaction. <b>Ce levier fait passer le fond du message.</b></p>
+      <ul style="margin-top:10px"><li>Enchère : CPV cible</li><li>Signaux d'audience « nature &amp; vie locale »</li></ul>
+    </div>
+    <div class="card">
+      <span class="badge i">Campagne 3 · 20 %</span>
+      <h3>Couverture efficace · Bouches-du-Rhône</h3>
+      <p>Même mécanique que la campagne 1, sur le reste du département (hors Marseille) : Aix-en-Provence, Aubagne, Martigues, la Ciotat… pour toucher les habitants de la métropole qui vivent Marseille au quotidien.</p>
+      <ul style="margin-top:10px"><li>Enchère : CPM cible</li><li>Écrans : mobile, ordinateur, TV connectée</li></ul>
+    </div>
+  </div>
+
+  <h3 style="margin:30px 0 12px;font-size:18px">Logique d'activation</h3>
+  <div class="funnel">
+    <div class="fstep"><div class="lbl"><small>Toucher</small>Couverture</div><div>Bumpers 6 s et InStream sur Marseille et le département : on fait connaître le titre « Marseille, Capitale de la Biodiversité 2026 » au plus grand nombre (campagnes 1 et 3).</div></div>
+    <div class="fstep"><div class="lbl"><small>Répéter</small>Mémorisation</div><div>Environ 3 expositions par personne en moyenne sur la période, obtenues grâce à la complémentarité des campagnes. La fréquence réelle est suivie chaque semaine et le budget est rééquilibré si besoin. Le bumper (6 s, non désactivable, vu à 90-95 %) joue le rôle de rappel entre deux capsules.</div></div>
+    <div class="fstep"><div class="lbl"><small>Expliquer</small>Compréhension</div><div>Les capsules sont regardées en entier par environ 48 000 personnes : elles découvrent les actions concrètes de la Ville (campagne 2).</div></div>
+  </div>
+</section>
+
+<!-- ENVIRONNEMENTS -->
+<section id="environnements">
+  <div class="eyebrow">03 · Environnements</div>
+  <h2>Partout où les Marseillais regardent YouTube</h2>
+  <p class="intro">Diffusion sur l'inventaire YouTube uniquement (sans le réseau des partenaires vidéo Google), pour garder un contexte de diffusion maîtrisé et de qualité.</p>
+  <div class="grid g4">
+    <div class="card c-bleu"><span class="glyph">●</span><h3>InStream</h3><p>Avant, pendant ou après les vidéos regardées. Bumpers 6 s et capsules 16:9.</p></div>
+    <div class="card c-peche"><span class="glyph">■</span><h3>YouTube Shorts</h3><p>Flux vertical mobile. Bumper 9:16, audience jeune et très engagée.</p></div>
+    <div class="card c-menthe"><span class="glyph">◆</span><h3>In-Feed</h3><p>Page d'accueil, résultats de recherche et suggestions « À regarder ensuite ».</p></div>
+    <div class="card c-rose"><span class="glyph">⌂</span><h3>TV connectée</h3><p>YouTube sur le téléviseur du salon : grand écran, visionnage en famille, taux de complétion plus élevés.</p></div>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card"><span class="badge">Zone 1 · 80 % du budget</span><h3>Ville de Marseille</h3><p>Les 16 arrondissements, environ 870 000 habitants. Ciblage géographique sur la commune de Marseille, sans restriction d'âge ni de centres d'intérêt sur la couverture.</p></div>
+    <div class="card"><span class="badge i">Zone 2 · 20 % du budget</span><h3>Bouches-du-Rhône hors Marseille</h3><p>Environ 1,2 million d'habitants supplémentaires. Une diffusion plus légère pour étendre la notoriété du titre à l'échelle métropolitaine et départementale.</p></div>
+  </div>
+</section>
+
+<!-- PLANNING -->
+<section id="planning">
+  <div class="eyebrow">04 · Planning</div>
+  <h2>4 semaines, un démarrage fort pendant les vacances de la Toussaint</h2>
+  <p class="intro">Le lancement coïncide avec les vacances scolaires de la Toussaint (jusqu'au 2 novembre), une période où le temps passé sur YouTube, notamment sur TV connectée, augmente. Nous recommandons une pression plus forte en semaine 1, puis un maintien régulier pour installer la répétition.</p>
+  <div class="plan"><table>
+    <thead><tr><th>Campagne</th><th>S1 · 19-25 oct.</th><th>S2 · 26 oct.-1 nov.</th><th>S3 · 2-8 nov.</th><th>S4 · 9-15 nov.</th></tr></thead>
+    <tbody>
+      <tr><td><b>C1</b> Couverture efficace · Marseille</td><td class="bar"><div class="b n">●●●</div></td><td class="bar"><div class="b n l">●●</div></td><td class="bar"><div class="b n l">●●</div></td><td class="bar"><div class="b n l">●●</div></td></tr>
+      <tr><td><b>C2</b> Vues de vidéo · Marseille</td><td class="bar"><div class="b t">●●●</div></td><td class="bar"><div class="b t l">●●</div></td><td class="bar"><div class="b t l">●●</div></td><td class="bar"><div class="b t l">●</div></td></tr>
+      <tr><td><b>C3</b> Couverture efficace · BdR</td><td class="bar"><div class="b i">●●●</div></td><td class="bar"><div class="b i">●●</div></td><td class="bar"><div class="b i">●●</div></td><td class="bar"><div class="b i">●</div></td></tr>
+      <tr class="total"><td>Poids du budget</td><td>30 % · 1 200 €</td><td>25 % · 1 000 €</td><td>25 % · 1 000 €</td><td>20 % · 800 €</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- BUDGETS -->
+<section id="budgets">
+  <div class="eyebrow">05 · Budgets</div>
+  <h2>Répartition et estimations de diffusion</h2>
+  <p class="intro">Les estimations reposent sur les niveaux de prix constatés pour YouTube en diffusion locale au quatrième trimestre. Elles seront affinées à la mise en ligne, selon les créations définitives et la concurrence publicitaire sur la période.</p>
+
+  <div class="tabs" role="tablist">
+    <button class="tab on" data-pane="p-camp">Par campagne</button>
+    <button class="tab" data-pane="p-zone">Par zone</button>
+  </div>
+
+  <div class="pane on" id="p-camp">
+    <div class="tbl"><table>
+      <thead><tr><th>Campagne</th><th class="r">Budget HT</th><th class="r">Part</th><th class="r">Impressions</th><th class="r">Couverture</th><th class="r">Fréquence</th><th class="r">Vues</th><th class="r">CPM</th><th class="r">CPV</th></tr></thead>
+      <tbody>
+        <tr><td><b>C1</b> Couverture efficace · Marseille</td><td class="r">2 000 €</td><td class="r">50 %</td><td class="r">360 000</td><td class="r">≈ 115 000</td><td class="r">≈ 3,1</td><td class="r">—</td><td class="r">5,55 €</td><td class="r">—</td></tr>
+        <tr><td><b>C2</b> Vues de vidéo · Marseille</td><td class="r">1 200 €</td><td class="r">30 %</td><td class="r">135 000</td><td class="r">≈ 70 000</td><td class="r">≈ 1,9</td><td class="r">48 000</td><td class="r">8,90 €</td><td class="r">0,025 €</td></tr>
+        <tr><td><b>C3</b> Couverture efficace · BdR</td><td class="r">800 €</td><td class="r">20 %</td><td class="r">160 000</td><td class="r">≈ 60 000</td><td class="r">≈ 2,7</td><td class="r">—</td><td class="r">5,00 €</td><td class="r">—</td></tr>
+        <tr class="total"><td>Total dispositif</td><td class="r">4 000 €</td><td class="r">100 %</td><td class="r">≈ 655 000</td><td class="r">≈ 210 000*</td><td class="r">≈ 3,1</td><td class="r">≈ 48 000</td><td class="r">6,10 €</td><td class="r">—</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">* La couverture totale tient compte du recouvrement entre les campagnes 1 et 2 sur Marseille (environ 150 000 Marseillais touchés, plus environ 60 000 habitants du reste du département). Les CPM et CPV sont calculés sur le budget total de 4 000 € HT. Les estimations sont indicatives, à ± 20 %.</p>
+  </div>
+
+  <div class="pane" id="p-zone">
+    <div class="tbl"><table>
+      <thead><tr><th>Zone</th><th class="r">Budget HT</th><th class="r">Impressions</th><th class="r">Couverture</th><th class="r">Fréquence</th><th class="r">Population</th></tr></thead>
+      <tbody>
+        <tr><td><b>Ville de Marseille</b> (C1 + C2)</td><td class="r">3 200 €</td><td class="r">≈ 495 000</td><td class="r">≈ 150 000</td><td class="r">≈ 3,3</td><td class="r">≈ 870 000 hab.</td></tr>
+        <tr><td><b>Bouches-du-Rhône hors Marseille</b> (C3)</td><td class="r">800 €</td><td class="r">≈ 160 000</td><td class="r">≈ 60 000</td><td class="r">≈ 2,7</td><td class="r">≈ 1,2 M hab.</td></tr>
+        <tr class="total"><td>Total</td><td class="r">4 000 €</td><td class="r">≈ 655 000</td><td class="r">≈ 210 000</td><td class="r">≈ 3,1</td><td class="r">≈ 2,1 M hab.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Si la priorité absolue est la population marseillaise, le budget de la campagne 3 peut être réaffecté à Marseille : environ +160 000 impressions et une fréquence d'environ 3,8 sur la ville.</p>
+  </div>
+</section>
+
+<!-- FORMATS & KPIs -->
+<section id="formats">
+  <div class="eyebrow">06 · Formats &amp; KPIs</div>
+  <h2>Les créations à prévoir et les indicateurs suivis</h2>
+  <p class="intro">Le dispositif repose sur les éléments vidéo que la Ville peut fournir : un bumper horizontal, un bumper vertical et une à deux capsules horizontales. Toutes les vidéos doivent être mises en ligne sur une chaîne YouTube (elles peuvent être en mode « non répertorié »).</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Création</th><th>Format</th><th>Durée</th><th>Utilisation</th><th>Taux de complétion attendu</th></tr></thead>
+    <tbody>
+      <tr><td><b>Bumper paysage</b></td><td>16:9 · 1920×1080 px · mp4</td><td>6 s max</td><td>C1, C3 · InStream, TV connectée</td><td>90-95 % (non désactivable)</td></tr>
+      <tr><td><b>Bumper vertical (story)</b></td><td>9:16 · 1080×1920 px · mp4</td><td>6 s max</td><td>C1, C3 · Shorts</td><td>90-95 %</td></tr>
+      <tr><td><b>Capsule 1</b></td><td>16:9 · 1920×1080 px · mp4</td><td>15-30 s recommandé</td><td>C1, C2 · InStream désactivable, In-Feed</td><td>Taux de vue 30-40 % · vues à 100 % : 15-25 %</td></tr>
+      <tr><td><b>Capsule 2</b> (si disponible)</td><td>16:9 · 1920×1080 px · mp4</td><td>15-30 s recommandé</td><td>C2 · alternance avec la capsule 1 contre l'usure créative</td><td>idem</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="grid g2">
+    <div class="card c-corail">
+      <h3>Recommandations créatives</h3>
+      <ul>
+        <li>Placer le message clé et la mention « Marseille, Capitale de la Biodiversité 2026 » <b>dans les 5 premières secondes</b>, avant le bouton « Ignorer ».</li>
+        <li>Faire apparaître l'identité de la Ville dès le début et à la fin.</li>
+        <li>Sous-titrer les vidéos et utiliser des textes à l'écran : une part importante des vidéos est regardée sans le son.</li>
+        <li>Pour le bumper : une seule idée, une image forte et une signature.</li>
+        <li>En option : une version verticale 9:16 d'une capsule renforcerait la présence sur Shorts.</li>
+      </ul>
+    </div>
+    <div class="card c-bleu">
+      <h3>KPIs de suivi</h3>
+      <ul>
+        <li>Impressions, couverture (personnes uniques), fréquence moyenne</li>
+        <li>Vues TrueView, taux de vue, CPV</li>
+        <li>Vues à 25 / 50 / 75 / 100 % et taux de complétion</li>
+        <li>CPM final, clics, CTR, interactions</li>
+        <li>Répartition par écran (mobile, ordinateur, TV connectée), par âge et par zone</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section id="audiences">
+  <div class="eyebrow">07 · Audiences</div>
+  <h2>Une audience locale la plus large possible</h2>
+  <p class="intro">Pour un objectif de notoriété auprès de toute la population, chaque critère de ciblage supplémentaire réduit la couverture et augmente le CPM. Nous recommandons donc un ciblage géographique précis, sans restriction d'âge ni de centres d'intérêt sur les campagnes de couverture.</p>
+  <div class="grid g3" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+    <div class="card c-bleu"><span class="glyph">●</span><h3>Grand public marseillais</h3><p>18 ans et plus, tous genres, y compris l'audience au profil « inconnu ». Aucun filtre d'intérêt : c'est le socle des campagnes 1 et 3.</p></div>
+    <div class="card c-menthe"><span class="glyph">■</span><h3>Familles &amp; foyers</h3><p>Touchés notamment via la TV connectée et la période des vacances scolaires : un visionnage partagé, un message qui se transmet aux enfants.</p></div>
+    <div class="card c-peche"><span class="glyph">◆</span><h3>Amoureux de la nature</h3><p>Calanques, littoral, parcs et jardins, randonnée, jardinage, écologie au quotidien : les signaux d'audience de la campagne 2.</p></div>
+    <div class="card c-rose"><span class="glyph">⌂</span><h3>Attachés à leur ville</h3><p>Intérêt pour l'actualité locale, les sorties et la vie de quartier à Marseille.</p></div>
+    <div class="card c-lavande"><span class="glyph">◐</span><h3>Jeunes adultes mobiles</h3><p>18-34 ans, touchés en priorité via Shorts et le bumper vertical.</p></div>
+  </div>
+</section>
+
+<!-- STRATEGIE DATA -->
+<section id="data">
+  <div class="eyebrow">08 · Stratégie data</div>
+  <h2>Une architecture en 3 couches</h2>
+  <p class="intro">La géolocalisation est le socle commun. Les signaux d'affinité ne servent qu'à orienter la campagne de vues vers les personnes les plus susceptibles de regarder les capsules en entier, sans réduire la couverture globale.</p>
+  <div class="grid g2" style="align-items:center">
+    <div class="pyr">
+      <div class="p1"><b>Affinités</b>C2 · nature, local</div>
+      <div class="p2"><b>Socio-démo</b>18+ · tous genres · profils inconnus inclus</div>
+      <div class="p3"><b>Géolocalisation</b>Commune de Marseille · reste des Bouches-du-Rhône</div>
+    </div>
+    <div class="card">
+      <h3>Signaux utilisés (campagne 2)</h3>
+      <ul>
+        <li><b>Audiences d'affinité Google</b> : nature et écologie, activités de plein air, jardinage, familles.</li>
+        <li><b>Segments personnalisés</b> construits sur les recherches et contenus liés à Marseille : calanques, plages, parcs et jardins, sorties, actualité locale.</li>
+        <li><b>Ciblage par thématiques de contenu</b> : environnement, voyage local, actualités.</li>
+        <li>Ciblage optimisé activé : Google peut élargir au-delà des signaux si la performance le justifie, sans sortir de la zone.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- RGPD -->
+<section id="rgpd">
+  <div class="eyebrow">09 · RGPD, brand safety &amp; réglementation</div>
+  <h2>Un environnement de diffusion maîtrisé et conforme</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Données personnelles</h3><p>Ciblage reposant sur les signaux agrégés de Google, conformes au RGPD. Aucune donnée personnelle de l'annonceur n'est transmise ni exploitée.</p></div>
+    <div class="card"><h3>Brand safety</h3><p>Inventaire limité à YouTube. Exclusion des contenus sensibles (tragédies, conflits, contenus choquants), des contenus non classifiés et des directs.</p></div>
+    <div class="card c-corail"><h3>Publicité politique</h3><p>Google et Meta n'acceptent plus de publicité à caractère politique dans l'UE (règlement 2024/900). Les créations sont contrôlées avant la mise en ligne pour limiter le risque de refus.</p></div>
+  </div>
+  <h3 style="margin:30px 0 8px;font-size:18px">Recommandations éditoriales pour les capsules</h3>
+  <p class="intro">L'objectif est que chaque création soit lue sans ambiguïté comme une information de service public sur la biodiversité marseillaise, et non comme un message politique.</p>
+  <div class="warn-cols">
+    <div class="card ok"><h3>● À privilégier</h3><ul>
+      <li>Le titre « Marseille, Capitale de la Biodiversité 2026 » présenté comme un fait.</li>
+      <li>Des actions concrètes et vérifiables : espaces verts, jardins, littoral, espèces protégées, chiffres factuels.</li>
+      <li>Les lieux et le patrimoine naturel à découvrir : parcs, calanques, jardins partagés.</li>
+      <li>Une invitation pratique : découvrir, visiter, participer à une animation ouverte à tous.</li>
+      <li>La signature institutionnelle « Ville de Marseille » et le logo du label, avec un ton informatif et pédagogique.</li>
+    </ul></div>
+    <div class="card ko"><h3>■ À proscrire</h3><ul>
+      <li>Tout élu à l'image, en voix off, cité ou nommé, y compris le maire.</li>
+      <li>Les formulations de bilan ou d'autopromotion : « grâce à notre politique », « nous avons tenu nos engagements »…</li>
+      <li>Les comparaisons avec une précédente mandature et les slogans de mandat.</li>
+      <li>Les appels à soutenir une mesure, à signer, à voter ou à se mobiliser pour une cause.</li>
+      <li>Les sujets clivants ou militants : débats climatiques, projets urbains contestés, mise en cause d'acteurs.</li>
+    </ul></div>
+    <div class="card c-bleu"><h3>◆ Process de sécurisation</h3><ul>
+      <li>Pré-contrôle des scripts et des capsules par The Good Web avant la production finale.</li>
+      <li>Mise en ligne des créations sur les plateformes au moins 7 jours avant le lancement (avant le 12 octobre), pour obtenir la validation à temps.</li>
+      <li>Vérification préalable du statut du compte annonceur au regard des règles européennes.</li>
+      <li>En cas de refus : ajustement rapide du message et nouvelle soumission.</li>
+    </ul></div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contacts">
+  <div class="wrap">
+    <h2>Vos contacts The Good Web</h2>
+    <p class="sub">Une question sur cette recommandation ? Toute l'équipe reste à votre disposition.</p>
+    <div class="contacts">
+      <a class="contact" href="mailto:jerome@thegoodweb.eu"><b>Jérôme Fages</b><span>Directeur commercial</span><span>06 18 74 66 75</span><span class="mail">jerome@thegoodweb.eu</span></a>
+      <a class="contact" href="mailto:mathilde@thegoodweb.eu"><b>Mathilde Coriton</b><span>Directrice de clientèle</span><span>06 48 61 92 92</span><span class="mail">mathilde@thegoodweb.eu</span></a>
+      <a class="contact" href="mailto:andrea@thegoodweb.eu"><b>Andrea Alonso</b><span>Cheffe de publicité junior</span><span>04 91 54 28 12</span><span class="mail">andrea@thegoodweb.eu</span></a>
+      <a class="contact" href="mailto:sofien@thegoodweb.eu"><b>Sofien Chaganiou</b><span>Chef de publicité</span><span>07 67 84 70 67</span><span class="mail">sofien@thegoodweb.eu</span></a>
+      <div class="contact ph"><b>Pôle activation</b><span>&nbsp;</span><span class="mail">activation@thegoodweb.eu</span></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-logo"><svg  xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="214 252 572 496">
+  
+  
+  <g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg></div>
+      <div>Recommandation média · Ville de Marseille · Capitale de la Biodiversité 2026 · Octobre 2026</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+  document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});
+  document.querySelectorAll('.pane').forEach(function(x){x.classList.remove('on')});
+  t.classList.add('on');document.getElementById(t.dataset.pane).classList.add('on');});});
+var links=[].slice.call(document.querySelectorAll('nav.anchors a'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+window.addEventListener('scroll',function(){var y=window.scrollY+90,i=0;secs.forEach(function(s,k){if(s&&s.offsetTop<=y)i=k});
+links.forEach(function(a,k){a.classList.toggle('on',k===i)});},{passive:true});
+</script>
+</body>
+</html>
