@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GProNet · Recommandation SEA · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#021859; --ice:#7bbdff; --terra:#f25430; --white:#ffffff;
+  --ink:#1b2440; --muted:#5b6582; --line:#e3e8f4; --bg:#f6f8fc;
+  --ice-soft:#e9f3ff; --terra-soft:#fdebe6; --navy-soft:#e6e9f2; --peche:#fff3ec;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:15.5px}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);line-height:1.2}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+.hero{background:var(--navy);color:var(--white);padding:36px 0 56px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(123,189,255,.22),transparent 70%)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:44px}
+.logo svg{width:118px;height:auto;display:block}
+.hero-tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ice);border:1px solid rgba(123,189,255,.45);padding:6px 12px;border-radius:30px;white-space:nowrap}
+.hero .kicker{color:var(--terra);font-family:'Poppins';font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.hero h1{color:var(--white);font-size:clamp(30px,5vw,50px);font-weight:700;max-width:820px}
+.hero h1 span{color:var(--ice)}
+.hero p.lead{color:#d5dcf0;max-width:720px;margin-top:16px;font-size:17px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;position:relative;z-index:1}
+.pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:10px 16px}
+.pill small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ice)}
+.pill b{font-family:'Poppins';font-weight:600;font-size:16px}
+
+/* NAV */
+nav.anchors{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(2,24,89,.05)}
+nav.anchors .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.anchors .wrap::-webkit-scrollbar{display:none}
+nav.anchors a{flex:0 0 auto;text-decoration:none;font-size:13.5px;font-weight:500;color:var(--muted);padding:16px 12px;border-bottom:3px solid transparent;transition:.2s}
+nav.anchors a:hover,nav.anchors a.active{color:var(--navy);border-bottom-color:var(--terra)}
+
+/* SECTIONS */
+section{padding:64px 0 8px}
+.sec-head{margin-bottom:28px}
+.sec-num{display:inline-block;font-family:'Poppins';font-weight:600;font-size:12px;color:var(--white);background:var(--terra);border-radius:20px;padding:3px 11px;margin-bottom:10px;letter-spacing:.06em}
+.sec-head h2{font-size:clamp(24px,3.4vw,34px)}
+.sec-head p{color:var(--muted);max-width:760px;margin-top:8px}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card h3{font-size:17px;margin-bottom:8px}
+.card p,.card li{font-size:14.5px;color:#39425e}
+.card ul{list-style:none;margin-top:6px}
+.card li{padding-left:18px;position:relative;margin:6px 0}
+.card li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--terra)}
+.c-bleu{background:var(--ice-soft);border-color:#cfe4ff}
+.c-corail{background:var(--terra-soft);border-color:#f9cfc3}
+.c-menthe{background:var(--navy-soft);border-color:#d3d8e8}
+.c-peche{background:var(--peche);border-color:#fbdcc8}
+.c-navy{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.c-navy h3{color:var(--white)}.c-navy p,.c-navy li{color:#d5dcf0}
+.num{font-family:'Poppins';font-weight:700;font-size:30px;color:var(--terra);line-height:1}
+.glyph{font-size:18px;color:var(--terra);margin-bottom:8px;display:block}
+.tag{display:inline-block;font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--navy);color:var(--white);margin:0 6px 6px 0}
+.tag.t-ice{background:var(--ice-soft);color:var(--navy)}
+.tag.t-terra{background:var(--terra-soft);color:#b8361a}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+.callout{border-left:4px solid var(--terra);background:var(--white);border-radius:0 14px 14px 0;padding:18px 22px;margin-top:20px}
+.callout b{color:var(--navy)}
+
+/* priority bars */
+.prio{display:flex;flex-direction:column;gap:12px}
+.prio-row{display:grid;grid-template-columns:220px 1fr 64px;gap:14px;align-items:center}
+.prio-row .lbl{font-weight:600;color:var(--navy);font-size:14.5px}
+.prio-row .lbl small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.bar{height:14px;background:var(--navy-soft);border-radius:10px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:10px;background:var(--navy)}
+.bar i.t{background:var(--terra)}.bar i.ic{background:var(--ice)}
+.prio-row .pct{font-family:'Poppins';font-weight:600;color:var(--navy);text-align:right}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line);background:var(--white)}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+thead th{background:var(--navy);color:var(--white);font-family:'Poppins';font-weight:500;text-align:left;padding:13px 16px;font-size:13px}
+tbody td{padding:12px 16px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:#fafbfe}
+tfoot td{padding:13px 16px;font-weight:600;color:var(--navy);background:var(--ice-soft);border-top:2px solid var(--navy)}
+td.r,th.r{text-align:right}
+
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab-btn{font-family:'Poppins';font-weight:500;font-size:14px;border:1px solid var(--line);background:var(--white);color:var(--navy);padding:9px 16px;border-radius:30px;cursor:pointer}
+.tab-btn.on{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.tab-panel{display:none}.tab-panel.on{display:block}
+.kw{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.kw span{font-size:13px;background:var(--white);border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-family:ui-monospace,Menlo,monospace;color:var(--navy)}
+.kw.neg span{border-color:#f9cfc3;color:#b8361a;background:#fff8f6}
+
+/* funnel */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:6px}
+.step{position:relative;padding:20px 18px 18px;background:var(--white);border:1px solid var(--line)}
+.step:first-child{border-radius:16px 0 0 16px}.step:last-child{border-radius:0 16px 16px 0}
+.step + .step{border-left:none}
+.step b{display:block;font-family:'Poppins';color:var(--navy);font-size:15px;margin:6px 0 4px}
+.step span{font-size:13.5px;color:var(--muted)}
+.step .n{font-family:'Poppins';font-weight:700;color:var(--terra);font-size:13px;letter-spacing:.06em}
+
+/* planning */
+.plan{display:grid;grid-template-columns:170px repeat(12,1fr);gap:4px;min-width:760px;font-size:12.5px}
+.plan .h{font-family:'Poppins';font-weight:500;color:var(--white);background:var(--navy);text-align:center;padding:8px 0;border-radius:6px}
+.plan .h.l{text-align:left;padding-left:10px}
+.plan .rl{font-weight:600;color:var(--navy);padding:8px 4px;font-size:13px}
+.plan .c{border-radius:6px;background:var(--navy-soft);min-height:32px}
+.plan .on1{background:var(--terra)}.plan .on2{background:var(--navy)}.plan .on3{background:var(--ice)}.plan .on4{background:#f8a58f}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+/* ad mock */
+.ad{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-family:Arial,sans-serif}
+.ad .spons{font-size:12px;font-weight:700;color:#202124}
+.ad .url{font-size:13px;color:#4d5156;margin:2px 0 4px}
+.ad .ttl{font-size:19px;color:#1a0dab;line-height:1.3}
+.ad .dsc{font-size:14px;color:#4d5156;margin-top:4px}
+.ad .sl{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:14px;color:#1a0dab}
+
+/* map */
+.map-card{padding:0;overflow:hidden;background:#cfe4ff;border-color:#cfe4ff}
+.map-card svg{display:block;width:100%;height:auto;background:#eef4fd}
+
+/* footer */
+footer{background:var(--navy);color:var(--white);margin-top:72px;padding:56px 0 36px}
+footer h2{color:var(--white);font-size:28px;margin-bottom:6px}
+footer .sub{color:#b9c3e0;margin-bottom:28px}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ct{display:block;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:18px;transition:.2s}
+a.ct:hover{background:rgba(123,189,255,.14);border-color:var(--ice)}
+.ct b{font-family:'Poppins';font-weight:600;display:block;font-size:15.5px}
+.ct em{font-style:normal;color:var(--ice);font-size:13px;display:block;margin:2px 0 8px}
+.ct span{display:block;font-size:13.5px;color:#d5dcf0}
+.ct.ph{opacity:.6;cursor:default}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);flex-wrap:wrap}
+.foot-bottom .logo svg{width:88px}
+.foot-bottom p{font-size:12.5px;color:#9aa6c9}
+
+@media (max-width:900px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .contacts{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .step{border-radius:0!important;border-left:1px solid var(--line)!important}
+}
+@media (max-width:620px){
+  body{font-size:15px}
+  .wrap{padding:0 16px}
+  .g2,.g3,.g4,.contacts,.flow{grid-template-columns:1fr}
+  .hero-top{margin-bottom:30px}
+  .logo svg{width:96px}
+  .hero-tag{font-size:10.5px;white-space:normal;text-align:right}
+  .prio-row{grid-template-columns:1fr 52px}
+  .prio-row .bar{grid-column:1/3;grid-row:2}
+  section{padding-top:48px}
+}
+.cc{font-family:'Poppins';font-weight:600;font-size:12.5px;color:var(--navy);text-align:right;white-space:nowrap}
+.cc.warn{color:#b8361a}
+td.txt{font-weight:500;color:var(--navy)}
+.pin{display:inline-block;font-size:11px;font-weight:600;background:var(--terra);color:#fff;border-radius:12px;padding:2px 8px}
+.val{display:inline-block;font-size:11px;font-weight:600;background:var(--peche);color:#b8361a;border:1px solid #fbdcc8;border-radius:12px;padding:1px 8px;margin-left:6px}
+.copy{border:1px solid var(--line);background:var(--white);border-radius:8px;font-size:12px;padding:3px 8px;cursor:pointer;color:var(--navy)}
+.copy:hover{border-color:var(--navy)}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px}
+.meta div{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:8px 14px;font-size:13.5px}
+.meta b{color:var(--navy)}
+h3.sub{margin:28px 0 12px;font-size:18px}
+.ag-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.ag-head h3{font-size:22px}
+table.compact{min-width:520px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="214 252 572 496" role="img" aria-label="The Good Web">
+  
+  
+  <g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg></div>
+      <div class="hero-tag">Recommandation média · Octobre 2026</div>
+    </div>
+    <div class="kicker">GProNet · Search Ads Google</div>
+    <h1>Capter la demande locale en nettoyage,<br><span>de Marseille à Toulon.</span></h1>
+    <p class="lead">Un dispositif Google Ads Search concentré sur les recherches à forte intention, pensé pour un marché très concurrentiel et un budget maîtrisé : chaque euro va sur les requêtes qui ressemblent à un vrai besoin de devis.</p>
+    <div class="pills">
+      <div class="pill"><small>Période</small><b>Déc. 2026 → Nov. 2027</b></div>
+      <div class="pill"><small>Budget</small><b>500 € / mois · 6 000 € / an</b></div>
+      <div class="pill"><small>Objectif</small><b>Clics qualifiés vers le site</b></div>
+      <div class="pill"><small>Zone</small><b>Marseille · Toulon · alentours</b></div>
+      <div class="pill"><small>Levier</small><b>Google Search</b></div>
+    </div>
+  </div>
+</header>
+
+<nav class="anchors" id="nav">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#marche">Marché & site</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#mots-cles">Mots-clés</a>
+    <a href="#zone">Zone</a>
+    <a href="#planning">Planning</a>
+    <a href="#budget">Budget</a>
+    <a href="#annonces">Annonces</a>
+    <a href="#extensions">Extensions & KPIs</a>
+    <a href="#vigilance">Points de vigilance</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- CONTEXTE -->
+<section id="contexte">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>Contexte & objectifs</h2>
+      <p>GProNet est une nouvelle marque de services de propreté, en cours de construction, sur le bassin Marseille → Toulon. Son cœur de métier : l'entretien des parties communes de copropriétés, avec trois services complémentaires.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card c-navy"><span class="num">1</span><h3 style="margin-top:12px">Entretien de copropriété</h3><p>Cœur de métier. Contrats récurrents avec les syndics et conseils syndicaux.</p></div>
+      <div class="card"><span class="num">2</span><h3 style="margin-top:12px">Entretien de bureaux</h3><p>Contrats récurrents B2B : TPE/PME, cabinets, commerces.</p></div>
+      <div class="card"><span class="num">3</span><h3 style="margin-top:12px">Débarras</h3><p>Prestation ponctuelle, surtout auprès des particuliers (cave, appartement, succession).</p></div>
+      <div class="card"><span class="num">4</span><h3 style="margin-top:12px">Nettoyage de chantier</h3><p>Prestation ponctuelle B2B : fin de travaux, livraison de logements.</p></div>
+    </div>
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card c-bleu"><span class="glyph">●</span><h3>Générer du trafic qualifié</h3><p>Objectif clic dès que le site est en ligne : amener sur GProNet des internautes qui cherchent un prestataire, pas une information.</p></div>
+      <div class="card c-bleu"><span class="glyph">■</span><h3>Exister face aux acteurs installés</h3><p>Prendre position sur les requêtes locales où les grands réseaux et les plateformes captent aujourd'hui la demande.</p></div>
+      <div class="card c-bleu"><span class="glyph">◆</span><h3>Construire un socle durable</h3><p>12 mois pour apprendre quelles requêtes et quelles villes rapportent, et préparer le passage à un pilotage aux demandes de devis.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARCHE & SITE -->
+<section id="marche">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>Lecture du marché & du site</h2>
+      <p>Un marché « bouché » en apparence, mais pas sur toutes les requêtes. La clé est de choisir où se battre.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Ce qui rend le marché difficile</h3>
+        <ul>
+          <li>Marseille accueille des acteurs nationaux de la propreté, très présents en ligne, et de nombreuses TPE locales.</li>
+          <li>Plateformes de mise en relation et annuaires enchérissent sur les mêmes mots-clés génériques.</li>
+          <li>Le mot « nettoyage » seul attire beaucoup de recherches hors cible : emploi, ménage chez les particuliers, produits, location de matériel.</li>
+          <li>Sur « encombrants », une grande partie des recherches vise la collecte gratuite de la Métropole, pas un prestataire.</li>
+        </ul>
+      </div>
+      <div class="card c-corail">
+        <h3>Où GProNet peut gagner</h3>
+        <ul>
+          <li>Les requêtes longues et très locales (« nettoyage parties communes Toulon », « entretien copropriété Marseille 13008 ») : moins disputées et plus proches d'une demande de devis.</li>
+          <li>La cible syndic / copropriété, plus étroite que « nettoyage de bureaux », donc moins chère à couvrir.</li>
+          <li>Le corridor Aubagne · La Ciotat · Bandol · Sanary · La Seyne, souvent moins travaillé que Marseille intra-muros.</li>
+          <li>Un discours clair « interlocuteur unique, passages programmés » qui se démarque dans les annonces.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card c-menthe"><span class="glyph">◐</span><h3>Points forts du site</h3><p>Positionnement copropriété très lisible dès le titre. Arguments concrets pour le syndic : passages programmés, un contrat pour plusieurs immeubles, obligation d'entretien (loi de 1965). CTA « Demander un devis » visible.</p></div>
+      <div class="card c-peche"><span class="glyph">⌂</span><h3>À renforcer avant lancement</h3><p>Une page (ou section ancrée) par service, avec « Marseille » et « Toulon » dans les titres. Les annonces Débarras ou Chantier doivent arriver sur leur service, pas sur l'accueil copropriété.</p></div>
+      <div class="card c-peche"><span class="glyph">■</span><h3>Conversion</h3><p>Numéro de téléphone cliquable en haut de page, formulaire de devis court (3 à 5 champs), éléments de réassurance : zone, délais, références, avis clients dès qu'il y en a.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DISPOSITIF -->
+<section id="dispositif">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Dispositif recommandé</h2>
+      <p>Avec environ 16 € par jour, on ne peut pas être partout. On concentre le budget sur la priorité du site, en gardant une présence sur les services ponctuels.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card c-navy">
+        <span class="tag t-ice">Campagne 1 · 70 % du budget</span>
+        <h3 style="margin-top:8px">Search · Contrats récurrents B2B</h3>
+        <p>Groupes d'annonces : <b style="color:#fff">Entretien de copropriété</b>, <b style="color:#fff">Entretien de bureaux &amp; locaux pro</b>.</p>
+        <ul>
+          <li>Diffusion du lundi au vendredi, 7h-20h : les heures où les syndics et dirigeants cherchent un prestataire.</li>
+          <li>Les requêtes copropriété sont prioritaires ; le budget qu'elles ne dépensent pas (volumes faibles) bascule naturellement vers les bureaux.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag t-terra">Campagne 2 · 30 % du budget</span>
+        <h3 style="margin-top:8px">Search · Prestations ponctuelles</h3>
+        <p>Groupes d'annonces : <b>Nettoyage fin de chantier &amp; après travaux</b>, <b>Débarras</b>.</p>
+        <ul>
+          <li>Diffusion 7 j/7 : le débarras est recherché par des particuliers, aussi le soir et le week-end.</li>
+          <li>Budget séparé pour que ces requêtes, souvent moins chères, ne prennent pas le budget du cœur de métier.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <h3 style="margin-bottom:16px">Répartition par service, dans l'ordre de priorité du site</h3>
+      <div class="prio">
+        <div class="prio-row"><div class="lbl">Entretien de copropriété<small>Toute la zone</small></div><div class="bar"><i style="width:45%"></i></div><div class="pct">45 %</div></div>
+        <div class="prio-row"><div class="lbl">Entretien de bureaux<small>Toute la zone</small></div><div class="bar"><i class="ic" style="width:25%"></i></div><div class="pct">25 %</div></div>
+        <div class="prio-row"><div class="lbl">Débarras<small>Particuliers, successions</small></div><div class="bar"><i class="t" style="width:20%"></i></div><div class="pct">20 %</div></div>
+        <div class="prio-row"><div class="lbl">Nettoyage de chantier<small>Fin de travaux</small></div><div class="bar"><i class="t" style="width:10%"></i></div><div class="pct">10 %</div></div>
+      </div>
+      <p class="note">Répartition de départ, ajustée chaque mois selon les clics obtenus et la qualité des demandes remontées par GProNet. Si la copropriété plafonne après 4 à 6 semaines, une partie du budget pourra glisser vers la fin de chantier, qui porte le plus gros volume de recherche.</p>
+    </div>
+
+    <h3 style="margin:34px 0 14px">Logique d'activation</h3>
+    <div class="flow">
+      <div class="step"><span class="n">ÉTAPE 1</span><b>Recherche</b><span>Le syndic, le dirigeant ou le particulier tape son besoin + sa ville.</span></div>
+      <div class="step"><span class="n">ÉTAPE 2</span><b>Annonce locale</b><span>Annonce dédiée au service, avec la zone, l'appel direct et des liens vers les services.</span></div>
+      <div class="step"><span class="n">ÉTAPE 3</span><b>Page du service</b><span>Arrivée sur la page qui correspond exactement à la recherche.</span></div>
+      <div class="step"><span class="n">ÉTAPE 4</span><b>Devis</b><span>Formulaire ou appel : le contact est remonté à GProNet.</span></div>
+    </div>
+
+    <div class="grid g3" style="margin-top:22px">
+      <div class="card c-bleu"><h3>Réseau</h3><p>Réseau de Recherche Google uniquement. Partenaires du Réseau de Recherche et Réseau Display désactivés pour garder 100 % du budget sur Google.</p></div>
+      <div class="card c-bleu"><h3>Enchères</h3><p>« Maximiser les clics » avec un CPC maximum plafonné, cohérent avec l'objectif clic et un compte sans historique. Évolution prévue vers les conversions (voir planning).</p></div>
+      <div class="card c-bleu"><h3>Types de correspondance</h3><p>Expression et exacte uniquement au lancement. Pas de requête large tant que la liste de mots-clés négatifs n'est pas solide.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOTS-CLES -->
+<section id="mots-cles">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>Mots-clés : ce que dit l'outil de planification</h2>
+      <p>Plus de 270 requêtes exportées de l'outil de planification des mots-clés Google, environ 3 700 recherches par mois au total sur la zone. Les volumes par requête sont faibles : on regroupe donc par service, sans découper par ville.</p>
+    </div>
+    <div class="grid g4">
+    <div class="card c-navy"><span class="num">≈ 1 800</span><h3 style="margin-top:10px">Fin de chantier / après travaux</h3><p>Premier volume. CPC haut de page de 1,20 à 6,50 €.</p></div>
+    <div class="card c-bleu"><span class="num">≈ 1 200</span><h3 style="margin-top:10px">Bureaux & locaux pro</h3><p>Volume solide, CPC plus doux : 0,70 à 3,10 €.</p></div>
+    <div class="card c-bleu"><span class="num">≈ 500</span><h3 style="margin-top:10px">Copropriété & parties communes</h3><p>Niche, beaucoup de requêtes sous 10 recherches. CPC 0,80 à 4,10 €.</p></div>
+    <div class="card c-peche"><span class="num">0</span><h3 style="margin-top:10px">Débarras</h3><p>Absent de l'export : à ajouter dans l'outil pour confirmer volumes et CPC.</p></div>
+  </div>
+  <div class="callout"><b>À noter :</b> la copropriété reste le cœur de métier, mais elle génère peu de recherches. Dans la campagne Contrats récurrents, le budget que la copropriété ne dépense pas ira naturellement vers les bureaux. Si la copropriété plafonne après 4 à 6 semaines, on pourra transférer une partie des 350 € vers la fin de chantier, qui porte le plus gros volume.</div>
+
+    <h3 class="sub" style="margin-top:34px">Mots-clés par groupe d'annonces</h3>
+    <div class="tabs" role="tablist"><button class="tab-btn on" data-tab="kw-copro">Copropriété</button><button class="tab-btn" data-tab="kw-bureaux">Bureaux</button><button class="tab-btn" data-tab="kw-chantier">Fin de chantier</button><button class="tab-btn" data-tab="kw-debarras">Débarras</button><button class="tab-btn" data-tab="kw-neg">Mots-clés négatifs</button></div>
+    <div class="tab-panel on" id="kw-copro"><div class="ag-head"><div><span class="tag t-ice">GPN_Search_Contrats-recurrents</span><h3>Entretien de copropriété</h3></div><span class="tag t-terra">Priorité 1</span></div><h3 class="sub">Mots-clés du groupe</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>Mot-clé</th><th>Correspondance</th><th class="r">Recherches / mois</th><th class="r">Enchère haut de page</th></tr></thead><tbody><tr><td class="txt">nettoyage copropriété</td><td>Expression + Exacte</td><td class="r">30</td><td class="r">0,82 - 1,88 €</td></tr><tr><td class="txt">entretien de copropriété</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">entretien copropriété</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage de copropriété</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">société de nettoyage copropriété</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">menage copropriété</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">1,68 - 4,14 €</td></tr><tr><td class="txt">nettoyage parties communes copropriété</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">entretien parties communes copropriété</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage des parties communes</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">entretien des parties communes</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage partie commune immeuble</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage hall d immeuble</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage poubelle copropriété</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">société de nettoyage des parties communes</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage syndic</td><td>Expression + Exacte</td><td class="r">0</td><td class="r">–</td></tr><tr><td class="txt">tarif entretien copropriete</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr></tbody></table></div>
+  <p class="note">Volumes et CPC issus de l'export de l'outil de planification des mots-clés Google (sept. 2025 → août 2026). « 10 » = moins de 10 recherches par mois.</p>
+</div>
+<div class="tab-panel" id="kw-bureaux"><div class="ag-head"><div><span class="tag t-ice">GPN_Search_Contrats-recurrents</span><h3>Entretien de bureaux &amp; locaux pro</h3></div><span class="tag t-terra">Priorité 2</span></div><h3 class="sub">Mots-clés du groupe</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>Mot-clé</th><th>Correspondance</th><th class="r">Recherches / mois</th><th class="r">Enchère haut de page</th></tr></thead><tbody><tr><td class="txt">nettoyage bureau</td><td>Expression + Exacte</td><td class="r">70</td><td class="r">0,75 - 3,12 €</td></tr><tr><td class="txt">nettoyage de bureau</td><td>Expression + Exacte</td><td class="r">70</td><td class="r">0,69 - 2,63 €</td></tr><tr><td class="txt">nettoyage des bureaux</td><td>Expression + Exacte</td><td class="r">70</td><td class="r">0,75 - 3,12 €</td></tr><tr><td class="txt">entretien de bureaux</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">entreprise de nettoyage bureaux</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">société de nettoyage bureau</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">societe nettoyage bureau</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">entreprise nettoyage bureau</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">devis nettoyage bureau</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">service de nettoyage bureau</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage locaux professionnels</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">0,97 - 3,12 €</td></tr><tr><td class="txt">entreprise nettoyage locaux professionnels</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage de locaux</td><td>Expression + Exacte</td><td class="r">20</td><td class="r">–</td></tr><tr><td class="txt">nettoyage local commercial</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage locaux commerciaux</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage tertiaire</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">menage bureaux</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage bureau le soir</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">prix nettoyage bureau</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">tarif nettoyage bureaux</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr></tbody></table></div>
+  <p class="note">Volumes et CPC issus de l'export de l'outil de planification des mots-clés Google (sept. 2025 → août 2026). « 10 » = moins de 10 recherches par mois.</p>
+</div>
+<div class="tab-panel" id="kw-chantier"><div class="ag-head"><div><span class="tag t-ice">GPN_Search_Prestations-ponctuelles</span><h3>Nettoyage fin de chantier &amp; après travaux</h3></div><span class="tag t-terra">Priorité 4 (1er volume de recherche)</span></div><h3 class="sub">Mots-clés du groupe</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>Mot-clé</th><th>Correspondance</th><th class="r">Recherches / mois</th><th class="r">Enchère haut de page</th></tr></thead><tbody><tr><td class="txt">nettoyage fin de chantier</td><td>Expression + Exacte</td><td class="r">110</td><td class="r">1,19 - 4,12 €</td></tr><tr><td class="txt">nettoyage de fin de chantier</td><td>Expression + Exacte</td><td class="r">110</td><td class="r">1,19 - 4,12 €</td></tr><tr><td class="txt">nettoyage chantier</td><td>Expression + Exacte</td><td class="r">50</td><td class="r">1,87 - 6,24 €</td></tr><tr><td class="txt">nettoyage de chantier</td><td>Expression + Exacte</td><td class="r">40</td><td class="r">1,80 - 5,69 €</td></tr><tr><td class="txt">nettoyage après travaux</td><td>Expression + Exacte</td><td class="r">30</td><td class="r">2,39 - 6,45 €</td></tr><tr><td class="txt">entreprise nettoyage fin de chantier</td><td>Expression + Exacte</td><td class="r">20</td><td class="r">1,05 - 5,26 €</td></tr><tr><td class="txt">entreprise de nettoyage fin de chantier</td><td>Expression + Exacte</td><td class="r">20</td><td class="r">1,05 - 5,26 €</td></tr><tr><td class="txt">société de nettoyage fin de chantier</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">societe de nettoyage apres travaux</td><td>Expression + Exacte</td><td class="r">30</td><td class="r">–</td></tr><tr><td class="txt">entreprise de nettoyage après travaux</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">3,61 - 9,44 €</td></tr><tr><td class="txt">entreprise nettoyage chantier</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage après chantier</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">1,53 - 4,23 €</td></tr><tr><td class="txt">menage fin de chantier</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">1,92 - 6,78 €</td></tr><tr><td class="txt">ménage après travaux</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">1,99 - 5,97 €</td></tr><tr><td class="txt">nettoyage fin de travaux</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage appartement apres travaux</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage maison après travaux</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">0,57 - 1,98 €</td></tr><tr><td class="txt">devis nettoyage fin de chantier</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">tarif nettoyage fin de chantier au m2</td><td>Expression + Exacte</td><td class="r">20</td><td class="r">0,54 - 1,50 €</td></tr><tr><td class="txt">prix nettoyage fin de chantier</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">0,62 - 1,54 €</td></tr><tr><td class="txt">nettoyage base vie chantier</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr><tr><td class="txt">nettoyage opr</td><td>Expression + Exacte</td><td class="r">10</td><td class="r">–</td></tr></tbody></table></div>
+  <p class="note">Volumes et CPC issus de l'export de l'outil de planification des mots-clés Google (sept. 2025 → août 2026). « 10 » = moins de 10 recherches par mois.</p>
+</div>
+<div class="tab-panel" id="kw-debarras"><div class="ag-head"><div><span class="tag t-ice">GPN_Search_Prestations-ponctuelles</span><h3>Débarras</h3></div><span class="tag t-terra">Priorité 3 (hors export Google)</span></div><h3 class="sub">Mots-clés du groupe</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>Mot-clé</th><th>Correspondance</th><th class="r">Recherches / mois</th><th class="r">Enchère haut de page</th></tr></thead><tbody><tr><td class="txt">débarras appartement</td><td>Expression + Exacte</td><td class="r">–</td><td class="r">–</td></tr><tr><td class="txt">débarras maison</td><td>Expression + Exacte</td><td class="r">–</td><td class="r">–</td></tr><tr><td class="txt">débarras cave</td><td>Expression + Exacte</td><td class="r">–</td><td class="r">–</td></tr><tr><td class="txt">vide maison</td><td>Expression + Exacte</td><td class="r">–</td><td class="r">–</td></tr><tr><td class="txt">entreprise débarras</td><td>Expression + Exacte</td><td class="r">–</td><td class="r">–</td></tr><tr><td class="txt">débarras succession</td><td>Expression + Exacte</td><td class="r">–</td><td class="r">–</td></tr><tr><td class="txt">débarras après décès</td><td>Expression + Exacte</td><td class="r">–</td><td class="r">–</td></tr><tr><td class="txt">débarras local professionnel</td><td>Expression + Exacte</td><td class="r">–</td><td class="r">–</td></tr></tbody></table></div>
+  <p class="note">Le débarras ne figure pas dans l'export de l'outil de planification : volumes et CPC à vérifier avant activation.</p>
+</div>
+
+<div class="tab-panel" id="kw-neg"><span class="tag" style="background:var(--terra)">Liste compte · requête large négative · dès le jour 1</span><p class="note" style="margin:6px 0 12px">Elle reprend les dérives repérées dans l'export : emploi, conseils pratiques (« nettoyer », « poussière », « parquet »), services non proposés (moquette, jardin, piscine) et requêtes québécoises (« entretien ménager commercial », « condo »). Enrichie chaque semaine le premier mois à partir des recherches réelles.</p><div class="card"><div class="kw neg"><span>emploi</span><span>recrutement</span><span>offre d&#x27;emploi</span><span>salaire</span><span>cdi</span><span>formation</span><span>intérim</span><span>recherche chantier de nettoyage</span><span>franchise</span><span>devenir</span><span>auto entrepreneur</span><span>femme de ménage</span><span>aide ménagère</span><span>cesu</span><span>gratuit</span><span>mairie</span><span>métropole</span><span>déchetterie</span><span>emmaüs</span><span>leboncoin</span><span>produit</span><span>karcher</span><span>location</span><span>tuto</span><span>comment</span><span>nettoyer</span><span>moquette</span><span>moquettes</span><span>vitres particulier</span><span>parquet</span><span>carrelage</span><span>jardin</span><span>espace vert</span><span>piscine</span><span>volets</span><span>terrasse</span><span>locataire</span><span>usage privatif</span><span>hlm</span><span>condo</span><span>compagnie</span><span>entretien ménager</span><span>sophia</span><span>martine</span><span>pas cher</span><span>où trouver</span></div>
+  <p class="note">« Moquette » et « vitres » sont exclus par défaut, car le site ne propose pas ces prestations. À retirer si GProNet les assure.</p></div>
+</div>
+
+  </div>
+</section>
+
+<!-- ZONE -->
+<section id="zone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>Zone de diffusion</h2>
+      <p>Le bassin de chalandise Marseille → Toulon, ciblé ville par ville pour suivre les résultats de chaque zone.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card map-card">
+        <svg viewBox="0 0 560 300" role="img" aria-label="Carte schématique du corridor Marseille Toulon">
+          <path d="M0 175 C60 170 90 200 130 205 C175 210 190 240 235 238 C280 236 300 262 345 258 C395 254 420 270 470 262 C510 256 535 268 560 266 L560 300 L0 300Z" fill="#cfe4ff"/>
+          <text x="420" y="290" font-family="Inter" font-size="12" fill="#5b6582">Mer Méditerranée</text>
+          <path d="M95 150 C170 160 230 205 300 215 C360 224 420 225 470 228" stroke="#021859" stroke-width="2" stroke-dasharray="5 6" fill="none" opacity=".45"/>
+          <g font-family="Poppins" font-size="12" fill="#021859">
+            <circle cx="95" cy="150" r="34" fill="#f25430" opacity=".14"/><circle cx="95" cy="150" r="9" fill="#f25430"/><text x="62" y="120" font-weight="600" font-size="14">Marseille</text>
+            <circle cx="160" cy="140" r="5" fill="#021859"/><text x="170" y="144">Aubagne</text>
+            <circle cx="150" cy="190" r="4" fill="#021859"/><text x="118" y="207">Cassis</text>
+            <circle cx="205" cy="200" r="5" fill="#021859"/><text x="196" y="222">La Ciotat</text>
+            <circle cx="290" cy="222" r="4" fill="#021859"/><text x="265" y="208">Bandol</text>
+            <circle cx="335" cy="234" r="4" fill="#021859"/><text x="300" y="250">Sanary · Six-Fours</text>
+            <circle cx="400" cy="232" r="5" fill="#021859"/><text x="365" y="216">La Seyne</text>
+            <circle cx="445" cy="222" r="34" fill="#f25430" opacity=".14"/><circle cx="445" cy="222" r="9" fill="#f25430"/><text x="455" y="250" font-weight="600" font-size="14">Toulon</text>
+            <circle cx="490" cy="205" r="4" fill="#021859"/><text x="420" y="176">La Garde · La Valette</text>
+          </g>
+        </svg>
+      </div>
+      <div class="card">
+        <h3>Paramétrage géographique</h3>
+        <ul>
+          <li><b>Pôle Marseille :</b> Marseille (16 arrondissements), Aubagne, Cassis, La Ciotat, Allauch, Plan-de-Cuques.</li>
+          <li><b>Pôle Toulon :</b> Toulon, La Seyne-sur-Mer, Six-Fours, Sanary, Bandol, La Garde, La Valette-du-Var.</li>
+          <li>Option « Présence » : seules les personnes situées dans la zone voient les annonces, pas celles qui s'y intéressent depuis ailleurs.</li>
+          <li>Les villes de la zone sont ajoutées une par une, pour lire les clics et les coûts de chacune et réorienter le budget vers les plus rentables.</li>
+          <li>Aix-en-Provence et l'est du Var restent hors zone au lancement et pourront être testés plus tard.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANNING -->
+<section id="planning">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2>Planning d'activation</h2>
+      <p>Diffusion continue sur 12 mois, avec un équilibre entre services qui suit la saisonnalité de chaque activité.</p>
+    </div>
+    <div class="tbl-wrap" style="padding:16px">
+      <div class="plan">
+        <div class="h l">Phase</div><div class="h">Déc</div><div class="h">Jan</div><div class="h">Fév</div><div class="h">Mar</div><div class="h">Avr</div><div class="h">Mai</div><div class="h">Juin</div><div class="h">Juil</div><div class="h">Août</div><div class="h">Sep</div><div class="h">Oct</div><div class="h">Nov</div>
+        <div class="rl">Lancement & apprentissage</div><div class="c on1"></div><div class="c on1"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+        <div class="rl">Optimisation continue</div><div class="c"></div><div class="c"></div><div class="c on2"></div><div class="c on2"></div><div class="c on2"></div><div class="c on2"></div><div class="c on2"></div><div class="c on2"></div><div class="c on2"></div><div class="c on2"></div><div class="c on2"></div><div class="c on2"></div>
+        <div class="rl">Temps fort copropriété</div><div class="c"></div><div class="c on3"></div><div class="c on3"></div><div class="c on3"></div><div class="c on3"></div><div class="c on3"></div><div class="c on3"></div><div class="c"></div><div class="c"></div><div class="c on3"></div><div class="c on3"></div><div class="c"></div>
+        <div class="rl">Temps fort débarras</div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c on4"></div><div class="c on4"></div><div class="c on4"></div><div class="c on4"></div><div class="c on4"></div><div class="c on4"></div><div class="c"></div><div class="c"></div>
+      </div>
+      <div class="legend"><span><i style="background:var(--terra)"></i>Lancement : ajout quotidien de mots-clés négatifs, réglage des CPC</span><span><i style="background:var(--navy)"></i>Optimisation : bilan mensuel, réallocation entre services et villes</span><span><i style="background:var(--ice)"></i>Assemblées générales et renouvellement des contrats</span><span><i style="background:#f8a58f"></i>Déménagements, successions, ventes immobilières</span></div>
+    </div>
+    <div class="callout"><b>Décembre est un mois calme en B2B</b> (fêtes, budgets clos). C'est l'occasion de lancer la phase d'apprentissage à moindre concurrence, pour être bien réglé en janvier, quand syndics et entreprises relancent leurs appels d'offres. Au printemps, la part débarras peut monter jusqu'à 35 % du budget, sans dépasser les 500 € mensuels.</div>
+  </div>
+</section>
+
+<!-- BUDGET -->
+<section id="budget">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2>Budget & estimations</h2>
+      <p>Un budget fixe de 500 € par mois, réparti entre les deux campagnes. Les CPC ci-dessous sont des estimations de marché pour le bassin Marseille-Toulon, à confirmer avec les données réelles dès les premières semaines.</p>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn on" data-tab="b1">Mensuel</button>
+      <button class="tab-btn" data-tab="b2">Annuel (12 mois)</button>
+    </div>
+    <div class="tab-panel on" id="b1">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Campagne / groupe</th><th class="r">Budget mensuel</th><th class="r">CPC estimé</th><th class="r">Clics estimés / mois</th></tr></thead>
+        <tbody>
+          <tr><td><b>C1 · Copropriété</b></td><td class="r">225 €</td><td class="r">2,50 - 4,00 €</td><td class="r">55 - 90</td></tr>
+          <tr><td><b>C1 · Bureaux</b></td><td class="r">125 €</td><td class="r">3,00 - 5,00 €</td><td class="r">25 - 40</td></tr>
+          <tr><td><b>C2 · Débarras</b></td><td class="r">100 €</td><td class="r">1,50 - 3,00 €</td><td class="r">35 - 65</td></tr>
+          <tr><td><b>C2 · Nettoyage de chantier</b></td><td class="r">50 €</td><td class="r">2,00 - 3,50 €</td><td class="r">15 - 25</td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td class="r">500 €</td><td class="r">≈ 2,30 - 3,80 €</td><td class="r">130 - 220 clics</td></tr></tfoot>
+      </table></div>
+    </div>
+    <div class="tab-panel" id="b2">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Indicateur</th><th class="r">Hypothèse basse</th><th class="r">Hypothèse haute</th></tr></thead>
+        <tbody>
+          <tr><td>Budget total (déc. 2026 → nov. 2027)</td><td class="r">6 000 €</td><td class="r">6 000 €</td></tr>
+          <tr><td>Clics vers le site</td><td class="r">≈ 1 600</td><td class="r">≈ 2 650</td></tr>
+          <tr><td>Clics par mois en moyenne</td><td class="r">≈ 130</td><td class="r">≈ 220</td></tr>
+          <tr><td>Taux de clic visé</td><td class="r" colspan="2">6 à 9 %</td></tr>
+        </tbody>
+        <tfoot><tr><td>Budget mensuel moyen</td><td class="r" colspan="2">500 € · environ 16,40 € / jour</td></tr></tfoot>
+      </table></div>
+    </div>
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card c-bleu"><span class="num">≈ 16 €</span><h3 style="margin-top:8px">par jour</h3><p>Google répartit le budget mensuel sur les jours les plus porteurs, dans la limite de 500 €.</p></div>
+      <div class="card c-bleu"><span class="num">130-220</span><h3 style="margin-top:8px">clics / mois</h3><p>Volume attendu en régime de croisière, à partir du 2e ou 3e mois.</p></div>
+      <div class="card c-corail"><span class="num">1 clic</span><h3 style="margin-top:8px">peut valoir un contrat annuel</h3><p>Un contrat de copropriété est récurrent : quelques signatures dans l'année suffisent à rentabiliser l'investissement.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ANNONCES -->
+<section id="annonces">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">08</span>
+      <h2>Annonces responsives par groupe</h2>
+      <p>Une annonce responsive Search par groupe d'annonces, construite à partir de l'export de l'outil de planification et des arguments du site.</p>
+    </div>
+    <div class="grid g2">
+      <div>
+        <div class="ad">
+          <div class="spons">Sponsorisé</div>
+          <div class="url">gpronet.fr › copropriete › devis</div>
+          <div class="ttl">Nettoyage Copropriété | Entretien Parties Communes | Marseille, Toulon &amp; Alentours</div>
+          <div class="dsc">Halls, cages d'escalier, extérieurs : vos parties communes entretenues sans y penser. Passages calés sur le calendrier de la copropriété. Un seul interlocuteur pour le syndic.</div>
+          <div class="sl"><span>Entretien de copropriété</span><span>Entretien de bureaux</span><span>Débarras</span><span>Demander un devis</span></div>
+        </div>
+        <p class="note">Exemple de rendu à partir des titres T1, T2, T4 et des descriptions D1 et D2 du groupe Copropriété. L'URL d'affichage est indicative.</p>
+      </div>
+      <div class="card">
+        <h3>Règles de rédaction</h3>
+        <ul>
+          <li>15 titres (30 caractères max) et 4 descriptions (90 caractères max) par groupe, chemins à 15 caractères.</li>
+          <li>Seuls les deux premiers titres sont épinglés pour garantir le service dans l'annonce ; le reste est libre pour que Google teste les combinaisons.</li>
+          <li>Les mentions <span class="val" style="margin:0">à valider</span> sont des arguments à confirmer avec GProNet avant mise en ligne.</li>
+          <li>Les URL finales seront renseignées dès que les pages par service seront publiées.</li>
+        </ul>
+      </div>
+    </div>
+    <h3 class="sub" style="margin-top:34px">Textes par groupe d'annonces</h3>
+    <div class="tabs"><button class="tab-btn on" data-tab="ag-copro">Copropriété</button><button class="tab-btn" data-tab="ag-bureaux">Bureaux</button><button class="tab-btn" data-tab="ag-chantier">Fin de chantier</button><button class="tab-btn" data-tab="ag-debarras">Débarras</button></div>
+    <div class="tab-panel on" id="ag-copro">
+  <div class="ag-head"><div><span class="tag t-ice">GPN_Search_Contrats-recurrents</span><h3>Entretien de copropriété</h3></div><span class="tag t-terra">Priorité 1</span></div>
+  <div class="meta">
+    <div><b>URL finale :</b> [URL page Copropriété]</div>
+    <div><b>Chemin 1 :</b> copropriete <span class="cc">11/15</span></div>
+    <div><b>Chemin 2 :</b> devis <span class="cc">5/15</span></div>
+  </div>
+  <h3 class="sub">Titres (15)</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>#</th><th>Titre</th><th>Épinglage</th><th class="r">Caractères</th><th></th></tr></thead><tbody><tr><td>T1</td><td class="txt">Nettoyage Copropriété</td><td><span class="pin">Position 1</span></td><td class="r"><span class="cc">21/30</span></td><td><button class="copy" data-c="Nettoyage Copropriété">Copier</button></td></tr><tr><td>T2</td><td class="txt">Entretien Parties Communes</td><td><span class="pin">Position 2</span></td><td class="r"><span class="cc">26/30</span></td><td><button class="copy" data-c="Entretien Parties Communes">Copier</button></td></tr><tr><td>T3</td><td class="txt">Entretien de Copropriété</td><td></td><td class="r"><span class="cc">24/30</span></td><td><button class="copy" data-c="Entretien de Copropriété">Copier</button></td></tr><tr><td>T4</td><td class="txt">Marseille, Toulon &amp; Alentours</td><td></td><td class="r"><span class="cc">29/30</span></td><td><button class="copy" data-c="Marseille, Toulon &amp; Alentours">Copier</button></td></tr><tr><td>T5</td><td class="txt">Halls, Escaliers, Extérieurs</td><td></td><td class="r"><span class="cc">28/30</span></td><td><button class="copy" data-c="Halls, Escaliers, Extérieurs">Copier</button></td></tr><tr><td>T6</td><td class="txt">Un Interlocuteur Unique</td><td></td><td class="r"><span class="cc">23/30</span></td><td><button class="copy" data-c="Un Interlocuteur Unique">Copier</button></td></tr><tr><td>T7</td><td class="txt">Passages Programmés</td><td></td><td class="r"><span class="cc">19/30</span></td><td><button class="copy" data-c="Passages Programmés">Copier</button></td></tr><tr><td>T8</td><td class="txt">Un Contrat, Tous Vos Immeubles</td><td></td><td class="r"><span class="cc">30/30</span></td><td><button class="copy" data-c="Un Contrat, Tous Vos Immeubles">Copier</button></td></tr><tr><td>T9</td><td class="txt">Collecte des Encombrants</td><td></td><td class="r"><span class="cc">24/30</span></td><td><button class="copy" data-c="Collecte des Encombrants">Copier</button></td></tr><tr><td>T10</td><td class="txt">Société de Nettoyage Syndic</td><td></td><td class="r"><span class="cc">27/30</span></td><td><button class="copy" data-c="Société de Nettoyage Syndic">Copier</button></td></tr><tr><td>T11</td><td class="txt">Pensé pour les Syndics</td><td></td><td class="r"><span class="cc">22/30</span></td><td><button class="copy" data-c="Pensé pour les Syndics">Copier</button></td></tr><tr><td>T12</td><td class="txt">Devis Gratuit Copropriété<span class="val">à valider</span></td><td></td><td class="r"><span class="cc">25/30</span></td><td><button class="copy" data-c="Devis Gratuit Copropriété">Copier</button></td></tr><tr><td>T13</td><td class="txt">Ménage Parties Communes</td><td></td><td class="r"><span class="cc">23/30</span></td><td><button class="copy" data-c="Ménage Parties Communes">Copier</button></td></tr><tr><td>T14</td><td class="txt">Plus de Relance à Faire</td><td></td><td class="r"><span class="cc">23/30</span></td><td><button class="copy" data-c="Plus de Relance à Faire">Copier</button></td></tr><tr><td>T15</td><td class="txt">GProNet · Propreté Immeubles</td><td></td><td class="r"><span class="cc">28/30</span></td><td><button class="copy" data-c="GProNet · Propreté Immeubles">Copier</button></td></tr></tbody></table></div>
+  <h3 class="sub">Descriptions (4)</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>#</th><th>Description</th><th class="r">Caractères</th><th></th></tr></thead><tbody><tr><td>D1</td><td class="txt">Halls, cages d&#x27;escalier, extérieurs : vos parties communes entretenues sans y penser.</td><td class="r"><span class="cc">85/90</span></td><td><button class="copy" data-c="Halls, cages d&#x27;escalier, extérieurs : vos parties communes entretenues sans y penser.">Copier</button></td></tr><tr><td>D2</td><td class="txt">Passages calés sur le calendrier de la copropriété. Un seul interlocuteur pour le syndic.</td><td class="r"><span class="cc">89/90</span></td><td><button class="copy" data-c="Passages calés sur le calendrier de la copropriété. Un seul interlocuteur pour le syndic.">Copier</button></td></tr><tr><td>D3</td><td class="txt">Un syndic, plusieurs adresses : un seul contrat pour couvrir l&#x27;ensemble de vos immeubles.</td><td class="r"><span class="cc">89/90</span></td><td><button class="copy" data-c="Un syndic, plusieurs adresses : un seul contrat pour couvrir l&#x27;ensemble de vos immeubles.">Copier</button></td></tr><tr><td>D4</td><td class="txt">Collecte programmée des encombrants, mensuelle ou trimestrielle. Demandez votre devis.</td><td class="r"><span class="cc">86/90</span></td><td><button class="copy" data-c="Collecte programmée des encombrants, mensuelle ou trimestrielle. Demandez votre devis.">Copier</button></td></tr></tbody></table></div>
+  </div>
+<div class="tab-panel" id="ag-bureaux">
+  <div class="ag-head"><div><span class="tag t-ice">GPN_Search_Contrats-recurrents</span><h3>Entretien de bureaux &amp; locaux pro</h3></div><span class="tag t-terra">Priorité 2</span></div>
+  <div class="meta">
+    <div><b>URL finale :</b> [URL page Bureaux]</div>
+    <div><b>Chemin 1 :</b> bureaux <span class="cc">7/15</span></div>
+    <div><b>Chemin 2 :</b> devis <span class="cc">5/15</span></div>
+  </div>
+  <h3 class="sub">Titres (15)</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>#</th><th>Titre</th><th>Épinglage</th><th class="r">Caractères</th><th></th></tr></thead><tbody><tr><td>T1</td><td class="txt">Nettoyage de Bureaux</td><td><span class="pin">Position 1</span></td><td class="r"><span class="cc">20/30</span></td><td><button class="copy" data-c="Nettoyage de Bureaux">Copier</button></td></tr><tr><td>T2</td><td class="txt">Entretien de Bureaux</td><td><span class="pin">Position 2</span></td><td class="r"><span class="cc">20/30</span></td><td><button class="copy" data-c="Entretien de Bureaux">Copier</button></td></tr><tr><td>T3</td><td class="txt">Société de Nettoyage Bureaux</td><td></td><td class="r"><span class="cc">28/30</span></td><td><button class="copy" data-c="Société de Nettoyage Bureaux">Copier</button></td></tr><tr><td>T4</td><td class="txt">Nettoyage Locaux Pro</td><td></td><td class="r"><span class="cc">20/30</span></td><td><button class="copy" data-c="Nettoyage Locaux Pro">Copier</button></td></tr><tr><td>T5</td><td class="txt">Marseille, Toulon &amp; Alentours</td><td></td><td class="r"><span class="cc">29/30</span></td><td><button class="copy" data-c="Marseille, Toulon &amp; Alentours">Copier</button></td></tr><tr><td>T6</td><td class="txt">Devis Nettoyage de Bureaux<span class="val">à valider</span></td><td></td><td class="r"><span class="cc">26/30</span></td><td><button class="copy" data-c="Devis Nettoyage de Bureaux">Copier</button></td></tr><tr><td>T7</td><td class="txt">Un Interlocuteur Unique</td><td></td><td class="r"><span class="cc">23/30</span></td><td><button class="copy" data-c="Un Interlocuteur Unique">Copier</button></td></tr><tr><td>T8</td><td class="txt">Passages Réguliers Programmés</td><td></td><td class="r"><span class="cc">29/30</span></td><td><button class="copy" data-c="Passages Réguliers Programmés">Copier</button></td></tr><tr><td>T9</td><td class="txt">Bureaux, Commerces, Cabinets</td><td></td><td class="r"><span class="cc">28/30</span></td><td><button class="copy" data-c="Bureaux, Commerces, Cabinets">Copier</button></td></tr><tr><td>T10</td><td class="txt">Intervention Tôt ou le Soir<span class="val">à valider</span></td><td></td><td class="r"><span class="cc">27/30</span></td><td><button class="copy" data-c="Intervention Tôt ou le Soir">Copier</button></td></tr><tr><td>T11</td><td class="txt">Contrat Adapté à Vos Locaux</td><td></td><td class="r"><span class="cc">27/30</span></td><td><button class="copy" data-c="Contrat Adapté à Vos Locaux">Copier</button></td></tr><tr><td>T12</td><td class="txt">Des Bureaux Toujours Nets</td><td></td><td class="r"><span class="cc">25/30</span></td><td><button class="copy" data-c="Des Bureaux Toujours Nets">Copier</button></td></tr><tr><td>T13</td><td class="txt">Demandez Votre Devis</td><td></td><td class="r"><span class="cc">20/30</span></td><td><button class="copy" data-c="Demandez Votre Devis">Copier</button></td></tr><tr><td>T14</td><td class="txt">Entreprise de Nettoyage</td><td></td><td class="r"><span class="cc">23/30</span></td><td><button class="copy" data-c="Entreprise de Nettoyage">Copier</button></td></tr><tr><td>T15</td><td class="txt">GProNet · Propreté Pro</td><td></td><td class="r"><span class="cc">22/30</span></td><td><button class="copy" data-c="GProNet · Propreté Pro">Copier</button></td></tr></tbody></table></div>
+  <h3 class="sub">Descriptions (4)</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>#</th><th>Description</th><th class="r">Caractères</th><th></th></tr></thead><tbody><tr><td>D1</td><td class="txt">Bureaux, commerces, cabinets : un entretien régulier, calé sur vos horaires d&#x27;activité.</td><td class="r"><span class="cc">87/90</span></td><td><button class="copy" data-c="Bureaux, commerces, cabinets : un entretien régulier, calé sur vos horaires d&#x27;activité.">Copier</button></td></tr><tr><td>D2</td><td class="txt">Un interlocuteur unique et des passages programmés. Plus de relance à faire de votre côté.</td><td class="r"><span class="cc">90/90</span></td><td><button class="copy" data-c="Un interlocuteur unique et des passages programmés. Plus de relance à faire de votre côté.">Copier</button></td></tr><tr><td>D3</td><td class="txt">Marseille, Toulon et alentours. Contrat adapté à votre surface et à la fréquence voulue.</td><td class="r"><span class="cc">88/90</span></td><td><button class="copy" data-c="Marseille, Toulon et alentours. Contrat adapté à votre surface et à la fréquence voulue.">Copier</button></td></tr><tr><td>D4</td><td class="txt">Sols, sanitaires, postes de travail : vos locaux professionnels entretenus. Devis gratuit.</td><td class="r"><span class="cc">90/90</span></td><td><button class="copy" data-c="Sols, sanitaires, postes de travail : vos locaux professionnels entretenus. Devis gratuit.">Copier</button></td></tr></tbody></table></div>
+  </div>
+<div class="tab-panel" id="ag-chantier">
+  <div class="ag-head"><div><span class="tag t-ice">GPN_Search_Prestations-ponctuelles</span><h3>Nettoyage fin de chantier &amp; après travaux</h3></div><span class="tag t-terra">Priorité 4 (1er volume de recherche)</span></div>
+  <div class="meta">
+    <div><b>URL finale :</b> [URL page Nettoyage de chantier]</div>
+    <div><b>Chemin 1 :</b> chantier <span class="cc">8/15</span></div>
+    <div><b>Chemin 2 :</b> apres-travaux <span class="cc">13/15</span></div>
+  </div>
+  <h3 class="sub">Titres (15)</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>#</th><th>Titre</th><th>Épinglage</th><th class="r">Caractères</th><th></th></tr></thead><tbody><tr><td>T1</td><td class="txt">Nettoyage Fin de Chantier</td><td><span class="pin">Position 1</span></td><td class="r"><span class="cc">25/30</span></td><td><button class="copy" data-c="Nettoyage Fin de Chantier">Copier</button></td></tr><tr><td>T2</td><td class="txt">Nettoyage Après Travaux</td><td><span class="pin">Position 2</span></td><td class="r"><span class="cc">23/30</span></td><td><button class="copy" data-c="Nettoyage Après Travaux">Copier</button></td></tr><tr><td>T3</td><td class="txt">Ménage Fin de Chantier</td><td></td><td class="r"><span class="cc">22/30</span></td><td><button class="copy" data-c="Ménage Fin de Chantier">Copier</button></td></tr><tr><td>T4</td><td class="txt">Entreprise Nettoyage Chantier</td><td></td><td class="r"><span class="cc">29/30</span></td><td><button class="copy" data-c="Entreprise Nettoyage Chantier">Copier</button></td></tr><tr><td>T5</td><td class="txt">Marseille, Toulon &amp; Alentours</td><td></td><td class="r"><span class="cc">29/30</span></td><td><button class="copy" data-c="Marseille, Toulon &amp; Alentours">Copier</button></td></tr><tr><td>T6</td><td class="txt">Devis Fin de Chantier</td><td></td><td class="r"><span class="cc">21/30</span></td><td><button class="copy" data-c="Devis Fin de Chantier">Copier</button></td></tr><tr><td>T7</td><td class="txt">Logements Prêts à Livrer</td><td></td><td class="r"><span class="cc">24/30</span></td><td><button class="copy" data-c="Logements Prêts à Livrer">Copier</button></td></tr><tr><td>T8</td><td class="txt">Poussière de Travaux Retirée</td><td></td><td class="r"><span class="cc">28/30</span></td><td><button class="copy" data-c="Poussière de Travaux Retirée">Copier</button></td></tr><tr><td>T9</td><td class="txt">Sols, Vitres, Sanitaires<span class="val">à valider</span></td><td></td><td class="r"><span class="cc">24/30</span></td><td><button class="copy" data-c="Sols, Vitres, Sanitaires">Copier</button></td></tr><tr><td>T10</td><td class="txt">Promoteurs et Entreprises BTP</td><td></td><td class="r"><span class="cc">29/30</span></td><td><button class="copy" data-c="Promoteurs et Entreprises BTP">Copier</button></td></tr><tr><td>T11</td><td class="txt">Particuliers et Professionnels</td><td></td><td class="r"><span class="cc">30/30</span></td><td><button class="copy" data-c="Particuliers et Professionnels">Copier</button></td></tr><tr><td>T12</td><td class="txt">Prix au m² sur Devis</td><td></td><td class="r"><span class="cc">20/30</span></td><td><button class="copy" data-c="Prix au m² sur Devis">Copier</button></td></tr><tr><td>T13</td><td class="txt">Intervention Avant Livraison</td><td></td><td class="r"><span class="cc">28/30</span></td><td><button class="copy" data-c="Intervention Avant Livraison">Copier</button></td></tr><tr><td>T14</td><td class="txt">Un Interlocuteur Unique</td><td></td><td class="r"><span class="cc">23/30</span></td><td><button class="copy" data-c="Un Interlocuteur Unique">Copier</button></td></tr><tr><td>T15</td><td class="txt">GProNet · Fin de Chantier</td><td></td><td class="r"><span class="cc">25/30</span></td><td><button class="copy" data-c="GProNet · Fin de Chantier">Copier</button></td></tr></tbody></table></div>
+  <h3 class="sub">Descriptions (4)</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>#</th><th>Description</th><th class="r">Caractères</th><th></th></tr></thead><tbody><tr><td>D1</td><td class="txt">Fin de chantier ou après travaux : poussières et résidus retirés pour une livraison nette.</td><td class="r"><span class="cc">90/90</span></td><td><button class="copy" data-c="Fin de chantier ou après travaux : poussières et résidus retirés pour une livraison nette.">Copier</button></td></tr><tr><td>D2</td><td class="txt">Promoteurs, entreprises du BTP, particuliers : un nettoyage adapté à chaque chantier.</td><td class="r"><span class="cc">85/90</span></td><td><button class="copy" data-c="Promoteurs, entreprises du BTP, particuliers : un nettoyage adapté à chaque chantier.">Copier</button></td></tr><tr><td>D3</td><td class="txt">Sols, menuiseries, sanitaires : vos locaux prêts à être livrés ou habités. Devis gratuit.</td><td class="r"><span class="cc">89/90</span></td><td><button class="copy" data-c="Sols, menuiseries, sanitaires : vos locaux prêts à être livrés ou habités. Devis gratuit.">Copier</button></td></tr><tr><td>D4</td><td class="txt">Intervention à Marseille, Toulon et alentours. Tarif au m² établi sur devis.</td><td class="r"><span class="cc">76/90</span></td><td><button class="copy" data-c="Intervention à Marseille, Toulon et alentours. Tarif au m² établi sur devis.">Copier</button></td></tr></tbody></table></div>
+  </div>
+<div class="tab-panel" id="ag-debarras">
+  <div class="ag-head"><div><span class="tag t-ice">GPN_Search_Prestations-ponctuelles</span><h3>Débarras</h3></div><span class="tag t-terra">Priorité 3 (hors export Google)</span></div>
+  <div class="meta">
+    <div><b>URL finale :</b> [URL page Débarras]</div>
+    <div><b>Chemin 1 :</b> debarras <span class="cc">8/15</span></div>
+    <div><b>Chemin 2 :</b> devis <span class="cc">5/15</span></div>
+  </div>
+  <h3 class="sub">Titres (15)</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>#</th><th>Titre</th><th>Épinglage</th><th class="r">Caractères</th><th></th></tr></thead><tbody><tr><td>T1</td><td class="txt">Débarras Appartement</td><td><span class="pin">Position 1</span></td><td class="r"><span class="cc">20/30</span></td><td><button class="copy" data-c="Débarras Appartement">Copier</button></td></tr><tr><td>T2</td><td class="txt">Débarras Maison et Cave</td><td><span class="pin">Position 2</span></td><td class="r"><span class="cc">23/30</span></td><td><button class="copy" data-c="Débarras Maison et Cave">Copier</button></td></tr><tr><td>T3</td><td class="txt">Entreprise de Débarras</td><td></td><td class="r"><span class="cc">22/30</span></td><td><button class="copy" data-c="Entreprise de Débarras">Copier</button></td></tr><tr><td>T4</td><td class="txt">Débarras Après Succession</td><td></td><td class="r"><span class="cc">25/30</span></td><td><button class="copy" data-c="Débarras Après Succession">Copier</button></td></tr><tr><td>T5</td><td class="txt">Marseille, Toulon &amp; Alentours</td><td></td><td class="r"><span class="cc">29/30</span></td><td><button class="copy" data-c="Marseille, Toulon &amp; Alentours">Copier</button></td></tr><tr><td>T6</td><td class="txt">Devis Débarras Gratuit<span class="val">à valider</span></td><td></td><td class="r"><span class="cc">22/30</span></td><td><button class="copy" data-c="Devis Débarras Gratuit">Copier</button></td></tr><tr><td>T7</td><td class="txt">Cave, Grenier, Garage</td><td></td><td class="r"><span class="cc">21/30</span></td><td><button class="copy" data-c="Cave, Grenier, Garage">Copier</button></td></tr><tr><td>T8</td><td class="txt">Vide Maison Complet<span class="val">à valider</span></td><td></td><td class="r"><span class="cc">19/30</span></td><td><button class="copy" data-c="Vide Maison Complet">Copier</button></td></tr><tr><td>T9</td><td class="txt">Débarras + Nettoyage Final<span class="val">à valider</span></td><td></td><td class="r"><span class="cc">26/30</span></td><td><button class="copy" data-c="Débarras + Nettoyage Final">Copier</button></td></tr><tr><td>T10</td><td class="txt">Particuliers et Agences</td><td></td><td class="r"><span class="cc">23/30</span></td><td><button class="copy" data-c="Particuliers et Agences">Copier</button></td></tr><tr><td>T11</td><td class="txt">Libérez Votre Logement</td><td></td><td class="r"><span class="cc">22/30</span></td><td><button class="copy" data-c="Libérez Votre Logement">Copier</button></td></tr><tr><td>T12</td><td class="txt">Débarras Local Professionnel<span class="val">à valider</span></td><td></td><td class="r"><span class="cc">28/30</span></td><td><button class="copy" data-c="Débarras Local Professionnel">Copier</button></td></tr><tr><td>T13</td><td class="txt">Un Interlocuteur Unique</td><td></td><td class="r"><span class="cc">23/30</span></td><td><button class="copy" data-c="Un Interlocuteur Unique">Copier</button></td></tr><tr><td>T14</td><td class="txt">Demandez Votre Devis</td><td></td><td class="r"><span class="cc">20/30</span></td><td><button class="copy" data-c="Demandez Votre Devis">Copier</button></td></tr><tr><td>T15</td><td class="txt">GProNet · Débarras</td><td></td><td class="r"><span class="cc">18/30</span></td><td><button class="copy" data-c="GProNet · Débarras">Copier</button></td></tr></tbody></table></div>
+  <h3 class="sub">Descriptions (4)</h3>
+  <div class="tbl-wrap"><table class="compact"><thead><tr><th>#</th><th>Description</th><th class="r">Caractères</th><th></th></tr></thead><tbody><tr><td>D1</td><td class="txt">Appartement, maison, cave ou garage : on vide et on libère vos espaces de A à Z.</td><td class="r"><span class="cc">80/90</span></td><td><button class="copy" data-c="Appartement, maison, cave ou garage : on vide et on libère vos espaces de A à Z.">Copier</button></td></tr><tr><td>D2</td><td class="txt">Succession, déménagement, vente : un débarras organisé avec un interlocuteur unique.</td><td class="r"><span class="cc">84/90</span></td><td><button class="copy" data-c="Succession, déménagement, vente : un débarras organisé avec un interlocuteur unique.">Copier</button></td></tr><tr><td>D3</td><td class="txt">Particuliers, agences immobilières, syndics : à Marseille, Toulon et alentours.</td><td class="r"><span class="cc">79/90</span></td><td><button class="copy" data-c="Particuliers, agences immobilières, syndics : à Marseille, Toulon et alentours.">Copier</button></td></tr><tr><td>D4</td><td class="txt">Débarras suivi d&#x27;un nettoyage si besoin : un seul prestataire du début à la fin.</td><td class="r"><span class="cc">80/90</span></td><td><button class="copy" data-c="Débarras suivi d&#x27;un nettoyage si besoin : un seul prestataire du début à la fin.">Copier</button></td></tr></tbody></table></div>
+  </div>
+
+  </div>
+</section>
+
+<!-- EXTENSIONS -->
+<section id="extensions">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">09</span>
+      <h2>Extensions & KPIs</h2>
+      <p>Extensions au niveau du compte, pour occuper plus de place à l'écran et ouvrir l'appel direct sur mobile.</p>
+    </div>
+    <h3 class="sub">Liens annexes</h3>
+  <div class="tbl-wrap"><table><thead><tr><th>Texte du lien</th><th class="r">Car.</th><th>Description 1</th><th>Description 2</th></tr></thead><tbody><tr><td class="txt">Entretien de copropriété</td><td class="r"><span class="cc">24/25</span></td><td>Halls, escaliers, extérieurs <span class="cc">28/35</span></td><td>Passages programmés <span class="cc">19/35</span></td></tr><tr><td class="txt">Entretien de bureaux</td><td class="r"><span class="cc">20/25</span></td><td>Bureaux, commerces, cabinets <span class="cc">28/35</span></td><td>Contrat adapté à vos locaux <span class="cc">27/35</span></td></tr><tr><td class="txt">Nettoyage de chantier</td><td class="r"><span class="cc">21/25</span></td><td>Fin de chantier, après travaux <span class="cc">30/35</span></td><td>Promoteurs, BTP, particuliers <span class="cc">29/35</span></td></tr><tr><td class="txt">Débarras</td><td class="r"><span class="cc">8/25</span></td><td>Appartement, maison, cave <span class="cc">25/35</span></td><td>Succession, déménagement <span class="cc">24/35</span></td></tr><tr><td class="txt">Demander un devis</td><td class="r"><span class="cc">17/25</span></td><td>Réponse personnalisée <span class="cc">21/35</span></td><td>Pour tous nos services <span class="cc">22/35</span></td></tr><tr><td class="txt">Zone d&#x27;intervention</td><td class="r"><span class="cc">19/25</span></td><td>Marseille, Toulon <span class="cc">17/35</span></td><td>Et leurs alentours <span class="cc">18/35</span></td></tr></tbody></table></div>
+  <div class="grid g2" style="margin-top:18px">
+    <div><h3 class="sub" style="margin-top:0">Accroches</h3><div class="tbl-wrap"><table class="compact" style="min-width:0"><thead><tr><th>Accroche</th><th class="r">Car.</th></tr></thead><tbody><tr><td class="txt">Interlocuteur unique</td><td class="r"><span class="cc">20/25</span></td></tr><tr><td class="txt">Passages programmés</td><td class="r"><span class="cc">19/25</span></td></tr><tr><td class="txt">Devis gratuit<span class=val>à valider</span></td><td class="r"><span class="cc">13/25</span></td></tr><tr><td class="txt">Marseille · Toulon</td><td class="r"><span class="cc">18/25</span></td></tr><tr><td class="txt">Un contrat multi-sites</td><td class="r"><span class="cc">22/25</span></td></tr><tr><td class="txt">Collecte des encombrants</td><td class="r"><span class="cc">24/25</span></td></tr><tr><td class="txt">Syndics et entreprises</td><td class="r"><span class="cc">22/25</span></td></tr><tr><td class="txt">Particuliers et pros</td><td class="r"><span class="cc">20/25</span></td></tr></tbody></table></div></div>
+    <div>
+      <h3 class="sub" style="margin-top:0">Extrait structuré · Services</h3><div class="card"><div class="kw"><span>Copropriété</span><span>Bureaux</span><span>Fin de chantier</span><span>Après travaux</span><span>Débarras</span><span>Encombrants</span></div></div>
+      <h3 class="sub">Appel & lieu</h3><div class="card"><ul><li>Numéro local en 04, diffusé aux heures d'ouverture.</li><li>Lieu : rattachement à la fiche Google Business Profile GProNet.</li><li>Formulaire de contact Google : en option si le formulaire du site n'est pas prêt.</li></ul></div>
+    </div>
+  </div>
+
+    <h3 style="margin:34px 0 14px">Formats & KPIs de suivi</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Élément</th><th>Spécifications</th><th>KPIs suivis</th></tr></thead>
+      <tbody>
+        <tr><td><b>Annonce responsive Search</b></td><td>Jusqu'à 15 titres (30 caractères) et 4 descriptions (90 caractères) par groupe, avec le service et la ville</td><td>Impressions, clics, CTR, CPC moyen</td></tr>
+        <tr><td><b>Extensions</b></td><td>4 liens annexes minimum, 4 accroches, 1 extrait structuré, appel, lieu</td><td>Clics par extension, appels depuis l'annonce</td></tr>
+        <tr><td><b>Mots-clés</b></td><td>Expression + exacte, regroupés par service (4 groupes)</td><td>Taux d'impressions, niveau de qualité, recherches réelles</td></tr>
+        <tr><td><b>Zone</b></td><td>Villes ciblées une par une, option Présence</td><td>Clics et CPC par ville</td></tr>
+      </tbody>
+    </table></div>
+  
+  </div>
+</section>
+
+<!-- VIGILANCE -->
+<section id="vigilance">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">10</span>
+      <h2>Points de vigilance</h2>
+      <p>Ce qui fera la différence entre un budget bien utilisé et un budget dispersé.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card c-peche"><span class="glyph">●</span><h3>Site en ligne avant lancement</h3><p>Le lancement de décembre suppose que le site final soit publié, avec une page par service. Si le site n'est pas prêt, mieux vaut décaler le démarrage de quelques semaines que diffuser vers une page provisoire.</p></div>
+      <div class="card c-peche"><span class="glyph">■</span><h3>Fiche Google Business Profile</h3><p>À créer et à faire valider par GProNet le plus tôt possible : elle alimente l'extension de lieu et la visibilité sur Google Maps, sans coût média.</p></div>
+      <div class="card c-peche"><span class="glyph">◆</span><h3>Pas d'enchère sur les marques concurrentes</h3><p>Coûteux, peu efficace pour une marque nouvelle et source de litiges. On se concentre sur les recherches de service.</p></div>
+      <div class="card c-peche"><span class="glyph">◆</span><h3>Volumes débarras à confirmer</h3><p>Le débarras ne figure pas dans l'export de l'outil de planification : volumes et CPC à vérifier avant activation, et répartition C2 à ajuster en conséquence.</p></div>
+      <div class="card"><span class="glyph">◐</span><h3>Concentration plutôt que dispersion</h3><p>À 500 €/mois, couvrir les 4 services à parts égales sur toute la zone diluerait la présence. La priorité copropriété est la condition pour exister face aux acteurs installés.</p></div>
+      <div class="card"><span class="glyph">⌂</span><h3>Retour sur la qualité des contacts</h3><p>Un point mensuel avec GProNet sur les demandes reçues (service, ville, sérieux) permet de réorienter le budget vers ce qui rapporte vraiment, au-delà du clic.</p></div>
+      <div class="card"><span class="glyph">●</span><h3>RGPD & consentement</h3><p>Bandeau cookies conforme et mode consentement Google activé sur le site : sans eux, une partie des visites ne sera pas mesurée.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contacts">
+  <div class="wrap">
+    <h2>Vos contacts The Good Web</h2>
+    <p class="sub">Une équipe dédiée pour piloter la campagne GProNet tout au long de l'année.</p>
+    <div class="contacts">
+      <a class="ct" href="mailto:jerome@thegoodweb.eu"><b>Jérôme Fages</b><em>Directeur commercial</em><span>06 18 74 66 75</span><span>jerome@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:mathilde@thegoodweb.eu"><b>Mathilde Coriton</b><em>Directrice de clientèle</em><span>06 48 61 92 92</span><span>mathilde@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:andrea@thegoodweb.eu"><b>Andrea Alonso</b><em>Cheffe de publicité junior</em><span>04 91 54 28 12</span><span>andrea@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:sofien@thegoodweb.eu"><b>Sofien Chaganiou</b><em>Chef de publicité</em><span>07 67 84 70 67</span><span>sofien@thegoodweb.eu</span></a>
+      <div class="ct ph"><b>Pôle activation</b><em>The Good Web</em><span>activation@thegoodweb.eu</span></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="214 252 572 496" role="img" aria-label="The Good Web">
+  
+  
+  <g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg></div>
+      <p>Recommandation média GProNet · The Good Web · Octobre 2026 · Document confidentiel</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.tabs').forEach(function(group){
+  var btns=group.querySelectorAll('.tab-btn');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('on');var p=document.getElementById(x.dataset.tab);if(p)p.classList.remove('on');});
+      b.classList.add('on');document.getElementById(b.dataset.tab).classList.add('on');
+    });
+  });
+});
+document.querySelectorAll('.copy').forEach(function(c){c.addEventListener('click',function(){try{navigator.clipboard.writeText(c.dataset.c);c.textContent='Copié';setTimeout(function(){c.textContent='Copier';},1200);}catch(e){}});});
+var links=document.querySelectorAll('nav.anchors a');
+var secs=Array.prototype.map.call(links,function(a){return document.querySelector(a.getAttribute('href'));});
+window.addEventListener('scroll',function(){
+  var y=window.scrollY+120,idx=0;
+  secs.forEach(function(s,i){if(s&&s.offsetTop<=y)idx=i;});
+  links.forEach(function(a,i){a.classList.toggle('active',i===idx);});
+},{passive:true});
+</script>
+</body>
+</html>
