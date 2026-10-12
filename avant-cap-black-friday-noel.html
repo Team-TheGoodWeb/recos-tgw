@@ -57,7 +57,7 @@
   .obj-card .meta{font-family:'Poppins',sans-serif;font-weight:600;font-size:.78rem;color:var(--terracota);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;}
   .obj-card p{font-size:.92rem;color:#4a5378;}
 
-  .lev-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;}
+  .lev-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px;}
   .lev-card{border-radius:16px;padding:24px;color:var(--navy);}
   .lev-card h4{font-size:1.08rem;margin-bottom:6px;}
   .lev-card .cpm{font-family:'Poppins',sans-serif;font-weight:700;font-size:.85rem;color:var(--terracota);margin-bottom:10px;}
@@ -73,13 +73,13 @@
 
   /* TIMELINE */
   .timeline{margin-top:40px;}
-  .tl-track{position:relative;height:120px;background:var(--bg-soft);border-radius:14px;overflow:hidden;}
+  .tl-track{position:relative;height:150px;background:var(--bg-soft);border-radius:14px;overflow:hidden;}
   .tl-months{position:absolute;inset:0;display:flex;}
   .tl-months span{flex:1;border-right:1px dashed #d6ddf0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;font-family:'Poppins',sans-serif;font-size:.78rem;color:#8b95bd;font-weight:600;}
   .tl-months span:last-child{border-right:none;}
   .tl-bar{position:absolute;top:28px;height:22px;border-radius:6px;display:flex;align-items:center;padding:0 8px;font-size:.7rem;color:#fff;font-weight:600;font-family:'Poppins',sans-serif;white-space:nowrap;overflow:hidden;}
   .tl-bar.halloween{background:var(--terracota);top:22px;}
-  .tl-bar.souk{background:var(--navy);top:52px;}
+  .tl-bar.souk{background:var(--navy);top:52px;overflow:visible;}
   .tl-bar.noel{background:var(--babyblue);color:var(--navy);top:82px;}
   .legend{display:flex;gap:18px;margin-top:16px;font-size:.84rem;color:#4a5378;flex-wrap:wrap;}
   .legend .dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:middle;}
@@ -101,6 +101,7 @@
   tbody td{padding:11px 14px;border-bottom:1px solid #e7ecf7;}
   tbody tr:nth-child(even){background:var(--bg-soft);}
   table.budget td:nth-child(2),table.budget th:nth-child(2),table.budget td:nth-child(3),table.budget th:nth-child(3),table.budget td:nth-child(4),table.budget th:nth-child(4){text-align:right;}
+  table.budget td:nth-child(n+2){white-space:nowrap;}
   tfoot td{font-family:'Poppins',sans-serif;font-weight:700;background:var(--bg-soft);border-top:2px solid var(--navy);}
 
   .total-recap{margin-top:40px;background:var(--navy);border-radius:16px;padding:28px;color:#fff;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;}
@@ -230,7 +231,7 @@
     <div class="pills">
       <div class="pill"><div class="label">Période</div><div class="value">21 octobre → 24 décembre 2026</div></div>
       <div class="pill"><div class="label">Budget</div><div class="value">20 000 € net</div></div>
-      <div class="pill"><div class="label">Leviers</div><div class="value">Display + Spotify + YouTube</div></div>
+      <div class="pill"><div class="label">Leviers</div><div class="value">Display + Spotify + YouTube + Meta</div></div>
       <div class="pill"><div class="label">Opérations</div><div class="value">3 temps forts</div></div>
     </div>
   </div>
@@ -256,7 +257,7 @@
   <div class="wrap">
     <div class="eyebrow">Contexte</div>
     <h2 class="sec-title">Trois rendez-vous, une seule enveloppe de 20 000 €</h2>
-    <p class="sec-intro">Hervé nous confie trois opérations bien distinctes sur la fin d'année : Halloween, le Souk des Sciences et Noël. Chacune a sa propre logique (familiale, événementielle locale, commerciale), son propre calendrier, et pour le Souk des Sciences un dispositif volontairement resserré sur Spotify uniquement. La ventilation ci-dessous répartit les 20 000 € entre les trois temps forts.</p>
+    <p class="sec-intro">Hervé nous confie trois opérations bien distinctes sur la fin d'année : Halloween, le Souk des Sciences et Noël. Chacune a sa propre logique (familiale, événementielle locale, commerciale), son propre calendrier, et pour le Souk des Sciences un dispositif resserré sur Spotify et Meta (visuels statiques). La ventilation ci-dessous répartit les 20 000 € entre les trois temps forts.</p>
     <div class="grid-3">
       <div class="obj-card" style="background:var(--c-corail);">
         <div class="meta">24 → 31 octobre</div>
@@ -266,7 +267,7 @@
       <div class="obj-card" style="background:var(--c-menthe);">
         <div class="meta">24 novembre</div>
         <h4>Souk des Sciences</h4>
-        <p>Dispositif du 16 au 21/11, Spotify uniquement : teasing audio ciblé en amont de l'événement.</p>
+        <p>Dispositif du 16 au 21/11, Spotify + Meta (visuels statiques) : teasing audio et social en amont de l'événement.</p>
       </div>
       <div class="obj-card" style="background:var(--c-bleu);">
         <div class="meta">4 → 24 décembre</div>
@@ -281,8 +282,8 @@
 <section id="dispositif" style="background:var(--bg-soft);">
   <div class="wrap">
     <div class="eyebrow">Dispositif</div>
-    <h2 class="sec-title">Un mix Display + Spotify + YouTube, dosé par opération</h2>
-    <p class="sec-intro">Les trois leviers retenus par Hervé sont activés différemment selon l'enjeu de chaque opération : pleine puissance sur Halloween et Noël, volet 100 % audio sur le Souk des Sciences pour un teasing léger et ciblé.</p>
+    <h2 class="sec-title">Un mix Display, Spotify, YouTube et Meta, dosé par opération</h2>
+    <p class="sec-intro">Les trois leviers retenus par Hervé sont activés différemment selon l'enjeu de chaque opération : pleine puissance sur Halloween et Noël, volet Spotify + Meta (visuels statiques) sur le Souk des Sciences pour un teasing léger et ciblé.</p>
     <div class="lev-cards">
       <div class="lev-card" style="background:var(--c-corail);">
         <h4>pDisplay · Drive-to-Store</h4>
@@ -297,12 +298,17 @@
       <div class="lev-card" style="background:var(--c-menthe);">
         <h4>Audio streaming (Spotify)</h4>
         <div class="cpm">CPM achat TGW : 9 €</div>
-        <p>Présent sur les 3 opérations, et seul levier activé sur le Souk des Sciences.</p>
+        <p>Présent sur les 3 opérations, en duo avec le Social Ads sur le Souk des Sciences.</p>
+      </div>
+      <div class="lev-card" style="background:var(--c-lavande);">
+        <h4>Social Ads · Post + Story (Meta)</h4>
+        <div class="cpm">CPM achat TGW : 5 €</div>
+        <p>Ajouté sur le Souk des Sciences à la demande de la cliente : visuels statiques (pas d'animation), pour relayer l'événement sur Facebook et Instagram.</p>
       </div>
     </div>
     <div class="op-note">
       <div class="glyph">◐</div>
-      <p><b>Souk des Sciences :</b> dispositif 100 % Spotify, du 16 au 21/11, soit avant même l'événement du 24/11. Logique assumée de teasing audio pur, sans display ni vidéo, pour un budget contenu sur cette opération plus ponctuelle.</p>
+      <p><b>Souk des Sciences :</b> dispositif Spotify + Meta, du 16 au 21/11, soit avant l'événement d'un jour le 24/11. Teasing audio et social sur 5 jours, avec des visuels statiques, pour un budget de 3 000 € (+1 000 € par rapport à la version précédente).</p>
     </div>
   </div>
 </section>
@@ -316,6 +322,7 @@
       <span>Réseau pDisplay IAB (premium)</span>
       <span>YouTube · in-stream &amp; Shorts</span>
       <span>Spotify</span>
+      <span>Meta · Facebook &amp; Instagram</span>
     </div>
   </div>
 </section>
@@ -332,7 +339,7 @@
           <span>Octobre</span><span>Novembre</span><span>Décembre</span>
         </div>
         <div class="tl-bar halloween" style="left:21.7%;width:10.9%;">21 → 31/10</div>
-        <div class="tl-bar souk" style="left:50%;width:5.4%;">16 → 21/11</div>
+        <div class="tl-bar souk" style="left:50%;width:5.4%;"><span style="position:absolute;left:calc(100% + 6px);color:var(--navy);white-space:nowrap;">16 → 21/11</span></div>
         <div class="tl-bar noel" style="left:69.6%;width:21.7%;">4 → 24/12</div>
       </div>
       <div class="legend">
@@ -358,60 +365,63 @@
 
     <div id="tab-halloween" class="tabpanel active">
       <div class="budget-hero">
-        <div class="budget-box"><div class="lbl">Budget</div><div class="val">5 000 €</div><div class="sub">21 → 31 octobre 2026</div></div>
-        <div class="budget-box"><div class="lbl">Part du budget global</div><div class="val">25 %</div><div class="sub">sur 20 000 €</div></div>
-        <div class="budget-box"><div class="lbl">Durée</div><div class="val">11 jours</div><div class="sub">Événement du 24 au 31/10</div></div>
+        <div class="budget-box"><div class="lbl">Budget</div><div class="val">6 000 €</div><div class="sub">21 → 31 octobre 2026 · validé</div></div>
+        <div class="budget-box"><div class="lbl">Part du budget global</div><div class="val">30 %</div><div class="sub">sur 20 000 €</div></div>
+        <div class="budget-box"><div class="lbl">Durée</div><div class="val">10 jours</div><div class="sub">Événement du 24 au 31/10</div></div>
       </div>
       <table class="budget">
         <thead><tr><th>Levier</th><th>Budget</th><th>CPM achat TGW</th><th>Impressions estimées</th></tr></thead>
         <tbody>
-          <tr><td>pDisplay Drive-to-Store</td><td>2 000 €</td><td>6 €</td><td>≈ 333 000</td></tr>
+          <tr><td>pDisplay Drive-to-Store</td><td>3 000 €</td><td>6 €</td><td>≈ 500 000</td></tr>
           <tr><td>YouTube ALL (desktop + Shorts)</td><td>2 000 €</td><td>4 €</td><td>≈ 500 000</td></tr>
           <tr><td>Audio streaming (Spotify)</td><td>1 000 €</td><td>9 €</td><td>≈ 111 000</td></tr>
         </tbody>
-        <tfoot><tr><td>Total</td><td>5 000 €</td><td>–</td><td>≈ 944 000</td></tr></tfoot>
+        <tfoot><tr><td>Total</td><td>6 000 €</td><td>–</td><td>≈ 1 111 000</td></tr></tfoot>
       </table>
+      <p style="font-size:.82rem;color:#5a638c;margin-top:12px;">Renfort de 1 000 € sur le Drive-to-Store : l'enjeu d'Halloween est de générer la venue, contrairement à Noël où le trafic est plus naturel.</p>
     </div>
 
     <div id="tab-souk" class="tabpanel">
       <div class="budget-hero">
-        <div class="budget-box"><div class="lbl">Budget</div><div class="val">2 000 €</div><div class="sub">16 → 21 novembre 2026</div></div>
-        <div class="budget-box"><div class="lbl">Part du budget global</div><div class="val">10 %</div><div class="sub">sur 20 000 €</div></div>
-        <div class="budget-box"><div class="lbl">Durée</div><div class="val">6 jours</div><div class="sub">Événement le 24/11</div></div>
+        <div class="budget-box"><div class="lbl">Budget</div><div class="val">3 000 €</div><div class="sub">16 → 21 novembre 2026</div></div>
+        <div class="budget-box"><div class="lbl">Part du budget global</div><div class="val">15 %</div><div class="sub">sur 20 000 €</div></div>
+        <div class="budget-box"><div class="lbl">Durée</div><div class="val">5 jours</div><div class="sub">Événement le 24/11</div></div>
       </div>
       <table class="budget">
         <thead><tr><th>Levier</th><th>Budget</th><th>CPM achat TGW</th><th>Impressions estimées</th></tr></thead>
         <tbody>
           <tr><td>Audio streaming (Spotify)</td><td>2 000 €</td><td>9 €</td><td>≈ 222 000</td></tr>
+          <tr><td>Social Ads Post + Story (Meta)</td><td>1 000 €</td><td>5 €</td><td>≈ 200 000</td></tr>
         </tbody>
-        <tfoot><tr><td>Total</td><td>2 000 €</td><td>–</td><td>≈ 222 000</td></tr></tfoot>
+        <tfoot><tr><td>Total</td><td>3 000 €</td><td>–</td><td>≈ 422 000</td></tr></tfoot>
       </table>
-      <p style="font-size:.82rem;color:#5a638c;margin-top:12px;">Dispositif volontairement mono-levier, conforme au brief : Spotify uniquement.</p>
+      <p style="font-size:.82rem;color:#5a638c;margin-top:12px;">Ajout de Meta pour la cliente, avec 1 000 € supplémentaires jugés suffisants pour une opération d'un jour. Visuels statiques uniquement.</p>
     </div>
 
     <div id="tab-noel" class="tabpanel">
       <div class="budget-hero">
-        <div class="budget-box"><div class="lbl">Budget</div><div class="val">13 000 €</div><div class="sub">4 → 24 décembre 2026</div></div>
-        <div class="budget-box"><div class="lbl">Part du budget global</div><div class="val">65 %</div><div class="sub">sur 20 000 €</div></div>
-        <div class="budget-box"><div class="lbl">Durée</div><div class="val">21 jours</div><div class="sub">Carte Kdo + ouvertures 7/7</div></div>
+        <div class="budget-box"><div class="lbl">Budget</div><div class="val">11 000 €</div><div class="sub">4 → 24 décembre 2026</div></div>
+        <div class="budget-box"><div class="lbl">Part du budget global</div><div class="val">55 %</div><div class="sub">sur 20 000 €</div></div>
+        <div class="budget-box"><div class="lbl">Durée</div><div class="val">20 jours</div><div class="sub">Carte Kdo + ouvertures 7/7</div></div>
       </div>
       <table class="budget">
         <thead><tr><th>Levier</th><th>Budget</th><th>CPM achat TGW</th><th>Impressions estimées</th></tr></thead>
         <tbody>
-          <tr><td>pDisplay Drive-to-Store</td><td>5 000 €</td><td>6 €</td><td>≈ 833 000</td></tr>
-          <tr><td>YouTube ALL (desktop + Shorts)</td><td>5 000 €</td><td>4 €</td><td>≈ 1 250 000</td></tr>
+          <tr><td>pDisplay Drive-to-Store</td><td>4 000 €</td><td>6 €</td><td>≈ 667 000</td></tr>
+          <tr><td>YouTube ALL (desktop + Shorts)</td><td>4 000 €</td><td>4 €</td><td>≈ 1 000 000</td></tr>
           <tr><td>Audio streaming (Spotify)</td><td>3 000 €</td><td>9 €</td><td>≈ 333 000</td></tr>
         </tbody>
-        <tfoot><tr><td>Total</td><td>13 000 €</td><td>–</td><td>≈ 2 417 000</td></tr></tfoot>
+        <tfoot><tr><td>Total</td><td>11 000 €</td><td>–</td><td>≈ 2 000 000</td></tr></tfoot>
       </table>
+      <p style="font-size:.82rem;color:#5a638c;margin-top:12px;">Budget réduit de 1 000 € pour financer l'ajout de Meta sur le Souk des Sciences : le trafic de Noël étant plus naturel, l'impact reste limité.</p>
     </div>
 
     <div class="total-recap">
       <div class="row">
         <div><div class="lbl">Budget total</div><div class="big">20 000 €</div></div>
-        <div><div class="lbl">Impressions estimées cumulées</div><div class="big">≈ 3 583 000</div></div>
+        <div><div class="lbl">Impressions estimées cumulées</div><div class="big">≈ 3 533 000</div></div>
       </div>
-      <div style="font-size:.85rem;color:#c9d6f7;max-width:280px;">Halloween 5 000 € · Souk des Sciences 2 000 € · Noël 13 000 €</div>
+      <div style="font-size:.85rem;color:#c9d6f7;max-width:280px;">Halloween 6 000 € · Souk des Sciences 3 000 € · Noël 11 000 €</div>
     </div>
     <p style="font-size:.82rem;color:#5a638c;margin-top:16px;">CPM grille officielle TGW (achat), hors frais de set-up. Volumes indicatifs, à ajuster selon les enchères réelles au fil de chaque opération.</p>
   </div>
@@ -437,6 +447,11 @@
         <h4>Audio streaming (Spotify)</h4>
         <div class="fmt">Format 1:1 640x640 px ou 9:16 720x1280 px · 15-20-30s</div>
         <div class="kpi-tags"><span>Impressions</span><span>Reach</span><span>Clics</span><span>Écoutes 25/50/75/100 %</span><span>Taux de complétion</span><span>Socio-démo</span><span>Capping</span><span>CPE &amp; CPM finaux</span></div>
+      </div>
+      <div class="kpi-card">
+        <h4>Social Ads · Post + Story (Meta)</h4>
+        <div class="fmt">Visuels statiques : Post 1080x1080 px · Story 9:16 1080x1920 px · jpeg / png (pas de vidéo nécessaire)</div>
+        <div class="kpi-tags"><span>Impressions</span><span>Clics</span><span>CTR</span><span>Reach</span><span>Interactions</span><span>Coût par interaction</span><span>CPM final</span></div>
       </div>
       <div class="kpi-card">
         <h4>Suivi transverse</h4>
@@ -469,7 +484,7 @@
         <ul>
           <li>Familles et enseignants, affinitaires culture scientifique</li>
           <li>Public local, événement ponctuel à forte dimension pédagogique</li>
-          <li>Touché en amont via un teasing audio léger (Spotify)</li>
+          <li>Touché en amont via un teasing audio (Spotify) et social (Meta)</li>
         </ul>
       </div>
       <div class="persona-card">
@@ -501,13 +516,13 @@
       </div>
       <div class="pyr-layer pyr-3">
         <h4>Couche 3 · Comportements digitaux &amp; parcours d'achat</h4>
-        <p>Écoute audio quotidienne (Spotify), consommation vidéo YouTube desktop et mobile, déclenchement par proximité géographique.</p>
+        <p>Écoute audio quotidienne (Spotify), consommation vidéo YouTube desktop et mobile, usage social (Meta), déclenchement par proximité géographique.</p>
       </div>
     </div>
     <div class="funnel-mini">
       <div class="fmini"><div class="glyph">◐</div><b>Points d'ancrage</b><span>Avant Cap, animations du centre</span></div>
       <div class="fmini"><div class="glyph">●</div><b>Moteurs d'achat</b><span>Animation, événement, cadeau</span></div>
-      <div class="fmini"><div class="glyph">■</div><b>Canaux</b><span>Spotify, YouTube, display</span></div>
+      <div class="fmini"><div class="glyph">■</div><b>Canaux</b><span>Spotify, YouTube, display, Meta</span></div>
       <div class="fmini"><div class="glyph">◆</div><b>Géociblage</b><span>Bassin Aix-Marseille, 30 min du centre</span></div>
     </div>
   </div>
