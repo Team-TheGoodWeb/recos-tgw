@@ -96,7 +96,7 @@ tr.tot td{background:var(--c-corail);font-weight:800;color:var(--navy)}
 .plan td{padding:8px 6px;text-align:center;font-size:.8rem}
 .plan td:first-child{text-align:left;font-weight:600;color:var(--navy);font-size:.88rem;padding-left:14px;white-space:nowrap}
 .b{display:block;height:22px;border-radius:6px;background:var(--ice)}
-.b.n{background:var(--navy)}.b.a{background:#1db954}.b.t{background:var(--terra)}.b.l{background:#cfe5ff}
+.b.n{background:var(--navy)}.b.a{background:#1db954}.b.t{background:var(--terra)}.b.l{background:#cfe5ff}.b.s{background:#ffb79e}
 .b.star{background:var(--terra);color:#fff;font-weight:700;line-height:22px;font-size:.72rem}
 .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--mute);margin-top:10px}
 .legend i{display:inline-block;width:16px;height:12px;border-radius:3px;margin-right:6px;vertical-align:middle}
@@ -176,15 +176,15 @@ a.ct:hover{border-color:var(--terra)}
     <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
     <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
   </g></svg></div>
-  <div class="eyebrow">Recommandation média · 3 devis en un</div>
+  <div class="eyebrow">Recommandation média · 4 volets en un</div>
   <h1>Grand Var · Fin d'année 2026</h1>
-  <p class="sub">Notoriété fil rouge, temps forts de Noël et grand casting du 22 novembre : un dispositif social Story + display in-app 320x480, renforcé par l'audio Spotify, pensé comme un seul plan de novembre à décembre.</p>
+  <p class="sub">Notoriété fil rouge, grand dispositif de Noël, recherche Google centrée sur la carte cadeau et grand casting du 22 novembre : un seul plan, de fin octobre au 31 décembre.</p>
   <div class="pills">
-   <span class="pill"><b>Période</b> · 2 nov. → 23 déc. 2026</span>
-   <span class="pill"><b>Budget</b> · 6 500 € HT + 3 350 € Spotify</span>
-   <span class="pill"><b>Objectifs</b> · notoriété · trafic · recrutement</span>
+   <span class="pill"><b>Période</b> · 26 oct. → 31 déc. 2026</span>
+   <span class="pill"><b>Budget</b> · 12 800 € HT</span>
+   <span class="pill"><b>Objectifs</b> · notoriété · trafic · cartes cadeaux · recrutement</span>
    <span class="pill"><b>Zone</b> · Grand Var + 30 à 50 km</span>
-   <span class="pill"><b>Leviers</b> · pStory Ads · Display In-App · Audio Spotify</span>
+   <span class="pill"><b>Leviers</b> · Meta · TikTok · Display In-App · Audio Spotify · SEA</span>
   </div>
  </div>
 </header>
@@ -193,433 +193,349 @@ a.ct:hover{border-color:var(--terra)}
  <div class="wrap">
   <div class="tabs" role="tablist">
    <button class="tab" data-tab="synthese"><span class="n">00</span>Synthèse</button>
-   <button class="tab" data-tab="notoriete"><span class="n">01</span>Notoriété nov.-déc.</button>
-   <button class="tab" data-tab="noel"><span class="n">02</span>Noël · dimanches · cartes cadeaux</button>
-   <button class="tab" data-tab="casting"><span class="n">03</span>Casting &amp; défilé 22/11</button>
+   <button class="tab" data-tab="notoriete"><span class="n">01</span>Notoriété</button>
+   <button class="tab" data-tab="noel"><span class="n">02</span>Noël</button>
+   <button class="tab" data-tab="sea"><span class="n">03</span>SEA · carte cadeau</button>
+   <button class="tab" data-tab="casting"><span class="n">04</span>Casting &amp; défilé 22/11</button>
   </div>
   <div class="anchors" id="anchors"></div>
  </div>
 </nav>
 
 <main>
-<!-- ================= 00 SYNTHESE ================= -->
-<div class="panel" id="p-synthese" data-sections="contexte:Les 3 devis|planning:Calendrier global|budgets:Budgets|rgpd:RGPD|contacts:Contacts">
- <section id="synthese-contexte">
+<div class="panel" id="p-synthese" data-sections="contexte:Les 4 volets|planning:Calendrier global|budgets:Budgets|rgpd:RGPD|contacts:Contacts">
+<section id="synthese-contexte">
   <div class="wrap">
-   <h2>Les 3 devis en un coup d'œil</h2>
-   <p class="lead">Trois demandes, un même bassin et une même fenêtre de fin d'année. Nous les avons construites comme trois onglets d'un seul plan : la notoriété installe Grand Var dans la durée, Noël convertit sur les temps forts, et le casting du 22 novembre apporte une audience jeune le jour du premier dimanche d'ouverture.</p>
-   <div class="grid g3" style="margin-top:26px">
-    <div class="card c-bleu"><span class="tag">Onglet 01</span><h3>Notoriété clients &amp; non-clients</h3><div class="big">2 000 € HT</div><p class="small">1 000 € en novembre · 1 000 € en décembre<br>Zone 40-50 km · ≈333 000 impressions</p><p>pStory Ads 50 % · Display In-App 320x480 50 %</p><p class="small"><b>+ Spotify</b> · 1 000 € en novembre · 1 500 € en décembre</p></div>
-    <div class="card c-corail"><span class="tag">Onglet 02</span><h3>Noël : dimanches, magie de Noël, cartes cadeaux</h3><div class="big">3 500 € HT</div><p class="small">Recommandé (vs 2 000 € évoqués)<br>Zone 40-50 km · ≈583 000 impressions</p><p>pStory Ads 50 % · Display In-App 320x480 50 %</p></div>
-    <div class="card c-lavande"><span class="tag">Onglet 03</span><h3>Grand casting &amp; défilé 18-25 ans</h3><div class="big">1 000 € HT</div><p class="small">Option renforcée 1 500 € HT<br>Zone 30-40 km · ≈167 000 impressions</p><p>100 % pStory Ads, TikTok surpondéré (70 %)</p><p class="small"><b>+ Spotify</b> · 850 € ciblé 18-25 ans</p></div>
-   </div>
-   <div class="callout"><h3>Pourquoi un plan unique</h3><p>Les trois campagnes touchent le même bassin toulonnais sur les mêmes semaines. Pilotées ensemble, elles partagent un capping global (pas de sur-exposition d'une même personne), une rotation des messages cohérente et un reporting consolidé. La campagne notoriété sert en plus de réservoir d'audience : les personnes exposées en novembre sont reciblées par les messages Noël de décembre.</p></div>
+   <h2>Les 4 volets en un coup d'œil</h2>
+   <p class="lead">Quatre demandes, un même bassin et une même fenêtre de fin d'année. Nous les avons construites comme quatre onglets d'un seul plan : la notoriété installe Grand Var dans la durée, Noël porte les temps forts, le SEA convertit les recherches, et le casting apporte une audience jeune le 22 novembre, premier dimanche d'ouverture.</p>
+   <div class="grid g4" style="margin-top:26px"><div class="card c-bleu"><span class="tag">Onglet 01</span><h3>Notoriété</h3><div class="big">2 000 € HT</div><p class="small">02/11 → 21/12 · 40-50 km<br>≈333 300 impressions</p><p>Meta 50 % · Display In-App 320x480 50 %</p></div><div class="card c-corail"><span class="tag">Onglet 02</span><h3>Noël</h3><div class="big">6 000 € HT</div><p class="small">18/11 → 31/12 · 40-50 km<br>900 000 impressions</p><p>Meta 40 % · TikTok 30 % · Spotify 30 %</p></div><div class="card c-peche"><span class="tag">Onglet 03</span><h3>SEA · carte cadeau</h3><div class="big">1 800 € HT</div><p class="small">26/10 → 31/12 · Grand Var + 50 km</p><p>Google Ads Search, accent carte cadeau, marque et centre commercial</p></div><div class="card c-lavande"><span class="tag">Onglet 04</span><h3>Casting &amp; défilé</h3><div class="big">3 000 € HT</div><p class="small">02/11 → 22/11 · 30-40 km<br>≈458 300 impressions</p><p>TikTok 50 % · Instagram 25 % · Spotify 25 %</p></div></div><div class="callout"><h3>Pourquoi un plan unique</h3><p>Les quatre volets touchent le même bassin toulonnais sur les mêmes semaines. Pilotés ensemble, ils partagent un capping global (pas de sur-exposition d'une même personne), une rotation des messages cohérente et un reporting consolidé. Les campagnes display, social et audio créent la demande, le SEA la capte au moment où les habitants cherchent Grand Var, ses horaires d'ouverture ou une idée de carte cadeau.</p></div>
   </div>
  </section>
- <section class="alt" id="synthese-planning">
+<section class="alt" id="synthese-planning">
   <div class="wrap">
    <h2>Calendrier global</h2>
    <div class="tw"><table class="plan">
-    <tr><th>Campagne</th><th>S45<br>02/11</th><th>S46<br>09/11</th><th>S47<br>16/11</th><th>S48<br>23/11</th><th>S49<br>30/11</th><th>S50<br>07/12</th><th>S51<br>14/12</th><th>S52<br>21/12</th></tr>
-    <tr><td>01 · Notoriété</td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n" style="width:30%"></i></td></tr>
-    <tr><td>02 · Dimanches d'ouverture</td><td></td><td></td><td></td><td></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td></td></tr>
-    <tr><td>02 · Magie de Noël</td><td></td><td></td><td></td><td></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td></tr>
-    <tr><td>02 · Cartes cadeaux</td><td></td><td></td><td></td><td></td><td><i class="b l"></i></td><td><i class="b l"></i></td><td><i class="b l"></i></td><td><i class="b l"></i></td></tr>
-    <tr><td>03 · Casting &amp; défilé</td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b star">22/11</i></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>+ Spotify notoriété / Noël</td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a" style="width:30%"></i></td></tr>
-    <tr><td>+ Spotify casting</td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td></td><td></td><td></td><td></td><td></td></tr>
-   </table></div>
-   <div class="legend"><span><i style="background:#021859"></i>Fil rouge notoriété</span><span><i style="background:#f25430"></i>Dimanches (pic jeudi → dimanche)</span><span><i style="background:#7bbdff"></i>Magie de Noël / casting</span><span><i style="background:#cfe5ff"></i>Cartes cadeaux</span><span><i style="background:#1db954"></i>Audio Spotify</span></div>
+    <tr><th>Campagne</th><th>S44<br>26/10</th><th>S45<br>02/11</th><th>S46<br>09/11</th><th>S47<br>16/11</th><th>S48<br>23/11</th><th>S49<br>30/11</th><th>S50<br>07/12</th><th>S51<br>14/12</th><th>S52<br>21/12</th><th>S53<br>28/12</th></tr>
+    <tr><td>01 · Notoriété</td><td></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n" style="width:30%"></i></td><td></td></tr>
+    <tr><td>02 · Noël</td><td></td><td></td><td></td><td><i class="b b t"></i></td><td><i class="b b t"></i></td><td><i class="b b t"></i></td><td><i class="b b t"></i></td><td><i class="b b t"></i></td><td><i class="b b t"></i></td><td><i class="b b t"></i></td></tr>
+    <tr><td>03 · SEA</td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td></tr>
+    <tr><td>04 · Casting &amp; défilé</td><td></td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b star">22/11</i></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+   </table></div><div class="legend"><span><i style="background:#021859"></i>Notoriété</span><span><i style="background:#f25430"></i>Noël (dimanches, magie de Noël, cartes cadeaux)</span><span><i style="background:#ffb79e"></i>SEA</span><span><i style="background:#7bbdff"></i>Casting</span></div>
   </div>
  </section>
- <section id="synthese-budgets">
+<section id="synthese-budgets">
   <div class="wrap">
    <h2>Récapitulatif budgétaire</h2>
    <div class="tw"><table>
-    <tr><th>Devis</th><th>Période</th><th>Zone</th><th>Leviers</th><th class="r">Budget HT</th><th class="r">Impressions</th></tr>
-    <tr><td>01 · Notoriété</td><td>02/11 → 21/12</td><td>40-50 km</td><td>pStory + Display In-App</td><td class="r">2 000 €</td><td class="r">≈333 300</td></tr>
-    <tr><td>02 · Noël (recommandé)</td><td>02/12 → 23/12</td><td>40-50 km</td><td>pStory + Display In-App</td><td class="r">3 500 €</td><td class="r">≈583 300</td></tr>
-    <tr><td>03 · Casting &amp; défilé</td><td>02/11 → 22/11</td><td>30-40 km</td><td>pStory (TikTok, Instagram)</td><td class="r">1 000 €</td><td class="r">≈166 700</td></tr>
-    <tr class="sub"><td colspan="4">Sous-total social &amp; display</td><td class="r">6 500 €</td><td class="r">≈1,08 M</td></tr>
-    <tr><td>+ Spotify · notoriété</td><td>02/11 → 30/11</td><td>40-50 km</td><td>Audio Spotify</td><td class="r">1 000 €</td><td class="r">≈111 100</td></tr>
-    <tr><td>+ Spotify · notoriété &amp; Noël</td><td>01/12 → 21/12</td><td>40-50 km</td><td>Audio Spotify</td><td class="r">1 500 €</td><td class="r">≈166 700</td></tr>
-    <tr><td>+ Spotify · casting</td><td>02/11 → 22/11</td><td>30-40 km</td><td>Audio Spotify 18-25 ans</td><td class="r">850 €</td><td class="r">≈94 400</td></tr>
-    <tr class="sub"><td colspan="4">Sous-total ajout Spotify</td><td class="r">3 350 €</td><td class="r">≈372 200</td></tr>
-    <tr class="tot"><td colspan="4">Total dispositif avec Spotify</td><td class="r">9 850 €</td><td class="r">≈1,46 M</td></tr>
-    <tr><td colspan="4" class="small">Option casting renforcé (+500 € de social, soit 1 500 € sur l'onglet 03)</td><td class="r">10 350 €</td><td class="r">≈1,54 M</td></tr>
-   </table></div>
-   <p class="small">CPM 6 € HT en Social Story et Display In-App, CPM 9 € HT en audio Spotify. Budgets exprimés en HT, tout compris.</p>
+    <tr><th>Volet</th><th>Période</th><th>Zone</th><th>Leviers</th><th class="r">Budget HT</th><th class="r">Volume</th></tr>
+    <tr><td>01 · Notoriété</td><td>02/11 → 21/12</td><td>40-50 km</td><td>Meta + Display In-App</td><td class="r">2 000 €</td><td class="r">≈333 300 imp.</td></tr>
+    <tr><td>02 · Noël</td><td>18/11 → 31/12</td><td>40-50 km</td><td>Meta + TikTok + Audio Spotify</td><td class="r">6 000 €</td><td class="r">900 000 imp.</td></tr>
+    <tr><td>03 · SEA</td><td>26/10 → 31/12</td><td>Grand Var + 50 km</td><td>Google Ads Search</td><td class="r">1 800 €</td><td class="r">≈2 300 à 3 600 clics</td></tr>
+    <tr><td>04 · Casting &amp; défilé</td><td>02/11 → 22/11</td><td>30-40 km</td><td>TikTok + Instagram + Audio Spotify</td><td class="r">3 000 €</td><td class="r">≈458 300 imp.</td></tr>
+    <tr class="tot"><td colspan="4">Total dispositif</td><td class="r">12 800 €</td><td class="r">≈1,69 M imp. + clics SEA</td></tr>
+   </table></div><p class="small">CPM 6 € HT en Social (Meta, TikTok) et Display In-App, CPM 9 € HT en audio Spotify, SEA facturé au clic. Budgets exprimés en HT, tout compris.</p>
   </div>
  </section>
 </div>
-
-<!-- ================= 01 NOTORIETE ================= -->
 <div class="panel" id="p-notoriete" data-sections="contexte:Contexte|dispositif:Dispositif|environnements:Environnements|planning:Planning|budgets:Budgets|formats:Formats &amp; KPIs|audiences:Audiences|data:Stratégie data|rgpd:RGPD|contacts:Contacts">
- <div class="tab-intro"><div class="wrap"><span class="tag">Onglet 01</span><h2>Notoriété clients &amp; non-clients</h2>
-  <div class="pills"><span class="pill light"><b>Période</b> · 02/11 → 21/12</span><span class="pill light"><b>Budget</b> · 1 000 € nov. + 1 000 € déc.</span><span class="pill light"><b>+ Spotify</b> · 1 000 € nov. + 1 500 € déc.</span><span class="pill light"><b>Zone</b> · 40-50 km</span><span class="pill light"><b>Objectif</b> · notoriété</span></div></div></div>
- <section id="notoriete-contexte">
+<div class="tab-intro"><div class="wrap"><span class="tag">Onglet 01</span><h2>Notoriété clients &amp; non-clients</h2>
+  <div class="pills"><span class="pill light"><b>Période</b> · 02/11 → 21/12</span><span class="pill light"><b>Budget</b> · 2 000 € HT</span><span class="pill light"><b>Zone</b> · 40-50 km</span><span class="pill light"><b>Leviers</b> · Meta · Display In-App</span></div></div></div>
+<section id="notoriete-contexte">
   <div class="wrap">
    <h2>Contexte &amp; objectifs</h2>
-   <p class="lead">En fin d'année, chaque pôle commercial de l'aire toulonnaise parle en même temps. L'enjeu est de maintenir Grand Var présent à l'esprit de début novembre jusqu'au 21 décembre, auprès de ceux qui y viennent déjà comme de ceux qui ont pris l'habitude d'aller ailleurs.</p>
-   <div class="grid g3">
-    <div class="card c-bleu"><span class="num">1</span><h3>Occuper l'espace mental</h3><p>Installer Grand Var comme la destination shopping de fin d'année du bassin, avec une présence continue du 2 novembre au 21 décembre.</p></div>
-    <div class="card c-rose"><span class="num">2</span><h3>Clients et non-clients</h3><p>Entretenir la préférence des habitués et aller chercher les foyers de la zone qui fréquentent d'autres pôles commerciaux.</p></div>
-    <div class="card c-peche"><span class="num">3</span><h3>Préparer les temps forts</h3><p>Constituer un socle d'audience exposée, réactivée ensuite par les messages Noël (onglet 02) pour un meilleur rendement de chaque euro.</p></div>
-   </div>
+   <p class="lead">En fin d'année, chaque pôle commercial de l'aire toulonnaise parle en même temps. L'enjeu est de maintenir Grand Var présent à l'esprit pendant sept semaines, auprès de ceux qui y viennent déjà comme de ceux qui ont pris l'habitude d'aller ailleurs.</p>
+   <div class="grid g3"><div class="card c-bleu"><span class="num">1</span><h3>Occuper l'espace mental</h3><p>Installer Grand Var comme la destination shopping de fin d'année du bassin, avec une présence continue du 2 novembre au 21 décembre.</p></div><div class="card c-rose"><span class="num">2</span><h3>Clients et non-clients</h3><p>Entretenir la préférence des habitués et aller chercher les foyers de la zone qui fréquentent d'autres pôles commerciaux.</p></div><div class="card c-peche"><span class="num">3</span><h3>Nourrir Noël et le SEA</h3><p>Constituer un socle d'audience exposée, réactivée par les messages Noël (onglet 02) et captée en recherche Google (onglet 03).</p></div></div>
   </div>
  </section>
- <section class="alt" id="notoriete-dispositif">
+<section class="alt" id="notoriete-dispositif">
   <div class="wrap">
    <h2>Dispositif</h2>
-   <p class="lead">Deux leviers mobiles plein écran, ceux qui ont fait leurs preuves sur Grand Var, à parts égales chaque mois.</p>
-   <div class="grid g2">
-    <div class="card"><span class="tag">Levier 1 · 50 %</span><h3>pStory Ads</h3><p>Formats verticaux plein écran sur Facebook, Instagram et TikTok. La Story est le format de l'attention : immersif, sonore, consommé au pouce sur mobile. Idéal pour montrer l'ambiance du centre, les enseignes et les nouveautés.</p><p class="small">CPM 6 € HT · capping 3/jour</p></div>
-    <div class="card"><span class="tag">Levier 2 · 50 %</span><h3>Display In-App 320x480</h3><p>Interstitiel plein écran diffusé dans les applications mobiles (info, météo, lifestyle, services). Le 320x480 est le format display le plus impactant sur mobile, et permet de mesurer les visites effectives au centre après exposition.</p><p class="small">CPM 6 € HT · géolocalisation GPS</p></div>
-    <div class="card c-bleu" style="grid-column:1/-1"><span class="tag">Ajout · audio</span><h3>Audio Spotify · 1 000 € en novembre, 1 500 € en décembre</h3><p>Spots audio de 15 à 30 s diffusés entre deux titres ou épisodes, à un moment d'écoute exclusive (voiture, casque, cuisine), accompagnés d'un visuel cliquable. L'audio apporte ce que l'image ne donne pas : la voix de Grand Var, et une présence dans les trajets en voiture vers les pôles commerciaux. En novembre, le spot porte le message d'image ; en décembre, il alterne image et temps forts de Noël (dimanches d'ouverture, Père Noël, cartes cadeaux) avec un budget renforcé pour le pic de fréquentation.</p><p class="small">CPM 9 € HT · géolocalisation 40-50 km · capping 2/jour</p></div>
-   </div>
-   <div class="funnel">
-    <div><b>Voir</b><span>pStory : couverture large du bassin, image et ambiance</span></div>
-    <div><b>Retenir</b><span>Display In-App : répétition du message dans les applis du quotidien</span></div>
-    <div><b>Venir</b><span>Mesure des visites en centre et réactivation par les messages Noël</span></div>
-   </div>
+   <p class="lead">Deux leviers mobiles plein écran, à parts égales chaque mois.</p>
+   <div class="grid g2"><div class="card "><span class="tag">Levier 1 · 50 %</span><h3>Meta Ads</h3><p>Formats Story et fil d'actualité sur Facebook et Instagram. Le levier de la couverture : les foyers du bassin y passent tous les jours, et la Story plein écran installe l'image du centre, des enseignes et des nouveautés.</p><p class="small">CPM 6 € HT · capping 3/jour</p></div><div class="card "><span class="tag">Levier 2 · 50 %</span><h3>Display In-App 320x480</h3><p>Interstitiel plein écran diffusé dans les applications mobiles (info, météo, lifestyle, services). Le 320x480 est le format display le plus impactant sur mobile, et permet de mesurer les visites effectives au centre après exposition.</p><p class="small">CPM 6 € HT · géolocalisation GPS</p></div></div><div class="funnel"><div><b>Voir</b><span>Meta : couverture large du bassin, image et ambiance</span></div><div><b>Retenir</b><span>Display In-App : répétition du message dans les applis du quotidien</span></div><div><b>Venir</b><span>Mesure des visites en centre et réactivation par Noël et le SEA</span></div></div>
   </div>
  </section>
- <section id="notoriete-environnements">
+<section id="notoriete-environnements">
   <div class="wrap">
    <h2>Environnements de diffusion</h2>
-   <div class="grid g2">
-    <div>
-     <h3>Réseaux sociaux (Story)</h3>
-     <div class="chips"><span class="chip soc">Facebook</span><span class="chip soc">Instagram</span><span class="chip soc">TikTok</span></div>
-     <h3 style="margin-top:26px">Audio (ajout)</h3>
-     <div class="chips"><span class="chip" style="background:#1db954;color:#fff;border-color:#1db954">Spotify</span></div>
-     <h3 style="margin-top:26px">Applications mobiles (exemples)</h3>
-     <div class="chips"><span class="chip">leboncoin</span><span class="chip">20 Minutes</span><span class="chip">Le Figaro</span><span class="chip">La Chaîne Météo</span><span class="chip">ELLE</span><span class="chip">Marie Claire</span><span class="chip">Gala</span><span class="chip">Voici</span><span class="chip">Version Femina</span><span class="chip">L'Équipe</span><span class="chip">BFM TV</span><span class="chip">Vinted</span></div>
-     <p class="small" style="margin-top:12px">Liste indicative : la diffusion s'adapte à l'inventaire disponible sur la zone et aux applications les plus performantes en cours de campagne.</p>
-    </div>
-    <div class="card" style="padding:12px"><svg class="map" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zone de diffusion autour de Grand Var"><rect x="0" y="0" width="600" height="560" rx="18" fill="#f3f7ff"/><circle cx="300" cy="290" r="229.99999999999997" fill="rgba(123,189,255,.18)" stroke="#7bbdff" stroke-width="2" stroke-dasharray="6 5"/><circle cx="300" cy="290" r="184.0" fill="rgba(123,189,255,.28)" stroke="#021859" stroke-width="1.6"/><text x="300" y="52.00000000000003" text-anchor="middle" class="ml">50 km</text><text x="300" y="98.0" text-anchor="middle" class="ml">40 km</text><circle cx="281" cy="297" r="4" fill="#021859"/><text x="273" y="291" text-anchor="end" class="mt">Toulon</text><circle cx="262" cy="308" r="4" fill="#021859"/><text x="255" y="312" text-anchor="end" class="mt">La Seyne-sur-Mer</text><circle cx="233" cy="299" r="4" fill="#021859"/><text x="226" y="303" text-anchor="end" class="mt">Sanary</text><circle cx="215" cy="291" r="4" fill="#021859"/><text x="208" y="295" text-anchor="end" class="mt">Bandol</text><circle cx="356" cy="299" r="4" fill="#021859"/><text x="363" y="303" text-anchor="start" class="mt">Hyères</text><circle cx="323" cy="262" r="4" fill="#021859"/><text x="330" y="266" text-anchor="start" class="mt">Solliès-Pont</text><circle cx="334" cy="238" r="4" fill="#021859"/><text x="341" y="242" text-anchor="start" class="mt">Cuers</text><circle cx="330" cy="153" r="4" fill="#021859"/><text x="337" y="157" text-anchor="start" class="mt">Brignoles</text><circle cx="445" cy="290" r="4" fill="#021859"/><text x="452" y="294" text-anchor="start" class="mt">Le Lavandou</text><circle cx="160" cy="271" r="4" fill="#021859"/><text x="153" y="275" text-anchor="end" class="mt">La Ciotat</text><circle cx="147" cy="210" r="4" fill="#021859"/><text x="140" y="214" text-anchor="end" class="mt">Aubagne</text><circle cx="234" cy="259" r="4" fill="#021859"/><text x="227" y="263" text-anchor="end" class="mt">Le Beausset</text><circle cx="256" cy="129" r="4" fill="#021859"/><text x="249" y="133" text-anchor="end" class="mt">Saint-Maximin</text><circle cx="424" cy="159" r="4" fill="#021859"/><text x="431" y="163" text-anchor="start" class="mt">Le Luc</text><circle cx="505" cy="272" r="4" fill="#4b6aa8"/><text x="512" y="276" text-anchor="start" class="mt">Cavalaire</text><circle cx="300" cy="290" r="10" fill="#f25430" stroke="#fff" stroke-width="3"/><text x="300" y="318" text-anchor="middle" class="mc">Grand Var</text><text x="300" y="540" text-anchor="middle" class="ms">Méditerranée · schéma indicatif, rayons à vol d'oiseau</text></svg><p class="small" style="padding:6px 10px 0">Cœur de zone 40 km, extension à 50 km pour les communes à fort potentiel (La Ciotat, Aubagne, Brignoles, Le Lavandou, Cavalaire).</p></div>
-   </div>
+   <div class="grid g2"><div><h3>Réseaux sociaux</h3><div class="chips"><span class="chip soc">Facebook</span><span class="chip soc">Instagram</span></div><h3 style="margin-top:26px">Applications mobiles (exemples)</h3><div class="chips"><span class="chip ">leboncoin</span><span class="chip ">20 Minutes</span><span class="chip ">Le Figaro</span><span class="chip ">La Chaîne Météo</span><span class="chip ">ELLE</span><span class="chip ">Marie Claire</span><span class="chip ">Gala</span><span class="chip ">Voici</span><span class="chip ">Version Femina</span><span class="chip ">L'Équipe</span><span class="chip ">BFM TV</span><span class="chip ">Vinted</span></div><p class="small" style="margin-top:12px">Liste indicative : la diffusion s'adapte à l'inventaire disponible sur la zone et aux applications les plus performantes en cours de campagne.</p></div><div class="card" style="padding:12px"><svg class="map" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zone de diffusion autour de Grand Var"><rect x="0" y="0" width="600" height="560" rx="18" fill="#f3f7ff"/><circle cx="300" cy="290" r="229.99999999999997" fill="rgba(123,189,255,.18)" stroke="#7bbdff" stroke-width="2" stroke-dasharray="6 5"/><circle cx="300" cy="290" r="184.0" fill="rgba(123,189,255,.28)" stroke="#021859" stroke-width="1.6"/><text x="300" y="52.00000000000003" text-anchor="middle" class="ml">50 km</text><text x="300" y="98.0" text-anchor="middle" class="ml">40 km</text><circle cx="281" cy="297" r="4" fill="#021859"/><text x="273" y="291" text-anchor="end" class="mt">Toulon</text><circle cx="262" cy="308" r="4" fill="#021859"/><text x="255" y="312" text-anchor="end" class="mt">La Seyne-sur-Mer</text><circle cx="233" cy="299" r="4" fill="#021859"/><text x="226" y="303" text-anchor="end" class="mt">Sanary</text><circle cx="215" cy="291" r="4" fill="#021859"/><text x="208" y="295" text-anchor="end" class="mt">Bandol</text><circle cx="356" cy="299" r="4" fill="#021859"/><text x="363" y="303" text-anchor="start" class="mt">Hyères</text><circle cx="323" cy="262" r="4" fill="#021859"/><text x="330" y="266" text-anchor="start" class="mt">Solliès-Pont</text><circle cx="334" cy="238" r="4" fill="#021859"/><text x="341" y="242" text-anchor="start" class="mt">Cuers</text><circle cx="330" cy="153" r="4" fill="#021859"/><text x="337" y="157" text-anchor="start" class="mt">Brignoles</text><circle cx="445" cy="290" r="4" fill="#021859"/><text x="452" y="294" text-anchor="start" class="mt">Le Lavandou</text><circle cx="160" cy="271" r="4" fill="#021859"/><text x="153" y="275" text-anchor="end" class="mt">La Ciotat</text><circle cx="147" cy="210" r="4" fill="#021859"/><text x="140" y="214" text-anchor="end" class="mt">Aubagne</text><circle cx="234" cy="259" r="4" fill="#021859"/><text x="227" y="263" text-anchor="end" class="mt">Le Beausset</text><circle cx="256" cy="129" r="4" fill="#021859"/><text x="249" y="133" text-anchor="end" class="mt">Saint-Maximin</text><circle cx="424" cy="159" r="4" fill="#021859"/><text x="431" y="163" text-anchor="start" class="mt">Le Luc</text><circle cx="505" cy="272" r="4" fill="#4b6aa8"/><text x="512" y="276" text-anchor="start" class="mt">Cavalaire</text><circle cx="300" cy="290" r="10" fill="#f25430" stroke="#fff" stroke-width="3"/><text x="300" y="318" text-anchor="middle" class="mc">Grand Var</text><text x="300" y="540" text-anchor="middle" class="ms">Méditerranée · schéma indicatif, rayons à vol d'oiseau</text></svg><p class="small" style="padding:6px 10px 0">Cœur de zone 40 km, extension à 50 km pour les communes à fort potentiel (La Ciotat, Aubagne, Brignoles, Le Lavandou, Cavalaire).</p></div></div>
   </div>
  </section>
- <section class="alt" id="notoriete-planning">
+<section class="alt" id="notoriete-planning">
   <div class="wrap">
    <h2>Planning</h2>
    <div class="tw"><table class="plan">
-    <tr><th>Levier</th><th>S45<br>02/11</th><th>S46<br>09/11</th><th>S47<br>16/11</th><th>S48<br>23/11</th><th>S49<br>30/11</th><th>S50<br>07/12</th><th>S51<br>14/12</th><th>S52<br>21/12</th></tr>
-    <tr><td>pStory Ads</td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n" style="width:30%"></i></td></tr>
-    <tr><td>Display In-App 320x480</td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b" style="width:30%"></i></td></tr>
-    <tr><td>+ Audio Spotify</td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a" style="width:30%"></i></td></tr>
-   </table></div>
-   <p class="small">Diffusion continue et lissée : 1 000 € du 2 au 30 novembre, 1 000 € du 1er au 21 décembre (fin de diffusion le lundi 21/12). Les dimanches d'ouverture bénéficient d'un léger surpoids naturel lié à la hausse d'usage mobile en week-end.</p>
+    <tr><th>Levier</th><th>S45<br>02/11</th><th>S46<br>09/11</th><th>S47<br>16/11</th><th>S48<br>23/11</th><th>S49<br>30/11</th><th>S50<br>07/12</th><th>S51<br>14/12</th><th>S52<br>21/12</th><th>S53<br>28/12</th></tr>
+    <tr><td>Meta</td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n" style="width:30%"></i></td><td></td></tr>
+    <tr><td>Display In-App 320x480</td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b" style="width:30%"></i></td><td></td></tr>
+   </table></div><p class="small">Diffusion continue et lissée : 1 000 € du 2 au 30 novembre, 1 000 € du 1er au 21 décembre.</p>
   </div>
  </section>
- <section id="notoriete-budgets">
+<section id="notoriete-budgets">
   <div class="wrap">
    <h2>Budget</h2>
    <div class="tw"><table>
     <tr><th>Mois</th><th>Levier</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
-    <tr><td>Novembre</td><td>pStory Ads</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
+    <tr><td>Novembre</td><td>Meta (Facebook &amp; Instagram)</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
     <tr><td>Novembre</td><td>Display In-App 320x480</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
     <tr class="sub"><td colspan="2">Sous-total novembre</td><td class="r">1 000 €</td><td class="r"></td><td class="r">≈166 700</td></tr>
-    <tr><td>Décembre</td><td>pStory Ads</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
+    <tr><td>Décembre</td><td>Meta (Facebook &amp; Instagram)</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
     <tr><td>Décembre</td><td>Display In-App 320x480</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
     <tr class="sub"><td colspan="2">Sous-total décembre</td><td class="r">1 000 €</td><td class="r"></td><td class="r">≈166 700</td></tr>
-    <tr class="sub"><td colspan="2">Sous-total social &amp; display</td><td class="r">2 000 €</td><td class="r">6 €</td><td class="r">≈333 300</td></tr>
-    <tr><td>Novembre</td><td>+ Audio Spotify</td><td class="r">1 000 €</td><td class="r">9 €</td><td class="r">≈111 100</td></tr>
-    <tr><td>Décembre</td><td>+ Audio Spotify</td><td class="r">1 500 €</td><td class="r">9 €</td><td class="r">≈166 700</td></tr>
-    <tr class="sub"><td colspan="2">Sous-total ajout Spotify</td><td class="r">2 500 €</td><td class="r">9 €</td><td class="r">≈277 800</td></tr>
-    <tr class="tot"><td colspan="2">Total notoriété avec Spotify</td><td class="r">4 500 €</td><td class="r"></td><td class="r">≈611 100</td></tr>
+    <tr class="tot"><td colspan="2">Total notoriété</td><td class="r">2 000 €</td><td class="r">6 €</td><td class="r">≈333 300</td></tr>
    </table></div>
   </div>
  </section>
- <section class="alt" id="notoriete-formats">
+<section class="alt" id="notoriete-formats">
   <div class="wrap">
    <h2>Formats &amp; KPIs de suivi</h2>
-   <div class="grid g2">
-    <div class="card"><h3>pStory Ads</h3><p><b>Format</b> · Story 9:16, 1080x1920 px, vidéo mp4 (6 à 15 s recommandées) ou visuel fixe.</p><p><b>KPIs</b> · impressions, reach, clics, CTR, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p></div>
-    <div class="card"><h3>Display In-App</h3><p><b>Format</b> · interstitiel 320x480 px, jpeg, png ou gif.</p><p><b>KPIs</b> · impressions, clics, CTR, taux de visibilité, étude socio-démo, géolocalisation, affinitaires, visites mesurées en centre.</p></div>
-    <div class="card"><h3>Audio Spotify</h3><p><b>Format</b> · spot audio 15, 20 ou 30 s (mp3/wav) + visuel compagnon 1:1 640x640 px ou 9:16 720x1280 px.</p><p><b>KPIs</b> · impressions, reach, clics, écoutes à 25/50/75/100 %, taux de complétion, stats socio-démo, capping, CPE &amp; CPM finaux.</p></div>
-   </div>
+   <div class="grid g2"><div class="card "><h3>Meta Ads</h3><p><b>Format</b> · Story 9:16 1080x1920 px et post 1080x1080 px, vidéo mp4 (6 à 15 s recommandées) ou visuel fixe.</p><p><b>KPIs</b> · impressions, reach, clics, CTR, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p></div><div class="card "><h3>Display In-App</h3><p><b>Format</b> · interstitiel 320x480 px, jpeg, png ou gif.</p><p><b>KPIs</b> · impressions, clics, CTR, taux de visibilité, étude socio-démo, géolocalisation, affinitaires, visites mesurées en centre.</p></div></div>
   </div>
  </section>
- <section id="notoriete-audiences">
+<section id="notoriete-audiences">
   <div class="wrap">
    <h2>Audiences</h2>
-   <div class="grid g4">
-    <div class="card c-bleu"><div class="glyph">●</div><h3>Familles du bassin</h3><p>Parents 30-50 ans de l'aire toulonnaise, qui arbitrent leurs sorties shopping du week-end.</p></div>
-    <div class="card c-rose"><div class="glyph">■</div><h3>Actifs périurbains</h3><p>25-49 ans des communes autour de Toulon, mobiles et motorisés, sensibles au gain de temps et au stationnement.</p></div>
-    <div class="card c-peche"><div class="glyph">◆</div><h3>Non-clients à conquérir</h3><p>Résidents de la zone repérés dans d'autres pôles commerciaux de l'aire toulonnaise.</p></div>
-    <div class="card c-menthe"><div class="glyph">◐</div><h3>Seniors actifs</h3><p>55 ans et plus, clientèle fidèle et disponible en semaine, relais des achats de fin d'année pour la famille.</p></div>
-   </div>
+   <div class="grid g4"><div class="card c-bleu"><div class="glyph">●</div><h3>Familles du bassin</h3><p>Parents 30-50 ans de l'aire toulonnaise, qui arbitrent leurs sorties shopping du week-end.</p></div><div class="card c-rose"><div class="glyph">■</div><h3>Actifs périurbains</h3><p>25-49 ans des communes autour de Toulon, mobiles et motorisés, sensibles au gain de temps et au stationnement.</p></div><div class="card c-peche"><div class="glyph">◆</div><h3>Non-clients à conquérir</h3><p>Résidents de la zone repérés dans d'autres pôles commerciaux de l'aire toulonnaise.</p></div><div class="card c-menthe"><div class="glyph">◐</div><h3>Seniors actifs</h3><p>55 ans et plus, clientèle fidèle et disponible en semaine, relais des achats de fin d'année pour la famille.</p></div></div>
   </div>
  </section>
- <section class="alt" id="notoriete-data">
+<section class="alt" id="notoriete-data">
   <div class="wrap">
    <h2>Stratégie data</h2>
-   <div class="pyr">
-    <div class="l1"><b>Couche 1 · Comportements de fréquentation</b><span>Visiteurs géo-historiques de Grand Var (clients) et d'autres pôles commerciaux de la zone (non-clients)</span></div>
-    <div class="l2"><b>Couche 2 · Centres d'intérêt</b><span>Mode, beauté, maison &amp; déco, loisirs en famille, high-tech, bons plans</span></div>
-    <div class="l3"><b>Couche 3 · Socio-démographie &amp; géographie</b><span>Hommes et femmes 25-65 ans, rayon 40-50 km autour de Grand Var</span></div>
-   </div>
+   <div class="pyr"><div class="l1"><b>Couche 1 · Comportements de fréquentation</b><span>Visiteurs géo-historiques de Grand Var (clients) et d'autres pôles commerciaux de la zone (non-clients)</span></div><div class="l2"><b>Couche 2 · Centres d'intérêt</b><span>Mode, beauté, maison &amp; déco, loisirs en famille, high-tech, bons plans</span></div><div class="l3"><b>Couche 3 · Socio-démographie &amp; géographie</b><span>Hommes et femmes 25-65 ans, rayon 40-50 km autour de Grand Var</span></div></div>
    <div class="chips" style="justify-content:center"><span class="chip">Data géo-historique mobile</span><span class="chip">The Bradery · acheteurs mode &amp; déco</span><span class="chip">Leboncoin · profils maison &amp; famille</span><span class="chip">Choose · amateurs de bonnes affaires</span></div>
   </div>
  </section>
 </div>
-
-<!-- ================= 02 NOEL ================= -->
 <div class="panel" id="p-noel" data-sections="contexte:Contexte|dispositif:Dispositif|environnements:Environnements|planning:Planning|budgets:Budgets|formats:Formats &amp; KPIs|audiences:Audiences|data:Stratégie data|rgpd:RGPD|contacts:Contacts">
- <div class="tab-intro"><div class="wrap"><span class="tag">Onglet 02</span><h2>Noël · dimanches · cartes cadeaux</h2>
-  <div class="pills"><span class="pill light"><b>Période</b> · 02/12 → 23/12</span><span class="pill light"><b>Budget</b> · 3 500 € HT recommandé</span><span class="pill light"><b>Zone</b> · 40-50 km</span><span class="pill light"><b>Objectif</b> · trafic en centre</span></div></div></div>
- <section id="noel-contexte">
+<div class="tab-intro"><div class="wrap"><span class="tag">Onglet 02</span><h2>Noël · dimanches · magie de Noël · cartes cadeaux</h2>
+  <div class="pills"><span class="pill light"><b>Période</b> · 18/11 → 31/12</span><span class="pill light"><b>Budget</b> · 6 000 € HT</span><span class="pill light"><b>Zone</b> · 40-50 km</span><span class="pill light"><b>Leviers</b> · Meta · TikTok · Audio Spotify</span></div></div></div>
+<section id="noel-contexte">
   <div class="wrap">
    <h2>Contexte &amp; objectifs</h2>
-   <p class="lead">Trois semaines de sprint, du 2 au 23 décembre, et trois messages à porter avec chacun son rythme : un rendez-vous hebdomadaire (les dimanches), une ambiance à faire vivre (la magie de Noël) et une solution cadeau pour les retardataires (les cartes cadeaux). Novembre est couvert par la campagne notoriété (onglet 01).</p>
-   <div class="grid g3">
-    <div class="card c-corail"><span class="num">1</span><h3>Dimanches d'ouverture</h3><p>Pendant la campagne, trois dimanches ouverts : 6, 13 et 20 décembre. Objectif : faire du dimanche à Grand Var un réflexe, avec une pression concentrée du jeudi au dimanche midi.</p></div>
-    <div class="card c-bleu"><span class="num">2</span><h3>Magie de Noël</h3><p>Décoration, Père Noël et boutiques, portés du 2 au 23 décembre. Objectif : donner envie de venir en famille et faire de la visite une sortie.</p></div>
-    <div class="card c-peche"><span class="num">3</span><h3>Cartes cadeaux</h3><p>Du 2 au 23 décembre. Objectif : installer la carte cadeau comme le cadeau qui fait plaisir à coup sûr, pour les particuliers comme pour les entreprises retardataires.</p></div>
-   </div>
-   <div class="callout"><h3>2 000 € par campagne, est-ce assez ?</h3><p>Sur trois semaines seulement, la pression doit être forte dès le premier jour. Avec 2 000 €, chaque message ne dispose que d'environ 37 000 impressions par semaine sur une zone de 40 à 50 km : c'est trop peu pour installer le rendez-vous du dimanche dans un décembre où tout le monde communique. Nous recommandons <b>3 500 € HT</b>, qui portent le volume à ≈583 000 impressions (+75 %), soit environ 65 000 impressions par message et par semaine, et permettent de tenir une vraie pression chaque week-end d'ouverture. Les deux options sont chiffrées dans la section Budgets.</p></div>
+   <p class="lead">Six semaines pour porter trois messages avec chacun son rythme : un rendez-vous hebdomadaire (les dimanches), une ambiance à faire vivre (la magie de Noël) et une solution cadeau (les cartes cadeaux). Avec 6 000 €, chaque message dispose d'une vraie pression chaque semaine, sur trois écrans complémentaires : le fil Meta, le TikTok des familles et des jeunes actifs, et l'oreille via Spotify.</p>
+   <div class="grid g3"><div class="card c-corail"><span class="num">1</span><h3>Dimanches d'ouverture</h3><p>Six dimanches ouverts : 22/11, 29/11, 6/12, 13/12, 20/12 et 27/12. Objectif : faire du dimanche à Grand Var un réflexe, avec une pression concentrée du jeudi au dimanche midi.</p></div><div class="card c-bleu"><span class="num">2</span><h3>Magie de Noël</h3><p>Décoration, Père Noël et boutiques du 25 novembre au 25 décembre. Objectif : donner envie de venir en famille et faire de la visite une sortie.</p></div><div class="card c-peche"><span class="num">3</span><h3>Cartes cadeaux</h3><p>Du 18 novembre au 31 décembre. Objectif : installer la carte cadeau comme le cadeau qui fait plaisir à coup sûr, des CSE en novembre aux retardataires et aux étrennes de fin décembre.</p></div></div>
   </div>
  </section>
- <section class="alt" id="noel-dispositif">
+<section class="alt" id="noel-dispositif">
   <div class="wrap">
    <h2>Dispositif</h2>
-   <p class="lead">Appli + réseaux sociaux, comme souhaité : pStory Ads et Display In-App 320x480 à parts égales, avec une créa dédiée par temps fort.</p>
-   <div class="grid g3">
-    <div class="card"><span class="tag">Dimanches</span><h3>Le rendez-vous</h3><p>Message court et daté (« Ouvert ce dimanche »), diffusion renforcée jeudi, vendredi, samedi et dimanche matin. Le Display In-App capte les recherches de dernière minute.</p></div>
-    <div class="card"><span class="tag">Magie de Noël</span><h3>L'émotion</h3><p>Vidéo Story de la décoration et du Père Noël, idéalement tournée sur place : c'est le contenu qui génère le plus d'envie de visite en famille.</p></div>
-    <div class="card"><span class="tag">Cartes cadeaux</span><h3>La solution</h3><p>La carte cadeau comme réponse au cadeau de dernière minute, avec une montée en pression sur la dernière semaine avant Noël.</p></div>
-   </div>
-   <div class="funnel">
-    <div><b>Réactiver</b><span>Audiences exposées à la campagne notoriété (onglet 01)</span></div>
-    <div><b>Déclencher</b><span>Messages datés : dimanche, Père Noël, carte cadeau</span></div>
-    <div><b>Mesurer</b><span>Visites en centre par temps fort et par jour de la semaine</span></div>
-   </div>
+   <p class="lead">Social + audio : Meta et TikTok pour l'image et l'émotion, Spotify pour la répétition du rendez-vous. Une créa dédiée par temps fort, avec rotation selon les jours de la semaine.</p>
+   <div class="grid g3"><div class="card c-navy"><span class="tag" style="color:#ffb79e">40 % · 2 400 €</span><h3>Meta</h3><p>Story et fil sur Facebook et Instagram : la couverture des familles et des 35-65 ans, gros acheteurs de cadeaux. Vidéo de la décoration et du Père Noël, messages datés « Ouvert ce dimanche ».</p><p class="small" style="color:#b9cdf2">CPM 6 € HT</p></div><div class="card "><span class="tag">30 % · 1 800 €</span><h3>TikTok</h3><p>Format vertical natif, son activé : les jeunes parents et les 20-35 ans, qui préparent leurs cadeaux sur mobile. Contenus spontanés tournés au centre (« un dimanche à Grand Var »).</p><p class="small">CPM 6 € HT</p></div><div class="card c-bleu"><span class="tag">30 % · 1 800 €</span><h3>Audio Spotify</h3><p>Spot de 20 à 30 s entre deux titres, avec visuel cliquable, en écoute exclusive (voiture, casque, cuisine) : idéal pour annoncer les dimanches d'ouverture et rappeler la carte cadeau sur les trajets en voiture.</p><p class="small">CPM 9 € HT · capping 2/jour</p></div></div><div class="funnel"><div><b>Phase 1 · 18 → 24/11</b><span>Lancement : ouverture des dimanches et cartes cadeaux CSE</span></div><div><b>Phase 2 · 25/11 → 24/12</b><span>Pic : magie de Noël, Père Noël, dimanches, cartes cadeaux</span></div><div><b>Phase 3 · 25 → 31/12</b><span>Dernier dimanche 27/12 et cartes cadeaux étrennes</span></div></div>
   </div>
  </section>
- <section id="noel-environnements">
+<section id="noel-environnements">
   <div class="wrap">
    <h2>Environnements de diffusion</h2>
-   <div class="grid g2">
-    <div>
-     <h3>Réseaux sociaux (Story)</h3>
-     <div class="chips"><span class="chip soc">Facebook</span><span class="chip soc">Instagram</span><span class="chip soc">TikTok</span></div>
-     <h3 style="margin-top:26px">Applications mobiles (exemples)</h3>
-     <div class="chips"><span class="chip">leboncoin</span><span class="chip">20 Minutes</span><span class="chip">La Chaîne Météo</span><span class="chip">Le Figaro</span><span class="chip">ELLE</span><span class="chip">Gala</span><span class="chip">Voici</span><span class="chip">Marie Claire</span><span class="chip">Version Femina</span><span class="chip">BFM TV</span><span class="chip">Paris Match</span><span class="chip">Vinted</span></div>
-     <p class="small" style="margin-top:12px">Liste indicative, ajustée à l'inventaire de la zone et aux performances observées.</p>
-    </div>
-    <div class="card" style="padding:12px"><svg class="map" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zone de diffusion autour de Grand Var"><rect x="0" y="0" width="600" height="560" rx="18" fill="#f3f7ff"/><circle cx="300" cy="290" r="229.99999999999997" fill="rgba(123,189,255,.18)" stroke="#7bbdff" stroke-width="2" stroke-dasharray="6 5"/><circle cx="300" cy="290" r="184.0" fill="rgba(123,189,255,.28)" stroke="#021859" stroke-width="1.6"/><text x="300" y="52.00000000000003" text-anchor="middle" class="ml">50 km</text><text x="300" y="98.0" text-anchor="middle" class="ml">40 km</text><circle cx="281" cy="297" r="4" fill="#021859"/><text x="273" y="291" text-anchor="end" class="mt">Toulon</text><circle cx="262" cy="308" r="4" fill="#021859"/><text x="255" y="312" text-anchor="end" class="mt">La Seyne-sur-Mer</text><circle cx="233" cy="299" r="4" fill="#021859"/><text x="226" y="303" text-anchor="end" class="mt">Sanary</text><circle cx="215" cy="291" r="4" fill="#021859"/><text x="208" y="295" text-anchor="end" class="mt">Bandol</text><circle cx="356" cy="299" r="4" fill="#021859"/><text x="363" y="303" text-anchor="start" class="mt">Hyères</text><circle cx="323" cy="262" r="4" fill="#021859"/><text x="330" y="266" text-anchor="start" class="mt">Solliès-Pont</text><circle cx="334" cy="238" r="4" fill="#021859"/><text x="341" y="242" text-anchor="start" class="mt">Cuers</text><circle cx="330" cy="153" r="4" fill="#021859"/><text x="337" y="157" text-anchor="start" class="mt">Brignoles</text><circle cx="445" cy="290" r="4" fill="#021859"/><text x="452" y="294" text-anchor="start" class="mt">Le Lavandou</text><circle cx="160" cy="271" r="4" fill="#021859"/><text x="153" y="275" text-anchor="end" class="mt">La Ciotat</text><circle cx="147" cy="210" r="4" fill="#021859"/><text x="140" y="214" text-anchor="end" class="mt">Aubagne</text><circle cx="234" cy="259" r="4" fill="#021859"/><text x="227" y="263" text-anchor="end" class="mt">Le Beausset</text><circle cx="256" cy="129" r="4" fill="#021859"/><text x="249" y="133" text-anchor="end" class="mt">Saint-Maximin</text><circle cx="424" cy="159" r="4" fill="#021859"/><text x="431" y="163" text-anchor="start" class="mt">Le Luc</text><circle cx="505" cy="272" r="4" fill="#4b6aa8"/><text x="512" y="276" text-anchor="start" class="mt">Cavalaire</text><circle cx="300" cy="290" r="10" fill="#f25430" stroke="#fff" stroke-width="3"/><text x="300" y="318" text-anchor="middle" class="mc">Grand Var</text><text x="300" y="540" text-anchor="middle" class="ms">Méditerranée · schéma indicatif, rayons à vol d'oiseau</text></svg><p class="small" style="padding:6px 10px 0">Même zone que la campagne notoriété, qui passe le relais à Noël le 2 décembre sur les mêmes foyers.</p></div>
-   </div>
+   <div class="grid g2"><div><h3>Réseaux sociaux</h3><div class="chips"><span class="chip soc">Facebook</span><span class="chip soc">Instagram</span><span class="chip hot">TikTok</span></div><h3 style="margin-top:26px">Audio</h3><div class="chips"><span class="chip spot" style="background:#1db954;color:#fff;border-color:#1db954">Spotify</span></div><p style="margin-top:20px">Même zone que la campagne notoriété, qui prépare le terrain depuis le 2 novembre sur les mêmes foyers.</p></div><div class="card" style="padding:12px"><svg class="map" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zone de diffusion autour de Grand Var"><rect x="0" y="0" width="600" height="560" rx="18" fill="#f3f7ff"/><circle cx="300" cy="290" r="229.99999999999997" fill="rgba(123,189,255,.18)" stroke="#7bbdff" stroke-width="2" stroke-dasharray="6 5"/><circle cx="300" cy="290" r="184.0" fill="rgba(123,189,255,.28)" stroke="#021859" stroke-width="1.6"/><text x="300" y="52.00000000000003" text-anchor="middle" class="ml">50 km</text><text x="300" y="98.0" text-anchor="middle" class="ml">40 km</text><circle cx="281" cy="297" r="4" fill="#021859"/><text x="273" y="291" text-anchor="end" class="mt">Toulon</text><circle cx="262" cy="308" r="4" fill="#021859"/><text x="255" y="312" text-anchor="end" class="mt">La Seyne-sur-Mer</text><circle cx="233" cy="299" r="4" fill="#021859"/><text x="226" y="303" text-anchor="end" class="mt">Sanary</text><circle cx="215" cy="291" r="4" fill="#021859"/><text x="208" y="295" text-anchor="end" class="mt">Bandol</text><circle cx="356" cy="299" r="4" fill="#021859"/><text x="363" y="303" text-anchor="start" class="mt">Hyères</text><circle cx="323" cy="262" r="4" fill="#021859"/><text x="330" y="266" text-anchor="start" class="mt">Solliès-Pont</text><circle cx="334" cy="238" r="4" fill="#021859"/><text x="341" y="242" text-anchor="start" class="mt">Cuers</text><circle cx="330" cy="153" r="4" fill="#021859"/><text x="337" y="157" text-anchor="start" class="mt">Brignoles</text><circle cx="445" cy="290" r="4" fill="#021859"/><text x="452" y="294" text-anchor="start" class="mt">Le Lavandou</text><circle cx="160" cy="271" r="4" fill="#021859"/><text x="153" y="275" text-anchor="end" class="mt">La Ciotat</text><circle cx="147" cy="210" r="4" fill="#021859"/><text x="140" y="214" text-anchor="end" class="mt">Aubagne</text><circle cx="234" cy="259" r="4" fill="#021859"/><text x="227" y="263" text-anchor="end" class="mt">Le Beausset</text><circle cx="256" cy="129" r="4" fill="#021859"/><text x="249" y="133" text-anchor="end" class="mt">Saint-Maximin</text><circle cx="424" cy="159" r="4" fill="#021859"/><text x="431" y="163" text-anchor="start" class="mt">Le Luc</text><circle cx="505" cy="272" r="4" fill="#4b6aa8"/><text x="512" y="276" text-anchor="start" class="mt">Cavalaire</text><circle cx="300" cy="290" r="10" fill="#f25430" stroke="#fff" stroke-width="3"/><text x="300" y="318" text-anchor="middle" class="mc">Grand Var</text><text x="300" y="540" text-anchor="middle" class="ms">Méditerranée · schéma indicatif, rayons à vol d'oiseau</text></svg><p class="small" style="padding:6px 10px 0">Cœur de zone 40 km, extension à 50 km.</p></div></div>
   </div>
  </section>
- <section class="alt" id="noel-planning">
+<section class="alt" id="noel-planning">
   <div class="wrap">
    <h2>Planning</h2>
    <div class="tw"><table class="plan">
-    <tr><th>Temps fort</th><th>S49<br>02/12</th><th>S50<br>07/12</th><th>S51<br>14/12</th><th>S52<br>21 → 23/12</th></tr>
-    <tr><td>Dimanches d'ouverture</td><td><i class="b t" title="jeu → dim 06/12"></i></td><td><i class="b t"></i></td><td><i class="b t"></i></td><td></td></tr>
-    <tr><td>Magie de Noël</td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td></tr>
-    <tr><td>Cartes cadeaux</td><td><i class="b l"></i></td><td><i class="b l"></i></td><td><i class="b"></i></td><td><i class="b"></i></td></tr>
-   </table></div>
-   <p class="small">Dimanches d'ouverture couverts : 06/12, 13/12 et 20/12, avec une diffusion concentrée du jeudi au dimanche midi chaque semaine. Magie de Noël : 02/12 → 23/12. Cartes cadeaux : 02/12 → 23/12, avec une montée en pression à partir du 14/12 pour les cadeaux de dernière minute.</p>
+    <tr><th>Temps fort</th><th>S47<br>18/11</th><th>S48<br>23/11</th><th>S49<br>30/11</th><th>S50<br>07/12</th><th>S51<br>14/12</th><th>S52<br>21/12</th><th>S53<br>28/12</th></tr>
+    <tr><td>Dimanches d'ouverture</td><td><i class="b b t"></i></td><td><i class="b b t"></i></td><td><i class="b b t"></i></td><td><i class="b b t"></i></td><td><i class="b b t"></i></td><td><i class="b b t"></i></td><td><i class="b b t"></i></td></tr>
+    <tr><td>Magie de Noël</td><td></td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b"></i></td><td></td></tr>
+    <tr><td>Cartes cadeaux</td><td><i class="b b l"></i></td><td><i class="b b l"></i></td><td><i class="b b l"></i></td><td><i class="b b l"></i></td><td><i class="b b l"></i></td><td><i class="b b l"></i></td><td><i class="b b l"></i></td></tr>
+    <tr><td>Meta</td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td></tr>
+    <tr><td>TikTok</td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td></tr>
+    <tr><td>Audio Spotify</td><td><i class="b b a"></i></td><td><i class="b b a"></i></td><td><i class="b b a"></i></td><td><i class="b b a"></i></td><td><i class="b b a"></i></td><td><i class="b b a"></i></td><td><i class="b b a"></i></td></tr>
+   </table></div><p class="small">Dimanches d'ouverture : 22/11, 29/11, 06/12, 13/12, 20/12 et 27/12, avec une diffusion concentrée du jeudi au dimanche midi. Magie de Noël : 23/11 → 24/12 pour annoncer le Père Noël dès le 25/11. Cartes cadeaux : CSE et entreprises jusqu'au 30/11, particuliers en décembre, étrennes du 26 au 31/12.</p>
   </div>
  </section>
- <section id="noel-budgets">
+<section id="noel-budgets">
   <div class="wrap">
-   <h2>Budgets</h2>
-   <div class="grid g2" style="margin-bottom:22px">
-    <div class="card c-menthe"><span class="tag">Option A · budget évoqué</span><div class="big">2 000 € HT</div><p class="small">≈333 300 impressions · ≈111 100 par semaine pour 3 messages</p></div>
-    <div class="card c-navy"><span class="tag" style="color:#ffb79e">Option B · recommandée</span><div class="big">3 500 € HT</div><p class="small">≈583 300 impressions · ≈194 400 par semaine pour 3 messages</p></div>
-   </div>
-   <h3>Détail option B · 3 500 € HT (recommandée)</h3>
-   <div class="tw"><table>
-    <tr><th>Temps fort</th><th>Levier</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
-    <tr><td>Dimanches d'ouverture</td><td>pStory Ads</td><td class="r">600 €</td><td class="r">6 €</td><td class="r">100 000</td></tr>
-    <tr><td>Dimanches d'ouverture</td><td>Display In-App 320x480</td><td class="r">600 €</td><td class="r">6 €</td><td class="r">100 000</td></tr>
-    <tr class="sub"><td colspan="2">Sous-total dimanches</td><td class="r">1 200 €</td><td></td><td class="r">200 000</td></tr>
-    <tr><td>Magie de Noël</td><td>pStory Ads</td><td class="r">700 €</td><td class="r">6 €</td><td class="r">≈116 700</td></tr>
-    <tr><td>Magie de Noël</td><td>Display In-App 320x480</td><td class="r">700 €</td><td class="r">6 €</td><td class="r">≈116 700</td></tr>
-    <tr class="sub"><td colspan="2">Sous-total magie de Noël</td><td class="r">1 400 €</td><td></td><td class="r">≈233 300</td></tr>
-    <tr><td>Cartes cadeaux</td><td>pStory Ads</td><td class="r">450 €</td><td class="r">6 €</td><td class="r">75 000</td></tr>
-    <tr><td>Cartes cadeaux</td><td>Display In-App 320x480</td><td class="r">450 €</td><td class="r">6 €</td><td class="r">75 000</td></tr>
-    <tr class="sub"><td colspan="2">Sous-total cartes cadeaux</td><td class="r">900 €</td><td></td><td class="r">150 000</td></tr>
-    <tr class="tot"><td colspan="2">Total Noël · option B</td><td class="r">3 500 €</td><td class="r">6 €</td><td class="r">≈583 300</td></tr>
-   </table></div>
-   <h3 style="margin-top:26px">Détail option A · 2 000 € HT</h3>
-   <div class="tw"><table>
-    <tr><th>Temps fort</th><th>Répartition</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
-    <tr><td>Dimanches d'ouverture</td><td>50 % pStory · 50 % In-App</td><td class="r">700 €</td><td class="r">6 €</td><td class="r">≈116 700</td></tr>
-    <tr><td>Magie de Noël</td><td>50 % pStory · 50 % In-App</td><td class="r">800 €</td><td class="r">6 €</td><td class="r">≈133 300</td></tr>
-    <tr><td>Cartes cadeaux</td><td>50 % pStory · 50 % In-App</td><td class="r">500 €</td><td class="r">6 €</td><td class="r">≈83 300</td></tr>
-    <tr class="tot"><td colspan="2">Total Noël · option A</td><td class="r">2 000 €</td><td class="r">6 €</td><td class="r">≈333 300</td></tr>
-   </table></div>
+   <h2>Budget</h2>
+   <h3>Par levier</h3><div class="tw"><table>
+    <tr><th>Levier</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
+    <tr><td>Meta (Facebook &amp; Instagram)</td><td class="r">2 400 €</td><td class="r">6 €</td><td class="r">400 000</td></tr>
+    <tr><td>TikTok</td><td class="r">1 800 €</td><td class="r">6 €</td><td class="r">300 000</td></tr>
+    <tr><td>Audio Spotify</td><td class="r">1 800 €</td><td class="r">9 €</td><td class="r">200 000</td></tr>
+    <tr class="tot"><td>Total Noël</td><td class="r">6 000 €</td><td class="r"></td><td class="r">≈900 000</td></tr>
+   </table></div><h3 style="margin-top:26px">Par phase</h3><div class="tw"><table>
+    <tr><th>Phase</th><th>Dates</th><th class="r">Budget HT</th></tr>
+    <tr><td>Phase 1 · lancement</td><td>18/11 → 24/11</td><td class="r">900 €</td></tr>
+    <tr><td>Phase 2 · pic de Noël</td><td>25/11 → 24/12</td><td class="r">4 200 €</td></tr>
+    <tr><td>Phase 3 · fin d'année</td><td>25/12 → 31/12</td><td class="r">900 €</td></tr>
+    <tr class="tot"><td colspan="2">Total</td><td class="r">6 000 €</td></tr>
+   </table></div><p class="small">Au sein de chaque phase, le budget est réparti entre Meta, TikTok et Spotify selon les mêmes proportions (40/30/30), avec un surpoids du jeudi au dimanche.</p>
   </div>
  </section>
- <section class="alt" id="noel-formats">
+<section class="alt" id="noel-formats">
   <div class="wrap">
    <h2>Formats &amp; KPIs de suivi</h2>
-   <div class="grid g2">
-    <div class="card"><h3>pStory Ads</h3><p><b>Format</b> · Story 9:16, 1080x1920 px, vidéo mp4 (6 à 15 s) ou visuel fixe. Une créa par temps fort, avec date ou mention « ce dimanche » bien lisible dans les 2 premières secondes.</p><p><b>KPIs</b> · impressions, reach, clics, CTR, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p></div>
-    <div class="card"><h3>Display In-App</h3><p><b>Format</b> · interstitiel 320x480 px, jpeg, png ou gif. Une déclinaison par temps fort.</p><p><b>KPIs</b> · impressions, clics, CTR, taux de visibilité, étude socio-démo, géolocalisation, affinitaires, visites mesurées en centre (lecture par temps fort et par jour).</p></div>
-   </div>
+   <div class="grid g3"><div class="card "><h3>Meta</h3><p><b>Format</b> · Story 9:16 1080x1920 px et post 1080x1080 px, vidéo mp4 (6 à 15 s recommandées) ou visuel fixe.</p><p><b>KPIs</b> · impressions, reach, clics, CTR, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p></div><div class="card "><h3>TikTok</h3><p><b>Format</b> · Story 9:16, 1080x1920 px, vidéo mp4 (6 à 15 s recommandées) ou visuel fixe.</p><p><b>KPIs</b> · impressions, reach, clics, CTR, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p></div><div class="card "><h3>Audio Spotify</h3><p><b>Format</b> · spot audio 15, 20 ou 30 s (mp3/wav) + visuel compagnon 1:1 640x640 px ou 9:16 720x1280 px.</p><p><b>KPIs</b> · impressions, reach, clics, écoutes à 25/50/75/100 %, taux de complétion, stats socio-démo, capping, CPE &amp; CPM finaux.</p></div></div>
   </div>
  </section>
- <section id="noel-audiences">
+<section id="noel-audiences">
   <div class="wrap">
    <h2>Audiences</h2>
-   <div class="grid g4">
-    <div class="card c-bleu"><div class="glyph">●</div><h3>Parents de jeunes enfants</h3><p>Foyers avec enfants de 2 à 10 ans : le Père Noël et la décoration sont leur raison de venir.</p></div>
-    <div class="card c-corail"><div class="glyph">■</div><h3>Acheteurs de dernière minute</h3><p>Actifs 25-50 ans pour qui le dimanche est le seul créneau disponible pour boucler les cadeaux.</p></div>
-    <div class="card c-peche"><div class="glyph">◆</div><h3>CSE &amp; entreprises</h3><p>Élus de CSE, dirigeants de TPE-PME et services RH du bassin, pour les commandes de cartes cadeaux de dernière minute.</p></div>
-    <div class="card c-menthe"><div class="glyph">◐</div><h3>Grands-parents</h3><p>55 ans et plus, gros offreurs de fin d'année, réceptifs à la carte cadeau et à la sortie avec les petits-enfants.</p></div>
-   </div>
+   <div class="grid g4"><div class="card c-bleu"><div class="glyph">●</div><h3>Parents de jeunes enfants</h3><p>Foyers avec enfants de 2 à 10 ans : le Père Noël et la décoration sont leur raison de venir.</p></div><div class="card c-corail"><div class="glyph">■</div><h3>Acheteurs de dernière minute</h3><p>Actifs 25-50 ans pour qui le dimanche est le seul créneau disponible pour boucler les cadeaux.</p></div><div class="card c-peche"><div class="glyph">◆</div><h3>CSE &amp; entreprises</h3><p>Élus de CSE, dirigeants de TPE-PME et services RH du bassin, prescripteurs de cartes cadeaux.</p></div><div class="card c-menthe"><div class="glyph">◐</div><h3>Grands-parents</h3><p>55 ans et plus, gros offreurs de fin d'année, réceptifs à la carte cadeau et à la sortie avec les petits-enfants.</p></div></div>
   </div>
  </section>
- <section class="alt" id="noel-data">
+<section class="alt" id="noel-data">
   <div class="wrap">
    <h2>Stratégie data</h2>
-   <div class="pyr">
-    <div class="l1"><b>Couche 1 · Intentionnistes Noël</b><span>Recherche de jouets, idées cadeaux, décoration de fêtes ; intérêts RH/CSE pour les cartes cadeaux</span></div>
-    <div class="l2"><b>Couche 2 · Retargeting notoriété &amp; fréquentation</b><span>Personnes exposées à l'onglet 01, visiteurs géo-historiques de Grand Var et des pôles commerciaux de la zone</span></div>
-    <div class="l3"><b>Couche 3 · Socio-démographie &amp; géographie</b><span>Foyers avec enfants, 25-65 ans, rayon 40-50 km</span></div>
-   </div>
-   <div class="chips" style="justify-content:center"><span class="chip">The Bradery · acheteurs cadeaux &amp; déco</span><span class="chip">Leboncoin · jouets &amp; puériculture</span><span class="chip">Choose · ventes exclusives</span><span class="chip">Data géo-historique mobile</span></div>
+   <div class="pyr"><div class="l1"><b>Couche 1 · Intentionnistes Noël</b><span>Recherche de jouets, idées cadeaux, décoration de fêtes ; intérêts RH/CSE pour les cartes cadeaux</span></div><div class="l2"><b>Couche 2 · Retargeting notoriété &amp; fréquentation</b><span>Personnes exposées à l'onglet 01, visiteurs géo-historiques de Grand Var et des pôles commerciaux de la zone</span></div><div class="l3"><b>Couche 3 · Socio-démographie &amp; géographie</b><span>Foyers avec enfants, 25-65 ans, rayon 40-50 km</span></div></div>
+   <div class="chips" style="justify-content:center"><span class="chip">Ciblages natifs Meta · TikTok · Spotify</span><span class="chip">The Bradery · acheteurs cadeaux &amp; déco</span><span class="chip">Leboncoin · jouets &amp; puériculture</span><span class="chip">Choose · ventes exclusives</span></div>
   </div>
  </section>
 </div>
-
-<!-- ================= 03 CASTING ================= -->
+<div class="panel" id="p-sea" data-sections="contexte:Contexte|dispositif:Dispositif|environnements:Environnements|planning:Planning|budgets:Budgets|formats:Formats &amp; KPIs|audiences:Intentions|data:Mots-clés|rgpd:RGPD|contacts:Contacts">
+<div class="tab-intro"><div class="wrap"><span class="tag">Onglet 03</span><h2>SEA · carte cadeau, marque &amp; centre commercial</h2>
+  <div class="pills"><span class="pill light"><b>Période</b> · 26/10 → 31/12</span><span class="pill light"><b>Budget</b> · 1 800 € HT</span><span class="pill light"><b>Zone</b> · Grand Var + 50 km</span><span class="pill light"><b>Levier</b> · Google Ads Search</span></div></div></div>
+<section id="sea-contexte">
+  <div class="wrap">
+   <h2>Contexte &amp; objectifs</h2>
+   <p class="lead">Le SEA est le volet qui convertit : il capte, au moment précis de la recherche, la demande créée par les campagnes social, display et audio. Il démarre fin octobre pour prendre position sur les cartes cadeaux d'entreprise avant le pic de Noël.</p>
+   <div class="grid g3"><div class="card c-peche"><span class="num">1</span><h3>Vendre la carte cadeau</h3><p>Être en tête des résultats dès qu'un habitant de la zone cherche une carte cadeau ou une idée de cadeau, et l'emmener directement sur la page carte cadeau.</p></div><div class="card c-bleu"><span class="num">2</span><h3>Protéger la marque</h3><p>Occuper la recherche « Grand Var » (horaires, dimanches d'ouverture, parking) face aux annonces concurrentes, et donner les bonnes infos au bon moment.</p></div><div class="card c-rose"><span class="num">3</span><h3>Capter le générique</h3><p>Apparaître sur les recherches « centre commercial Toulon », « magasins ouverts dimanche » ou « Père Noël Toulon » auprès de ceux qui ne pensent pas encore à Grand Var.</p></div></div>
+  </div>
+ </section>
+<section class="alt" id="sea-dispositif">
+  <div class="wrap">
+   <h2>Dispositif</h2>
+   <div class="grid g2"><div class="card "><span class="tag">Google Ads Search</span><h3>4 groupes d'annonces</h3><p>Annonces textuelles responsives avec extensions de lieu (adresse et itinéraire vers Grand Var), d'appel, de liens annexes (carte cadeau, horaires, Père Noël, enseignes) et d'accroche (« Ouvert les dimanches jusqu'au 27/12 », « Parking gratuit »).</p><p class="small">Facturation au clic · enchères optimisées sur les clics et les conversions</p></div><div class="card c-peche"><span class="tag">Accent carte cadeau</span><h3>39 % du budget</h3><p>Le groupe carte cadeau reçoit la plus grosse part, avec des landing pages dédiées (particuliers d'un côté, CSE et entreprises de l'autre) et un suivi des clics vers l'achat en ligne ou la demande de devis.</p></div></div><div class="funnel"><div><b>Fin octobre · novembre</b><span>Cartes cadeaux CSE &amp; entreprises, marque</span></div><div><b>Décembre</b><span>Pic : carte cadeau particuliers, dimanches, Père Noël</span></div><div><b>Fin décembre</b><span>Carte cadeau dernière minute et étrennes</span></div></div>
+  </div>
+ </section>
+<section id="sea-environnements">
+  <div class="wrap">
+   <h2>Environnements de diffusion</h2>
+   <div class="grid g2"><div><h3>Réseau</h3><div class="chips"><span class="chip soc">Google Search</span><span class="chip ">Google Maps (extension de lieu)</span></div><p style="margin-top:20px">Ciblage géographique Grand Var + 50 km, avec un ajustement d'enchères plus élevé dans les 20 premiers kilomètres, là où la probabilité de visite est la plus forte.</p></div><div class="card" style="padding:12px"><svg class="map" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zone de diffusion autour de Grand Var"><rect x="0" y="0" width="600" height="560" rx="18" fill="#f3f7ff"/><circle cx="300" cy="290" r="229.99999999999997" fill="rgba(123,189,255,.18)" stroke="#7bbdff" stroke-width="2" stroke-dasharray="6 5"/><circle cx="300" cy="290" r="184.0" fill="rgba(123,189,255,.28)" stroke="#021859" stroke-width="1.6"/><text x="300" y="52.00000000000003" text-anchor="middle" class="ml">50 km</text><text x="300" y="98.0" text-anchor="middle" class="ml">40 km</text><circle cx="281" cy="297" r="4" fill="#021859"/><text x="273" y="291" text-anchor="end" class="mt">Toulon</text><circle cx="262" cy="308" r="4" fill="#021859"/><text x="255" y="312" text-anchor="end" class="mt">La Seyne-sur-Mer</text><circle cx="233" cy="299" r="4" fill="#021859"/><text x="226" y="303" text-anchor="end" class="mt">Sanary</text><circle cx="215" cy="291" r="4" fill="#021859"/><text x="208" y="295" text-anchor="end" class="mt">Bandol</text><circle cx="356" cy="299" r="4" fill="#021859"/><text x="363" y="303" text-anchor="start" class="mt">Hyères</text><circle cx="323" cy="262" r="4" fill="#021859"/><text x="330" y="266" text-anchor="start" class="mt">Solliès-Pont</text><circle cx="334" cy="238" r="4" fill="#021859"/><text x="341" y="242" text-anchor="start" class="mt">Cuers</text><circle cx="330" cy="153" r="4" fill="#021859"/><text x="337" y="157" text-anchor="start" class="mt">Brignoles</text><circle cx="445" cy="290" r="4" fill="#021859"/><text x="452" y="294" text-anchor="start" class="mt">Le Lavandou</text><circle cx="160" cy="271" r="4" fill="#021859"/><text x="153" y="275" text-anchor="end" class="mt">La Ciotat</text><circle cx="147" cy="210" r="4" fill="#021859"/><text x="140" y="214" text-anchor="end" class="mt">Aubagne</text><circle cx="234" cy="259" r="4" fill="#021859"/><text x="227" y="263" text-anchor="end" class="mt">Le Beausset</text><circle cx="256" cy="129" r="4" fill="#021859"/><text x="249" y="133" text-anchor="end" class="mt">Saint-Maximin</text><circle cx="424" cy="159" r="4" fill="#021859"/><text x="431" y="163" text-anchor="start" class="mt">Le Luc</text><circle cx="505" cy="272" r="4" fill="#4b6aa8"/><text x="512" y="276" text-anchor="start" class="mt">Cavalaire</text><circle cx="300" cy="290" r="10" fill="#f25430" stroke="#fff" stroke-width="3"/><text x="300" y="318" text-anchor="middle" class="mc">Grand Var</text><text x="300" y="540" text-anchor="middle" class="ms">Méditerranée · schéma indicatif, rayons à vol d'oiseau</text></svg><p class="small" style="padding:6px 10px 0">Zone de recherche : Grand Var + 50 km.</p></div></div>
+  </div>
+ </section>
+<section class="alt" id="sea-planning">
+  <div class="wrap">
+   <h2>Planning</h2>
+   <div class="tw"><table class="plan">
+    <tr><th>Groupe d'annonces</th><th>S44<br>26/10</th><th>S45<br>02/11</th><th>S46<br>09/11</th><th>S47<br>16/11</th><th>S48<br>23/11</th><th>S49<br>30/11</th><th>S50<br>07/12</th><th>S51<br>14/12</th><th>S52<br>21/12</th><th>S53<br>28/12</th></tr>
+    <tr><td>Carte cadeau</td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td></tr>
+    <tr><td>Marque Grand Var</td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td></tr>
+    <tr><td>Centre commercial</td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td></tr>
+    <tr><td>Noël &amp; temps forts</td><td></td><td></td><td></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td><td><i class="b b s"></i></td></tr>
+   </table></div><p class="small">Diffusion du 26/10 au 31/12, avec un budget journalier qui monte à partir du 18/11 (lancement de Noël) et culmine les jeudis, vendredis et samedis de décembre.</p>
+  </div>
+ </section>
+<section id="sea-budgets">
+  <div class="wrap">
+   <h2>Budget</h2>
+   <div class="tw"><table>
+    <tr><th>Groupe d'annonces</th><th>Part</th><th class="r">Budget HT</th></tr>
+    <tr><td>Carte cadeau</td><td>39 %</td><td class="r">700 €</td></tr>
+    <tr><td>Marque Grand Var</td><td>22 %</td><td class="r">400 €</td></tr>
+    <tr><td>Centre commercial</td><td>22 %</td><td class="r">400 €</td></tr>
+    <tr><td>Noël &amp; temps forts</td><td>17 %</td><td class="r">300 €</td></tr>
+    <tr class="tot"><td colspan="2">Total SEA</td><td class="r">1 800 €</td></tr>
+   </table></div><div class="tw"><table>
+    <tr><th>Période</th><th>Dates</th><th class="r">Budget HT</th></tr>
+    <tr><td>Lancement</td><td>26/10 → 17/11</td><td class="r">400 €</td></tr>
+    <tr><td>Pic de Noël</td><td>18/11 → 24/12</td><td class="r">1 150 €</td></tr>
+    <tr><td>Fin d'année</td><td>25/12 → 31/12</td><td class="r">250 €</td></tr>
+    <tr class="tot"><td colspan="2">Total</td><td class="r">1 800 €</td></tr>
+   </table></div><p class="small">Estimation : CPC moyen de 0,50 à 0,80 € sur la zone, soit environ 2 300 à 3 600 clics vers le site de Grand Var. Les CPC réels dépendent de la concurrence sur les mots-clés et seront optimisés chaque semaine.</p>
+  </div>
+ </section>
+<section class="alt" id="sea-formats">
+  <div class="wrap">
+   <h2>Formats &amp; KPIs de suivi</h2>
+   <div class="grid g2"><div class="card "><h3>Formats</h3><p>Annonces responsives (jusqu'à 15 titres de 30 caractères et 4 descriptions de 90 caractères), extensions de lieu, d'appel, de liens annexes et d'accroche. À fournir : URL des pages carte cadeau (particuliers et entreprises), horaires, dates d'ouverture des dimanches.</p></div><div class="card "><h3>KPIs</h3><p>Impressions, clics, CTR, CPC moyen, part d'impressions sur la marque, conversions (clics vers l'achat de carte cadeau, demandes CSE, demandes d'itinéraire, appels), coût par conversion.</p></div></div>
+  </div>
+ </section>
+<section id="sea-audiences">
+  <div class="wrap">
+   <h2>Intentions de recherche</h2>
+   <div class="grid g4"><div class="card c-peche"><div class="glyph">●</div><h3>Chercheurs de cadeaux</h3><p>Ne savent pas quoi offrir et cherchent une solution simple : la carte cadeau multi-enseignes.</p></div><div class="card c-bleu"><div class="glyph">■</div><h3>Habitués de Grand Var</h3><p>Cherchent les horaires, l'ouverture du dimanche ou une enseigne précise avant de se déplacer.</p></div><div class="card c-rose"><div class="glyph">◆</div><h3>CSE &amp; entreprises</h3><p>Cherchent un fournisseur de cartes cadeaux pour leurs salariés, avec un besoin de devis.</p></div><div class="card c-menthe"><div class="glyph">◐</div><h3>Familles en sortie</h3><p>Cherchent où voir le Père Noël ou faire leurs courses de Noël un dimanche.</p></div></div>
+  </div>
+ </section>
+<section class="alt" id="sea-data">
+  <div class="wrap">
+   <h2>Mots-clés par groupe</h2>
+   <div class="tw"><table>
+    <tr><th>Groupe</th><th>Exemples de mots-clés</th></tr>
+    <tr><td>Carte cadeau</td><td>carte cadeau Grand Var, carte cadeau centre commercial Toulon, idée cadeau Noël Toulon, carte cadeau CSE</td></tr>
+    <tr><td>Marque Grand Var</td><td>Grand Var, Grand Var horaires, Grand Var ouvert dimanche, Grand Var La Valette, parking Grand Var</td></tr>
+    <tr><td>Centre commercial</td><td>centre commercial Toulon, centre commercial La Valette, shopping Toulon, magasins ouverts dimanche Toulon</td></tr>
+    <tr><td>Noël &amp; temps forts</td><td>Père Noël Toulon, photo Père Noël centre commercial, shopping de Noël Var, ouverture dimanche Noël</td></tr>
+   </table></div><p class="small">Mots-clés en requête exacte et expression, avec une liste de mots-clés négatifs (emploi, recrutement hors casting, gratuit, avis négatifs) pour concentrer le budget sur les intentions d'achat et de visite.</p>
+  </div>
+ </section>
+</div>
 <div class="panel" id="p-casting" data-sections="contexte:Contexte|dispositif:Dispositif|environnements:Environnements|planning:Planning|budgets:Budgets|formats:Formats &amp; KPIs|audiences:Audiences|data:Stratégie data|rgpd:RGPD|contacts:Contacts">
- <div class="tab-intro"><div class="wrap"><span class="tag">Onglet 03</span><h2>Grand casting &amp; défilé 18-25 ans</h2>
-  <div class="pills"><span class="pill light"><b>Période</b> · 02/11 → 22/11</span><span class="pill light"><b>Budget</b> · 1 000 € HT (option 1 500 €)</span><span class="pill light"><b>+ Spotify</b> · 850 €</span><span class="pill light"><b>Zone</b> · 30-40 km</span><span class="pill light"><b>Cible</b> · 18-25 ans</span></div></div></div>
- <section id="casting-contexte">
+<div class="tab-intro"><div class="wrap"><span class="tag">Onglet 04</span><h2>Grand casting &amp; défilé 18-25 ans</h2>
+  <div class="pills"><span class="pill light"><b>Période</b> · 02/11 → 22/11</span><span class="pill light"><b>Budget</b> · 3 000 € HT</span><span class="pill light"><b>Zone</b> · 30-40 km</span><span class="pill light"><b>Leviers</b> · TikTok · Instagram · Audio Spotify</span></div></div></div>
+<section id="casting-contexte">
   <div class="wrap">
    <h2>Contexte &amp; objectifs</h2>
    <p class="lead">Un grand casting et un défilé pour recruter des jeunes de 18 à 25 ans, avec une animation le dimanche 22 novembre, qui est aussi le premier dimanche d'ouverture de fin d'année : une belle occasion de faire entrer une nouvelle génération à Grand Var.</p>
-   <div class="grid g3">
-    <div class="card c-lavande"><span class="num">1</span><h3>Recruter</h3><p>Générer un maximum de candidatures 18-25 ans pour le casting, dans un rayon de 30 à 40 km.</p></div>
-    <div class="card c-corail"><span class="num">2</span><h3>Remplir le 22 novembre</h3><p>Faire venir candidat·es, proches et curieux le jour du défilé, en synergie avec l'ouverture dominicale.</p></div>
-    <div class="card c-bleu"><span class="num">3</span><h3>Rajeunir l'image</h3><p>Installer Grand Var dans les usages des 18-25 ans, là où ils passent leur temps : TikTok et Instagram.</p></div>
-   </div>
+   <div class="grid g3"><div class="card c-lavande"><span class="num">1</span><h3>Recruter</h3><p>Générer un maximum de candidatures 18-25 ans pour le casting, dans un rayon de 30 à 40 km.</p></div><div class="card c-corail"><span class="num">2</span><h3>Remplir le 22 novembre</h3><p>Faire venir candidat·es, proches et curieux le jour du défilé, en synergie avec le premier dimanche d'ouverture.</p></div><div class="card c-bleu"><span class="num">3</span><h3>Rajeunir l'image</h3><p>Installer Grand Var dans les usages des 18-25 ans, là où ils passent leur temps : TikTok, Instagram et Spotify.</p></div></div>
   </div>
  </section>
- <section class="alt" id="casting-dispositif">
+<section class="alt" id="casting-dispositif">
   <div class="wrap">
    <h2>Dispositif</h2>
-   <p class="lead">100 % Social en format Story, avec une sur-exploitation de TikTok : c'est la plateforme où les 18-25 ans passent le plus de temps, et où un casting se partage naturellement.</p>
-   <div class="grid g2">
-    <div class="card c-navy"><span class="tag" style="color:#ffb79e">70 %</span><h3>TikTok</h3><p>Levier principal. Format natif plein écran, son activé, fort potentiel de partage et de commentaires (« tague la personne qui doit postuler »).</p></div>
-    <div class="card"><span class="tag">30 %</span><h3>Instagram</h3><p>Stories et Reels placements Story : terrain naturel de la mode et du mannequinat, relais visuel du casting.</p></div>
-    <div class="card c-bleu" style="grid-column:1/-1"><span class="tag">Ajout · audio · 850 €</span><h3>Audio Spotify ciblé 18-25 ans</h3><p>Les 18-25 ans écoutent massivement Spotify, en version gratuite donc exposés à la publicité : dans les transports, à la fac, en soirée. Un spot court au ton direct (« Grand Var cherche ses mannequins ») complète la Story en touchant la cible dans un moment d'écoute exclusive, avec un visuel cliquable vers le formulaire d'inscription. Ciblage 18-25 ans, zone 30-40 km, affinités playlists pop, rap, électro et mode.</p><p class="small">CPM 9 € HT · 02/11 → 22/11 · 60 % phase candidatures, 40 % phase rendez-vous</p></div>
-   </div>
-   <div class="funnel">
-    <div><b>Phase 1 · Appel à candidatures</b><span>02 → 15/11 · 60 % du budget · message « Deviens mannequin d'un jour »</span></div>
-    <div><b>Phase 2 · Rendez-vous</b><span>16 → 22/11 · 40 % du budget · message « Le défilé, c'est dimanche »</span></div>
-    <div><b>Jour J · 22/11</b><span>Pic de diffusion du vendredi au dimanche midi</span></div>
-   </div>
+   <p class="lead">Social en format Story, avec TikTok surpondéré, complété par l'audio Spotify pour toucher la cible dans ses moments d'écoute.</p>
+   <div class="grid g3"><div class="card c-navy"><span class="tag" style="color:#ffb79e">50 % · 1 500 €</span><h3>TikTok</h3><p>Levier principal. Format natif plein écran, son activé, fort potentiel de partage et de commentaires (« tague la personne qui doit postuler »).</p><p class="small" style="color:#b9cdf2">CPM 6 € HT</p></div><div class="card "><span class="tag">25 % · 750 €</span><h3>Instagram</h3><p>Stories et Reels en placement Story : terrain naturel de la mode et du mannequinat, relais visuel du casting.</p><p class="small">CPM 6 € HT</p></div><div class="card c-bleu"><span class="tag">25 % · 750 €</span><h3>Audio Spotify</h3><p>Les 18-25 ans écoutent massivement Spotify en version gratuite : un spot court au ton direct (« Grand Var cherche ses mannequins »), avec visuel cliquable vers l'inscription. Affinités playlists pop, rap, électro et mode.</p><p class="small">CPM 9 € HT</p></div></div><div class="funnel"><div><b>Phase 1 · Appel à candidatures</b><span>02 → 15/11 · 60 % du budget · « Deviens mannequin d'un jour »</span></div><div><b>Phase 2 · Rendez-vous</b><span>16 → 22/11 · 40 % du budget · « Le défilé, c'est dimanche »</span></div><div><b>Jour J · 22/11</b><span>Pic de diffusion du vendredi au dimanche midi</span></div></div>
   </div>
  </section>
- <section id="casting-environnements">
+<section id="casting-environnements">
   <div class="wrap">
    <h2>Environnements de diffusion</h2>
-   <div class="grid g2">
-    <div>
-     <h3>Plateformes (Story)</h3>
-     <div class="chips"><span class="chip hot">TikTok · 70 %</span><span class="chip soc">Instagram · 30 %</span></div>
-     <h3 style="margin-top:22px">Audio (ajout)</h3>
-     <div class="chips"><span class="chip" style="background:#1db954;color:#fff;border-color:#1db954">Spotify · 850 €</span></div>
-     <p style="margin-top:20px">Zone resserrée à 30-40 km : c'est le rayon dans lequel un·e jeune de 18-25 ans se déplace pour un casting un dimanche. Le campus de La Garde, à quelques minutes de Grand Var, est au cœur de la zone.</p>
-    </div>
-    <div class="card" style="padding:12px"><svg class="map" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zone de diffusion autour de Grand Var"><rect x="0" y="0" width="600" height="560" rx="18" fill="#f3f7ff"/><circle cx="300" cy="290" r="230.0" fill="rgba(123,189,255,.18)" stroke="#7bbdff" stroke-width="2" stroke-dasharray="6 5"/><circle cx="300" cy="290" r="172.5" fill="rgba(123,189,255,.28)" stroke="#021859" stroke-width="1.6"/><text x="300" y="52.0" text-anchor="middle" class="ml">40 km</text><text x="300" y="109.5" text-anchor="middle" class="ml">30 km</text><circle cx="276" cy="298" r="4" fill="#021859"/><text x="268" y="292" text-anchor="end" class="mt">Toulon</text><circle cx="252" cy="313" r="4" fill="#021859"/><text x="245" y="317" text-anchor="end" class="mt">La Seyne-sur-Mer</text><circle cx="217" cy="301" r="4" fill="#021859"/><text x="210" y="305" text-anchor="end" class="mt">Sanary</text><circle cx="194" cy="291" r="4" fill="#021859"/><text x="187" y="295" text-anchor="end" class="mt">Bandol</text><circle cx="370" cy="301" r="4" fill="#021859"/><text x="377" y="305" text-anchor="start" class="mt">Hyères</text><circle cx="329" cy="256" r="4" fill="#021859"/><text x="336" y="260" text-anchor="start" class="mt">Solliès-Pont</text><circle cx="342" cy="226" r="4" fill="#021859"/><text x="349" y="230" text-anchor="start" class="mt">Cuers</text><circle cx="338" cy="118" r="4" fill="#4b6aa8"/><text x="345" y="122" text-anchor="start" class="mt">Brignoles</text><circle cx="481" cy="290" r="4" fill="#4b6aa8"/><text x="488" y="294" text-anchor="start" class="mt">Le Lavandou</text><circle cx="125" cy="266" r="4" fill="#4b6aa8"/><text x="118" y="270" text-anchor="end" class="mt">La Ciotat</text><circle cx="109" cy="190" r="4" fill="#4b6aa8"/><text x="102" y="194" text-anchor="end" class="mt">Aubagne</text><circle cx="218" cy="251" r="4" fill="#021859"/><text x="211" y="255" text-anchor="end" class="mt">Le Beausset</text><circle cx="245" cy="89" r="4" fill="#4b6aa8"/><text x="238" y="93" text-anchor="end" class="mt">Saint-Maximin</text><circle cx="455" cy="126" r="4" fill="#4b6aa8"/><text x="462" y="130" text-anchor="start" class="mt">Le Luc</text><circle cx="300" cy="290" r="10" fill="#f25430" stroke="#fff" stroke-width="3"/><text x="300" y="318" text-anchor="middle" class="mc">Grand Var</text><text x="300" y="540" text-anchor="middle" class="ms">Méditerranée · schéma indicatif, rayons à vol d'oiseau</text></svg><p class="small" style="padding:6px 10px 0">Cœur de zone 30 km, extension à 40 km (La Ciotat, Aubagne, Brignoles, Saint-Maximin, Le Luc).</p></div>
-   </div>
+   <div class="grid g2"><div><h3>Plateformes</h3><div class="chips"><span class="chip hot">TikTok · 50 %</span><span class="chip soc">Instagram · 25 %</span><span class="chip spot" style="background:#1db954;color:#fff;border-color:#1db954">Spotify · 25 %</span></div><p style="margin-top:20px">Zone resserrée à 30-40 km : c'est le rayon dans lequel un·e jeune de 18-25 ans se déplace pour un casting un dimanche. Le campus de La Garde, à quelques minutes de Grand Var, est au cœur de la zone.</p></div><div class="card" style="padding:12px"><svg class="map" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zone de diffusion autour de Grand Var"><rect x="0" y="0" width="600" height="560" rx="18" fill="#f3f7ff"/><circle cx="300" cy="290" r="230.0" fill="rgba(123,189,255,.18)" stroke="#7bbdff" stroke-width="2" stroke-dasharray="6 5"/><circle cx="300" cy="290" r="172.5" fill="rgba(123,189,255,.28)" stroke="#021859" stroke-width="1.6"/><text x="300" y="52.0" text-anchor="middle" class="ml">40 km</text><text x="300" y="109.5" text-anchor="middle" class="ml">30 km</text><circle cx="276" cy="298" r="4" fill="#021859"/><text x="268" y="292" text-anchor="end" class="mt">Toulon</text><circle cx="252" cy="313" r="4" fill="#021859"/><text x="245" y="317" text-anchor="end" class="mt">La Seyne-sur-Mer</text><circle cx="217" cy="301" r="4" fill="#021859"/><text x="210" y="305" text-anchor="end" class="mt">Sanary</text><circle cx="194" cy="291" r="4" fill="#021859"/><text x="187" y="295" text-anchor="end" class="mt">Bandol</text><circle cx="370" cy="301" r="4" fill="#021859"/><text x="377" y="305" text-anchor="start" class="mt">Hyères</text><circle cx="329" cy="256" r="4" fill="#021859"/><text x="336" y="260" text-anchor="start" class="mt">Solliès-Pont</text><circle cx="342" cy="226" r="4" fill="#021859"/><text x="349" y="230" text-anchor="start" class="mt">Cuers</text><circle cx="338" cy="118" r="4" fill="#4b6aa8"/><text x="345" y="122" text-anchor="start" class="mt">Brignoles</text><circle cx="481" cy="290" r="4" fill="#4b6aa8"/><text x="488" y="294" text-anchor="start" class="mt">Le Lavandou</text><circle cx="125" cy="266" r="4" fill="#4b6aa8"/><text x="118" y="270" text-anchor="end" class="mt">La Ciotat</text><circle cx="109" cy="190" r="4" fill="#4b6aa8"/><text x="102" y="194" text-anchor="end" class="mt">Aubagne</text><circle cx="218" cy="251" r="4" fill="#021859"/><text x="211" y="255" text-anchor="end" class="mt">Le Beausset</text><circle cx="245" cy="89" r="4" fill="#4b6aa8"/><text x="238" y="93" text-anchor="end" class="mt">Saint-Maximin</text><circle cx="455" cy="126" r="4" fill="#4b6aa8"/><text x="462" y="130" text-anchor="start" class="mt">Le Luc</text><circle cx="300" cy="290" r="10" fill="#f25430" stroke="#fff" stroke-width="3"/><text x="300" y="318" text-anchor="middle" class="mc">Grand Var</text><text x="300" y="540" text-anchor="middle" class="ms">Méditerranée · schéma indicatif, rayons à vol d'oiseau</text></svg><p class="small" style="padding:6px 10px 0">Cœur de zone 30 km, extension à 40 km (La Ciotat, Aubagne, Brignoles, Saint-Maximin, Le Luc).</p></div></div>
   </div>
  </section>
- <section class="alt" id="casting-planning">
+<section class="alt" id="casting-planning">
   <div class="wrap">
    <h2>Planning</h2>
    <div class="tw"><table class="plan">
     <tr><th>Plateforme</th><th>S45<br>02/11</th><th>S46<br>09/11</th><th>S47<br>16/11</th><th>Dim.<br>22/11</th></tr>
-    <tr><td>TikTok</td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b n"></i></td><td><i class="b star">Défilé</i></td></tr>
-    <tr><td>Instagram</td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b"></i></td><td><i class="b star">Défilé</i></td></tr>
-    <tr><td>+ Audio Spotify</td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b a"></i></td><td><i class="b star">Défilé</i></td></tr>
-   </table></div>
-   <p class="small">Phase 1 (S45-S46) : appel à candidatures. Phase 2 (S47) : rendez-vous du défilé, avec surpoids du vendredi 20 au dimanche 22 midi. Dates de clôture des inscriptions à caler avec l'organisation du casting.</p>
+    <tr><td>TikTok</td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b n"></i></td><td><i class="b b star">Défilé</i></td></tr>
+    <tr><td>Instagram</td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b"></i></td><td><i class="b b star">Défilé</i></td></tr>
+    <tr><td>Audio Spotify</td><td><i class="b b a"></i></td><td><i class="b b a"></i></td><td><i class="b b a"></i></td><td><i class="b b star">Défilé</i></td></tr>
+   </table></div><p class="small">Phase 1 (S45-S46) : appel à candidatures. Phase 2 (S47) : rendez-vous du défilé, avec surpoids du vendredi 20 au dimanche 22 midi. Dates de clôture des inscriptions à caler avec l'organisation du casting.</p>
   </div>
  </section>
- <section id="casting-budgets">
+<section id="casting-budgets">
   <div class="wrap">
-   <h2>Budgets</h2>
-   <div class="grid g2" style="margin-bottom:22px">
-    <div class="card c-navy"><span class="tag" style="color:#ffb79e">Recommandé</span><div class="big">1 000 € HT</div><p class="small">≈166 700 impressions sur 3 semaines<br>+ Spotify 850 € · total 1 850 € HT</p></div>
-    <div class="card c-lavande"><span class="tag">Option renforcée</span><div class="big">1 500 € HT</div><p class="small">250 000 impressions · davantage de répétition sur la phase candidatures</p></div>
-   </div>
-   <h3>Détail · 1 000 € HT</h3>
+   <h2>Budget</h2>
    <div class="tw"><table>
-    <tr><th>Phase</th><th>Plateforme</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
-    <tr><td>Phase 1 · candidatures</td><td>TikTok</td><td class="r">420 €</td><td class="r">6 €</td><td class="r">70 000</td></tr>
-    <tr><td>Phase 1 · candidatures</td><td>Instagram</td><td class="r">180 €</td><td class="r">6 €</td><td class="r">30 000</td></tr>
-    <tr class="sub"><td colspan="2">Sous-total phase 1</td><td class="r">600 €</td><td></td><td class="r">100 000</td></tr>
-    <tr><td>Phase 2 · rendez-vous</td><td>TikTok</td><td class="r">280 €</td><td class="r">6 €</td><td class="r">≈46 700</td></tr>
-    <tr><td>Phase 2 · rendez-vous</td><td>Instagram</td><td class="r">120 €</td><td class="r">6 €</td><td class="r">20 000</td></tr>
-    <tr class="sub"><td colspan="2">Sous-total phase 2</td><td class="r">400 €</td><td></td><td class="r">≈66 700</td></tr>
-    <tr class="sub"><td colspan="2">Total social</td><td class="r">1 000 €</td><td class="r">6 €</td><td class="r">≈166 700</td></tr>
-    <tr><td>Phase 1 · candidatures</td><td>+ Audio Spotify</td><td class="r">510 €</td><td class="r">9 €</td><td class="r">≈56 700</td></tr>
-    <tr><td>Phase 2 · rendez-vous</td><td>+ Audio Spotify</td><td class="r">340 €</td><td class="r">9 €</td><td class="r">≈37 800</td></tr>
-    <tr class="sub"><td colspan="2">Sous-total ajout Spotify</td><td class="r">850 €</td><td class="r">9 €</td><td class="r">≈94 400</td></tr>
-    <tr class="tot"><td colspan="2">Total casting &amp; défilé avec Spotify</td><td class="r">1 850 €</td><td class="r"></td><td class="r">≈261 100</td></tr>
-   </table></div>
-   <h3 style="margin-top:26px">Détail · option 1 500 € HT</h3>
-   <div class="tw"><table>
-    <tr><th>Plateforme</th><th>Part</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
-    <tr><td>TikTok</td><td>70 %</td><td class="r">1 050 €</td><td class="r">6 €</td><td class="r">175 000</td></tr>
-    <tr><td>Instagram</td><td>30 %</td><td class="r">450 €</td><td class="r">6 €</td><td class="r">75 000</td></tr>
-    <tr class="tot"><td colspan="2">Total option renforcée</td><td class="r">1 500 €</td><td class="r">6 €</td><td class="r">250 000</td></tr>
+    <tr><th>Phase</th><th>Levier</th><th class="r">Budget HT</th><th class="r">CPM</th><th class="r">Impressions</th></tr>
+    <tr><td>Phase 1 · candidatures</td><td>TikTok</td><td class="r">900 €</td><td class="r">6 €</td><td class="r">150 000</td></tr>
+    <tr><td>Phase 1 · candidatures</td><td>Instagram</td><td class="r">450 €</td><td class="r">6 €</td><td class="r">75 000</td></tr>
+    <tr><td>Phase 1 · candidatures</td><td>Audio Spotify</td><td class="r">450 €</td><td class="r">9 €</td><td class="r">50 000</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total phase 1</td><td class="r">1 800 €</td><td class="r"></td><td class="r">≈275 000</td></tr>
+    <tr><td>Phase 2 · rendez-vous</td><td>TikTok</td><td class="r">600 €</td><td class="r">6 €</td><td class="r">100 000</td></tr>
+    <tr><td>Phase 2 · rendez-vous</td><td>Instagram</td><td class="r">300 €</td><td class="r">6 €</td><td class="r">50 000</td></tr>
+    <tr><td>Phase 2 · rendez-vous</td><td>Audio Spotify</td><td class="r">300 €</td><td class="r">9 €</td><td class="r">≈33 300</td></tr>
+    <tr class="sub"><td colspan="2">Sous-total phase 2</td><td class="r">1 200 €</td><td class="r"></td><td class="r">≈183 300</td></tr>
+    <tr class="tot"><td colspan="2">Total casting &amp; défilé</td><td class="r">3 000 €</td><td class="r"></td><td class="r">≈458 300</td></tr>
    </table></div>
   </div>
  </section>
- <section class="alt" id="casting-formats">
+<section class="alt" id="casting-formats">
   <div class="wrap">
    <h2>Formats &amp; KPIs de suivi</h2>
-   <div class="grid g2">
-    <div class="card"><h3>Story TikTok &amp; Instagram</h3><p><b>Format</b> · 9:16, 1080x1920 px, vidéo mp4, 9 à 15 s, son activé.</p><p><b>Conseils créa</b> · tournage au smartphone plutôt que film publicitaire, visage ou silhouette dès la première seconde, message casting et date du 22/11 en texte à l'écran, appel à l'action clair (lien d'inscription).</p></div>
-    <div class="card"><h3>KPIs</h3><p>Impressions, reach, clics vers le formulaire d'inscription, CTR, interactions (partages, commentaires), coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion. À croiser avec le nombre de candidatures reçues et la fréquentation du 22/11.</p></div>
-    <div class="card" style="grid-column:1/-1"><h3>Audio Spotify</h3><p><b>Format</b> · spot audio 15 ou 20 s (mp3/wav) + visuel compagnon 1:1 640x640 px ou 9:16 720x1280 px, cliquable vers l'inscription. <b>KPIs</b> · impressions, reach, clics, écoutes à 25/50/75/100 %, taux de complétion, stats socio-démo, capping, CPE &amp; CPM finaux.</p></div>
-   </div>
+   <div class="grid g2"><div class="card "><h3>Story TikTok &amp; Instagram</h3><p><b>Format</b> · 9:16, 1080x1920 px, vidéo mp4, 9 à 15 s, son activé.</p><p><b>Conseils créa</b> · tournage au smartphone plutôt que film publicitaire, visage ou silhouette dès la première seconde, message casting et date du 22/11 en texte à l'écran, appel à l'action clair (lien d'inscription).</p><p><b>KPIs</b> · impressions, reach, clics vers le formulaire, CTR, interactions, coût par interaction, CPM final, vues à 25/50/75/100 %, taux de complétion.</p></div><div class="card "><h3>Audio Spotify</h3><p><b>Format</b> · spot audio 15, 20 ou 30 s (mp3/wav) + visuel compagnon 1:1 640x640 px ou 9:16 720x1280 px.</p><p><b>KPIs</b> · impressions, reach, clics, écoutes à 25/50/75/100 %, taux de complétion, stats socio-démo, capping, CPE &amp; CPM finaux.</p><p>À croiser avec le nombre de candidatures reçues et la fréquentation du 22/11.</p></div></div>
   </div>
  </section>
- <section id="casting-audiences">
+<section id="casting-audiences">
   <div class="wrap">
    <h2>Audiences</h2>
-   <div class="grid g4">
-    <div class="card c-lavande"><div class="glyph">●</div><h3>Étudiant·es</h3><p>18-23 ans, université de Toulon (campus de La Garde), BTS, écoles de mode, de commerce et d'esthétique du bassin.</p></div>
-    <div class="card c-corail"><div class="glyph">■</div><h3>Passionné·es de mode</h3><p>Suivent les tendances, les créateurs et les défilés, consomment beaucoup de contenus beauté et style.</p></div>
-    <div class="card c-bleu"><div class="glyph">◆</div><h3>Aspirant·es mannequins &amp; créateurs</h3><p>Créent déjà du contenu, cherchent une première expérience et de la visibilité.</p></div>
-    <div class="card c-menthe"><div class="glyph">◐</div><h3>Jeunes actifs</h3><p>21-25 ans en premier emploi ou en alternance, disponibles le dimanche.</p></div>
-   </div>
+   <div class="grid g4"><div class="card c-lavande"><div class="glyph">●</div><h3>Étudiant·es</h3><p>18-23 ans, université de Toulon (campus de La Garde), BTS, écoles de mode, de commerce et d'esthétique du bassin.</p></div><div class="card c-corail"><div class="glyph">■</div><h3>Passionné·es de mode</h3><p>Suivent les tendances, les créateurs et les défilés, consomment beaucoup de contenus beauté et style.</p></div><div class="card c-bleu"><div class="glyph">◆</div><h3>Aspirant·es mannequins &amp; créateurs</h3><p>Créent déjà du contenu, cherchent une première expérience et de la visibilité.</p></div><div class="card c-menthe"><div class="glyph">◐</div><h3>Jeunes actifs</h3><p>21-25 ans en premier emploi ou en alternance, disponibles le dimanche.</p></div></div>
   </div>
  </section>
- <section class="alt" id="casting-data">
+<section class="alt" id="casting-data">
   <div class="wrap">
    <h2>Stratégie data</h2>
-   <div class="pyr">
-    <div class="l1"><b>Couche 1 · Engagement</b><span>Utilisateurs engagés sur les contenus mode, mannequinat, défilés et beauté ; audiences similaires aux abonnés des comptes de Grand Var</span></div>
-    <div class="l2"><b>Couche 2 · Centres d'intérêt</b><span>Mode, beauté, danse, musique, photographie, sorties</span></div>
-    <div class="l3"><b>Couche 3 · Âge &amp; géographie</b><span>18-25 ans, rayon 30-40 km, surpoids sur les campus et quartiers étudiants</span></div>
-   </div>
-   <div class="chips" style="justify-content:center"><span class="chip">Ciblages natifs TikTok · Instagram</span><span class="chip">The Bradery · mode</span><span class="chip">Leboncoin · mode &amp; seconde main</span><span class="chip">Géofencing campus</span></div>
+   <div class="pyr"><div class="l1"><b>Couche 1 · Engagement</b><span>Utilisateurs engagés sur les contenus mode, mannequinat, défilés et beauté ; audiences similaires aux abonnés des comptes de Grand Var</span></div><div class="l2"><b>Couche 2 · Centres d'intérêt</b><span>Mode, beauté, danse, musique, photographie, sorties ; playlists pop, rap, électro sur Spotify</span></div><div class="l3"><b>Couche 3 · Âge &amp; géographie</b><span>18-25 ans, rayon 30-40 km, surpoids sur les campus et quartiers étudiants</span></div></div>
+   <div class="chips" style="justify-content:center"><span class="chip">Ciblages natifs TikTok · Instagram · Spotify</span><span class="chip">The Bradery · mode</span><span class="chip">Leboncoin · mode &amp; seconde main</span><span class="chip">Géofencing campus</span></div>
   </div>
  </section>
 </div>
-
-<!-- ================= COMMUN ================= -->
 <section class="alt" id="rgpd">
  <div class="wrap">
   <h2>RGPD &amp; brand safety</h2>
   <div class="grid g3">
    <div class="card"><h3>Données</h3><p>Ciblages fondés sur des données consenties (CMP conformes IAB TCF 2.2), agrégées et anonymisées. Aucune donnée personnelle client n'est transmise ni stockée par TGW.</p></div>
-   <div class="card"><h3>Environnements</h3><p>Listes d'exclusion d'applications et de contenus sensibles, contrôle de la visibilité et du trafic invalide sur l'ensemble de la diffusion display.</p></div>
-   <div class="card"><h3>Jeunes publics</h3><p>Campagne casting strictement réservée aux 18 ans et plus, conformément aux règles publicitaires de TikTok et Meta.</p></div>
+   <div class="card"><h3>Environnements</h3><p>Listes d'exclusion d'applications et de contenus sensibles, contrôle de la visibilité et du trafic invalide sur la diffusion display, mots-clés négatifs en SEA.</p></div>
+   <div class="card"><h3>Jeunes publics</h3><p>Campagne casting strictement réservée aux 18 ans et plus, conformément aux règles publicitaires de TikTok, Meta et Spotify.</p></div>
   </div>
  </div>
 </section>
@@ -676,7 +592,7 @@ a.ct:hover{border-color:var(--terra)}
     <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
     <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
     <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
-  </g></svg><span>Recommandation établie pour Grand Var · septembre 2026 · document confidentiel</span></div>
+  </g></svg><span>Recommandation établie pour Grand Var · octobre 2026 · document confidentiel</span></div>
  </div>
 </footer>
 
