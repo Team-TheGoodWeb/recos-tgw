@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Villa Roséa · Recommandation média · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#021859; --ice:#7bbdff; --terra:#f25430; --white:#ffffff;
+  --navy-80:#1d3170; --navy-10:#e6e9f2; --ice-15:#ebf5ff; --ice-30:#d2e8ff;
+  --terra-10:#feeae5; --terra-20:#fcd3c9; --peche:#fff3ee; --menthe:#e9eef8;
+  --bg:#f5f7fb; --ink:#141c3a; --muted:#5a6383; --line:#dfe4ef;
+  --radius:18px; --shadow:0 10px 30px rgba(2,24,89,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:Poppins,sans-serif;color:var(--navy);line-height:1.2}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+
+.hero{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-160px;top:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(123,189,255,.22),rgba(123,189,255,0) 70%)}
+.hero .wrap{position:relative;z-index:1;padding-top:36px;padding-bottom:64px}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.logo-hd svg{width:118px;height:auto;display:block}
+.hero-tag{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ice);font-weight:600;border:1px solid rgba(123,189,255,.4);padding:8px 14px;border-radius:999px}
+.hero h1{color:var(--white);font-size:clamp(34px,6vw,60px);font-weight:800;margin-top:44px;letter-spacing:-.01em}
+.hero h1 span{color:var(--terra)}
+.hero .lead{color:#cfd8f3;font-size:clamp(16px,2vw,19px);max-width:720px;margin-top:16px}
+.pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 16px;min-width:150px}
+.pill small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ice);font-weight:600}
+.pill b{font-family:Poppins,sans-serif;font-size:16px;font-weight:600;color:var(--white)}
+.pill.accent{background:var(--terra);border-color:var(--terra)}
+.pill.accent small{color:#ffe1d9}
+
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:16px;justify-content:space-between}
+.nav-links{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;padding:12px 0;flex:1;min-width:0}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{white-space:nowrap;text-decoration:none;font-size:13px;font-weight:500;color:var(--muted);padding:7px 6px;border-radius:999px}
+.nav-links a:hover{background:var(--ice-15);color:var(--navy)}
+.switch{display:inline-flex;background:var(--navy-10);border-radius:999px;padding:4px;gap:4px;flex-shrink:0}
+.switch button{font-family:Poppins,sans-serif;font-size:13px;font-weight:600;border:0;background:transparent;color:var(--navy);padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.switch button[aria-pressed="true"]{background:var(--navy);color:var(--white);box-shadow:0 4px 12px rgba(2,24,89,.25)}
+.switch button .reco{display:inline-block;margin-left:6px;background:var(--terra);color:#fff;font-size:10px;padding:2px 7px;border-radius:999px;letter-spacing:.04em;vertical-align:1px}
+.switch.sub button[aria-pressed="true"]{background:var(--terra)}
+.switch.sub{background:var(--terra-10)}
+
+
+section{padding:72px 0 0}
+section:last-of-type{padding-bottom:72px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--terra)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--terra)}
+h2{font-size:clamp(26px,3.6vw,38px);font-weight:700;margin:10px 0 14px}
+.intro{color:var(--muted);max-width:760px;font-size:17px}
+h3{font-size:19px;font-weight:600;margin-bottom:8px}
+.grid{display:grid;gap:18px;margin-top:28px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);border:1px solid rgba(2,24,89,.04)}
+.card p{color:var(--muted);font-size:15px}
+.c-bleu{background:var(--ice-15)}
+.c-menthe{background:var(--menthe)}
+.c-corail{background:var(--terra-10)}
+.c-peche{background:var(--peche)}
+.c-navy{background:var(--navy);color:#dfe6fb}
+.c-navy h3,.c-navy h4{color:var(--white)}
+.c-navy p{color:#c9d3f2}
+.num{font-family:Poppins,sans-serif;font-weight:800;font-size:15px;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--navy);color:var(--white);margin-bottom:14px}
+.card.c-corail .num{background:var(--terra)}
+.kfig{font-family:Poppins,sans-serif;font-size:28px;font-weight:700;color:var(--navy);line-height:1.1}
+.kfig small{font-size:14px;font-weight:500;color:var(--muted)}
+.klab{font-size:13px;color:var(--muted);margin-top:4px}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--ice-30);color:var(--navy);margin:0 6px 6px 0}
+.tag.t{background:var(--terra-10);color:#b53414}
+ul.clean{list-style:none;margin-top:10px}
+ul.clean li{position:relative;padding-left:20px;margin-bottom:8px;color:var(--muted);font-size:15px}
+ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:var(--terra)}
+.c-navy ul.clean li{color:#c9d3f2}
+
+
+.hpanel{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.hpanel{grid-template-columns:1fr}}
+.hcard{border-radius:var(--radius);padding:26px;cursor:pointer;border:2px solid transparent;background:var(--white);box-shadow:var(--shadow);text-align:left;font:inherit;color:inherit;transition:border-color .2s,transform .2s}
+.hcard:hover{transform:translateY(-2px)}
+.hcard[aria-pressed="true"]{border-color:var(--navy)}
+.hcard .hlab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.hcard h3{font-size:22px;margin:6px 0 8px}
+.hcard p{color:var(--muted);font-size:15px}
+.badge{display:inline-block;background:var(--terra);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;margin-left:8px;vertical-align:3px}
+.badge.alt{background:var(--ice-30);color:var(--navy)}
+.hcard .sel{margin-top:14px;font-size:13px;font-weight:600;color:var(--navy)}
+.hcard[aria-pressed="true"] .sel::before{content:"● "}
+.hcard[aria-pressed="false"] .sel{color:var(--muted)}
+
+
+.funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:22px;counter-reset:f}
+@media(max-width:820px){.funnel{grid-template-columns:1fr 1fr;gap:12px}}
+@media(max-width:520px){.funnel{grid-template-columns:1fr}}
+.fstep{position:relative;padding:22px 26px 22px 22px;background:var(--white);box-shadow:var(--shadow)}
+.fstep:first-child{border-radius:var(--radius) 0 0 var(--radius)}
+.fstep:last-child{border-radius:0 var(--radius) var(--radius) 0}
+@media(min-width:821px){.fstep:not(:last-child)::after{content:"";position:absolute;right:-12px;top:50%;width:24px;height:24px;background:var(--white);transform:translateY(-50%) rotate(45deg);border-top:1px solid var(--line);border-right:1px solid var(--line);z-index:2}}
+@media(max-width:820px){.fstep{border-radius:var(--radius)!important}}
+.fstep .st{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--terra)}
+.fstep h4{font-size:16px;margin:6px 0 6px}
+.fstep p{font-size:14px;color:var(--muted)}
+.fstep:nth-child(1){background:var(--ice-15)}
+.fstep:nth-child(1)::after{background:var(--ice-15)!important}
+.fstep:nth-child(4){background:var(--navy)}
+.fstep:nth-child(4) h4{color:#fff}.fstep:nth-child(4) p{color:#c9d3f2}.fstep:nth-child(4) .st{color:var(--ice)}
+
+
+.tagplan{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;margin-top:18px}
+@media(max-width:820px){.tagplan{grid-template-columns:1fr}}
+.trow{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+.trow:last-child{border-bottom:0}
+.tico{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:var(--ice-30);color:var(--navy);display:grid;place-items:center;font-weight:700;font-family:Poppins,sans-serif;font-size:14px}
+.trow b{display:block;font-size:15px;color:var(--navy)}
+.trow span{font-size:14px;color:var(--muted)}
+.who{display:grid;gap:12px}
+.who .card{padding:18px 20px}
+.who h4{font-size:15px;margin-bottom:4px}
+
+
+.mapcard{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;margin-top:28px}
+@media(max-width:860px){.mapcard{grid-template-columns:1fr}}
+.map svg{width:100%;height:auto;display:block}
+.legend{display:grid;gap:10px;margin-top:6px}
+.legend div{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+
+
+.plan{margin-top:28px;overflow-x:auto;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+.pgrid{display:grid;grid-template-columns:170px repeat(9,minmax(64px,1fr));min-width:820px;align-items:center}
+.pgrid .hd{font-family:Poppins,sans-serif;font-size:13px;font-weight:600;color:var(--navy);text-align:center;padding:10px 0;border-bottom:2px solid var(--navy)}
+.pgrid .hd.first{text-align:left}
+.pgrid .lab{font-size:14px;font-weight:600;color:var(--navy);padding:16px 10px 16px 0}
+.pgrid .lab small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.pgrid .cell{height:56px;border-left:1px dashed var(--line);position:relative}
+.bar{position:absolute;top:12px;height:32px;border-radius:10px;display:flex;align-items:center;padding:0 12px;font-size:12px;font-weight:600;color:#fff;white-space:nowrap;z-index:1}
+.bar.v1{background:var(--navy)}
+.bar.v2{background:var(--terra)}
+.bar.li{background:#0a66c2}
+.ms{position:absolute;top:18px;left:6px;font-size:12px;font-weight:600;color:var(--terra);white-space:nowrap}
+.ms::before{content:"";display:inline-block;width:10px;height:10px;transform:rotate(45deg);background:var(--terra);margin-right:8px;vertical-align:-1px}
+.pnote{font-size:13px;color:var(--muted);margin-top:14px}
+
+
+.tbl-wrap{overflow-x:auto;margin-top:18px;border-radius:var(--radius);box-shadow:var(--shadow);background:var(--white)}
+table{width:100%;border-collapse:collapse;min-width:680px;font-size:15px}
+thead th{background:var(--navy);color:var(--white);font-family:Poppins,sans-serif;font-weight:600;font-size:13px;text-align:left;padding:14px 16px;letter-spacing:.02em}
+tbody td{padding:14px 16px;border-bottom:1px solid var(--line)}
+tbody tr:nth-child(even) td{background:#fafbfe}
+td.r,th.r{text-align:right}
+tr.total td{background:var(--ice-15)!important;font-weight:700;color:var(--navy);border-bottom:0}
+.lv{font-weight:600;color:var(--navy)}
+.lv small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.wv{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px}
+.wv.a{background:var(--navy-10);color:var(--navy)}
+.wv.b{background:var(--terra-10);color:#b53414}
+.subbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:26px}
+.subbar h3{margin:0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+@media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--white);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+.kpi.n{background:var(--navy)}
+.kpi.n .kfig{color:#fff}.kpi.n .klab{color:#c9d3f2}
+.foot{font-size:13px;color:var(--muted);margin-top:12px}
+
+
+.cmp td:first-child{font-weight:600;color:var(--navy);width:28%}
+.cmp th.h1c{background:var(--navy)}
+.cmp th.h2c{background:var(--navy-80)}
+
+
+.pyr{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:26px}
+.lvl{color:#fff;text-align:center;padding:16px 20px;border-radius:12px}
+.lvl b{font-family:Poppins,sans-serif;display:block;font-size:16px}
+.lvl span{font-size:13px;opacity:.9}
+.lvl.l1{width:46%;background:var(--terra)}
+.lvl.l2{width:70%;background:var(--navy-80)}
+.lvl.l3{width:94%;background:var(--navy)}
+@media(max-width:620px){.lvl.l1,.lvl.l2,.lvl.l3{width:100%}}
+
+
+.glyph{font-size:22px;color:var(--terra);line-height:1;margin-bottom:12px}
+
+
+.args{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+@media(max-width:760px){.args{grid-template-columns:1fr}}
+.arg{border-left:4px solid var(--terra);background:var(--white);border-radius:0 14px 14px 0;padding:16px 18px;box-shadow:var(--shadow)}
+.arg b{font-family:Poppins,sans-serif;color:var(--navy);font-size:16px;display:block}
+.arg span{font-size:14px;color:var(--muted)}
+
+
+body[data-h="1"] .h2-only{display:none!important}
+body[data-h="2"] .h1-only{display:none!important}
+body[data-split="6040"] .s5050{display:none!important}
+body[data-split="5050"] .s6040{display:none!important}
+
+
+footer{background:var(--navy);color:#c9d3f2;margin-top:80px}
+footer .wrap{padding-top:56px;padding-bottom:40px}
+.ft-top{display:flex;gap:28px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.logo-ft svg{width:88px;height:auto;display:block}
+footer h2{color:#fff;font-size:28px;margin:0 0 6px}
+footer .intro{color:#c9d3f2}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+@media(max-width:900px){.contacts{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.contacts{grid-template-columns:1fr}}
+.ct{display:block;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 20px;transition:background .2s}
+a.ct:hover{background:rgba(255,255,255,.12)}
+.ct b{font-family:Poppins,sans-serif;color:#fff;font-size:16px;display:block}
+.ct .role{font-size:13px;color:var(--ice);font-weight:600}
+.ct .line{font-size:14px;color:#c9d3f2;margin-top:8px;display:block}
+.ct.ph{opacity:.7}
+.legal{border-top:1px solid rgba(255,255,255,.12);margin-top:36px;padding-top:20px;font-size:13px;color:#93a1cc;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media(max-width:620px){
+  .wrap{padding:0 16px}
+  .nav .wrap{flex-direction:column;align-items:stretch;gap:0;padding-bottom:10px}
+  .nav .switch{align-self:flex-start}
+  section{padding-top:56px}
+  .card{padding:20px}
+}
+</style>
+</head>
+<body data-h="1" data-split="6040">
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="logo-hd" aria-label="The Good Web"><svg xmlns="http://www.w3.org/2000/svg" viewBox="214 252 572 496" role="img" aria-label="The Good Web"> <g> <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/> <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/> <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/> <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/> <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/> <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/> <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/> <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/> <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/> <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/> </g> <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/> <g> <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/> <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/> <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/> <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/> <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/> <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/> </g> <g> <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/> <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/> <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/> <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/> <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/> <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/> <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/> <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/> <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/> <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/> <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/> <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/> <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> </g> </svg></div>
+      <div class="hero-tag">Recommandation média · Octobre 2026</div>
+    </div>
+    <h1>Villa Roséa<span>.</span><br>Cranves-Sales</h1>
+    <p class="lead">Un dispositif digital de génération de contacts pour accompagner la commercialisation des 6 villas du programme Crédit Agricole Immobilier, au cœur du Grand Genève.</p>
+    <div class="pills">
+      <div class="pill"><small>Période</small><b>Nov. 2026 à juil. 2027</b></div>
+      <div class="pill"><small>Activation</small><b>2 vagues de 6 semaines</b></div>
+      <div class="pill accent"><small>Budget</small><b>2 500 € HT</b></div>
+      <div class="pill"><small>Objectif</small><b>Génération de leads</b></div>
+      <div class="pill"><small>Zone</small><b>Genevois français</b></div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <div class="nav-links">
+      <a href="#contexte">Contexte</a>
+      <a href="#dispositif">Dispositif</a>
+      <a href="#environnements">Environnements</a>
+      <a href="#planning">Planning</a>
+      <a href="#budgets">Budgets</a>
+      <a href="#formats">Formats &amp; KPIs</a>
+      <a href="#audiences">Audiences</a>
+      <a href="#data">Stratégie data</a>
+      <a href="#rgpd">RGPD</a>
+      <a href="#contacts">Contacts</a>
+    </div>
+    <div class="switch" role="group" aria-label="Choix de l'hypothèse">
+      <button type="button" data-set-h="1" aria-pressed="true">Hypothèse 1<span class="reco">Reco</span></button>
+      <button type="button" data-set-h="2" aria-pressed="false">Hypothèse 2</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<section id="contexte">
+  <div class="wrap">
+    <span class="eyebrow">Contexte</span>
+    <h2>Un produit rare sur un marché de report très demandé</h2>
+    <p class="intro">Entre Annemasse, très dense, et les communes premium de première couronne, Cranves-Sales offre aux ménages du Genevois un équilibre rare : proximité de Genève, cadre nature et prix d'acquisition maîtrisés. Villa Roséa y propose ce que le marché local offre peu : des maisons neuves, individuelles, avec jardin.</p>
+
+    <div class="grid g4">
+      <div class="card"><div class="kfig">6</div><div class="klab">villas individuelles non mitoyennes</div></div>
+      <div class="card"><div class="kfig">T4</div><div class="klab">R+1, 2 places de parking et 1 garage par villa</div></div>
+      <div class="card"><div class="kfig">570 000 €</div><div class="klab">prix à partir de, TVA 20 %</div></div>
+      <div class="card c-corail"><div class="kfig">5 nov.</div><div class="klab">lancement commercial 2026, bureau de vente à Vétraz-Monthoux</div></div>
+    </div>
+
+    <h3 style="margin-top:44px">Vos objectifs</h3>
+    <div class="grid g4" style="margin-top:14px">
+      <div class="card"><div class="num">01</div><h3>Générer des contacts qualifiés</h3><p>Alimenter le bureau de vente en prospects intéressés par une maison avec jardin dans le Genevois.</p></div>
+      <div class="card"><div class="num">02</div><h3>Réussir le lancement</h3><p>Concentrer la pression média autour du lancement commercial du 5 novembre et de l'offre de lancement.</p></div>
+      <div class="card"><div class="num">03</div><h3>Relancer au bon moment</h3><p>Réactiver la demande au 2e trimestre 2027, en appui de la relance commerciale prévue.</p></div>
+      <div class="card c-corail"><div class="num">04</div><h3>Mesurer chaque contact</h3><p>Suivre précisément visites et demandes de contact grâce à un plan de taggage dédié.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="dispositif">
+  <div class="wrap">
+    <span class="eyebrow">Dispositif</span>
+    <h2>Deux hypothèses, un même objectif : le lead</h2>
+    <p class="intro">Plutôt que de diluer le budget sur neuf mois, nous le concentrons sur deux vagues de six semaines, aux deux temps forts de la commercialisation. Sélectionnez une hypothèse pour afficher le dispositif, le planning et les budgets correspondants.</p>
+
+    <div class="hpanel" role="group" aria-label="Choix de l'hypothèse">
+      <button type="button" class="hcard" data-set-h="1" aria-pressed="true">
+        <span class="hlab">Hypothèse 1</span><span class="badge">Recommandée</span>
+        <h3>Full Display IAB</h3>
+        <p>Display programmatique géolocalisé sur la zone de chalandise et les bassins de vie de la cible, enrichi de data d'intention immobilière, avec plan de taggage complet. Le maximum de volume et de répétition sur la zone.</p>
+        <div class="sel">Afficher l'hypothèse 1</div>
+      </button>
+      <button type="button" class="hcard" data-set-h="2" aria-pressed="false">
+        <span class="hlab">Hypothèse 2</span><span class="badge alt">Alternative</span>
+        <h3>LinkedIn et retargeting display</h3>
+        <p>LinkedIn pour toucher les actifs frontaliers par leur profil professionnel, puis retargeting display des visiteurs de la page programme grâce à la pose d'un pixel. La précision du ciblage professionnel.</p>
+        <div class="sel">Afficher l'hypothèse 2</div>
+      </button>
+    </div>
+
+    
+    <div class="h1-only">
+      <h3 style="margin-top:40px">Logique d'activation · Hypothèse 1</h3>
+      <div class="funnel">
+        <div class="fstep"><div class="st">Étape 1</div><h4>Prospection géolocalisée</h4><p>Display IAB diffusé sur la zone de chalandise et les bassins de vie actuels de la cible, filtré par data socio-démo et intention immobilière.</p></div>
+        <div class="fstep"><div class="st">Étape 2</div><h4>Visite de la page programme</h4><p>Chaque visite issue de la campagne est mesurée par le tag de visite.</p></div>
+        <div class="fstep"><div class="st">Étape 3</div><h4>Reciblage des visiteurs</h4><p>Les visiteurs qui n'ont pas encore pris contact sont de nouveau exposés, au sein du même budget display.</p></div>
+        <div class="fstep"><div class="st">Étape 4</div><h4>Demande de contact</h4><p>Le formulaire envoyé est comptabilisé par le tag de conversion, et votre bureau de vente reprend contact avec le prospect.</p></div>
+      </div>
+    </div>
+
+    
+    <div class="h2-only">
+      <h3 style="margin-top:40px">Logique d'activation · Hypothèse 2</h3>
+      <div class="funnel">
+        <div class="fstep"><div class="st">Étape 1</div><h4>LinkedIn</h4><p>Publicités sponsorisées dans le fil d'actualité, ciblant les membres résidant dans le Genevois français et travaillant dans le bassin genevois.</p></div>
+        <div class="fstep"><div class="st">Étape 2</div><h4>Visite de la page programme</h4><p>Le pixel posé sur la page programme identifie les visiteurs et alimente l'audience de retargeting.</p></div>
+        <div class="fstep"><div class="st">Étape 3</div><h4>Retargeting display</h4><p>Les visiteurs sont reciblés en display IAB pour rester exposés au programme jusqu'à leur prise de contact.</p></div>
+        <div class="fstep"><div class="st">Étape 4</div><h4>Demande de contact</h4><p>Le lead est comptabilisé par le tag de conversion et par l'Insight Tag LinkedIn.</p></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:40px">Les messages clés</h3>
+    <div class="args">
+      <div class="arg"><b>À 15 min de Genève</b><span>Gare d'Annemasse et Léman Express à moins de 15 minutes, accès rapide à l'A40 et à l'A411.</span></div>
+      <div class="arg"><b>Cadre de vie nature et familial</b><span>Une maison neuve avec jardin sur les coteaux des Voirons, avec vues sur le bassin genevois.</span></div>
+      <div class="arg"><b>Un patrimoine au cœur du Grand Genève</b><span>Un produit rare, NF Habitat, sur un secteur où la demande reste soutenue.</span></div>
+    </div>
+    <p class="foot">Pendant la vague 1, les créations mettent en avant l'offre de lancement (FNO) et la prise de rendez-vous au bureau de vente de Vétraz-Monthoux.</p>
+
+    <h3 style="margin-top:44px">Plan de taggage</h3>
+    <p class="intro" style="font-size:15px">Le plan de taggage est la condition d'une campagne de génération de leads réellement mesurable : il permet de compter chaque visite et chaque demande de contact issue de la campagne, et d'optimiser la diffusion en continu.</p>
+    <div class="tagplan">
+      <div class="card">
+        <h4 style="font-size:16px;margin-bottom:4px">Les tags à intégrer</h4>
+        <div class="trow"><div class="tico">1</div><div><b>Tag de visite</b><span>Sur la page programme Villa Roséa. Mesure les visites issues de la campagne et constitue l'audience de reciblage.</span></div></div>
+        <div class="trow"><div class="tico">2</div><div><b>Tag de conversion</b><span>Sur la page de confirmation affichée après l'envoi du formulaire de contact. Comptabilise chaque lead.</span></div></div>
+        <div class="trow h2-only"><div class="tico">3</div><div><b>Insight Tag LinkedIn</b><span>Sur la page programme et la page de confirmation. Mesure les conversions issues de LinkedIn.</span></div></div>
+      </div>
+      <div class="who">
+        <div class="card c-navy"><h4>The Good Web</h4><p>Fournit les tags et le plan de taggage détaillé, accompagne leur intégration et contrôle leur bon déclenchement avant chaque mise en ligne.</p></div>
+        <div class="card c-bleu"><h4>Vos équipes web</h4><p>Intègrent les tags sur la page programme et sur la page de confirmation du formulaire, au plus tard 3 jours avant le lancement de chaque vague.</p></div>
+        <div class="card c-peche"><h4>Prérequis</h4><p>Une page de confirmation dédiée après l'envoi du formulaire, ou un événement de validation équivalent, pour isoler chaque demande de contact.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="environnements">
+  <div class="wrap">
+    <span class="eyebrow">Environnements</span>
+    <h2>Là où la cible s'informe et décide</h2>
+
+    <div class="h1-only">
+      <p class="intro">Une diffusion programmatique sur des environnements premium et contrôlés, sur desktop et mobile.</p>
+      <div class="grid g4">
+        <div class="card c-bleu"><h3>Information</h3><p>Presse quotidienne régionale et sites d'actualité nationaux, au quotidien des actifs du bassin.</p></div>
+        <div class="card"><h3>Maison et habitat</h3><p>Sites et rubriques immobilier, décoration, jardin et finance personnelle.</p></div>
+        <div class="card"><h3>Famille et lifestyle</h3><p>Contenus parentalité, loisirs, sorties et cuisine, au cœur de la vie des familles.</p></div>
+        <div class="card c-corail"><h3>Applications mobiles</h3><p>Applications d'information, météo et services, pour accompagner les trajets domicile travail.</p></div>
+      </div>
+    </div>
+
+    <div class="h2-only">
+      <p class="intro">Deux environnements complémentaires : l'univers professionnel pour capter l'attention, le display pour maintenir le contact.</p>
+      <div class="grid g2">
+        <div class="card c-navy"><h3>LinkedIn</h3><p>Publicités sponsorisées au format natif dans le fil d'actualité, sur desktop et mobile, au moment où les actifs frontaliers consultent leur réseau professionnel.</p></div>
+        <div class="card c-bleu"><h3>Display IAB en retargeting</h3><p>Sites d'information, maison et habitat, famille et lifestyle, applications mobiles : les visiteurs de la page programme retrouvent Villa Roséa sur leurs sites habituels.</p></div>
+      </div>
+    </div>
+
+    <div class="mapcard">
+      <div class="card map">
+        <h3>Zone de diffusion</h3>
+        <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte schématique de la zone de diffusion autour de Cranves-Sales" style="font-family:Inter,sans-serif"><rect x="0" y="0" width="520" height="300" rx="14" fill="#f3f7fd"/><path d="M172 118 L188 110 L272 0 L222 0 Z" fill="#d2e8ff"/><text x="194" y="92" font-size="10" fill="#5a6383" transform="rotate(-58 194 92)">Lac Léman</text><text x="28" y="285" font-size="11" letter-spacing="2" fill="#9aa3bf">SUISSE</text><text x="440" y="285" font-size="11" letter-spacing="2" fill="#9aa3bf">FRANCE</text><path d="M330 168 Q 360 140 405 138 Q 450 132 482 210 Q 470 240 420 246 Q 380 296 345 282 Q 325 230 330 168 Z" fill="#021859" fill-opacity=".07" stroke="#021859" stroke-opacity=".35" stroke-dasharray="4 4"/><path d="M270 128 Q 300 106 345 112 Q 352 150 320 162 Q 280 166 270 128 Z" fill="#7bbdff" fill-opacity=".18" stroke="#7bbdff" stroke-dasharray="4 4"/><g class="h2-only"><path d="M50 40 Q 120 20 190 100 Q 200 180 150 190 Q 90 160 50 40 Z" fill="#0a66c2" fill-opacity=".08" stroke="#0a66c2" stroke-opacity=".5" stroke-dasharray="4 4"/></g><circle cx="404" cy="155" r="14" fill="#f25430" fill-opacity=".2"/><circle cx="404" cy="155" r="7" fill="#f25430" stroke="#fff" stroke-width="2"/><text x="404" y="139" text-anchor="middle" font-size="12" font-weight="700" fill="#021859">Villa Roséa</text><text x="404" y="183" text-anchor="middle" font-size="10" fill="#5a6383">Cranves-Sales</text><circle cx="339" cy="175" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="339" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Vétraz-Monthoux</text><circle cx="439" cy="195" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="449" y="199" text-anchor="start" font-size="11" font-weight="600" fill="#141c3a">Bonne</text><circle cx="430" cy="147" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="440" y="143" text-anchor="start" font-size="11" font-weight="600" fill="#141c3a">Lucinges</text><circle cx="468" cy="217" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="464" y="237" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Fillinges</text><circle cx="412" cy="232" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="402" y="236" text-anchor="end" font-size="11" font-weight="600" fill="#141c3a">Nangy</text><circle cx="358" cy="276" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="368" y="280" text-anchor="start" font-size="11" font-weight="600" fill="#141c3a">Reignier</text><circle cx="305" cy="144" r="5" fill="#7bbdff" stroke="#fff" stroke-width="1.5"/><text x="305" y="166" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Annemasse</text><circle cx="288" cy="138" r="5" fill="#7bbdff" stroke="#fff" stroke-width="1.5"/><text x="278" y="136" text-anchor="end" font-size="11" font-weight="600" fill="#141c3a">Ambilly</text><circle cx="329" cy="122" r="5" fill="#7bbdff" stroke="#fff" stroke-width="1.5"/><text x="329" y="110" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Ville-la-Grand</text><g class="h1-only"><circle cx="167" cy="119" r="4" fill="#9aa3bf"/></g><g class="h2-only"><rect x="162" y="114" width="10" height="10" rx="2" fill="#0a66c2"/></g><text x="157" y="123" text-anchor="end" font-size="11" font-weight="500" fill="#141c3a">Genève</text><g class="h1-only"><circle cx="70" cy="54" r="4" fill="#9aa3bf"/></g><g class="h2-only"><rect x="65" y="49" width="10" height="10" rx="2" fill="#0a66c2"/></g><text x="80" y="58" text-anchor="start" font-size="11" font-weight="500" fill="#141c3a">Meyrin</text><g class="h1-only"><circle cx="160" cy="171" r="4" fill="#9aa3bf"/></g><g class="h2-only"><rect x="155" y="166" width="10" height="10" rx="2" fill="#0a66c2"/></g><text x="150" y="175" text-anchor="end" font-size="11" font-weight="500" fill="#141c3a">Carouge</text><text x="339" y="207" text-anchor="middle" font-size="9.5" fill="#f25430" font-weight="600">Bureau de vente</text></svg>
+      </div>
+      <div class="card">
+        <h3>Ciblage géographique</h3>
+        <div class="legend">
+          <div><span class="dot" style="background:var(--terra)"></span>Villa Roséa, Cranves-Sales</div>
+          <div><span class="dot" style="background:var(--navy)"></span>Zone de chalandise</div>
+          <div><span class="dot" style="background:var(--ice)"></span>Bassins de vie actuels de la cible</div>
+          <div class="h2-only"><span class="dot" style="background:#0a66c2;border-radius:3px"></span>Pôles d'emploi genevois (ciblage LinkedIn)</div>
+        </div>
+        <p style="margin-top:16px"><b style="color:var(--navy)">Zone de chalandise :</b> Cranves-Sales, Vétraz-Monthoux, Bonne, Lucinges, Fillinges, Nangy, Reignier.</p>
+        <p style="margin-top:8px"><b style="color:var(--navy)">Bassins de vie :</b> Annemasse, Ville-la-Grand, Ambilly, où réside aujourd'hui une large part de la cible en appartement.</p>
+        <p class="h2-only" style="margin-top:8px"><b style="color:var(--navy)">LinkedIn :</b> membres résidant sur la zone et travaillant à Genève, Meyrin, Carouge ou Nyon.</p>
+        <p class="foot">Carte schématique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="planning">
+  <div class="wrap">
+    <span class="eyebrow">Planning</span>
+    <h2>Deux vagues aux deux temps forts</h2>
+    <p class="intro">Vague 1 calée sur le lancement commercial du 5 novembre 2026. Vague 2 en appui de la relance commerciale du 2e trimestre 2027, avant l'acquisition du terrain en juillet.</p>
+
+    <div class="subbar h1-only">
+      <div></div>
+      <div class="switch sub" role="group" aria-label="Répartition du budget">
+        <button type="button" data-set-split="6040" aria-pressed="true">60/40 · Recommandé</button>
+        <button type="button" data-set-split="5050" aria-pressed="false">50/50</button>
+      </div>
+    </div>
+
+    <div class="plan">
+      <div class="pgrid">
+        <div class="hd first">Levier</div>
+        <div class="hd">Nov.</div><div class="hd">Déc.</div><div class="hd">Janv.</div><div class="hd">Févr.</div><div class="hd">Mars</div><div class="hd">Avr.</div><div class="hd">Mai</div><div class="hd">Juin</div><div class="hd">Juil.</div>
+
+        <div class="lab">Temps forts<small>Commercialisation</small></div>
+        <div class="cell"><span class="ms">Lancement 5/11</span></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"><span class="ms">Relance</span></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+
+        <div class="lab h1-only">Display IAB<small>Prospection et reciblage</small></div>
+        <div class="cell h1-only" style="grid-column:span 9">
+          <div class="bar v1" style="left:0;width:15.5%"><span class="s6040">Vague 1 · 1 500 €</span><span class="s5050">Vague 1 · 1 250 €</span></div>
+          <div class="bar v2" style="left:55.5%;width:15.5%"><span class="s6040">Vague 2 · 1 000 €</span><span class="s5050">Vague 2 · 1 250 €</span></div>
+        </div>
+
+        <div class="lab h2-only">LinkedIn<small>Sponsored Content</small></div>
+        <div class="cell h2-only" style="grid-column:span 9">
+          <div class="bar li" style="left:0;width:15.5%">V1 · 1 200 €</div>
+          <div class="bar li" style="left:55.5%;width:15.5%">V2 · 800 €</div>
+        </div>
+        <div class="lab h2-only">Display IAB<small>Retargeting</small></div>
+        <div class="cell h2-only" style="grid-column:span 9">
+          <div class="bar v1" style="left:0;width:15.5%">V1 · 300 €</div>
+          <div class="bar v2" style="left:55.5%;width:15.5%">V2 · 200 €</div>
+        </div>
+      </div>
+    </div>
+    <p class="pnote">Chaque vague dure 6 semaines. Les dates de la vague 2 s'ajustent à votre calendrier commercial.</p>
+  </div>
+</section>
+
+
+<section id="budgets">
+  <div class="wrap">
+    <span class="eyebrow">Budgets</span>
+    <h2>2 500 € HT, répartis sur deux vagues</h2>
+
+    
+    <div class="h1-only">
+      <div class="subbar">
+        <h3>Hypothèse 1 · Full Display IAB</h3>
+        <div class="switch sub" role="group" aria-label="Répartition du budget">
+          <button type="button" data-set-split="6040" aria-pressed="true">60/40 · Recommandé</button>
+          <button type="button" data-set-split="5050" aria-pressed="false">50/50</button>
+        </div>
+      </div>
+
+      <div class="s6040">
+        <div class="kpis">
+          <div class="kpi n"><div class="kfig">416 700</div><div class="klab">impressions sur les 2 vagues</div></div>
+          <div class="kpi"><div class="kfig">50 000</div><div class="klab">contacts uniques estimés, vague 1</div></div>
+          <div class="kpi"><div class="kfig">33 300</div><div class="klab">contacts uniques estimés, vague 2</div></div>
+          <div class="kpi"><div class="kfig">6 €</div><div class="klab">CPM HT</div></div>
+        </div>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Levier</th><th>Vague</th><th class="r">Répartition</th><th class="r">Budget HT</th><th class="r">CPM HT</th><th class="r">Impressions</th><th class="r">Couverture estimée</th></tr></thead>
+          <tbody>
+            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv a">Vague 1 · 6 semaines</span></td><td class="r">60 %</td><td class="r">1 500 €</td><td class="r">6 €</td><td class="r">250 000</td><td class="r">50 000</td></tr>
+            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv b">Vague 2 · 6 semaines</span></td><td class="r">40 %</td><td class="r">1 000 €</td><td class="r">6 €</td><td class="r">166 700</td><td class="r">33 300</td></tr>
+            <tr class="total"><td>Total</td><td></td><td class="r">100 %</td><td class="r">2 500 €</td><td class="r">6 €</td><td class="r">416 700</td><td class="r">par vague</td></tr>
+          </tbody>
+        </table></div>
+        <p class="foot">Pourquoi 60/40 : le lancement concentre l'attention du marché, la nouveauté du programme et l'offre de lancement. La vague 2 entretient la demande à un niveau de pression plus léger.</p>
+      </div>
+
+      <div class="s5050">
+        <div class="kpis">
+          <div class="kpi n"><div class="kfig">416 700</div><div class="klab">impressions sur les 2 vagues</div></div>
+          <div class="kpi"><div class="kfig">41 700</div><div class="klab">contacts uniques estimés, vague 1</div></div>
+          <div class="kpi"><div class="kfig">41 700</div><div class="klab">contacts uniques estimés, vague 2</div></div>
+          <div class="kpi"><div class="kfig">6 €</div><div class="klab">CPM HT</div></div>
+        </div>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Levier</th><th>Vague</th><th class="r">Répartition</th><th class="r">Budget HT</th><th class="r">CPM HT</th><th class="r">Impressions</th><th class="r">Couverture estimée</th></tr></thead>
+          <tbody>
+            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv a">Vague 1 · 6 semaines</span></td><td class="r">50 %</td><td class="r">1 250 €</td><td class="r">6 €</td><td class="r">208 300</td><td class="r">41 700</td></tr>
+            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv b">Vague 2 · 6 semaines</span></td><td class="r">50 %</td><td class="r">1 250 €</td><td class="r">6 €</td><td class="r">208 300</td><td class="r">41 700</td></tr>
+            <tr class="total"><td>Total</td><td></td><td class="r">100 %</td><td class="r">2 500 €</td><td class="r">6 €</td><td class="r">416 700</td><td class="r">par vague</td></tr>
+          </tbody>
+        </table></div>
+        <p class="foot">Pourquoi 50/50 : une pression identique sur les deux temps forts, si la relance du 2e trimestre doit peser autant que le lancement.</p>
+      </div>
+      <p class="foot">Couverture estimée sur la base d'une répétition moyenne de 5 expositions par personne et par vague. Une partie des personnes touchées en vague 1 est de nouveau exposée en vague 2 : la couverture s'entend par vague.</p>
+    </div>
+
+    
+    <div class="h2-only">
+      <div class="subbar"><h3>Hypothèse 2 · LinkedIn et retargeting display</h3><span class="tag t">Répartition 60/40</span></div>
+      <div class="kpis">
+        <div class="kpi n"><div class="kfig">33 300</div><div class="klab">impressions LinkedIn sur les 2 vagues</div></div>
+        <div class="kpi"><div class="kfig">4 000</div><div class="klab">membres LinkedIn touchés, vague 1</div></div>
+        <div class="kpi"><div class="kfig">2 700</div><div class="klab">membres LinkedIn touchés, vague 2</div></div>
+        <div class="kpi"><div class="kfig">83 300</div><div class="klab">impressions de retargeting maximum</div></div>
+      </div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Levier</th><th>Vague</th><th class="r">Budget HT</th><th class="r">CPM HT</th><th class="r">Impressions</th><th class="r">Couverture estimée</th></tr></thead>
+        <tbody>
+          <tr><td class="lv">LinkedIn<small>Sponsored Content</small></td><td><span class="wv a">Vague 1</span></td><td class="r">1 200 €</td><td class="r">60 €</td><td class="r">20 000</td><td class="r">4 000</td></tr>
+          <tr><td class="lv">Display IAB<small>Retargeting</small></td><td><span class="wv a">Vague 1</span></td><td class="r">300 €</td><td class="r">6 €</td><td class="r">jusqu'à 50 000</td><td class="r">visiteurs de la page</td></tr>
+          <tr><td class="lv">LinkedIn<small>Sponsored Content</small></td><td><span class="wv b">Vague 2</span></td><td class="r">800 €</td><td class="r">60 €</td><td class="r">13 300</td><td class="r">2 700</td></tr>
+          <tr><td class="lv">Display IAB<small>Retargeting</small></td><td><span class="wv b">Vague 2</span></td><td class="r">200 €</td><td class="r">6 €</td><td class="r">jusqu'à 33 300</td><td class="r">visiteurs de la page</td></tr>
+          <tr class="total"><td>Total</td><td></td><td class="r">2 500 €</td><td class="r"></td><td class="r">33 300 + 83 300</td><td class="r">par vague</td></tr>
+        </tbody>
+      </table></div>
+      <p class="foot">Le volume de retargeting dépend du nombre réel de visiteurs de la page programme. S'il est inférieur à l'estimation, le budget non diffusé est réaffecté à LinkedIn en cours de campagne. Couverture LinkedIn estimée sur une répétition moyenne de 5 expositions par membre et par vague.</p>
+    </div>
+
+    <h3 style="margin-top:44px">Comparatif des deux hypothèses</h3>
+    <div class="tbl-wrap"><table class="cmp">
+      <thead><tr><th></th><th class="h1c">Hypothèse 1 · Full Display IAB</th><th class="h2c">Hypothèse 2 · LinkedIn et retargeting</th></tr></thead>
+      <tbody>
+        <tr><td>Budget</td><td>2 500 € HT</td><td>2 500 € HT</td></tr>
+        <tr><td>Impressions</td><td>416 700</td><td>33 300 sur LinkedIn, jusqu'à 83 300 en retargeting</td></tr>
+        <tr><td>Couverture vague 1</td><td>50 000 contacts uniques (60/40)</td><td>4 000 membres LinkedIn</td></tr>
+        <tr><td>Ciblage</td><td>Zone géographique, socio-démo et intention immobilière</td><td>Lieu de résidence et lieu de travail genevois</td></tr>
+        <tr><td>Point fort</td><td>Volume et répétition sur toute la zone</td><td>Précision du profil frontalier</td></tr>
+        <tr><td>Notre avis</td><td><span class="badge" style="margin:0">Recommandée</span></td><td><span class="badge alt" style="margin:0">Alternative ciblée</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+
+<section id="formats">
+  <div class="wrap">
+    <span class="eyebrow">Formats &amp; KPIs</span>
+    <h2>Formats attendus et indicateurs de suivi</h2>
+
+    <div class="grid g2 h1-only">
+      <div class="card">
+        <h3>Display IAB</h3>
+        <div style="margin-top:8px"><span class="tag">300x600</span><span class="tag">300x250</span><span class="tag">320x480</span><span class="tag">728x90</span><span class="tag">160x600</span><span class="tag">320x50</span></div>
+        <p style="margin-top:6px">Formats en pixels, fichiers jpeg, png ou gif.</p>
+      </div>
+      <div class="card c-bleu">
+        <h3>KPIs de suivi</h3>
+        <ul class="clean">
+          <li>Impressions, clics et CTR</li>
+          <li>Visites de la page programme (tag de visite)</li>
+          <li>Demandes de contact (tag de conversion)</li>
+          <li>Répartition géographique et profils socio-démo</li>
+          <li>Affinités des audiences exposées</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid g3 h2-only">
+      <div class="card">
+        <h3>LinkedIn</h3>
+        <div style="margin-top:8px"><span class="tag">1200x627</span><span class="tag">1080x1080</span></div>
+        <p style="margin-top:6px">Image unique jpg ou png. Texte d'introduction de 150 caractères conseillés, titre de 70 caractères.</p>
+      </div>
+      <div class="card">
+        <h3>Display IAB retargeting</h3>
+        <div style="margin-top:8px"><span class="tag">300x600</span><span class="tag">300x250</span><span class="tag">320x480</span><span class="tag">728x90</span><span class="tag">160x600</span><span class="tag">320x50</span></div>
+        <p style="margin-top:6px">Formats en pixels, fichiers jpeg, png ou gif.</p>
+      </div>
+      <div class="card c-bleu">
+        <h3>KPIs de suivi</h3>
+        <ul class="clean">
+          <li>Impressions, clics, CTR, couverture et répétition</li>
+          <li>Taux d'engagement LinkedIn</li>
+          <li>Visites de la page programme</li>
+          <li>Demandes de contact (tag de conversion et Insight Tag)</li>
+          <li>CPM final</li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot">Éléments créatifs à fournir au plus tard 3 jours avant le lancement de chaque vague, avec l'URL de destination de la page programme.</p>
+  </div>
+</section>
+
+
+<section id="audiences">
+  <div class="wrap">
+    <span class="eyebrow">Audiences</span>
+    <h2>Les profils que nous ciblons</h2>
+    <div class="grid g4">
+      <div class="card c-corail"><div class="glyph">●</div><h3>Familles frontalières</h3><p>Cœur de cible. 30 à 50 ans, couples avec 1 à 3 enfants, salariés à Genève, Meyrin, Carouge ou Nyon. Revenus du foyer de 80 000 à 150 000 € et plus.</p></div>
+      <div class="card"><div class="glyph">■</div><h3>Actifs en appartement</h3><p>Installés aujourd'hui à Annemasse, Ville-la-Grand ou Ambilly, ils cherchent un extérieur, un jardin et plus d'espace.</p></div>
+      <div class="card"><div class="glyph">◆</div><h3>Résidents côté suisse</h3><p>Ménages en quête d'un meilleur équilibre entre accessibilité, qualité de vie et prix d'acquisition, sur le marché de report du Genevois français.</p></div>
+      <div class="card"><div class="glyph">⌂</div><h3>Ménages de la zone</h3><p>Familles de Cranves-Sales et des communes voisines en projet d'agrandissement, attachées à leur secteur.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="data">
+  <div class="wrap">
+    <span class="eyebrow">Stratégie data</span>
+    <h2>Une architecture de ciblage en trois couches</h2>
+    <p class="intro">Chaque couche affine la précédente, pour concentrer le budget sur les ménages qui ont un vrai projet d'achat.</p>
+
+    <div class="pyr h1-only">
+      <div class="lvl l1"><b>Intention immobilière</b><span>Consultation de contenus immobilier neuf, crédit immobilier, simulateurs de prêt, recherche de maison</span></div>
+      <div class="lvl l2"><b>Socio-démo et centres d'intérêt</b><span>30 à 50 ans, foyers avec enfants, revenus élevés, intérêt pour la maison, le jardin et la famille (segments data Weborama)</span></div>
+      <div class="lvl l3"><b>Géolocalisation</b><span>Zone de chalandise de Cranves-Sales et bassins de vie d'Annemasse, Ville-la-Grand et Ambilly</span></div>
+    </div>
+
+    <div class="pyr h2-only">
+      <div class="lvl l1"><b>Visiteurs de la page programme</b><span>Audience de retargeting constituée par le pixel, exposée en display IAB</span></div>
+      <div class="lvl l2"><b>Profil professionnel LinkedIn</b><span>Membres travaillant pour des entreprises du bassin genevois, 30 à 50 ans</span></div>
+      <div class="lvl l3"><b>Lieu de résidence</b><span>Genevois français : zone de chalandise et bassins de vie d'Annemasse, Ville-la-Grand et Ambilly</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="rgpd">
+  <div class="wrap">
+    <span class="eyebrow">RGPD &amp; brand safety</span>
+    <h2>Une diffusion responsable et maîtrisée</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Données et consentement</h3>
+        <ul class="clean">
+          <li>Tags déclenchés uniquement après consentement de l'internaute, via la plateforme de gestion du consentement de votre site</li>
+          <li>Ciblage fondé sur des segments d'audience agrégés, sans exploitation de données personnelles nominatives</li>
+          <li>Aucune donnée issue des formulaires de contact n'est collectée par nos tags</li>
+        </ul>
+      </div>
+      <div class="card c-menthe">
+        <h3>Brand safety</h3>
+        <ul class="clean">
+          <li>Listes d'exclusion de sites et de contenus sensibles</li>
+          <li>Diffusion sur des environnements contrôlés et adaptés à l'image du Crédit Agricole Immobilier</li>
+          <li>Suivi de la visibilité des publicités et de la qualité du trafic</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contacts">
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <h2>Vos contacts</h2>
+        <p class="intro">Toute l'équipe The Good Web reste à votre disposition pour affiner ce dispositif avec vous.</p>
+      </div>
+      <div class="logo-ft" aria-label="The Good Web"><svg xmlns="http://www.w3.org/2000/svg" viewBox="214 252 572 496" role="img" aria-label="The Good Web"> <g> <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/> <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/> <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/> <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/> <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/> <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/> <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/> <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/> <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/> <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/> </g> <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/> <g> <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/> <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/> <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/> <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/> <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/> <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/> </g> <g> <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/> <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/> <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/> <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/> <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/> <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/> <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/> <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/> <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/> <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/> <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/> <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/> <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> </g> </svg></div>
+    </div>
+    <div class="contacts">
+      <a class="ct" href="mailto:sofien@thegoodweb.eu"><span class="role">Chef de publicité</span><b>Sofien Chaganiou</b><span class="line">07 67 84 70 67</span><span class="line">sofien@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:andrea@thegoodweb.eu"><span class="role">Cheffe de publicité</span><b>Andréa Alonso</b><span class="line">04 91 54 28 12</span><span class="line">andrea@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:mathilde@thegoodweb.eu"><span class="role">Directrice de clientèle</span><b>Mathilde Coriton</b><span class="line">06 48 61 92 92</span><span class="line">mathilde@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:jerome@thegoodweb.eu"><span class="role">Directeur commercial</span><b>Jérôme Fages</b><span class="line">06 18 74 66 75</span><span class="line">jerome@thegoodweb.eu</span></a>
+      <div class="ct ph"><span class="role">Pôle activation</span><b>Activation</b><span class="line">activation@thegoodweb.eu</span></div>
+    </div>
+    <div class="legal"><span>The Good Web · Recommandation média Villa Roséa</span><span>Octobre 2026 · Tarifs HT</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.body;
+  function sync(){
+    document.querySelectorAll('[data-set-h]').forEach(function(el){el.setAttribute('aria-pressed',el.getAttribute('data-set-h')===b.dataset.h?'true':'false')});
+    document.querySelectorAll('[data-set-split]').forEach(function(el){el.setAttribute('aria-pressed',el.getAttribute('data-set-split')===b.dataset.split?'true':'false')});
+  }
+  document.addEventListener('click',function(e){
+    var h=e.target.closest('[data-set-h]');
+    if(h){b.dataset.h=h.getAttribute('data-set-h');sync();return}
+    var s=e.target.closest('[data-set-split]');
+    if(s){b.dataset.split=s.getAttribute('data-set-split');sync()}
+  });
+  sync();
+})();
+</script>
+</body>
+</html>
