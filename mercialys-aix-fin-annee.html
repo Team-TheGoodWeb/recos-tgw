@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Galerie Aix · Fin d'année 2026 · Reco TGW</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#021859;--ice:#7bbdff;--terra:#f25430;--white:#ffffff;
+  --ink:#1c2340;--muted:#5b6382;--line:#e3e8f5;--soft:#F6F8FE;
+  --ice-50:#eef6ff;--terra-50:#fff1ec;--navy-50:#e8ebf4;--salmon:#ffb79e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:15px}
+h1,h2,h3,h4{font-family:Poppins,sans-serif;color:var(--navy);line-height:1.25}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+header.hero{background:var(--navy);color:var(--white);padding:44px 0 52px;position:relative;overflow:hidden}
+header.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(123,189,255,.18),transparent 70%)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.logo-h svg{height:118px;width:auto;display:block}
+.hero-meta{font-size:13px;color:var(--ice);text-align:right}
+.eyebrow{color:var(--salmon);font-family:Poppins;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;margin-top:34px}
+header.hero h1{color:var(--white);font-size:clamp(28px,4.6vw,46px);font-weight:800;margin:10px 0 12px;max-width:860px}
+.hero-sub{color:#cfe3ff;max-width:760px;font-size:16px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.pill{border:1.5px solid var(--ice);background:rgba(123,189,255,.06);border-radius:999px;padding:7px 15px;font-size:13px;color:var(--white)}
+.pill b{font-weight:700}
+
+/* NAV */
+nav.anchors{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.anchors .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.anchors .wrap::-webkit-scrollbar{display:none}
+nav.anchors a{white-space:nowrap;text-decoration:none;font-weight:700;font-size:13px;color:var(--navy);padding:14px 10px;border-bottom:3px solid transparent}
+nav.anchors a:hover{border-color:var(--terra);color:var(--terra)}
+
+/* SECTIONS */
+section{padding:64px 0}
+section:nth-of-type(even){background:var(--soft)}
+h2{font-size:clamp(23px,3vw,30px);font-weight:700;margin-bottom:8px}
+h2::before{content:"↘ ";color:var(--terra)}
+.lead{color:var(--muted);max-width:820px;margin-bottom:30px}
+h3{font-size:17px;font-weight:600;margin-bottom:6px}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}.hero-meta{text-align:left}section{padding:46px 0}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card p{color:var(--muted);font-size:14px}
+.num{font-family:Poppins;font-weight:800;color:var(--terra);font-size:28px;line-height:1;margin-bottom:10px}
+.c-bleu{background:var(--ice-50);border-color:#d3e7ff}
+.c-corail{background:var(--terra-50);border-color:#ffd9cc}
+.c-menthe{background:var(--navy);border-color:var(--navy)}
+.c-menthe h3,.c-menthe p,.c-menthe li{color:var(--white)}
+.c-menthe p{opacity:.85}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--navy-50);color:var(--navy);margin-bottom:10px}
+.tag.reco{background:var(--terra);color:var(--white)}
+ul.clean{list-style:none}
+ul.clean li{padding-left:18px;position:relative;font-size:14px;color:var(--muted);margin:5px 0}
+ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--terra)}
+.callout{border-left:4px solid var(--terra);background:var(--white);border-radius:0 14px 14px 0;padding:18px 22px;margin-top:24px}
+.callout p{color:var(--ink);font-size:14.5px}
+.callout b{color:var(--navy)}
+
+/* TABS */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tab{font-family:Poppins;font-weight:600;font-size:14px;border:1.5px solid var(--navy);background:var(--white);color:var(--navy);border-radius:999px;padding:9px 18px;cursor:pointer}
+.tab.active{background:var(--navy);color:var(--white)}
+.tab .star{color:var(--terra)}
+.tab.active .star{color:var(--salmon)}
+.panel{display:none}.panel.active{display:block}
+
+/* TABLE */
+.tbl-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);background:var(--white)}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+thead th{background:var(--navy);color:var(--white);font-family:Poppins;font-weight:600;text-align:left;padding:13px 14px;font-size:13px}
+td{padding:12px 14px;border-top:1px solid var(--line)}
+td.r,th.r{text-align:right}
+tr.total td{background:var(--terra-50);font-weight:700;color:var(--navy)}
+.bar{height:10px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:6px}
+.bar span{display:block;height:100%;background:var(--terra)}
+.bar span.ice{background:var(--ice)}.bar span.navy{background:var(--navy)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+@media(max-width:640px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--navy);border-radius:14px;padding:18px;color:var(--white)}
+.stat .v{font-family:Poppins;font-weight:800;font-size:26px}
+.stat .l{font-size:12.5px;color:#cfe3ff}
+
+/* FUNNEL */
+.funnel{display:flex;flex-direction:column;gap:10px;align-items:center}
+.fstep{border-radius:14px;padding:16px 22px;color:var(--white);text-align:center}
+.fstep h4{color:var(--white);font-size:15px}
+.fstep p{font-size:13px;opacity:.9}
+
+/* PLANNING */
+.plan{width:100%;min-width:640px}
+.plan td,.plan th{text-align:center;font-size:13px}
+.plan td:first-child,.plan th:first-child{text-align:left;font-weight:600;color:var(--navy);width:30%}
+.on{background:var(--terra);color:var(--white);font-weight:700;border-radius:4px}
+.on.ice{background:var(--ice);color:var(--navy)}
+.on.navy{background:var(--navy)}
+.hl{font-size:11px;color:var(--terra);font-weight:700}
+
+/* ENVIRONNEMENTS */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:13px;font-weight:600;color:var(--navy)}
+.chip.dark{background:var(--navy);color:var(--white);border-color:var(--navy)}
+
+/* PERSONA */
+.persona .glyph{font-size:22px;color:var(--terra);line-height:1}
+.persona h3{margin-top:8px}
+
+/* PYRAMID */
+.pyr{display:flex;flex-direction:column;align-items:center;gap:8px;margin:10px 0 26px}
+.layer{border-radius:12px;padding:14px 18px;text-align:center;color:var(--white)}
+.layer h4{color:var(--white);font-size:14px}
+.layer p{font-size:12.5px;opacity:.92}
+.l1{background:var(--terra);width:min(100%,520px)}
+.l2{background:var(--navy);width:min(100%,720px)}
+.l3{background:#3a5a99;width:100%}
+
+/* FOOTER */
+footer{background:var(--navy);color:var(--white);padding:56px 0 40px}
+footer h2{color:var(--white)}
+footer h2::before{color:var(--terra)}
+.contacts{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:26px 0 34px}
+@media(max-width:980px){.contacts{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.contacts{grid-template-columns:1fr}}
+.ct{display:block;text-decoration:none;border:1px solid rgba(123,189,255,.35);border-radius:14px;padding:16px;background:rgba(255,255,255,.04);transition:.2s}
+a.ct:hover{border-color:var(--terra);background:rgba(242,84,48,.08)}
+.ct .n{font-family:Poppins;font-weight:600;font-size:15px}
+.ct .r{font-size:12.5px;color:var(--ice);margin-bottom:8px}
+.ct .m{font-size:12.5px;color:#cfe3ff;word-break:break-word}
+.ct.off{opacity:.55;cursor:default}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(123,189,255,.25);padding-top:26px}
+.logo-f svg{height:88px;width:auto;display:block}
+.foot-bottom p{font-size:12.5px;color:#cfe3ff;max-width:520px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="logo-h"><svg  xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="214 252 572 496" aria-label="The Good Web">
+  
+  
+  <g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg></div>
+      <div class="hero-meta">Recommandation média · Octobre 2026<br>Pour Karrow Médias</div>
+    </div>
+    <div class="eyebrow">Mercialys · La Galerie Aix-en-Provence</div>
+    <h1>Fin d'année 2026 : faire de La Galerie le réflexe des petits budgets</h1>
+    <p class="hero-sub">Un reliquat de 1 250 € HT à concentrer sur une seule cible, au bon moment, pour générer de la visibilité locale et du trafic en galerie pendant la période de Noël.</p>
+    <div class="pills">
+      <span class="pill"><b>Période ·</b> 23 nov. › 20 déc. 2026</span>
+      <span class="pill"><b>Budget ·</b> 1 250 € HT</span>
+      <span class="pill"><b>Objectif ·</b> visibilité &amp; trafic galerie</span>
+      <span class="pill"><b>Zone ·</b> Aix-en-Provence +15 km</span>
+      <span class="pill"><b>Cibles ·</b> étudiants ou 40-50 ans PA modeste</span>
+    </div>
+  </div>
+</header>
+
+<nav class="anchors"><div class="wrap">
+  <a href="#contexte">Contexte</a><a href="#dispositif">Dispositif</a><a href="#environnements">Environnements</a><a href="#planning">Planning</a><a href="#budgets">Budgets</a><a href="#formats">Formats &amp; KPIs</a><a href="#audiences">Audiences</a><a href="#data">Stratégie data</a><a href="#rgpd">RGPD</a><a href="#contacts">Contacts</a>
+</div></nav>
+
+<!-- CONTEXTE -->
+<section id="contexte"><div class="wrap">
+  <h2>Contexte &amp; objectifs</h2>
+  <p class="lead">La Galerie Aix-en-Provence (Jas de Bouffan, 210 avenue de Brédasque) dispose d'un budget restant de 1 250 € HT à activer pour la fin d'année. Deux cibles sont envisagées : les étudiants, ou les 40-50 ans au pouvoir d'achat modeste. À ce niveau de budget, chaque euro doit travailler sur une seule cible et un seul message.</p>
+  <div class="grid g3">
+    <div class="card"><div class="num">01</div><h3>Rester présent sur le temps fort</h3><p>Exister dans le parcours d'achat de Noël face aux grands pôles aixois et marseillais, avec un message de proximité et de bons plans.</p></div>
+    <div class="card"><div class="num">02</div><h3>Générer du trafic en galerie</h3><p>Pousser les visites sur la zone de chalandise : Jas de Bouffan, Encagnane, Les Milles, Luynes, Éguilles, Venelles, campus aixois.</p></div>
+    <div class="card"><div class="num">03</div><h3>Maximiser chaque euro</h3><p>Un seul levier ou un duo resserré, une répétition suffisante sur la cible et un capping maîtrisé, plutôt qu'un saupoudrage peu mémorisé.</p></div>
+  </div>
+  <div class="callout"><p><b>Notre parti pris :</b> avec 1 250 € HT, adresser les deux cibles en même temps diviserait la pression par deux (moins de 80 000 impressions chacune). Nous proposons deux scénarios distincts, un par cible, et recommandons le scénario B. Le choix final peut se faire selon les enseignes et les offres que La Galerie souhaite mettre en avant.</p></div>
+</div></section>
+
+<!-- DISPOSITIF -->
+<section id="dispositif"><div class="wrap">
+  <h2>Dispositif recommandé</h2>
+  <p class="lead">Deux approches calibrées sur la même enveloppe, chacune pensée pour les usages média de sa cible.</p>
+  <div class="grid g2">
+    <div class="card c-bleu">
+      <span class="tag">Scénario A · Étudiants</span>
+      <h3>100 % Social Story Ads</h3>
+      <p>TikTok, Snapchat et Instagram en format vertical plein écran, là où les 18-25 ans passent l'essentiel de leur temps. Message bons plans Black Friday et cadeaux à petit prix.</p>
+      <ul class="clean" style="margin-top:12px">
+        <li>Géociblage campus et quartiers étudiants d'Aix</li>
+        <li>Diffusion avant le départ en vacances et la période d'examens</li>
+        <li>≈156 000 impressions</li>
+      </ul>
+    </div>
+    <div class="card c-corail">
+      <span class="tag reco">Scénario B · 40-50 ans · Recommandé</span>
+      <h3>Social Post+Story Meta + Display Drive-to-Store</h3>
+      <p>Facebook et Instagram pour la couverture sur une cible très présente sur Meta, complétés par du display drive-to-store pour mesurer les visites en galerie. Message Noël malin, cadeaux accessibles, tout au même endroit.</p>
+      <ul class="clean" style="margin-top:12px">
+        <li>Parents et foyers à budget contraint, cible prioritaire des achats de Noël</li>
+        <li>Visites en galerie mesurées grâce au DTS</li>
+        <li>≈144 000 impressions</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin:38px 0 16px">Logique d'activation</h3>
+  <div class="funnel">
+    <div class="fstep" style="background:var(--navy);width:min(100%,720px)"><h4>Visibilité locale</h4><p>Story et post en flux, répétition sur la zone de chalandise (capping 3 à 5 par personne)</p></div>
+    <div class="fstep" style="background:#3a5a99;width:min(100%,560px)"><h4>Considération</h4><p>Message bons plans de Noël, offres des enseignes, services de la galerie</p></div>
+    <div class="fstep" style="background:var(--terra);width:min(100%,400px)"><h4>Trafic en galerie</h4><p>Clic vers la page de La Galerie, itinéraire et visites mesurées (DTS, scénario B)</p></div>
+  </div>
+</div></section>
+
+<!-- ENVIRONNEMENTS -->
+<section id="environnements"><div class="wrap">
+  <h2>Environnements de diffusion</h2>
+  <p class="lead">Les plateformes et éditeurs mobilisés selon le scénario retenu.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Social Ads</h3>
+      <p>Scénario A : priorité aux plateformes à forte audience 18-25 ans. Scénario B : Meta, où les 40-50 ans sont les plus présents.</p>
+      <div class="chips"><span class="chip dark">TikTok · A</span><span class="chip dark">Snapchat · A</span><span class="chip dark">Instagram · A + B</span><span class="chip dark">Facebook · B</span></div>
+    </div>
+    <div class="card">
+      <h3>Display Drive-to-Store (scénario B)</h3>
+      <p>Diffusion programmatique sur des sites d'information, de services et de bons plans, en géolocalisation autour de la galerie.</p>
+      <div class="chips"><span class="chip">leboncoin</span><span class="chip">La Provence</span><span class="chip">20 Minutes</span><span class="chip">Marmiton</span><span class="chip">Le Figaro</span><span class="chip">Femme Actuelle</span><span class="chip">Version Femina</span><span class="chip">La Chaîne Météo</span><span class="chip">BFM TV</span><span class="chip">Vinted</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- PLANNING -->
+<section id="planning"><div class="wrap">
+  <h2>Planning d'activation</h2>
+  <p class="lead">Les étudiants quittent Aix à la mi-décembre (examens puis vacances) : le scénario A démarre dès le Black Friday. Les 40-50 ans concentrent leurs achats de Noël sur les trois premières semaines de décembre : le scénario B s'y cale.</p>
+  <div class="tbl-wrap"><table class="plan">
+    <thead><tr><th>Levier</th><th>S48<br>23-29/11</th><th>S49<br>30/11-6/12</th><th>S50<br>7-13/12</th><th>S51<br>14-20/12</th><th>S52<br>21-24/12</th></tr></thead>
+    <tbody>
+      <tr><td></td><td><span class="hl">Black Friday 27/11</span></td><td></td><td></td><td></td><td><span class="hl">Noël</span></td></tr>
+      <tr><td>A · Social Story Ads (étudiants)</td><td class="on ice">●</td><td class="on ice">●</td><td class="on ice">●</td><td></td><td></td></tr>
+      <tr><td>B · Social Post+Story Meta</td><td></td><td class="on">●</td><td class="on">●</td><td class="on">●</td><td></td></tr>
+      <tr><td>B · Display Drive-to-Store</td><td></td><td class="on navy">●</td><td class="on navy">●</td><td class="on navy">●</td><td></td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<!-- BUDGETS -->
+<section id="budgets"><div class="wrap">
+  <h2>Budgets</h2>
+  <p class="lead">Deux scénarios à budget identique de 1 250 € HT. CPM nets HT.</p>
+  <div class="tabs">
+    <button class="tab" data-t="pA">Scénario A · Étudiants</button>
+    <button class="tab active" data-t="pB"><span class="star">★</span> Scénario B · 40-50 ans</button>
+  </div>
+
+  <div class="panel" id="pA">
+    <div class="stats">
+      <div class="stat"><div class="v">1 250 €</div><div class="l">budget HT</div></div>
+      <div class="stat"><div class="v">≈156 000</div><div class="l">impressions</div></div>
+      <div class="stat"><div class="v">3 semaines</div><div class="l">23/11 › 13/12</div></div>
+    </div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Levier</th><th>Plateforme</th><th class="r">CPM</th><th class="r">Budget HT</th><th class="r">Impressions</th><th>Part</th></tr></thead>
+      <tbody>
+        <tr><td>Social Story Ads</td><td>TikTok</td><td class="r">8 €</td><td class="r">500 €</td><td class="r">62 500</td><td>40 %<div class="bar"><span class="ice" style="width:40%"></span></div></td></tr>
+        <tr><td>Social Story Ads</td><td>Snapchat</td><td class="r">8 €</td><td class="r">375 €</td><td class="r">46 875</td><td>30 %<div class="bar"><span class="ice" style="width:30%"></span></div></td></tr>
+        <tr><td>Social Story Ads</td><td>Instagram</td><td class="r">8 €</td><td class="r">375 €</td><td class="r">46 875</td><td>30 %<div class="bar"><span class="ice" style="width:30%"></span></div></td></tr>
+        <tr class="total"><td colspan="3">Total scénario A</td><td class="r">1 250 €</td><td class="r">156 250</td><td>100 %</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="panel active" id="pB">
+    <div class="stats">
+      <div class="stat"><div class="v">1 250 €</div><div class="l">budget HT</div></div>
+      <div class="stat"><div class="v">≈144 000</div><div class="l">impressions</div></div>
+      <div class="stat"><div class="v">3 semaines</div><div class="l">30/11 › 20/12</div></div>
+    </div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Levier</th><th>Plateforme</th><th class="r">CPM</th><th class="r">Budget HT</th><th class="r">Impressions</th><th>Part</th></tr></thead>
+      <tbody>
+        <tr><td>Social Post+Story</td><td>Facebook + Instagram</td><td class="r">8 €</td><td class="r">750 €</td><td class="r">93 750</td><td>60 %<div class="bar"><span style="width:60%"></span></div></td></tr>
+        <tr><td>Display Drive-to-Store</td><td>Sites éditeurs</td><td class="r">10 €</td><td class="r">500 €</td><td class="r">50 000</td><td>40 %<div class="bar"><span class="navy" style="width:40%"></span></div></td></tr>
+        <tr class="total"><td colspan="3">Total scénario B</td><td class="r">1 250 €</td><td class="r">143 750</td><td>100 %</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="callout"><p><b>Pourquoi le scénario B :</b> les 40-50 ans à budget contraint sont souvent parents et portent l'essentiel des achats de Noël. La Galerie leur répond bien (proximité, parking, plusieurs enseignes au même endroit). Le display drive-to-store apporte en plus une mesure concrète des visites, utile pour justifier le réinvestissement l'an prochain. Le scénario A reste pertinent si La Galerie a des offres étudiantes fortes (Black Friday, mode, tech, restauration).</p></div>
+</div></section>
+
+<!-- FORMATS -->
+<section id="formats"><div class="wrap">
+  <h2>Formats &amp; KPIs de suivi par levier</h2>
+  <p class="lead">Limités aux leviers recommandés dans les deux scénarios.</p>
+  <div class="grid g2">
+    <div class="card">
+      <span class="tag">Social Ads · A + B</span>
+      <h3>Formats</h3>
+      <ul class="clean"><li>Post 1080x1080 px</li><li>Story 9:16, 1080x1920 px, mp4 (vidéo 10 à 15 s conseillée)</li><li>Visuel statique accepté, vidéo recommandée pour TikTok et Snapchat</li></ul>
+      <h3 style="margin-top:14px">KPIs</h3>
+      <ul class="clean"><li>Impressions, reach, clics, CTR</li><li>Interactions et coût par interaction, CPM final</li><li>Vues à 25 / 50 / 75 / 100 % et taux de complétion</li></ul>
+    </div>
+    <div class="card">
+      <span class="tag">pDisplay Drive-to-Store · B</span>
+      <h3>Formats</h3>
+      <ul class="clean"><li>300x600, 300x250, 320x480, 728x90, 160x600, 320x50 px</li><li>jpeg, png ou gif</li><li>320x480 à privilégier (meilleur format sur nos campagnes retail)</li></ul>
+      <h3 style="margin-top:14px">KPIs</h3>
+      <ul class="clean"><li>Impressions, clics, CTR, taux de visibilité</li><li>Étude socio-démo, géoloc et affinitaires</li><li>Visites en galerie et taux de visite</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- AUDIENCES -->
+<section id="audiences"><div class="wrap">
+  <h2>Audiences</h2>
+  <p class="lead">Zone : Aix-en-Provence et communes à 15 km autour de La Galerie (Jas de Bouffan, Encagnane, Les Milles, Luynes, Éguilles, Venelles, Bouc-Bel-Air, Gardanne).</p>
+  <div class="grid g2">
+    <div class="card c-bleu">
+      <span class="tag">Scénario A</span>
+      <div class="grid g2" style="margin-top:6px">
+        <div class="persona"><div class="glyph">●</div><h3>L'étudiant malin</h3><p>18-25 ans, budget serré, chasse les bons plans du Black Friday et les petits cadeaux avant de rentrer en famille.</p></div>
+        <div class="persona"><div class="glyph">◆</div><h3>Le jeune actif en alternance</h3><p>20-26 ans, apprentis et alternants des campus aixois, sensibles aux enseignes mode, tech et restauration rapide.</p></div>
+      </div>
+    </div>
+    <div class="card c-corail">
+      <span class="tag reco">Scénario B · Recommandé</span>
+      <div class="grid g2" style="margin-top:6px">
+        <div class="persona"><div class="glyph">⌂</div><h3>Le parent qui compte</h3><p>40-50 ans, enfants à la maison, budget Noël contraint : cherche à tout trouver au même endroit, sans se déplacer loin.</p></div>
+        <div class="persona"><div class="glyph">◐</div><h3>Le foyer bons plans</h3><p>40-50 ans, revenus modestes, acheteur régulier sur leboncoin et les ventes privées, sensible aux promotions et au prix.</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- DATA -->
+<section id="data"><div class="wrap">
+  <h2>Stratégie data</h2>
+  <p class="lead">Une architecture en trois couches pour concentrer le budget sur les profils les plus susceptibles de venir en galerie.</p>
+  <div class="pyr">
+    <div class="layer l1"><h4>Couche 1 · Profils d'achat</h4><p>A : acheteurs mode, tech et cadeaux petits prix · B : intentionnistes cadeaux de Noël, jouets, mode enfant</p></div>
+    <div class="layer l2"><h4>Couche 2 · Comportements &amp; centres d'intérêt</h4><p>A : vie étudiante, sorties, gaming, streetwear · B : bons plans, ventes privées, seconde main, famille et maison</p></div>
+    <div class="layer l3"><h4>Couche 3 · Socio-démo &amp; géolocalisation</h4><p>A : 18-25 ans, géofencing campus (Schuman, Gazelles, Arts et Métiers, IUT) · B : 40-50 ans, IRIS à revenus modestes dans les 15 km</p></div>
+  </div>
+  <div class="grid g3">
+    <div class="card"><h3>Data leboncoin</h3><p>Profils acheteurs bons plans, seconde main, équipement de la maison et puériculture. Diffusion anonymisée, idéale pour le scénario B.</p></div>
+    <div class="card"><h3>Data The Bradery &amp; Choose</h3><p>Personnes ayant consulté des ventes privées et des offres à prix réduits : signal fort de sensibilité promo.</p></div>
+    <div class="card"><h3>Géofencing &amp; socio-démo</h3><p>Ciblage des lieux de vie (campus, résidences, quartiers) et des zones à revenus modestes autour de La Galerie.</p></div>
+  </div>
+</div></section>
+
+<!-- RGPD -->
+<section id="rgpd"><div class="wrap">
+  <h2>RGPD &amp; brand safety</h2>
+  <div class="grid g3" style="margin-top:20px">
+    <div class="card c-menthe"><h3>Données conformes</h3><p>Partenaires data opt-in, données agrégées et anonymisées, aucune donnée personnelle transmise à l'annonceur.</p></div>
+    <div class="card c-menthe"><h3>Brand safety</h3><p>Listes d'exclusion de contenus sensibles, contrôle des environnements et filtrage du trafic invalide.</p></div>
+    <div class="card c-menthe"><h3>Capping &amp; pression</h3><p>Répétition maîtrisée (3 à 5 expositions par personne) pour mémoriser sans saturer.</p></div>
+  </div>
+</div></section>
+
+<footer id="contacts"><div class="wrap">
+  <h2>Contacts</h2>
+  <div class="contacts">
+    <a class="ct" href="mailto:jerome@thegoodweb.eu"><div class="n">Jérôme Fages</div><div class="r">Directeur commercial</div><div class="m">06 18 74 66 75<br>jerome@thegoodweb.eu</div></a>
+    <a class="ct" href="mailto:mathilde@thegoodweb.eu"><div class="n">Mathilde Coriton</div><div class="r">Directrice de clientèle</div><div class="m">06 48 61 92 92<br>mathilde@thegoodweb.eu</div></a>
+    <a class="ct" href="mailto:andrea@thegoodweb.eu"><div class="n">Andrea Alonso</div><div class="r">Cheffe de publicité junior</div><div class="m">04 91 54 28 12<br>andrea@thegoodweb.eu</div></a>
+    <a class="ct" href="mailto:sofien@thegoodweb.eu"><div class="n">Sofien Chaganiou</div><div class="r">Chef de publicité</div><div class="m">07 67 84 70 67<br>sofien@thegoodweb.eu</div></a>
+    <div class="ct off"><div class="n">Pôle activation</div><div class="r">Bientôt disponible</div><div class="m">activation@thegoodweb.eu</div></div>
+  </div>
+  <div class="foot-bottom">
+    <div class="logo-f"><svg  xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="214 252 572 496" aria-label="The Good Web">
+  
+  
+  <g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g>
+</svg></div>
+    <p>The Good Web, régie publicitaire digitale · Marseille. Recommandation confidentielle établie pour Karrow Médias et La Galerie Aix-en-Provence. Volumes estimés, montants HT.</p>
+  </div>
+</div></footer>
+
+<script>
+document.querySelectorAll('.tab').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');document.getElementById(b.dataset.t).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
