@@ -44,7 +44,7 @@ a{color:inherit}
 .nav .wrap{display:flex;align-items:center;gap:16px;justify-content:space-between}
 .nav-links{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;padding:12px 0;flex:1;min-width:0}
 .nav-links::-webkit-scrollbar{display:none}
-.nav-links a{white-space:nowrap;text-decoration:none;font-size:13px;font-weight:500;color:var(--muted);padding:7px 6px;border-radius:999px}
+.nav-links a{white-space:nowrap;text-decoration:none;font-size:13px;font-weight:500;color:var(--muted);padding:7px 9px;border-radius:999px}
 .nav-links a:hover{background:var(--ice-15);color:var(--navy)}
 .switch{display:inline-flex;background:var(--navy-10);border-radius:999px;padding:4px;gap:4px;flex-shrink:0}
 .switch button{font-family:Poppins,sans-serif;font-size:13px;font-weight:600;border:0;background:transparent;color:var(--navy);padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
@@ -89,8 +89,8 @@ ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:8px;height
 .c-navy ul.clean li{color:#c9d3f2}
 
 
-.hpanel{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:760px){.hpanel{grid-template-columns:1fr}}
+.hpanel{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.hpanel{grid-template-columns:1fr}}
 .hcard{border-radius:var(--radius);padding:26px;cursor:pointer;border:2px solid transparent;background:var(--white);box-shadow:var(--shadow);text-align:left;font:inherit;color:inherit;transition:border-color .2s,transform .2s}
 .hcard:hover{transform:translateY(-2px)}
 .hcard[aria-pressed="true"]{border-color:var(--navy)}
@@ -152,6 +152,14 @@ ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:8px;height
 .bar.v1{background:var(--navy)}
 .bar.v2{background:var(--terra)}
 .bar.li{background:#0a66c2}
+.bar.sp{background:#1a8f4a}
+.avis{margin-top:18px}
+.why{margin-top:40px}
+.key{margin-top:28px;padding:28px}
+.key h3{font-size:21px}
+.key p{font-size:16px}
+.avis h3{font-size:17px}
+.avis p{color:var(--ink);font-size:15px}
 .ms{position:absolute;top:18px;left:6px;font-size:12px;font-weight:600;color:var(--terra);white-space:nowrap}
 .ms::before{content:"";display:inline-block;width:10px;height:10px;transform:rotate(45deg);background:var(--terra);margin-right:8px;vertical-align:-1px}
 .pnote{font-size:13px;color:var(--muted);margin-top:14px}
@@ -182,6 +190,10 @@ tr.total td{background:var(--ice-15)!important;font-weight:700;color:var(--navy)
 .cmp td:first-child{font-weight:600;color:var(--navy);width:28%}
 .cmp th.h1c{background:var(--navy)}
 .cmp th.h2c{background:var(--navy-80)}
+.cmp th.h3c{background:#2c4185}
+td.r{white-space:nowrap}
+.cmp{table-layout:fixed}
+.cmp th:first-child,.cmp td:first-child{width:22%}
 
 
 .pyr{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:26px}
@@ -204,8 +216,10 @@ tr.total td{background:var(--ice-15)!important;font-weight:700;color:var(--navy)
 .arg span{font-size:14px;color:var(--muted)}
 
 
-body[data-h="1"] .h2-only{display:none!important}
-body[data-h="2"] .h1-only{display:none!important}
+body:not([data-h="1"]) .h1-only{display:none!important}
+body:not([data-h="2"]) .h2-only{display:none!important}
+body:not([data-h="3"]) .h3-only{display:none!important}
+body[data-h="2"] .not-h2{display:none!important}
 body[data-split="6040"] .s5050{display:none!important}
 body[data-split="5050"] .s6040{display:none!important}
 
@@ -249,7 +263,7 @@ a.ct:hover{background:rgba(255,255,255,.12)}
     <div class="pills">
       <div class="pill"><small>Période</small><b>Nov. 2026 à juil. 2027</b></div>
       <div class="pill"><small>Activation</small><b>2 vagues de 6 semaines</b></div>
-      <div class="pill accent"><small>Budget</small><b>2 500 € HT</b></div>
+      <div class="pill accent"><small>Budget</small><b>3 000 € HT</b></div>
       <div class="pill"><small>Objectif</small><b>Génération de leads</b></div>
       <div class="pill"><small>Zone</small><b>Genevois français</b></div>
     </div>
@@ -261,24 +275,24 @@ a.ct:hover{background:rgba(255,255,255,.12)}
     <div class="nav-links">
       <a href="#contexte">Contexte</a>
       <a href="#dispositif">Dispositif</a>
-      <a href="#environnements">Environnements</a>
+      <a href="#environnements">Supports</a>
       <a href="#planning">Planning</a>
       <a href="#budgets">Budgets</a>
-      <a href="#formats">Formats &amp; KPIs</a>
+      <a href="#formats">Formats</a>
       <a href="#audiences">Audiences</a>
-      <a href="#data">Stratégie data</a>
+      <a href="#data">Data</a>
       <a href="#rgpd">RGPD</a>
       <a href="#contacts">Contacts</a>
     </div>
     <div class="switch" role="group" aria-label="Choix de l'hypothèse">
-      <button type="button" data-set-h="1" aria-pressed="true">Hypothèse 1<span class="reco">Reco</span></button>
-      <button type="button" data-set-h="2" aria-pressed="false">Hypothèse 2</button>
+      <button type="button" data-set-h="1" aria-pressed="true">Hyp. 1<span class="reco">Reco</span></button>
+      <button type="button" data-set-h="2" aria-pressed="false">Hyp. 2</button>
+      <button type="button" data-set-h="3" aria-pressed="false">Hyp. 3</button>
     </div>
   </div>
 </nav>
 
 <main>
-
 <section id="contexte">
   <div class="wrap">
     <span class="eyebrow">Contexte</span>
@@ -302,47 +316,79 @@ a.ct:hover{background:rgba(255,255,255,.12)}
   </div>
 </section>
 
-
 <section id="dispositif">
   <div class="wrap">
     <span class="eyebrow">Dispositif</span>
-    <h2>Deux hypothèses, un même objectif : le lead</h2>
+    <h2>Trois hypothèses, un même objectif : le lead</h2>
     <p class="intro">Plutôt que de diluer le budget sur neuf mois, nous le concentrons sur deux vagues de six semaines, aux deux temps forts de la commercialisation. Sélectionnez une hypothèse pour afficher le dispositif, le planning et les budgets correspondants.</p>
 
     <div class="hpanel" role="group" aria-label="Choix de l'hypothèse">
       <button type="button" class="hcard" data-set-h="1" aria-pressed="true">
         <span class="hlab">Hypothèse 1</span><span class="badge">Recommandée</span>
         <h3>Full Display IAB</h3>
-        <p>Display programmatique géolocalisé sur la zone de chalandise et les bassins de vie de la cible, enrichi de data d'intention immobilière, avec plan de taggage complet. Le maximum de volume et de répétition sur la zone.</p>
+        <p>Display programmatique géolocalisé, ciblé sur les ménages intentionnistes de la zone, avec plan de taggage complet. Le maximum de volume et de répétition pour générer des contacts.</p>
         <div class="sel">Afficher l'hypothèse 1</div>
       </button>
       <button type="button" class="hcard" data-set-h="2" aria-pressed="false">
         <span class="hlab">Hypothèse 2</span><span class="badge alt">Alternative</span>
         <h3>LinkedIn et retargeting display</h3>
-        <p>LinkedIn pour toucher les actifs frontaliers par leur profil professionnel, puis retargeting display des visiteurs de la page programme grâce à la pose d'un pixel. La précision du ciblage professionnel.</p>
+        <p>LinkedIn pour toucher les actifs frontaliers par leur profil professionnel, puis retargeting display des visiteurs de la page programme grâce à la pose d'un pixel.</p>
         <div class="sel">Afficher l'hypothèse 2</div>
+      </button>
+      <button type="button" class="hcard" data-set-h="3" aria-pressed="false">
+        <span class="hlab">Hypothèse 3</span><span class="badge alt">Alternative</span>
+        <h3>Spotify et display</h3>
+        <p>Spotify au lancement pour installer le programme dans l'esprit des familles de la zone, en complément de votre présence radio, puis display géolocalisé pour capter les contacts.</p>
+        <div class="sel">Afficher l'hypothèse 3</div>
       </button>
     </div>
 
-    
+    <div class="why">
+      <h3>Pourquoi l'hypothèse 1 est la plus adaptée à votre objectif</h3>
+      <p class="intro" style="font-size:15px">Les trois hypothèses sont réalisables. Pour un objectif de leads qualifiés avec 3 000 € HT, en complément de votre dispositif Meta, l'hypothèse 1 est celle qui répond le mieux.</p>
+      <div class="grid g4" style="margin-top:16px">
+        <div class="card c-navy"><div class="num" style="background:var(--terra)">01</div><h3>Complémentaire de Meta</h3><p>Meta étant piloté par vos soins, le display programmatique est le levier le plus performant pour générer des contacts en complément, sur des environnements différents.</p></div>
+        <div class="card"><div class="num">02</div><h3>Le plus de volume</h3><p>À 6 € de CPM, le display délivre 500 000 impressions sur la zone : le volume le plus élevé des trois hypothèses, pour multiplier les occasions de contact.</p></div>
+        <div class="card"><div class="num">03</div><h3>Des leads qualifiés</h3><p>Le ciblage intentionniste concentre la diffusion sur les ménages en recherche active d'un bien, dans la zone du programme, pour des contacts à fort potentiel d'achat.</p></div>
+        <div class="card"><div class="num">04</div><h3>Répétition et pilotage</h3><p>Un achat à 570 000 € se décide après plusieurs expositions. Le display permet cette répétition, recible les visiteurs et s'optimise à partir des leads mesurés.</p></div>
+      </div>
+    </div>
+
     <div class="h1-only">
       <h3 style="margin-top:40px">Logique d'activation · Hypothèse 1</h3>
       <div class="funnel">
-        <div class="fstep"><div class="st">Étape 1</div><h4>Prospection géolocalisée</h4><p>Display IAB diffusé sur la zone de chalandise et les bassins de vie actuels de la cible, filtré par data socio-démo et intention immobilière.</p></div>
+        <div class="fstep"><div class="st">Étape 1</div><h4>Prospection intentionniste</h4><p>Display IAB diffusé sur la zone de chalandise et les bassins de vie de la cible, filtré par data socio-démo et intention immobilière.</p></div>
         <div class="fstep"><div class="st">Étape 2</div><h4>Visite de la page programme</h4><p>Chaque visite issue de la campagne est mesurée par le tag de visite.</p></div>
         <div class="fstep"><div class="st">Étape 3</div><h4>Reciblage des visiteurs</h4><p>Les visiteurs qui n'ont pas encore pris contact sont de nouveau exposés, au sein du même budget display.</p></div>
         <div class="fstep"><div class="st">Étape 4</div><h4>Demande de contact</h4><p>Le formulaire envoyé est comptabilisé par le tag de conversion, et votre bureau de vente reprend contact avec le prospect.</p></div>
       </div>
     </div>
 
-    
     <div class="h2-only">
       <h3 style="margin-top:40px">Logique d'activation · Hypothèse 2</h3>
       <div class="funnel">
         <div class="fstep"><div class="st">Étape 1</div><h4>LinkedIn</h4><p>Publicités sponsorisées dans le fil d'actualité, ciblant les membres résidant dans le Genevois français et travaillant dans le bassin genevois.</p></div>
         <div class="fstep"><div class="st">Étape 2</div><h4>Visite de la page programme</h4><p>Le pixel posé sur la page programme identifie les visiteurs et alimente l'audience de retargeting.</p></div>
         <div class="fstep"><div class="st">Étape 3</div><h4>Retargeting display</h4><p>Les visiteurs sont reciblés en display IAB pour rester exposés au programme jusqu'à leur prise de contact.</p></div>
-        <div class="fstep"><div class="st">Étape 4</div><h4>Demande de contact</h4><p>Le lead est comptabilisé par le tag de conversion et par l'Insight Tag LinkedIn.</p></div>
+        <div class="fstep"><div class="st">Étape 4</div><h4>Demande de contact</h4><p>Le formulaire envoyé est comptabilisé par le tag de conversion et par l'Insight Tag LinkedIn.</p></div>
+      </div>
+      <div class="card c-peche avis">
+        <h3>LinkedIn : quand l'activer</h3>
+        <p>LinkedIn excelle pour toucher les actifs frontaliers selon leur lieu de travail, grâce à un ciblage professionnel très précis. Cette précision a un coût : avec ce budget, LinkedIn touche environ 4 800 personnes sur la première vague. Il donnera toute sa mesure avec une enveloppe plus large, ou plus tard pour porter un discours patrimonial auprès d'investisseurs. Pour générer un maximum de leads sur cette campagne, le display reste le levier le plus performant.</p>
+      </div>
+    </div>
+
+    <div class="h3-only">
+      <h3 style="margin-top:40px">Logique d'activation · Hypothèse 3</h3>
+      <div class="funnel">
+        <div class="fstep"><div class="st">Étape 1</div><h4>Spotify au lancement</h4><p>Spots audio diffusés entre deux titres auprès des 30 à 50 ans de la zone, pendant la vague de lancement uniquement.</p></div>
+        <div class="fstep"><div class="st">Étape 2</div><h4>Display géolocalisé</h4><p>Display IAB intentionniste sur les deux vagues, pour transformer la notoriété en visite.</p></div>
+        <div class="fstep"><div class="st">Étape 3</div><h4>Visite de la page programme</h4><p>Chaque visite est mesurée par le tag de visite, et les visiteurs peuvent être reciblés en display.</p></div>
+        <div class="fstep"><div class="st">Étape 4</div><h4>Demande de contact</h4><p>Le formulaire envoyé est comptabilisé par le tag de conversion.</p></div>
+      </div>
+      <div class="card c-peche avis">
+        <h3>Spotify : un levier de notoriété</h3>
+        <p>Spotify est un excellent levier de notoriété, qui prolonge naturellement votre présence radio. Il accompagne les auditeurs dans leurs moments du quotidien, en voiture, dans les transports ou à pied : le message est entendu et mémorisé, et la prise de contact se fait ensuite, souvent par un autre canal. C'est pourquoi nous l'associons au lancement, quand la notoriété a le plus de valeur, et confions au display le relais vers la prise de contact. Pour un objectif centré sur le lead, l'hypothèse 1 consacre l'intégralité du budget au levier qui convertit le mieux.</p>
       </div>
     </div>
 
@@ -372,7 +418,6 @@ a.ct:hover{background:rgba(255,255,255,.12)}
   </div>
 </section>
 
-
 <section id="environnements">
   <div class="wrap">
     <span class="eyebrow">Environnements</span>
@@ -396,10 +441,18 @@ a.ct:hover{background:rgba(255,255,255,.12)}
       </div>
     </div>
 
+    <div class="h3-only">
+      <p class="intro">L'audio pour faire connaître le programme au lancement, le display pour transformer cette notoriété en contacts.</p>
+      <div class="grid g2">
+        <div class="card c-navy"><h3>Spotify</h3><p>Spots audio diffusés entre deux titres sur mobile, desktop, enceintes connectées et autoradio, accompagnés d'un visuel cliquable à l'écran. Un média d'écoute du quotidien, très présent dans les trajets.</p></div>
+        <div class="card c-bleu"><h3>Display IAB</h3><p>Sites d'information, maison et habitat, famille et lifestyle, applications mobiles, sur la zone de chalandise et les bassins de vie de la cible.</p></div>
+      </div>
+    </div>
+
     <div class="mapcard">
       <div class="card map">
         <h3>Zone de diffusion</h3>
-        <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte schématique de la zone de diffusion autour de Cranves-Sales" style="font-family:Inter,sans-serif"><rect x="0" y="0" width="520" height="300" rx="14" fill="#f3f7fd"/><path d="M172 118 L188 110 L272 0 L222 0 Z" fill="#d2e8ff"/><text x="194" y="92" font-size="10" fill="#5a6383" transform="rotate(-58 194 92)">Lac Léman</text><text x="28" y="285" font-size="11" letter-spacing="2" fill="#9aa3bf">SUISSE</text><text x="440" y="285" font-size="11" letter-spacing="2" fill="#9aa3bf">FRANCE</text><path d="M330 168 Q 360 140 405 138 Q 450 132 482 210 Q 470 240 420 246 Q 380 296 345 282 Q 325 230 330 168 Z" fill="#021859" fill-opacity=".07" stroke="#021859" stroke-opacity=".35" stroke-dasharray="4 4"/><path d="M270 128 Q 300 106 345 112 Q 352 150 320 162 Q 280 166 270 128 Z" fill="#7bbdff" fill-opacity=".18" stroke="#7bbdff" stroke-dasharray="4 4"/><g class="h2-only"><path d="M50 40 Q 120 20 190 100 Q 200 180 150 190 Q 90 160 50 40 Z" fill="#0a66c2" fill-opacity=".08" stroke="#0a66c2" stroke-opacity=".5" stroke-dasharray="4 4"/></g><circle cx="404" cy="155" r="14" fill="#f25430" fill-opacity=".2"/><circle cx="404" cy="155" r="7" fill="#f25430" stroke="#fff" stroke-width="2"/><text x="404" y="139" text-anchor="middle" font-size="12" font-weight="700" fill="#021859">Villa Roséa</text><text x="404" y="183" text-anchor="middle" font-size="10" fill="#5a6383">Cranves-Sales</text><circle cx="339" cy="175" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="339" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Vétraz-Monthoux</text><circle cx="439" cy="195" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="449" y="199" text-anchor="start" font-size="11" font-weight="600" fill="#141c3a">Bonne</text><circle cx="430" cy="147" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="440" y="143" text-anchor="start" font-size="11" font-weight="600" fill="#141c3a">Lucinges</text><circle cx="468" cy="217" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="464" y="237" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Fillinges</text><circle cx="412" cy="232" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="402" y="236" text-anchor="end" font-size="11" font-weight="600" fill="#141c3a">Nangy</text><circle cx="358" cy="276" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="368" y="280" text-anchor="start" font-size="11" font-weight="600" fill="#141c3a">Reignier</text><circle cx="305" cy="144" r="5" fill="#7bbdff" stroke="#fff" stroke-width="1.5"/><text x="305" y="166" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Annemasse</text><circle cx="288" cy="138" r="5" fill="#7bbdff" stroke="#fff" stroke-width="1.5"/><text x="278" y="136" text-anchor="end" font-size="11" font-weight="600" fill="#141c3a">Ambilly</text><circle cx="329" cy="122" r="5" fill="#7bbdff" stroke="#fff" stroke-width="1.5"/><text x="329" y="110" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Ville-la-Grand</text><g class="h1-only"><circle cx="167" cy="119" r="4" fill="#9aa3bf"/></g><g class="h2-only"><rect x="162" y="114" width="10" height="10" rx="2" fill="#0a66c2"/></g><text x="157" y="123" text-anchor="end" font-size="11" font-weight="500" fill="#141c3a">Genève</text><g class="h1-only"><circle cx="70" cy="54" r="4" fill="#9aa3bf"/></g><g class="h2-only"><rect x="65" y="49" width="10" height="10" rx="2" fill="#0a66c2"/></g><text x="80" y="58" text-anchor="start" font-size="11" font-weight="500" fill="#141c3a">Meyrin</text><g class="h1-only"><circle cx="160" cy="171" r="4" fill="#9aa3bf"/></g><g class="h2-only"><rect x="155" y="166" width="10" height="10" rx="2" fill="#0a66c2"/></g><text x="150" y="175" text-anchor="end" font-size="11" font-weight="500" fill="#141c3a">Carouge</text><text x="339" y="207" text-anchor="middle" font-size="9.5" fill="#f25430" font-weight="600">Bureau de vente</text></svg>
+        <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte schématique de la zone de diffusion autour de Cranves-Sales" style="font-family:Inter,sans-serif"><rect x="0" y="0" width="520" height="300" rx="14" fill="#f3f7fd"/><path d="M172 118 L188 110 L272 0 L222 0 Z" fill="#d2e8ff"/><text x="194" y="92" font-size="10" fill="#5a6383" transform="rotate(-58 194 92)">Lac Léman</text><text x="28" y="285" font-size="11" letter-spacing="2" fill="#9aa3bf">SUISSE</text><text x="440" y="285" font-size="11" letter-spacing="2" fill="#9aa3bf">FRANCE</text><path d="M330 168 Q 360 140 405 138 Q 450 132 482 210 Q 470 240 420 246 Q 380 296 345 282 Q 325 230 330 168 Z" fill="#021859" fill-opacity=".07" stroke="#021859" stroke-opacity=".35" stroke-dasharray="4 4"/><path d="M270 128 Q 300 106 345 112 Q 352 150 320 162 Q 280 166 270 128 Z" fill="#7bbdff" fill-opacity=".18" stroke="#7bbdff" stroke-dasharray="4 4"/><g class="h2-only"><path d="M50 40 Q 120 20 190 100 Q 200 180 150 190 Q 90 160 50 40 Z" fill="#0a66c2" fill-opacity=".08" stroke="#0a66c2" stroke-opacity=".5" stroke-dasharray="4 4"/></g><circle cx="404" cy="155" r="14" fill="#f25430" fill-opacity=".2"/><circle cx="404" cy="155" r="7" fill="#f25430" stroke="#fff" stroke-width="2"/><text x="404" y="139" text-anchor="middle" font-size="12" font-weight="700" fill="#021859">Villa Roséa</text><text x="404" y="183" text-anchor="middle" font-size="10" fill="#5a6383">Cranves-Sales</text><circle cx="339" cy="175" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="339" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Vétraz-Monthoux</text><circle cx="439" cy="195" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="449" y="199" text-anchor="start" font-size="11" font-weight="600" fill="#141c3a">Bonne</text><circle cx="430" cy="147" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="440" y="143" text-anchor="start" font-size="11" font-weight="600" fill="#141c3a">Lucinges</text><circle cx="468" cy="217" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="464" y="237" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Fillinges</text><circle cx="412" cy="232" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="402" y="236" text-anchor="end" font-size="11" font-weight="600" fill="#141c3a">Nangy</text><circle cx="358" cy="276" r="4.5" fill="#021859" stroke="#fff" stroke-width="1.5"/><text x="368" y="280" text-anchor="start" font-size="11" font-weight="600" fill="#141c3a">Reignier</text><circle cx="305" cy="144" r="5" fill="#7bbdff" stroke="#fff" stroke-width="1.5"/><text x="305" y="166" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Annemasse</text><circle cx="288" cy="138" r="5" fill="#7bbdff" stroke="#fff" stroke-width="1.5"/><text x="278" y="136" text-anchor="end" font-size="11" font-weight="600" fill="#141c3a">Ambilly</text><circle cx="329" cy="122" r="5" fill="#7bbdff" stroke="#fff" stroke-width="1.5"/><text x="329" y="110" text-anchor="middle" font-size="11" font-weight="600" fill="#141c3a">Ville-la-Grand</text><g class="not-h2"><circle cx="167" cy="119" r="4" fill="#9aa3bf"/></g><g class="h2-only"><rect x="162" y="114" width="10" height="10" rx="2" fill="#0a66c2"/></g><text x="157" y="123" text-anchor="end" font-size="11" font-weight="500" fill="#141c3a">Genève</text><g class="not-h2"><circle cx="70" cy="54" r="4" fill="#9aa3bf"/></g><g class="h2-only"><rect x="65" y="49" width="10" height="10" rx="2" fill="#0a66c2"/></g><text x="80" y="58" text-anchor="start" font-size="11" font-weight="500" fill="#141c3a">Meyrin</text><g class="not-h2"><circle cx="160" cy="171" r="4" fill="#9aa3bf"/></g><g class="h2-only"><rect x="155" y="166" width="10" height="10" rx="2" fill="#0a66c2"/></g><text x="150" y="175" text-anchor="end" font-size="11" font-weight="500" fill="#141c3a">Carouge</text><text x="339" y="207" text-anchor="middle" font-size="9.5" fill="#f25430" font-weight="600">Bureau de vente</text></svg>
       </div>
       <div class="card">
         <h3>Ciblage géographique</h3>
@@ -417,7 +470,6 @@ a.ct:hover{background:rgba(255,255,255,.12)}
     </div>
   </div>
 </section>
-
 
 <section id="planning">
   <div class="wrap">
@@ -442,21 +494,31 @@ a.ct:hover{background:rgba(255,255,255,.12)}
         <div class="cell"><span class="ms">Lancement 5/11</span></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
         <div class="cell"><span class="ms">Relance</span></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
 
-        <div class="lab h1-only">Display IAB<small>Prospection et reciblage</small></div>
+        <div class="lab h1-only">Display IAB<small>Intentionniste et reciblage</small></div>
         <div class="cell h1-only" style="grid-column:span 9">
-          <div class="bar v1" style="left:0;width:15.5%"><span class="s6040">Vague 1 · 1 500 €</span><span class="s5050">Vague 1 · 1 250 €</span></div>
-          <div class="bar v2" style="left:55.5%;width:15.5%"><span class="s6040">Vague 2 · 1 000 €</span><span class="s5050">Vague 2 · 1 250 €</span></div>
+          <div class="bar v1" style="left:0;width:15.5%"><span class="s6040">Vague 1 · 1 800 €</span><span class="s5050">Vague 1 · 1 500 €</span></div>
+          <div class="bar v2" style="left:55.5%;width:15.5%"><span class="s6040">Vague 2 · 1 200 €</span><span class="s5050">Vague 2 · 1 500 €</span></div>
         </div>
 
         <div class="lab h2-only">LinkedIn<small>Sponsored Content</small></div>
         <div class="cell h2-only" style="grid-column:span 9">
-          <div class="bar li" style="left:0;width:15.5%">V1 · 1 200 €</div>
-          <div class="bar li" style="left:55.5%;width:15.5%">V2 · 800 €</div>
+          <div class="bar li" style="left:0;width:15.5%">V1 · 1 440 €</div>
+          <div class="bar li" style="left:55.5%;width:15.5%">V2 · 960 €</div>
         </div>
         <div class="lab h2-only">Display IAB<small>Retargeting</small></div>
         <div class="cell h2-only" style="grid-column:span 9">
-          <div class="bar v1" style="left:0;width:15.5%">V1 · 300 €</div>
-          <div class="bar v2" style="left:55.5%;width:15.5%">V2 · 200 €</div>
+          <div class="bar v1" style="left:0;width:15.5%">V1 · 360 €</div>
+          <div class="bar v2" style="left:55.5%;width:15.5%">V2 · 240 €</div>
+        </div>
+
+        <div class="lab h3-only">Spotify<small>Audio streaming</small></div>
+        <div class="cell h3-only" style="grid-column:span 9">
+          <div class="bar sp" style="left:0;width:15.5%">V1 · 1 000 €</div>
+        </div>
+        <div class="lab h3-only">Display IAB<small>Intentionniste et reciblage</small></div>
+        <div class="cell h3-only" style="grid-column:span 9">
+          <div class="bar v1" style="left:0;width:15.5%">V1 · 800 €</div>
+          <div class="bar v2" style="left:55.5%;width:15.5%">V2 · 1 200 €</div>
         </div>
       </div>
     </div>
@@ -464,13 +526,11 @@ a.ct:hover{background:rgba(255,255,255,.12)}
   </div>
 </section>
 
-
 <section id="budgets">
   <div class="wrap">
     <span class="eyebrow">Budgets</span>
-    <h2>2 500 € HT, répartis sur deux vagues</h2>
+    <h2>3 000 € HT, répartis sur deux vagues</h2>
 
-    
     <div class="h1-only">
       <div class="subbar">
         <h3>Hypothèse 1 · Full Display IAB</h3>
@@ -482,17 +542,17 @@ a.ct:hover{background:rgba(255,255,255,.12)}
 
       <div class="s6040">
         <div class="kpis">
-          <div class="kpi n"><div class="kfig">416 700</div><div class="klab">impressions sur les 2 vagues</div></div>
-          <div class="kpi"><div class="kfig">50 000</div><div class="klab">contacts uniques estimés, vague 1</div></div>
-          <div class="kpi"><div class="kfig">33 300</div><div class="klab">contacts uniques estimés, vague 2</div></div>
+          <div class="kpi n"><div class="kfig">500 000</div><div class="klab">impressions sur les 2 vagues</div></div>
+          <div class="kpi"><div class="kfig">60 000</div><div class="klab">contacts uniques estimés, vague 1</div></div>
+          <div class="kpi"><div class="kfig">40 000</div><div class="klab">contacts uniques estimés, vague 2</div></div>
           <div class="kpi"><div class="kfig">6 €</div><div class="klab">CPM HT</div></div>
         </div>
         <div class="tbl-wrap"><table>
           <thead><tr><th>Levier</th><th>Vague</th><th class="r">Répartition</th><th class="r">Budget HT</th><th class="r">CPM HT</th><th class="r">Impressions</th><th class="r">Couverture estimée</th></tr></thead>
           <tbody>
-            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv a">Vague 1 · 6 semaines</span></td><td class="r">60 %</td><td class="r">1 500 €</td><td class="r">6 €</td><td class="r">250 000</td><td class="r">50 000</td></tr>
-            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv b">Vague 2 · 6 semaines</span></td><td class="r">40 %</td><td class="r">1 000 €</td><td class="r">6 €</td><td class="r">166 700</td><td class="r">33 300</td></tr>
-            <tr class="total"><td>Total</td><td></td><td class="r">100 %</td><td class="r">2 500 €</td><td class="r">6 €</td><td class="r">416 700</td><td class="r">par vague</td></tr>
+            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv a">Vague 1 · 6 semaines</span></td><td class="r">60 %</td><td class="r">1 800 €</td><td class="r">6 €</td><td class="r">300 000</td><td class="r">60 000</td></tr>
+            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv b">Vague 2 · 6 semaines</span></td><td class="r">40 %</td><td class="r">1 200 €</td><td class="r">6 €</td><td class="r">200 000</td><td class="r">40 000</td></tr>
+            <tr class="total"><td>Total</td><td></td><td class="r">100 %</td><td class="r">3 000 €</td><td class="r">6 €</td><td class="r">500 000</td><td class="r">par vague</td></tr>
           </tbody>
         </table></div>
         <p class="foot">Pourquoi 60/40 : le lancement concentre l'attention du marché, la nouveauté du programme et l'offre de lancement. La vague 2 entretient la demande à un niveau de pression plus léger.</p>
@@ -500,17 +560,17 @@ a.ct:hover{background:rgba(255,255,255,.12)}
 
       <div class="s5050">
         <div class="kpis">
-          <div class="kpi n"><div class="kfig">416 700</div><div class="klab">impressions sur les 2 vagues</div></div>
-          <div class="kpi"><div class="kfig">41 700</div><div class="klab">contacts uniques estimés, vague 1</div></div>
-          <div class="kpi"><div class="kfig">41 700</div><div class="klab">contacts uniques estimés, vague 2</div></div>
+          <div class="kpi n"><div class="kfig">500 000</div><div class="klab">impressions sur les 2 vagues</div></div>
+          <div class="kpi"><div class="kfig">50 000</div><div class="klab">contacts uniques estimés, vague 1</div></div>
+          <div class="kpi"><div class="kfig">50 000</div><div class="klab">contacts uniques estimés, vague 2</div></div>
           <div class="kpi"><div class="kfig">6 €</div><div class="klab">CPM HT</div></div>
         </div>
         <div class="tbl-wrap"><table>
           <thead><tr><th>Levier</th><th>Vague</th><th class="r">Répartition</th><th class="r">Budget HT</th><th class="r">CPM HT</th><th class="r">Impressions</th><th class="r">Couverture estimée</th></tr></thead>
           <tbody>
-            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv a">Vague 1 · 6 semaines</span></td><td class="r">50 %</td><td class="r">1 250 €</td><td class="r">6 €</td><td class="r">208 300</td><td class="r">41 700</td></tr>
-            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv b">Vague 2 · 6 semaines</span></td><td class="r">50 %</td><td class="r">1 250 €</td><td class="r">6 €</td><td class="r">208 300</td><td class="r">41 700</td></tr>
-            <tr class="total"><td>Total</td><td></td><td class="r">100 %</td><td class="r">2 500 €</td><td class="r">6 €</td><td class="r">416 700</td><td class="r">par vague</td></tr>
+            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv a">Vague 1 · 6 semaines</span></td><td class="r">50 %</td><td class="r">1 500 €</td><td class="r">6 €</td><td class="r">250 000</td><td class="r">50 000</td></tr>
+            <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv b">Vague 2 · 6 semaines</span></td><td class="r">50 %</td><td class="r">1 500 €</td><td class="r">6 €</td><td class="r">250 000</td><td class="r">50 000</td></tr>
+            <tr class="total"><td>Total</td><td></td><td class="r">100 %</td><td class="r">3 000 €</td><td class="r">6 €</td><td class="r">500 000</td><td class="r">par vague</td></tr>
           </tbody>
         </table></div>
         <p class="foot">Pourquoi 50/50 : une pression identique sur les deux temps forts, si la relance du 2e trimestre doit peser autant que le lancement.</p>
@@ -518,43 +578,68 @@ a.ct:hover{background:rgba(255,255,255,.12)}
       <p class="foot">Couverture estimée sur la base d'une répétition moyenne de 5 expositions par personne et par vague. Une partie des personnes touchées en vague 1 est de nouveau exposée en vague 2 : la couverture s'entend par vague.</p>
     </div>
 
-    
     <div class="h2-only">
       <div class="subbar"><h3>Hypothèse 2 · LinkedIn et retargeting display</h3><span class="tag t">Répartition 60/40</span></div>
       <div class="kpis">
-        <div class="kpi n"><div class="kfig">33 300</div><div class="klab">impressions LinkedIn sur les 2 vagues</div></div>
-        <div class="kpi"><div class="kfig">4 000</div><div class="klab">membres LinkedIn touchés, vague 1</div></div>
-        <div class="kpi"><div class="kfig">2 700</div><div class="klab">membres LinkedIn touchés, vague 2</div></div>
-        <div class="kpi"><div class="kfig">83 300</div><div class="klab">impressions de retargeting maximum</div></div>
+        <div class="kpi n"><div class="kfig">40 000</div><div class="klab">impressions LinkedIn sur les 2 vagues</div></div>
+        <div class="kpi"><div class="kfig">4 800</div><div class="klab">membres LinkedIn touchés, vague 1</div></div>
+        <div class="kpi"><div class="kfig">3 200</div><div class="klab">membres LinkedIn touchés, vague 2</div></div>
+        <div class="kpi"><div class="kfig">100 000</div><div class="klab">impressions de retargeting maximum</div></div>
       </div>
       <div class="tbl-wrap"><table>
         <thead><tr><th>Levier</th><th>Vague</th><th class="r">Budget HT</th><th class="r">CPM HT</th><th class="r">Impressions</th><th class="r">Couverture estimée</th></tr></thead>
         <tbody>
-          <tr><td class="lv">LinkedIn<small>Sponsored Content</small></td><td><span class="wv a">Vague 1</span></td><td class="r">1 200 €</td><td class="r">60 €</td><td class="r">20 000</td><td class="r">4 000</td></tr>
-          <tr><td class="lv">Display IAB<small>Retargeting</small></td><td><span class="wv a">Vague 1</span></td><td class="r">300 €</td><td class="r">6 €</td><td class="r">jusqu'à 50 000</td><td class="r">visiteurs de la page</td></tr>
-          <tr><td class="lv">LinkedIn<small>Sponsored Content</small></td><td><span class="wv b">Vague 2</span></td><td class="r">800 €</td><td class="r">60 €</td><td class="r">13 300</td><td class="r">2 700</td></tr>
-          <tr><td class="lv">Display IAB<small>Retargeting</small></td><td><span class="wv b">Vague 2</span></td><td class="r">200 €</td><td class="r">6 €</td><td class="r">jusqu'à 33 300</td><td class="r">visiteurs de la page</td></tr>
-          <tr class="total"><td>Total</td><td></td><td class="r">2 500 €</td><td class="r"></td><td class="r">33 300 + 83 300</td><td class="r">par vague</td></tr>
+          <tr><td class="lv">LinkedIn<small>Sponsored Content</small></td><td><span class="wv a">Vague 1</span></td><td class="r">1 440 €</td><td class="r">60 €</td><td class="r">24 000</td><td class="r">4 800</td></tr>
+          <tr><td class="lv">Display IAB<small>Retargeting</small></td><td><span class="wv a">Vague 1</span></td><td class="r">360 €</td><td class="r">6 €</td><td class="r">jusqu'à 60 000</td><td class="r">visiteurs de la page</td></tr>
+          <tr><td class="lv">LinkedIn<small>Sponsored Content</small></td><td><span class="wv b">Vague 2</span></td><td class="r">960 €</td><td class="r">60 €</td><td class="r">16 000</td><td class="r">3 200</td></tr>
+          <tr><td class="lv">Display IAB<small>Retargeting</small></td><td><span class="wv b">Vague 2</span></td><td class="r">240 €</td><td class="r">6 €</td><td class="r">jusqu'à 40 000</td><td class="r">visiteurs de la page</td></tr>
+          <tr class="total"><td>Total</td><td></td><td class="r">3 000 €</td><td class="r"></td><td class="r">40 000 + 100 000</td><td class="r">par vague</td></tr>
         </tbody>
       </table></div>
       <p class="foot">Le volume de retargeting dépend du nombre réel de visiteurs de la page programme. S'il est inférieur à l'estimation, le budget non diffusé est réaffecté à LinkedIn en cours de campagne. Couverture LinkedIn estimée sur une répétition moyenne de 5 expositions par membre et par vague.</p>
     </div>
 
-    <h3 style="margin-top:44px">Comparatif des deux hypothèses</h3>
+    <div class="h3-only">
+      <div class="subbar"><h3>Hypothèse 3 · Spotify et display</h3><span class="tag t">Répartition 60/40</span></div>
+      <div class="kpis">
+        <div class="kpi n"><div class="kfig">400 000</div><div class="klab">impressions sur les 2 vagues</div></div>
+        <div class="kpi"><div class="kfig">13 300</div><div class="klab">auditeurs Spotify touchés, vague 1</div></div>
+        <div class="kpi"><div class="kfig">26 700</div><div class="klab">contacts display estimés, vague 1</div></div>
+        <div class="kpi"><div class="kfig">40 000</div><div class="klab">contacts display estimés, vague 2</div></div>
+      </div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Levier</th><th>Vague</th><th class="r">Budget HT</th><th class="r">CPM HT</th><th class="r">Impressions</th><th class="r">Couverture estimée</th></tr></thead>
+        <tbody>
+          <tr><td class="lv">Spotify<small>Audio streaming, spot et visuel compagnon</small></td><td><span class="wv a">Vague 1</span></td><td class="r">1 000 €</td><td class="r">15 €</td><td class="r">66 700</td><td class="r">13 300</td></tr>
+          <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv a">Vague 1</span></td><td class="r">800 €</td><td class="r">6 €</td><td class="r">133 300</td><td class="r">26 700</td></tr>
+          <tr><td class="lv">Display IAB<small>Géolocalisé, data d'intention</small></td><td><span class="wv b">Vague 2</span></td><td class="r">1 200 €</td><td class="r">6 €</td><td class="r">200 000</td><td class="r">40 000</td></tr>
+          <tr class="total"><td>Total</td><td></td><td class="r">3 000 €</td><td class="r"></td><td class="r">400 000</td><td class="r">par vague</td></tr>
+        </tbody>
+      </table></div>
+      <p class="foot">Spotify est concentré sur la vague de lancement, le moment où la notoriété a le plus de valeur. La vague 2 est consacrée au display, plus efficace pour générer des contacts. Couverture estimée sur une répétition moyenne de 5 expositions par personne et par vague.</p>
+    </div>
+
+    <h3 style="margin-top:44px">Comparatif des trois hypothèses</h3>
     <div class="tbl-wrap"><table class="cmp">
-      <thead><tr><th></th><th class="h1c">Hypothèse 1 · Full Display IAB</th><th class="h2c">Hypothèse 2 · LinkedIn et retargeting</th></tr></thead>
+      <thead><tr><th></th><th class="h1c">Hypothèse 1 · Full Display</th><th class="h2c">Hypothèse 2 · LinkedIn</th><th class="h3c">Hypothèse 3 · Spotify</th></tr></thead>
       <tbody>
-        <tr><td>Budget</td><td>2 500 € HT</td><td>2 500 € HT</td></tr>
-        <tr><td>Impressions</td><td>416 700</td><td>33 300 sur LinkedIn, jusqu'à 83 300 en retargeting</td></tr>
-        <tr><td>Couverture vague 1</td><td>50 000 contacts uniques (60/40)</td><td>4 000 membres LinkedIn</td></tr>
-        <tr><td>Ciblage</td><td>Zone géographique, socio-démo et intention immobilière</td><td>Lieu de résidence et lieu de travail genevois</td></tr>
-        <tr><td>Point fort</td><td>Volume et répétition sur toute la zone</td><td>Précision du profil frontalier</td></tr>
-        <tr><td>Notre avis</td><td><span class="badge" style="margin:0">Recommandée</span></td><td><span class="badge alt" style="margin:0">Alternative ciblée</span></td></tr>
+        <tr><td>Budget</td><td>3 000 € HT</td><td>3 000 € HT</td><td>3 000 € HT</td></tr>
+        <tr><td>Leviers</td><td>Display IAB intentionniste</td><td>LinkedIn et retargeting display</td><td>Spotify et display IAB</td></tr>
+        <tr><td>Impressions</td><td>500 000</td><td>40 000 LinkedIn, jusqu'à 100 000 en retargeting</td><td>66 700 audio et 333 300 display</td></tr>
+        <tr><td>Couverture vague 1</td><td>60 000 (60/40)</td><td>4 800 membres LinkedIn</td><td>13 300 auditeurs et 26 700 en display</td></tr>
+        <tr><td>Rôle principal</td><td>Génération de contacts</td><td>Ciblage du profil frontalier</td><td>Notoriété au lancement</td></tr>
+        <tr><td>Contribution au lead</td><td>Très forte</td><td>Ciblage précis, volume plus restreint</td><td>Notoriété au lancement, leads portés par le display</td></tr>
+        <tr><td>Notre avis</td><td><span class="badge" style="margin:0">Recommandée</span></td><td><span class="badge alt" style="margin:0">Alternative</span></td><td><span class="badge alt" style="margin:0">Alternative</span></td></tr>
       </tbody>
     </table></div>
+
+    <div class="card c-navy key">
+      <h3>La clé de la génération de leads : la durée</h3>
+      <p>Un dispositif de génération de leads gagne en efficacité avec le temps. L'audience de reciblage s'enrichit, les ciblages et les créations s'optimisent à partir des contacts mesurés, et le programme reste présent à chaque étape de la réflexion des acheteurs. C'est cette présence en fil rouge qui produit un flux régulier de leads qualifiés.</p>
+      <p style="margin-top:10px">Avec 3 000 € HT sur neuf mois, nous concentrons l'effort sur deux temps forts pour en tirer le meilleur. Pour aller plus loin, nous recommandons à terme une présence continue avec un budget mensuel régulier, que nous pourrons construire avec vous à partir des résultats de la vague 1.</p>
+    </div>
   </div>
 </section>
-
 
 <section id="formats">
   <div class="wrap">
@@ -601,10 +686,32 @@ a.ct:hover{background:rgba(255,255,255,.12)}
         </ul>
       </div>
     </div>
+
+    <div class="grid g3 h3-only">
+      <div class="card">
+        <h3>Spotify</h3>
+        <div style="margin-top:8px"><span class="tag">Spot 15, 20 ou 30 s</span><span class="tag">640x640</span><span class="tag">720x1280</span></div>
+        <p style="margin-top:6px">Spot audio accompagné d'un visuel compagnon au format 1:1 ou 9:16, cliquable vers la page programme.</p>
+      </div>
+      <div class="card">
+        <h3>Display IAB</h3>
+        <div style="margin-top:8px"><span class="tag">300x600</span><span class="tag">300x250</span><span class="tag">320x480</span><span class="tag">728x90</span><span class="tag">160x600</span><span class="tag">320x50</span></div>
+        <p style="margin-top:6px">Formats en pixels, fichiers jpeg, png ou gif.</p>
+      </div>
+      <div class="card c-bleu">
+        <h3>KPIs de suivi</h3>
+        <ul class="clean">
+          <li>Spotify : impressions, couverture, écoutes à 25, 50, 75 et 100 %, taux de complétion</li>
+          <li>Display : impressions, clics et CTR</li>
+          <li>Visites de la page programme</li>
+          <li>Demandes de contact (tag de conversion)</li>
+          <li>Profils socio-démo et répartition géographique</li>
+        </ul>
+      </div>
+    </div>
     <p class="foot">Éléments créatifs à fournir au plus tard 3 jours avant le lancement de chaque vague, avec l'URL de destination de la page programme.</p>
   </div>
 </section>
-
 
 <section id="audiences">
   <div class="wrap">
@@ -618,7 +725,6 @@ a.ct:hover{background:rgba(255,255,255,.12)}
     </div>
   </div>
 </section>
-
 
 <section id="data">
   <div class="wrap">
@@ -637,9 +743,14 @@ a.ct:hover{background:rgba(255,255,255,.12)}
       <div class="lvl l2"><b>Profil professionnel LinkedIn</b><span>Membres travaillant pour des entreprises du bassin genevois, 30 à 50 ans</span></div>
       <div class="lvl l3"><b>Lieu de résidence</b><span>Genevois français : zone de chalandise et bassins de vie d'Annemasse, Ville-la-Grand et Ambilly</span></div>
     </div>
+
+    <div class="pyr h3-only">
+      <div class="lvl l1"><b>Intention immobilière (display)</b><span>Consultation de contenus immobilier neuf, crédit immobilier, simulateurs de prêt, recherche de maison</span></div>
+      <div class="lvl l2"><b>Socio-démo et moments d'écoute</b><span>Auditeurs de 30 à 50 ans sur Spotify, foyers avec enfants et revenus élevés en display (segments data Weborama)</span></div>
+      <div class="lvl l3"><b>Géolocalisation</b><span>Zone de chalandise de Cranves-Sales et bassins de vie d'Annemasse, Ville-la-Grand et Ambilly</span></div>
+    </div>
   </div>
 </section>
-
 
 <section id="rgpd">
   <div class="wrap">
