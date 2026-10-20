@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ville de Menton · Offre cTV &amp; Next Stream · The Good Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#021859; --babyblue:#7bbdff; --terra:#f25430; --white:#ffffff;
+  --ink:#0b1b3f; --muted:#4a5778;
+  --bg:#f6f8fc; --line:#dde5f3;
+  --blue-tint:#eaf4ff; --terra-tint:#fff0eb; --navy-tint:#e8ebf4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:16px}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);line-height:1.2}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+.hero{background:var(--navy);color:var(--white);padding:40px 0 72px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-160px;top:-160px;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(123,189,255,.28),rgba(123,189,255,0) 70%)}
+.hero::after{content:"";position:absolute;left:-120px;bottom:-200px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(242,84,48,.22),rgba(242,84,48,0) 70%)}
+.hero .wrap{position:relative;z-index:1}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:48px}
+.hero-top .client{font-family:'Poppins',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--babyblue);text-align:right}
+.tag{display:inline-block;background:var(--terra);color:var(--white);font-family:'Poppins',sans-serif;font-weight:600;font-size:12px;
+  letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:20px}
+.hero h1{color:var(--white);font-size:clamp(30px,5vw,52px);font-weight:700;max-width:860px;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--babyblue)}
+.hero .sub{font-size:18px;max-width:740px;opacity:.9;margin-bottom:36px}
+.pills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pill{background:rgba(255,255,255,.07);border:1px solid rgba(123,189,255,.35);border-radius:16px;padding:16px 18px}
+.pill .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--babyblue);font-weight:600;margin-bottom:4px}
+.pill .v{font-family:'Poppins',sans-serif;font-weight:600;font-size:16px;color:var(--white)}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav ul{list-style:none;display:flex;gap:4px;overflow-x:auto;max-width:1120px;margin:0 auto;padding:10px 24px;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a{display:block;white-space:nowrap;text-decoration:none;font-size:14px;font-weight:600;color:var(--navy);padding:8px 14px;border-radius:999px}
+.nav a:hover{background:var(--blue-tint)}
+.nav a.hl{background:var(--terra);color:var(--white)}
+
+/* SECTIONS */
+section{padding:80px 0;scroll-margin-top:56px}
+section.alt{background:var(--bg)}
+section.dark{background:var(--navy);color:var(--white)}
+section.dark h2,section.dark h3,section.dark h4{color:var(--white)}
+.eyebrow{font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
+section.dark .eyebrow{color:var(--babyblue)}
+h2{font-size:clamp(26px,3.4vw,38px);font-weight:700;margin-bottom:16px;max-width:860px}
+.lede{font-size:18px;color:var(--muted);max-width:780px;margin-bottom:36px}
+section.dark .lede{color:rgba(255,255,255,.85)}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:26px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:15px}
+.card.c-bleu{background:var(--blue-tint);border-color:#cfe5ff}
+.card.c-corail{background:var(--terra-tint);border-color:#ffd6ca}
+.card.c-menthe{background:var(--navy-tint);border-color:#d3d9ea}
+.num{font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;color:var(--white);background:var(--terra);
+  width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.glyph{font-size:18px;color:var(--terra);margin-right:8px}
+.note{margin-top:28px;padding:18px 22px;border-left:4px solid var(--terra);background:var(--terra-tint);border-radius:0 14px 14px 0;font-size:15px;color:var(--ink)}
+section.dark .note{background:rgba(255,255,255,.06);color:var(--white)}
+
+/* NEXT STREAM FLOW */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:8px 0 40px;position:relative}
+.step{position:relative;padding:26px 22px 24px;background:rgba(255,255,255,.06);border:1px solid rgba(123,189,255,.3);border-radius:20px;margin-right:18px}
+.step:last-child{margin-right:0}
+.step:not(:last-child)::after{content:"";position:absolute;right:-16px;top:50%;width:14px;height:2px;background:var(--babyblue)}
+.step .screen{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--babyblue);margin-bottom:6px}
+.step h3{font-size:18px;margin-bottom:8px}
+.step p{font-size:14.5px;color:rgba(255,255,255,.85)}
+.step .num{background:var(--terra)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--blue-tint);color:var(--navy)}
+section.dark .chip{background:rgba(123,189,255,.16);color:var(--white);border:1px solid rgba(123,189,255,.35)}
+.chip.terra{background:var(--terra-tint);color:#b23a1d}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.why .card{background:var(--white)}
+.why .card h3{color:var(--navy)}
+.ban{display:flex;align-items:center;gap:14px;margin-top:22px;padding:16px 20px;border-radius:14px;background:rgba(242,84,48,.14);border:1px solid rgba(242,84,48,.45)}
+.ban b{font-family:'Poppins',sans-serif}
+
+/* TIMELINE */
+.timeline{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.phase{border-radius:20px;padding:26px;border:1px solid var(--line);background:var(--white)}
+.phase .when{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.phase.p1 .when{background:var(--blue-tint);color:var(--navy)}
+.phase.p2 .when{background:var(--terra);color:var(--white)}
+.phase h3{font-size:20px;margin-bottom:8px}
+.phase p{color:var(--muted);font-size:15px}
+.bar{display:flex;height:12px;border-radius:999px;overflow:hidden;margin:14px 0 6px}
+.bar span{display:block}
+.legend{display:flex;gap:16px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+
+/* DATA */
+.datagrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dcard{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:24px}
+.dcard h3{font-size:17px;margin-bottom:6px;display:flex;align-items:center}
+.dcard p{font-size:14.5px;color:var(--muted)}
+.dcard .chips{margin-top:12px}
+.inc{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;color:var(--navy);background:var(--blue-tint);
+  border-radius:999px;padding:6px 14px;margin-bottom:28px}
+.inc::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--navy)}
+.partners{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.partner{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px}
+.partner b{font-family:'Poppins',sans-serif;color:var(--navy);display:block;margin-bottom:4px}
+.partner span{font-size:14px;color:var(--muted)}
+h3.sub{font-size:22px;margin:48px 0 6px}
+.persona{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:24px;border-top:4px solid var(--babyblue)}
+.persona:nth-child(2n){border-top-color:var(--terra)}
+.persona h4{font-size:17px;margin-bottom:6px}
+.persona p{font-size:14.5px;color:var(--muted)}
+.persona .src{margin-top:12px;font-size:12.5px;font-weight:600;color:var(--navy);opacity:.75}
+
+/* MASTERCARD */
+.mc{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start}
+.excl{display:inline-block;background:var(--terra);color:var(--white);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.mc-list{list-style:none;display:grid;gap:12px}
+.mc-list li{background:rgba(255,255,255,.06);border:1px solid rgba(123,189,255,.3);border-radius:14px;padding:14px 16px;font-size:15px}
+.mc-list li b{color:var(--babyblue);font-family:'Poppins',sans-serif;font-weight:600}
+.mc-side{background:var(--white);color:var(--ink);border-radius:20px;padding:26px}
+.mc-side h3{font-size:18px;margin-bottom:12px}
+.mc-side ul{list-style:none;display:grid;gap:10px}
+.mc-side li{font-size:14.5px;color:var(--muted);padding-left:22px;position:relative}
+.mc-side li::before{content:"\25C6";position:absolute;left:0;color:var(--terra);font-size:12px;top:2px}
+
+/* FORMATS */
+.fmt{background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.fmt-head{background:var(--navy);color:var(--white);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.fmt-head h3{color:var(--white);font-size:20px}
+.fmt-head span{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--babyblue)}
+.fmt-body{padding:22px 24px}
+.fmt-body h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);margin:4px 0 8px}
+.fmt-body ul{list-style:none;margin-bottom:16px}
+.fmt-body li{font-size:15px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.fmt-body li:last-child{border-bottom:0}
+
+/* RGPD */
+.rgpd{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+/* KIT */
+.kit{display:flex;justify-content:space-between;align-items:center;gap:24px;background:var(--terra);color:var(--white);border-radius:24px;padding:32px 36px}
+.kit h3{color:var(--white);font-size:24px;margin-bottom:6px}
+.kit p{opacity:.95;max-width:640px}
+.kit .badge{font-family:'Poppins',sans-serif;font-weight:700;background:var(--white);color:var(--terra);border-radius:999px;padding:12px 22px;white-space:nowrap}
+
+/* CONTACTS */
+footer{background:var(--navy);color:var(--white);padding:72px 0 40px}
+footer h2{color:var(--white)}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.ccard{display:block;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(123,189,255,.3);border-radius:18px;padding:20px 22px;transition:background .2s}
+a.ccard:hover{background:rgba(255,255,255,.12)}
+.ccard b{font-family:'Poppins',sans-serif;font-size:17px;display:block}
+.ccard .role{color:var(--babyblue);font-size:13.5px;margin-bottom:10px}
+.ccard .tel,.ccard .mail{font-size:14px;opacity:.9}
+.ccard.main{border-color:var(--terra);background:rgba(242,84,48,.12)}
+.ccard.ph{opacity:.7;cursor:default}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:56px;padding-top:28px;border-top:1px solid rgba(123,189,255,.25);font-size:13.5px;opacity:.85}
+
+@media (max-width:960px){
+  .pills,.g4,.partners{grid-template-columns:repeat(2,1fr)}
+  .g3,.datagrid,.why,.rgpd,.contacts{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:repeat(2,1fr);gap:18px}
+  .step{margin-right:0}
+  .step::after{display:none}
+  .mc{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  section{padding:56px 0}
+  .wrap{padding:0 16px}
+  .pills,.g2,.g3,.g4,.datagrid,.why,.rgpd,.contacts,.partners,.flow,.timeline{grid-template-columns:1fr}
+  .hero-top{flex-direction:column}
+  .hero-top .client{text-align:left}
+  .kit{flex-direction:column;align-items:flex-start;padding:26px}
+  .foot{flex-direction:column;align-items:flex-start}
+  .nav ul{padding:10px 16px}
+}
+
+.rt{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.rt .card{border-top:4px solid var(--babyblue)}
+.rt .card.on{border-top-color:var(--terra);background:var(--terra-tint)}
+.rt .lab{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--terra);margin-bottom:6px}
+.offers{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.offer{background:rgba(255,255,255,.06);border:1px solid rgba(123,189,255,.35);border-radius:20px;padding:24px}
+.offer h3{font-size:20px;margin-bottom:6px}
+.offer p{font-size:15px;color:rgba(255,255,255,.85)}
+.partners-line{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.lex{display:grid;grid-template-columns:repeat(2,1fr);gap:0 32px}
+.lex div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.lex b{font-family:'Poppins',sans-serif;color:var(--navy)}
+.lex span{color:var(--muted)}
+.fam{display:flex;gap:16px;align-items:flex-start;margin:44px 0 18px}
+.fam-n{flex:none;width:40px;height:40px;border-radius:12px;background:var(--navy);color:var(--white);font-family:'Poppins',sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center}
+.fam h3{font-size:21px;margin-bottom:2px}
+.fam p{color:var(--muted);font-size:15px}
+.srcgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.src{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px 22px;display:flex;flex-direction:column}
+.src-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.src-top b{font-family:'Poppins',sans-serif;font-size:18px;color:var(--navy)}
+.src-tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--terra);background:var(--terra-tint);padding:4px 10px;border-radius:999px}
+.src p{font-size:14.5px;color:var(--muted);margin-bottom:12px}
+.ex-l{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);opacity:.6;margin-top:auto}
+.src .chips{margin-top:8px}
+.src .chip{font-size:12.5px;font-weight:500}
+.lex-sec{padding:28px 0 40px}
+.lexdet{border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+.lexdet summary{cursor:pointer;list-style:none;padding:14px 20px;font-size:14px;font-weight:600;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.lexdet summary::-webkit-details-marker{display:none}
+.lexdet summary::after{content:"+";font-size:20px;font-weight:400;color:var(--navy)}
+.lexdet[open] summary::after{content:"−"}
+.lexdet .lex{padding:0 20px 14px}
+.lexdet .lex div{font-size:13.5px;padding:10px 0}
+@media (max-width:960px){.srcgrid{grid-template-columns:repeat(2,1fr)}}
+.srcgrid.two{grid-template-columns:repeat(2,1fr)}
+@media (max-width:640px){.srcgrid,.srcgrid.two{grid-template-columns:1fr}}
+@media (max-width:960px){.rt{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){.lex{grid-template-columns:1fr}.lex div{grid-template-columns:120px 1fr}}
+@media (max-width:640px){.rt,.offers{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top">
+      <svg class="logo-svg" viewBox="214 252 572 496" width="118" height="102" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Good Web"><g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g></svg>
+      <div class="client">Ville de Menton<br>Fête du Citron® 2027</div>
+    </div>
+    <span class="tag">Récapitulatif · Octobre 2026</span>
+    <h1>Notre offre <em>cTV &amp; Next Stream</em>, nos data activables</h1>
+    <p class="sub">Suite à notre rendez-vous, voici le récapitulatif de ce que The Good Web peut activer pour vous : la publicité sur TV connectée, l'offre Next Stream et le retargeting qui la prolonge (c'est à dire le fait de montrer à nouveau votre message aux personnes qui l'ont déjà vu), ainsi que l'ensemble de nos données de ciblage. Un lexique repliable en fin de document reprend les termes techniques. Ce document accompagne notre kit média.</p>
+    <div class="pills">
+      <div class="pill"><div class="k">TV connectée (cTV)</div><div class="v">Box, plateformes &amp; replay</div></div>
+      <div class="pill"><div class="k">Next Stream</div><div class="v">De la TV aux écrans perso</div></div>
+      <div class="pill"><div class="k">Retargeting (reciblage)</div><div class="v">Sans pixel sur votre site</div></div>
+      <div class="pill"><div class="k">Data (données de ciblage)</div><div class="v">Incluses sans surcoût</div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Sommaire">
+  <ul>
+    <li><a href="#ctv">Offre cTV</a></li>
+    <li><a href="#next-stream" class="hl">Next Stream</a></li>
+    <li><a href="#retargeting">Retargeting</a></li>
+    <li><a href="#data">Data activables</a></li>
+    <li><a href="#mastercard">Data Mastercard</a></li>
+    <li><a href="#formats">Formats &amp; KPIs</a></li>
+    
+    <li><a href="#contacts">Contacts</a></li>
+  </ul>
+</nav>
+
+<section id="ctv">
+  <div class="wrap">
+    <div class="eyebrow">01 · L'offre cTV</div>
+    <h2>La puissance de la TV, la précision du digital</h2>
+    <p class="lede">La cTV (Connected TV, ou TV connectée) consiste à diffuser votre spot vidéo sur le téléviseur du salon, lorsqu'il est relié à Internet. Contrairement à la publicité TV classique, diffusée à tous en même temps, la cTV permet de choisir précisément quels foyers voient votre spot, y compris sur une zone géographique limitée.</p>
+    <div class="grid g3" style="margin-bottom:32px">
+      <div class="card"><h3>IPTV</h3><p>Internet Protocol Television : les chaînes reçues par la box de votre opérateur (Orange, Free, SFR, Bouygues).</p></div>
+      <div class="card"><h3>OTT</h3><p>Over The Top : les plateformes de streaming regardées directement via Internet, sans passer par la box (Netflix, Prime Video, Disney+…).</p></div>
+      <div class="card"><h3>Replay</h3><p>Les programmes des chaînes regardés à la demande, après leur diffusion (TF1+, M6+…).</p></div>
+    </div>
+    <h3 style="font-size:18px;margin-bottom:4px">Les plus grandes chaînes et plateformes françaises</h3>
+    <div class="chips" style="margin-bottom:32px">
+      <span class="chip">TF1</span><span class="chip">M6</span><span class="chip">Canal+</span><span class="chip">TMC</span><span class="chip">TFX</span><span class="chip">W9</span><span class="chip">6ter</span><span class="chip">RMC</span><span class="chip">Netflix</span><span class="chip">Prime Video</span><span class="chip">Disney+</span>
+    </div>
+    <div class="grid g3">
+      <div class="card c-bleu"><h3><span class="glyph">●</span>cTV seule</h3><p>Diffusion sur les téléviseurs connectés, via les chaînes reçues par la box (IPTV) et leur replay.</p></div>
+      <div class="card c-bleu"><h3><span class="glyph">■</span>cTV + OTT</h3><p>La même diffusion, élargie aux plateformes de streaming (OTT), pour toucher davantage de foyers sur le grand écran.</p></div>
+      <div class="card c-corail"><h3><span class="glyph">◆</span>Hors YouTube</h3><p>Ces deux formules se diffusent sans YouTube, uniquement sur des environnements TV et streaming premium.</p></div>
+    </div>
+    <div class="note">Ciblage et bilan de campagne complets : profil socio-démographique (âge, sexe, catégorie socio-professionnelle), localisation, composition du foyer (couple, enfants…), habitudes de consommation TV et centres d'intérêt.</div>
+  </div>
+</section>
+
+<section id="next-stream" class="dark">
+  <div class="wrap">
+    <div class="eyebrow">02 · L'offre Next Stream</div>
+    <h2>Du grand écran au smartphone, sans pixel</h2>
+    <p class="lede">Next Stream enchaîne deux contacts vidéo auprès des mêmes foyers : le spot est d'abord vu sur le téléviseur connecté (cTV), puis les foyers qui l'ont vu le retrouvent sur leurs smartphones, tablettes et ordinateurs. Le message est ainsi vu deux fois, sur deux écrans différents, ce qui renforce sa mémorisation.</p>
+    <div class="flow">
+      <div class="step"><div class="num">1</div><div class="screen">Téléviseur</div><h3>Exposition cTV</h3><p>Le spot est diffusé en TV connectée, ciblé par data foyer et par zone géographique.</p></div>
+      <div class="step"><div class="num">2</div><div class="screen">Foyer</div><h3>Reconnaissance</h3><p>Les foyers qui ont vu le spot forment automatiquement une audience, identifiée au niveau du foyer connecté.</p></div>
+      <div class="step"><div class="num">3</div><div class="screen">Écrans personnels</div><h3>Retargeting</h3><p>Ces foyers sont à nouveau exposés sur leurs autres écrans, en vidéo en ligne (VOL) ou sur les leviers détaillés ci-après.</p></div>
+      <div class="step"><div class="num">4</div><div class="screen">Reporting</div><h3>Mesure consolidée</h3><p>Un bilan unique : nombre de personnes touchées, part du spot regardée jusqu'au bout, clics, chaînes et sites de diffusion.</p></div>
+    </div>
+    <div class="why">
+      <div class="card"><h3><span class="glyph">●</span>Aucun pixel</h3><p>Habituellement, le retargeting impose d'installer un pixel (un petit code de suivi) sur votre site. Ici, rien à installer : aucune intervention technique de vos équipes.</p></div>
+      <div class="card"><h3><span class="glyph">■</span>Aucune collecte sur vos sites</h3><p>L'audience naît de l'exposition TV, pas des visites sur vos sites : aucun impact sur votre bandeau cookies (la fenêtre de consentement de vos sites).</p></div>
+      <div class="card"><h3><span class="glyph">◆</span>Une audience dès le jour 1</h3><p>Chaque foyer exposé en cTV alimente immédiatement l'audience de retargeting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="retargeting" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">03 · Le retargeting derrière la cTV</div>
+    <h2>Quatre leviers pour toucher à nouveau les foyers exposés</h2>
+    <p class="lede">Le retargeting (ou reciblage) consiste à montrer à nouveau votre message aux personnes qui l'ont déjà vu. Après le spot en cTV, les mêmes foyers peuvent être touchés à nouveau sur un ou plusieurs de ces leviers, toujours sans pixel.</p>
+    <div class="rt">
+      <div class="card on"><div class="lab">Vidéo</div><h3>VOL</h3><p>Vidéo en ligne : votre spot s'affiche avant (pre-roll) ou pendant (mid-roll) une vidéo, sur des sites d'information et de grands médias reconnus.</p></div>
+      <div class="card"><div class="lab">Bannières</div><h3>Display</h3><p>Des bannières publicitaires (visuels fixes ou animés) sur des sites reconnus, pour rappeler le message et renvoyer vers votre site.</p></div>
+      <div class="card"><div class="lab">Son</div><h3>Audio</h3><p>Un spot sonore diffusé sur les applications de musique (Spotify, Deezer), les podcasts et les radios en ligne.</p></div>
+      <div class="card"><div class="lab">Géolocalisé</div><h3>Drive-to-store</h3><p>Littéralement « conduire au magasin » : une diffusion autour d'un lieu précis, pour donner envie de s'y rendre et mesurer les visites générées.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <div class="eyebrow">04 · Data activables</div>
+    <h2>Nos data, incluses sans surcoût</h2>
+    <span class="inc">Aucun coût de ciblage ajouté, sur tous nos leviers</span>
+    <p class="lede">La data, ce sont les informations qui permettent de choisir à qui votre publicité est montrée. Voici l'ensemble de nos sources, avec des exemples de ciblage pour chacune. Toutes se combinent librement, et fonctionnent avec ou sans cookies (les petits fichiers déposés par les sites dans le navigateur).</p>
+
+    <div class="fam"><span class="fam-n">A</span><div><h3>Profils, intérêts et intentions</h3><p>Plus de 400 segments prêts à l'emploi, issus de Weborama, l'une des bases de données les plus riches d'Europe.</p></div></div>
+    <div class="srcgrid two"><div class="src"><div class="src-top"><b>Weborama</b><span class="src-tag">Socio-démo &amp; localisation</span></div><p>Le profil des personnes et leur lieu de vie, jusqu'au code postal.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Femmes 35-55 ans</span><span class="chip">CSP+ (cadres, professions libérales)</span><span class="chip">Retraités</span><span class="chip">Habitants d'un département</span><span class="chip">Liste de codes postaux</span></div></div><div class="src"><div class="src-top"><b>Weborama</b><span class="src-tag">Centres d'intérêt</span></div><p>Ce qui passionne les internautes, déduit de leur navigation.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Voyage &amp; tourisme</span><span class="chip">Gastronomie</span><span class="chip">Culture &amp; sorties</span><span class="chip">Mode</span><span class="chip">Tech &amp; digital</span><span class="chip">Automobile</span></div></div><div class="src"><div class="src-top"><b>Weborama</b><span class="src-tag">Moments de vie</span></div><p>Les grandes étapes de vie, qui changent les besoins et les habitudes.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Déménager</span><span class="chip">Se marier</span><span class="chip">Devenir parent</span><span class="chip">S'expatrier</span></div></div><div class="src"><div class="src-top"><b>Weborama</b><span class="src-tag">Intentions d'achat</span></div><p>Les personnes qui préparent activement un achat ou un projet.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Intentionnistes voyage</span><span class="chip">Intentionnistes auto</span><span class="chip">Intentionnistes assurance</span><span class="chip">Projet immobilier</span></div></div></div>
+
+    <div class="fam"><span class="fam-n">B</span><div><h3>Comportements réels, avec nos partenaires</h3><p>Des données issues de ce que les gens font vraiment : se déplacer, voyager, rechercher, acheter.</p></div></div>
+    <div class="srcgrid"><div class="src"><div class="src-top"><b>Seiki</b><span class="src-tag">Mobilité GPS</span></div><p>Les lieux réellement fréquentés et les déplacements, observés via les smartphones.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Visiteurs de festivals et grands événements</span><span class="chip">Fréquentation de sites touristiques</span><span class="chip">Voyageurs passés par une gare ou un aéroport</span><span class="chip">Visiteurs de salons</span><span class="chip">Habitués des centres commerciaux</span></div></div><div class="src"><div class="src-top"><b>Travel</b><span class="src-tag">Voyageurs</span></div><p>Les réservations de vols, de trains et d'hôtels.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Grands voyageurs</span><span class="chip">Adeptes des courts séjours</span><span class="chip">Voyageurs vers une destination donnée</span><span class="chip">Voyageurs d'affaires</span></div></div><div class="src"><div class="src-top"><b>Leboncoin</b><span class="src-tag">Recherches actives</span></div><p>Ce que les internautes recherchent en ce moment sur Leboncoin.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Locations de vacances</span><span class="chip">Articles de loisirs</span><span class="chip">Immobilier</span><span class="chip">Emploi &amp; alternance</span></div></div><div class="src"><div class="src-top"><b>Cdiscount</b><span class="src-tag">Achats en ligne</span></div><p>Les habitudes d'achat sur l'un des premiers sites e-commerce français.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Acheteurs high-tech</span><span class="chip">Équipement de la maison</span><span class="chip">Installation dans un premier logement</span><span class="chip">Fournitures scolaires</span></div></div><div class="src"><div class="src-top"><b>ManoMano</b><span class="src-tag">Maison &amp; jardin</span></div><p>Les acheteurs de bricolage, de jardinage et de décoration.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Passionnés de jardinage</span><span class="chip">Bricoleurs réguliers</span><span class="chip">Rénovation &amp; décoration</span><span class="chip">Professionnels du bâtiment</span></div></div><div class="src"><div class="src-top"><b>The Bradery</b><span class="src-tag">Ventes privées &amp; lifestyle</span></div><p>Les membres d'un site de ventes privées de marques mode, déco et art de vivre.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Amateurs de mode</span><span class="chip">Amateurs de décoration</span><span class="chip">Adeptes des marques premium</span></div></div><div class="src"><div class="src-top"><b>Beebs</b><span class="src-tag">Familles</span></div><p>Les parents qui achètent et revendent des articles pour enfants.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Parents de jeunes enfants</span><span class="chip">Familles nombreuses</span><span class="chip">Futurs parents</span></div></div><div class="src"><div class="src-top"><b>Data encartée</b><span class="src-tag">Cartes de fidélité</span></div><p>Les achats en magasin enregistrés via les programmes de fidélité des enseignes.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Clients réguliers d'une catégorie de magasins</span><span class="chip">Gros paniers en grande distribution</span><span class="chip">Acheteurs d'une famille de produits</span></div></div></div>
+
+    <div class="fam"><span class="fam-n">C</span><div><h3>TV, contexte et sur mesure</h3><p>Des ciblages propres au grand écran et au contenu consulté, et des segments construits pour vous.</p></div></div>
+    <div class="srcgrid"><div class="src"><div class="src-top"><b>Data foyer TV</b><span class="src-tag">Spécifique à la cTV</span></div><p>Le foyer qui regarde la TV connectée : sa composition et ses habitudes de visionnage.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Foyers avec enfants</span><span class="chip">Couples sans enfant</span><span class="chip">Amateurs de sport</span><span class="chip">Fans de séries</span><span class="chip">Gros consommateurs de replay</span></div></div><div class="src"><div class="src-top"><b>Ciblage contextuel</b><span class="src-tag">Selon le contenu</span></div><p>La publicité s'affiche à côté d'articles ou de vidéos dont le sujet est proche du message.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Articles voyage</span><span class="chip">Recettes &amp; gastronomie</span><span class="chip">Agenda des sorties</span><span class="chip">Actualité régionale</span></div></div><div class="src"><div class="src-top"><b>Segments sur mesure</b><span class="src-tag">Créés par nos traders</span></div><p>Un segment dédié à votre campagne, en croisant plusieurs des sources ci-dessus.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Grands voyageurs + intérêt gastronomie</span><span class="chip">Familles + visiteurs d'événements</span><span class="chip">Ajustables en cours de campagne</span></div></div></div>
+
+    <div class="note">Données collectées et traitées dans le respect du RGPD (Règlement Général sur la Protection des Données, la loi européenne sur les données personnelles). Diffusion sur des sites reconnus, avec exclusion des contenus sensibles : adultes, piratage, armes, terrorisme, drogues, alcool. C'est ce qu'on appelle la brand safety, la sécurité de l'image de l'annonceur.</div>
+  </div>
+</section>
+
+<section id="mastercard" class="dark">
+  <div class="wrap">
+    <div class="mc">
+      <div>
+        <div class="eyebrow">05 · En exclusivité</div>
+        <span class="excl">Exclusivité The Good Web</span>
+        <h2>La data Mastercard : des comportements d'achat réels</h2>
+        <p class="lede">Une data issue des transactions par carte Mastercard : catégories de dépenses et enseignes fréquentées, telles qu'elles apparaissent sur un relevé de compte, sans détail des articles achetés.</p>
+        <ul class="mc-list">
+          <li><b>Exemples :</b> porteurs de cartes qui séjournent souvent à l'hôtel, qui dépensent régulièrement en transport, en restauration ou en loisirs.</li>
+        </ul>
+      </div>
+      <div class="mc-side">
+        <h3>À retenir</h3>
+        <ul>
+          <li>Seule data en option : elle s'ajoute au coût de diffusion et sera détaillée dans notre proposition chiffrée.</li>
+          <li>Activable sur la TV connectée, la vidéo en ligne et les bannières display.</li>
+          <li>Ciblage par types de cartes, jamais par individus : aucune donnée personnelle exploitée.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formats" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">06 · Formats &amp; KPIs</div>
+    <h2>Formats attendus et indicateurs suivis</h2>
+    <p class="lede">Les KPIs (Key Performance Indicators, ou indicateurs clés de performance) sont les chiffres qui permettent de mesurer l'efficacité de la campagne.</p>
+    <div class="grid g2">
+      <div class="fmt">
+        <div class="fmt-head"><h3>cTV</h3><span>Grand écran</span></div>
+        <div class="fmt-body">
+          <h4>Format</h4>
+          <ul><li>Vidéo horizontale haute définition : 1920 × 1080 pixels (format TV 16:9)</li><li>Durée : 15 à 30 secondes</li></ul>
+          <h4>KPIs</h4>
+          <ul><li>Impressions : nombre de fois où le spot a été diffusé</li><li>Reach (couverture) : nombre de foyers différents touchés</li><li>Taux de complétion : part des spots regardés jusqu'au bout</li><li>Clics et CTR (taux de clic : part des personnes qui ont cliqué)</li><li>Chaînes de diffusion, profil, localisation et centres d'intérêt du public touché</li></ul>
+        </div>
+      </div>
+      <div class="fmt">
+        <div class="fmt-head"><h3>VOL</h3><span>Écrans personnels</span></div>
+        <div class="fmt-body">
+          <h4>Format</h4>
+          <ul><li>Vidéo verticale (9:16, format smartphone) en 1920 × 1080 pixels, ou horizontale en 1600 × 900 pixels</li><li>Durée : 15, 20 ou 30 secondes</li></ul>
+          <h4>KPIs</h4>
+          <ul><li>Impressions : nombre de fois où la vidéo a été diffusée</li><li>Vues à 25, 50, 75 et 100 % : jusqu'où la vidéo a été regardée</li><li>Taux de complétion : part des vidéos regardées jusqu'au bout</li><li>Clics et CTR (taux de clic)</li><li>Principaux sites de diffusion</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="kit" style="margin-top:48px">
+      <div><h3>Le kit média The Good Web</h3><p>Joint à cet envoi, il présente l'ensemble de nos leviers et environnements de diffusion.</p></div>
+      <span class="badge">Kit média joint</span>
+    </div>
+  </div>
+</section>
+
+
+<section id="lexique" class="lex-sec">
+  <div class="wrap">
+    <details class="lexdet">
+      <summary>Lexique : les termes techniques expliqués</summary>
+      <div class="lex">
+      <div><b>cTV</b><span>Connected TV : publicité diffusée sur un téléviseur relié à Internet.</span></div>
+      <div><b>IPTV</b><span>Internet Protocol Television : chaînes reçues via la box de l'opérateur.</span></div>
+      <div><b>OTT</b><span>Over The Top : plateformes de streaming regardées via Internet, sans la box (Netflix, Prime Video…).</span></div>
+      <div><b>Replay</b><span>Programmes des chaînes regardés à la demande, après leur diffusion.</span></div>
+      <div><b>Streaming</b><span>Lecture d'une vidéo ou d'un son directement sur Internet, sans téléchargement.</span></div>
+      <div><b>VOL</b><span>Vidéo en ligne : publicité vidéo diffusée sur des sites internet et applications.</span></div>
+      <div><b>Pre-roll / mid-roll</b><span>Publicité vidéo diffusée avant (pre) ou pendant (mid) la vidéo regardée.</span></div>
+      <div><b>Display</b><span>Bannières publicitaires (visuels fixes ou animés) sur les sites internet.</span></div>
+      <div><b>Drive-to-store</b><span>Publicité diffusée autour d'un lieu pour y générer des visites.</span></div>
+      <div><b>Retargeting</b><span>Reciblage : montrer à nouveau un message aux personnes qui l'ont déjà vu.</span></div>
+      <div><b>Pixel</b><span>Petit code de suivi installé sur un site internet. Non nécessaire avec Next Stream.</span></div>
+      <div><b>Cookies</b><span>Petits fichiers déposés par les sites dans le navigateur pour mémoriser la navigation.</span></div>
+      <div><b>Data</b><span>Données qui permettent de choisir à qui la publicité est montrée.</span></div>
+      <div><b>Segment</b><span>Groupe de personnes partageant un point commun (intérêt, âge, comportement…).</span></div>
+      <div><b>CSP</b><span>Catégorie socio-professionnelle : cadres, employés, retraités…</span></div>
+      <div><b>Socio-démo</b><span>Profil socio-démographique : âge, sexe, CSP.</span></div>
+      <div><b>Ciblage contextuel</b><span>Publicité placée à côté de contenus dont le sujet est proche du message.</span></div>
+      <div><b>Trader</b><span>Expert qui pilote l'achat des espaces publicitaires et le ciblage.</span></div>
+      <div><b>KPI</b><span>Key Performance Indicator : indicateur clé pour mesurer l'efficacité.</span></div>
+      <div><b>Impression</b><span>Une diffusion de la publicité à l'écran.</span></div>
+      <div><b>Reach</b><span>Couverture : nombre de personnes ou de foyers différents touchés.</span></div>
+      <div><b>Taux de complétion</b><span>Part des vidéos regardées jusqu'au bout.</span></div>
+      <div><b>CTR</b><span>Click Through Rate : taux de clic, part des personnes qui ont cliqué.</span></div>
+      <div><b>16:9 / 9:16</b><span>Format horizontal (écran TV) ou vertical (écran de smartphone).</span></div>
+      <div><b>RGPD</b><span>Règlement Général sur la Protection des Données, la loi européenne sur les données personnelles.</span></div>
+      <div><b>Brand safety</b><span>Garantie que la publicité n'apparaît pas à côté de contenus sensibles.</span></div>
+    </div>
+    </details>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--babyblue)">Contacts</div>
+    <h2>Vos interlocuteurs The Good Web</h2>
+    <div class="contacts">
+      <a class="ccard main" href="mailto:sofien@thegoodweb.eu"><b>Sofien Chaganiou</b><div class="role">Chef de publicité</div><div class="tel">07 67 84 70 67</div><div class="mail">sofien@thegoodweb.eu</div></a>
+      <a class="ccard" href="mailto:jerome@thegoodweb.eu"><b>Jérôme Fages</b><div class="role">Directeur commercial</div><div class="tel">06 18 74 66 75</div><div class="mail">jerome@thegoodweb.eu</div></a>
+      <a class="ccard" href="mailto:mathilde@thegoodweb.eu"><b>Mathilde Coriton</b><div class="role">Directrice de clientèle</div><div class="tel">06 48 61 92 92</div><div class="mail">mathilde@thegoodweb.eu</div></a>
+      <a class="ccard" href="mailto:andrea@thegoodweb.eu"><b>Andréa Alonso</b><div class="role">Cheffe de publicité</div><div class="tel">04 91 54 28 12</div><div class="mail">andrea@thegoodweb.eu</div></a>
+      <div class="ccard ph"><b>Pôle activation</b><div class="role">The Good Web</div><div class="mail">activation@thegoodweb.eu</div></div>
+    </div>
+    <div class="foot">
+      <svg class="logo-svg" viewBox="214 252 572 496" width="88" height="76" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Good Web"><g>
+    <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/>
+    <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/>
+    <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/>
+    <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/>
+    <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/>
+    <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/>
+    <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/>
+    <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/>
+  </g>
+  <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/>
+  <g>
+    <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/>
+    <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/>
+    <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/>
+    <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/>
+    <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/>
+    <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/>
+  </g>
+  <g>
+    <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/>
+    <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/>
+    <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/>
+    <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/>
+    <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/>
+    <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/>
+    <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/>
+    <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/>
+    <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+    <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/>
+    <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/>
+    <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/>
+  </g></svg>
+      <div>The Good Web · 40 rue Paradis, 13001 Marseille · thegoodweb.eu</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
