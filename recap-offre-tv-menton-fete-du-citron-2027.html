@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ville de Menton · Offre cTV &amp; Next Stream · The Good Web</title>
+<title>Ville de Menton · cTV Play &amp; Next Stream · The Good Web</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -227,9 +227,137 @@ a.ccard:hover{background:rgba(255,255,255,.12)}
 @media (max-width:960px){.srcgrid{grid-template-columns:repeat(2,1fr)}}
 .srcgrid.two{grid-template-columns:repeat(2,1fr)}
 @media (max-width:640px){.srcgrid,.srcgrid.two{grid-template-columns:1fr}}
+.aud{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.aud-n{background:var(--navy);color:var(--white);border-radius:18px;padding:22px}
+.aud-n b{display:block;font-family:'Poppins',sans-serif;font-size:34px;line-height:1.1;color:var(--babyblue);margin-bottom:6px}
+.aud-n span{font-size:14px;opacity:.9}
+.persona .psrc{margin-top:12px;font-size:12.5px;font-weight:600;color:var(--navy);opacity:.75}
+.srcnote{font-size:12.5px;color:var(--muted);margin-top:10px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+.pillar{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--white);display:flex;flex-direction:column}
+.pl-head{padding:22px 24px;color:var(--white)}
+.pl-head h3{color:var(--white);font-size:22px;margin:2px 0}
+.pl-k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.pl-tag{font-size:14px;opacity:.9}
+.p-tv .pl-head{background:var(--navy)}
+.p-rp .pl-head{background:var(--terra)}
+.p-ott .pl-head{background:var(--babyblue);color:var(--navy)}
+.p-ott .pl-head h3{color:var(--navy)}
+.pl-body{padding:20px 24px 24px;display:flex;flex-direction:column;flex:1}
+.pl-body p{font-size:14.5px;color:var(--muted);margin-bottom:14px}
+.pl-body .ex-l{margin-top:auto}
+.pl-body .chip{font-size:12.5px}
+.combo{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center;background:var(--navy);color:var(--white);border-radius:22px;padding:28px 30px;margin-top:22px}
+.combo h3{color:var(--white);font-size:22px;margin:4px 0 8px}
+.combo p{font-size:15px;opacity:.9}
+.combo-side{background:rgba(242,84,48,.16);border:1px solid rgba(242,84,48,.5);border-radius:16px;padding:18px 20px}
+.combo-side b{display:block;font-family:'Poppins',sans-serif;margin-bottom:4px}
+.combo-side span{font-size:14px;opacity:.92}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:18px;margin-top:14px}
+.tbl{width:100%;border-collapse:collapse;min-width:620px;font-size:14.5px}
+.tbl th{background:var(--navy);color:var(--white);font-family:'Poppins',sans-serif;font-weight:600;text-align:left;padding:14px 18px}
+.tbl td{padding:14px 18px;border-top:1px solid var(--line);vertical-align:top}
+.tbl td:first-child b{display:block;color:var(--navy);font-family:'Poppins',sans-serif}
+.tbl td:first-child span{font-size:12.5px;color:var(--muted)}
+.tbl tbody tr:nth-child(2n){background:var(--bg)}
+.tbl td.na{color:var(--muted);font-style:italic}
+@media (max-width:960px){.aud{grid-template-columns:repeat(2,1fr)}.pillars{grid-template-columns:1fr}.combo{grid-template-columns:1fr}}
+@media (max-width:640px){.aud{grid-template-columns:1fr 1fr}.aud-n b{font-size:28px}}
+.gens{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gen{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px}
+.gen h4{font-size:17px;margin-bottom:12px}
+.gbar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;margin-bottom:10px}
+.gbar .gl{grid-column:1/3;font-size:12.5px;color:var(--muted)}
+.gt{height:10px;background:var(--bg);border-radius:999px;overflow:hidden}
+.gt i{display:block;height:100%;background:var(--babyblue);border-radius:999px}
+.gbar.tr .gt i{background:var(--navy)}
+.gbar b{font-family:'Poppins',sans-serif;font-size:14px;color:var(--navy)}
+.ns-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:12px}
+.ns-stats div{background:rgba(255,255,255,.06);border:1px solid rgba(123,189,255,.35);border-radius:18px;padding:22px}
+.ns-stats b{display:block;font-family:'Poppins',sans-serif;font-size:32px;color:var(--babyblue);line-height:1.1;margin-bottom:6px}
+.ns-stats span{font-size:14px;color:rgba(255,255,255,.88)}
+.ns-h{font-size:22px;margin:48px 0 8px}
+.ns-p{color:rgba(255,255,255,.82);margin-bottom:20px;max-width:760px}
+.fmts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fx{background:rgba(255,255,255,.06);border:1px solid rgba(123,189,255,.3);border-radius:18px;padding:20px}
+.fx.hl{background:rgba(242,84,48,.16);border-color:rgba(242,84,48,.55)}
+.fx-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--babyblue);margin-bottom:6px}
+.fx.hl .fx-k{color:#ffb3a1}
+.fx h4{color:var(--white);font-size:17px;margin-bottom:6px}
+.fx p{font-size:14px;color:rgba(255,255,255,.85)}
+.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tg div{background:var(--white);border-radius:14px;padding:16px}
+.tg b{display:block;font-family:'Poppins',sans-serif;color:var(--navy);font-size:15px;margin-bottom:4px}
+.tg span{font-size:13.5px;color:var(--muted)}
+.ns-two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.ns-box{background:rgba(255,255,255,.06);border:1px solid rgba(123,189,255,.3);border-radius:20px;padding:24px}
+.ns-box h4{color:var(--white);font-size:19px;margin-bottom:12px}
+.ns-box ul{list-style:none;display:grid;gap:10px}
+.ns-box li{font-size:14.5px;color:rgba(255,255,255,.88);padding-left:20px;position:relative}
+.ns-box li::before{content:"◆";position:absolute;left:0;color:var(--terra);font-size:11px;top:3px}
+.ns-box li b{color:var(--white)}
+@media (max-width:960px){.gens,.fmts,.tg{grid-template-columns:repeat(2,1fr)}.ns-stats,.ns-two{grid-template-columns:1fr}}
+@media (max-width:640px){.gens,.fmts{grid-template-columns:1fr}.tg{grid-template-columns:1fr 1fr}}
 @media (max-width:960px){.rt{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:760px){.lex{grid-template-columns:1fr}.lex div{grid-template-columns:120px 1fr}}
 @media (max-width:640px){.rt,.offers{grid-template-columns:1fr}}
+
+section{padding:64px 0}
+.lede{margin-bottom:26px}
+.k3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px}
+.k3 div{border-radius:14px;padding:14px 16px;background:var(--navy);color:var(--white);display:flex;gap:12px;align-items:baseline}
+.k3 b{font-family:'Poppins',sans-serif;font-size:24px;color:var(--babyblue);white-space:nowrap}
+.k3 span{font-size:13.5px;opacity:.92;line-height:1.35}
+section.dark .k3 div{background:rgba(255,255,255,.07);border:1px solid rgba(123,189,255,.3)}
+.pl3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.pl{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white)}
+.pl h3{font-size:18px;padding:12px 18px;color:var(--white);background:var(--navy);display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.pl h3 small{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.pl.rp h3{background:var(--terra)}
+.pl.ot h3{background:var(--babyblue);color:var(--navy)}
+.pl dl{padding:14px 18px 16px;display:grid;gap:8px;font-size:14px}
+.pl dt{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
+.pl dd{color:var(--ink);margin-bottom:2px}
+.line{margin-top:16px;padding:12px 16px;border-radius:12px;background:var(--blue-tint);font-size:14.5px}
+section.dark .line{background:rgba(242,84,48,.14);border:1px solid rgba(242,84,48,.45)}
+.line b{font-family:'Poppins',sans-serif}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 4px}
+.steps3 div{background:rgba(255,255,255,.06);border:1px solid rgba(123,189,255,.3);border-radius:14px;padding:14px 16px;font-size:14px;color:rgba(255,255,255,.88)}
+.steps3 b{display:block;font-family:'Poppins',sans-serif;color:var(--white);font-size:15px}
+.steps3 i{font-style:normal;color:var(--terra);font-weight:700;margin-right:6px}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.box{border-radius:16px;padding:18px 20px;background:rgba(255,255,255,.06);border:1px solid rgba(123,189,255,.3)}
+.box h4{color:var(--white);font-size:16px;margin-bottom:10px}
+.kv{list-style:none;display:grid;gap:7px;font-size:14px;color:rgba(255,255,255,.86)}
+.kv b{color:var(--babyblue);font-weight:600}
+.kv.light{color:var(--ink)} .kv.light b{color:var(--navy)}
+.r4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.r4 div{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14px;color:var(--muted)}
+.r4 div.on{border-color:var(--terra);background:var(--terra-tint)}
+.r4 b{display:block;font-family:'Poppins',sans-serif;color:var(--navy);font-size:16px}
+.dt-wrap{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.dt{width:100%;border-collapse:collapse;font-size:14px}
+.dt th{background:var(--navy);color:var(--white);text-align:left;padding:10px 14px;font-family:'Poppins',sans-serif;font-weight:600;font-size:13px}
+.dt td{padding:9px 14px;border-top:1px solid var(--line);vertical-align:top}
+.dt td:first-child{font-family:'Poppins',sans-serif;font-weight:600;color:var(--navy);white-space:nowrap}
+.dt td:nth-child(2){color:var(--muted)}
+.dt tr.grp td{background:var(--blue-tint);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);font-family:'Inter',sans-serif;font-weight:700;padding:8px 14px}
+.dt tr.grp td span{text-transform:none;letter-spacing:0;font-weight:500;color:var(--muted);margin-left:6px}
+.small{font-size:13px;color:var(--muted);margin-top:10px}
+.mc2{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start}
+.fm2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fm{border:1px solid var(--line);border-radius:16px;background:var(--white);overflow:hidden}
+.fm h3{background:var(--navy);color:var(--white);font-size:17px;padding:12px 18px}
+.fm .kv{padding:14px 18px 16px}
+@media (max-width:960px){.k3,.pl3,.steps3,.cols2,.mc2{grid-template-columns:1fr}.r4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){
+  .r4,.fm2{grid-template-columns:1fr}
+  .dt thead{display:none}
+  .dt,.dt tbody,.dt tr,.dt td{display:block;width:100%}
+  .dt tr{border-top:1px solid var(--line);padding:8px 0}
+  .dt td{border:0;padding:2px 14px;white-space:normal!important}
+  .dt tr.grp{padding:0}
+}
 </style>
 </head>
 <body>
@@ -281,82 +409,100 @@ a.ccard:hover{background:rgba(255,255,255,.12)}
       <div class="client">Ville de Menton<br>Fête du Citron® 2027</div>
     </div>
     <span class="tag">Récapitulatif · Octobre 2026</span>
-    <h1>Notre offre <em>cTV &amp; Next Stream</em>, nos data activables</h1>
-    <p class="sub">Suite à notre rendez-vous, voici le récapitulatif de ce que The Good Web peut activer pour vous : la publicité sur TV connectée, l'offre Next Stream et le retargeting qui la prolonge (c'est à dire le fait de montrer à nouveau votre message aux personnes qui l'ont déjà vu), ainsi que l'ensemble de nos données de ciblage. Un lexique repliable en fin de document reprend les termes techniques. Ce document accompagne notre kit média.</p>
+    <h1>Nos offres <em>cTV Play &amp; Next Stream</em>, nos data activables</h1>
+    <p class="sub">L'essentiel de ce que nous pouvons activer pour vous, suite à notre rendez-vous. En complément du kit média joint. Les termes techniques sont expliqués dans le lexique en bas de page.</p>
     <div class="pills">
-      <div class="pill"><div class="k">TV connectée (cTV)</div><div class="v">Box, plateformes &amp; replay</div></div>
-      <div class="pill"><div class="k">Next Stream</div><div class="v">De la TV aux écrans perso</div></div>
-      <div class="pill"><div class="k">Retargeting (reciblage)</div><div class="v">Sans pixel sur votre site</div></div>
-      <div class="pill"><div class="k">Data (données de ciblage)</div><div class="v">Incluses sans surcoût</div></div>
+      <div class="pill"><div class="k">Play · cTV</div><div class="v">Direct, replay, streaming</div></div>
+      <div class="pill"><div class="k">Next Stream</div><div class="v">TV connectée avancée</div></div>
+      <div class="pill"><div class="k">Retargeting</div><div class="v">Sans pixel</div></div>
+      <div class="pill"><div class="k">Data</div><div class="v">Incluses sans surcoût</div></div>
     </div>
   </div>
 </header>
 
 <nav class="nav" aria-label="Sommaire">
   <ul>
-    <li><a href="#ctv">Offre cTV</a></li>
+    <li><a href="#play">Play</a></li>
     <li><a href="#next-stream" class="hl">Next Stream</a></li>
     <li><a href="#retargeting">Retargeting</a></li>
-    <li><a href="#data">Data activables</a></li>
-    <li><a href="#mastercard">Data Mastercard</a></li>
+    <li><a href="#data">Data</a></li>
+    <li><a href="#mastercard">Mastercard</a></li>
     <li><a href="#formats">Formats &amp; KPIs</a></li>
-    
     <li><a href="#contacts">Contacts</a></li>
   </ul>
 </nav>
 
-<section id="ctv">
+<section id="play">
   <div class="wrap">
-    <div class="eyebrow">01 · L'offre cTV</div>
-    <h2>La puissance de la TV, la précision du digital</h2>
-    <p class="lede">La cTV (Connected TV, ou TV connectée) consiste à diffuser votre spot vidéo sur le téléviseur du salon, lorsqu'il est relié à Internet. Contrairement à la publicité TV classique, diffusée à tous en même temps, la cTV permet de choisir précisément quels foyers voient votre spot, y compris sur une zone géographique limitée.</p>
-    <div class="grid g3" style="margin-bottom:32px">
-      <div class="card"><h3>IPTV</h3><p>Internet Protocol Television : les chaînes reçues par la box de votre opérateur (Orange, Free, SFR, Bouygues).</p></div>
-      <div class="card"><h3>OTT</h3><p>Over The Top : les plateformes de streaming regardées directement via Internet, sans passer par la box (Netflix, Prime Video, Disney+…).</p></div>
-      <div class="card"><h3>Replay</h3><p>Les programmes des chaînes regardés à la demande, après leur diffusion (TF1+, M6+…).</p></div>
+    <div class="eyebrow">01 · Offre cTV Play</div>
+    <h2>Play : votre spot sur tous les écrans TV</h2>
+    <p class="lede">La cTV (TV connectée) diffuse votre spot sur un téléviseur relié à Internet, réservé à une zone et à un public précis. Play réunit les trois façons de regarder la TV.</p>
+    <div class="k3">
+      <div><b>44 M</b><span>téléspectateurs sur l'ensemble des plateformes</span></div>
+      <div><b>2/3</b><span>des Français regardent le replay</span></div>
+      <div><b>+38 %</b><span>de croissance de la TV segmentée en un an</span></div>
     </div>
-    <h3 style="font-size:18px;margin-bottom:4px">Les plus grandes chaînes et plateformes françaises</h3>
-    <div class="chips" style="margin-bottom:32px">
-      <span class="chip">TF1</span><span class="chip">M6</span><span class="chip">Canal+</span><span class="chip">TMC</span><span class="chip">TFX</span><span class="chip">W9</span><span class="chip">6ter</span><span class="chip">RMC</span><span class="chip">Netflix</span><span class="chip">Prime Video</span><span class="chip">Disney+</span>
+    <p class="small">Sources : Médiamétrie, The Trade Desk.</p>
+    <div class="pl3">
+      <div class="pl"><h3>TV segmentée <small>En direct</small></h3><dl>
+        <dt>Principe</dt><dd>Votre spot dans les pubs en direct, uniquement dans la zone choisie (décrochage local).</dd>
+        <dt>Chaînes</dt><dd>TF1, M6, Canal+, Altice</dd>
+        <dt>Ciblage</dt><dd>Région · genre de programmes · hommes, femmes 18+</dd></dl></div>
+      <div class="pl rp"><h3>Replay TV <small>En différé</small></h3><dl>
+        <dt>Principe</dt><dd>Votre spot avant ou pendant les programmes regardés à la demande.</dd>
+        <dt>Plateformes</dt><dd>TF1+, M6+, myCANAL, france.tv, BFMTV</dd>
+        <dt>Ciblage</dt><dd>Code postal · socio-démo · affinités · tranche de revenus</dd></dl></div>
+      <div class="pl ot"><h3>Streaming OTT <small>Via Internet</small></h3><dl>
+        <dt>Principe</dt><dd>Votre spot dans les films et séries des plateformes de streaming, sans passer par la box.</dd>
+        <dt>Plateformes</dt><dd>Netflix, Disney+, Prime Video, Molotov, Rakuten TV, Pluto TV</dd>
+        <dt>Ciblage</dt><dd>Département · socio-démo · genre de programmes</dd></dl></div>
     </div>
-    <div class="grid g3">
-      <div class="card c-bleu"><h3><span class="glyph">●</span>cTV seule</h3><p>Diffusion sur les téléviseurs connectés, via les chaînes reçues par la box (IPTV) et leur replay.</p></div>
-      <div class="card c-bleu"><h3><span class="glyph">■</span>cTV + OTT</h3><p>La même diffusion, élargie aux plateformes de streaming (OTT), pour toucher davantage de foyers sur le grand écran.</p></div>
-      <div class="card c-corail"><h3><span class="glyph">◆</span>Hors YouTube</h3><p>Ces deux formules se diffusent sans YouTube, uniquement sur des environnements TV et streaming premium.</p></div>
-    </div>
-    <div class="note">Ciblage et bilan de campagne complets : profil socio-démographique (âge, sexe, catégorie socio-professionnelle), localisation, composition du foyer (couple, enfants…), habitudes de consommation TV et centres d'intérêt.</div>
+    <p class="line"><b>Play combine les trois</b>, optimisés en programmatique (achat automatisé, en temps réel, vers ce qui performe le mieux). <b>Proposé hors YouTube.</b></p>
   </div>
 </section>
 
 <section id="next-stream" class="dark">
   <div class="wrap">
-    <div class="eyebrow">02 · L'offre Next Stream</div>
-    <h2>Du grand écran au smartphone, sans pixel</h2>
-    <p class="lede">Next Stream enchaîne deux contacts vidéo auprès des mêmes foyers : le spot est d'abord vu sur le téléviseur connecté (cTV), puis les foyers qui l'ont vu le retrouvent sur leurs smartphones, tablettes et ordinateurs. Le message est ainsi vu deux fois, sur deux écrans différents, ce qui renforce sa mémorisation.</p>
-    <div class="flow">
-      <div class="step"><div class="num">1</div><div class="screen">Téléviseur</div><h3>Exposition cTV</h3><p>Le spot est diffusé en TV connectée, ciblé par data foyer et par zone géographique.</p></div>
-      <div class="step"><div class="num">2</div><div class="screen">Foyer</div><h3>Reconnaissance</h3><p>Les foyers qui ont vu le spot forment automatiquement une audience, identifiée au niveau du foyer connecté.</p></div>
-      <div class="step"><div class="num">3</div><div class="screen">Écrans personnels</div><h3>Retargeting</h3><p>Ces foyers sont à nouveau exposés sur leurs autres écrans, en vidéo en ligne (VOL) ou sur les leviers détaillés ci-après.</p></div>
-      <div class="step"><div class="num">4</div><div class="screen">Reporting</div><h3>Mesure consolidée</h3><p>Un bilan unique : nombre de personnes touchées, part du spot regardée jusqu'au bout, clics, chaînes et sites de diffusion.</p></div>
+    <div class="eyebrow">02 · Offre Next Stream · CTV Advanced</div>
+    <h2>Next Stream : de la TV au smartphone, sans pixel</h2>
+    <p class="lede">La TV connectée avancée : ciblages plus fins, formats interactifs, et retargeting sur smartphone des foyers qui ont vu le spot.</p>
+    <div class="k3">
+      <div><b>70-85 %</b><span>de la cible couverte, contre 70 % au mieux en TV traditionnelle seule</span></div>
+      <div><b>85 %</b><span>des téléspectateurs ont un second écran en main devant la TV</span></div>
+      <div><b>4 000</b><span>éditeurs premium sur 40 marchés</span></div>
     </div>
-    <div class="why">
-      <div class="card"><h3><span class="glyph">●</span>Aucun pixel</h3><p>Habituellement, le retargeting impose d'installer un pixel (un petit code de suivi) sur votre site. Ici, rien à installer : aucune intervention technique de vos équipes.</p></div>
-      <div class="card"><h3><span class="glyph">■</span>Aucune collecte sur vos sites</h3><p>L'audience naît de l'exposition TV, pas des visites sur vos sites : aucun impact sur votre bandeau cookies (la fenêtre de consentement de vos sites).</p></div>
-      <div class="card"><h3><span class="glyph">◆</span>Une audience dès le jour 1</h3><p>Chaque foyer exposé en cTV alimente immédiatement l'audience de retargeting.</p></div>
+    <div class="steps3">
+      <div><b><i>1</i>TV</b>Le spot est diffusé en cTV, ciblé.</div>
+      <div><b><i>2</i>Foyer</b>Les foyers exposés sont reconnus automatiquement.</div>
+      <div><b><i>3</i>Smartphone</b>Ils retrouvent le message sur leurs autres écrans.</div>
+    </div>
+    <p class="line"><b>Sans pixel :</b> rien à installer sur vos sites, aucune donnée collectée chez vous, audience disponible dès le premier jour.</p>
+    <div class="cols2">
+      <div class="box"><h4>Formats interactifs</h4><ul class="kv">
+        <li><b>Synchronisation mobile :</b> le message passe de la TV au smartphone.</li>
+        <li><b>Interactive Screen :</b> QR code à l'écran vers votre site ou appli.</li>
+        <li><b>Drive to store :</b> QR code vers le lieu le plus proche.</li>
+        <li><b>Format Shazam :</b> le spot mène à un événement via l'appli Shazam.</li></ul></div>
+      <div class="box"><h4>Ciblages avancés</h4><ul class="kv">
+        <li><b>Écran :</b> type d'appareil, applications, éditeurs, rubriques.</li>
+        <li><b>Contenu :</b> mots-clés à inclure ou exclure, part de voix.</li>
+        <li><b>Moment &amp; lieu :</b> heures de pointe, national, régional ou local.</li>
+        <li><b>Data fabricants de TV :</b> applis installées, temps passé, créneaux.</li>
+        <li><b>Réseau premium :</b> inventaire exclusif, sécurité de marque à 100 %.</li></ul></div>
     </div>
   </div>
 </section>
 
 <section id="retargeting" class="alt">
   <div class="wrap">
-    <div class="eyebrow">03 · Le retargeting derrière la cTV</div>
-    <h2>Quatre leviers pour toucher à nouveau les foyers exposés</h2>
-    <p class="lede">Le retargeting (ou reciblage) consiste à montrer à nouveau votre message aux personnes qui l'ont déjà vu. Après le spot en cTV, les mêmes foyers peuvent être touchés à nouveau sur un ou plusieurs de ces leviers, toujours sans pixel.</p>
-    <div class="rt">
-      <div class="card on"><div class="lab">Vidéo</div><h3>VOL</h3><p>Vidéo en ligne : votre spot s'affiche avant (pre-roll) ou pendant (mid-roll) une vidéo, sur des sites d'information et de grands médias reconnus.</p></div>
-      <div class="card"><div class="lab">Bannières</div><h3>Display</h3><p>Des bannières publicitaires (visuels fixes ou animés) sur des sites reconnus, pour rappeler le message et renvoyer vers votre site.</p></div>
-      <div class="card"><div class="lab">Son</div><h3>Audio</h3><p>Un spot sonore diffusé sur les applications de musique (Spotify, Deezer), les podcasts et les radios en ligne.</p></div>
-      <div class="card"><div class="lab">Géolocalisé</div><h3>Drive-to-store</h3><p>Littéralement « conduire au magasin » : une diffusion autour d'un lieu précis, pour donner envie de s'y rendre et mesurer les visites générées.</p></div>
+    <div class="eyebrow">03 · Retargeting après la cTV</div>
+    <h2>Les foyers exposés, retouchés sur 4 leviers</h2>
+    <p class="lede">Retargeting : montrer à nouveau votre message à ceux qui l'ont déjà vu. Toujours sans pixel.</p>
+    <div class="r4">
+      <div class="on"><b>VOL</b>Vidéo en ligne, avant ou pendant une vidéo, sur sites premium.</div>
+      <div><b>Display</b>Bannières sur sites reconnus, avec lien vers votre site.</div>
+      <div><b>Audio</b>Spot sur Spotify, Deezer, podcasts et radios en ligne.</div>
+      <div><b>Drive-to-store</b>Diffusion autour d'un lieu, visites mesurées.</div>
     </div>
   </div>
 </section>
@@ -365,42 +511,29 @@ a.ccard:hover{background:rgba(255,255,255,.12)}
   <div class="wrap">
     <div class="eyebrow">04 · Data activables</div>
     <h2>Nos data, incluses sans surcoût</h2>
-    <span class="inc">Aucun coût de ciblage ajouté, sur tous nos leviers</span>
-    <p class="lede">La data, ce sont les informations qui permettent de choisir à qui votre publicité est montrée. Voici l'ensemble de nos sources, avec des exemples de ciblage pour chacune. Toutes se combinent librement, et fonctionnent avec ou sans cookies (les petits fichiers déposés par les sites dans le navigateur).</p>
-
-    <div class="fam"><span class="fam-n">A</span><div><h3>Profils, intérêts et intentions</h3><p>Plus de 400 segments prêts à l'emploi, issus de Weborama, l'une des bases de données les plus riches d'Europe.</p></div></div>
-    <div class="srcgrid two"><div class="src"><div class="src-top"><b>Weborama</b><span class="src-tag">Socio-démo &amp; localisation</span></div><p>Le profil des personnes et leur lieu de vie, jusqu'au code postal.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Femmes 35-55 ans</span><span class="chip">CSP+ (cadres, professions libérales)</span><span class="chip">Retraités</span><span class="chip">Habitants d'un département</span><span class="chip">Liste de codes postaux</span></div></div><div class="src"><div class="src-top"><b>Weborama</b><span class="src-tag">Centres d'intérêt</span></div><p>Ce qui passionne les internautes, déduit de leur navigation.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Voyage &amp; tourisme</span><span class="chip">Gastronomie</span><span class="chip">Culture &amp; sorties</span><span class="chip">Mode</span><span class="chip">Tech &amp; digital</span><span class="chip">Automobile</span></div></div><div class="src"><div class="src-top"><b>Weborama</b><span class="src-tag">Moments de vie</span></div><p>Les grandes étapes de vie, qui changent les besoins et les habitudes.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Déménager</span><span class="chip">Se marier</span><span class="chip">Devenir parent</span><span class="chip">S'expatrier</span></div></div><div class="src"><div class="src-top"><b>Weborama</b><span class="src-tag">Intentions d'achat</span></div><p>Les personnes qui préparent activement un achat ou un projet.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Intentionnistes voyage</span><span class="chip">Intentionnistes auto</span><span class="chip">Intentionnistes assurance</span><span class="chip">Projet immobilier</span></div></div></div>
-
-    <div class="fam"><span class="fam-n">B</span><div><h3>Comportements réels, avec nos partenaires</h3><p>Des données issues de ce que les gens font vraiment : se déplacer, voyager, rechercher, acheter.</p></div></div>
-    <div class="srcgrid"><div class="src"><div class="src-top"><b>Seiki</b><span class="src-tag">Mobilité GPS</span></div><p>Les lieux réellement fréquentés et les déplacements, observés via les smartphones.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Visiteurs de festivals et grands événements</span><span class="chip">Fréquentation de sites touristiques</span><span class="chip">Voyageurs passés par une gare ou un aéroport</span><span class="chip">Visiteurs de salons</span><span class="chip">Habitués des centres commerciaux</span></div></div><div class="src"><div class="src-top"><b>Travel</b><span class="src-tag">Voyageurs</span></div><p>Les réservations de vols, de trains et d'hôtels.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Grands voyageurs</span><span class="chip">Adeptes des courts séjours</span><span class="chip">Voyageurs vers une destination donnée</span><span class="chip">Voyageurs d'affaires</span></div></div><div class="src"><div class="src-top"><b>Leboncoin</b><span class="src-tag">Recherches actives</span></div><p>Ce que les internautes recherchent en ce moment sur Leboncoin.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Locations de vacances</span><span class="chip">Articles de loisirs</span><span class="chip">Immobilier</span><span class="chip">Emploi &amp; alternance</span></div></div><div class="src"><div class="src-top"><b>Cdiscount</b><span class="src-tag">Achats en ligne</span></div><p>Les habitudes d'achat sur l'un des premiers sites e-commerce français.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Acheteurs high-tech</span><span class="chip">Équipement de la maison</span><span class="chip">Installation dans un premier logement</span><span class="chip">Fournitures scolaires</span></div></div><div class="src"><div class="src-top"><b>ManoMano</b><span class="src-tag">Maison &amp; jardin</span></div><p>Les acheteurs de bricolage, de jardinage et de décoration.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Passionnés de jardinage</span><span class="chip">Bricoleurs réguliers</span><span class="chip">Rénovation &amp; décoration</span><span class="chip">Professionnels du bâtiment</span></div></div><div class="src"><div class="src-top"><b>The Bradery</b><span class="src-tag">Ventes privées &amp; lifestyle</span></div><p>Les membres d'un site de ventes privées de marques mode, déco et art de vivre.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Amateurs de mode</span><span class="chip">Amateurs de décoration</span><span class="chip">Adeptes des marques premium</span></div></div><div class="src"><div class="src-top"><b>Beebs</b><span class="src-tag">Familles</span></div><p>Les parents qui achètent et revendent des articles pour enfants.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Parents de jeunes enfants</span><span class="chip">Familles nombreuses</span><span class="chip">Futurs parents</span></div></div><div class="src"><div class="src-top"><b>Data encartée</b><span class="src-tag">Cartes de fidélité</span></div><p>Les achats en magasin enregistrés via les programmes de fidélité des enseignes.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Clients réguliers d'une catégorie de magasins</span><span class="chip">Gros paniers en grande distribution</span><span class="chip">Acheteurs d'une famille de produits</span></div></div></div>
-
-    <div class="fam"><span class="fam-n">C</span><div><h3>TV, contexte et sur mesure</h3><p>Des ciblages propres au grand écran et au contenu consulté, et des segments construits pour vous.</p></div></div>
-    <div class="srcgrid"><div class="src"><div class="src-top"><b>Data foyer TV</b><span class="src-tag">Spécifique à la cTV</span></div><p>Le foyer qui regarde la TV connectée : sa composition et ses habitudes de visionnage.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Foyers avec enfants</span><span class="chip">Couples sans enfant</span><span class="chip">Amateurs de sport</span><span class="chip">Fans de séries</span><span class="chip">Gros consommateurs de replay</span></div></div><div class="src"><div class="src-top"><b>Ciblage contextuel</b><span class="src-tag">Selon le contenu</span></div><p>La publicité s'affiche à côté d'articles ou de vidéos dont le sujet est proche du message.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Articles voyage</span><span class="chip">Recettes &amp; gastronomie</span><span class="chip">Agenda des sorties</span><span class="chip">Actualité régionale</span></div></div><div class="src"><div class="src-top"><b>Segments sur mesure</b><span class="src-tag">Créés par nos traders</span></div><p>Un segment dédié à votre campagne, en croisant plusieurs des sources ci-dessus.</p><div class="ex-l">Exemples de ciblage</div><div class="chips"><span class="chip">Grands voyageurs + intérêt gastronomie</span><span class="chip">Familles + visiteurs d'événements</span><span class="chip">Ajustables en cours de campagne</span></div></div></div>
-
-    <div class="note">Données collectées et traitées dans le respect du RGPD (Règlement Général sur la Protection des Données, la loi européenne sur les données personnelles). Diffusion sur des sites reconnus, avec exclusion des contenus sensibles : adultes, piratage, armes, terrorisme, drogues, alcool. C'est ce qu'on appelle la brand safety, la sécurité de l'image de l'annonceur.</div>
+    <p class="lede">Les informations qui servent à choisir qui voit votre publicité. Toutes se combinent, sur tous nos leviers.</p>
+    <div class="dt-wrap"><table class="dt">
+      <thead><tr><th>Data</th><th>Ce que c'est</th><th>Exemples de ciblage</th></tr></thead>
+      <tbody><tr class="grp"><td colspan="3">Profils &amp; intérêts<span>Weborama, +400 segments prêts à l'emploi</span></td></tr><tr><td>Socio-démo</td><td>Âge, sexe, CSP (catégorie socio-professionnelle), lieu de vie</td><td>Femmes 35-55 ans, CSP+, retraités, liste de codes postaux</td></tr><tr><td>Centres d'intérêt</td><td>Passions déduites de la navigation</td><td>Voyage, gastronomie, culture &amp; sorties, mode</td></tr><tr><td>Moments de vie</td><td>Grandes étapes de vie</td><td>Déménager, se marier, devenir parent</td></tr><tr><td>Intentions d'achat</td><td>Projets en préparation</td><td>Intentionnistes voyage, auto, immobilier</td></tr><tr class="grp"><td colspan="3">Comportements réels<span>nos partenaires data</span></td></tr><tr><td>Seiki</td><td>Déplacements GPS</td><td>Visiteurs d'événements, de sites touristiques, de gares et aéroports</td></tr><tr><td>Travel</td><td>Réservations vol, train, hôtel</td><td>Grands voyageurs, courts séjours, voyageurs d'affaires</td></tr><tr><td>Leboncoin</td><td>Recherches en cours</td><td>Locations de vacances, loisirs, immobilier</td></tr><tr><td>Cdiscount</td><td>Achats en ligne</td><td>High-tech, maison, premier logement</td></tr><tr><td>ManoMano</td><td>Achats maison &amp; jardin</td><td>Jardiniers, bricoleurs, rénovation</td></tr><tr><td>The Bradery</td><td>Ventes privées lifestyle</td><td>Mode, déco, marques premium</td></tr><tr><td>Beebs</td><td>Achats familles</td><td>Parents de jeunes enfants, futurs parents</td></tr><tr><td>Data encartée</td><td>Cartes de fidélité en magasin</td><td>Clients réguliers d'une catégorie de magasins</td></tr><tr class="grp"><td colspan="3">TV &amp; contexte<span>spécifiques à la TV et au contenu</span></td></tr><tr><td>Foyer TV</td><td>Composition et habitudes du foyer</td><td>Foyers avec enfants, fans de séries ou de sport</td></tr><tr><td>Fabricants de TV</td><td>Usage du téléviseur (Next Stream)</td><td>Foyers équipés Netflix, gros consommateurs de streaming</td></tr><tr><td>Contextuel</td><td>Sujet du contenu regardé ou lu</td><td>Articles voyage, recettes, agenda des sorties</td></tr><tr><td>Sur mesure</td><td>Segments croisés par nos traders</td><td>Grands voyageurs + intérêt gastronomie</td></tr></tbody>
+    </table></div>
+    <p class="small">Données conformes au RGPD. Diffusion sur sites reconnus, contenus sensibles exclus (brand safety).</p>
   </div>
 </section>
 
 <section id="mastercard" class="dark">
   <div class="wrap">
-    <div class="mc">
+    <div class="mc2">
       <div>
         <div class="eyebrow">05 · En exclusivité</div>
-        <span class="excl">Exclusivité The Good Web</span>
-        <h2>La data Mastercard : des comportements d'achat réels</h2>
-        <p class="lede">Une data issue des transactions par carte Mastercard : catégories de dépenses et enseignes fréquentées, telles qu'elles apparaissent sur un relevé de compte, sans détail des articles achetés.</p>
-        <ul class="mc-list">
-          <li><b>Exemples :</b> porteurs de cartes qui séjournent souvent à l'hôtel, qui dépensent régulièrement en transport, en restauration ou en loisirs.</li>
-        </ul>
+        <h2>Data Mastercard : les achats réels</h2>
+        <p class="lede" style="margin-bottom:0">Catégories de dépenses et enseignes issues des paiements par carte, sans détail des articles. Exclusivité The Good Web.</p>
       </div>
-      <div class="mc-side">
-        <h3>À retenir</h3>
-        <ul>
-          <li>Seule data en option : elle s'ajoute au coût de diffusion et sera détaillée dans notre proposition chiffrée.</li>
-          <li>Activable sur la TV connectée, la vidéo en ligne et les bannières display.</li>
-          <li>Ciblage par types de cartes, jamais par individus : aucune donnée personnelle exploitée.</li>
-        </ul>
-      </div>
+      <div class="box"><ul class="kv">
+        <li><b>Type de carte :</b> premium, professionnelle, standard.</li>
+        <li><b>Dépenses :</b> hôtellerie, transport, restauration, loisirs.</li>
+        <li><b>Enseignes :</b> clients d'une enseigne ou d'une catégorie de commerce.</li>
+        <li><b>Leviers :</b> cTV, Next Stream, VOL, display.</li>
+        <li><b>Option payante</b>, détaillée dans la proposition chiffrée. Ciblage par types de cartes, jamais par individus.</li></ul></div>
     </div>
   </div>
 </section>
@@ -408,35 +541,21 @@ a.ccard:hover{background:rgba(255,255,255,.12)}
 <section id="formats" class="alt">
   <div class="wrap">
     <div class="eyebrow">06 · Formats &amp; KPIs</div>
-    <h2>Formats attendus et indicateurs suivis</h2>
-    <p class="lede">Les KPIs (Key Performance Indicators, ou indicateurs clés de performance) sont les chiffres qui permettent de mesurer l'efficacité de la campagne.</p>
-    <div class="grid g2">
-      <div class="fmt">
-        <div class="fmt-head"><h3>cTV</h3><span>Grand écran</span></div>
-        <div class="fmt-body">
-          <h4>Format</h4>
-          <ul><li>Vidéo horizontale haute définition : 1920 × 1080 pixels (format TV 16:9)</li><li>Durée : 15 à 30 secondes</li></ul>
-          <h4>KPIs</h4>
-          <ul><li>Impressions : nombre de fois où le spot a été diffusé</li><li>Reach (couverture) : nombre de foyers différents touchés</li><li>Taux de complétion : part des spots regardés jusqu'au bout</li><li>Clics et CTR (taux de clic : part des personnes qui ont cliqué)</li><li>Chaînes de diffusion, profil, localisation et centres d'intérêt du public touché</li></ul>
-        </div>
-      </div>
-      <div class="fmt">
-        <div class="fmt-head"><h3>VOL</h3><span>Écrans personnels</span></div>
-        <div class="fmt-body">
-          <h4>Format</h4>
-          <ul><li>Vidéo verticale (9:16, format smartphone) en 1920 × 1080 pixels, ou horizontale en 1600 × 900 pixels</li><li>Durée : 15, 20 ou 30 secondes</li></ul>
-          <h4>KPIs</h4>
-          <ul><li>Impressions : nombre de fois où la vidéo a été diffusée</li><li>Vues à 25, 50, 75 et 100 % : jusqu'où la vidéo a été regardée</li><li>Taux de complétion : part des vidéos regardées jusqu'au bout</li><li>Clics et CTR (taux de clic)</li><li>Principaux sites de diffusion</li></ul>
-        </div>
-      </div>
+    <h2>À fournir et à mesurer</h2>
+    <p class="lede">KPIs : les indicateurs qui mesurent l'efficacité. Éléments à remettre 3 jours avant le lancement.</p>
+    <div class="fm2">
+      <div class="fm"><h3>cTV · Play · Next Stream</h3><ul class="kv light">
+        <li><b>Vidéo :</b> 1920 × 1080 px, 16:9, MP4 ou MOV, 20 secondes.</li>
+        <li><b>Son :</b> stéréo 48 kHz, PCM ou AAC, conforme loi CALM (-24 LKFS).</li>
+        <li><b>KPIs :</b> impressions, reach (foyers touchés), taux de complétion, CTR (taux de clic), chaînes, profil du public.</li></ul></div>
+      <div class="fm"><h3>VOL · vidéo en ligne</h3><ul class="kv light">
+        <li><b>Vidéo :</b> verticale 1920 × 1080 px ou horizontale 1600 × 900 px.</li>
+        <li><b>Durée :</b> 15, 20 ou 30 secondes.</li>
+        <li><b>KPIs :</b> impressions, vues à 25, 50, 75 et 100 %, taux de complétion, CTR.</li></ul></div>
     </div>
-    <div class="kit" style="margin-top:48px">
-      <div><h3>Le kit média The Good Web</h3><p>Joint à cet envoi, il présente l'ensemble de nos leviers et environnements de diffusion.</p></div>
-      <span class="badge">Kit média joint</span>
-    </div>
+    <p class="line" style="margin-top:20px"><b>Kit média joint :</b> l'ensemble de nos leviers et environnements de diffusion.</p>
   </div>
 </section>
-
 
 <section id="lexique" class="lex-sec">
   <div class="wrap">
@@ -446,6 +565,9 @@ a.ccard:hover{background:rgba(255,255,255,.12)}
       <div><b>cTV</b><span>Connected TV : publicité diffusée sur un téléviseur relié à Internet.</span></div>
       <div><b>IPTV</b><span>Internet Protocol Television : chaînes reçues via la box de l'opérateur.</span></div>
       <div><b>OTT</b><span>Over The Top : plateformes de streaming regardées via Internet, sans la box (Netflix, Prime Video…).</span></div>
+      <div><b>TV segmentée</b><span>Spot TV diffusé en direct, mais uniquement dans les foyers d'une zone choisie.</span></div>
+      <div><b>Décrochage local</b><span>Remplacement, pendant la coupure pub, du spot national par un spot local.</span></div>
+      <div><b>Play</b><span>Offre The Good Web réunissant TV segmentée, replay et streaming.</span></div>
       <div><b>Replay</b><span>Programmes des chaînes regardés à la demande, après leur diffusion.</span></div>
       <div><b>Streaming</b><span>Lecture d'une vidéo ou d'un son directement sur Internet, sans téléchargement.</span></div>
       <div><b>VOL</b><span>Vidéo en ligne : publicité vidéo diffusée sur des sites internet et applications.</span></div>
@@ -453,6 +575,13 @@ a.ccard:hover{background:rgba(255,255,255,.12)}
       <div><b>Display</b><span>Bannières publicitaires (visuels fixes ou animés) sur les sites internet.</span></div>
       <div><b>Drive-to-store</b><span>Publicité diffusée autour d'un lieu pour y générer des visites.</span></div>
       <div><b>Retargeting</b><span>Reciblage : montrer à nouveau un message aux personnes qui l'ont déjà vu.</span></div>
+      <div><b>CTV Advanced</b><span>TV connectée avancée : ciblages fins, formats interactifs, retargeting mobile.</span></div>
+      <div><b>Second écran</b><span>Smartphone ou tablette utilisé en même temps que la TV.</span></div>
+      <div><b>QR code</b><span>Code carré à scanner avec un smartphone, qui ouvre un site ou une adresse.</span></div>
+      <div><b>Drive to web</b><span>Publicité conçue pour amener vers un site internet ou une application.</span></div>
+      <div><b>Éditeur</b><span>Média qui diffuse la publicité : chaîne, plateforme, site.</span></div>
+      <div><b>Part de voix</b><span>Place occupée par une marque dans les publicités d'un environnement.</span></div>
+      <div><b>Liste noire</b><span>Liste de mots-clés ou de sites où la publicité ne doit jamais apparaître.</span></div>
       <div><b>Pixel</b><span>Petit code de suivi installé sur un site internet. Non nécessaire avec Next Stream.</span></div>
       <div><b>Cookies</b><span>Petits fichiers déposés par les sites dans le navigateur pour mémoriser la navigation.</span></div>
       <div><b>Data</b><span>Données qui permettent de choisir à qui la publicité est montrée.</span></div>
@@ -460,6 +589,11 @@ a.ccard:hover{background:rgba(255,255,255,.12)}
       <div><b>CSP</b><span>Catégorie socio-professionnelle : cadres, employés, retraités…</span></div>
       <div><b>Socio-démo</b><span>Profil socio-démographique : âge, sexe, CSP.</span></div>
       <div><b>Ciblage contextuel</b><span>Publicité placée à côté de contenus dont le sujet est proche du message.</span></div>
+      <div><b>Programmatique</b><span>Achat d'espaces publicitaires automatisé, en temps réel.</span></div>
+      <div><b>CPV</b><span>Coût par vue : coût moyen d'une vue du spot.</span></div>
+      <div><b>Loi CALM</b><span>Loi qui interdit aux publicités TV d'être plus fortes que les programmes.</span></div>
+      <div><b>LKFS</b><span>Unité de mesure du volume sonore perçu, utilisée en TV.</span></div>
+      <div><b>Codec</b><span>Format de compression d'un fichier son ou vidéo.</span></div>
       <div><b>Trader</b><span>Expert qui pilote l'achat des espaces publicitaires et le ciblage.</span></div>
       <div><b>KPI</b><span>Key Performance Indicator : indicateur clé pour mesurer l'efficacité.</span></div>
       <div><b>Impression</b><span>Une diffusion de la publicité à l'écran.</span></div>
@@ -479,7 +613,7 @@ a.ccard:hover{background:rgba(255,255,255,.12)}
     <div class="eyebrow" style="color:var(--babyblue)">Contacts</div>
     <h2>Vos interlocuteurs The Good Web</h2>
     <div class="contacts">
-      <a class="ccard main" href="mailto:sofien@thegoodweb.eu"><b>Sofien Chaganiou</b><div class="role">Chef de publicité</div><div class="tel">07 67 84 70 67</div><div class="mail">sofien@thegoodweb.eu</div></a>
+      <a class="ccard" href="mailto:sofien@thegoodweb.eu"><b>Sofien Chaganiou</b><div class="role">Chef de publicité</div><div class="tel">07 67 84 70 67</div><div class="mail">sofien@thegoodweb.eu</div></a>
       <a class="ccard" href="mailto:jerome@thegoodweb.eu"><b>Jérôme Fages</b><div class="role">Directeur commercial</div><div class="tel">06 18 74 66 75</div><div class="mail">jerome@thegoodweb.eu</div></a>
       <a class="ccard" href="mailto:mathilde@thegoodweb.eu"><b>Mathilde Coriton</b><div class="role">Directrice de clientèle</div><div class="tel">06 48 61 92 92</div><div class="mail">mathilde@thegoodweb.eu</div></a>
       <a class="ccard" href="mailto:andrea@thegoodweb.eu"><b>Andréa Alonso</b><div class="role">Cheffe de publicité</div><div class="tel">04 91 54 28 12</div><div class="mail">andrea@thegoodweb.eu</div></a>
