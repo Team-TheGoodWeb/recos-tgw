@@ -128,6 +128,28 @@ tr.tot td{background:var(--navy);color:var(--white);font-weight:700;font-family:
 .pyr span{font-size:13px;opacity:.92}
 
 
+.tl-wrap{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:6px 16px 4px}
+.timeline{min-width:820px}
+.tl-row{display:grid;grid-template-columns:190px 1fr;align-items:center;border-top:1px solid var(--line)}
+.tl-row.tl-head,.tl-row.tl-foot{border-top:0}
+.tl-label{padding:12px 12px 12px 0;line-height:1.3}
+.tl-label b{display:block;font-family:Poppins;color:var(--navy);font-size:14px}
+.tl-label span{font-size:12.5px;color:var(--muted)}
+.tl-track{position:relative;height:64px}
+.tl-months{height:38px}
+.tl-months div{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-family:Poppins;font-weight:600;font-size:13px;color:var(--navy);border-left:1px solid var(--line)}
+.tl-months div:first-child{border-left:0}
+.tl-track i{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.tl-band{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(45deg,#fde9e3,#fde9e3 6px,#fff6f2 6px,#fff6f2 12px)}
+.tl-foot .tl-track{height:28px}
+.tl-band-label{position:absolute;top:2px;text-align:center;font-size:12px;font-style:italic;color:#c2410c;font-weight:600;white-space:nowrap}
+.tl-bar{position:absolute;top:10px;bottom:10px;border-radius:8px;padding:5px 9px;color:var(--white);overflow:hidden;display:flex;flex-direction:column;justify-content:center;z-index:1;box-shadow:inset 0 0 0 2px rgba(255,255,255,.0)}
+.tl-bar b{font-family:Poppins;font-size:12px;font-weight:600;white-space:nowrap;line-height:1.25}
+.tl-bar span{font-size:11px;opacity:.9;white-space:nowrap;line-height:1.25}
+.b-meta{background:var(--navy)}
+.b-disp{background:var(--ice);color:var(--navy)}
+.b-geo{background:#3e6fb8}
+.b-yt{background:var(--terra)}
 footer{background:var(--navy);color:var(--white);margin-top:64px;padding:48px 0 30px}
 footer h2{color:var(--white)}
 footer .logo svg{width:88px;height:auto;display:block}
@@ -328,23 +350,19 @@ a.contact:hover{background:rgba(255,255,255,.12);border-color:var(--ice)}
 <section id="planning">
   <p class="kicker">04 · Planning</p>
   <h2>Calendrier d'activation 2027</h2>
-  <p class="lead">Trois vagues Meta, deux vagues programmatiques, un pic YouTube : la pression monte progressivement jusqu'à l'événement, puis se prolonge pour inciter à venir après.</p>
-  <div class="tw">
-    <table class="gantt">
-      <thead><tr><th>Levier</th><th>Janv.</th><th>Févr.</th><th>Mars</th><th>Avril (1re q.)</th><th>Avril (2e q.)</th><th>Mai (1re q.)</th><th>Mai (2e q.)</th></tr></thead>
-      <tbody>
-        <tr><td><b>Meta</b> · 3 vagues</td><td class="cell-on on-meta"></td><td class="cell-on on-meta"></td><td class="cell-on on-meta"></td><td></td><td class="cell-on on-meta"></td><td class="cell-on on-meta"></td><td class="cell-on on-meta"></td></tr>
-        <tr><td><b>Display &amp; vidéo</b> contextuels</td><td></td><td></td><td class="cell-on on-disp"></td><td class="cell-on on-disp"></td><td class="cell-on on-disp"></td><td class="cell-on on-disp"></td><td class="cell-on on-disp"></td></tr>
-        <tr><td><b>Mobile géolocalisé</b> aéroport &amp; gares</td><td></td><td></td><td class="cell-on on-geo"></td><td class="cell-on on-geo"></td><td class="cell-on on-geo"></td><td class="cell-on on-geo"></td><td class="cell-on on-geo"></td></tr>
-        <tr><td><b>YouTube</b> pré-rolls &amp; Shorts</td><td></td><td></td><td></td><td></td><td class="cell-on on-yt"></td><td class="cell-on on-yt"></td><td></td></tr>
-        <tr><td><i>Temps fort anniversaire</i></td><td></td><td></td><td></td><td></td><td></td><td class="cell-on on-peak"></td><td class="cell-on on-peak"></td></tr>
-      </tbody>
-    </table>
+  <p class="lead">Trois vagues Meta, deux vagues programmatiques et un pic YouTube : la pression monte progressivement jusqu'au temps fort anniversaire, puis Meta prolonge la présence pour inciter à venir après.</p>
+  <div class="tl-wrap">
+    <div class="timeline">
+      <div class="tl-row tl-head"><div class="tl-label"></div><div class="tl-track tl-months"><div style="left:0.00%;width:20.53%">Janvier</div><div style="left:20.53%;width:18.54%">Février</div><div style="left:39.07%;width:20.53%">Mars</div><div style="left:59.60%;width:19.87%">Avril</div><div style="left:79.47%;width:20.53%">Mai</div></div></div>
+      <div class="tl-row"><div class="tl-label"><b>Meta</b><span>Facebook &amp; Instagram</span></div><div class="tl-track"><i style="left:20.53%"></i><i style="left:39.07%"></i><i style="left:59.60%"></i><i style="left:79.47%"></i><div class="tl-band" style="left:82.78%;width:13.25%"></div><div class="tl-bar b-meta" style="left:6.62%;width:18.54%"><b>Vague 1 · 450 €</b><span>11 janv. au 7 févr.</span></div><div class="tl-bar b-meta" style="left:39.07%;width:20.53%"><b>Vague 2 · 600 €</b><span>1er au 31 mars</span></div><div class="tl-bar b-meta" style="left:71.52%;width:28.48%"><b>Vague 3 · 1 150 €</b><span>19 avril au 31 mai</span></div></div></div><div class="tl-row"><div class="tl-label"><b>Display &amp; vidéo</b><span>contextuels premium</span></div><div class="tl-track"><i style="left:20.53%"></i><i style="left:39.07%"></i><i style="left:59.60%"></i><i style="left:79.47%"></i><div class="tl-band" style="left:82.78%;width:13.25%"></div><div class="tl-bar b-disp" style="left:39.07%;width:23.18%"><b>Vague 1 · 1 150 €</b><span>1er mars au 4 avril</span></div><div class="tl-bar b-disp" style="left:71.52%;width:22.52%"><b>Vague 2 · 1 350 €</b><span>19 avril au 22 mai</span></div></div></div><div class="tl-row"><div class="tl-label"><b>Mobile géolocalisé</b><span>aéroport &amp; gares (EN)</span></div><div class="tl-track"><i style="left:20.53%"></i><i style="left:39.07%"></i><i style="left:59.60%"></i><i style="left:79.47%"></i><div class="tl-band" style="left:82.78%;width:13.25%"></div><div class="tl-bar b-geo" style="left:39.07%;width:23.18%"><b>Vague 1 · 350 €</b><span>1er mars au 4 avril</span></div><div class="tl-bar b-geo" style="left:71.52%;width:22.52%"><b>Vague 2 · 650 €</b><span>19 avril au 22 mai</span></div></div></div><div class="tl-row"><div class="tl-label"><b>YouTube</b><span>pré-rolls &amp; Shorts</span></div><div class="tl-track"><i style="left:20.53%"></i><i style="left:39.07%"></i><i style="left:59.60%"></i><i style="left:79.47%"></i><div class="tl-band" style="left:82.78%;width:13.25%"></div><div class="tl-bar b-yt" style="left:76.16%;width:13.91%"><b>Pic · 1 400 €</b><span>26 avril au 16 mai</span></div></div></div>
+      <div class="tl-row tl-foot"><div class="tl-label"></div><div class="tl-track"><div class="tl-band-label" style="left:82.78%;width:13.25%">Temps fort anniversaire</div></div></div>
+    </div>
   </div>
-  <div class="grid g4" style="margin-top:14px">
-    <div class="card"><h3>Meta</h3><p>11 janv. au 7 févr.<br>1er au 31 mars<br>19 avril au 31 mai</p></div>
-    <div class="card"><h3>Programmatique</h3><p>1er mars au 4 avril<br>19 avril au 22 mai</p></div>
-    <div class="card"><h3>YouTube</h3><p>26 avril au 16 mai</p></div>
+  <div class="legend" style="margin-top:12px"><span><i style="background:var(--navy)"></i>Meta</span><span><i style="background:var(--ice)"></i>Display &amp; vidéo</span><span><i style="background:#3e6fb8"></i>Mobile géolocalisé</span><span><i style="background:var(--terra)"></i>YouTube</span><span><i style="background:repeating-linear-gradient(45deg,#f7b9a8,#f7b9a8 3px,#fde9e3 3px,#fde9e3 6px)"></i>Temps fort anniversaire</span></div>
+  <div class="grid g4" style="margin-top:16px">
+    <div class="card"><h3>Meta</h3><p><b>Vague 1</b> : 11 janv. au 7 févr.<br><b>Vague 2</b> : 1er au 31 mars<br><b>Vague 3</b> : 19 avril au 31 mai</p></div>
+    <div class="card"><h3>Programmatique</h3><p><b>Vague 1</b> : 1er mars au 4 avril<br><b>Vague 2</b> : 19 avril au 22 mai</p></div>
+    <div class="card"><h3>YouTube</h3><p><b>Pic</b> : 26 avril au 16 mai</p></div>
     <div class="card c-corail"><h3>Éléments à fournir</h3><p>Créations au plus tard 3 jours ouvrés avant chaque lancement, URL tracées validées avant BAT.</p></div>
   </div>
 </section>
