@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reco média 2027 · Décoration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#021859;--ice:#7bbdff;--terra:#f25430;--white:#ffffff;
+  --ink:#021859;--muted:#4a5878;--line:#dbe4f3;
+  --ice-05:#f4f9ff;--ice-15:#e3f0ff;--ice-30:#cbe3ff;
+  --terra-08:#fef0ec;--terra-20:#fcd3c8;
+  --navy-04:#f3f5fa;--navy-10:#e2e6f0;--navy-80:#1c2f6b;
+  --bg:#ffffff;
+  --r:18px;--r-sm:12px;
+  --shadow:0 10px 30px rgba(2,24,89,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:Poppins,sans-serif;color:var(--navy);margin:0;line-height:1.15}
+p{margin:0 0 .8em}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+
+.hero{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-160px;top:-160px;width:520px;height:520px;border-radius:50%;border:70px solid rgba(123,189,255,.12)}
+.hero::before{content:"";position:absolute;right:120px;bottom:-120px;width:260px;height:260px;border-radius:50%;background:rgba(242,84,48,.18)}
+.hero .wrap{position:relative;z-index:1;padding-top:40px;padding-bottom:56px}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.logo{width:118px;height:auto;display:block}
+.hero-tag{font-family:Poppins;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ice);border:1px solid rgba(123,189,255,.45);border-radius:999px;padding:7px 14px}
+.hero h1{color:var(--white);font-size:clamp(34px,5.4vw,62px);font-weight:700;margin:46px 0 14px;max-width:880px;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--ice)}
+.hero .lead{color:#d6e3ff;font-size:clamp(16px,1.7vw,19px);max-width:760px;margin-bottom:30px}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 16px;font-size:14px;color:var(--white)}
+.pill b{color:var(--ice);font-weight:600;margin-right:6px}
+.pill.hot{background:var(--terra);border-color:var(--terra)}
+.pill.hot b{color:var(--white)}
+
+
+nav.anchors{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.anchors .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-top:10px;padding-bottom:10px}
+nav.anchors .wrap::-webkit-scrollbar{display:none}
+nav.anchors a{white-space:nowrap;text-decoration:none;font-family:Poppins;font-size:14px;font-weight:500;color:var(--muted);padding:8px 14px;border-radius:999px;transition:.2s}
+nav.anchors a:hover{color:var(--navy);background:var(--navy-04)}
+nav.anchors a.active{background:var(--navy);color:var(--white)}
+
+
+section{padding:76px 0;border-bottom:1px solid var(--line)}
+section.alt{background:var(--navy-04)}
+.kicker{font-family:Poppins;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:22px;height:2px;background:var(--terra)}
+h2{font-size:clamp(28px,3.6vw,42px);font-weight:600;margin-bottom:14px}
+.sub{color:var(--muted);max-width:760px;font-size:17px;margin-bottom:36px}
+h3{font-size:21px;font-weight:600;margin-bottom:8px}
+h4{font-size:16px;font-weight:600;margin-bottom:6px}
+
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:960px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px;position:relative}
+.card.c-bleu{background:var(--ice-15);border-color:var(--ice-30)}
+.card.c-corail{background:var(--terra-08);border-color:var(--terra-20)}
+.card.c-menthe{background:var(--navy);border-color:var(--navy);color:#d6e3ff}
+.card.c-menthe h3,.card.c-menthe h4{color:var(--white)}
+.card.c-peche{background:#fff6f2;border-color:#fde1d7}
+.num{font-family:Poppins;font-weight:700;font-size:15px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:var(--white);margin-bottom:16px}
+.card.c-corail .num{background:var(--terra)}
+.badge{display:inline-block;font-family:Poppins;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--terra);color:var(--white);border-radius:999px;padding:4px 10px;margin-bottom:12px}
+.badge.ice{background:var(--ice);color:var(--navy)}
+.badge.navy{background:var(--navy)}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+ul.clean{list-style:none;padding:0;margin:0}
+ul.clean li{padding:6px 0 6px 22px;position:relative}
+ul.clean li::before{content:"";position:absolute;left:2px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--terra)}
+.card.c-menthe ul.clean li::before{background:var(--ice)}
+
+
+.switch{display:inline-flex;background:var(--navy-10);border-radius:999px;padding:5px;gap:4px;margin-bottom:28px;flex-wrap:wrap}
+.switch button{border:0;background:transparent;font-family:Poppins;font-weight:600;font-size:15px;color:var(--navy);padding:11px 22px;border-radius:999px;cursor:pointer;transition:.2s}
+.switch button.on{background:var(--navy);color:var(--white);box-shadow:var(--shadow)}
+.switch button .new{display:inline-block;margin-left:8px;font-size:10px;letter-spacing:.1em;background:var(--terra);color:var(--white);padding:3px 7px;border-radius:999px;vertical-align:2px}
+.panel{display:none}
+.panel.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+
+.funnel{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.fstep{padding:26px 24px;position:relative}
+.fstep:nth-child(1){background:var(--navy);color:#d6e3ff}
+.fstep:nth-child(2){background:var(--navy-80);color:#d6e3ff}
+.fstep:nth-child(3){background:var(--terra);color:var(--white)}
+.fstep h3{color:var(--white);font-size:24px}
+.fstep .lv{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.fstep .lv span{font-size:13px;font-weight:600;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 10px;color:var(--white)}
+.fstep .stage{font-family:Poppins;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ice);font-weight:600}
+.fstep:nth-child(3) .stage{color:var(--white);opacity:.85}
+.branches{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+@media(max-width:760px){.funnel{grid-template-columns:1fr}.branches{grid-template-columns:1fr}}
+
+
+.lever{display:flex;flex-direction:column;gap:10px}.lever .badge{align-self:flex-start;margin-bottom:0}
+.lever .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.lever .cpm{font-family:Poppins;font-weight:700;font-size:13px;white-space:nowrap;background:var(--navy);color:var(--white);border-radius:999px;padding:5px 11px}
+.lever .role{font-size:14px;color:var(--muted)}
+.card.c-menthe .role{color:#b9cbf2}
+.card.c-menthe .cpm{background:var(--ice);color:var(--navy)}
+
+
+.spot{display:grid;grid-template-columns:1.1fr 1fr;gap:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--white);margin-top:22px}
+.spot .l{padding:30px}
+.spot .r{background:var(--ice-15);padding:30px;display:flex;align-items:center;justify-content:center}
+@media(max-width:760px){.spot{grid-template-columns:1fr}}
+.phone{width:210px;border-radius:30px;background:var(--navy);padding:10px;box-shadow:var(--shadow)}
+.phone .scr{border-radius:22px;overflow:hidden;background:#fff}
+.phone .vid{height:190px;background:linear-gradient(160deg,#cbe3ff,#7bbdff 60%,#021859);position:relative}
+.phone .vid .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center}
+.phone .vid .play::after{content:"";border-left:14px solid var(--navy);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.phone .tag{position:absolute;background:var(--white);border-radius:999px;font-size:10px;font-weight:700;padding:4px 8px;color:var(--navy);box-shadow:0 4px 10px rgba(0,0,0,.15)}
+.phone .tag::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--terra);margin-right:5px;vertical-align:0}
+.phone .prods{display:flex;gap:6px;padding:8px}
+.phone .prod{flex:1;border:1px solid var(--line);border-radius:8px;padding:6px}
+.phone .prod i{display:block;height:34px;border-radius:5px;background:var(--navy-10);margin-bottom:5px}
+.phone .prod b{display:block;font-size:9px}
+.phone .prod span{font-size:9px;color:var(--terra);font-weight:700}
+.phone .cta{margin:0 8px 10px;background:var(--terra);color:#fff;font-size:11px;font-weight:700;text-align:center;border-radius:8px;padding:7px}
+
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--white);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:500}
+.chip.dark{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.chip.ice{background:var(--ice-15);border-color:var(--ice-30)}
+
+
+.cal-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--white)}
+table.cal{border-collapse:separate;border-spacing:0;width:100%;min-width:980px;font-size:13px}
+table.cal th,table.cal td{padding:10px 6px;text-align:center;border-bottom:1px solid var(--line)}
+table.cal thead th{background:var(--navy);color:var(--white);font-family:Poppins;font-weight:600;font-size:13px;position:sticky;top:0}
+table.cal th.lv,table.cal td.lv{text-align:left;padding-left:16px;min-width:190px;position:sticky;left:0;background:var(--white);z-index:1;font-weight:600}
+table.cal thead th.lv{background:var(--navy);z-index:2}
+table.cal tr.grp td{background:var(--navy-04);font-family:Poppins;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);text-align:left;padding-left:16px}
+table.cal tr.grp td.lv{background:var(--navy-04)}
+table.cal tr.tf td{background:var(--terra-08);font-size:11px;color:var(--navy);font-weight:600;line-height:1.25}
+table.cal tr.tf td.lv{background:var(--terra-08);color:var(--terra)}
+.cell{display:inline-block;min-width:62px;border-radius:8px;padding:6px 6px;font-weight:700;font-size:12.5px}
+.cell.m{background:var(--ice-30);color:var(--navy)}
+.cell.w{background:var(--terra);color:var(--white)}
+table.cal tr.tot td{background:var(--navy);color:var(--white);font-family:Poppins;font-weight:700;border-bottom:0}
+table.cal tr.tot td.lv{background:var(--navy)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 0;font-size:14px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px}
+
+
+.tbl-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--line);background:var(--white)}
+table.t{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+table.t th{background:var(--navy);color:var(--white);font-family:Poppins;font-weight:600;text-align:left;padding:13px 16px;font-size:14px}
+table.t td{padding:12px 16px;border-bottom:1px solid var(--line)}
+table.t tr:last-child td{border-bottom:0}
+table.t td.r,table.t th.r{text-align:right}
+table.t tr.total td{background:var(--ice-15);font-weight:700}
+
+
+.hyp{border-radius:var(--r);border:1px solid var(--line);background:var(--white);overflow:hidden;display:flex;flex-direction:column}
+.hyp .hd{background:var(--navy);color:var(--white);padding:20px 22px}
+.hyp .hd h3{color:var(--white);font-size:19px;margin-bottom:2px}
+.hyp .hd .n{font-family:Poppins;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ice);font-weight:600}
+.hyp.online .hd{background:var(--terra)}
+.hyp.online .hd .n{color:var(--white);opacity:.9}
+.hyp .bd{padding:18px 22px;flex:1}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14.5px}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;font-weight:600;text-align:right}
+.hyp .ft{padding:16px 22px;background:var(--ice-05);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.hyp .ft .big{font-family:Poppins;font-weight:700;font-size:24px;color:var(--navy)}
+.hyp .ft .lbl{font-size:13px;color:var(--muted)}
+.sublv{border-top:1px dashed var(--line);margin-top:12px;padding-top:12px}
+.sublv:first-child{border-top:0;margin-top:0;padding-top:0}
+
+
+.scen{border-radius:var(--r);padding:26px;border:2px solid var(--line);background:var(--white);cursor:pointer;transition:.2s;text-align:left;font:inherit;color:inherit;width:100%}
+.scen.on{border-color:var(--navy);box-shadow:var(--shadow)}
+.scen .price{font-family:Poppins;font-weight:700;font-size:34px;color:var(--navy);margin:6px 0}
+.scen .split{display:flex;height:10px;border-radius:999px;overflow:hidden;margin:14px 0 8px}
+.scen .split i:first-child{background:var(--navy)}
+.scen .split i:last-child{background:var(--terra)}
+
+
+.mc{margin-top:40px;border-radius:24px;overflow:hidden;background:var(--navy);color:#d6e3ff;box-shadow:var(--shadow)}
+.mc-hd{display:grid;grid-template-columns:1fr auto;gap:30px;padding:36px 36px 28px;align-items:center;background:radial-gradient(circle at 92% 10%,rgba(242,84,48,.35),transparent 45%)}
+.mc-hd h3{color:var(--white);font-size:clamp(22px,2.6vw,30px);margin-bottom:12px;max-width:720px}
+.mc-hd p{margin:0;max-width:720px}
+.mc-price{width:150px;height:150px;border-radius:50%;background:var(--terra);color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;flex:none}
+.mc-price b{font-family:Poppins;font-size:38px;line-height:1.05}
+.mc-price span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.mc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);border-top:1px solid rgba(255,255,255,.12)}
+.seg{background:var(--navy);padding:24px 26px;display:flex;flex-direction:column}
+.seg .glyph{color:var(--ice);font-size:22px;margin-bottom:10px;font-family:"Segoe UI Symbol","Apple Symbols","DejaVu Sans",sans-serif}
+.seg h4{color:var(--white);font-size:17px}
+.seg p{font-size:14px;color:#b9cbf2;flex:1}
+.seg .use{align-self:flex-start;font-size:12px;font-weight:700;color:var(--navy);background:var(--ice);border-radius:999px;padding:4px 10px}
+.seg-cal .glyph{color:var(--terra)}
+.mc-ft{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:22px 36px;background:var(--navy-80)}
+.mc-ft b{display:block;color:var(--white);font-family:Poppins;font-size:14px}
+.mc-ft span{font-size:13px;color:#b9cbf2}
+@media(max-width:860px){.mc-grid{grid-template-columns:1fr 1fr}.mc-ft{grid-template-columns:1fr}}
+@media(max-width:600px){.mc-hd{grid-template-columns:1fr;padding:26px 20px}.mc-price{width:120px;height:120px}.mc-price b{font-size:30px}.mc-grid{grid-template-columns:1fr}.mc-ft{padding:20px}}
+
+
+.resume{margin-top:28px;background:var(--navy);border-radius:var(--r);padding:28px 30px;color:#d6e3ff}
+.resume-list{list-style:none;counter-reset:r;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px 30px}
+.resume-list li{counter-increment:r;position:relative;padding-left:44px;font-size:15px}
+.resume-list li::before{content:counter(r);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--terra);color:#fff;font-family:Poppins;font-weight:700;font-size:14px;display:grid;place-items:center}
+.resume-list b{color:var(--white);display:block}
+@media(max-width:700px){.resume-list{grid-template-columns:1fr}.resume{padding:22px 20px}}
+.block-hd{display:flex;gap:14px;align-items:center;margin:48px 0 18px}
+.block-hd .dot{width:14px;height:14px;border-radius:50%;flex:none}
+.dot.navy{background:var(--navy)}.dot.terra{background:var(--terra)}
+.cell{white-space:nowrap}
+table.cal tr.grp td.lv{white-space:nowrap;overflow:visible}
+.cell.base{background:var(--navy);color:var(--white)}
+.cell.plus{background:var(--terra-08);color:var(--terra);border:1.5px dashed var(--terra)}
+table.cal tr.grp.w td{color:var(--terra)}
+table.cal tr.grp.m td{color:var(--navy)}
+table.cal tr.tot.o td{background:var(--terra)}
+table.cal tr.tot.o td.lv{background:var(--terra)}
+table.t tr.grp-t td{background:var(--navy-04);font-family:Poppins;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:9px 16px}
+table.t tr.grp-t.m td{color:var(--navy)}
+table.t tr.grp-t.w td{color:var(--terra)}
+table.t tr.sub-t td{font-weight:600;background:var(--ice-05)}
+.scen{cursor:default}
+.scen.rec{border-color:var(--terra)}
+.mc-tbl{padding:26px 36px;border-top:1px solid rgba(255,255,255,.12)}
+.mc-tbl h4{color:var(--white);margin-bottom:12px}
+.cmp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.cmp{background:var(--white);border-radius:var(--r-sm);padding:18px 20px;color:var(--navy)}
+.cmp-hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.cmp-hd b{font-family:Poppins;font-size:17px}
+.cmp-hd span{font-size:13px;color:var(--muted)}
+.cmp-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}
+.cmp-col{background:var(--navy-04);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column}
+.cmp-col.mcol{background:var(--terra-08);border:1.5px solid var(--terra)}
+.cmp-lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mcol .cmp-lbl{color:var(--terra)}
+.cmp-cpm{font-family:Poppins;font-weight:600;font-size:15px;margin-top:4px}
+.mcol .cmp-cpm{color:var(--terra)}
+.cmp-imp{font-family:Poppins;font-weight:700;font-size:22px;line-height:1.2;margin-top:4px}
+.cmp-u{font-size:12px;color:var(--muted)}
+.cmp-arrow{font-size:22px;color:var(--terra);font-weight:700}
+@media(max-width:860px){.cmp-grid{grid-template-columns:1fr}}
+@media(max-width:420px){.cmp-row{grid-template-columns:1fr}.cmp-arrow{transform:rotate(90deg);justify-self:center}}
+@media(max-width:600px){.mc-tbl{padding:20px}}
+
+
+.pyr{display:flex;flex-direction:column;align-items:center;gap:8px}
+.pyr .lay{border-radius:14px;padding:16px 22px;text-align:center;color:var(--white)}
+.pyr .lay b{font-family:Poppins;display:block;font-size:16px}
+.pyr .lay span{font-size:13.5px;opacity:.9}
+.pyr .l1{width:100%;background:var(--navy)}
+.pyr .l2{width:88%;background:var(--navy-80)}
+.pyr .l3{width:76%;background:#3b8fe6}
+.pyr .l4{width:64%;background:var(--terra)}
+.pyr .l4 small{display:inline-block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--white);color:var(--terra);border-radius:999px;padding:3px 9px}
+@media(max-width:640px){.pyr .lay{width:100% !important}}
+
+
+.glyph{font-size:26px;line-height:1;color:var(--terra);margin-bottom:12px;display:block}
+.card.c-menthe .glyph{color:var(--ice)}
+
+
+footer{background:var(--navy);color:#d6e3ff;padding:64px 0 40px}
+footer h2{color:var(--white)}
+footer .logo{width:88px}
+.contacts{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin:30px 0 40px}
+.ct{display:block;text-decoration:none;border:1px solid rgba(255,255,255,.16);border-radius:var(--r-sm);padding:18px;transition:.2s;background:rgba(255,255,255,.04)}
+a.ct:hover{border-color:var(--ice);background:rgba(123,189,255,.08)}
+.ct b{font-family:Poppins;color:var(--white);display:block;font-size:16px}
+.ct .role{font-size:13px;color:var(--ice);display:block;margin-bottom:8px}
+.ct span{display:block;font-size:13.5px}
+.ct.off{opacity:.6}
+.foot-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);padding-top:26px;font-size:13px}
+
+.note{font-size:13.5px;color:var(--muted);margin-top:14px}
+.callout{border-left:4px solid var(--terra);background:var(--terra-08);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:16px 20px;margin-top:22px}
+.callout.ice{border-color:var(--ice);background:var(--ice-15)}
+@media(max-width:640px){
+  .wrap{padding:0 16px}
+  section{padding:56px 0}
+  .hero h1{margin-top:34px}
+  .switch{width:100%}
+  .switch button{flex:1;padding:10px 12px;font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="214 252 572 496" role="img" aria-label="The Good Web" class="logo"> <g> <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/> <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/> <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/> <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/> <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/> <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/> <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/> <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/> <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/> <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/> </g> <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/> <g> <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/> <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/> <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/> <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/> <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/> <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/> </g> <g> <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/> <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/> <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/> <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/> <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/> <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/> <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/> <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/> <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/> <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/> <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/> <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/> <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> </g> </svg>
+      <span class="hero-tag">Recommandation média · 2027</span>
+    </div>
+    <h1>Du magasin au panier en ligne : <em>une marque déco présente à chaque étape</em> du projet maison.</h1>
+    <p class="lead">Plan de communication 2027 pour l’enseigne décoration & ameublement, préparé pour l’agence Shakebiz. Le volet magasin est reconduit et un nouveau volet est consacré à la vente en ligne.</p>
+    <div class="pills">
+      <span class="pill"><b>Période</b>janvier à décembre 2027</span>
+      <span class="pill"><b>Budget</b>28 500 € à 39 000 € HT</span>
+      <span class="pill"><b>Objectifs</b>trafic magasin + ventes en ligne</span>
+      <span class="pill"><b>Marchés</b>40 villes · France entière pour l’e-shop</span>
+      <span class="pill hot"><b>Nouveau</b>volet vente en ligne</span>
+      <span class="pill"><b>Exclusivité</b>data Mastercard déco & ameublement</span>
+    </div>
+  </div>
+</header>
+
+<nav class="anchors" aria-label="Sommaire">
+  <div class="wrap">
+    <a href="#contexte">Contexte</a>
+    <a href="#dispositif">Dispositif</a>
+    <a href="#environnements">Environnements</a>
+    <a href="#planning">Planning 2027</a>
+    <a href="#budgets">Budgets</a>
+    <a href="#formats">Formats & KPIs</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#data">Stratégie data</a>
+    <a href="#rgpd">RGPD</a>
+    <a href="#contacts">Contacts</a>
+  </div>
+</nav>
+
+<section id="contexte">
+  <div class="wrap">
+    <div class="kicker">Contexte</div>
+    <h2>Deux portes d’entrée, un seul client</h2>
+    <p class="sub">Le client d’une enseigne déco ne choisit plus entre le magasin et le site : il s’inspire sur mobile, compare en ligne, touche en magasin et achète là où c’est le plus simple. Le dispositif 2027 accompagne ce parcours de bout en bout, autour de quatre objectifs.</p>
+    <div class="grid g4">
+      <div class="card">
+        <div class="num">1</div>
+        <h3>Faire venir en magasin</h3>
+        <p class="muted small">Générer des visites dans les 40 points de vente grâce au géociblage et à la mesure des visites incrémentales.</p>
+      </div>
+      <div class="card c-corail">
+        <div class="num">2</div>
+        <span class="badge">Nouveau</span>
+        <h3>Développer les ventes en ligne</h3>
+        <p class="muted small">Amener un trafic qualifié sur l’e-shop, faire remplir les paniers et relancer les acheteurs hésitants, partout en France.</p>
+      </div>
+      <div class="card">
+        <div class="num">3</div>
+        <h3>Installer la marque</h3>
+        <p class="muted small">Être la marque à laquelle on pense dès qu’un projet d’emménagement, de rénovation ou de décoration démarre.</p>
+      </div>
+      <div class="card">
+        <div class="num">4</div>
+        <h3>Activer les temps forts 2027</h3>
+        <p class="muted small">Soldes d’hiver et d’été, fête des mères, rentrée, Black Friday et Noël : chaque vague tombe au bon moment.</p>
+      </div>
+    </div>
+
+    <div class="resume">
+      <div class="resume-hd">
+        <span class="kicker" style="color:var(--ice);margin:0">Notre recommandation en bref</span>
+      </div>
+      <ol class="resume-list">
+        <li><b>On garde ce qui marche en magasin.</b> Drive-to-store, display, cTV, Meta et retargeting autour des 40 points de vente.</li>
+        <li><b>On ajoute la vente en ligne.</b> Trois leviers diffusés partout en France pour faire acheter sur l’e-shop.</li>
+        <li><b>On cale tout sur les temps forts 2027.</b> Soldes, fête des mères, rentrée, Black Friday et Noël.</li>
+        <li><b>Deux budgets au choix.</b> Essentiel à 28 500 € HT ou Omnicanal à 39 000 € HT, avec en option la data Mastercard.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="dispositif" class="alt">
+  <div class="wrap">
+    <div class="kicker">Dispositif</div>
+    <h2>Un parcours en trois temps</h2>
+    <p class="sub">Chaque levier a un rôle précis dans le parcours d’achat. Le parcours se termine soit par une visite en magasin, soit par un achat sur l’e-shop.</p>
+
+    <div class="funnel">
+      <div class="fstep">
+        <div class="stage">Étape 1</div>
+        <h3>Inspirer</h3>
+        <p class="small">Toucher les foyers en projet dans des environnements premium, au moment où ils rêvent leur intérieur.</p>
+        <div class="lv"><span>cTV</span><span>Vidéo shoppable</span><span>Display</span></div>
+      </div>
+      <div class="fstep">
+        <div class="stage">Étape 2</div>
+        <h3>Considérer</h3>
+        <p class="small">Répéter le message auprès des audiences les plus qualifiées et mettre les produits en avant.</p>
+        <div class="lv"><span>Meta</span><span>Meta catalogue</span><span>Drive-to-store</span></div>
+      </div>
+      <div class="fstep">
+        <div class="stage">Étape 3</div>
+        <h3>Convertir</h3>
+        <p class="small">Relancer ceux qui ont montré de l’intérêt, en magasin comme en ligne, pour accélérer la décision.</p>
+        <div class="lv"><span>Retargeting magasin</span><span>Retargeting e-shop</span></div>
+      </div>
+    </div>
+
+    <div class="block-hd">
+      <span class="dot navy"></span>
+      <div><h3>Volet 1 · En magasin</h3><p class="small muted" style="margin:0">Faire venir en magasin · rayon de 30 km autour des 40 points de vente</p></div>
+    </div>
+    <div class="grid g3">
+        <div class="card lever ">
+          <div class="top"><h3>Drive-to-store</h3><span class="cpm">CPM 6 €</span></div>
+          <p class="role">Rôle : qualifier l’audience autour des magasins.</p>
+          <p class="small" style="margin:0">Formats mobiles géociblés, avec mesure des visites en magasin.</p>
+        </div>
+        <div class="card lever ">
+          <div class="top"><h3>Display premium</h3><span class="cpm">CPM 5 €</span></div>
+          <p class="role">Rôle : couverture, répétition et mémorisation.</p>
+          <p class="small" style="margin:0">Diffusion sur les grands sites d’information, lifestyle et maison.</p>
+        </div>
+        <div class="card lever c-menthe">
+          <div class="top"><h3>cTV</h3><span class="cpm">CPM max 25 €</span></div>
+          <p class="role">Rôle : attention et ancrage émotionnel.</p>
+          <p class="small" style="margin:0">La puissance de l’écran TV, activée en local sur les grandes chaînes en replay.</p>
+        </div>
+        <div class="card lever ">
+          <div class="top"><h3>Meta</h3><span class="cpm">CPM 6 €</span></div>
+          <p class="role">Rôle : notoriété, considération et engagement.</p>
+          <p class="small" style="margin:0">Post et story sur Facebook et Instagram, là où se cherche l’inspiration déco.</p>
+        </div>
+        <div class="card lever ">
+          <div class="top"><h3>Retargeting magasin</h3><span class="cpm">CPM 7 €</span></div>
+          <p class="role">Rôle : accélérer la décision.</p>
+          <p class="small" style="margin:0">Relance des foyers exposés à la cTV, avec l’adresse du magasin le plus proche.</p>
+        </div>
+    </div>
+
+    <div class="block-hd">
+      <span class="dot terra"></span>
+      <div><h3>Volet 2 · Vente en ligne <span class="badge" style="margin:0 0 0 8px;vertical-align:4px">Nouveau</span></h3><p class="small muted" style="margin:0">Faire acheter sur l’e-shop · France entière</p></div>
+    </div>
+    <div class="grid g3">
+        <div class="card lever c-corail">
+          <div class="top"><h3>Vidéo shoppable Monna</h3><span class="cpm">CPM 9 €</span></div>
+          <p class="role">Rôle : inspirer et faire acheter dans le même geste.</p>
+          <p class="small" style="margin:0">Les produits de la vidéo s’affichent en vignettes cliquables qui mènent à leur fiche sur l’e-shop.</p>
+        </div>
+        <div class="card lever c-corail">
+          <div class="top"><h3>Meta catalogue</h3><span class="cpm">CPM 6 €</span></div>
+          <p class="role">Rôle : montrer les bons produits au bon foyer.</p>
+          <p class="small" style="margin:0">Carrousels dynamiques alimentés par le catalogue produits, personnalisés selon les articles consultés.</p>
+        </div>
+        <div class="card lever c-corail">
+          <div class="top"><h3>Retargeting e-shop</h3><span class="cpm">CPM 7 €</span></div>
+          <p class="role">Rôle : relancer visiteurs et paniers abandonnés.</p>
+          <p class="small" style="margin:0">Display ciblé sur les visiteurs du site, avec les produits consultés.</p>
+        </div>
+    </div>
+
+    <div class="spot">
+      <div class="l">
+        <span class="badge">Focus innovation</span>
+        <h3>La vidéo devient un point de vente</h3>
+        <p class="muted">Avec la vidéo shoppable, l’internaute n’a plus à chercher le produit qu’il vient de voir : le canapé, la lampe ou le tapis mis en scène s’affichent sous la vidéo, et un clic suffit pour rejoindre la fiche produit.</p>
+        <ul class="clean small">
+          <li>Idéal pour les nouvelles collections, la fête des mères et le Black Friday</li>
+          <li>Réutilise les vidéos déjà produites pour la cTV ou les réseaux sociaux</li>
+          <li>Mesure directe des clics produits et du trafic vers l’e-shop</li>
+        </ul>
+        <p class="small muted" style="margin:14px 0 0"><b style="color:var(--navy)">À prévoir côté site :</b> un flux catalogue produits et l’intégration sur l’e-shop des tags de suivi. Nous fournissons le plan de taggage, son implémentation est réalisée par les développeurs du site.</p>
+      </div>
+      <div class="r" aria-hidden="true">
+        <div class="phone">
+          <div class="scr">
+            <div class="vid">
+              <div class="play"></div>
+              <span class="tag" style="left:12px;top:22px">Canapé 3 places</span>
+              <span class="tag" style="right:12px;bottom:26px">Lampe à poser</span>
+            </div>
+            <div class="prods">
+              <div class="prod"><i></i><b>Canapé</b><span>Voir</span></div>
+              <div class="prod"><i></i><b>Lampe</b><span>Voir</span></div>
+              <div class="prod"><i></i><b>Tapis</b><span>Voir</span></div>
+            </div>
+            <div class="cta">Découvrir sur l’e-shop</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="environnements">
+  <div class="wrap">
+    <div class="kicker">Environnements</div>
+    <h2>Des contextes premium, brand safe et brand suitable</h2>
+    <p class="sub">La marque est diffusée dans des environnements choisis, cohérents avec l’univers de la maison et de la décoration.</p>
+    <div class="grid g3">
+      <div class="card">
+        <h4>Display, drive-to-store et vidéo shoppable</h4>
+        <p class="small muted">Information et grands titres</p>
+        <div class="chips small">
+          <span class="chip">Le Monde</span><span class="chip">Le Figaro</span><span class="chip">Le Parisien</span><span class="chip">Le Point</span><span class="chip">L’Obs</span><span class="chip">L’Express</span><span class="chip">20 Minutes</span><span class="chip">HuffPost</span><span class="chip">La Provence</span><span class="chip">Nice-Matin</span><span class="chip">La Chaîne Météo</span>
+        </div>
+      </div>
+      <div class="card c-bleu">
+        <h4>Maison, lifestyle et shopping</h4>
+        <p class="small muted">Contextes affinitaires du projet déco</p>
+        <div class="chips small">
+          <span class="chip">AD</span><span class="chip">ELLE</span><span class="chip">Madame Figaro</span><span class="chip">Marie Claire</span><span class="chip">Femme Actuelle</span><span class="chip">Modes & Travaux</span><span class="chip">Journal des Femmes</span><span class="chip">Marmiton</span><span class="chip">leboncoin</span><span class="chip">Vinted</span><span class="chip">Télérama</span><span class="chip">GQ</span>
+        </div>
+      </div>
+      <div class="card c-menthe">
+        <h4>cTV et réseaux sociaux</h4>
+        <p class="small" style="color:#b9cbf2">Grandes chaînes en replay et TV connectée</p>
+        <div class="chips small">
+          <span class="chip dark" style="border-color:rgba(255,255,255,.25)">TF1</span><span class="chip dark" style="border-color:rgba(255,255,255,.25)">M6</span><span class="chip dark" style="border-color:rgba(255,255,255,.25)">France 2 à 5</span><span class="chip dark" style="border-color:rgba(255,255,255,.25)">Canal+</span><span class="chip dark" style="border-color:rgba(255,255,255,.25)">TMC</span><span class="chip dark" style="border-color:rgba(255,255,255,.25)">TFX</span><span class="chip dark" style="border-color:rgba(255,255,255,.25)">W9</span><span class="chip dark" style="border-color:rgba(255,255,255,.25)">6ter</span><span class="chip dark" style="border-color:rgba(255,255,255,.25)">RMC Découverte</span><span class="chip dark" style="border-color:rgba(255,255,255,.25)">Arte</span>
+          <span class="chip" style="background:var(--terra);border-color:var(--terra);color:#fff">Facebook</span><span class="chip" style="background:var(--terra);border-color:var(--terra);color:#fff">Instagram</span>
+        </div>
+      </div>
+    </div>
+    <p class="note">Liste indicative : l’inventaire est sélectionné et ajusté en continu selon les performances et la disponibilité.</p>
+  </div>
+</section>
+
+<section id="planning" class="alt">
+  <div class="wrap">
+    <div class="kicker">Planning 2027</div>
+    <h2>Un calendrier calé sur les temps forts de la déco</h2>
+    <p class="sub">Un seul calendrier pour les deux budgets. Les cases bleu nuit forment le socle Essentiel. Les cases orange sont les vagues ajoutées dans le scénario Omnicanal.</p>
+    <div class="cal-wrap">
+      <table class="cal"><thead><tr><th class="lv">Leviers</th><th>Janv</th><th>Févr</th><th>Mars</th><th>Avr</th><th>Mai</th><th>Juin</th><th>Juil</th><th>Août</th><th>Sept</th><th>Oct</th><th>Nov</th><th>Déc</th></tr></thead><tbody><tr class="tf"><td class="lv">Temps forts 2027</td><td>Soldes d’hiver<br>6 janv. au 2 févr.</td><td></td><td>Printemps<br>maison & jardin</td><td></td><td>Fête des mères<br>30 mai</td><td>Soldes d’été<br>dès le 23 juin</td><td>Soldes d’été<br>jusqu’au 20 juil.</td><td></td><td>Rentrée<br>emménagements</td><td></td><td>Black Friday<br>26 nov.</td><td>Noël</td></tr><tr class="grp m"><td class="lv">Volet 1 · En magasin</td><td colspan="12"></td></tr><tr><td class="lv">Meta</td><td></td><td></td><td></td><td></td><td><span class="cell plus">+ 2 500 €</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="cell base">2 500 €</span></td></tr><tr><td class="lv">Drive-to-store</td><td></td><td></td><td></td><td><span class="cell plus">+ 2 500 €</span></td><td></td><td></td><td></td><td></td><td><span class="cell base">2 500 €</span></td><td></td><td></td><td></td></tr><tr><td class="lv">Display premium</td><td></td><td></td><td></td><td><span class="cell base">2 500 €</span></td><td></td><td></td><td></td><td></td><td></td><td><span class="cell base">2 500 €</span></td><td></td><td></td></tr><tr><td class="lv">cTV</td><td></td><td></td><td><span class="cell base">4 500 €</span></td><td></td><td></td><td></td><td></td><td></td><td><span class="cell plus">+ 4 500 €</span></td><td></td><td></td><td></td></tr><tr><td class="lv">Retargeting magasin</td><td></td><td></td><td><span class="cell base">1 000 €</span></td><td></td><td></td><td></td><td></td><td></td><td><span class="cell plus">+ 1 000 €</span></td><td></td><td></td><td></td></tr><tr class="grp w"><td class="lv">Volet 2 · Vente en ligne</td><td colspan="12"></td></tr><tr><td class="lv">Meta catalogue</td><td><span class="cell base">2 500 €</span></td><td></td><td></td><td></td><td></td><td><span class="cell base">2 500 €</span></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="lv">Vidéo shoppable Monna</td><td></td><td></td><td></td><td></td><td><span class="cell base">2 500 €</span></td><td></td><td></td><td></td><td></td><td></td><td><span class="cell base">2 500 €</span></td><td></td></tr><tr><td class="lv">Retargeting e-shop</td><td><span class="cell base">1 000 €</span></td><td></td><td></td><td></td><td></td><td><span class="cell base">1 000 €</span></td><td></td><td></td><td></td><td></td><td><span class="cell base">1 000 €</span></td><td></td></tr><tr class="tot"><td class="lv">Total Essentiel</td><td>3 500 €</td><td></td><td>5 500 €</td><td>2 500 €</td><td>2 500 €</td><td>3 500 €</td><td></td><td></td><td>2 500 €</td><td>2 500 €</td><td>3 500 €</td><td>2 500 €</td></tr><tr class="tot o"><td class="lv">Total Omnicanal</td><td>3 500 €</td><td></td><td>5 500 €</td><td>5 000 €</td><td>5 000 €</td><td>3 500 €</td><td></td><td></td><td>8 000 €</td><td>2 500 €</td><td>3 500 €</td><td>2 500 €</td></tr></tbody></table>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--navy)"></i>Vague du socle Essentiel</span>
+      <span><i style="background:var(--terra-08);border:1.5px dashed var(--terra)"></i>Vague ajoutée en Omnicanal</span>
+      <span><i style="background:var(--terra-08)"></i>Temps fort commercial</span>
+    </div>
+    <p class="note">Vagues de deux semaines, une semaine pour le retargeting.</p>
+  </div>
+</section>
+
+<section id="budgets">
+  <div class="wrap">
+    <div class="kicker">Budgets</div>
+    <h2>Deux budgets au choix pour 2027</h2>
+    <p class="sub">Le scénario Essentiel garde l’enveloppe de 2026 et y fait entrer la vente en ligne. Le scénario Omnicanal ajoute quatre vagues magasin pour garder toute la puissance du drive-to-store et de la cTV. Montants en euros HT.</p>
+
+    <div class="grid g2">
+      <div class="scen">
+        <span class="badge ice">Même enveloppe qu’en 2026</span>
+        <h3>Essentiel</h3>
+        <div class="price">28 500 € HT</div>
+        <div class="split"><i style="width:54%"></i><i style="width:46%"></i></div>
+        <p class="small" style="margin:0"><b>15 500 €</b> en magasin · <b>13 000 €</b> en vente en ligne</p>
+      </div>
+      <div class="scen rec">
+        <span class="badge">Recommandé</span>
+        <h3>Omnicanal</h3>
+        <div class="price">39 000 € HT</div>
+        <div class="split"><i style="width:67%"></i><i style="width:33%"></i></div>
+        <p class="small" style="margin:0"><b>26 000 €</b> en magasin · <b>13 000 €</b> en vente en ligne</p>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:22px">
+      <table class="t"><thead><tr><th>Levier</th><th class="r">CPM</th><th class="r">Essentiel</th><th class="r">Omnicanal</th></tr></thead><tbody><tr class="grp-t m"><td colspan="4">Volet 1 · En magasin</td></tr><tr><td>Meta</td><td class="r">6 €</td><td class="r">2 500 €<br><span class="muted small">1 vague</span></td><td class="r">5 000 €<br><span class="muted small">2 vagues</span></td></tr><tr><td>Drive-to-store</td><td class="r">6 €</td><td class="r">2 500 €<br><span class="muted small">1 vague</span></td><td class="r">5 000 €<br><span class="muted small">2 vagues</span></td></tr><tr><td>Display premium</td><td class="r">5 €</td><td class="r">5 000 €<br><span class="muted small">2 vagues</span></td><td class="r">5 000 €<br><span class="muted small">2 vagues</span></td></tr><tr><td>cTV</td><td class="r">25 €</td><td class="r">4 500 €<br><span class="muted small">1 vague</span></td><td class="r">9 000 €<br><span class="muted small">2 vagues</span></td></tr><tr><td>Retargeting magasin</td><td class="r">7 €</td><td class="r">1 000 €<br><span class="muted small">1 vague</span></td><td class="r">2 000 €<br><span class="muted small">2 vagues</span></td></tr><tr class="sub-t"><td>Sous-total</td><td></td><td class="r">15 500 €</td><td class="r">26 000 €</td></tr><tr class="grp-t w"><td colspan="4">Volet 2 · Vente en ligne</td></tr><tr><td>Meta catalogue</td><td class="r">6 €</td><td class="r">5 000 €<br><span class="muted small">2 vagues</span></td><td class="r">5 000 €<br><span class="muted small">2 vagues</span></td></tr><tr><td>Vidéo shoppable Monna</td><td class="r">9 €</td><td class="r">5 000 €<br><span class="muted small">2 vagues</span></td><td class="r">5 000 €<br><span class="muted small">2 vagues</span></td></tr><tr><td>Retargeting e-shop</td><td class="r">7 €</td><td class="r">3 000 €<br><span class="muted small">3 vagues</span></td><td class="r">3 000 €<br><span class="muted small">3 vagues</span></td></tr><tr class="sub-t"><td>Sous-total</td><td></td><td class="r">13 000 €</td><td class="r">13 000 €</td></tr><tr class="total"><td>Total HT</td><td></td><td class="r">28 500 €</td><td class="r">39 000 €</td></tr><tr><td>Impressions totales</td><td></td><td class="r">3 973 651</td><td class="r">5 129 841</td></tr></tbody></table>
+    </div>
+
+    <h3 style="margin:56px 0 6px">Pour tester un levier seul</h3>
+    <p class="muted" style="margin-bottom:20px">Sept hypothèses activables indépendamment, sur la base d’un capping de 4 (6 pour le retargeting e-shop).</p>
+    <div class="tbl-wrap">
+      <table class="t"><thead><tr><th>N°</th><th>Levier</th><th>Durée</th><th class="r">CPM</th><th class="r">Impressions</th><th class="r">Reach estimé</th><th class="r">Budget</th></tr></thead><tbody><tr class="grp-t m"><td colspan="7">Volet 1 · En magasin</td></tr><tr class=""><td><b>H1</b></td><td>Drive-to-store</td><td>3 semaines</td><td class="r">6 €</td><td class="r">833 333</td><td class="r">208 333</td><td class="r"><b>5 000 €</b></td></tr><tr class=""><td><b>H2</b></td><td>Display premium</td><td>3 semaines</td><td class="r">5 €</td><td class="r">1 000 000</td><td class="r">250 000</td><td class="r"><b>5 000 €</b></td></tr><tr class=""><td><b>H3</b></td><td>cTV<br><span class="muted small">+ retargeting display ou drive-to-store</span></td><td>2 semaines</td><td class="r">25 €<br><span class="muted small">7 €</span></td><td class="r">360 000<br><span class="muted small">285 714</span></td><td class="r">90 000 foyers<br><span class="muted small">71 429</span></td><td class="r"><b>11 000 €</b></td></tr><tr class=""><td><b>H4</b></td><td>Meta post + story</td><td>4 semaines</td><td class="r">6 €</td><td class="r">833 333</td><td class="r">208 333</td><td class="r"><b>5 000 €</b></td></tr><tr class="grp-t w"><td colspan="7">Volet 2 · Vente en ligne</td></tr><tr class=""><td><b>H5</b></td><td>Meta catalogue</td><td>3 semaines</td><td class="r">6 €</td><td class="r">833 333</td><td class="r">208 333</td><td class="r"><b>5 000 €</b></td></tr><tr class=""><td><b>H6</b></td><td>Vidéo shoppable Monna</td><td>3 semaines</td><td class="r">9 €</td><td class="r">555 556</td><td class="r">138 889</td><td class="r"><b>5 000 €</b></td></tr><tr class=""><td><b>H7</b></td><td>Pack e-shop : vidéo shoppable 4 000 €<br><span class="muted small">+ Meta catalogue 4 000 € + retargeting e-shop 3 000 €</span></td><td>3 semaines</td><td class="r">9 €<br><span class="muted small">6 € · 7 €</span></td><td class="r">444 444<br><span class="muted small">666 667 · 428 571</span></td><td class="r">111 111<br><span class="muted small">166 667 · 71 429</span></td><td class="r"><b>11 000 €</b></td></tr></tbody></table>
+    </div>
+    <p class="note">Le volume du retargeting e-shop dépend du trafic du site et s’ajuste en cours de campagne. L’option data Mastercard est détaillée dans la section Stratégie data.</p>
+  </div>
+</section>
+
+<section id="formats" class="alt">
+  <div class="wrap">
+    <div class="kicker">Formats & KPIs</div>
+    <h2>Formats à fournir et indicateurs de suivi</h2>
+    <p class="sub">Les éléments créatifs sont à remettre au plus tard 3 jours avant le lancement de chaque vague.</p>
+    <div class="tbl-wrap">
+      <table class="t">
+        <thead><tr><th>Levier</th><th>Formats</th><th>KPIs de suivi</th></tr></thead>
+        <tbody>
+          <tr><td><b>Display, drive-to-store et retargeting</b></td><td>300x600, 300x250, 320x480, 728x90, 160x600, 320x50 px · jpeg, png ou gif</td><td>Impressions, clics, CTR, taux de complétion (visibilité), étude socio-démo, top 10 diffusion, étude géoloc, étude affinitaire, visites en magasin (drive-to-store)</td></tr>
+          <tr><td><b>cTV</b></td><td>1920x1080 px, 16:9 · 15 à 30 secondes</td><td>Impressions, clics, CTR, reach, taux de complétion, top chaînes et groupes, étude socio-démo, géoloc et affinitaire</td></tr>
+          <tr><td><b>Meta</b></td><td>Post 1080x1080 px (png, jpeg) · Story 9:16, 1920x1080 px, mp4</td><td>Impressions, clics, CTR, reach, interactions, coût par interaction, CPM final, vues à 25, 50, 75 et 100 %</td></tr>
+          <tr><td><b>Meta catalogue</b> <span class="badge" style="margin:0 0 0 6px">Nouveau</span></td><td>Flux catalogue produits (visuels, prix, liens) · Pixel Meta sur l’e-shop</td><td>Impressions, reach, clics produits, ajouts au panier, achats, coût par achat, retour sur investissement publicitaire</td></tr>
+          <tr><td><b>Vidéo shoppable Monna</b> <span class="badge" style="margin:0 0 0 6px">Nouveau</span></td><td>Vidéo 1920x1080 px ou 9:16 · 15 à 30 secondes · visuels et liens des produits mis en avant</td><td>Impressions, taux de complétion, clics sur les produits, trafic vers l’e-shop, top produits cliqués</td></tr>
+          <tr><td><b>Retargeting e-shop</b> <span class="badge" style="margin:0 0 0 6px">Nouveau</span></td><td>Formats display ci-dessus · tag de suivi sur l’e-shop</td><td>Impressions, clics, CTR, visites de retour, ajouts au panier, ventes attribuées</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <div class="kicker">Audiences</div>
+    <h2>Trois profils au cœur du projet maison</h2>
+    <p class="sub">Les deux cibles historiques sont conservées pour le volet magasin. Une troisième cible, pensée pour la vente en ligne, rejoint le dispositif.</p>
+    <div class="grid g3">
+      <div class="card">
+        <span class="glyph">●</span>
+        <span class="badge ice">Magasin</span>
+        <h3>Les nouveaux installés</h3>
+        <p class="small muted">25 à 45 ans · couples en moment de vie déménagement</p>
+        <ul class="clean small">
+          <li>Ameublement et gros électroménager</li>
+          <li>Services à l’habitat : énergie, box internet</li>
+          <li>Aménagement et optimisation du logement</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="glyph">■</span>
+        <span class="badge ice">Magasin</span>
+        <h3>Les propriétaires de maisons</h3>
+        <p class="small muted">35 à 55 ans · familles périurbaines</p>
+        <ul class="clean small">
+          <li>Bricolage, jardinage et extérieurs</li>
+          <li>Literie, confort et décoration intérieure</li>
+          <li>Rénovation et valorisation du bien</li>
+        </ul>
+      </div>
+      <div class="card c-corail">
+        <span class="glyph">◆</span>
+        <span class="badge">Vente en ligne</span>
+        <h3>Les acheteurs déco connectés</h3>
+        <p class="small muted">25 à 50 ans · France entière</p>
+        <ul class="clean small">
+          <li>Achètent maison et déco en ligne, sensibles aux ventes privées</li>
+          <li>S’inspirent sur Instagram et Pinterest</li>
+          <li>Visiteurs de l’e-shop et paniers non finalisés</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card c-bleu" style="margin-top:18px">
+      <h4>Géolocalisation du volet magasin · rayon de 30 km autour des 40 points de vente</h4>
+      <div class="chips small" style="margin-top:12px">
+        <span class="chip">Agen</span><span class="chip">Ajaccio</span><span class="chip">Annemasse</span><span class="chip">Barjouville</span><span class="chip">Bordeaux</span><span class="chip">Bourges</span><span class="chip">Cabriès</span><span class="chip">Cherbourg</span><span class="chip">Clermont-Ferrand</span><span class="chip">Coignières</span><span class="chip">Epagny</span><span class="chip">Fréjus</span><span class="chip">Herblay</span><span class="chip">Lattes</span><span class="chip">Laval</span><span class="chip">Le Havre</span><span class="chip">Le Mans</span><span class="chip">Le Touquet</span><span class="chip">Lille</span><span class="chip">Lisieux</span><span class="chip">Lons</span><span class="chip">Metz</span><span class="chip">Ollioules</span><span class="chip">Paray-le-Monial</span><span class="chip">Perpignan</span><span class="chip">Rennes</span><span class="chip">Roanne</span><span class="chip">Saint-Herblain</span><span class="chip">Saint-Nazaire</span><span class="chip">Saran</span><span class="chip">Seclin</span><span class="chip">Saint-Brieuc</span><span class="chip">Saint-Denis (974)</span><span class="chip">Saint-Laurent-du-Var</span><span class="chip">Saint-Marcel</span><span class="chip">Saint-Pierre (974)</span><span class="chip">Saint-Priest</span><span class="chip">Saint-Quentin</span><span class="chip">Strasbourg</span><span class="chip">Thonon-les-Bains</span>
+      </div>
+      <p class="small muted" style="margin:14px 0 0">Le volet vente en ligne n’est pas limité aux zones de chalandise : il touche toute la France, y compris les foyers éloignés d’un magasin.</p>
+    </div>
+  </div>
+</section>
+
+<section id="data" class="alt">
+  <div class="wrap">
+    <div class="kicker">Stratégie data</div>
+    <h2>Une architecture data en couches</h2>
+    <p class="sub">Chaque couche affine la précédente, de la cible socio-démographique jusqu’aux comportements d’achat réels, mesurés grâce à la data Mastercard. Les visiteurs de l’e-shop forment une couche à part, réservée à la relance.</p>
+    <div class="grid g2" style="align-items:start">
+      <div class="pyr">
+        <div class="lay l1"><b>Socio-démo et moments de vie</b><span>Âge, composition du foyer, déménagement, nouveaux propriétaires</span></div>
+        <div class="lay l2"><b>Centres d’intérêt et affinités</b><span>Décoration, design, rénovation, jardin · The Bradery</span></div>
+        <div class="lay l3"><b>Comportements géolocalisés</b><span>Data SEIKI : fréquentation des enseignes d’ameublement</span></div>
+        <div class="lay l4"><b>Comportements d’achat réels</b><span>Data Mastercard déco & ameublement · Data Travel</span><br><small>Exclusivité TGW</small></div>
+      </div>
+      <div class="grid" style="gap:14px">
+        <div class="card">
+          <h4>Data SEIKI · données GPS</h4>
+          <p class="small muted" style="margin:0">Foyers présents dans un rayon de 30 km autour des magasins, visiteurs réguliers des enseignes d’ameublement et de décoration, présence récurrente dans les zones résidentielles CSP+ ou à forte dynamique immobilière, passages en agences immobilières et showrooms d’aménagement.</p>
+        </div>
+        <div class="card">
+          <h4>Data Travel · parcours d’achat</h4>
+          <p class="small muted" style="margin:0">Acheteurs récents de mobilier et de décoration, transactions supérieures à 2 000 €, clients d’enseignes premium ou concurrentes, achats pour résidence principale ou secondaire.</p>
+        </div>
+        <div class="card">
+          <h4>Data The Bradery · affinités lifestyle</h4>
+          <p class="small muted" style="margin:0">Intérêt pour la décoration tendance et design, achats en ventes privées, forte affinité avec les plateformes d’inspiration. Une couche particulièrement adaptée au volet vente en ligne.</p>
+        </div>
+        <div class="card c-corail">
+          <h4>Visiteurs de l’e-shop · relance</h4>
+          <p class="small muted" style="margin:0">Audience propre à l’enseigne, constituée grâce au tag de suivi : produits consultés, paniers non finalisés. Elle alimente le retargeting e-shop et les publicités dynamiques Meta.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mc">
+      <div class="mc-hd">
+        <div>
+          <span class="badge">Exclusivité The Good Web</span>
+          <h3>Data Mastercard : la déco et l’ameublement, vus depuis le ticket de caisse</h3>
+          <p>Les autres données disent ce que les foyers regardent. La data Mastercard dit où ils dépensent réellement : catégories de dépenses, enseignes fréquentées et montants, tels qu’ils apparaissent sur un relevé de compte. Pour une enseigne déco, c’est la façon la plus directe de toucher ceux qui équipent leur intérieur, chez vous ou chez vos concurrents.</p>
+        </div>
+        <div class="mc-price"><span>Surcoût</span><b>+ 5 €</b><span>de CPM</span></div>
+      </div>
+      <div class="mc-grid">
+        <div class="seg"><span class="glyph">●</span><h4>Gros dépensiers ameublement</h4><p>Porteurs de cartes aux dépenses élevées dans l’ameublement et la décoration sur les 12 derniers mois, avec un panier moyen supérieur à la moyenne.</p><span class="use">Drive-to-store · cTV</span></div>
+        <div class="seg"><span class="glyph">■</span><h4>Clients des enseignes concurrentes</h4><p>Profils de dépense réguliers chez les grandes enseignes d’ameublement et de décoration (Ikea, Maisons du Monde, Conforama, BoConcept…), pour les attirer vers vos magasins.</p><span class="use">Drive-to-store · Display</span></div>
+        <div class="seg"><span class="glyph">◆</span><h4>Foyers en phase d’équipement</h4><p>Dépenses récentes en bricolage, jardinage, literie et gros électroménager : le signal d’un intérieur en cours d’aménagement, au bon moment pour proposer la déco.</p><span class="use">cTV · Display</span></div>
+        <div class="seg"><span class="glyph">◐</span><h4>Acheteurs maison en ligne</h4><p>Dépenses chez les sites marchands spécialisés maison et décoration : une audience déjà habituée à commander ses meubles et objets déco en ligne.</p><span class="use">Vidéo shoppable · France entière</span></div>
+        <div class="seg"><span class="glyph">⌂</span><h4>Dépenses autour des magasins</h4><p>Profils de dépense ameublement et décoration localisés dans les zones de chalandise des 40 points de vente, pour un drive-to-store encore plus ciblé.</p><span class="use">Drive-to-store · rayon 30 km</span></div>
+        <div class="seg seg-cal"><span class="glyph">◆</span><h4>Temps forts 2027</h4><p>Segments activés sur les acheteurs les plus actifs pendant les soldes et le Black Friday, pour concentrer la pression publicitaire sur les foyers prêts à acheter.</p><span class="use">Janvier · juin · novembre</span></div>
+      </div>
+      <div class="mc-tbl">
+        <h4>Ce que change l’option, à budget égal</h4>
+        <p class="small" style="margin:0 0 16px;color:#b9cbf2">Le budget ne bouge pas : la data Mastercard ajoute 5 € au CPM, et les impressions se concentrent sur les foyers qui achètent vraiment en déco et ameublement.</p>
+        <div class="cmp-grid">
+          <div class="cmp">
+            <div class="cmp-hd"><b>Drive-to-store</b><span>H1 · budget 5 000 €</span></div>
+            <div class="cmp-row">
+              <div class="cmp-col"><span class="cmp-lbl">Sans data</span><span class="cmp-cpm">CPM 6 €</span><span class="cmp-imp">833 333</span><span class="cmp-u">impressions</span></div>
+              <div class="cmp-arrow">→</div>
+              <div class="cmp-col mcol"><span class="cmp-lbl">Avec data Mastercard</span><span class="cmp-cpm">CPM 11 €</span><span class="cmp-imp">454 545</span><span class="cmp-u">impressions ciblées</span></div>
+            </div>
+          </div>
+          <div class="cmp">
+            <div class="cmp-hd"><b>Display premium</b><span>H2 · budget 5 000 €</span></div>
+            <div class="cmp-row">
+              <div class="cmp-col"><span class="cmp-lbl">Sans data</span><span class="cmp-cpm">CPM 5 €</span><span class="cmp-imp">1 000 000</span><span class="cmp-u">impressions</span></div>
+              <div class="cmp-arrow">→</div>
+              <div class="cmp-col mcol"><span class="cmp-lbl">Avec data Mastercard</span><span class="cmp-cpm">CPM 10 €</span><span class="cmp-imp">500 000</span><span class="cmp-u">impressions ciblées</span></div>
+            </div>
+          </div>
+          <div class="cmp">
+            <div class="cmp-hd"><b>cTV</b><span>H3 · budget 9 000 €</span></div>
+            <div class="cmp-row">
+              <div class="cmp-col"><span class="cmp-lbl">Sans data</span><span class="cmp-cpm">CPM 25 €</span><span class="cmp-imp">360 000</span><span class="cmp-u">impressions</span></div>
+              <div class="cmp-arrow">→</div>
+              <div class="cmp-col mcol"><span class="cmp-lbl">Avec data Mastercard</span><span class="cmp-cpm">CPM 30 €</span><span class="cmp-imp">300 000</span><span class="cmp-u">impressions ciblées</span></div>
+            </div>
+          </div>
+          <div class="cmp">
+            <div class="cmp-hd"><b>Vidéo shoppable</b><span>H6 · budget 5 000 €</span></div>
+            <div class="cmp-row">
+              <div class="cmp-col"><span class="cmp-lbl">Sans data</span><span class="cmp-cpm">CPM 9 €</span><span class="cmp-imp">555 556</span><span class="cmp-u">impressions</span></div>
+              <div class="cmp-arrow">→</div>
+              <div class="cmp-col mcol"><span class="cmp-lbl">Avec data Mastercard</span><span class="cmp-cpm">CPM 14 €</span><span class="cmp-imp">357 143</span><span class="cmp-u">impressions ciblées</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="small" style="margin:14px 0 0;color:#b9cbf2">Ne s’applique pas à Meta, Meta catalogue ni au retargeting, qui s’appuient déjà sur leurs propres signaux.</p>
+      </div>
+      <div class="mc-ft">
+        <div><b>Par types de cartes, jamais par individus</b><span>Comportements agrégés, aucune donnée personnelle exploitée.</span></div>
+        <div><b>Display, drive-to-store, cTV, vidéo shoppable</b><span>Leviers sur lesquels l’option s’active.</span></div>
+        <div><b>Même budget, moins de déchet</b><span>Moins d’impressions, mais sur des acheteurs avérés.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rgpd">
+  <div class="wrap">
+    <div class="kicker">RGPD & brand safety</div>
+    <h2>Un ciblage précis et respectueux</h2>
+    <div class="grid g3" style="margin-top:28px">
+      <div class="card">
+        <h4>Consentement</h4>
+        <p class="small muted" style="margin:0">Données collectées avec le consentement des internautes, conformément au RGPD et au cadre de transparence de l’IAB. Solutions cookieless et cookie-based combinées.</p>
+      </div>
+      <div class="card">
+        <h4>Données agrégées</h4>
+        <p class="small muted" style="margin:0">La data Mastercard fonctionne par types de cartes et profils de dépense agrégés : aucune donnée personnelle ni bancaire individuelle n’est exploitée. Les données GPS sont anonymisées.</p>
+      </div>
+      <div class="card">
+        <h4>Brand safety</h4>
+        <p class="small muted" style="margin:0">Exclusion des contenus sensibles (adultes, piratage, armes, drogues, alcool), listes d’exclusion et mesure de la visibilité selon la norme MRC par un outil tiers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--ice)">Contacts</div>
+    <h2>Parlons de votre saison 2027</h2>
+    <div class="contacts">
+      <a class="ct" href="mailto:sofien@thegoodweb.eu"><b>Sofien Chaganiou</b><span class="role">Chef de publicité</span><span>07 67 84 70 67</span><span>sofien@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:jerome@thegoodweb.eu"><b>Jérôme Fages</b><span class="role">Directeur commercial</span><span>06 18 74 66 75</span><span>jerome@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:mathilde@thegoodweb.eu"><b>Mathilde Coriton</b><span class="role">Directrice de clientèle</span><span>06 48 61 92 92</span><span>mathilde@thegoodweb.eu</span></a>
+      <a class="ct" href="mailto:andrea@thegoodweb.eu"><b>Andréa Alonso</b><span class="role">Cheffe de publicité</span><span>04 91 54 28 12</span><span>andrea@thegoodweb.eu</span></a>
+      <div class="ct off"><b>Pôle activation</b><span class="role">Lancement et suivi des campagnes</span><span>activation@thegoodweb.eu</span></div>
+    </div>
+    <div class="foot-bottom">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="214 252 572 496" role="img" aria-label="The Good Web" class="logo"> <g> <path fill="#fff" d="M292.13,387.3h-42.97v-94.37h-31.41v-37.41h105.8v37.41h-31.41v94.37Z"/> <path fill="#fff" d="M411.11,337.23h-35.03v50.07h-42.97v-131.78h42.79v44.67h35.03v-44.67h43.15v131.78h-42.97v-50.07Z"/> <path fill="#fff" d="M474.29,255.52h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/> <path fill="#fff" d="M288.42,538.95c-10.11,0-19.47-1.61-28.07-4.84-8.61-3.23-16.07-7.85-22.39-13.87-6.32-6.02-11.28-13.31-14.89-21.87-3.61-8.56-5.42-18.11-5.42-28.66s1.81-20.1,5.42-28.66c3.61-8.56,8.54-15.88,14.8-21.96,6.26-6.08,13.6-10.76,22.03-14.05,8.42-3.29,17.45-4.93,27.08-4.93s19.47,1.68,28.44,5.03c8.96,3.35,16.28,7.94,21.94,13.77l-25.1,31.08c-2.65-3.23-5.78-5.8-9.39-7.72-3.61-1.92-8.07-2.89-13.36-2.89-3.49,0-6.89.72-10.2,2.14-3.31,1.43-6.23,3.48-8.76,6.14-2.53,2.67-4.58,5.86-6.14,9.59-1.57,3.72-2.35,7.88-2.35,12.47,0,9.18,2.32,16.66,6.95,22.43,4.63,5.77,12.07,8.66,22.3,8.66,1.81,0,3.67-.15,5.6-.46,1.92-.31,3.43-.77,4.51-1.4v-10.05h-20.58v-34.81h58.68v72.03c-3.01,1.86-6.47,3.57-10.38,5.12-3.91,1.55-8.07,2.89-12.46,4-4.39,1.12-9,2.02-13.81,2.7-4.82.68-9.63,1.02-14.44,1.02Z"/> <path fill="#fff" d="M351.61,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24-8.67,3.35-18.05,5.03-28.17,5.03s-19.5-1.68-28.16-5.03-16.16-8.1-22.48-14.24c-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM397.28,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/> <path fill="#fff" d="M502.36,468.97c0-10.55,1.81-20.07,5.42-28.57,3.61-8.5,8.58-15.73,14.89-21.68,6.32-5.96,13.81-10.55,22.48-13.77,8.67-3.23,18.05-4.84,28.16-4.84s19.5,1.61,28.17,4.84c8.67,3.23,16.19,7.82,22.57,13.77,6.38,5.96,11.37,13.19,14.99,21.68,3.61,8.5,5.42,18.02,5.42,28.57s-1.81,20.17-5.42,28.85c-3.61,8.69-8.61,16.1-14.99,22.24-6.38,6.14-13.9,10.89-22.57,14.24s-18.05,5.03-28.17,5.03-19.5-1.68-28.16-5.03c-8.67-3.35-16.16-8.1-22.48-14.24-6.32-6.14-11.28-13.56-14.89-22.24-3.61-8.68-5.42-18.3-5.42-28.85ZM548.04,468.97c0,4.35.63,8.31,1.9,11.91,1.26,3.6,3.01,6.7,5.24,9.31,2.23,2.61,4.9,4.62,8.03,6.05,3.13,1.43,6.5,2.14,10.11,2.14s6.95-.71,10.02-2.14c3.07-1.42,5.75-3.44,8.03-6.05,2.29-2.61,4.06-5.71,5.33-9.31,1.26-3.6,1.9-7.57,1.9-11.91s-.63-8.1-1.9-11.63c-1.26-3.54-3.04-6.51-5.33-8.93-2.29-2.42-4.96-4.31-8.03-5.68-3.07-1.36-6.41-2.05-10.02-2.05s-6.98.68-10.11,2.05c-3.13,1.37-5.81,3.26-8.03,5.68-2.23,2.42-3.97,5.4-5.24,8.93-1.26,3.54-1.9,7.42-1.9,11.63Z"/> <path fill="#fff" d="M658.89,535.6v-131.78h47.66c10.11,0,19.77,1.02,28.98,3.07,9.21,2.05,17.33,5.58,24.37,10.61,7.04,5.02,12.67,11.7,16.88,20.01,4.21,8.32,6.32,18.8,6.32,31.46,0,11.54-2.02,21.53-6.05,29.97-4.03,8.44-9.42,15.36-16.16,20.75-6.74,5.4-14.51,9.4-23.29,12.01-8.79,2.61-17.94,3.91-27.44,3.91h-51.27ZM700.23,441.42v56.02h7.94c10.11,0,17.87-2.26,23.29-6.77,5.42-4.51,8.12-11.9,8.12-22.17,0-8.53-2.71-15.18-8.12-19.94-5.42-4.76-12.64-7.14-21.67-7.14h-9.57Z"/> <path fill="#fff" d="M295.65,683.9h-43.33l-34.84-131.78h45.5l13.72,74.08h.72l14.8-74.08h44.95l16.07,74.08h.72l13.9-74.08h44.05l-35.57,131.78h-43.33l-18.05-74.45h-.72l-18.6,74.45Z"/> <path fill="#fff" d="M420.23,552.13h87.92v36.85h-47.48v11.35h44.59v34.43h-44.59v12.28h50.55v36.85h-90.99v-131.78Z"/> <path fill="#fff" d="M609.07,615.41c3.01.75,5.96,1.95,8.85,3.63,2.89,1.68,5.47,3.79,7.76,6.33,2.28,2.54,4.09,5.49,5.42,8.84,1.32,3.35,1.99,7.07,1.99,11.17,0,7.2-1.42,13.25-4.24,18.15-2.83,4.9-6.56,8.87-11.19,11.91-4.64,3.04-9.93,5.21-15.89,6.51-5.96,1.3-12.07,1.95-18.32,1.95h-57.96v-131.78h52.54c5.17,0,10.68.4,16.52,1.21,5.84.81,11.22,2.42,16.16,4.84,4.93,2.42,9.03,5.96,12.28,10.61,3.25,4.65,4.87,10.77,4.87,18.33,0,7.07-1.71,12.91-5.14,17.5-3.43,4.59-7.98,8-13.63,10.24v.56ZM565.56,586.56v16.19h11.56c3.01,0,5.47-.71,7.4-2.14,1.92-1.42,2.89-3.63,2.89-6.61,0-2.48-1.02-4.34-3.07-5.58-2.05-1.24-4.76-1.86-8.12-1.86h-10.65ZM565.56,631.23v17.87h12.82c3.37,0,6.11-.77,8.21-2.33,2.11-1.55,3.16-3.82,3.16-6.79,0-1.74-.45-3.16-1.35-4.28s-2.02-2.02-3.34-2.7c-1.33-.68-2.74-1.15-4.24-1.4-1.51-.25-2.92-.37-4.24-.37h-11.01Z"/> </g> <path fill="#fff" d="M228.48,738.01c-.08,0-.19-.03-.27-.08l-4.72-2.74v5.44c0,.35-.27.54-.54.54s-.54-.19-.54-.54v-5.44l-4.72,2.74c-.08.05-.19.08-.27.08-.3,0-.54-.29-.54-.56,0-.19.08-.35.27-.46l4.72-2.71-4.72-2.74c-.19-.11-.27-.27-.27-.46,0-.27.24-.56.54-.56.08,0,.19.03.27.08l4.72,2.74v-5.44c0-.35.27-.54.54-.54s.54.19.54.54v5.44l4.72-2.74c.08-.05.19-.08.27-.08.29,0,.54.29.54.56,0,.19-.08.35-.27.46l-4.72,2.71,4.72,2.74c.19.11.27.27.27.46,0,.27-.24.56-.54.56Z"/> <g> <path fill="#fff" d="M606.22,313.32h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h-.62s.62,0,.62,0c0,2.89-1.14,5.6-3.18,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM606.22,292.96c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c2.54,0,4.94-.99,6.74-2.78,1.81-1.8,2.81-4.2,2.82-6.75,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M619.73,382.89l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03s-.64-.43-1.02-.43h0c-.38,0-.74.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.2-.16-.36-.36-.36h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c3.61.01,7.01,1.43,9.56,3.99,2.55,2.57,3.95,5.97,3.94,9.58l-.08,24.38-6.83-.02.06-20.02c0-.19-.17-.36-.36-.36h0c-.21,0-.37.16-.37.35l-.18,51.22ZM608.67,381.61l9.82.03.18-49.98c0-.88.73-1.59,1.61-1.59h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.88,0,1.6.73,1.6,1.61l-.15,50,9.83.03.07-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79h0c.72,0,1.4.29,1.9.8.51.51.78,1.19.78,1.91l-.06,21.28Z"/> <path fill="#fff" d="M774.01,293.18c-.12,0-.29-.04-.41-.12l-7.18-4.16v8.29c0,.53-.41.82-.82.82s-.82-.29-.82-.82v-8.29l-7.18,4.16c-.12.08-.29.12-.41.12-.45,0-.82-.45-.82-.86,0-.29.12-.53.41-.69l7.18-4.12-7.18-4.16c-.29-.16-.41-.41-.41-.69,0-.41.37-.86.82-.86.12,0,.29.04.41.12l7.18,4.16v-8.29c0-.53.41-.82.82-.82s.82.29.82.82v8.29l7.18-4.16c.12-.08.29-.12.41-.12.45,0,.82.45.82.86,0,.29-.12.53-.41.69l-7.18,4.12,7.18,4.16c.29.16.41.41.41.69,0,.41-.37.86-.82.86Z"/> <path fill="#fff" d="M650.77,313.46h-.03c-5.95-.02-10.78-4.88-10.77-10.84.02-5.94,4.86-10.76,10.8-10.76h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64h0c-.02,5.94-4.86,10.77-10.8,10.77ZM650.77,293.1c-5.26,0-9.54,4.27-9.56,9.52-.02,5.27,4.26,9.57,9.53,9.59h.03c5.26,0,9.54-4.27,9.56-9.53,0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M664.27,383.02l-12.3-.04.07-22.52c0-.8-.65-1.45-1.45-1.46h0c-.38,0-.74.15-1.02.42s-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.25c0-.1-.04-.19-.1-.26-.07-.07-.16-.11-.25-.11h0c-.2,0-.36.16-.36.36l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.93-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.11,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.06-.21-.1-.25-.07-.07-.17-.12-.26-.11-.1,0-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM653.22,381.75l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47.41-.01.84.17,1.14.48.3.3.47.7.46,1.13l-.06,18.78h4.35s.07-23.12.07-23.12c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.88.72-1.6,1.6-1.6h0c.43,0,.83.17,1.14.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.9-.79h0c.72,0,1.39.29,1.9.8.51.51.78,1.19.78,1.91l-.07,21.28Z"/> <path fill="#fff" d="M695.08,313.59h-.03c-2.88,0-5.59-1.14-7.63-3.19-2.03-2.05-3.15-4.76-3.14-7.65,0-2.88,1.14-5.59,3.19-7.62,2.04-2.02,4.74-3.14,7.61-3.14h.03c2.89,0,5.59,1.14,7.63,3.18,2.03,2.04,3.15,4.76,3.14,7.64,0,2.89-1.14,5.6-3.19,7.63-2.04,2.03-4.74,3.14-7.61,3.14ZM695.08,293.24c-5.26,0-9.54,4.27-9.56,9.52,0,2.56.98,4.96,2.78,6.77,1.8,1.81,4.19,2.81,6.75,2.82,2.57-.01,4.96-.98,6.77-2.78,1.81-1.8,2.81-4.2,2.82-6.75h0c0-2.55-.98-4.95-2.78-6.76-1.8-1.81-4.2-2.81-6.75-2.82h-.03Z"/> <path fill="#fff" d="M708.58,383.16l-12.3-.04.07-22.52c0-.39-.15-.75-.42-1.03-.27-.27-.63-.42-1.02-.43h0c-.38,0-.75.15-1.02.42-.27.27-.43.64-.43,1.03l-.07,22.52-12.31-.04.16-51.24c0-.1-.04-.19-.1-.26-.07-.07-.19-.13-.25-.11-.12,0-.21.05-.25.1-.07.07-.11.16-.11.26l-.06,20.05-6.85-.02.08-24.38c.01-3.61,1.43-7.01,3.99-9.56,2.55-2.54,5.94-3.94,9.53-3.94h.04l15.61.05c7.46.02,13.51,6.12,13.49,13.58l-.08,24.38-6.83-.02.06-20.02c0-.12-.07-.21-.11-.25-.07-.07-.16-.11-.26-.11-.05.01-.2.04-.27.11-.07.07-.1.15-.1.25l-.18,51.22ZM697.52,381.88l9.82.03.18-49.98c0-.42.17-.82.47-1.12.31-.3.71-.47,1.14-.47h0c.88,0,1.6.72,1.6,1.6l-.06,18.78h4.35s.07-23.12.07-23.12h.62s-.62,0-.62,0c.02-6.78-5.48-12.31-12.25-12.33l-15.61-.05h-.04c-3.27,0-6.34,1.27-8.66,3.57-2.33,2.32-3.61,5.4-3.62,8.68l-.07,23.13h4.37s.06-18.79.06-18.79c0-.43.17-.84.47-1.14.3-.3.7-.46,1.13-.46h0c.43,0,.83.17,1.13.48.3.3.46.71.46,1.13l-.15,50,9.83.03.06-21.28c0-.72.28-1.39.79-1.9.51-.51,1.18-.79,1.89-.79.76.04,1.4.28,1.91.79.51.51.79,1.19.79,1.91l-.07,21.28Z"/> <path fill="#fff" d="M749.2,302.96c-.02,5.63-4.58,10.17-10.21,10.15-5.62-.02-10.16-4.58-10.15-10.21.02-5.62,4.59-10.16,10.21-10.14s10.16,4.58,10.15,10.2Z"/> <path fill="#fff" d="M759.67,327.74c.02-7.13-5.74-12.93-12.87-12.95l-15.61-.05c-7.13-.02-12.92,5.74-12.94,12.87l-.07,23.75,5.61.02.06-19.43c0-.54.43-.98.98-.98s.98.45.98.99l-.06,19.43h0l-.1,31.2,11.07.03.07-21.9c0-1.14.93-2.07,2.07-2.07s2.07.94,2.06,2.08l-.07,21.9,11.06.03.1-31.2h.02s.06-19.4.06-19.4c0-.54.45-.97,1-.97s.98.44.98.98l-.06,19.4,5.59.02.07-23.75Z"/> </g> <g> <path fill="#fff" d="M244.94,744.06h-1.64v-15.08h-5.38v-1.5h12.4v1.5h-5.38v15.08Z"/> <path fill="#fff" d="M252.28,727.48h1.63v7.19h8.77v-7.19h1.64v16.58h-1.64v-7.84h-8.77v7.84h-1.63v-16.58Z"/> <path fill="#fff" d="M269.76,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> <path fill="#fff" d="M298.54,730.48c-.56-.61-1.23-1.08-2-1.42-.77-.33-1.66-.5-2.66-.5s-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.02,1.43-1.33,2.3-.31.87-.47,1.79-.47,2.76s.16,1.89.47,2.76c.31.87.75,1.64,1.33,2.29.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58c.91,0,1.74-.1,2.5-.3.76-.2,1.37-.46,1.84-.77v-5.03h-3.75v-1.5h5.38v7.49c-.88.55-1.82.95-2.84,1.22-1.01.27-2.07.4-3.16.4-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c1.29,0,2.41.2,3.36.6.95.4,1.77.95,2.45,1.65l-1.14,1.17Z"/> <path fill="#fff" d="M319.48,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM317.76,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58c-.83.39-1.53.92-2.1,1.58-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/> <path fill="#fff" d="M338.33,735.77c0,1.26-.21,2.43-.64,3.49s-1.01,1.98-1.76,2.75c-.75.77-1.63,1.38-2.66,1.81-1.02.44-2.13.66-3.33.66s-2.31-.22-3.33-.66-1.91-1.04-2.66-1.81c-.75-.77-1.34-1.69-1.76-2.75-.42-1.06-.64-2.22-.64-3.49s.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66,2.31.22,3.33.66c1.02.44,1.91,1.04,2.66,1.81.75.77,1.34,1.69,1.76,2.75.42,1.06.64,2.22.64,3.49ZM336.61,735.78c0-.97-.15-1.89-.46-2.76s-.74-1.64-1.32-2.3c-.58-.66-1.28-1.19-2.1-1.58s-1.75-.58-2.78-.58-1.96.2-2.78.58-1.53.92-2.1,1.58c-.58.66-1.01,1.43-1.32,2.3s-.45,1.79-.45,2.76.15,1.89.45,2.76.74,1.64,1.32,2.29c.58.65,1.28,1.18,2.1,1.57s1.75.58,2.78.58,1.96-.19,2.78-.58,1.53-.91,2.1-1.57c.58-.65,1.01-1.42,1.32-2.29s.46-1.79.46-2.76Z"/> <path fill="#fff" d="M341.29,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM342.92,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/> <path fill="#fff" d="M362.73,744.06h-1.79l6.95-16.58h1.59l6.9,16.58h-1.82l-1.77-4.35h-8.31l-1.75,4.35ZM365.09,738.16h7.09l-3.54-8.8-3.54,8.8Z"/> <path fill="#fff" d="M383.94,744.48c-1.21,0-2.2-.21-2.98-.64-.77-.43-1.39-.97-1.84-1.63-.46-.66-.77-1.37-.94-2.14-.17-.77-.26-1.5-.26-2.19v-10.4h1.63v10.21c0,.67.08,1.32.23,1.96.15.63.4,1.19.74,1.69s.79.89,1.35,1.19c.56.3,1.25.46,2.07.46s1.51-.15,2.07-.46,1.01-.7,1.35-1.19.59-1.05.74-1.69c.15-.63.23-1.28.23-1.96v-10.21h1.63v10.4c0,.69-.09,1.42-.26,2.19-.17.77-.49,1.49-.94,2.14-.45.66-1.07,1.2-1.85,1.63-.78.43-1.77.64-2.96.64Z"/> <path fill="#fff" d="M393.68,727.48h5.34c1,0,2,.17,3.01.51s1.92.86,2.73,1.56c.81.69,1.46,1.56,1.96,2.6.5,1.04.75,2.24.75,3.62s-.25,2.6-.75,3.63c-.5,1.03-1.16,1.89-1.96,2.59-.81.7-1.72,1.21-2.73,1.56-1.01.34-2.01.52-3.01.52h-5.34v-16.58ZM395.32,742.56h3.25c1.21,0,2.27-.2,3.17-.58.9-.39,1.65-.9,2.24-1.53.59-.63,1.03-1.35,1.33-2.17.29-.81.44-1.65.44-2.51s-.15-1.69-.44-2.51c-.3-.81-.74-1.53-1.33-2.17-.59-.63-1.34-1.14-2.24-1.53-.9-.39-1.96-.58-3.17-.58h-3.25v13.58Z"/> <path fill="#fff" d="M412.06,744.06h-1.63v-16.58h1.63v16.58Z"/> <path fill="#fff" d="M417.51,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> <path fill="#fff" d="M440.27,741.6h.04v-14.12h1.64v16.58h-2.04l-9.36-14.26h-.05v14.26h-1.63v-16.58h2.04l9.36,14.12Z"/> <path fill="#fff" d="M459.3,741.37c-.27.42-.6.82-.99,1.2s-.83.71-1.34.99-1.07.51-1.68.68c-.61.17-1.28.25-2.01.25-1.21,0-2.33-.22-3.36-.66-1.03-.44-1.92-1.04-2.66-1.81-.74-.77-1.32-1.69-1.74-2.75s-.62-2.22-.62-3.49.21-2.43.64-3.49c.42-1.06,1.01-1.98,1.76-2.75.75-.77,1.64-1.38,2.66-1.81s2.13-.66,3.33-.66c.59,0,1.17.06,1.74.19.57.13,1.1.31,1.6.54.5.23.95.51,1.36.83.41.32.75.69,1.02,1.09l-1.36,1.03c-.17-.27-.39-.53-.67-.8s-.61-.5-.99-.7c-.38-.2-.79-.37-1.24-.49-.45-.12-.93-.19-1.44-.19-1.04,0-1.98.2-2.81.58-.83.39-1.53.91-2.1,1.58-.58.66-1.01,1.43-1.32,2.3-.3.87-.45,1.79-.45,2.75s.16,1.88.47,2.75c.31.87.75,1.64,1.33,2.3.58.66,1.28,1.19,2.1,1.57.83.39,1.75.58,2.78.58.92,0,1.8-.19,2.63-.58s1.53-1.01,2.09-1.87l1.27.84Z"/> <path fill="#fff" d="M463.3,742.56h8.61v1.5h-10.24v-16.58h9.97v1.5h-8.34v5.69h7.79v1.5h-7.79v6.39Z"/> </g> </svg>
+      <span>The Good Web · 40 rue Paradis, 13001 Marseille · thegoodweb.eu<br>Proposition préparée pour l’agence Shakebiz · Tarifs HT</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('nav.anchors a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function onScroll(){
+    var y=window.scrollY+120,idx=0;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)idx=i});
+    links.forEach(function(a,i){a.classList.toggle('active',i===idx)});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+</body>
+</html>
