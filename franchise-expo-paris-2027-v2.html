@@ -151,6 +151,14 @@ footer .foot-logo{display:flex;align-items:center;gap:12px;border-top:1px solid 
 .versions .vlabel{font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#7a86a8;margin-right:6px;}
 .versions .vlink{font-size:.82rem;font-weight:600;color:var(--navy);text-decoration:none;border:1px solid #cdd6f0;border-radius:999px;padding:5px 14px;background:var(--white);}
 .versions .vlink.current{background:var(--navy);color:var(--white);border-color:var(--navy);}
+
+/* ACCORDEON */
+details.accordion summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--white);border:1px solid #e6ebf7;border-radius:14px;padding:18px 24px;}
+details.accordion summary::-webkit-details-marker{display:none;}
+details.accordion summary h2{margin:0;font-size:1.25rem;}
+details.accordion .chev{flex:0 0 auto;width:12px;height:12px;border-right:3px solid var(--terracota);border-bottom:3px solid var(--terracota);transform:rotate(45deg);transition:transform .2s;margin-right:6px;}
+details.accordion[open] .chev{transform:rotate(-135deg);}
+details.accordion summary:hover{border-color:var(--terracota);}
 </style>
 </head>
 <body>
@@ -647,8 +655,9 @@ footer .foot-logo{display:flex;align-items:center;gap:12px;border-top:1px solid 
 
 <section class="soft" id="cadre">
   <div class="wrap">
-    <h2><span class="arrow">↘</span>Cadre du plan : de la notoriété, pas de la performance</h2>
-    <p class="lead">Ce plan n'a pas d'orientation performance. Il vise de la notoriété pure pour faire connaître Franchise Expo Paris dans les 10 villes et favoriser des résultats de conversion chez le client, sans que ce soit notre objectif.</p>
+    <details class="accordion" id="cadre-details">
+    <summary><h2><span class="arrow">↘</span>Cadre du plan : de la notoriété, pas de la performance</h2><span class="chev" aria-hidden="true"></span></summary>
+    <p class="lead" style="margin-top:20px;">Ce plan n'a pas d'orientation performance. Il vise de la notoriété pure pour faire connaître Franchise Expo Paris dans les 10 villes et favoriser des résultats de conversion chez le client, sans que ce soit notre objectif.</p>
     <div class="grid">
       <div class="card c-lavande">
         <div class="num">1</div>
@@ -666,6 +675,7 @@ footer .foot-logo{display:flex;align-items:center;gap:12px;border-top:1px solid 
         <p>Géolocalisation large (région ou national hors Île-de-France), data d'intention (franchise, création d'entreprise, reconversion), budget concentré sur le display et le retargeting, pixels testés en amont, objectif chiffré défini avec le client (nombre d'inscriptions, coût par inscription maximum). Nous pouvons le chiffrer sur demande.</p>
       </div>
     </div>
+    </details>
   </div>
 </section>
 
@@ -715,5 +725,12 @@ footer .foot-logo{display:flex;align-items:center;gap:12px;border-top:1px solid 
   </div>
 </footer>
 
+<script>
+(function(){
+  var d=document.getElementById('cadre-details');
+  function check(){ if(d && location.hash==='#cadre'){ d.open=true; } }
+  window.addEventListener('hashchange',check); check();
+})();
+</script>
 </body>
 </html>
