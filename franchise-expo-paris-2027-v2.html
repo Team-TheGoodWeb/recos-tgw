@@ -153,12 +153,17 @@ footer .foot-logo{display:flex;align-items:center;gap:12px;border-top:1px solid 
 .versions .vlink.current{background:var(--navy);color:var(--white);border-color:var(--navy);}
 
 /* ACCORDEON */
-details.accordion summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--white);border:1px solid #e6ebf7;border-radius:14px;padding:18px 24px;}
+details.accordion summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--bg-soft);border:1px solid #e6ebf7;border-radius:14px;padding:18px 24px;}
 details.accordion summary::-webkit-details-marker{display:none;}
 details.accordion summary h2{margin:0;font-size:1.25rem;}
 details.accordion .chev{flex:0 0 auto;width:12px;height:12px;border-right:3px solid var(--terracota);border-bottom:3px solid var(--terracota);transform:rotate(45deg);transition:transform .2s;margin-right:6px;}
 details.accordion[open] .chev{transform:rotate(-135deg);}
 details.accordion summary:hover{border-color:var(--terracota);}
+
+a.pill.obj{background:var(--terracota);border-color:var(--terracota);color:var(--white);text-decoration:none;cursor:pointer;}
+a.pill.obj:hover{background:#d9431f;border-color:#d9431f;}
+section{scroll-margin-top:50px;}
+@media(max-width:760px){.grid[style*="repeat(2,1fr)"]{grid-template-columns:1fr !important;}}
 </style>
 </head>
 <body>
@@ -173,11 +178,11 @@ details.accordion summary:hover{border-color:var(--terracota);}
     </div>
     <span class="eyebrow">Recommandation média · Franchise Expo Paris : version 2 par villes, option Grand Est</span>
     <h1>Un dispositif de notoriété ciblé sur les 10 plus grandes villes, en amont du salon</h1>
-    <p class="sub">Suite aux échanges avec l'équipe : les 15 000 € portent sur les 10 plus grandes villes hors Île-de-France (rayon de 10 km), classées selon leur audience 25-49 ans, avec le Grand Est en option chiffrée à part. Mesure et preuve de présence au salon confirmées, diffusion enrichie de la PQR.</p>
+    <p class="sub">Suite aux échanges avec l'équipe : les 15 000 € portent sur les 10 plus grandes villes hors Île-de-France (rayon de 10 km), classées selon leur audience 25-49 ans, avec le Grand Est en option chiffrée à part. Une lecture indicative de la présence au salon, sans engagement de résultat, et une diffusion enrichie de la PQR.</p>
     <div class="pills">
       <span class="pill">Période : <b>15 janvier – 13 mars 2027</b></span>
       <span class="pill">Budget : <b>15 000 € HT</b> (tarifs Karrow Médias)</span>
-      <span class="pill">Objectif : <b>Notoriété du salon</b></span>
+      <a class="pill obj" href="#cadre">Objectif : <b>Notoriété uniquement, aucun objectif de conversion</b> <span aria-hidden="true">↘</span></a>
       <span class="pill">Cible : <b>25-49 ans</b> · affinité <b>femmes</b></span>
       <span class="pill hot">Marchés : <b>10 villes (+10 km)</b> · option <b>Grand Est</b></span>
     </div>
@@ -187,9 +192,10 @@ details.accordion summary:hover{border-color:var(--terracota);}
 <nav class="anchor">
   <div class="wrap">
     <a href="#contexte">Contexte</a>
+    <a href="#cadre">Cadre du plan</a>
     <a href="#dispositif">Dispositif</a>
     <a href="#mesure">Mesure</a>
-    <a href="#preuve">Preuve salon</a>
+    <a href="#preuve">Présence salon</a>
     <a href="#diffusion">Diffusion</a>
     <a href="#planning">Planning</a>
     <a href="#budgets">Budgets</a>
@@ -197,7 +203,6 @@ details.accordion summary:hover{border-color:var(--terracota);}
     <a href="#audiences">Audiences</a>
     <a href="#data">Stratégie data</a>
     <a href="#rgpd">RGPD</a>
-    <a href="#cadre">Cadre du plan</a>
     <a href="#contacts">Contacts</a>
   </div>
 </nav>
@@ -215,12 +220,12 @@ details.accordion summary:hover{border-color:var(--terracota);}
       <div class="card c-menthe">
         <div class="num">2</div>
         <h3>Enseignements 2026</h3>
-        <p>Trois failles corrigées : aucune conversion mesurée, activation régionale tardive, KPI médias flatteurs mais peu qualifiés. Cette version les corrige toutes les trois.</p>
+        <p>Trois enseignements retenus : activation régionale tardive, KPI médias flatteurs mais peu qualifiés, aucune lecture des inscriptions induites. Cette version y répond par une présence plus précoce, des indicateurs de notoriété lisibles (reach, complétion, répétition) et un pixel testé en amont pour une lecture indicative.</p>
       </div>
       <div class="card c-corail">
         <div class="num">3</div>
-        <h3>Preuve exposants</h3>
-        <p>Un vrai sujet business pour Franchise Expo Paris : pouvoir dire combien de visiteurs présents au salon avaient été exposés à la campagne.</p>
+        <h3>Lecture exposants</h3>
+        <p>Un sujet business pour Franchise Expo Paris : disposer d'une lecture indicative du nombre de visiteurs présents au salon qui avaient été exposés à la campagne, sans engagement de résultat.</p>
       </div>
       <div class="card c-bleu">
         <div class="num">4</div>
@@ -233,6 +238,32 @@ details.accordion summary:hover{border-color:var(--terracota);}
         <p>Priorité aux 25-49 ans, avec une affinité féminine dans les choix médias, pour répondre à l'enjeu de toucher davantage de femmes.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="cadre" style="padding:0 0 48px;">
+  <div class="wrap">
+    <details class="accordion" id="cadre-details">
+    <summary><h2><span class="arrow">↘</span>Cadre du plan : de la notoriété, pas de la performance</h2><span class="chev" aria-hidden="true"></span></summary>
+    <p class="lead" style="margin-top:20px;">Ce plan n'a pas d'orientation performance. Il vise de la notoriété pure pour faire connaître Franchise Expo Paris dans les 10 villes et favoriser des résultats de conversion chez le client, sans que ce soit notre objectif.</p>
+    <div class="grid">
+      <div class="card c-lavande">
+        <div class="num">1</div>
+        <h3>Ce que fait ce plan</h3>
+        <p>De la présence et de la répétition dans chaque ville avant le salon. Audio et vidéo InStream/CTV se jugent sur l'exposition, le reach, la complétion et la répétition. Les inscriptions et les venues au salon sont un effet attendu de cette notoriété, pas un engagement de The Good Web.</p>
+      </div>
+      <div class="card c-menthe">
+        <div class="num">2</div>
+        <h3>Ce qu'il ne promet pas</h3>
+        <p>Aucun objectif d'inscriptions ni de coût par inscription. Le display et le retargeting produisent des clics mesurables, mais répartis sur 10 zones villes, les volumes restent trop faibles pour piloter une performance.</p>
+      </div>
+      <div class="card c-corail">
+        <div class="num">3</div>
+        <h3>Un objectif perf demande un autre plan média</h3>
+        <p>Géolocalisation large (région ou national hors Île-de-France), data d'intention (franchise, création d'entreprise, reconversion), budget concentré sur le display et le retargeting, pixels testés en amont, objectif chiffré défini avec le client (nombre d'inscriptions, coût par inscription maximum). Nous pouvons le chiffrer sur demande.</p>
+      </div>
+    </div>
+    </details>
   </div>
 </section>
 
@@ -262,7 +293,7 @@ details.accordion summary:hover{border-color:var(--terracota);}
       </div>
       <div class="levier-card display">
         <span class="tag">Display programmatique IAB</span>
-        <h3>Trafic & visibilité</h3>
+        <h3>Visibilité & trafic qualifié</h3>
         <ul>
           <li>Contextuel emploi/éco + PQR régionale <span class="newtag">Nouveau</span></li>
           <li>CPM : 6 €</li>
@@ -271,7 +302,7 @@ details.accordion summary:hover{border-color:var(--terracota);}
       </div>
       <div class="levier-card retarget">
         <span class="tag">Retargeting DCO + CRM/lookalike</span>
-        <h3>Conversion & performance</h3>
+        <h3>Rappel & répétition</h3>
         <ul>
           <li>Countdown « J-15 », onboarding inscrits N-1</li>
           <li>CPM : 6 €</li>
@@ -295,12 +326,12 @@ details.accordion summary:hover{border-color:var(--terracota);}
       <div class="phase p3">
         <h4>Countdown · J-15</h4>
         <div class="period">1 → 13 mars</div>
-        <p>DCO « prenez votre badge » · pression renforcée sur les zones prioritaires.</p>
+        <p>Rappel DCO en countdown · pression renforcée sur les zones prioritaires.</p>
       </div>
       <div class="phase p4">
         <h4>Salon · J-J</h4>
         <div class="period">13 → 15 mars</div>
-        <p>Porte de Versailles · recoupement badges pour la preuve de présence exposants.</p>
+        <p>Porte de Versailles · recoupement badges pour une lecture indicative de la présence.</p>
       </div>
     </div>
   </div>
@@ -342,8 +373,8 @@ details.accordion summary:hover{border-color:var(--terracota);}
 
 <section class="soft" id="preuve">
   <div class="wrap">
-    <h2><span class="arrow">↘</span>La preuve de présence au salon</h2>
-    <p class="lead">Le sujet exposants : pouvoir dire combien de visiteurs présents avaient été exposés à la campagne.</p>
+    <h2><span class="arrow">↘</span>Présence au salon : une lecture indicative</h2>
+    <p class="lead">Croiser l'exposition à la campagne avec la venue au salon, à titre indicatif et sans engagement de résultat.</p>
     <div class="pyramid">
       <div class="layer l1">
         <h4>Maillon 1 : Exposition → Inscription</h4>
@@ -354,8 +385,8 @@ details.accordion summary:hover{border-color:var(--terracota);}
         <p>Vos données de contrôle d'accès (badges scannés) croisées avec les ID d'inscription donnent le statut « venu / non venu ». C'est votre donnée, elle existe déjà.</p>
       </div>
       <div class="layer l3">
-        <h4>Recoupement : Le chiffre exposants</h4>
-        <p>« X visiteurs présents avaient été exposés à la campagne, dont Y inscrits directement via elle », restitué par zone et par levier. Plancher fiable plutôt que total invérifiable.</p>
+        <h4>Recoupement : une lecture indicative</h4>
+        <p>« X visiteurs présents avaient été exposés à la campagne, dont Y inscrits directement via elle », restitué par zone et par levier. Plancher fiable plutôt que total invérifiable. Cette lecture est indicative : elle ne constitue ni un objectif, ni une preuve d'efficacité du plan.</p>
       </div>
     </div>
     <p style="font-size:.82rem;color:#7a86a8;margin-top:16px;max-width:720px;">Besoin côté client : export badges scannés avec ID d'inscription après le salon, conservation du paramètre source dans l'outil d'inscription.</p>
@@ -551,7 +582,7 @@ details.accordion summary:hover{border-color:var(--terracota);}
           <li>Taux de complétion (visibilité)</li>
           <li>Top 10 sites de diffusion</li>
           <li>Étude socio-démo, géoloc, affinitaires</li>
-          <li>Conversions, visites post-clic et post-view</li>
+          <li>Visites post-clic et post-view (indicatif)</li>
         </ul>
       </div>
       <div class="card c-menthe">
@@ -559,7 +590,7 @@ details.accordion summary:hover{border-color:var(--terracota);}
         <p><b>Format :</b> bannière dynamique countdown « J-15 »</p>
         <p style="margin-top:8px;"><b>KPIs :</b></p>
         <ul>
-          <li>Impressions, clics, CTR, conversions</li>
+          <li>Impressions, clics, CTR</li>
           <li>Inscriptions induites (indicatif)</li>
           <li>Visite sur le salon (exposés seulement)</li>
           <li>Performance lookalike vs CRM onboardé</li>
@@ -653,32 +684,6 @@ details.accordion summary:hover{border-color:var(--terracota);}
   </div>
 </section>
 
-<section class="soft" id="cadre">
-  <div class="wrap">
-    <details class="accordion" id="cadre-details">
-    <summary><h2><span class="arrow">↘</span>Cadre du plan : de la notoriété, pas de la performance</h2><span class="chev" aria-hidden="true"></span></summary>
-    <p class="lead" style="margin-top:20px;">Ce plan n'a pas d'orientation performance. Il vise de la notoriété pure pour faire connaître Franchise Expo Paris dans les 10 villes et favoriser des résultats de conversion chez le client, sans que ce soit notre objectif.</p>
-    <div class="grid">
-      <div class="card c-lavande">
-        <div class="num">1</div>
-        <h3>Ce que fait ce plan</h3>
-        <p>De la présence et de la répétition dans chaque ville avant le salon. Audio et vidéo InStream/CTV se jugent sur l'exposition, le reach, la complétion et la répétition. Les inscriptions et les venues au salon sont un effet attendu de cette notoriété, pas un engagement de The Good Web.</p>
-      </div>
-      <div class="card c-menthe">
-        <div class="num">2</div>
-        <h3>Ce qu'il ne promet pas</h3>
-        <p>Aucun objectif d'inscriptions ni de coût par inscription. Le display et le retargeting produisent des clics mesurables, mais répartis sur 10 zones villes, les volumes restent trop faibles pour piloter une performance.</p>
-      </div>
-      <div class="card c-corail">
-        <div class="num">3</div>
-        <h3>Un objectif perf demande un autre plan média</h3>
-        <p>Géolocalisation large (région ou national hors Île-de-France), data d'intention (franchise, création d'entreprise, reconversion), budget concentré sur le display et le retargeting, pixels testés en amont, objectif chiffré défini avec le client (nombre d'inscriptions, coût par inscription maximum). Nous pouvons le chiffrer sur demande.</p>
-      </div>
-    </div>
-    </details>
-  </div>
-</section>
-
 <footer id="contacts">
   <div class="wrap">
     <h2>Contacts</h2>
@@ -730,6 +735,7 @@ details.accordion summary:hover{border-color:var(--terracota);}
   var d=document.getElementById('cadre-details');
   function check(){ if(d && location.hash==='#cadre'){ d.open=true; } }
   window.addEventListener('hashchange',check); check();
+  Array.prototype.forEach.call(document.querySelectorAll('a[href="#cadre"]'),function(a){a.addEventListener('click',function(){ if(d){ d.open=true; } });});
 })();
 </script>
 </body>
