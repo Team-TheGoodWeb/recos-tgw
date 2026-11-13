@@ -496,7 +496,7 @@ a.ct:hover,a.ct:focus-visible{background:rgba(255,255,255,.12);transform:transla
         <p class="lead">Deux volets complémentaires : Meta pour faire connaître le programme et générer des contacts, Google pour capter ceux qui le cherchent déjà.</p>
         <div class="pills">
           <div class="pill"><small>Période</small><strong>Janvier à avril 2027</strong></div>
-          <div class="pill"><small>Budget</small><strong class="num">16 300 € HT</strong></div>
+          <div class="pill"><small>Budget</small><strong class="num">10 300 € HT</strong></div>
           <div class="pill"><small>Zone</small><strong>Aix · rayon de 20 km</strong></div>
           <div class="pill hl"><small>Deux volets</small><strong>Meta + Google Ads</strong></div>
         </div>
@@ -559,9 +559,9 @@ a.ct:hover,a.ct:focus-visible{background:rgba(255,255,255,.12);transform:transla
     <p>Un programme rare, à remettre en lumière.</p>
   </div>
   <div class="kpis">
-    <div class="kpi star"><small>Budget total</small><div class="v num">16 300 €</div><div class="d">HT, Meta et Google</div></div>
+    <div class="kpi star"><small>Budget total</small><div class="v num">10 300 €</div><div class="d">HT, Meta et Google</div></div>
     <div class="kpi"><small>Partie 1 · Meta</small><div class="v num">4 300 €</div><div class="d">HT sur 4 mois, <em>lancement compris</em></div></div>
-    <div class="kpi"><small>Partie 2 · Google</small><div class="v num">12 000 €</div><div class="d">HT, 3 000 € par mois sur 4 mois</div></div>
+    <div class="kpi"><small>Partie 2 · Google</small><div class="v num">6 000 €</div><div class="d">HT, 1 500 € par mois sur 4 mois</div></div>
     <div class="kpi"><small>Durée</small><div class="v num">4 mois</div><div class="d">de janvier à avril 2027</div></div>
     <div class="kpi star"><small>Impressions Meta prévues</small><div class="v num">860 000</div><div class="d">sur Facebook et Instagram</div></div>
     <div class="kpi"><small>Portée estimée</small><div class="v num">~60 000</div><div class="d">personnes par mois, <em>prévision</em></div></div>
@@ -690,7 +690,7 @@ a.ct:hover,a.ct:focus-visible{background:rgba(255,255,255,.12);transform:transla
         <span class="ln">Notoriété Meta<small>Partie 1 · quelques jours</small></span><span class="sp n short"></span><span class="gap" style="grid-column:span 3"></span>
         <span class="ln">Meta Lead Ads<small>Partie 1 · fil rouge</small></span><span class="sp t" style="grid-column:span 4"></span>
         <span class="ln">Points de suivi<small>Mi-mois et fin de mois</small></span><span class="dot"><i class="mi"></i><i></i></span><span class="dot"><i class="mi"></i><i></i></span><span class="dot"><i class="mi"></i><i></i></span><span class="dot big"><i class="mi"></i><i></i>Bilan</span>
-        <span class="ln">Google Search<small>Partie 2 · 3 000 € par mois</small></span><span class="sp i" style="grid-column:span 4"></span>
+        <span class="ln">Google Search<small>Partie 2 · 1 500 € par mois</small></span><span class="sp i" style="grid-column:span 4"></span>
       </div>
     </div>
   </div>
@@ -780,26 +780,51 @@ a.ct:hover,a.ct:focus-visible{background:rgba(255,255,255,.12);transform:transla
 
 <section class="block" id="budget-google">
   <div class="sec-head">
-    <div><div class="kicker"><span class="n">07</span>Partie 2 · Budget Google</div><h2>3 000 € HT par mois, de janvier à avril</h2></div>
-    <p>Même période que Meta, même rythme chaque mois.</p>
+    <div><div class="kicker"><span class="n">07</span>Partie 2 · Budget Google</div><h2>1 500 € HT par mois, de janvier à avril</h2></div>
+    <p>Assez pour couvrir les recherches clés à Aix, sans surpayer.</p>
   </div>
-  <div class="card">
-    <div class="tbl-scroll"><table class="tbl num">
-      <thead><tr><th>Mois</th><th>Levier</th><th>Budget</th><th>Achat</th><th>Volumes</th></tr></thead>
-      <tbody>
-        <tr><td>Janvier</td><td class="l">Google Search · 3 axes</td><td>3 000 €</td><td>au clic</td><td>Estimés avant lancement</td></tr>
-        <tr><td>Février</td><td class="l">Google Search · 3 axes</td><td>3 000 €</td><td>au clic</td><td>Estimés avant lancement</td></tr>
-        <tr><td>Mars</td><td class="l">Google Search · 3 axes</td><td>3 000 €</td><td>au clic</td><td>Estimés avant lancement</td></tr>
-        <tr><td>Avril</td><td class="l">Google Search · 3 axes</td><td>3 000 €</td><td>au clic</td><td>Estimés avant lancement</td></tr>
-        <tr class="tot"><td>Total Google</td><td></td><td>12 000 €</td><td></td><td></td></tr>
-      </tbody>
-    </table></div>
+  <div class="tabs" role="tablist" aria-label="Budgets Google">
+    <button role="tab" id="t1" aria-controls="p1" aria-selected="true">1 500 € par mois · recommandé</button>
+    <button role="tab" id="t2" aria-controls="p2" aria-selected="false">1 000 € par mois · minimum</button>
   </div>
-  <p class="note">Répartition entre axes ajustée chaque mois selon les recherches réelles : marque et neuf à Aix en priorité. Les volumes seront estimés avec le planificateur de mots-clés une fois les axes validés.</p>
+  <div role="tabpanel" id="p1" aria-labelledby="t1">
+    <div class="sc-head"><h3>6 000 € HT sur 4 mois</h3><p>Les trois axes actifs chaque mois, marque et neuf à Aix en priorité.</p></div>
+    <div class="card">
+      <div class="tbl-scroll"><table class="tbl num">
+        <thead><tr><th>Mois</th><th>Levier</th><th>Budget</th><th>CPC estimé</th><th>Clics estimés</th></tr></thead>
+        <tbody>
+          <tr><td>Janvier</td><td class="l">Google Search · 3 axes</td><td>1 500 €</td><td>2,50 à 5 €</td><td>300 à 600</td></tr><tr><td>Février</td><td class="l">Google Search · 3 axes</td><td>1 500 €</td><td>2,50 à 5 €</td><td>300 à 600</td></tr><tr><td>Mars</td><td class="l">Google Search · 3 axes</td><td>1 500 €</td><td>2,50 à 5 €</td><td>300 à 600</td></tr><tr><td>Avril</td><td class="l">Google Search · 3 axes</td><td>1 500 €</td><td>2,50 à 5 €</td><td>300 à 600</td></tr>
+          <tr class="tot"><td>Total Google</td><td></td><td>6 000 €</td><td></td><td>1 200 à 2 400</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+    <div class="sc-head"><h3>4 000 € HT sur 4 mois</h3><p>Marque et neuf à Aix seulement, l'axe mode de vie est retiré.</p></div>
+    <div class="card">
+      <div class="tbl-scroll"><table class="tbl num">
+        <thead><tr><th>Mois</th><th>Levier</th><th>Budget</th><th>CPC estimé</th><th>Clics estimés</th></tr></thead>
+        <tbody>
+          <tr><td>Janvier</td><td class="l">Google Search · 3 axes</td><td>1 000 €</td><td>2,50 à 5 €</td><td>200 à 400</td></tr><tr><td>Février</td><td class="l">Google Search · 3 axes</td><td>1 000 €</td><td>2,50 à 5 €</td><td>200 à 400</td></tr><tr><td>Mars</td><td class="l">Google Search · 3 axes</td><td>1 000 €</td><td>2,50 à 5 €</td><td>200 à 400</td></tr><tr><td>Avril</td><td class="l">Google Search · 3 axes</td><td>1 000 €</td><td>2,50 à 5 €</td><td>200 à 400</td></tr>
+          <tr class="tot"><td>Total Google</td><td></td><td>4 000 €</td><td></td><td>800 à 1 600</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+  <p class="note">CPC immobilier constatés en France : 2,50 à 5 € selon la zone et la concurrence. Clics estimés, affinés avec le planificateur de mots-clés une fois les axes validés.</p>
+
+  <h3 class="sub-t">Pourquoi 1 500 € par mois</h3>
+  <div class="cond">
+    <div class="card kp"><div class="g">1</div><div><h4>Une demande locale limitée</h4><p>Un marché d'une ville moyenne : au-delà, on paie des clics moins qualifiés.</p></div></div>
+    <div class="card kp"><div class="g">2</div><div><h4>Environ 50 € par jour</h4><p>Une dizaine de clics par jour, présence assurée sur les recherches clés.</p></div></div>
+    <div class="card kp"><div class="g">3</div><div><h4>Le temps d'apprendre</h4><p>Quatre mois pour laisser Google optimiser sur les contacts réels.</p></div></div>
+    <div class="card kp"><div class="g">4</div><div><h4>Ajustable chaque mois</h4><p>Budget revu à la hausse si les recherches le justifient, à la baisse sinon.</p></div></div>
+  </div>
+
   <div class="assets" style="margin-top:22px">
     <div class="asset"><small>Partie 1 · Meta</small><b class="num">4 300 €</b><span>HT, janvier à avril</span></div>
-    <div class="asset"><small>Partie 2 · Google</small><b class="num">12 000 €</b><span>HT, janvier à avril</span></div>
-    <div class="asset"><small>Total</small><b class="num">16 300 €</b><span>HT, hors création</span></div>
+    <div class="asset"><small>Partie 2 · Google</small><b class="num">6 000 €</b><span>HT, janvier à avril</span></div>
+    <div class="asset"><small>Total</small><b class="num">10 300 €</b><span>HT, hors création</span></div>
   </div>
 </section>
 
@@ -947,7 +972,7 @@ a.ct:hover,a.ct:focus-visible{background:rgba(255,255,255,.12);transform:transla
 (function(){
   var fr=function(n){return n.toLocaleString('fr-FR')};
 
-  var lead=[1000,1000,1000,1000],noto=[300,0,0,0],ggl=[3000,3000,3000,3000],max=4800;
+  var lead=[1000,1000,1000,1000],noto=[300,0,0,0],ggl=[1500,1500,1500,1500],max=3200;
   document.getElementById('mbars').innerHTML=lead.map(function(v,i){
     var t=v+noto[i]+ggl[i],h=(t/max*100).toFixed(1);
     var seg=function(x,c){return x?'<div style="flex:'+x+';background:'+c+'"></div>':'';};
